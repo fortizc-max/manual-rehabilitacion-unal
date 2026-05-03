@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prescripción del ejercicio · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía clínica interactiva sobre prescripción del ejercicio. Incluye calculadoras (FCmax, Karvonen, VO₂máx, IMC, %1RM), estratificación de riesgo CV, escalas de Borg y UCLA, prescripción por patología, casos clínicos y autoevaluación. Manual de Rehabilitación para estudiantes de medicina, Universidad Nacional de Colombia.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<meta name="keywords" content="prescripción ejercicio, rehabilitación, FCmax, Karvonen, VO2max, ACSM, hipertensión, diabetes, fibromialgia, artrosis, Parkinson, ELA, post-COVID, medicina física">
+<meta property="og:title" content="Prescripción del ejercicio · Manual de Rehabilitación">
+<meta property="og:description" content="Guía clínica interactiva con calculadoras, casos clínicos y autoevaluación. Universidad Nacional de Colombia.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<style>
+:root {
+  --azul: #1e40af;
+  --azul-osc: #1e3a8a;
+  --azul-claro: #dbeafe;
+  --azul-bg: #eff6ff;
+  --naranja: #ea580c;
+  --naranja-claro: #fed7aa;
+  --verde: #047857;
+  --verde-claro: #d1fae5;
+  --rojo: #b91c1c;
+  --rojo-claro: #fee2e2;
+  --amarillo: #b45309;
+  --amarillo-claro: #fef3c7;
+  --gris: #475569;
+  --gris-claro: #f1f5f9;
+  --gris-borde: #e2e8f0;
+  --texto: #0f172a;
+  --texto-suave: #334155;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--texto);
+  background: #f8fafc;
+  line-height: 1.55;
+  font-size: 16px;
+}
+.layout { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
+header {
+  background: linear-gradient(135deg, var(--azul-osc), var(--azul));
+  color: white;
+  padding: 28px 16px 26px;
+  margin-bottom: 0;
+}
+header .inner { max-width: 1100px; margin: 0 auto; }
+header .institucion {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.85; margin-bottom: 2px;
+}
+header .departamento {
+  font-size: 0.88rem; font-weight: 400; opacity: 0.92;
+  margin-bottom: 18px;
+}
+header .manual {
+  margin-bottom: 18px;
+}
+header .manual-titulo {
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+header .manual-subtitulo {
+  font-size: 0.92rem; font-weight: 400; opacity: 0.88;
+  letter-spacing: 0.01em; margin-top: 2px;
+}
+header .separador {
+  height: 1px; background: rgba(255,255,255,0.25);
+  margin: 0 0 14px; max-width: 80px;
+}
+header .capitulo-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;
+}
+header h1 {
+  font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 4px; line-height: 1.15;
+}
+header .subtitle {
+  font-size: 0.88rem; opacity: 0.88; font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  header { padding: 24px 16px 22px; }
+  header .institucion { font-size: 0.7rem; }
+  header .manual-titulo { font-size: 1.25rem; }
+  header h1 { font-size: 1.35rem; }
+}
+
+/* Navegación */
+nav.tabs {
+  position: sticky; top: 0; z-index: 50;
+  background: white; border-bottom: 1px solid var(--gris-borde);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+nav.tabs .inner { max-width: 1100px; margin: 0 auto; padding: 0 8px; display: flex; gap: 2px; }
+nav.tabs button {
+  background: transparent; border: none; padding: 14px 14px;
+  font-size: 0.88rem; font-weight: 500; color: var(--gris);
+  cursor: pointer; border-bottom: 3px solid transparent;
+  transition: all 0.15s; white-space: nowrap;
+  font-family: inherit;
+}
+nav.tabs button:hover { color: var(--azul); background: var(--azul-bg); }
+nav.tabs button.active { color: var(--azul-osc); border-bottom-color: var(--azul); font-weight: 600; }
+
+section.tab-content { display: none; padding-top: 24px; }
+section.tab-content.active { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+h2 {
+  font-size: 1.35rem; color: var(--azul-osc); font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.01em;
+  padding-bottom: 8px; border-bottom: 2px solid var(--azul-claro);
+}
+h3 { font-size: 1.1rem; color: var(--azul-osc); margin: 20px 0 10px; font-weight: 600; }
+h4 { font-size: 1rem; color: var(--gris); margin: 16px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; color: var(--texto-suave); }
+
+.card {
+  background: white; border-radius: 10px; padding: 20px;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  border: 1px solid var(--gris-borde); margin-bottom: 16px;
+}
+.card.azul { background: var(--azul-bg); border-color: var(--azul-claro); }
+.card.amarilla { background: var(--amarillo-claro); border-color: #fde68a; }
+.card.naranja { background: var(--naranja-claro); border-color: #fdba74; }
+.card.roja { background: var(--rojo-claro); border-color: #fecaca; }
+.card.verde { background: var(--verde-claro); border-color: #a7f3d0; }
+
+/* Calculadoras */
+.calc {
+  background: white; border: 1px solid var(--gris-borde); border-radius: 10px;
+  padding: 18px; margin-bottom: 16px;
+}
+.calc-title {
+  font-weight: 600; color: var(--azul-osc); font-size: 1.05rem;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.calc-title::before {
+  content: "⚙"; color: var(--azul); font-size: 1.1rem;
+}
+.calc-row {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: end;
+  margin-bottom: 12px;
+}
+.calc-field { flex: 1; min-width: 140px; }
+.calc-field label {
+  display: block; font-size: 0.82rem; color: var(--gris);
+  margin-bottom: 4px; font-weight: 500;
+}
+.calc-field input, .calc-field select {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--gris-borde);
+  border-radius: 7px; font-size: 0.95rem; font-family: inherit;
+  transition: border 0.15s, box-shadow 0.15s; background: white;
+}
+.calc-field input:focus, .calc-field select:focus {
+  outline: none; border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.12);
+}
+.calc-result {
+  background: var(--azul-bg); border-left: 4px solid var(--azul);
+  padding: 12px 14px; border-radius: 6px; margin-top: 12px;
+  font-size: 0.95rem;
+}
+.calc-result strong { color: var(--azul-osc); font-size: 1.1rem; }
+.calc-result .label { color: var(--gris); font-size: 0.85rem; }
+.calc-result .value-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 4px 0;
+}
+.calc-result .value-row + .value-row { border-top: 1px dashed #cbd5e1; }
+
+/* Tablas */
+table {
+  width: 100%; border-collapse: collapse; margin: 12px 0;
+  background: white; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  font-size: 0.92rem;
+}
+th {
+  background: var(--azul-osc); color: white; padding: 10px 12px;
+  text-align: left; font-weight: 600; font-size: 0.88rem;
+}
+td { padding: 9px 12px; border-bottom: 1px solid var(--gris-borde); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f8fafc; }
+.tabla-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Riesgo CV checkboxes */
+.factores-grid {
+  display: grid; grid-template-columns: 1fr; gap: 8px;
+  margin: 12px 0;
+}
+@media (min-width: 600px) {
+  .factores-grid { grid-template-columns: 1fr 1fr; }
+}
+.factor {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px; background: white;
+  border: 1px solid var(--gris-borde); border-radius: 8px;
+  cursor: pointer; transition: all 0.15s;
+}
+.factor:hover { border-color: var(--azul); background: var(--azul-bg); }
+.factor input { margin-top: 3px; cursor: pointer; }
+.factor .nombre { font-weight: 500; font-size: 0.9rem; color: var(--texto); }
+.factor .desc { font-size: 0.78rem; color: var(--gris); margin-top: 2px; }
+.factor.activo { border-color: var(--azul); background: var(--azul-bg); }
+
+.riesgo-resultado {
+  margin-top: 16px; padding: 16px; border-radius: 10px;
+  font-weight: 500;
+}
+.riesgo-bajo { background: var(--verde-claro); color: #065f46; border-left: 5px solid var(--verde); }
+.riesgo-moderado { background: var(--amarillo-claro); color: #78350f; border-left: 5px solid var(--amarillo); }
+.riesgo-alto { background: var(--rojo-claro); color: #7f1d1d; border-left: 5px solid var(--rojo); }
+
+/* Borg */
+.borg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; margin: 12px 0; }
+.borg-item {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 8px; padding: 10px 6px; text-align: center;
+  cursor: pointer; transition: all 0.15s; font-size: 0.78rem;
+}
+.borg-item:hover { transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+.borg-item .num { font-size: 1.3rem; font-weight: 700; color: var(--azul); display: block; }
+.borg-item .desc { color: var(--gris); font-size: 0.72rem; }
+.borg-item.b6, .borg-item.b7, .borg-item.b8 { background: #f0fdf4; border-color: #86efac; }
+.borg-item.b9, .borg-item.b10, .borg-item.b11 { background: #ecfdf5; border-color: #6ee7b7; }
+.borg-item.b12, .borg-item.b13 { background: var(--azul-bg); border-color: #93c5fd; }
+.borg-item.b14, .borg-item.b15 { background: var(--amarillo-claro); border-color: #fcd34d; }
+.borg-item.b16, .borg-item.b17 { background: var(--naranja-claro); border-color: #fb923c; }
+.borg-item.b18, .borg-item.b19, .borg-item.b20 { background: var(--rojo-claro); border-color: #f87171; }
+
+/* UCLA */
+.ucla-list { list-style: none; }
+.ucla-list li {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 7px; padding: 10px 14px; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 12px;
+  transition: all 0.15s; cursor: pointer;
+}
+.ucla-list li:hover { border-color: var(--azul); transform: translateX(2px); }
+.ucla-list .nivel {
+  background: var(--azul-osc); color: white; font-weight: 700;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 0.92rem;
+}
+.ucla-list .texto { font-size: 0.9rem; color: var(--texto-suave); }
+
+/* Selector de patología */
+.patologia-selector {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px; margin-bottom: 20px;
+}
+.patologia-btn {
+  background: white; border: 1.5px solid var(--gris-borde);
+  border-radius: 9px; padding: 12px 10px; text-align: center;
+  cursor: pointer; transition: all 0.15s; font-size: 0.88rem;
+  font-weight: 500; color: var(--texto-suave);
+  font-family: inherit;
+}
+.patologia-btn:hover { border-color: var(--azul); color: var(--azul); }
+.patologia-btn.activo {
+  background: var(--azul); color: white; border-color: var(--azul-osc);
+  box-shadow: 0 2px 8px rgba(30,64,175,0.25);
+}
+.patologia-detalle { display: none; }
+.patologia-detalle.activo { display: block; animation: fadeIn 0.25s ease; }
+
+/* FITT badges */
+.fitt-grid {
+  display: grid; grid-template-columns: 1fr; gap: 10px;
+  margin: 12px 0;
+}
+@media (min-width: 600px) {
+  .fitt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .fitt-grid { grid-template-columns: repeat(5, 1fr); }
+}
+.fitt {
+  background: white; border-top: 4px solid var(--azul);
+  border-radius: 8px; padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.fitt .titulo {
+  font-weight: 700; color: var(--azul-osc); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+}
+.fitt .contenido { font-size: 0.88rem; color: var(--texto-suave); }
+
+ul.lista-clinica { padding-left: 20px; margin: 8px 0 14px; }
+ul.lista-clinica li { margin-bottom: 6px; color: var(--texto-suave); }
+
+.alert {
+  padding: 12px 14px; border-radius: 8px; margin: 12px 0;
+  font-size: 0.92rem; display: flex; gap: 10px;
+}
+.alert-info { background: var(--azul-bg); border-left: 4px solid var(--azul); color: var(--azul-osc); }
+.alert-warning { background: var(--amarillo-claro); border-left: 4px solid var(--amarillo); color: #78350f; }
+.alert-danger { background: var(--rojo-claro); border-left: 4px solid var(--rojo); color: #7f1d1d; }
+.alert .icon { font-weight: 700; flex-shrink: 0; }
+
+footer {
+  text-align: center; padding: 24px 16px; color: var(--gris);
+  font-size: 0.82rem; border-top: 1px solid var(--gris-borde);
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .calc-field { min-width: 100%; }
+  h2 { font-size: 1.2rem; }
+}
+
+/* Casos clínicos */
+.caso {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 12px; padding: 0; margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.caso-header {
+  background: linear-gradient(135deg, var(--azul-osc), var(--azul));
+  color: white; padding: 16px 20px;
+}
+.caso-header .num {
+  display: inline-block; background: rgba(255,255,255,0.2);
+  padding: 3px 10px; border-radius: 12px; font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.caso-header h3 {
+  color: white; margin: 0; font-size: 1.15rem;
+}
+.caso-body { padding: 20px; }
+.datos-clinicos {
+  background: var(--gris-claro); border-radius: 8px; padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.datos-clinicos h4 {
+  margin-top: 0; color: var(--azul-osc); font-size: 0.92rem;
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+}
+.datos-clinicos dl {
+  display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px;
+  font-size: 0.92rem; margin: 0;
+}
+.datos-clinicos dt { font-weight: 600; color: var(--gris); }
+.datos-clinicos dd { margin: 0; color: var(--texto); }
+
+.pregunta-guiada {
+  border-left: 4px solid var(--azul); background: var(--azul-bg);
+  padding: 14px 16px; border-radius: 6px; margin: 12px 0;
+}
+.pregunta-guiada .label {
+  font-weight: 700; color: var(--azul-osc); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;
+}
+.pregunta-guiada .pregunta {
+  font-weight: 500; color: var(--texto); font-size: 0.96rem;
+  margin-bottom: 10px;
+}
+.btn-revelar {
+  background: white; border: 1.5px solid var(--azul);
+  color: var(--azul); padding: 7px 14px; border-radius: 7px;
+  font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: all 0.15s;
+}
+.btn-revelar:hover { background: var(--azul); color: white; }
+.respuesta-guiada {
+  display: none; margin-top: 12px; padding: 12px 14px;
+  background: white; border-radius: 6px;
+  border-left: 3px solid var(--verde);
+  font-size: 0.92rem;
+}
+.respuesta-guiada.activa { display: block; animation: fadeIn 0.25s ease; }
+.respuesta-guiada strong { color: var(--verde); }
+.respuesta-guiada .calculo {
+  background: var(--gris-claro); padding: 8px 12px; border-radius: 5px;
+  margin: 8px 0; font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 0.85rem; color: var(--texto-suave);
+}
+
+.programa-final {
+  background: var(--verde-claro); border: 1px solid #6ee7b7;
+  border-radius: 10px; padding: 16px 18px; margin-top: 16px;
+}
+.programa-final h4 {
+  color: #065f46; margin-top: 0; font-size: 1rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.programa-final h4::before { content: "✓"; font-size: 1.15rem; }
+
+/* Cuestionario */
+.cuestionario-header {
+  background: white; border-radius: 10px; padding: 18px 20px;
+  margin-bottom: 20px; border: 1px solid var(--gris-borde);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.cuestionario-header .progreso {
+  font-size: 0.92rem; color: var(--gris);
+}
+.cuestionario-header .puntaje {
+  font-size: 1.05rem; font-weight: 700; color: var(--azul-osc);
+}
+.barra-progreso {
+  height: 6px; background: var(--gris-claro); border-radius: 3px;
+  overflow: hidden; margin: 8px 0 14px;
+}
+.barra-progreso-fill {
+  height: 100%; background: linear-gradient(90deg, var(--azul), var(--azul-osc));
+  width: 0%; transition: width 0.3s ease;
+}
+
+.q-card {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 10px; padding: 18px 20px; margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.q-card .q-num {
+  font-size: 0.78rem; font-weight: 700; color: var(--azul);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;
+}
+.q-card .q-text {
+  font-size: 1rem; color: var(--texto); margin-bottom: 12px;
+  font-weight: 500; line-height: 1.5;
+}
+.q-card .q-context {
+  font-size: 0.9rem; color: var(--texto-suave);
+  background: var(--gris-claro); padding: 10px 12px;
+  border-radius: 7px; margin-bottom: 12px; font-style: italic;
+}
+.q-options {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.q-option {
+  background: white; border: 1.5px solid var(--gris-borde);
+  border-radius: 8px; padding: 11px 14px; cursor: pointer;
+  transition: all 0.15s; font-size: 0.92rem;
+  text-align: left; font-family: inherit; color: var(--texto-suave);
+}
+.q-option:hover { border-color: var(--azul); background: var(--azul-bg); }
+.q-option:disabled { cursor: default; }
+.q-option.correcta {
+  background: var(--verde-claro); border-color: var(--verde);
+  color: #065f46; font-weight: 600;
+}
+.q-option.incorrecta {
+  background: var(--rojo-claro); border-color: var(--rojo);
+  color: #7f1d1d;
+}
+.q-option .marca {
+  display: inline-block; font-weight: 700; margin-right: 6px;
+}
+.q-feedback {
+  margin-top: 12px; padding: 11px 14px; border-radius: 7px;
+  font-size: 0.9rem; display: none;
+}
+.q-feedback.activo { display: block; animation: fadeIn 0.25s ease; }
+.q-feedback.ok { background: var(--verde-claro); border-left: 4px solid var(--verde); color: #065f46; }
+.q-feedback.ko { background: var(--rojo-claro); border-left: 4px solid var(--rojo); color: #7f1d1d; }
+.q-feedback strong { display: block; margin-bottom: 4px; font-size: 0.95rem; }
+
+.q-resultado-final {
+  background: white; border: 2px solid var(--azul);
+  border-radius: 12px; padding: 24px; margin-top: 20px;
+  text-align: center; display: none;
+}
+.q-resultado-final.activo { display: block; animation: fadeIn 0.3s ease; }
+.q-resultado-final .puntaje-grande {
+  font-size: 3rem; font-weight: 800; color: var(--azul-osc);
+  line-height: 1; margin-bottom: 4px;
+}
+.q-resultado-final .total { font-size: 1rem; color: var(--gris); margin-bottom: 12px; }
+.q-resultado-final .nivel { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; }
+.q-resultado-final .btn-reiniciar {
+  background: var(--azul); color: white; border: none;
+  padding: 10px 24px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: all 0.15s;
+}
+.q-resultado-final .btn-reiniciar:hover { background: var(--azul-osc); transform: translateY(-1px); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="institucion">Universidad Nacional de Colombia</div>
+    <div class="departamento">Departamento de Medicina Física y Rehabilitación</div>
+    <div class="manual">
+      <div class="manual-titulo">Manual de Rehabilitación</div>
+      <div class="manual-subtitulo">para estudiantes de medicina</div>
+    </div>
+    <div class="separador"></div>
+    <div class="capitulo-label">Capítulo</div>
+    <h1>Prescripción del ejercicio</h1>
+    <div class="subtitle">Guía clínica interactiva · Adaptado de ACSM 2014, AHA y guías recientes</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner">
+    <button class="tab-btn active" data-tab="intro">1. Introducción</button>
+    <button class="tab-btn" data-tab="evaluacion">2. Evaluación</button>
+    <button class="tab-btn" data-tab="riesgo">3. Riesgo CV</button>
+    <button class="tab-btn" data-tab="condicion">4. Condición física</button>
+    <button class="tab-btn" data-tab="aerobica">5. Capacidad aeróbica</button>
+    <button class="tab-btn" data-tab="fc">6. FC máxima y reserva</button>
+    <button class="tab-btn" data-tab="intensidad">7. Intensidad (Borg)</button>
+    <button class="tab-btn" data-tab="sesion">8. Sesión y fortalecimiento</button>
+    <button class="tab-btn" data-tab="patologias">9. Por patología</button>
+    <button class="tab-btn" data-tab="casos">10. Casos clínicos</button>
+    <button class="tab-btn" data-tab="examen">11. Autoevaluación</button>
+  </div>
+</nav>
+
+<div class="layout">
+
+<!-- ============================================================ -->
+<!-- 1. INTRODUCCIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content active" id="intro">
+  <h2>Principios básicos</h2>
+
+  <div class="card">
+    <p><strong>Actividad física</strong>: cualquier movimiento corporal producido por la contracción del músculo esquelético que aumenta el gasto de energía por encima de un nivel basal.</p>
+    <p><strong>Ejercicio físico</strong>: actividad física repetida, planificada, llevada a cabo con técnica estructurada y un propósito definido.</p>
+  </div>
+
+  <h3>Recomendaciones generales (UK CMO 2019)</h3>
+  <div class="fitt-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="fitt">
+      <div class="titulo">Aeróbico moderado</div>
+      <div class="contenido"><strong>150 min/semana</strong><br>El esfuerzo es moderado, la frecuencia respiratoria aumenta pero es fácil hablar.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Aeróbico vigoroso</div>
+      <div class="contenido"><strong>75 min/semana</strong><br>La frecuencia respiratoria aumenta y es difícil hablar.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Fortalecimiento</div>
+      <div class="contenido"><strong>2 veces/semana</strong><br>Ejercicios para los principales grupos musculares.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Sedentarismo</div>
+      <div class="contenido"><strong>&lt;5000 pasos/día</strong><br>Estilo de vida sedentario (Tudor-Locke 2013).</div>
+    </div>
+  </div>
+
+  <h3>Componentes del programa de entrenamiento</h3>
+  <ul class="lista-clinica">
+    <li><strong>Aeróbico:</strong> caminar, trotar, bicicleta, natación.</li>
+    <li><strong>Resistencia (fortalecimiento):</strong> contracción contra resistencia externa.</li>
+    <li><strong>Estiramiento:</strong> al menos 10 minutos tras calentamiento o enfriamiento.</li>
+    <li><strong>Coordinación neuromuscular:</strong> equilibrio estático y dinámico.</li>
+  </ul>
+
+  <div class="alert alert-info">
+    <span class="icon">ℹ</span>
+    <div>La principal limitación en prevención primaria, secundaria y rehabilitación es la <strong>pobre adherencia</strong>. Los <strong>ejercicios isométricos</strong> son una alternativa que mejora la adherencia (sin equipo, en casa, sesiones cortas).</div>
+  </div>
+
+  <h3>Prescripción FITT-VP</h3>
+  <p>La prescripción incluye <strong>F</strong>recuencia · <strong>I</strong>ntensidad · <strong>T</strong>iempo · <strong>T</strong>ipo · <strong>V</strong>olumen · <strong>P</strong>rogresión.</p>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. EVALUACIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content" id="evaluacion">
+  <h2>Evaluación clínica y funcional</h2>
+
+  <h3>Anamnesis</h3>
+  <ul class="lista-clinica">
+    <li>Antecedentes cardiovasculares, diabetes, enfermedad renal.</li>
+    <li>Hábitos alimenticios, actividad física, alcohol y tabaco.</li>
+    <li>Identificar factores de riesgo cardiovascular (ver pestaña <strong>Riesgo CV</strong>).</li>
+  </ul>
+
+  <h3>Examen neurológico y musculoesquelético</h3>
+  <p>Especialmente importante en mayores de 60 años. Permite detectar riesgo de caídas y desacondicionamiento.</p>
+  <ul class="lista-clinica">
+    <li><strong>Equilibrio en bípedo:</strong> pies unidos · semitándem · tándem · monopodal.</li>
+    <li><strong>Marcha en cuclillas:</strong> identifica problemas articulares de rodillas.</li>
+    <li><strong>Levantarse y sentarse:</strong> tiempo en 5 repeticiones, o número de repeticiones en 30 s.</li>
+  </ul>
+  <div class="alert alert-info">
+    <span class="icon">→</span>
+    <div>A los pacientes con bajo rendimiento en levantarse-sentarse se les indica incluir <strong>2 sesiones semanales de ejercicios de resistencia</strong>, especialmente de musculatura proximal.</div>
+  </div>
+
+  <h3>Nivel de actividad — Escala UCLA</h3>
+  <p>Selecciona el nivel que describe mejor al paciente:</p>
+  <ul class="ucla-list" id="ucla-list">
+    <li data-nivel="10"><span class="nivel">10</span><span class="texto">Participa regularmente en deportes de impacto: jogging, tenis, esquí, acrobacias, ballet, trabajos pesados, mochilero.</span></li>
+    <li data-nivel="9"><span class="nivel">9</span><span class="texto">A veces participa en deportes de impacto.</span></li>
+    <li data-nivel="8"><span class="nivel">8</span><span class="texto">Participa regularmente en eventos muy activos, como bolos o golf.</span></li>
+    <li data-nivel="7"><span class="nivel">7</span><span class="texto">Participa regularmente en eventos activos, como andar en bicicleta.</span></li>
+    <li data-nivel="6"><span class="nivel">6</span><span class="texto">Participa regularmente en actividades moderadas: natación, tareas domésticas o compras ilimitadas.</span></li>
+    <li data-nivel="5"><span class="nivel">5</span><span class="texto">A veces participa en actividades moderadas.</span></li>
+    <li data-nivel="4"><span class="nivel">4</span><span class="texto">Participa regularmente en actividades leves: caminar, tareas domésticas y compras limitadas.</span></li>
+    <li data-nivel="3"><span class="nivel">3</span><span class="texto">A veces participa en actividades leves.</span></li>
+    <li data-nivel="2"><span class="nivel">2</span><span class="texto">Mayormente inactivo: restringido a actividades mínimas de la vida diaria.</span></li>
+    <li data-nivel="1"><span class="nivel">1</span><span class="texto">Totalmente inactivo: dependiente de otros; no puede salir de la residencia.</span></li>
+  </ul>
+  <div id="ucla-resultado" style="display:none;" class="alert alert-info">
+    <span class="icon">→</span>
+    <div id="ucla-texto"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. RIESGO CARDIOVASCULAR -->
+<!-- ============================================================ -->
+<section class="tab-content" id="riesgo">
+  <h2>Estratificación del riesgo cardiovascular</h2>
+  <p>Marca los factores de riesgo presentes para clasificar al paciente. Si no se conoce un factor, asúmelo presente (criterio ACSM).</p>
+
+  <div class="factores-grid" id="factores-grid">
+    <label class="factor">
+      <input type="checkbox" data-factor="edad">
+      <div>
+        <div class="nombre">Edad</div>
+        <div class="desc">Hombres ≥45 años · Mujeres ≥55 años</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="historia">
+      <div>
+        <div class="nombre">Historia familiar</div>
+        <div class="desc">IAM, revascularización o muerte súbita: familiar 1er grado masculino &lt;55 años o femenino &lt;65 años</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="tabaco">
+      <div>
+        <div class="nombre">Cigarrillo</div>
+        <div class="desc">Fumador activo, exposición ambiental o suspendido en los últimos 6 meses</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="sedentario">
+      <div>
+        <div class="nombre">Sedentarismo</div>
+        <div class="desc">&lt;30 min de ejercicio moderado (40–60 % FCmax), 3 ×/semana, durante ≥3 meses</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="obesidad">
+      <div>
+        <div class="nombre">Obesidad</div>
+        <div class="desc">IMC ≥30 kg/m² · Cintura &gt;102 cm (H) o &gt;88 cm (M)</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="dislipidemia">
+      <div>
+        <div class="nombre">Dislipidemia</div>
+        <div class="desc">LDL ≥130 · HDL &lt;40 · CT ≥200 mg/dl o medicación hipolipemiante</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="hta">
+      <div>
+        <div class="nombre">Hipertensión</div>
+        <div class="desc">PAS ≥130 o PAD 80–89 mmHg (HTA estadio I) o cifras mayores, o antihipertensivo</div>
+      </div>
+    </label>
+    <label class="factor">
+      <input type="checkbox" data-factor="prediabetes">
+      <div>
+        <div class="nombre">Prediabetes</div>
+        <div class="desc">Glicemia ayunas 100–125 mg/dl o TTOG 2 h 140–199 mg/dl (confirmado en 2 mediciones)</div>
+      </div>
+    </label>
+    <label class="factor" style="border-color: var(--verde-claro); background: #f0fdf4;">
+      <input type="checkbox" data-factor="hdl-alto" data-negativo="true">
+      <div>
+        <div class="nombre">HDL ≥60 mg/dl <span style="color:var(--verde); font-size:0.78rem;">(factor protector)</span></div>
+        <div class="desc">Si está presente se resta 1 al total</div>
+      </div>
+    </label>
+    <label class="factor" style="border-color: #fdba74; background: #fff7ed;">
+      <input type="checkbox" data-factor="sintomatico">
+      <div>
+        <div class="nombre">Sintomático o enfermedad establecida</div>
+        <div class="desc">Síntomas CV, enfermedad cardiovascular, renal o metabólica</div>
+      </div>
+    </label>
+  </div>
+
+  <div id="riesgo-resultado" class="riesgo-resultado riesgo-bajo">
+    <div style="font-size:1.1rem; font-weight:700;">Riesgo bajo · 0 factores de riesgo</div>
+    <div style="margin-top:6px; font-weight:400;">No requiere examen médico ni test de ejercicio antes de iniciar un programa de intensidad moderada o alta.</div>
+  </div>
+
+  <h3 style="margin-top: 28px;">Resumen de las 3 categorías</h3>
+  <div class="tabla-wrap">
+  <table>
+    <thead><tr><th>Riesgo</th><th>Criterio</th><th>Examen previo</th><th>Test de ejercicio</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--verde);">Bajo</strong></td><td>Asintomático, &lt;2 factores</td><td>No requiere</td><td>No requiere</td></tr>
+      <tr><td><strong style="color:var(--amarillo);">Moderado</strong></td><td>Asintomático, ≥2 factores</td><td>Si va a iniciar alta intensidad</td><td>No requiere</td></tr>
+      <tr><td><strong style="color:var(--rojo);">Elevado</strong></td><td>Sintomático o enfermedad CV/renal/metabólica</td><td>Sí</td><td>Sí + supervisión durante actividad</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="icon">📐</span>
+    <div><strong>Definiciones de intensidad:</strong> moderada = 40–60 % FCmax (frecuencia cardíaca y respiratoria aumentan, paciente lo percibe). Alta = &gt;60 % FCmax (incremento marcado).</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. CONDICIÓN FÍSICA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="condicion">
+  <h2>Composición corporal</h2>
+
+  <div class="calc">
+    <div class="calc-title">Índice de masa corporal (IMC)</div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Peso (kg)</label>
+        <input type="number" id="imc-peso" placeholder="70" step="0.1">
+      </div>
+      <div class="calc-field">
+        <label>Estatura (cm)</label>
+        <input type="number" id="imc-estatura" placeholder="170" step="0.1">
+      </div>
+    </div>
+    <div class="calc-result" id="imc-resultado" style="display:none;">
+      <div class="value-row">
+        <span class="label">IMC</span>
+        <strong id="imc-valor">—</strong>
+      </div>
+      <div class="value-row">
+        <span class="label">Clasificación</span>
+        <strong id="imc-clase">—</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">Riesgo CV por circunferencia de cintura</div>
+    <p style="font-size:0.88rem; color:var(--gris); margin-bottom:10px;">Medir a la altura de las crestas ilíacas, en bípedo, pies juntos.</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Sexo</label>
+        <select id="cint-sexo">
+          <option value="H">Hombre</option>
+          <option value="M">Mujer</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Cintura (cm)</label>
+        <input type="number" id="cint-valor" placeholder="90" step="0.5">
+      </div>
+    </div>
+    <div class="calc-result" id="cint-resultado" style="display:none;">
+      <strong id="cint-clase">—</strong>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">Índice cintura/cadera</div>
+    <p style="font-size:0.88rem; color:var(--gris); margin-bottom:10px;">Cadera: circunferencia máxima de glúteos en bípedo, pies juntos.</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Sexo</label>
+        <select id="icc-sexo">
+          <option value="H">Hombre</option>
+          <option value="M">Mujer</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Cintura (cm)</label>
+        <input type="number" id="icc-cintura" placeholder="90" step="0.5">
+      </div>
+      <div class="calc-field">
+        <label>Cadera (cm)</label>
+        <input type="number" id="icc-cadera" placeholder="100" step="0.5">
+      </div>
+    </div>
+    <div class="calc-result" id="icc-resultado" style="display:none;">
+      <div class="value-row">
+        <span class="label">Índice cintura/cadera</span>
+        <strong id="icc-valor">—</strong>
+      </div>
+      <div class="value-row">
+        <span class="label">Interpretación (60–70 años)</span>
+        <strong id="icc-clase" style="font-size:1rem;">—</strong>
+      </div>
+    </div>
+    <p style="font-size:0.82rem; color:var(--gris); margin-top:10px;">Cortes en adultos 60–70 años: hombres &gt;1,03 · mujeres &gt;0,90 indican aumento de riesgo CV.</p>
+  </div>
+
+  <h3>Referencia de cintura por sexo</h3>
+  <div class="tabla-wrap">
+  <table>
+    <thead><tr><th>Riesgo</th><th>Mujeres (cm)</th><th>Hombres (cm)</th></tr></thead>
+    <tbody>
+      <tr><td>Muy bajo</td><td>&lt;70</td><td>&lt;80</td></tr>
+      <tr><td>Bajo</td><td>70–89</td><td>80–99</td></tr>
+      <tr><td>Alto</td><td>90–110</td><td>100–120</td></tr>
+      <tr><td>Muy alto</td><td>&gt;110</td><td>&gt;120</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. CAPACIDAD AERÓBICA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="aerobica">
+  <h2>Capacidad aeróbica</h2>
+
+  <p>El VO₂máx se expresa normalizado al peso corporal (mL·kg⁻¹·min⁻¹). En el medio clínico se utilizan medidas indirectas que tienen en cuenta edad, peso, talla y frecuencia cardíaca.</p>
+
+  <div class="alert alert-info">
+    <span class="icon">📍</span>
+    <div>La <strong>prueba de 6 minutos (6MWT)</strong> es submáxima, pero en pacientes muy desacondicionados puede alcanzar valores máximos de consumo de oxígeno. Un resultado &lt;350 m en EPOC se asocia a mal pronóstico (Cote 2008).</div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">VO₂máx desde 6MWT — Ecuación ACSM (Pescatello 2014)</div>
+    <p style="font-size:0.85rem; color:var(--gris); margin-bottom:10px;">Aplicable a ambos sexos. Incorpora la presión arterial.</p>
+    <div class="calc-row">
+      <div class="calc-field"><label>Distancia 6MWT (m)</label><input type="number" id="acsm-dist" placeholder="450"></div>
+      <div class="calc-field"><label>Edad (años)</label><input type="number" id="acsm-edad" placeholder="55"></div>
+      <div class="calc-field"><label>Peso (kg)</label><input type="number" id="acsm-peso" step="0.1" placeholder="72"></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-field"><label>Estatura (cm)</label><input type="number" id="acsm-est" step="0.1" placeholder="170"></div>
+      <div class="calc-field"><label>FC al final (lpm)</label><input type="number" id="acsm-fc" placeholder="120"></div>
+      <div class="calc-field"><label>PAS al final (mmHg)</label><input type="number" id="acsm-pas" placeholder="140"></div>
+    </div>
+    <div class="calc-result" id="acsm-resultado" style="display:none;">
+      <div class="value-row"><span class="label">VO₂máx estimado</span><strong id="acsm-valor">—</strong></div>
+      <div class="value-row"><span class="label">RPP (FC × PAS)</span><span id="acsm-rpp">—</span></div>
+    </div>
+    <p style="font-size:0.78rem; color:var(--gris); margin-top:10px; font-style:italic;">VO₂máx = 0,02 · dist − 0,191 · edad − 0,07 · peso + 0,09 · talla + 0,26 · (RPP/1000) + 2,45</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">VO₂máx desde 6MWT — Ecuación Mänttäri 2018 por sexo</div>
+    <p style="font-size:0.85rem; color:var(--gris); margin-bottom:10px;">Cálculo más sencillo, ecuación distinta para hombres y mujeres.</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Sexo</label>
+        <select id="m-sexo"><option value="H">Hombre</option><option value="M">Mujer</option></select>
+      </div>
+      <div class="calc-field"><label>Distancia 6MWT (m)</label><input type="number" id="m-dist" placeholder="450"></div>
+      <div class="calc-field"><label>Edad (años)</label><input type="number" id="m-edad" placeholder="55"></div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-field"><label>Peso (kg)</label><input type="number" id="m-peso" step="0.1" placeholder="72"></div>
+      <div class="calc-field"><label>Estatura (cm) — solo H</label><input type="number" id="m-est" step="0.1" placeholder="170"></div>
+      <div class="calc-field"><label>FC al final (lpm) — solo H</label><input type="number" id="m-fc" placeholder="120"></div>
+    </div>
+    <div class="calc-result" id="m-resultado" style="display:none;">
+      <div class="value-row"><span class="label">VO₂máx estimado</span><strong id="m-valor">—</strong></div>
+      <div class="value-row"><span class="label">IMC</span><span id="m-imc">—</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. FRECUENCIA CARDÍACA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="fc">
+  <h2>Frecuencia cardíaca máxima y de reserva</h2>
+
+  <div class="calc">
+    <div class="calc-title">FCmax — comparación de ecuaciones</div>
+    <p style="font-size:0.85rem; color:var(--gris); margin-bottom:10px;">Ingresa la edad para ver el resultado de las 5 ecuaciones más utilizadas.</p>
+    <div class="calc-row">
+      <div class="calc-field" style="max-width:160px;">
+        <label>Edad (años)</label>
+        <input type="number" id="fc-edad" placeholder="60">
+      </div>
+    </div>
+    <div class="calc-result" id="fc-resultado" style="display:none;">
+      <div class="value-row"><span class="label">Fox (220 − edad) <em>· adultos sanos</em></span><strong id="fc-fox">—</strong></div>
+      <div class="value-row"><span class="label">Astrand (216,6 − 0,84·edad) <em>· 4–34 años</em></span><strong id="fc-astrand">—</strong></div>
+      <div class="value-row"><span class="label">Tanaka (208 − 0,7·edad) <em>· adultos sanos</em></span><strong id="fc-tanaka">—</strong></div>
+      <div class="value-row"><span class="label">Gellish (207 − 0,7·edad)</span><strong id="fc-gellish">—</strong></div>
+      <div class="value-row"><span class="label">Gulati (206 − 0,88·edad)</span><strong id="fc-gulati">—</strong></div>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">FC objetivo — método de reserva cardíaca (Karvonen)</div>
+    <p style="font-size:0.85rem; color:var(--gris); margin-bottom:10px;">FC buscada = [(FCmax − FCbasal) × % intensidad] + FCbasal</p>
+    <div class="calc-row">
+      <div class="calc-field"><label>FCmax (lpm)</label><input type="number" id="k-max" placeholder="160"></div>
+      <div class="calc-field"><label>FC basal (lpm)</label><input type="number" id="k-basal" placeholder="70"></div>
+    </div>
+    <div class="calc-result" id="k-resultado" style="display:none;">
+      <div class="value-row"><span class="label">Reserva cardíaca</span><strong id="k-reserva">—</strong></div>
+      <div class="value-row"><span class="label">50 % intensidad</span><strong id="k-50">—</strong></div>
+      <div class="value-row"><span class="label">60 % intensidad</span><strong id="k-60">—</strong></div>
+      <div class="value-row"><span class="label">70 % intensidad</span><strong id="k-70">—</strong></div>
+      <div class="value-row"><span class="label">80 % intensidad</span><strong id="k-80">—</strong></div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning">
+    <span class="icon">⚠</span>
+    <div>En pacientes con <strong>β-bloqueadores</strong> la respuesta de FC al ejercicio está atenuada. Calcula la intensidad con base en la <strong>percepción del esfuerzo (escala de Borg)</strong> en lugar de la FC.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. INTENSIDAD - BORG -->
+<!-- ============================================================ -->
+<section class="tab-content" id="intensidad">
+  <h2>Intensidad del ejercicio — Escala de Borg</h2>
+
+  <p>La escala de Borg 6–20 equivale aproximadamente a 60–200 lpm. Una calificación de 13 (algo duro) corresponde a unos 130 lpm en una persona de 30–50 años (Borg 1982).</p>
+
+  <h3>Escala original 6–20</h3>
+  <div class="borg-grid" id="borg-grid">
+    <div class="borg-item b6"><span class="num">6</span><span class="desc">—</span></div>
+    <div class="borg-item b7"><span class="num">7</span><span class="desc">Muy, muy ligero</span></div>
+    <div class="borg-item b8"><span class="num">8</span><span class="desc">—</span></div>
+    <div class="borg-item b9"><span class="num">9</span><span class="desc">Muy ligero</span></div>
+    <div class="borg-item b10"><span class="num">10</span><span class="desc">—</span></div>
+    <div class="borg-item b11"><span class="num">11</span><span class="desc">Bastante ligero</span></div>
+    <div class="borg-item b12"><span class="num">12</span><span class="desc">—</span></div>
+    <div class="borg-item b13"><span class="num">13</span><span class="desc">Algo duro</span></div>
+    <div class="borg-item b14"><span class="num">14</span><span class="desc">—</span></div>
+    <div class="borg-item b15"><span class="num">15</span><span class="desc">Duro</span></div>
+    <div class="borg-item b16"><span class="num">16</span><span class="desc">—</span></div>
+    <div class="borg-item b17"><span class="num">17</span><span class="desc">Muy duro</span></div>
+    <div class="borg-item b18"><span class="num">18</span><span class="desc">—</span></div>
+    <div class="borg-item b19"><span class="num">19</span><span class="desc">Muy, muy duro</span></div>
+    <div class="borg-item b20"><span class="num">20</span><span class="desc">Máximo</span></div>
+  </div>
+
+  <h3>Escala modificada CR-10</h3>
+  <div class="tabla-wrap">
+  <table>
+    <thead><tr><th style="width:80px;">Valor</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0</strong></td><td>Nada en absoluto</td></tr>
+      <tr><td><strong>0,5</strong></td><td>Muy, muy débil (apenas se nota)</td></tr>
+      <tr><td><strong>1</strong></td><td>Muy débil</td></tr>
+      <tr><td><strong>2</strong></td><td>Débil (ligero)</td></tr>
+      <tr><td><strong>3</strong></td><td>Moderado</td></tr>
+      <tr><td><strong>4</strong></td><td>Algo fuerte</td></tr>
+      <tr><td><strong>5</strong></td><td>Fuerte (pesado)</td></tr>
+      <tr><td><strong>7</strong></td><td>Muy fuerte</td></tr>
+      <tr><td><strong>10</strong></td><td>Muy, muy fuerte (casi máximo)</td></tr>
+      <tr><td><strong>·</strong></td><td>Máximo</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Equivalencias clínicas</h3>
+  <div class="tabla-wrap">
+  <table>
+    <thead><tr><th>Borg 6–20</th><th>% FCmax</th><th>Intensidad</th><th>Sensación</th></tr></thead>
+    <tbody>
+      <tr><td>9–11</td><td>&lt;40 %</td><td>Muy ligera</td><td>Hablar es fácil</td></tr>
+      <tr><td>11–13</td><td>40–60 %</td><td>Moderada</td><td>Frecuencia respiratoria aumenta, pero se puede hablar</td></tr>
+      <tr><td>14–16</td><td>60–80 %</td><td>Vigorosa</td><td>Difícil mantener la conversación</td></tr>
+      <tr><td>17–19</td><td>80–95 %</td><td>Muy vigorosa</td><td>Hablar casi imposible</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 8. COMPONENTES DE SESIÓN Y FORTALECIMIENTO -->
+<!-- ============================================================ -->
+<section class="tab-content" id="sesion">
+  <h2>Componentes de una sesión de ejercicio</h2>
+
+  <div class="fitt-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="fitt">
+      <div class="titulo">Calentamiento</div>
+      <div class="contenido"><strong>5–10 min</strong> de actividades de resistencia muscular y cardiorrespiratoria de intensidad leve a moderada.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Acondicionamiento</div>
+      <div class="contenido"><strong>20–60 min</strong> de actividad aeróbica, resistencia, coordinación neuromuscular o deporte. Se aceptan bloques de 10 min acumulando 20–60 min/día.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Enfriamiento</div>
+      <div class="contenido"><strong>5–10 min</strong> de resistencia y actividad cardiorrespiratoria de intensidad leve a moderada.</div>
+    </div>
+    <div class="fitt">
+      <div class="titulo">Estiramiento</div>
+      <div class="contenido"><strong>≥10 min</strong> tras calentamiento o enfriamiento.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 32px;">Ejercicios de fortalecimiento muscular</h2>
+
+  <div class="card">
+    <p>Contracción voluntaria contra resistencia externa (equipos o pesas libres). La carga debe ser <strong>≥40 % de 1RM</strong> (intensidad ligera). Se ejecutan en <strong>2–4 series de 8–12 repeticiones</strong>, en <strong>2–3 sesiones por semana</strong>.</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">Calculadora %1RM ↔ repeticiones (Earle 2004)</div>
+    <p style="font-size:0.85rem; color:var(--gris); margin-bottom:10px;">Estima la carga objetivo a partir de tu 1RM o el número de repeticiones máximo que puedes realizar con una carga conocida.</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Modo</label>
+        <select id="rm-modo">
+          <option value="rm">Tengo 1RM, quiero %objetivo</option>
+          <option value="reps">Tengo carga × reps, quiero 1RM</option>
+        </select>
+      </div>
+      <div class="calc-field" id="rm-campo-1rm">
+        <label>1RM (kg)</label>
+        <input type="number" id="rm-1rm" placeholder="20" step="0.5">
+      </div>
+      <div class="calc-field" id="rm-campo-pct">
+        <label>% objetivo</label>
+        <select id="rm-pct">
+          <option value="100">100 % (1 rep)</option>
+          <option value="95">95 % (2 reps)</option>
+          <option value="93">93 % (3 reps)</option>
+          <option value="90">90 % (4 reps)</option>
+          <option value="87">87 % (5 reps)</option>
+          <option value="85">85 % (6 reps)</option>
+          <option value="83">83 % (7 reps)</option>
+          <option value="80">80 % (8 reps)</option>
+          <option value="77">77 % (9 reps)</option>
+          <option value="75">75 % (10 reps)</option>
+          <option value="70" selected>70 % (11 reps)</option>
+          <option value="67">67 % (12 reps)</option>
+          <option value="65">65 % (15 reps)</option>
+        </select>
+      </div>
+      <div class="calc-field" id="rm-campo-carga" style="display:none;">
+        <label>Carga (kg)</label>
+        <input type="number" id="rm-carga" placeholder="15" step="0.5">
+      </div>
+      <div class="calc-field" id="rm-campo-reps" style="display:none;">
+        <label>Repeticiones máximas</label>
+        <input type="number" id="rm-reps" placeholder="11" min="1" max="15">
+      </div>
+    </div>
+    <div class="calc-result" id="rm-resultado" style="display:none;">
+      <div id="rm-texto"></div>
+    </div>
+  </div>
+
+  <h3>Tabla de equivalencias % 1RM ↔ repeticiones</h3>
+  <div class="tabla-wrap">
+  <table>
+    <thead><tr><th>% 1RM</th><th>Repeticiones máximas</th></tr></thead>
+    <tbody>
+      <tr><td>100 %</td><td>1</td></tr>
+      <tr><td>95 %</td><td>2</td></tr>
+      <tr><td>93 %</td><td>3</td></tr>
+      <tr><td>90 %</td><td>4</td></tr>
+      <tr><td>87 %</td><td>5</td></tr>
+      <tr><td>85 %</td><td>6</td></tr>
+      <tr><td>83 %</td><td>7</td></tr>
+      <tr><td>80 %</td><td>8</td></tr>
+      <tr><td>77 %</td><td>9</td></tr>
+      <tr><td>75 %</td><td>10</td></tr>
+      <tr><td>70 %</td><td>11</td></tr>
+      <tr><td>67 %</td><td>12</td></tr>
+      <tr><td>65 %</td><td>15</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="icon">📈</span>
+    <div><strong>Progresión:</strong> aumentar el peso conservando el número de repeticiones, o aumentar las series (3 → 4) o el número de días por semana.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. POR PATOLOGÍA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="patologias">
+  <h2>Prescripción por patología</h2>
+  <p>Selecciona la condición clínica para ver el protocolo recomendado:</p>
+
+  <div class="patologia-selector">
+    <button class="patologia-btn activo" data-pat="hta">Hipertensión</button>
+    <button class="patologia-btn" data-pat="iam">Infarto · PIpELINe</button>
+    <button class="patologia-btn" data-pat="acv">ACV</button>
+    <button class="patologia-btn" data-pat="fibro">Fibromialgia</button>
+    <button class="patologia-btn" data-pat="artrosis">Artrosis</button>
+    <button class="patologia-btn" data-pat="dolor">Dolor músc.‑esq.</button>
+    <button class="patologia-btn" data-pat="mayor">Adulto mayor</button>
+    <button class="patologia-btn" data-pat="dm">Diabetes</button>
+    <button class="patologia-btn" data-pat="parkinson">Parkinson</button>
+    <button class="patologia-btn" data-pat="ataxia">Ataxias</button>
+    <button class="patologia-btn" data-pat="cancer">Cáncer</button>
+    <button class="patologia-btn" data-pat="ela">ELA</button>
+    <button class="patologia-btn" data-pat="pompe">Pompe</button>
+    <button class="patologia-btn" data-pat="covid">Post-COVID</button>
+    <button class="patologia-btn" data-pat="obesidad">Obesidad</button>
+    <button class="patologia-btn" data-pat="depresion">Depresión</button>
+  </div>
+
+  <!-- HTA -->
+  <div class="patologia-detalle activo" id="pat-hta">
+    <h3>Hipertensión arterial</h3>
+    <p>El ejercicio físico reduce la PAD en 2–4 mmHg en sanos y 5–8 mmHg en hipertensos (Cornelissen 2013, Inder 2016). Mecanismos: cambios en resistencia vascular, modulación simpática y vasodilatación en respuesta a hiperemia reactiva.</p>
+
+    <div class="alert alert-danger">
+      <span class="icon">⛔</span>
+      <div><strong>Contraindicación absoluta:</strong> PAS &gt;220 mmHg o PAD &gt;110 mmHg para iniciar el programa.</div>
+    </div>
+
+    <div class="alert alert-warning">
+      <span class="icon">⚠</span>
+      <div>Pacientes con enfermedad coronaria, falla cardíaca o ACV previo deben iniciar el programa en un <strong>centro de rehabilitación cardíaca</strong> especializado.</div>
+    </div>
+
+    <h4>Programa estándar (Tabla 11)</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Frecuencia</div><div class="contenido">Aeróbico: <strong>5 días/semana</strong>. Resistencia: <strong>2–3 días/semana</strong>.</div></div>
+      <div class="fitt"><div class="titulo">Intensidad</div><div class="contenido">Aeróbico: <strong>40–60 % FCmax</strong> (RPE 11–13). Resistencia: <strong>60–80 % 1RM</strong>.</div></div>
+      <div class="fitt"><div class="titulo">Tiempo</div><div class="contenido"><strong>30–60 min/día</strong> aeróbico, continuo o intermitente (mín. 10 min por bloque).</div></div>
+      <div class="fitt"><div class="titulo">Tipo</div><div class="contenido">Caminar, trotar, bicicleta, nadar. Resistencia: 8–10 ejercicios para grupos musculares principales.</div></div>
+      <div class="fitt"><div class="titulo">Progresión</div><div class="contenido">Gradual, evitando aumentos grandes especialmente en la intensidad. Ajustar a respuesta farmacológica.</div></div>
+    </div>
+
+    <h4>Alternativa: ejercicio isométrico</h4>
+    <p>Reduce hasta <strong>10,9 mmHg en PAS y 5 mmHg en PAD</strong> (Carlson 2014). Mejora la adherencia: se puede hacer en casa, sin equipo, en sesiones cortas.</p>
+    <div class="card azul">
+      <strong>Protocolo isométrico estándar (Millar 2014):</strong>
+      <ul class="lista-clinica" style="margin-top:8px;">
+        <li>4 series de contracciones (agarre manual o miembros inferiores) de <strong>2 minutos</strong>.</li>
+        <li>Intensidad: <strong>30–50 % de la contracción voluntaria máxima</strong>.</li>
+        <li>Descanso entre series: <strong>1–4 minutos</strong>.</li>
+        <li>Frecuencia: <strong>3–5 veces por semana</strong> durante <strong>4–10 semanas</strong>.</li>
+      </ul>
+    </div>
+    <div class="card azul">
+      <strong>Sentadilla isométrica contra pared (miembros inferiores):</strong>
+      <p style="margin-top:6px;">Espalda contra la pared, pies completamente apoyados, rodillas a 90°. 4 actividades isométricas separadas por 2 min de descanso.</p>
+      <div class="alert alert-warning" style="margin-top:8px;">
+        <span class="icon">⚠</span>
+        <div>Pacientes con tensiones inestables deben iniciarlo en un servicio de rehabilitación. Algunos sobrepasan el límite de 115 mmHg de PAD durante el ejercicio (Wiles 2018).</div>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <span class="icon">💊</span>
+      <div>En pacientes con <strong>α-bloqueadores, antagonistas de canales de calcio y vasodilatadores</strong>, monitorizar estrictamente el período de enfriamiento por riesgo de reducciones excesivas de la TA. Con <strong>β-bloqueadores</strong>, prescribir intensidad por percepción del esfuerzo.</div>
+    </div>
+  </div>
+
+  <!-- IAM PIpELINe -->
+  <div class="patologia-detalle" id="pat-iam">
+    <h3>Infarto de miocardio en adulto mayor — ensayo PIpELINe (NEJM 2025)</h3>
+    <p>Estudio italiano en 512 pacientes con ~80 años de edad media e infarto de miocardio, con limitación física por SPPB. Intervención multidominio frente a cuidado habitual durante 1 año.</p>
+
+    <div class="card azul">
+      <strong>Resultados a 1 año:</strong>
+      <ul class="lista-clinica" style="margin-top:8px;">
+        <li>Reducción del desenlace compuesto muerte CV o rehospitalización: <strong>12,6 % vs 20,6 % (HR 0,57; p=0,01)</strong>.</li>
+        <li>Hospitalizaciones por insuficiencia cardíaca: <strong>1,5 % vs 7,1 %</strong>.</li>
+        <li>Mejoría en velocidad de marcha y fuerza de prensión.</li>
+        <li>Mejor calidad de vida percibida.</li>
+        <li>Beneficio especialmente evidente en SPPB bajo y marcha lenta.</li>
+      </ul>
+    </div>
+
+    <h4>Componente supervisado</h4>
+    <p><strong>6 sesiones presenciales</strong> a los días 30, 60, 90, 180, 270 y 360 post-alta:</p>
+    <ul class="lista-clinica">
+      <li>5 minutos de ejercicios de calistenia.</li>
+      <li>Prueba de caminata en banda de <strong>1 km</strong> con velocidad ajustada por percepción de esfuerzo.</li>
+      <li>Monitorización de TA, FC y escala de Borg.</li>
+      <li>Objetivo: Borg <strong>11–13</strong> (intensidad moderada).</li>
+    </ul>
+
+    <h4>Componente domiciliario</h4>
+    <ul class="lista-clinica">
+      <li><strong>Caminar ≥20 min/día</strong>, ritmo moderado, preferiblemente todos los días.</li>
+      <li>Calentamiento y enfriamiento de 5 min cada uno.</li>
+      <li>Ejercicios <strong>Otago</strong> de prevención de caídas: movilidad articular (extensiones de espalda, rotaciones de hombros, ejercicios de tobillo), levantarse de silla sin manos, elevación de piernas, ejercicios de hombro con botellas de agua.</li>
+      <li>Materiales impresos y videos instructivos para asegurar adherencia.</li>
+      <li>Integrar actividad física a la vida diaria (jardinería, tareas domésticas).</li>
+    </ul>
+  </div>
+
+  <!-- ACV -->
+  <div class="patologia-detalle" id="pat-acv">
+    <h3>Enfermedad cerebrovascular</h3>
+    <div class="alert alert-warning">
+      <span class="icon">📊</span>
+      <div>Tras un primer ACV, hasta el <strong>50 % de probabilidad</strong> de nuevos eventos o muerte en los siguientes 8 años. ~75 % tienen enfermedad cardíaca coexistente; 20–40 % de los aparentemente asintomáticos tienen isquemia silente.</div>
+    </div>
+
+    <h4>Test de ejercicio previo (obligatorio)</h4>
+    <ul class="lista-clinica">
+      <li>Banda sin fin con <strong>barandas o arnés</strong>.</li>
+      <li>Protocolo modificado de <strong>Bruce</strong>.</li>
+      <li>Si requiere submáximo: FC pico 120 lpm o 70 % FCmax predicha o nivel <strong>5 METs</strong>.</li>
+    </ul>
+
+    <h4>Programa de ejercicio</h4>
+    <p>Iniciar desde la hospitalización: estrés gravitacional (sedestación o bípedo intermitente progresando a marcha). El gasto energético en ACV es mayor que en sanos por hemiparesia: la debilidad disminuye eficiencia mecánica y aumenta el consumo de O₂ → riesgo coronario.</p>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Frecuencia</div><div class="contenido"><strong>3 veces/semana</strong> durante 10 semanas (efectos demostrados)</div></div>
+      <div class="fitt"><div class="titulo">Tipo</div><div class="contenido">Aeróbico (mejora capacidad) + anaeróbico/resistencia (potencia muscular)</div></div>
+      <div class="fitt"><div class="titulo">Meta</div><div class="contenido">Reducir consumo de O₂ en marcha · mejorar composición corporal y fuerza</div></div>
+    </div>
+    <div class="alert alert-info">
+      <span class="icon">→</span>
+      <div>Modificar factores de riesgo (obesidad, dislipidemia, HTA, DM2) y reforzar adherencia farmacológica. La prescripción es individualizada según severidad de la discapacidad.</div>
+    </div>
+  </div>
+
+  <!-- Fibromialgia -->
+  <div class="patologia-detalle" id="pat-fibro">
+    <h3>Fibromialgia</h3>
+    <p>Beneficio demostrado de aeróbico, estiramiento y fortalecimiento. El ejercicio aeróbico reduce el dolor (Tan 2022). El ejercicio acuático mejora capacidad física y disminuye dolor (Bidonde 2014).</p>
+
+    <div class="alert alert-info">
+      <span class="icon">⚡</span>
+      <div><strong>Principio fundamental:</strong> incrementar las cargas <em>de forma lenta</em>. Iniciar baja intensidad en banda, evitar inclinación. La bicicleta puede empeorar dolores en algunos pacientes.</div>
+    </div>
+
+    <h4>Hallazgos típicos</h4>
+    <ul class="lista-clinica">
+      <li>Debilidad de músculos proximales · prueba 30 s sentarse-levantarse por debajo del límite normal.</li>
+      <li>Dificultad para levantarse de una silla.</li>
+    </ul>
+
+    <h4>Programa de fortalecimiento (Andrade 2018, da Silva 2022)</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Frecuencia</div><div class="contenido"><strong>2–3 veces/semana</strong> durante 12 semanas</div></div>
+      <div class="fitt"><div class="titulo">Volumen</div><div class="contenido"><strong>2 series · 12 reps</strong> · descanso 1 min entre series</div></div>
+      <div class="fitt"><div class="titulo">Sesión</div><div class="contenido"><strong>60 min</strong>: calentamiento 10 min + fortalecimiento + estiramientos</div></div>
+      <div class="fitt"><div class="titulo">Carga</div><div class="contenido">Subjetiva, según tolerancia. Grupos musculares grandes</div></div>
+      <div class="fitt"><div class="titulo">Músculos</div><div class="contenido">Pectoral mayor, dorsal ancho, bíceps, tríceps, cuádriceps, isquiotibiales, deltoides, plantiflexores</div></div>
+    </div>
+
+    <div class="alert alert-info">
+      <span class="icon">💪</span>
+      <div>Incluir <strong>estabilidad central (lumbopélvica)</strong> para fortalecer musculatura proximal (Park 2021).</div>
+    </div>
+  </div>
+
+  <!-- Artrosis -->
+  <div class="patologia-detalle" id="pat-artrosis">
+    <h3>Osteoartritis de cadera y rodilla</h3>
+    <p>El ejercicio es la base del manejo no farmacológico (Bannuru 2019, OARSI). Objetivos: mejorar capacidad aeróbica, disminuir dolor, fortalecer músculos de miembros inferiores, prevenir caídas.</p>
+
+    <div class="alert alert-info">
+      <span class="icon">📋</span>
+      <div>Los <strong>AINE tópicos</strong> son la primera línea farmacológica (da Costa 2021). El <strong>ácido hialurónico intraarticular</strong> no ofrece mayores beneficios y los riesgos son significativos (Pereira 2022).</div>
+    </div>
+
+    <h4>Recomendaciones básicas</h4>
+    <ol class="lista-clinica" style="list-style: decimal; padding-left: 24px;">
+      <li>Adaptar ejercicio y actividad física a necesidades y preferencias del paciente.</li>
+      <li>Considerar ejercicio acuático si el ejercicio en tierra produce dolor.</li>
+      <li>Programa supervisado de <strong>6–12 semanas</strong> con controles periódicos.</li>
+      <li>Manejo de crisis de dolor con analgésicos y reposo de <strong>2–3 días</strong>.</li>
+    </ol>
+
+    <h4>Programa</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Modalidad</div><div class="contenido">Cicloergómetro (preferido por ACSM), banda, ejercicio acuático, fortalecimiento iso/isotónico</div></div>
+      <div class="fitt"><div class="titulo">Intensidad inicial</div><div class="contenido"><strong>&lt;60 % FCmax</strong> primeras 8 semanas. Si muy desacondicionado: <strong>40 % FCmax</strong></div></div>
+      <div class="fitt"><div class="titulo">Monitorización</div><div class="contenido">Escala de Borg normal o CR-10</div></div>
+      <div class="fitt"><div class="titulo">Evitar</div><div class="contenido">Correr, escaleras, alto impacto axial o rotacional (fútbol, basket, voleibol)</div></div>
+    </div>
+
+    <h4>Fortalecimiento de extensores de rodilla (isométricos)</h4>
+    <div class="card azul">
+      <p><strong>Posición supina:</strong> rodillas extendidas, banda elástica proximal al tobillo de la extremidad afectada. Levantar la extremidad sin flexionar la rodilla y mantener <strong>5, 10 o 15 segundos</strong>. Bajar.</p>
+      <p style="margin-top:8px;"><strong>Posición sedente:</strong> con banda elástica, contracción isométrica del cuádriceps durante 5, 10 o 15 s con rodilla a <strong>0°, 30° y 60°</strong>.</p>
+      <p style="margin-top:8px;"><strong>Series:</strong> altas repeticiones (12–15) con <strong>40–60 % de 1RM</strong>. Meta: ganar <strong>30–40 % de fuerza</strong> en extensores (Bartholdy 2017).</p>
+    </div>
+
+    <h4>Fortalecimiento de abductores de cadera (Wang 2020)</h4>
+    <div class="card azul">
+      <p>Decúbito lateral sobre el lado asintomático. Banda elástica en tercio distal de las piernas. Levantar la extremidad inferior <strong>30°</strong> y sostener <strong>5, 10 o 15 s</strong>; bajar lentamente. <strong>Evitar la flexión de cadera</strong> para no involucrar otros músculos.</p>
+    </div>
+
+    <h4>Pruebas de seguimiento (OARSI · Dobson 2013)</h4>
+    <ul class="lista-clinica">
+      <li>Escala análoga visual del dolor · cuestionario WOMAC.</li>
+      <li>Levantarse y sentarse 30 s · TUG · 6MWT · prueba de los 40 m.</li>
+    </ul>
+  </div>
+
+  <!-- Dolor músc-esq común -->
+  <div class="patologia-detalle" id="pat-dolor">
+    <h3>Dolor musculoesquelético común</h3>
+    <p>Incluye dolor lumbar, patelofemoral, cervical y esguince de tobillo. Todos se benefician de un programa estructurado con actividades terapéuticas específicas que el paciente puede realizar en casa (Jaworski 2020).</p>
+    <div class="alert alert-info">
+      <span class="icon">🏠</span>
+      <div>El componente <strong>domiciliario</strong> es clave: indicar ejercicios específicos y educar al paciente sobre cómo realizarlos correctamente sin supervisión.</div>
+    </div>
+  </div>
+
+  <!-- Adulto mayor -->
+  <div class="patologia-detalle" id="pat-mayor">
+    <h3>Actividad física en el adulto mayor</h3>
+    <p>Existen plataformas con programas estructurados como <a href="https://vivifrail.com/es/inicio/" target="_blank" style="color:var(--azul);">Vivifrail</a>.</p>
+
+    <div class="alert alert-info">
+      <span class="icon">⏱</span>
+      <div>Iniciar siempre con <strong>intensidades bajas durante las primeras 8 semanas</strong>. Luego trabajar moderadas y vigorosas.</div>
+    </div>
+
+    <h4>Programa básico (Sousa 2017)</h4>
+    <ul class="lista-clinica">
+      <li><strong>Calentamiento 10 min:</strong> caminar y ejercicios de flexibilidad.</li>
+      <li><strong>Aeróbico 30 min:</strong> caminar a paso normal o ligero.</li>
+      <li><strong>Resistencia 10 min:</strong> 3 ejercicios (3 series × 15–20 reps) usando peso corporal y gravedad para fortalecer extremidades en tierra y agua.</li>
+      <li><strong>Enfriamiento 5 min:</strong> respiración y estiramiento.</li>
+    </ul>
+
+    <h4>Programa de fortalecimiento (1 día/semana)</h4>
+    <ul class="lista-clinica">
+      <li>10 min calentamiento + 30 min resistencia en circuito + 10 min enfriamiento.</li>
+      <li><strong>3 series × 10–12 reps</strong> en todas las sesiones.</li>
+      <li>Progresión:</li>
+    </ul>
+    <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Semanas</th><th>% 1RM</th></tr></thead>
+      <tbody>
+        <tr><td>1–8</td><td><strong>65 %</strong></td></tr>
+        <tr><td>8–24</td><td><strong>75 %</strong></td></tr>
+        <tr><td>24–28</td><td><strong>70 %</strong></td></tr>
+        <tr><td>28–32</td><td><strong>65 %</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="alert alert-info">
+      <span class="icon">📊</span>
+      <div><strong>Equivalencias Borg:</strong> moderada = 12–13 / 6–20 (50–69 % 1RM). Vigorosa = 14–17 / 6–20 (70–84 % 1RM).</div>
+    </div>
+  </div>
+
+  <!-- Diabetes -->
+  <div class="patologia-detalle" id="pat-dm">
+    <h3>Diabetes mellitus</h3>
+    <p>El ejercicio disminuye glucosa, mejora cifras tensionales y metabolismo lipídico, reduce tejido adiposo visceral y mejora función endotelial en DM2. Reduce HbA1c <strong>0,89 %</strong> (Lumb 2014). Con resistencia: reducción <strong>0,48–0,67 %</strong> en 12 semanas.</p>
+
+    <h4>Recomendación American Diabetes Association</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Aeróbico</div><div class="contenido"><strong>150 min/sem</strong> a 50–70 % FCmax, ≥3 días/semana</div></div>
+      <div class="fitt"><div class="titulo">Fortalecimiento</div><div class="contenido"><strong>≥2 veces/semana</strong> (si no contraindicado)</div></div>
+      <div class="fitt"><div class="titulo">Equilibrio</div><div class="contenido">Esencial si hay neuropatía o riesgo de caídas</div></div>
+    </div>
+
+    <h4>Evaluación previa</h4>
+    <ul class="lista-clinica">
+      <li>Examen cardiovascular, óseo y neuromuscular (fuerza, reflejos, sensibilidad).</li>
+      <li>Equilibrio (monopodal, tándem) y capacidad de levantarse-sentarse.</li>
+      <li>Si limitación marcada: TUG y velocidad de marcha 10 m como referencia basal.</li>
+      <li>Si enfermedad coronaria: programa en centro especializado de rehabilitación cardíaca.</li>
+    </ul>
+
+    <h4>Consideraciones especiales</h4>
+    <div class="alert alert-warning">
+      <span class="icon">📉</span>
+      <div><strong>Hipoglicemia:</strong> vigilar especialmente en el período de enfriamiento. En DM1, las actividades cortas de alta intensidad pueden minimizar episodios (Tonoli 2012).</div>
+    </div>
+    <div class="alert alert-warning">
+      <span class="icon">📈</span>
+      <div><strong>Hiperglicemia aguda:</strong> el ejercicio de alta intensidad puede provocar un aumento agudo de la glicemia; los pacientes pueden requerir dosis adicionales de insulina.</div>
+    </div>
+    <div class="alert alert-warning">
+      <span class="icon">👣</span>
+      <div><strong>Neuropatía diabética:</strong> cuidado de pies, evitar alto impacto, priorizar ejercicios de equilibrio estático y dinámico.</div>
+    </div>
+  </div>
+
+  <!-- Parkinson -->
+  <div class="patologia-detalle" id="pat-parkinson">
+    <h3>Enfermedad de Parkinson</h3>
+    <p>El ejercicio mejora alteraciones motoras y capacidad aeróbica (van der Kolk 2019).</p>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Frecuencia</div><div class="contenido"><strong>3 veces/semana</strong></div></div>
+      <div class="fitt"><div class="titulo">Intensidad</div><div class="contenido"><strong>80 % FCmax</strong></div></div>
+      <div class="fitt"><div class="titulo">Tiempo</div><div class="contenido">30 min aeróbico + 15 min calentamiento/enfriamiento</div></div>
+      <div class="fitt"><div class="titulo">Tipo preferido</div><div class="contenido"><strong>Cicloergómetro</strong> (seguro · pacientes con EP suelen poder usar bicicleta)</div></div>
+    </div>
+    <div class="alert alert-info">
+      <span class="icon">🏠</span>
+      <div>El programa <strong>en casa con controles médicos periódicos</strong> ha mostrado beneficio (van der Kolk 2019). No requiere supervisión permanente.</div>
+    </div>
+  </div>
+
+  <!-- Ataxia -->
+  <div class="patologia-detalle" id="pat-ataxia">
+    <h3>Ataxias degenerativas</h3>
+    <p>Beneficios demostrados incluso con programas cortos de <strong>4 semanas</strong> (Barbuto 2020).</p>
+
+    <h4>Progresión de intensidad por semana</h4>
+    <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Semana</th><th>% FCmax</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>60 %</strong></td></tr>
+        <tr><td>2</td><td>65 %</td></tr>
+        <tr><td>3</td><td>70 %</td></tr>
+        <tr><td>4</td><td>75 %</td></tr>
+        <tr><td>5+</td><td><strong>80 %</strong> (meta)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="alert alert-info">
+      <span class="icon">🚲</span>
+      <div>El <strong>cicloergómetro</strong> es el método preferido por seguridad. Incluir actividades específicas de complejidad creciente para equilibrio estático y dinámico.</div>
+    </div>
+  </div>
+
+  <!-- Cáncer -->
+  <div class="patologia-detalle" id="pat-cancer">
+    <h3>Cáncer</h3>
+    <p>El ejercicio aeróbico y de resistencia se recomienda durante todo el proceso terapéutico. Mejora calidad de vida, impacto emocional y capacidad física (Segal 2017).</p>
+
+    <h4>Consideraciones por tipo</h4>
+    <ul class="lista-clinica">
+      <li><strong>Metástasis óseas</strong> (mieloma, próstata, seno): programa <em>individualizado</em>, no grupal (Sheill 2018).</li>
+      <li><strong>Cáncer de próstata:</strong> evidencia clara de beneficio (Campos 2018).</li>
+      <li><strong>Cáncer de seno:</strong> manejar dolor, sobrepeso, comorbilidades musculoesqueléticas. Cargas según percepción de fatiga (Guillamó 2018).</li>
+    </ul>
+
+    <h4>Evaluación basal</h4>
+    <ul class="lista-clinica">
+      <li>Factores de riesgo cardiovascular y capacidad aeróbica.</li>
+      <li>Cuantificación de dolor.</li>
+      <li>Equilibrio · 6MWT · velocidad de marcha · 30 s sentarse-levantarse.</li>
+    </ul>
+  </div>
+
+  <!-- ELA -->
+  <div class="patologia-detalle" id="pat-ela">
+    <h3>Esclerosis lateral amiotrófica</h3>
+    <p>Existe controversia, pero estudios recientes muestran que la resistencia y el aeróbico son <strong>seguros y beneficiosos</strong> (Ferri 2019).</p>
+
+    <h4>Aeróbico</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Modalidad</div><div class="contenido">Cicloergómetro</div></div>
+      <div class="fitt"><div class="titulo">Tiempo</div><div class="contenido"><strong>15 min</strong></div></div>
+      <div class="fitt"><div class="titulo">Intensidad</div><div class="contenido"><strong>80 %</strong> de la capacidad máxima calculada</div></div>
+    </div>
+
+    <h4>Fortalecimiento</h4>
+    <div class="fitt-grid">
+      <div class="fitt"><div class="titulo">Tiempo</div><div class="contenido"><strong>25 min</strong></div></div>
+      <div class="fitt"><div class="titulo">Intensidad</div><div class="contenido"><strong>60–80 % 1RM</strong></div></div>
+      <div class="fitt"><div class="titulo">Volumen</div><div class="contenido"><strong>3 series × 10 reps</strong>, descanso 2 min entre series</div></div>
+    </div>
+
+    <h4>Complemento</h4>
+    <ul class="lista-clinica">
+      <li>10 min ejercicios de equilibrio estático y dinámico.</li>
+      <li>10 min estiramientos.</li>
+    </ul>
+
+    <div class="alert alert-warning">
+      <span class="icon">⚠</span>
+      <div><strong>Evitar la fase excéntrica</strong> del ejercicio para reducir riesgo de daño muscular.</div>
+    </div>
+  </div>
+
+  <!-- Pompe -->
+  <div class="patologia-detalle" id="pat-pompe">
+    <h3>Enfermedad de Pompe</h3>
+    <p>El ejercicio aeróbico, el entrenamiento respiratorio y los ejercicios de fortalecimiento con cargas hasta del <strong>70 % de 1RM</strong> disminuyen el deterioro funcional (Bhatnagar 2022).</p>
+    <div class="alert alert-info">
+      <span class="icon">🫁</span>
+      <div>El <strong>entrenamiento respiratorio</strong> es un componente clave junto con el aeróbico y el fortalecimiento.</div>
+    </div>
+  </div>
+
+  <!-- Post-COVID -->
+  <div class="patologia-detalle" id="pat-covid">
+    <h3>Post-COVID</h3>
+
+    <div class="alert alert-warning">
+      <span class="icon">❤</span>
+      <div>La principal preocupación es la <strong>miocarditis</strong>, que limita la capacidad de ejercicio y aumenta el riesgo de complicaciones (Salman 2021). Si hubo hospitalización en UCI: <strong>valoración por cardiología antes de iniciar</strong> ejercicio aeróbico formal.</div>
+    </div>
+
+    <h4>Criterios para reiniciar actividad moderada</h4>
+    <ul class="lista-clinica">
+      <li>Período asintomático de <strong>≥7 días</strong>.</li>
+      <li>Capacidad de caminar <strong>500 m sin fatiga</strong>.</li>
+    </ul>
+
+    <h4>Guía UK por fases (4 fases, 7 días cada una)</h4>
+    <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Fase</th><th>Duración</th><th>Actividad</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>7 días</td><td>Baja intensidad + estiramientos</td></tr>
+        <tr><td><strong>2</strong></td><td>7 días</td><td>Baja intensidad + estiramientos</td></tr>
+        <tr><td><strong>3</strong></td><td>7 días</td><td>Intensidad moderada</td></tr>
+        <tr><td><strong>4</strong></td><td>7 días</td><td>Intensidad moderada + fortalecimiento</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>En sobrevivientes de UCI / SDRA</h4>
+    <p>Disminución de capacidad física hasta <strong>5 años</strong> tras el egreso. Atrofia y debilidad generalizada, 6MWT significativamente reducida (Herridge 2003). Deterioro cognitivo a 12 meses comparable a TCE moderado o Alzheimer leve (Pandharipande 2013). Deterioro emocional persistente meses-años después (Jackson 2014).</p>
+  </div>
+
+  <!-- Obesidad -->
+  <div class="patologia-detalle" id="pat-obesidad">
+    <h3>Obesidad</h3>
+    <p>El 20 % de adultos &gt;65 años en países desarrollados son obesos (IMC &gt;30). Aumenta riesgo de diabetes, enfermedad CV y artrosis de cadera y rodilla.</p>
+    <div class="alert alert-info">
+      <span class="icon">⚖</span>
+      <div>La combinación de <strong>ejercicio + dieta</strong> mejora el desempeño físico y disminuye el peso (Villareal 2011). El ejercicio aislado es menos efectivo.</div>
+    </div>
+  </div>
+
+  <!-- Depresión -->
+  <div class="patologia-detalle" id="pat-depresion">
+    <h3>Depresión</h3>
+    <p>Múltiples estudios respaldan el ejercicio como parte del manejo no farmacológico de los pacientes con depresión (revisión sistemática y metaanálisis de ECAs).</p>
+    <div class="alert alert-info">
+      <span class="icon">🧠</span>
+      <div>Considerar el ejercicio como <strong>tratamiento adyuvante</strong>, no como sustituto de psicoterapia ni de farmacoterapia indicada.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. CASOS CLÍNICOS -->
+<!-- ============================================================ -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos</h2>
+  <p>Trabaje cada caso paso a paso. Antes de revelar la respuesta, intente resolverla con las calculadoras y tablas de las pestañas anteriores.</p>
+
+  <!-- ===== CASO 1 ===== -->
+  <div class="caso">
+    <div class="caso-header">
+      <span class="num">Caso 1 · complejidad alta</span>
+      <h3>Adulto mayor obeso, hipertenso, fumador, con artrosis incipiente</h3>
+    </div>
+    <div class="caso-body">
+      <div class="datos-clinicos">
+        <h4>Presentación</h4>
+        <p style="font-size:0.93rem; margin-bottom:10px;">Hombre de 70 años acude a consulta para iniciar un programa de actividad física. Refiere dolor en rodilla derecha al subir escaleras y al caminar &gt;15 minutos, con rigidez matinal de 10 minutos. Sin angina, disnea ni síncope.</p>
+        <dl>
+          <dt>Peso</dt><dd>92 kg</dd>
+          <dt>Talla</dt><dd>168 cm</dd>
+          <dt>Cintura</dt><dd>110 cm</dd>
+          <dt>TA en consulta</dt><dd>148/92 mmHg (en tratamiento con enalapril 20 mg/día)</dd>
+          <dt>FC basal</dt><dd>78 lpm</dd>
+          <dt>Tabaquismo</dt><dd>15 cigarrillos/día desde los 20 años</dd>
+          <dt>Actividad</dt><dd>Sedentario (UCLA nivel 4: caminata limitada por dolor)</dd>
+          <dt>Imagen rodilla D</dt><dd>Osteoartrosis grado 2 Kellgren-Lawrence</dd>
+          <dt>Paraclínicos</dt><dd>No disponibles aún (lípidos, glicemia)</dd>
+        </dl>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 1</div>
+        <div class="pregunta">Calcule el IMC y clasifíquelo. ¿Es factor de riesgo CV?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <div class="calculo">IMC = 92 / (1,68)² = 92 / 2,82 = <strong>32,6 kg/m²</strong></div>
+          <strong>Obesidad grado I.</strong> Cumple criterio de factor de riesgo CV (IMC ≥30). La cintura de 110 cm también supera el corte para hombres (&gt;102 cm), reforzando el diagnóstico.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 2</div>
+        <div class="pregunta">Identifique todos los factores de riesgo CV presentes y estratifique el riesgo. ¿Requiere test de ejercicio antes de iniciar el programa?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Factores de riesgo CV identificados:</strong>
+          <ul style="margin: 6px 0 8px 22px;">
+            <li>Edad ≥45 años (70 años)</li>
+            <li>Tabaquismo activo</li>
+            <li>Sedentarismo</li>
+            <li>Obesidad (IMC 32,6 · cintura 110)</li>
+            <li>HTA (en tratamiento)</li>
+            <li>Dislipidemia: <em>desconocida → asumir presente</em> (criterio ACSM)</li>
+            <li>Prediabetes: <em>desconocida + obesidad → asumir presente</em></li>
+          </ul>
+          <strong>Total: ≥6 factores de riesgo</strong>, paciente <em>asintomático desde el punto de vista cardiovascular</em>.<br>
+          → Clasificación: <strong>Riesgo moderado</strong>.<br>
+          → No requiere test de ejercicio para programa de intensidad moderada. Como va a iniciar a intensidad baja a moderada por la artrosis y la HTA, puede iniciar sin test, pero <strong>solicitar paraclínicos</strong> (perfil lipídico, glicemia ayunas, creatinina, ECG) en el seguimiento.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 3</div>
+        <div class="pregunta">Calcule la FCmax y la FC objetivo al 40 % y 60 % por método de Karvonen. ¿Por qué iniciar en este rango?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <div class="calculo">FCmax (Tanaka) = 208 − 0,7 × 70 = <strong>159 lpm</strong><br>
+Reserva cardíaca = 159 − 78 = 81 lpm<br><br>
+FC objetivo 40 % = 78 + (81 × 0,40) = <strong>110 lpm</strong><br>
+FC objetivo 60 % = 78 + (81 × 0,60) = <strong>127 lpm</strong></div>
+          <strong>Iniciar en intensidad moderada (40–60 % FCmax · Borg 11–13)</strong> está justificado por:
+          <ul style="margin: 6px 0 0 22px;">
+            <li>HTA en tratamiento → evitar respuestas tensionales excesivas.</li>
+            <li>Artrosis de rodilla → incrementar carga mecánica progresivamente.</li>
+            <li>Sedentarismo prolongado → adaptación cardiovascular y musculoesquelética gradual.</li>
+            <li>Edad 70 años → primeras 8 semanas a baja intensidad (40 %) y luego progresar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 4</div>
+        <div class="pregunta">¿Hay alguna contraindicación absoluta para iniciar el programa? ¿Qué cifra tensional impediría comenzar la sesión del día?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>No hay contraindicación absoluta para iniciar el programa.</strong> Su TA de 148/92 está elevada pero por debajo del umbral de seguridad.<br><br>
+          Sin embargo, antes de cada sesión debe medirse la TA: <strong>PAS &gt;220 mmHg o PAD &gt;110 mmHg contraindican iniciar el ejercicio</strong> ese día. Si en mediciones repetidas mantiene TA ≥140/90, ajustar manejo farmacológico antes de progresar a alta intensidad.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 5</div>
+        <div class="pregunta">Diseñe el componente aeróbico del programa. ¿Qué modalidad prefiere y por qué?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Cicloergómetro</strong> es la modalidad de elección porque:
+          <ul style="margin: 6px 0 0 22px;">
+            <li>Reduce carga axial sobre la rodilla (artrosis) — preferido por ACSM en osteoartrosis.</li>
+            <li>Alternativa: ejercicio acuático (excelente en artrosis y HTA, baja la TA).</li>
+            <li>Caminar es aceptable en superficies blandas, evitando inclinaciones y trayectos iniciales mayores a 15 minutos.</li>
+            <li><strong>Evitar:</strong> trotar, escaleras, deportes de impacto.</li>
+          </ul>
+          <strong>Prescripción:</strong> 5 días/semana · 30 min iniciales (acumulables en bloques de 10 min) · 40–50 % FCmax (Borg 11) las primeras 4–6 semanas · progresar a 50–60 % en semanas 7–12.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 6</div>
+        <div class="pregunta">¿Qué ejercicios isométricos específicos incluiría en este paciente y para qué objetivos?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Doble objetivo: control de la HTA + fortalecimiento articular protector.</strong><br><br>
+          <strong>1. Para HTA</strong> (protocolo Millar 2014):<br>
+          4 series × 2 min de agarre manual a 30–50 % CVM, descanso 1–4 min, 3 ×/semana (esperar reducción 10,9 mmHg PAS / 5 mmHg PAD).<br><br>
+          <strong>2. Para artrosis de rodilla</strong> (Bartholdy 2017):<br>
+          - <em>Cuádriceps en supino:</em> rodilla extendida con teraband proximal al tobillo, levantar la pierna sin flexionar, mantener 10 s. Series de 12–15 reps.<br>
+          - <em>Cuádriceps en sedente:</em> contracción isométrica 10 s con rodilla a 0°, 30° y 60°, al 40–60 % de 1RM.<br>
+          - <em>Abductores de cadera</em> (Wang 2020): decúbito lateral sobre el lado sano, banda elástica distal, abducir 30° y mantener 10 s. Evitar flexión de cadera.<br><br>
+          <strong>Meta:</strong> ganar 30–40 % de fuerza en extensores de rodilla.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 7</div>
+        <div class="pregunta">¿Qué intervenciones no relacionadas con ejercicio son indispensables en este paciente?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <ul style="margin:0 0 0 22px;">
+            <li><strong>Cesación tabáquica:</strong> intervención de mayor impacto sobre riesgo CV. Considerar farmacoterapia (nicotina, vareniclina, bupropión).</li>
+            <li><strong>Pérdida de peso:</strong> meta 5–10 % en 6 meses. Cada kg perdido reduce ~4 kg de carga sobre la rodilla en marcha.</li>
+            <li><strong>Dieta:</strong> rica en frutas, verduras, granos integrales, lácteos bajos en grasa, restricción de sodio.</li>
+            <li><strong>AINE tópico</strong> (no oral) para crisis de dolor de rodilla — primera línea farmacológica en artrosis.</li>
+            <li><strong>Ejercicios de equilibrio</strong> (Otago) por riesgo de caídas a los 70 años.</li>
+            <li><strong>Paraclínicos pendientes:</strong> perfil lipídico, glicemia ayunas, creatinina, ECG, parcial de orina.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="programa-final">
+        <h4>Síntesis del programa propuesto</h4>
+        <div class="tabla-wrap">
+        <table style="font-size:0.88rem; margin:10px 0;">
+          <thead><tr><th>Componente</th><th>Frecuencia</th><th>Intensidad / volumen</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Aeróbico</strong> (cicloergómetro)</td><td>5 días/sem</td><td>30 min · 40–60 % FCmax (110–127 lpm) · Borg 11–13</td></tr>
+            <tr><td><strong>Isométrico HTA</strong> (handgrip)</td><td>3 días/sem</td><td>4 × 2 min al 30–50 % CVM, descanso 1–4 min</td></tr>
+            <tr><td><strong>Fortalecimiento</strong> (rodilla y cadera)</td><td>2–3 días/sem</td><td>40–60 % 1RM · 12–15 reps · 2–3 series</td></tr>
+            <tr><td><strong>Equilibrio</strong> (Otago)</td><td>2–3 días/sem</td><td>Tándem, monopodal, levantarse-sentarse sin manos</td></tr>
+            <tr><td><strong>Estiramiento</strong></td><td>Diario</td><td>10 min post-ejercicio, énfasis en cuádriceps e isquiotibiales</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.88rem; margin-top:8px;"><strong>Seguimiento:</strong> control mensual (TA, peso, cintura, dolor en EVA, prueba 30 s sentarse-levantarse). Reevaluar a las 12 semanas con paraclínicos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CASO 2 ===== -->
+  <div class="caso">
+    <div class="caso-header">
+      <span class="num">Caso 2 · dolor crónico</span>
+      <h3>Mujer de mediana edad con fibromialgia</h3>
+    </div>
+    <div class="caso-body">
+      <div class="datos-clinicos">
+        <h4>Presentación</h4>
+        <p style="font-size:0.93rem; margin-bottom:10px;">Mujer de 54 años con diagnóstico de fibromialgia desde hace 3 años. Refiere dolor difuso en EVA 6/10, fatiga importante y sueño no reparador. Ha intentado iniciar caminatas, pero las suspende a los 5 días por aumento del dolor. Refiere dificultad para levantarse de sillas bajas.</p>
+        <dl>
+          <dt>Peso</dt><dd>60 kg</dd>
+          <dt>Talla</dt><dd>162 cm</dd>
+          <dt>TA en consulta</dt><dd>118/76 mmHg</dd>
+          <dt>FC basal</dt><dd>72 lpm</dd>
+          <dt>Tabaquismo</dt><dd>No</dd>
+          <dt>Actividad</dt><dd>UCLA nivel 3 (a veces caminata leve, suspende por dolor)</dd>
+          <dt>30 s sentarse-levantarse</dt><dd>8 repeticiones (por debajo del límite normal para su edad)</dd>
+          <dt>Paraclínicos</dt><dd>Glicemia 88, perfil lipídico normal, TSH normal</dd>
+        </dl>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 1</div>
+        <div class="pregunta">Calcule el IMC y estratifique el riesgo cardiovascular.</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <div class="calculo">IMC = 60 / (1,62)² = 60 / 2,62 = <strong>22,9 kg/m²</strong> · peso normal</div>
+          <strong>Factores de riesgo CV:</strong>
+          <ul style="margin: 6px 0 8px 22px;">
+            <li>Edad ≥55 años: <strong>NO</strong> (54 años, justo por debajo del corte para mujeres).</li>
+            <li>Tabaquismo: no.</li>
+            <li>Sedentarismo: <strong>sí</strong> (no cumple 150 min/sem).</li>
+            <li>Obesidad: no (IMC 22,9, peso normal).</li>
+            <li>Dislipidemia: no (perfil normal).</li>
+            <li>HTA: no (TA 118/76).</li>
+            <li>Glicemia normal: no prediabetes.</li>
+          </ul>
+          <strong>Total: 1 factor de riesgo · Riesgo BAJO.</strong> Puede iniciar programa sin examen médico ni test de ejercicio adicionales.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 2</div>
+        <div class="pregunta">Calcule la FC objetivo al 40 % y 60 %. ¿Qué ecuación de FCmax prefiere?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <div class="calculo">FCmax (Gulati, validada en mujeres) = 206 − 0,88 × 54 = <strong>159 lpm</strong><br>
+FCmax (Tanaka, comparación) = 208 − 0,7 × 54 = 170 lpm<br><br>
+Reserva (Gulati) = 159 − 72 = 87 lpm<br>
+FC objetivo 40 % = 72 + (87 × 0,40) = <strong>107 lpm</strong><br>
+FC objetivo 60 % = 72 + (87 × 0,60) = <strong>124 lpm</strong></div>
+          La <strong>ecuación de Gulati</strong> está específicamente derivada en mujeres y es más conservadora que Tanaka, lo cual es apropiado en pacientes con dolor crónico que requieren progresión cuidadosa.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 3</div>
+        <div class="pregunta">El intento previo de caminata fracasó por aumento del dolor. ¿Qué principio fundamental se debe aplicar a la prescripción?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Incremento muy lento de las cargas.</strong> Es el principio cardinal en fibromialgia.<br><br>
+          La paciente probablemente intentó intensidades inadecuadas o progresó muy rápido. La <em>prescripción inicial debe estar en el extremo bajo del rango moderado</em> (cerca del 40 % FCmax · Borg 11), con sesiones cortas (incluso 10 minutos), y aumentar primero la duración y solo después la intensidad.<br><br>
+          Se debe educar a la paciente sobre la diferencia entre:
+          <ul style="margin: 6px 0 0 22px;">
+            <li><em>Molestia muscular esperable</em> (tolerable, transitoria, mejora con repetición) → continuar.</li>
+            <li><em>Exacerbación del dolor crónico</em> (intenso, prolongado, no cede) → reducir carga, no abandonar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 4</div>
+        <div class="pregunta">La prueba de 30 s sentarse-levantarse muestra 8 repeticiones (por debajo del normal). ¿Qué implica clínicamente y qué debe incluirse en el programa?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Debilidad de musculatura proximal</strong> — hallazgo característico en fibromialgia. Implica:
+          <ul style="margin: 6px 0 8px 22px;">
+            <li>Riesgo aumentado de caídas en el futuro.</li>
+            <li>Limitación funcional para AVD (levantarse del inodoro, subir al carro, alcanzar objetos en alto).</li>
+            <li>Necesidad obligatoria de incluir <strong>fortalecimiento de musculatura proximal y estabilidad central</strong> (Park 2021).</li>
+          </ul>
+          <strong>Programa de fortalecimiento (Andrade 2018, da Silva 2022):</strong>
+          <ul style="margin: 6px 0 0 22px;">
+            <li>2–3 sesiones/semana × 12 semanas.</li>
+            <li>2 series × 12 repeticiones, descanso 1 min entre series.</li>
+            <li>Carga subjetiva (Borg CR-10 alrededor de 4–5 inicialmente).</li>
+            <li>Grupos: pectoral mayor, dorsal ancho, bíceps, tríceps, cuádriceps, isquiotibiales, deltoides, plantiflexores.</li>
+            <li>Ejercicios específicos de estabilidad lumbopélvica (plancha modificada, bird-dog, puente).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 5</div>
+        <div class="pregunta">¿Qué modalidad aeróbica recomienda? La paciente menciona que un familiar le sugirió bicicleta estática.</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Primera elección: ejercicio acuático</strong> — beneficio bien documentado en fibromialgia, reduce dolor de manera significativa y mejora capacidad física (Bidonde 2014).<br><br>
+          <strong>Segunda elección: banda sin fin a baja intensidad y SIN inclinación.</strong><br><br>
+          <strong>Precaución con la bicicleta:</strong> aunque es excelente en otras condiciones (artrosis, Parkinson), <em>algunos pacientes con fibromialgia refieren que la bicicleta empeora los dolores</em>, posiblemente por la postura mantenida. Se puede probar en sesiones cortas (10 min iniciales) y suspender si exacerba síntomas.
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 6</div>
+        <div class="pregunta">Estructure una sesión típica de 60 minutos para esta paciente.</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <strong>Sesión de 60 minutos (Andrade 2018):</strong>
+          <ul style="margin: 6px 0 0 22px;">
+            <li><strong>0–10 min · Calentamiento:</strong> estiramientos suaves, movilidad articular, marcha en sitio.</li>
+            <li><strong>10–25 min · Aeróbico:</strong> ejercicio acuático o banda sin inclinación a 40–50 % FCmax (107–115 lpm) · Borg 11–12. Se puede fraccionar en 2 bloques de 7 min con descanso si es necesario.</li>
+            <li><strong>25–50 min · Fortalecimiento:</strong> 2 series × 12 reps de los grupos musculares principales + 2 ejercicios de estabilidad central. Descanso 1 min entre series.</li>
+            <li><strong>50–60 min · Enfriamiento + estiramiento:</strong> caminata lenta y estiramiento sostenido (20–30 s por grupo).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pregunta-guiada">
+        <div class="label">Pregunta 7</div>
+        <div class="pregunta">¿Qué herramientas usaría para evaluar la respuesta al programa a las 12 semanas?</div>
+        <button class="btn-revelar" onclick="toggleResp(this)">Mostrar respuesta</button>
+        <div class="respuesta-guiada">
+          <ul style="margin: 0 0 0 22px;">
+            <li><strong>Dolor:</strong> escala análoga visual (EVA) — meta: reducción ≥2 puntos.</li>
+            <li><strong>Función muscular proximal:</strong> repetir prueba de 30 s sentarse-levantarse — meta: aumentar el número de repeticiones.</li>
+            <li><strong>Capacidad aeróbica:</strong> 6MWT — meta: aumentar la distancia recorrida.</li>
+            <li><strong>Calidad de vida:</strong> cuestionarios específicos (FIQ — Fibromyalgia Impact Questionnaire).</li>
+            <li><strong>Adherencia:</strong> registro de sesiones completadas (idealmente ≥80 %).</li>
+            <li><strong>Borg CR-10:</strong> registrar percepción del esfuerzo en cada sesión para ajustar progresión.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="programa-final">
+        <h4>Síntesis del programa propuesto</h4>
+        <div class="tabla-wrap">
+        <table style="font-size:0.88rem; margin:10px 0;">
+          <thead><tr><th>Componente</th><th>Frecuencia</th><th>Intensidad / volumen</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Aeróbico</strong> (acuático preferido)</td><td>2–3 días/sem</td><td>15 min iniciales · 40–50 % FCmax (107–115 lpm) · Borg 11</td></tr>
+            <tr><td><strong>Fortalecimiento</strong> (8 grupos principales)</td><td>2–3 días/sem</td><td>2 series × 12 reps · descanso 1 min · carga subjetiva</td></tr>
+            <tr><td><strong>Estabilidad central</strong></td><td>3 días/sem</td><td>Plancha modificada, bird-dog, puente · 2 series × 12 reps</td></tr>
+            <tr><td><strong>Estiramiento</strong></td><td>Diario</td><td>10 min, sostenido 20–30 s por grupo</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:0.88rem; margin-top:8px;"><strong>Educación clave:</strong> incremento <em>muy lento</em> de cargas · diferenciar molestia muscular vs exacerbación · adherencia a 12 semanas mínimo antes de evaluar respuesta · expectativa realista (mejora gradual, no cura).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 11. AUTOEVALUACIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content" id="examen">
+  <h2>Autoevaluación</h2>
+  <p>10 preguntas de selección múltiple. Recibirás retroalimentación inmediata después de cada respuesta. Al final verás tu puntaje total.</p>
+
+  <div class="cuestionario-header">
+    <div>
+      <div class="progreso">Pregunta <span id="q-actual">0</span> de <span id="q-total">10</span></div>
+      <div class="barra-progreso"><div class="barra-progreso-fill" id="barra-fill"></div></div>
+    </div>
+    <div class="puntaje">Aciertos: <span id="puntaje-actual">0</span></div>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div class="q-resultado-final" id="resultado-final">
+    <div class="puntaje-grande" id="puntaje-final">0</div>
+    <div class="total">de 10 preguntas correctas</div>
+    <div class="nivel" id="nivel-desempeno">—</div>
+    <button class="btn-reiniciar" onclick="iniciarQuiz()">Reiniciar cuestionario</button>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:760px; margin:0 auto;">
+    <div style="font-weight:600; color:var(--texto-suave); margin-bottom:6px;">Manual de Rehabilitación para estudiantes de medicina</div>
+    <div style="margin-bottom:10px;">Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia</div>
+    <div style="font-size:0.78rem; opacity:0.85;">Adaptado de Pescatello & ACSM 2014, AHA, OARSI, ADA, NEJM (PIpELINe 2025). Material docente de referencia · Las decisiones terapéuticas requieren juicio clínico individualizado.</div>
+  </div>
+</footer>
+
+</div> <!-- /.layout -->
+
+<script>
+// Navegación tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.dataset.tab);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// UCLA
+document.querySelectorAll('#ucla-list li').forEach(li => {
+  li.addEventListener('click', () => {
+    const nivel = parseInt(li.dataset.nivel);
+    const box = document.getElementById('ucla-resultado');
+    const texto = document.getElementById('ucla-texto');
+    document.querySelectorAll('#ucla-list li').forEach(x => x.style.background = 'white');
+    li.style.background = 'var(--azul-bg)';
+    let interpretacion = '';
+    if (nivel <= 2) interpretacion = '<strong>Sedentario / muy limitado.</strong> Iniciar con intensidad muy baja y sesiones cortas. Evaluar pruebas funcionales (levantarse-sentarse, equilibrio).';
+    else if (nivel <= 4) interpretacion = '<strong>Actividad leve.</strong> Por debajo del mínimo recomendado. Plantear progresión gradual hasta 150 min/semana de actividad moderada.';
+    else if (nivel <= 6) interpretacion = '<strong>Actividad moderada.</strong> Cercano o cumpliendo el mínimo recomendado. Reforzar adherencia y añadir fortalecimiento 2 ×/semana.';
+    else if (nivel <= 8) interpretacion = '<strong>Activo.</strong> Cumple guías. Optimizar componentes (estiramiento, fortalecimiento, equilibrio).';
+    else interpretacion = '<strong>Muy activo / deportista.</strong> Vigilar volumen, recuperación y prevención de lesiones.';
+    texto.innerHTML = `Nivel UCLA seleccionado: <strong>${nivel}</strong>. ${interpretacion}`;
+    box.style.display = 'flex';
+  });
+});
+
+// Riesgo CV
+function calcularRiesgo() {
+  const checks = document.querySelectorAll('#factores-grid input[type=checkbox]');
+  let positivos = 0, negativo = 0, sintomatico = false;
+  checks.forEach(c => {
+    c.parentElement.classList.toggle('activo', c.checked);
+    if (!c.checked) return;
+    if (c.dataset.factor === 'sintomatico') sintomatico = true;
+    else if (c.dataset.negativo) negativo = 1;
+    else positivos++;
+  });
+  const total = positivos - negativo;
+  const box = document.getElementById('riesgo-resultado');
+  let clase, titulo, detalle;
+  if (sintomatico) {
+    clase = 'riesgo-alto';
+    titulo = 'Riesgo elevado';
+    detalle = 'Paciente sintomático o con enfermedad CV/renal/metabólica establecida. Requiere examen clínico, test de ejercicio y supervisión durante actividad de intensidad moderada o alta.';
+  } else if (total >= 2) {
+    clase = 'riesgo-moderado';
+    titulo = `Riesgo moderado · ${total} factor${total>1?'es':''} de riesgo`;
+    detalle = 'Asintomático con ≥2 factores. No requiere test de ejercicio. Examen clínico recomendado solo si va a iniciar programa de alta intensidad.';
+  } else {
+    clase = 'riesgo-bajo';
+    titulo = `Riesgo bajo · ${total} factor${total!==1?'es':''} de riesgo`;
+    detalle = 'Asintomático con <2 factores. No requiere examen médico ni test de ejercicio antes de iniciar programa de intensidad moderada o alta.';
+  }
+  box.className = 'riesgo-resultado ' + clase;
+  box.innerHTML = `<div style="font-size:1.1rem; font-weight:700;">${titulo}</div><div style="margin-top:6px; font-weight:400;">${detalle}</div>`;
+}
+document.querySelectorAll('#factores-grid input[type=checkbox]').forEach(c => c.addEventListener('change', calcularRiesgo));
+
+// IMC
+function calcularIMC() {
+  const peso = parseFloat(document.getElementById('imc-peso').value);
+  const est = parseFloat(document.getElementById('imc-estatura').value);
+  const box = document.getElementById('imc-resultado');
+  if (!peso || !est || peso <= 0 || est <= 0) { box.style.display = 'none'; return; }
+  const imc = peso / Math.pow(est/100, 2);
+  document.getElementById('imc-valor').textContent = imc.toFixed(1) + ' kg/m²';
+  let clase;
+  if (imc < 18.5) clase = 'Bajo peso';
+  else if (imc < 25) clase = 'Peso normal';
+  else if (imc < 30) clase = 'Sobrepeso';
+  else if (imc < 35) clase = 'Obesidad I';
+  else if (imc < 40) clase = 'Obesidad II';
+  else clase = 'Obesidad III';
+  document.getElementById('imc-clase').textContent = clase;
+  box.style.display = 'block';
+}
+document.getElementById('imc-peso').addEventListener('input', calcularIMC);
+document.getElementById('imc-estatura').addEventListener('input', calcularIMC);
+
+// Cintura
+function calcularCintura() {
+  const sexo = document.getElementById('cint-sexo').value;
+  const v = parseFloat(document.getElementById('cint-valor').value);
+  const box = document.getElementById('cint-resultado');
+  if (!v || v <= 0) { box.style.display = 'none'; return; }
+  let clase, color;
+  if (sexo === 'M') {
+    if (v < 70) { clase = 'Riesgo muy bajo'; color = 'var(--verde)'; }
+    else if (v < 90) { clase = 'Riesgo bajo'; color = 'var(--verde)'; }
+    else if (v <= 110) { clase = 'Riesgo alto'; color = 'var(--naranja)'; }
+    else { clase = 'Riesgo muy alto'; color = 'var(--rojo)'; }
+  } else {
+    if (v < 80) { clase = 'Riesgo muy bajo'; color = 'var(--verde)'; }
+    else if (v < 100) { clase = 'Riesgo bajo'; color = 'var(--verde)'; }
+    else if (v <= 120) { clase = 'Riesgo alto'; color = 'var(--naranja)'; }
+    else { clase = 'Riesgo muy alto'; color = 'var(--rojo)'; }
+  }
+  document.getElementById('cint-clase').innerHTML = `<span style="color:${color};">${clase}</span> · ${v} cm`;
+  box.style.display = 'block';
+}
+['cint-sexo','cint-valor'].forEach(id => document.getElementById(id).addEventListener('input', calcularCintura));
+
+// Cintura / cadera
+function calcularICC() {
+  const sexo = document.getElementById('icc-sexo').value;
+  const c = parseFloat(document.getElementById('icc-cintura').value);
+  const ca = parseFloat(document.getElementById('icc-cadera').value);
+  const box = document.getElementById('icc-resultado');
+  if (!c || !ca || c <= 0 || ca <= 0) { box.style.display = 'none'; return; }
+  const icc = c/ca;
+  document.getElementById('icc-valor').textContent = icc.toFixed(2);
+  const corte = sexo === 'H' ? 1.03 : 0.90;
+  const elevado = icc > corte;
+  document.getElementById('icc-clase').innerHTML = elevado
+    ? `<span style="color:var(--rojo);">Aumento de riesgo CV</span> (corte ${corte.toFixed(2)})`
+    : `<span style="color:var(--verde);">Por debajo del corte</span> (${corte.toFixed(2)})`;
+  box.style.display = 'block';
+}
+['icc-sexo','icc-cintura','icc-cadera'].forEach(id => document.getElementById(id).addEventListener('input', calcularICC));
+
+// VO2max ACSM
+function calcularACSM() {
+  const dist = parseFloat(document.getElementById('acsm-dist').value);
+  const edad = parseFloat(document.getElementById('acsm-edad').value);
+  const peso = parseFloat(document.getElementById('acsm-peso').value);
+  const est = parseFloat(document.getElementById('acsm-est').value);
+  const fc = parseFloat(document.getElementById('acsm-fc').value);
+  const pas = parseFloat(document.getElementById('acsm-pas').value);
+  const box = document.getElementById('acsm-resultado');
+  if (!dist || !edad || !peso || !est || !fc || !pas) { box.style.display='none'; return; }
+  const rpp = fc * pas;
+  const vo2 = 0.02*dist - 0.191*edad - 0.07*peso + 0.09*est + 0.26*(rpp/1000) + 2.45;
+  document.getElementById('acsm-valor').textContent = vo2.toFixed(1) + ' mL·kg⁻¹·min⁻¹';
+  document.getElementById('acsm-rpp').textContent = rpp.toLocaleString();
+  box.style.display = 'block';
+}
+['acsm-dist','acsm-edad','acsm-peso','acsm-est','acsm-fc','acsm-pas'].forEach(id => document.getElementById(id).addEventListener('input', calcularACSM));
+
+// VO2max Mänttäri
+function calcularManttari() {
+  const sexo = document.getElementById('m-sexo').value;
+  const dist = parseFloat(document.getElementById('m-dist').value);
+  const edad = parseFloat(document.getElementById('m-edad').value);
+  const peso = parseFloat(document.getElementById('m-peso').value);
+  const est = parseFloat(document.getElementById('m-est').value);
+  const fc = parseFloat(document.getElementById('m-fc').value);
+  const box = document.getElementById('m-resultado');
+  let vo2, imc = '—';
+  if (sexo === 'H') {
+    if (!dist || !edad || !peso || !est || !fc) { box.style.display='none'; return; }
+    imc = peso / Math.pow(est/100, 2);
+    vo2 = 110.546 + 0.063*dist - 0.250*edad - 0.486*imc - 0.420*est - 0.109*fc;
+    document.getElementById('m-imc').textContent = imc.toFixed(1) + ' kg/m²';
+  } else {
+    if (!dist || !edad || !peso) { box.style.display='none'; return; }
+    vo2 = 22.506 - 0.271*peso + 0.051*dist - 0.065*edad;
+    document.getElementById('m-imc').textContent = '(no requerida)';
+  }
+  document.getElementById('m-valor').textContent = vo2.toFixed(1) + ' mL·kg⁻¹·min⁻¹';
+  box.style.display = 'block';
+}
+['m-sexo','m-dist','m-edad','m-peso','m-est','m-fc'].forEach(id => document.getElementById(id).addEventListener('input', calcularManttari));
+
+// FCmax
+function calcularFC() {
+  const edad = parseFloat(document.getElementById('fc-edad').value);
+  const box = document.getElementById('fc-resultado');
+  if (!edad || edad <= 0) { box.style.display='none'; return; }
+  document.getElementById('fc-fox').textContent = (220 - edad).toFixed(0) + ' lpm';
+  document.getElementById('fc-astrand').textContent = (216.6 - 0.84*edad).toFixed(0) + ' lpm';
+  document.getElementById('fc-tanaka').textContent = (208 - 0.7*edad).toFixed(0) + ' lpm';
+  document.getElementById('fc-gellish').textContent = (207 - 0.7*edad).toFixed(0) + ' lpm';
+  document.getElementById('fc-gulati').textContent = (206 - 0.88*edad).toFixed(0) + ' lpm';
+  box.style.display = 'block';
+}
+document.getElementById('fc-edad').addEventListener('input', calcularFC);
+
+// Karvonen
+function calcularKarvonen() {
+  const max = parseFloat(document.getElementById('k-max').value);
+  const basal = parseFloat(document.getElementById('k-basal').value);
+  const box = document.getElementById('k-resultado');
+  if (!max || !basal || max <= basal) { box.style.display='none'; return; }
+  const reserva = max - basal;
+  document.getElementById('k-reserva').textContent = reserva + ' lpm';
+  [50, 60, 70, 80].forEach(p => {
+    const v = Math.round(reserva * p/100 + basal);
+    document.getElementById('k-'+p).textContent = v + ' lpm';
+  });
+  box.style.display = 'block';
+}
+['k-max','k-basal'].forEach(id => document.getElementById(id).addEventListener('input', calcularKarvonen));
+
+// %1RM ↔ reps
+const tablaRM = {100:1, 95:2, 93:3, 90:4, 87:5, 85:6, 83:7, 80:8, 77:9, 75:10, 70:11, 67:12, 65:15};
+function pctDesdeReps(reps) {
+  // tabla inversa aproximada
+  const r = parseInt(reps);
+  if (r <= 1) return 100;
+  if (r === 2) return 95;
+  if (r === 3) return 93;
+  if (r === 4) return 90;
+  if (r === 5) return 87;
+  if (r === 6) return 85;
+  if (r === 7) return 83;
+  if (r === 8) return 80;
+  if (r === 9) return 77;
+  if (r === 10) return 75;
+  if (r === 11) return 70;
+  if (r === 12) return 67;
+  return 65; // 13-15
+}
+document.getElementById('rm-modo').addEventListener('change', e => {
+  const modo = e.target.value;
+  document.getElementById('rm-campo-1rm').style.display = modo === 'rm' ? '' : 'none';
+  document.getElementById('rm-campo-pct').style.display = modo === 'rm' ? '' : 'none';
+  document.getElementById('rm-campo-carga').style.display = modo === 'reps' ? '' : 'none';
+  document.getElementById('rm-campo-reps').style.display = modo === 'reps' ? '' : 'none';
+  document.getElementById('rm-resultado').style.display = 'none';
+});
+function calcularRM() {
+  const modo = document.getElementById('rm-modo').value;
+  const box = document.getElementById('rm-resultado');
+  const txt = document.getElementById('rm-texto');
+  if (modo === 'rm') {
+    const rm = parseFloat(document.getElementById('rm-1rm').value);
+    const pct = parseFloat(document.getElementById('rm-pct').value);
+    if (!rm || rm <= 0) { box.style.display='none'; return; }
+    const carga = rm * pct/100;
+    const reps = tablaRM[pct];
+    txt.innerHTML = `Para alcanzar el <strong>${pct} %</strong> de tu 1RM (${rm} kg): trabaja con <strong style="font-size:1.2rem; color:var(--azul-osc);">${carga.toFixed(1)} kg</strong> · realiza <strong>${reps} repeticiones</strong> por serie.<br><span class="label">Recomendación: 2–4 series, 2–3 sesiones/semana.</span>`;
+    box.style.display = 'block';
+  } else {
+    const carga = parseFloat(document.getElementById('rm-carga').value);
+    const reps = parseInt(document.getElementById('rm-reps').value);
+    if (!carga || !reps || carga <= 0 || reps < 1) { box.style.display='none'; return; }
+    const pct = pctDesdeReps(reps);
+    const rm = carga / (pct/100);
+    txt.innerHTML = `Si puedes hacer <strong>${reps} repeticiones máximas</strong> con <strong>${carga} kg</strong>, esto equivale al <strong>${pct} %</strong> de tu 1RM.<br>Tu <strong style="font-size:1.2rem; color:var(--azul-osc);">1RM estimado ≈ ${rm.toFixed(1)} kg</strong>`;
+    box.style.display = 'block';
+  }
+}
+['rm-1rm','rm-pct','rm-carga','rm-reps'].forEach(id => document.getElementById(id).addEventListener('input', calcularRM));
+document.getElementById('rm-pct').addEventListener('change', calcularRM);
+
+// Borg interactivo
+document.querySelectorAll('.borg-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.borg-item').forEach(i => i.style.transform = '');
+    item.style.transform = 'translateY(-3px) scale(1.06)';
+    item.style.boxShadow = '0 8px 16px rgba(0,0,0,0.12)';
+  });
+});
+
+// Selector de patologías
+document.querySelectorAll('.patologia-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.patologia-btn').forEach(b => b.classList.remove('activo'));
+    document.querySelectorAll('.patologia-detalle').forEach(d => d.classList.remove('activo'));
+    btn.classList.add('activo');
+    const target = document.getElementById('pat-' + btn.dataset.pat);
+    if (target) target.classList.add('activo');
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Toggle respuestas guiadas
+function toggleResp(btn) {
+  const resp = btn.nextElementSibling;
+  const activa = resp.classList.toggle('activa');
+  btn.textContent = activa ? 'Ocultar respuesta' : 'Mostrar respuesta';
+}
+
+// ============= CUESTIONARIO =============
+const preguntas = [
+  {
+    contexto: "Hombre de 52 años, fumador, IMC 27, TA 138/86, sedentario, sin síntomas cardiovasculares.",
+    pregunta: "¿Cómo estratifica su riesgo cardiovascular según ACSM y qué requiere antes de iniciar un programa de intensidad alta?",
+    opciones: [
+      "Riesgo bajo — puede iniciar sin examen previo.",
+      "Riesgo moderado — requiere examen clínico antes de alta intensidad, no requiere test de ejercicio.",
+      "Riesgo elevado — requiere examen clínico y test de ejercicio supervisado.",
+      "Riesgo moderado — requiere test de ejercicio antes de cualquier intensidad."
+    ],
+    correcta: 1,
+    explicacion: "Tiene ≥4 factores de riesgo (edad, tabaquismo, sedentarismo, HTA estadio I) y posiblemente dislipidemia y prediabetes asumidas como presentes (criterio ACSM si no se conocen). El IMC de 27 corresponde a sobrepeso y no a obesidad, por lo que no cumple por sí solo el criterio de factor de riesgo. El paciente está asintomático: por ACSM, asintomático con ≥2 factores = riesgo moderado. Requiere examen clínico solo si va a iniciar alta intensidad; nunca requiere test de ejercicio."
+  },
+  {
+    contexto: "Paciente de 60 años, FC basal 70 lpm, FCmax estimada 160 lpm.",
+    pregunta: "Calcule por método de Karvonen (rata de reserva cardíaca) la FC objetivo al 70 % de intensidad.",
+    opciones: [
+      "115 lpm",
+      "124 lpm",
+      "133 lpm",
+      "142 lpm"
+    ],
+    correcta: 2,
+    explicacion: "Reserva cardíaca = FCmax − FC basal = 160 − 70 = 90 lpm. FC al 70 % = (90 × 0,70) + 70 = 63 + 70 = 133 lpm. Las opciones 115, 124 y 142 corresponden a 50 %, 60 % y 80 % respectivamente."
+  },
+  {
+    contexto: "",
+    pregunta: "¿Qué cifra tensional contraindica iniciar la sesión de ejercicio del día en un paciente hipertenso?",
+    opciones: [
+      "PAS &gt;160 o PAD &gt;100 mmHg",
+      "PAS &gt;180 o PAD &gt;105 mmHg",
+      "PAS &gt;220 o PAD &gt;110 mmHg",
+      "Cualquier cifra ≥140/90 mmHg"
+    ],
+    correcta: 2,
+    explicacion: "Las cifras sistólicas mayores a 220 mmHg y diastólicas mayores a 110 mmHg son contraindicación absoluta para iniciar el programa o la sesión del día (Pescatello & ACSM 2014)."
+  },
+  {
+    contexto: "",
+    pregunta: "Una calificación de 13 en la escala de Borg 6–20 corresponde aproximadamente a:",
+    opciones: [
+      "Esfuerzo muy ligero · &lt;40 % FCmax",
+      "Algo duro · 40–60 % FCmax · ~130 lpm en personas de 30–50 años",
+      "Duro · 80–95 % FCmax",
+      "Máximo · cerca de FCmax"
+    ],
+    correcta: 1,
+    explicacion: "Borg 13 = 'algo duro' = intensidad moderada (40–60 % FCmax). En la equivalencia clásica de Borg, multiplicar por 10 da una aproximación de la FC en personas de 30–50 años: 13 × 10 ≈ 130 lpm."
+  },
+  {
+    contexto: "Paciente con HTA estadio I, sin enfermedad CV establecida, va a iniciar ejercicio isométrico.",
+    pregunta: "Según el protocolo de Millar 2014, ¿cuál es la prescripción correcta?",
+    opciones: [
+      "2 series de 1 minuto al 70–80 % CVM, descanso 30 s, 5 ×/semana × 2 semanas",
+      "4 series de 2 minutos al 30–50 % CVM, descanso 1–4 min, 3–5 ×/semana × 4–10 semanas",
+      "10 series de 30 segundos al 100 % CVM, descanso 30 s, 7 ×/semana × 12 semanas",
+      "1 serie de 10 minutos al 20 % CVM, sin descanso, 2 ×/semana × 6 meses"
+    ],
+    correcta: 1,
+    explicacion: "Protocolo isométrico estándar: 4 series de 2 min al 30–50 % de la contracción voluntaria máxima, con descanso 1–4 min entre series, 3–5 veces por semana, durante 4–10 semanas. Reduce hasta 10,9 mmHg PAS y 5 mmHg PAD."
+  },
+  {
+    contexto: "",
+    pregunta: "En un paciente con artrosis de rodilla, ¿qué modalidad de ejercicio aeróbico es de primera elección y cuál se debe evitar?",
+    opciones: [
+      "Preferir trotar; evitar bicicleta",
+      "Preferir cicloergómetro o ejercicio acuático; evitar correr y deportes de impacto",
+      "Preferir escaleras; evitar caminar",
+      "Preferir fútbol recreativo; evitar natación"
+    ],
+    correcta: 1,
+    explicacion: "El cicloergómetro es la modalidad preferida por la ACSM en osteoartritis (reduce carga axial). El ejercicio acuático es excelente alternativa. Se deben evitar correr, escaleras y deportes de alto impacto axial o rotacional (fútbol, basket, voleibol)."
+  },
+  {
+    contexto: "Paciente diabético tipo 2 que va a iniciar programa aeróbico.",
+    pregunta: "¿En qué momento de la sesión es especialmente importante vigilar la hipoglicemia?",
+    opciones: [
+      "Solo durante el calentamiento",
+      "Solo durante el pico aeróbico",
+      "Durante y especialmente en el período de enfriamiento",
+      "Únicamente 24 horas después de la sesión"
+    ],
+    correcta: 2,
+    explicacion: "El ejercicio aeróbico puede causar hipoglicemia, y debe vigilarse <em>especialmente en el período de enfriamiento</em> cuando el efecto hipoglucemiante puede persistir o incluso aumentar."
+  },
+  {
+    contexto: "Sobre el ensayo PIpELINe (NEJM 2025) en adultos mayores post-IAM:",
+    pregunta: "¿Cuál fue el principal hallazgo de la intervención de rehabilitación multidominio?",
+    opciones: [
+      "Aumentó la mortalidad cardiovascular",
+      "Redujo el desenlace compuesto (muerte CV o rehospitalización CV) a 1 año (12,6 % vs 20,6 %; HR 0,57)",
+      "No demostró diferencias significativas frente al cuidado habitual",
+      "Redujo solo la mortalidad pero no las hospitalizaciones"
+    ],
+    correcta: 1,
+    explicacion: "PIpELINe (NEJM 2025) demostró reducción significativa del compuesto muerte CV o rehospitalización CV (12,6 % vs 20,6 %; HR 0,57; p=0,01), con disminución especialmente marcada en hospitalizaciones por insuficiencia cardíaca (1,5 % vs 7,1 %). La mortalidad CV aislada no mostró diferencias significativas."
+  },
+  {
+    contexto: "Paciente con esclerosis lateral amiotrófica que va a iniciar programa de fortalecimiento.",
+    pregunta: "¿Qué precaución específica se debe tener?",
+    opciones: [
+      "Evitar la fase concéntrica del ejercicio",
+      "Evitar la fase excéntrica del ejercicio para reducir el daño muscular",
+      "Trabajar siempre al 100 % de 1RM",
+      "El fortalecimiento está absolutamente contraindicado"
+    ],
+    correcta: 1,
+    explicacion: "Se debe evitar la fase excéntrica del ejercicio en pacientes con ELA para disminuir la probabilidad de daño muscular (Ferri 2019). Los ejercicios de resistencia con 60–80 % de 1RM son seguros y beneficiosos cuando se prescriben adecuadamente."
+  },
+  {
+    contexto: "Paciente quiere trabajar al 70 % de 1RM. Su 1RM en press de banca es 50 kg.",
+    pregunta: "Según la tabla de Earle, ¿qué carga y cuántas repeticiones debe realizar?",
+    opciones: [
+      "50 kg × 1 repetición",
+      "40 kg × 8 repeticiones",
+      "35 kg × 11 repeticiones",
+      "25 kg × 15 repeticiones"
+    ],
+    correcta: 2,
+    explicacion: "70 % de 50 kg = 35 kg. Según la tabla de Earle 2004, el 70 % de 1RM corresponde aproximadamente a 11 repeticiones máximas. Se realizarían 2–3 series de 11 repeticiones a 35 kg."
+  }
+];
+
+let preguntaActual = 0;
+let aciertos = 0;
+let respondidas = [];
+
+function iniciarQuiz() {
+  preguntaActual = 0;
+  aciertos = 0;
+  respondidas = [];
+  document.getElementById('puntaje-actual').textContent = '0';
+  document.getElementById('q-total').textContent = preguntas.length;
+  document.getElementById('resultado-final').classList.remove('activo');
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const cont = document.getElementById('quiz-container');
+  cont.innerHTML = '';
+  preguntas.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    const ctxHTML = q.contexto ? `<div class="q-context">${q.contexto}</div>` : '';
+    const optsHTML = q.opciones.map((op, j) =>
+      `<button class="q-option" data-q="${i}" data-op="${j}">${String.fromCharCode(65+j)}. ${op}</button>`
+    ).join('');
+    card.innerHTML = `
+      <div class="q-num">Pregunta ${i+1}</div>
+      <div class="q-text">${q.pregunta}</div>
+      ${ctxHTML}
+      <div class="q-options">${optsHTML}</div>
+      <div class="q-feedback" id="fb-${i}"></div>
+    `;
+    cont.appendChild(card);
+  });
+
+  document.querySelectorAll('.q-option').forEach(btn => {
+    btn.addEventListener('click', () => responder(parseInt(btn.dataset.q), parseInt(btn.dataset.op)));
+  });
+  actualizarProgreso();
+}
+
+function responder(idxQ, idxOp) {
+  if (respondidas.includes(idxQ)) return;
+  respondidas.push(idxQ);
+  const q = preguntas[idxQ];
+  const correcta = idxOp === q.correcta;
+  if (correcta) aciertos++;
+
+  // Marcar opciones
+  const btns = document.querySelectorAll(`.q-option[data-q="${idxQ}"]`);
+  btns.forEach((b, j) => {
+    b.disabled = true;
+    if (j === q.correcta) b.classList.add('correcta');
+    else if (j === idxOp) b.classList.add('incorrecta');
+  });
+
+  // Mostrar feedback
+  const fb = document.getElementById('fb-' + idxQ);
+  fb.className = 'q-feedback activo ' + (correcta ? 'ok' : 'ko');
+  const titulo = correcta
+    ? '✓ Correcto'
+    : `✗ Incorrecto · La respuesta correcta era: ${String.fromCharCode(65+q.correcta)}`;
+  fb.innerHTML = `<strong>${titulo}</strong>${q.explicacion}`;
+
+  document.getElementById('puntaje-actual').textContent = aciertos;
+  preguntaActual = respondidas.length;
+  actualizarProgreso();
+
+  // Si terminó: mostrar resultado final
+  if (respondidas.length === preguntas.length) {
+    setTimeout(mostrarResultadoFinal, 600);
+  }
+}
+
+function actualizarProgreso() {
+  document.getElementById('q-actual').textContent = preguntaActual;
+  const pct = (preguntaActual / preguntas.length) * 100;
+  document.getElementById('barra-fill').style.width = pct + '%';
+}
+
+function mostrarResultadoFinal() {
+  const box = document.getElementById('resultado-final');
+  document.getElementById('puntaje-final').textContent = aciertos;
+  let nivel, color;
+  if (aciertos >= 9) { nivel = '🏆 Excelente · dominio sobresaliente'; color = 'var(--verde)'; }
+  else if (aciertos >= 7) { nivel = '✓ Bueno · sólida comprensión'; color = 'var(--azul)'; }
+  else if (aciertos >= 5) { nivel = '⚠ Regular · revise los temas fallidos'; color = 'var(--amarillo)'; }
+  else { nivel = '✗ Insuficiente · revise el material desde el inicio'; color = 'var(--rojo)'; }
+  const elNivel = document.getElementById('nivel-desempeno');
+  elNivel.textContent = nivel;
+  elNivel.style.color = color;
+  box.classList.add('activo');
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Iniciar cuestionario al cargar la pestaña por primera vez
+document.querySelector('[data-tab="examen"]').addEventListener('click', () => {
+  if (document.getElementById('quiz-container').children.length === 0) iniciarQuiz();
+});
+</script>
+
+</body>
+</html>
