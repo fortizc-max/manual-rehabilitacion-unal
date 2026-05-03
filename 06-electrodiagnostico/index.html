@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrodiagnóstico aplicado · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Capítulo interactivo sobre electrodiagnóstico aplicado: neuroconducción, electromiografía, túnel del carpo, radiculopatías, polineuropatías y lesión de nervio periférico. Calculadora de patrón axonal vs desmielinizante, escala de Padua para túnel del carpo, quiz de miotomas, casos clínicos y autoevaluación. Manual de Rehabilitación para estudiantes de medicina, Universidad Nacional de Colombia.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<meta name="keywords" content="electrodiagnóstico, electromiografía, neuroconducción, túnel del carpo, radiculopatía, polineuropatía, escala Padua, miotomas, medicina física, rehabilitación">
+<style>
+:root {
+  --azul: #1e40af;
+  --azul-osc: #1e3a8a;
+  --azul-claro: #dbeafe;
+  --azul-bg: #eff6ff;
+  --naranja: #ea580c;
+  --naranja-claro: #fed7aa;
+  --verde: #047857;
+  --verde-claro: #d1fae5;
+  --rojo: #b91c1c;
+  --rojo-claro: #fee2e2;
+  --amarillo: #b45309;
+  --amarillo-claro: #fef3c7;
+  --gris: #475569;
+  --gris-claro: #f1f5f9;
+  --gris-borde: #e2e8f0;
+  --texto: #0f172a;
+  --texto-suave: #334155;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--texto);
+  background: #f8fafc;
+  line-height: 1.55;
+  font-size: 16px;
+}
+.layout { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
+
+header {
+  background: linear-gradient(135deg, var(--azul-osc), var(--azul));
+  color: white;
+  padding: 28px 16px 26px;
+}
+header .inner { max-width: 1100px; margin: 0 auto; }
+header .institucion {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.85; margin-bottom: 2px;
+}
+header .departamento {
+  font-size: 0.88rem; font-weight: 400; opacity: 0.92;
+  margin-bottom: 18px;
+}
+header .manual-titulo {
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+header .manual-subtitulo {
+  font-size: 0.92rem; font-weight: 400; opacity: 0.88;
+  letter-spacing: 0.01em; margin-top: 2px;
+}
+header .separador {
+  height: 1px; background: rgba(255,255,255,0.25);
+  margin: 18px 0 14px; max-width: 80px;
+}
+header .capitulo-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;
+}
+header h1 {
+  font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 4px; line-height: 1.15;
+}
+header .subtitle {
+  font-size: 0.88rem; opacity: 0.88; font-weight: 400;
+}
+@media (max-width: 600px) {
+  header .manual-titulo { font-size: 1.25rem; }
+  header h1 { font-size: 1.35rem; }
+}
+
+nav.tabs {
+  position: sticky; top: 0; z-index: 50;
+  background: white; border-bottom: 1px solid var(--gris-borde);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+nav.tabs .inner { max-width: 1100px; margin: 0 auto; padding: 0 8px; display: flex; gap: 2px; }
+nav.tabs button {
+  background: transparent; border: none; padding: 14px 14px;
+  font-size: 0.88rem; font-weight: 500; color: var(--gris);
+  cursor: pointer; border-bottom: 3px solid transparent;
+  transition: all 0.15s; white-space: nowrap;
+  font-family: inherit;
+}
+nav.tabs button:hover { color: var(--azul); background: var(--azul-bg); }
+nav.tabs button.active { color: var(--azul-osc); border-bottom-color: var(--azul); font-weight: 600; }
+
+section.tab-content { display: none; padding-top: 24px; }
+section.tab-content.active { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+h2 {
+  font-size: 1.35rem; color: var(--azul-osc); font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.01em;
+  padding-bottom: 8px; border-bottom: 2px solid var(--azul-claro);
+}
+h3 { font-size: 1.1rem; color: var(--azul-osc); margin: 20px 0 10px; font-weight: 600; }
+h4 { font-size: 1rem; color: var(--gris); margin: 16px 0 8px; font-weight: 600; }
+p { margin-bottom: 12px; color: var(--texto-suave); }
+ul, ol { margin: 0 0 12px 22px; color: var(--texto-suave); }
+li { margin-bottom: 4px; }
+
+.card {
+  background: white; border-radius: 10px; padding: 20px;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  border: 1px solid var(--gris-borde); margin-bottom: 16px;
+}
+.card.azul { background: var(--azul-bg); border-color: var(--azul-claro); }
+.card.amarilla { background: var(--amarillo-claro); border-color: #fde68a; }
+.card.naranja { background: var(--naranja-claro); border-color: #fdba74; }
+.card.roja { background: var(--rojo-claro); border-color: #fecaca; }
+.card.verde { background: var(--verde-claro); border-color: #a7f3d0; }
+
+.calc {
+  background: white; border: 1px solid var(--gris-borde); border-radius: 10px;
+  padding: 18px; margin-bottom: 16px;
+}
+.calc-title {
+  font-weight: 600; color: var(--azul-osc); font-size: 1.05rem;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.calc-title::before { content: "⚙"; color: var(--azul); font-size: 1.1rem; }
+.calc-row {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: end;
+  margin-bottom: 12px;
+}
+.calc-field { flex: 1; min-width: 140px; }
+.calc-field label {
+  display: block; font-size: 0.82rem; color: var(--gris);
+  margin-bottom: 4px; font-weight: 500;
+}
+.calc-field input, .calc-field select {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--gris-borde);
+  border-radius: 7px; font-size: 0.95rem; font-family: inherit;
+  background: white;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+.calc-field input:focus, .calc-field select:focus {
+  outline: none; border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.12);
+}
+.calc-result {
+  background: var(--azul-bg); border-left: 4px solid var(--azul);
+  padding: 12px 14px; border-radius: 6px; margin-top: 12px;
+  font-size: 0.95rem; display: none;
+}
+.calc-result.show { display: block; }
+.calc-result strong { color: var(--azul-osc); font-size: 1.05rem; }
+.calc-result.amarillo { background: var(--amarillo-claro); border-left-color: var(--amarillo); }
+.calc-result.amarillo strong { color: #78350f; }
+.calc-result.naranja { background: var(--naranja-claro); border-left-color: var(--naranja); }
+.calc-result.naranja strong { color: #7c2d12; }
+.calc-result.rojo { background: var(--rojo-claro); border-left-color: var(--rojo); }
+.calc-result.rojo strong { color: #7f1d1d; }
+.calc-result.verde { background: var(--verde-claro); border-left-color: var(--verde); }
+.calc-result.verde strong { color: #065f46; }
+
+table {
+  width: 100%; border-collapse: collapse; margin: 12px 0;
+  background: white; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  font-size: 0.92rem;
+}
+th { background: var(--azul-osc); color: white; padding: 10px 12px;
+  text-align: left; font-weight: 600; font-size: 0.88rem; }
+td { padding: 9px 12px; border-bottom: 1px solid var(--gris-borde); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f8fafc; }
+.tabla-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.escenario-list { list-style: none; margin: 0; padding: 0; }
+.escenario {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 8px; padding: 14px; margin-bottom: 10px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.escenario .texto { flex: 1; font-size: 0.95rem; color: var(--texto-suave); }
+.escenario .opciones {
+  display: flex; flex-direction: column; gap: 4px; min-width: 130px;
+}
+.escenario .opciones button {
+  padding: 6px 10px; border: 1px solid var(--gris-borde);
+  background: white; border-radius: 6px; font-size: 0.85rem;
+  cursor: pointer; font-family: inherit; transition: all 0.15s;
+  color: var(--gris);
+}
+.escenario .opciones button:hover { background: var(--azul-bg); border-color: var(--azul); }
+.escenario .opciones button.seleccion {
+  background: var(--azul); color: white; border-color: var(--azul);
+}
+.escenario .feedback {
+  margin-top: 10px; padding: 10px 12px; border-radius: 6px;
+  font-size: 0.88rem; display: none; flex-basis: 100%;
+}
+.escenario .feedback.acierto { background: var(--verde-claro); color: #065f46; }
+.escenario .feedback.error   { background: var(--rojo-claro);  color: #7f1d1d; }
+.escenario .feedback.show { display: block; }
+
+.miotoma-quiz .pregunta {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 8px; padding: 16px; margin-bottom: 12px;
+}
+.miotoma-quiz .pregunta .enunciado { font-weight: 600; margin-bottom: 10px; color: var(--texto); }
+.miotoma-quiz .pregunta .opciones {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+}
+.miotoma-quiz .pregunta button {
+  padding: 8px 10px; border: 1px solid var(--gris-borde);
+  background: white; border-radius: 6px; cursor: pointer;
+  font-family: inherit; font-size: 0.88rem; transition: all 0.15s;
+}
+.miotoma-quiz .pregunta button:hover:not(:disabled) {
+  background: var(--azul-bg); border-color: var(--azul);
+}
+.miotoma-quiz .pregunta button.acierto {
+  background: var(--verde-claro); border-color: var(--verde); color: #065f46;
+  font-weight: 600;
+}
+.miotoma-quiz .pregunta button.error {
+  background: var(--rojo-claro); border-color: var(--rojo); color: #7f1d1d;
+}
+
+.caso { background: white; border: 1px solid var(--gris-borde);
+  border-radius: 10px; padding: 22px; margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.caso h3 { color: var(--naranja); border-bottom: 2px solid var(--naranja-claro); padding-bottom: 6px; margin-top: 0; }
+.caso .historia {
+  background: var(--gris-claro); padding: 12px 14px;
+  border-left: 4px solid var(--gris); border-radius: 6px;
+  margin-bottom: 16px; font-style: italic; color: var(--texto-suave);
+}
+.caso .pregunta {
+  background: var(--azul-bg); padding: 14px;
+  border-radius: 8px; margin-top: 14px;
+}
+.caso .pregunta .enunciado { font-weight: 600; color: var(--azul-osc); margin-bottom: 8px; }
+.caso .pregunta .opciones { display: flex; flex-direction: column; gap: 6px; }
+.caso .pregunta .opciones button {
+  text-align: left; padding: 10px 12px; border: 1px solid var(--gris-borde);
+  background: white; border-radius: 6px; cursor: pointer;
+  font-family: inherit; font-size: 0.92rem; transition: all 0.15s;
+}
+.caso .pregunta .opciones button:hover:not(:disabled) {
+  background: var(--azul-bg); border-color: var(--azul);
+}
+.caso .pregunta .opciones button.acierto {
+  background: var(--verde-claro); border-color: var(--verde); color: #065f46;
+  font-weight: 600;
+}
+.caso .pregunta .opciones button.error {
+  background: var(--rojo-claro); border-color: var(--rojo); color: #7f1d1d;
+}
+.caso .pregunta .feedback {
+  display: none; margin-top: 10px; padding: 10px 12px;
+  border-radius: 6px; font-size: 0.9rem;
+}
+.caso .pregunta .feedback.show { display: block; }
+.caso .pregunta .feedback.acierto { background: var(--verde-claro); color: #065f46; }
+.caso .pregunta .feedback.error   { background: var(--rojo-claro);  color: #7f1d1d; }
+
+.examen .pregunta {
+  background: white; border: 1px solid var(--gris-borde);
+  border-radius: 10px; padding: 18px; margin-bottom: 14px;
+}
+.examen .pregunta .num {
+  display: inline-block; background: var(--azul); color: white;
+  padding: 2px 10px; border-radius: 12px; font-size: 0.8rem;
+  font-weight: 600; margin-bottom: 8px;
+}
+.examen .pregunta .enunciado { font-weight: 600; margin-bottom: 10px; color: var(--texto); }
+.examen .pregunta .opciones { display: flex; flex-direction: column; gap: 6px; }
+.examen .pregunta .opciones button {
+  text-align: left; padding: 10px 12px; border: 1px solid var(--gris-borde);
+  background: white; border-radius: 6px; cursor: pointer;
+  font-family: inherit; font-size: 0.92rem; transition: all 0.15s;
+}
+.examen .pregunta .opciones button:hover:not(:disabled) {
+  background: var(--azul-bg); border-color: var(--azul);
+}
+.examen .pregunta .opciones button.acierto {
+  background: var(--verde-claro); border-color: var(--verde); color: #065f46;
+  font-weight: 600;
+}
+.examen .pregunta .opciones button.error {
+  background: var(--rojo-claro); border-color: var(--rojo); color: #7f1d1d;
+}
+.examen .pregunta .feedback {
+  display: none; margin-top: 10px; padding: 10px 12px;
+  border-radius: 6px; font-size: 0.9rem;
+}
+.examen .pregunta .feedback.show { display: block; }
+.examen .pregunta .feedback.acierto { background: var(--verde-claro); color: #065f46; }
+.examen .pregunta .feedback.error   { background: var(--rojo-claro);  color: #7f1d1d; }
+
+.examen-puntaje {
+  position: sticky; top: 60px; z-index: 40;
+  background: var(--azul-osc); color: white;
+  padding: 12px 16px; border-radius: 10px;
+  margin-bottom: 16px; font-weight: 600;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+footer {
+  text-align: center; padding: 24px 16px; color: var(--gris);
+  font-size: 0.82rem; border-top: 1px solid var(--gris-borde);
+  margin-top: 40px;
+}
+footer a { color: var(--azul); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="institucion">Universidad Nacional de Colombia</div>
+    <div class="departamento">Departamento de Medicina Física y Rehabilitación</div>
+    <div class="manual-titulo">Manual de Rehabilitación</div>
+    <div class="manual-subtitulo">para estudiantes de medicina</div>
+    <div class="separador"></div>
+    <div class="capitulo-label">Capítulo 6</div>
+    <h1>Electrodiagnóstico aplicado</h1>
+    <div class="subtitle">Guía clínica interactiva · Adaptado del capítulo del manual</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="inner">
+    <button class="tab-btn active" data-tab="intro">1. Introducción</button>
+    <button class="tab-btn" data-tab="ncv">2. Neuroconducción</button>
+    <button class="tab-btn" data-tab="emg">3. Electromiografía</button>
+    <button class="tab-btn" data-tab="indicaciones">4. Indicaciones</button>
+    <button class="tab-btn" data-tab="stc">5. Túnel del carpo</button>
+    <button class="tab-btn" data-tab="radiculopatias">6. Radiculopatías</button>
+    <button class="tab-btn" data-tab="polineuropatias">7. Polineuropatías</button>
+    <button class="tab-btn" data-tab="lesion">8. Lesión nerviosa</button>
+    <button class="tab-btn" data-tab="raras">9. Enfermedades raras</button>
+    <button class="tab-btn" data-tab="casos">10. Casos clínicos</button>
+    <button class="tab-btn" data-tab="examen">11. Autoevaluación</button>
+  </div>
+</nav>
+
+<div class="layout">
+
+<!-- ============================================================ -->
+<!-- 1. INTRODUCCIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content active" id="intro">
+  <h2>¿Qué es el electrodiagnóstico y por qué importa?</h2>
+
+  <p>El estudio electrodiagnóstico --la combinación de neuroconducción nerviosa y electromiografía con aguja-- es la extensión cuantitativa del examen físico neuromuscular. Lo que el examen sospecha, el electrodiagnóstico confirma, gradúa y localiza.</p>
+
+  <div class="card azul">
+    <h3 style="margin-top:0">El médico general no interpreta el estudio. Pero sí debe:</h3>
+    <ul>
+      <li><strong>Saber cuándo solicitarlo</strong> --y cuándo no--.</li>
+      <li><strong>Saber qué puede y qué no puede responder.</strong></li>
+      <li><strong>Saber leer el informe</strong> e integrarlo a la historia clínica del paciente.</li>
+    </ul>
+  </div>
+
+  <h3>La unidad motora como base</h3>
+  <p>La pieza elemental del sistema neuromuscular voluntario es la <em>unidad motora</em>: una motoneurona del asta anterior medular más todas las fibras musculares que inerva. Cualquier evento patológico --pérdida axonal, desmielinización, fallo en la transmisión sináptica, lesión muscular-- altera el comportamiento eléctrico de esa unidad de modos reconocibles. El electrodiagnóstico es la descripción cuantitativa de cómo se está comportando.</p>
+
+  <h3>Las dos técnicas complementarias</h3>
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Neuroconducción nerviosa (NCV)</h4>
+    <p>Estimula eléctricamente un nervio periférico en uno o más puntos y registra el potencial de acción que se propaga distalmente. Mide tres parámetros: <strong>latencia</strong>, <strong>amplitud</strong> y <strong>velocidad de conducción</strong>. Permite distinguir el patrón axonal del desmielinizante.</p>
+  </div>
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Electromiografía con aguja (EMG)</h4>
+    <p>Registra directamente la actividad eléctrica del músculo, en reposo y durante la contracción voluntaria. Identifica denervación activa, reinervación crónica, miopatía y patrón de reclutamiento.</p>
+  </div>
+
+  <div class="card amarilla">
+    <strong>⚠ Punto clave.</strong> El electrodiagnóstico no es una prueba de tamizaje. Su rendimiento depende de la pregunta clínica que motivó el estudio. Pedirlo "por si acaso" en un paciente sin sospecha clara genera más incertidumbre que claridad.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. NEUROCONDUCCIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content" id="ncv">
+  <h2>Neuroconducción nerviosa</h2>
+
+  <p>Tres parámetros y un patrón. La neuroconducción registra:</p>
+
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>Parámetro</th><th>Qué refleja</th><th>Qué lo altera</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Latencia distal</strong></td><td>Tiempo entre estímulo y respuesta</td><td>Se prolonga en desmielinización del segmento estudiado</td></tr>
+        <tr><td><strong>Amplitud</strong></td><td>Número de axones funcionantes y fibras musculares activadas</td><td>Cae con pérdida axonal</td></tr>
+        <tr><td><strong>Velocidad de conducción</strong></td><td>Rapidez de propagación entre dos puntos de estímulo</td><td>Disminuye en desmielinización</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>El patrón diagnóstico binario</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0;">
+    <div class="card naranja" style="margin: 0">
+      <h4 style="margin-top:0; color: #7c2d12">Patrón axonal</h4>
+      <p style="margin-bottom:0"><strong>Amplitudes bajas</strong> con latencia y velocidad <em>preservadas</em>. Típico de polineuropatías metabólicas y tóxicas, lesiones traumáticas axonales. Recuperación parcial y lenta o nula.</p>
+    </div>
+    <div class="card azul" style="margin: 0">
+      <h4 style="margin-top:0; color: var(--azul-osc)">Patrón desmielinizante</h4>
+      <p style="margin-bottom:0"><strong>Latencias prolongadas, velocidades bajas</strong>, amplitudes inicialmente conservadas. Típico de Guillain-Barré, CIDP, atrapamientos focales. Recuperación habitual en semanas a meses.</p>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">Interpretador del patrón electrofisiológico</div>
+    <p style="font-size: 0.88rem; margin-bottom: 14px;">Ingresa los valores reportados en una neuroconducción motora distal y obtén el patrón electrofisiológico aproximado. <em>Solo orientativo: la interpretación clínica completa requiere el informe completo y la integración con EMG.</em></p>
+
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Nervio explorado</label>
+        <select id="ncv-nervio">
+          <option value="mediano">Mediano motor</option>
+          <option value="cubital">Cubital motor</option>
+          <option value="peroneo">Peroneo motor</option>
+          <option value="tibial">Tibial motor</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Latencia distal (ms)</label>
+        <input type="number" id="ncv-lat" step="0.1" placeholder="ej. 3.8">
+      </div>
+      <div class="calc-field">
+        <label>Amplitud distal (mV)</label>
+        <input type="number" id="ncv-amp" step="0.1" placeholder="ej. 6.5">
+      </div>
+      <div class="calc-field">
+        <label>Velocidad (m/s)</label>
+        <input type="number" id="ncv-vel" step="0.5" placeholder="ej. 52">
+      </div>
+    </div>
+
+    <div class="calc-result" id="ncv-resultado">
+      <div id="ncv-titulo"></div>
+      <div id="ncv-detalle" style="margin-top: 8px; font-size: 0.9rem;"></div>
+    </div>
+  </div>
+
+  <h3>Ondas tardías: F y H</h3>
+  <p>A los parámetros distales se suman dos respuestas que exploran segmentos proximales:</p>
+  <ul>
+    <li><strong>Onda F:</strong> respuesta motora de retorno que viaja del punto de estímulo al asta anterior y vuelve. Informa sobre conducción en raíces y plexo.</li>
+    <li><strong>Reflejo H:</strong> equivalente electrofisiológico del reflejo aquiliano. Su ausencia unilateral en miembro inferior es muy específica de radiculopatía S1.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. ELECTROMIOGRAFÍA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="emg">
+  <h2>Electromiografía con aguja</h2>
+
+  <p>La aguja registra directamente la actividad eléctrica del músculo en reposo y durante la contracción voluntaria. La información se ordena en <strong>cuatro dominios</strong>:</p>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">1. Actividad de inserción</h4>
+    <p>Se observa al introducir la aguja. Un aumento sostenido sugiere irritabilidad de la membrana muscular --uno de los hallazgos más precoces en denervación--.</p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">2. Actividad espontánea en reposo</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Fibrilaciones</strong> y <strong>ondas agudas positivas</strong> → denervación activa (lesión axonal aguda o pérdida reciente de unidad motora). Aparecen 10–21 días después del evento.</li>
+      <li><strong>Fasciculaciones</strong> → hiperexcitabilidad del axón distal o de la motoneurona. Típicas de enfermedad de motoneurona.</li>
+      <li><strong>Descargas miotónicas</strong> → canalopatía muscular.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">3. Morfología de la unidad motora</h4>
+    <ul style="margin-bottom: 0">
+      <li>Unidades <strong>grandes y polifásicas</strong> → reinervación crónica neurogénica.</li>
+      <li>Unidades <strong>pequeñas, polifásicas y de duración corta</strong> → proceso miopático.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">4. Patrón de reclutamiento</h4>
+    <p style="margin-bottom: 0"><strong>Reducido</strong> en cuadros neurogénicos (menos unidades disponibles), <strong>prematuro o miopático</strong> cuando el músculo recluta de manera inapropiadamente intensa para la fuerza generada.</p>
+  </div>
+
+  <div class="card amarilla">
+    <strong>⚠ Tiempos importan.</strong> Los signos de denervación activa (fibrilaciones, ondas agudas positivas) <strong>aparecen entre 10 y 21 días</strong> después de la lesión, cuando se completa la degeneración walleriana. Una EMG inmediata post-trauma puede ser engañosa.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. INDICACIONES -->
+<!-- ============================================================ -->
+<section class="tab-content" id="indicaciones">
+  <h2>¿Cuándo pedir un electrodiagnóstico?</h2>
+
+  <p>Las indicaciones más frecuentes en atención primaria:</p>
+  <ul>
+    <li>Sospecha de <strong>síndrome del túnel del carpo</strong> para confirmar, graduar o documentar.</li>
+    <li>Sospecha de <strong>atrapamiento del nervio cubital</strong> en el codo.</li>
+    <li><strong>Radiculopatía cervical o lumbosacra</strong> con persistencia &gt; 6 semanas o déficit motor progresivo.</li>
+    <li>Sospecha de <strong>polineuropatía</strong>: diabética, inflamatoria, asociada a quimioterapia.</li>
+    <li>Sospecha de <strong>enfermedad de motoneurona</strong> (parte de los criterios diagnósticos de ELA).</li>
+    <li>Evaluación de <strong>debilidad de causa no clara</strong>.</li>
+    <li>Seguimiento de <strong>lesiones traumáticas de nervio periférico</strong>.</li>
+  </ul>
+
+  <div class="card roja">
+    <strong>El electrodiagnóstico NO responde:</strong>
+    <ul style="margin-bottom: 0">
+      <li>Fibromialgia, síndrome miofascial, dolor MSK no neurogénico.</li>
+      <li>Hernia discal aguda en paciente candidato a cirugía precoz (la imagen es la prueba que cambia el manejo).</li>
+      <li>Tamizaje en pacientes asintomáticos.</li>
+      <li>No reemplaza el examen físico: una neuroconducción "normal" no excluye neuropatía de fibra fina ni miopatía leve.</li>
+    </ul>
+  </div>
+
+  <h3>Pon a prueba tu criterio</h3>
+  <p style="font-size: 0.92rem;">Para cada escenario clínico, decide si pedirías electrodiagnóstico ahora, esperarías o no lo solicitarías. Recibirás retroalimentación inmediata.</p>
+
+  <ul class="escenario-list" id="escenarios"></ul>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. TÚNEL DEL CARPO -->
+<!-- ============================================================ -->
+<section class="tab-content" id="stc">
+  <h2>Síndrome del túnel del carpo</h2>
+
+  <p>Es la primera causa de remisión a laboratorios de electrofisiología en el mundo. Sirve como caso prototipo para integrar clínica, neuroconducción y ultrasonido.</p>
+
+  <h3>Cómo se construye el diagnóstico</h3>
+  <ol>
+    <li><strong>Clínica.</strong> Parestesias nocturnas en territorio del nervio mediano, reproducidas por las maniobras de Phalen, Tinel y Durkan. Atrofia tenar en casos avanzados.</li>
+    <li><strong>Neuroconducción.</strong> Prolongación de la latencia sensitiva del mediano en el segundo dedo (sensibilidad ≈ 0,6; especificidad &gt; 0,95). Latencia motora prolongada en grados moderados; amplitud motora cae en grados severos.</li>
+    <li><strong>Ultrasonido.</strong> Engrosamiento del nervio mediano a la entrada del túnel (área &gt; 10 mm² en adulto). Útil cuando NCV es normal y la sospecha clínica es alta.</li>
+  </ol>
+
+  <div class="calc">
+    <div class="calc-title">Calculadora de severidad — Escala de Padua</div>
+    <p style="font-size: 0.88rem; margin-bottom: 14px;">La escala italiana de Padua estratifica el túnel del carpo en cinco grados según los hallazgos electrofisiológicos. Ingresa los valores del nervio mediano:</p>
+
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Latencia sensitiva (ms)</label>
+        <input type="number" id="padua-ls" step="0.1" placeholder="normal &lt; 3.5">
+      </div>
+      <div class="calc-field">
+        <label>Amplitud sensitiva (μV)</label>
+        <input type="number" id="padua-as" step="0.1" placeholder="normal &gt; 10">
+      </div>
+      <div class="calc-field">
+        <label>Latencia motora distal (ms)</label>
+        <input type="number" id="padua-lm" step="0.1" placeholder="normal &lt; 4.4">
+      </div>
+      <div class="calc-field">
+        <label>Amplitud motora (mV)</label>
+        <input type="number" id="padua-am" step="0.1" placeholder="normal &gt; 4">
+      </div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>¿Hay respuesta sensitiva?</label>
+        <select id="padua-sens">
+          <option value="si">Sí, identificable</option>
+          <option value="no">No, ausente</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>¿Hay respuesta motora?</label>
+        <select id="padua-mot">
+          <option value="si">Sí, identificable</option>
+          <option value="no">No, ausente</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-result" id="padua-resultado">
+      <div id="padua-titulo"></div>
+      <div id="padua-detalle" style="margin-top: 8px; font-size: 0.9rem;"></div>
+    </div>
+  </div>
+
+  <h3>Diagnósticos diferenciales que no se pueden olvidar</h3>
+  <p>El cuadro sensitivo del STC se solapa con la radiculopatía cervical C6–C7, la neuropatía proximal del mediano y, ocasionalmente, las polineuropatías distales con presentación predominante en miembros superiores. La neuroconducción discrimina entre estas entidades. Si la NCV del mediano es claramente normal en un paciente con parestesias persistentes, hay que ampliar el estudio.</p>
+
+  <div class="card amarilla">
+    <strong>Cuándo bajar el umbral de remisión:</strong> síntomas nocturnos persistentes &gt; 6–8 semanas pese a tratamiento conservador, déficit motor objetivable en oposición o abducción del pulgar, atrofia tenar, contexto laboral con necesidad de documentación, duda diagnóstica con patología cervical asociada.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. RADICULOPATÍAS -->
+<!-- ============================================================ -->
+<section class="tab-content" id="radiculopatias">
+  <h2>Radiculopatías cervical y lumbosacra</h2>
+
+  <p>La pregunta clínica que el médico general traslada al laboratorio rara vez es <em>"¿hay radiculopatía?"</em> --el cuadro suele ser clínicamente claro--, sino <em>"¿qué raíz?"</em>, <em>"¿qué severidad?"</em> y <em>"¿hay otra explicación que no estoy considerando?"</em>.</p>
+
+  <h3>El patrón electrofisiológico característico</h3>
+  <p>La radiculopatía es, por definición, una lesión proximal al ganglio de la raíz dorsal. Esa localización tiene una consecuencia electrofisiológica importante: <strong>las neuroconducciones sensitivas son normales</strong> aun en radiculopatías severas, porque las fibras sensitivas distales no sufren degeneración walleriana. Es el principal hallazgo que separa una radiculopatía de una plexopatía o neuropatía periférica.</p>
+
+  <p>Las neuroconducciones motoras también suelen ser normales. La información diagnóstica viene de la <strong>EMG con aguja</strong>: denervación activa (fibrilaciones, ondas agudas positivas) en músculos inervados por la misma raíz pero por nervios distintos.</p>
+
+  <h3>Mapas musculares mínimos</h3>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>Raíz</th><th>Músculos centinela</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>C5–C6</td><td>Deltoideus, supraspinatus, biceps brachii</td></tr>
+        <tr><td>C6–C7</td><td>Biceps, flexor carpi radialis, triceps brachii</td></tr>
+        <tr><td>C8–T1</td><td>Abductor digiti minimi, abductor pollicis brevis, primer interóseo dorsal</td></tr>
+        <tr><td>L4</td><td>Quadriceps femoris, tibialis anterior</td></tr>
+        <tr><td>L5</td><td>Tibialis anterior, extensor hallucis longus, tensor fasciae latae, paraespinales lumbares bajos</td></tr>
+        <tr><td>S1</td><td>Gastrocnemius medial, gluteus maximus; reflejo H abolido</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Quiz interactivo: mapa miotomas</h3>
+  <p style="font-size: 0.92rem">Identifica la raíz responsable de cada función:</p>
+  <div class="miotoma-quiz" id="miotoma-quiz"></div>
+
+  <div class="card azul">
+    <strong>Cuándo el electrodiagnóstico cambia el manejo en radiculopatía.</strong> En cuadros atípicos o discordantes con la imagen, en sospecha de diagnóstico alternativo (ELA, polineuropatía, plexopatía), en decisiones quirúrgicas en casos límite, en documentación de severidad para compensación laboral, o en seguimiento postoperatorio cuando hay déficit residual.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. POLINEUROPATÍAS -->
+<!-- ============================================================ -->
+<section class="tab-content" id="polineuropatias">
+  <h2>Polineuropatías</h2>
+
+  <p>Afectación simétrica, generalmente distal y ascendente, de múltiples nervios periféricos. La diabetes es la causa más frecuente.</p>
+
+  <h3>Clasificación que orienta el estudio</h3>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>Eje</th><th>Categorías</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Mecanismo</strong></td><td>Axonales (la mayoría: tóxicas, metabólicas, hereditarias) vs. desmielinizantes (Guillain-Barré, CIDP, Charcot-Marie-Tooth tipo 1)</td></tr>
+        <tr><td><strong>Distribución</strong></td><td>Mononeuropatía, mononeuritis múltiple, polineuropatía distal simétrica, plexopatía</td></tr>
+        <tr><td><strong>Modalidad</strong></td><td>Sensitiva pura, motora pura, sensitivomotora (la mayoría), autonómica</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Polineuropatía diabética como prototipo</h3>
+  <p>Sensitivomotora distal, simétrica. Inicio con parestesias en <em>calcetín</em>; progresión a patrón <em>guante</em>. El primer hallazgo electrofisiológico es la <strong>disminución de las amplitudes de los potenciales sensitivos en miembros inferiores</strong>. Lo demás aparece progresivamente.</p>
+
+  <p>La EMG sirve para tres papeles clínicos:</p>
+  <ol>
+    <li>Confirmar el patrón axonal sensitivomotor distal típico.</li>
+    <li>Descartar atrapamientos sobreimpuestos --STC y neuropatía cubital son más frecuentes en diabéticos--.</li>
+    <li>Detectar formas atípicas (radículo-plexopatía diabética, neuropatía multifocal).</li>
+  </ol>
+
+  <div class="card roja">
+    <strong>Las tres polineuropatías que el médico general debe reconocer como urgencia:</strong>
+    <ul style="margin-bottom: 0">
+      <li><strong>Síndrome de Guillain-Barré.</strong> Debilidad ascendente rápidamente progresiva con arreflexia. Riesgo de fallo respiratorio. Remitir inmediatamente a urgencias.</li>
+      <li><strong>CIDP.</strong> Cuadro similar a GBS pero con evolución mayor a ocho semanas y respuesta a inmunomoduladores.</li>
+      <li><strong>Polineuropatía paraneoplásica.</strong> Mayor con pérdida de peso, debilidad progresiva y patrón sensitivo ganglionar. Obliga a búsqueda activa de neoplasia.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 8. LESIÓN NERVIOSA -->
+<!-- ============================================================ -->
+<section class="tab-content" id="lesion">
+  <h2>Lesiones del nervio periférico</h2>
+
+  <h3>Clasificación de Seddon</h3>
+  <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin: 14px 0;">
+    <div class="card verde" style="margin: 0">
+      <h4 style="margin-top:0; color: #065f46">Neurapraxia</h4>
+      <p style="margin-bottom:0">Bloqueo focal de la conducción sin pérdida de continuidad axonal. La mielina está dañada pero el axón es íntegro. <strong>Recuperación espontánea en semanas a pocos meses.</strong> Ejemplo prototipo: parálisis del sábado por la noche (radial en canal de torsión).</p>
+    </div>
+    <div class="card amarilla" style="margin: 0">
+      <h4 style="margin-top:0; color: #78350f">Axonotmesis</h4>
+      <p style="margin-bottom:0">Pérdida de continuidad axonal con preservación del tubo endoneural. Hay degeneración walleriana distal y reinervación lenta a lo largo del trayecto preservado. <strong>Recuperación parcial en meses.</strong></p>
+    </div>
+    <div class="card roja" style="margin: 0">
+      <h4 style="margin-top:0; color: #7f1d1d">Neurotmesis</h4>
+      <p style="margin-bottom:0">Sección completa del nervio incluyendo tubo endoneural. La regeneración espontánea es excepcional. <strong>Manejo quirúrgico.</strong></p>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-title">¿Cuándo programar el electrodiagnóstico tras una lesión nerviosa?</div>
+    <p style="font-size: 0.88rem; margin-bottom: 14px;">Los signos de denervación activa requieren que se complete la degeneración walleriana. Ingresa cuántos días han pasado desde el trauma:</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Días desde el trauma</label>
+        <input type="number" id="wal-dias" step="1" placeholder="ej. 14">
+      </div>
+    </div>
+    <div class="calc-result" id="wal-resultado">
+      <div id="wal-titulo"></div>
+      <div id="wal-detalle" style="margin-top: 8px; font-size: 0.9rem;"></div>
+    </div>
+  </div>
+
+  <h3>Atrapamientos compresivos comunes</h3>
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Nervio</th><th>Cuadro</th><th>Hallazgo EDX clave</th></tr></thead>
+      <tbody>
+        <tr><td>Cubital en codo</td><td>Parestesias 4.°–5.° dedos, debilidad abducción 5.° dedo, atrofia 1.er interóseo dorsal</td><td>Disminución focal de velocidad o bloqueo en segmento del codo</td></tr>
+        <tr><td>Radial en canal de torsión</td><td>Parálisis del sábado por la noche; mano caída tras dormir con el brazo colgando</td><td>Bloqueo de conducción en canal humeral; pronóstico habitualmente favorable (neurapraxia)</td></tr>
+        <tr><td>Peroneo común en cabeza del peroné</td><td>Pie caído sin dolor radicular, tras encamamiento o pérdida reciente de peso</td><td>Velocidad enlentecida focal o bloqueo a nivel del peroné</td></tr>
+        <tr><td>Mediano en otros sitios</td><td>Síndrome del pronador, nervio interóseo anterior --raros--</td><td>Sospechar cuando la NCV en muñeca es normal y el cuadro persiste</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. ENFERMEDADES RARAS -->
+<!-- ============================================================ -->
+<section class="tab-content" id="raras">
+  <h2>Una mención a las enfermedades raras</h2>
+
+  <p>El médico general las verá pocas veces, pero debe reconocerlas como patrones porque su impacto pronóstico es alto y el camino de remisión debe ser rápido.</p>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Enfermedades de motoneurona (ELA)</h4>
+    <p>Combinan signos de neurona motora superior (hiperreflexia, espasticidad, Babinski) con signos de neurona motora inferior (atrofia, fasciculaciones, debilidad). La sospecha clínica es la pareja <em>atrofia + fasciculaciones</em> en un paciente sin dolor radicular ni déficit sensitivo. La EMG es parte de los criterios diagnósticos vigentes (El Escorial, Awaji). Remisión a neurología.</p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Miastenia gravis</h4>
+    <p>Debilidad fluctuante con empeoramiento al avanzar el día, ptosis, debilidad ocular y bulbar, fenómeno de fatigabilidad. Estudio de elección: <strong>EMG de fibra única</strong> (jitter aumentado). Estimulación nerviosa repetitiva a 3 Hz con decremento &gt; 10 % apoya el diagnóstico. La sospecha clínica obliga a remisión inmediata por riesgo de crisis miasténica.</p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Síndrome de Lambert-Eaton</h4>
+    <p>Debilidad que <em>mejora</em> con el ejercicio (al contrario de miastenia), hiporreflexia, disautonomía. Frecuentemente paraneoplásico (carcinoma microcítico de pulmón). Estimulación a alta frecuencia (30–50 Hz) muestra <strong>incremento marcado</strong> de amplitud, hallazgo opuesto al de miastenia.</p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Miopatías (hereditarias y adquiridas)</h4>
+    <p>Debilidad simétrica proximal, reflejos osteotendinosos preservados o disminuidos en proporción a la pérdida de fuerza, ausencia de síntomas sensitivos. CK puede estar elevada. EMG: unidades motoras pequeñas y polifásicas con reclutamiento prematuro. Diagnóstico definitivo histopatológico, genético o serológico.</p>
+  </div>
+
+  <div class="card">
+    <h4 style="margin-top:0; color: var(--azul-osc)">Neuropatías hereditarias (Charcot-Marie-Tooth, HNPP)</h4>
+    <p>Patrón clínico: pies cavos, arreflexia, atrofia distal de inicio juvenil; antecedente familiar. EDX distingue formas desmielinizantes de axonales; junto con estudio genético, permite diagnóstico definitivo.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. CASOS CLÍNICOS -->
+<!-- ============================================================ -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos guiados</h2>
+  <p>Dos casos progresivos que integran clínica, decisión de estudio y lectura del informe.</p>
+  <div id="casos-container"></div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 11. AUTOEVALUACIÓN -->
+<!-- ============================================================ -->
+<section class="tab-content examen" id="examen">
+  <h2>Autoevaluación</h2>
+
+  <div class="examen-puntaje">
+    <span>Tu progreso</span>
+    <span id="examen-puntaje-texto">0 de 10 preguntas correctas</span>
+  </div>
+
+  <div id="examen-container"></div>
+</section>
+
+</div>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// ============================================================
+// Navegación de pestañas
+// ============================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.dataset.tab);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ============================================================
+// Calculadora: patrón EDX (axonal vs desmielinizante)
+// ============================================================
+const ncvNormales = {
+  mediano:  { lat: 4.4, amp: 4, vel: 50 },
+  cubital:  { lat: 3.3, amp: 6, vel: 50 },
+  peroneo:  { lat: 6.5, amp: 2, vel: 40 },
+  tibial:   { lat: 6.0, amp: 4, vel: 40 }
+};
+function interpretarNCV() {
+  const nervio = document.getElementById('ncv-nervio').value;
+  const lat = parseFloat(document.getElementById('ncv-lat').value);
+  const amp = parseFloat(document.getElementById('ncv-amp').value);
+  const vel = parseFloat(document.getElementById('ncv-vel').value);
+  const box = document.getElementById('ncv-resultado');
+  const tit = document.getElementById('ncv-titulo');
+  const det = document.getElementById('ncv-detalle');
+  if (isNaN(lat) || isNaN(amp) || isNaN(vel)) { box.classList.remove('show'); return; }
+  const ref = ncvNormales[nervio];
+  const latProl = lat > ref.lat;
+  const ampBaja = amp < ref.amp;
+  const velBaja = vel < ref.vel;
+  let clase, titulo, detalle;
+  if (!latProl && !ampBaja && !velBaja) {
+    clase = 'verde';
+    titulo = '<strong>Patrón normal</strong>';
+    detalle = `Los tres parámetros están dentro del rango aproximado para el nervio ${nervio} (latencia &lt; ${ref.lat} ms, amplitud &gt; ${ref.amp} mV, velocidad &gt; ${ref.vel} m/s). No hay evidencia de neuropatía focal en el segmento estudiado.`;
+  } else if (ampBaja && !latProl && !velBaja) {
+    clase = 'naranja';
+    titulo = '<strong>Patrón axonal</strong>';
+    detalle = `La amplitud está disminuida con latencia y velocidad preservadas. Sugiere pérdida de axones funcionantes. Diferenciales: polineuropatía axonal (diabetes, alcohol, tóxicos), lesión traumática axonal, fase tardía de atrapamiento.`;
+  } else if ((latProl || velBaja) && !ampBaja) {
+    clase = 'azul';
+    titulo = '<strong>Patrón desmielinizante</strong>';
+    detalle = `Latencia prolongada o velocidad enlentecida con amplitud preservada. Sugiere alteración de la mielina en el segmento estudiado. Diferenciales: atrapamiento focal (túnel del carpo si es mediano, codo si es cubital), Guillain-Barré, CIDP, Charcot-Marie-Tooth tipo 1.`;
+  } else {
+    clase = 'rojo';
+    titulo = '<strong>Patrón mixto axonal-desmielinizante</strong>';
+    detalle = `Hay alteración tanto en amplitud como en latencia/velocidad. Suele indicar lesión severa o crónica con compromiso secundario del axón. La interpretación final requiere correlación con la EMG con aguja.`;
+  }
+  box.className = 'calc-result show ' + clase;
+  tit.innerHTML = titulo;
+  det.innerHTML = detalle;
+}
+['ncv-nervio','ncv-lat','ncv-amp','ncv-vel'].forEach(id =>
+  document.getElementById(id).addEventListener('input', interpretarNCV)
+);
+
+// ============================================================
+// Calculadora: escala de Padua para STC
+// ============================================================
+function calcularPadua() {
+  const ls  = parseFloat(document.getElementById('padua-ls').value);
+  const as_ = parseFloat(document.getElementById('padua-as').value);
+  const lm  = parseFloat(document.getElementById('padua-lm').value);
+  const am  = parseFloat(document.getElementById('padua-am').value);
+  const sens = document.getElementById('padua-sens').value;
+  const mot  = document.getElementById('padua-mot').value;
+  const box = document.getElementById('padua-resultado');
+  const tit = document.getElementById('padua-titulo');
+  const det = document.getElementById('padua-detalle');
+
+  let grado, clase, descripcion;
+
+  if (mot === 'no') {
+    grado = 'Extremo'; clase = 'rojo';
+    descripcion = 'Ausencia de respuesta motora del nervio mediano en muñeca. Indicación quirúrgica clara, generalmente con atrofia tenar establecida.';
+  } else if (sens === 'no' || (!isNaN(as_) && as_ < 5)) {
+    grado = 'Severo'; clase = 'rojo';
+    descripcion = 'Ausencia o reducción extrema del potencial sensitivo. Indicación quirúrgica habitual. La recuperación postquirúrgica es más lenta e incompleta cuanto mayor sea la severidad de partida.';
+  } else if (!isNaN(lm) && lm > 6.5) {
+    grado = 'Severo'; clase = 'rojo';
+    descripcion = 'Latencia motora distal muy prolongada (> 6,5 ms). Compromiso significativo de las fibras motoras. Considerar manejo quirúrgico.';
+  } else if (!isNaN(lm) && lm > 4.4) {
+    grado = 'Moderado'; clase = 'naranja';
+    descripcion = 'Latencia sensitiva y motora prolongadas. Indicación de evaluar manejo quirúrgico si los síntomas son persistentes pese al tratamiento conservador.';
+  } else if (!isNaN(ls) && ls > 3.5) {
+    grado = 'Leve'; clase = 'amarillo';
+    descripcion = 'Latencia sensitiva prolongada con conducción motora preservada. Manejo conservador inicial: ortesis nocturna, modificación ergonómica, AINE. Reevaluar a las 6–8 semanas.';
+  } else if (!isNaN(ls) && ls > 3.0) {
+    grado = 'Incipiente'; clase = 'amarillo';
+    descripcion = 'Hallazgos limítrofes. Considerar pruebas comparativas mediano-cubital en el laboratorio para confirmar. Manejo conservador y reevaluación clínica.';
+  } else {
+    grado = 'Normal'; clase = 'verde';
+    descripcion = 'Parámetros del nervio mediano dentro de rangos normales. La clínica debe interpretarse en otro contexto: descartar radiculopatía cervical o polineuropatía.';
+  }
+  box.className = 'calc-result show ' + clase;
+  tit.innerHTML = `<strong>Escala de Padua: ${grado}</strong>`;
+  det.innerHTML = descripcion;
+}
+['padua-ls','padua-as','padua-lm','padua-am','padua-sens','padua-mot'].forEach(id =>
+  document.getElementById(id).addEventListener('input', calcularPadua)
+);
+
+// ============================================================
+// Calculadora: tiempo óptimo para EMG post-trauma
+// ============================================================
+function tiempoEMG() {
+  const dias = parseInt(document.getElementById('wal-dias').value);
+  const box = document.getElementById('wal-resultado');
+  const tit = document.getElementById('wal-titulo');
+  const det = document.getElementById('wal-detalle');
+  if (isNaN(dias) || dias < 0) { box.classList.remove('show'); return; }
+  let clase, titulo, detalle;
+  if (dias < 10) {
+    clase = 'amarillo';
+    titulo = '<strong>Demasiado precoz</strong>';
+    detalle = `A los ${dias} días, la degeneración walleriana aún no se ha completado. Las neuroconducciones distales pueden ser normales aun en presencia de lesión axonal grave (las fibras todavía conducen). La EMG con aguja típicamente no muestra fibrilaciones aún. <strong>Reprograma el estudio para 10–21 días después del trauma.</strong>`;
+  } else if (dias <= 21) {
+    clase = 'azul';
+    titulo = '<strong>Ventana de inicio: degeneración walleriana en curso</strong>';
+    detalle = `A los ${dias} días, los signos de denervación activa (fibrilaciones, ondas agudas positivas) comienzan a aparecer. Es razonable estudiar para tener un punto de partida, pero un estudio entre 21 y 90 días suele ser más informativo.`;
+  } else if (dias <= 90) {
+    clase = 'verde';
+    titulo = '<strong>Ventana óptima para evaluación inicial</strong>';
+    detalle = `Entre 3 semanas y 3 meses post-lesión la EMG ofrece la mejor caracterización del compromiso axonal. La denervación activa está plenamente establecida y permite cuantificar la severidad y distribución.`;
+  } else {
+    clase = 'naranja';
+    titulo = '<strong>Estudio de control evolutivo</strong>';
+    detalle = `Más de 3 meses post-lesión. El estudio sirve para evaluar reinervación: aparición de unidades motoras grandes y polifásicas, mejoría de la amplitud motora, reaparición de respuesta voluntaria. Útil para decidir si continuar con manejo conservador o plantear cirugía reparadora en lesiones que no muestren signos de recuperación.`;
+  }
+  box.className = 'calc-result show ' + clase;
+  tit.innerHTML = titulo;
+  det.innerHTML = detalle;
+}
+document.getElementById('wal-dias').addEventListener('input', tiempoEMG);
+
+// ============================================================
+// Escenarios de indicación
+// ============================================================
+const escenarios = [
+  {
+    texto: 'Mujer de 48 años con parestesias nocturnas en pulgar, índice y medio derechos desde hace dos meses. Phalen y Tinel positivos. Sin tratamiento previo.',
+    correcta: 'pedir',
+    feedbacks: {
+      pedir: 'Correcto. Es la indicación clásica de electrodiagnóstico para confirmar túnel del carpo, graduar severidad y orientar el manejo (conservador vs. quirúrgico).',
+      esperar: 'En realidad, el cuadro clínico es típico y persistente. Pedir EDX desde el inicio orienta el manejo y permite documentar.',
+      no: 'El cuadro es típico de túnel del carpo y la EDX cambia el manejo (decisión conservador vs. quirúrgico).'
+    }
+  },
+  {
+    texto: 'Paciente de 35 años con dolor lumbar agudo de 5 días, sin déficit motor ni sensitivo. Sin antecedentes oncológicos ni trauma.',
+    correcta: 'no',
+    feedbacks: {
+      pedir: 'No está indicado en esta fase. La lumbalgia aguda inespecífica sin déficit motor no requiere EDX. La mayoría resuelve en 4–6 semanas.',
+      esperar: 'Casi correcto: si en 6–8 semanas persiste sin mejoría con déficit, sí se considera. Por ahora la respuesta es no pedir.',
+      no: 'Correcto. Lumbalgia aguda inespecífica sin déficit no es indicación. Manejo conservador y reevaluar.'
+    }
+  },
+  {
+    texto: 'Hombre de 60 años con debilidad asimétrica de extensión de muñeca de 24 horas tras una noche de consumo de alcohol. Hipoestesia leve en dorso de la mano.',
+    correcta: 'esperar',
+    feedbacks: {
+      pedir: 'Es muy precoz. La degeneración walleriana aún no se completa. Una EDX a las 24 horas puede ser engañosamente normal.',
+      esperar: 'Correcto. El cuadro es probable parálisis del sábado por la noche (radial). Esperar 10–21 días para que aparezcan los signos de denervación si los hubiera, y diferenciar neurapraxia (excelente pronóstico) de axonotmesis.',
+      no: 'Conviene programar EDX a las 3–4 semanas para confirmar el patrón y dar pronóstico.'
+    }
+  },
+  {
+    texto: 'Mujer de 70 años con dolor difuso, fatiga y trastornos del sueño. Examen neurológico normal. Diagnóstico clínico de fibromialgia.',
+    correcta: 'no',
+    feedbacks: {
+      pedir: 'No. La fibromialgia es un diagnóstico clínico; la EDX es normal y no aporta nada al manejo. Solicitarla refuerza el modelo erróneo de "buscar una causa orgánica".',
+      esperar: 'No es cuestión de tiempo: la EDX no es la prueba indicada para fibromialgia.',
+      no: 'Correcto. La EDX no diagnostica fibromialgia; solicitarla genera más incertidumbre.'
+    }
+  },
+  {
+    texto: 'Paciente diabético tipo 2 de 65 años con parestesias en calcetín de un año de evolución, monofilamento alterado bilateral, reflejos aquileos abolidos.',
+    correcta: 'pedir',
+    feedbacks: {
+      pedir: 'Correcto. Aunque el cuadro clínico es típico de polineuropatía diabética, la EDX confirma el patrón axonal sensitivomotor distal, descarta atrapamientos sobreimpuestos (mediano, cubital) y detecta formas atípicas que requerirían manejo distinto.',
+      esperar: 'No, el cuadro está consolidado y la EDX aporta información útil ahora.',
+      no: 'La EDX sí está indicada para confirmar el patrón y descartar atrapamientos.'
+    }
+  },
+  {
+    texto: 'Hombre de 48 años con fasciculaciones en lengua y atrofia de la mano derecha. Hiperreflexia generalizada. Babinski bilateral.',
+    correcta: 'pedir',
+    feedbacks: {
+      pedir: 'Correcto. La sospecha clínica de enfermedad de motoneurona obliga a EDX (parte de los criterios diagnósticos vigentes). Remisión paralela a neurología.',
+      esperar: 'No: la sospecha es alta y la EDX es parte de los criterios diagnósticos.',
+      no: 'La EDX es indispensable: forma parte de los criterios diagnósticos de ELA.'
+    }
+  },
+  {
+    texto: 'Paciente con dolor cervical irradiado al pulgar, parestesias del mismo dedo, sin déficit motor objetivable, dos semanas de evolución.',
+    correcta: 'esperar',
+    feedbacks: {
+      pedir: 'En esta fase aún se prefiere manejo conservador. Si hay déficit motor o persistencia &gt; 6 semanas, sí se solicita.',
+      esperar: 'Correcto. Radiculopatía cervical sin déficit motor: manejo conservador inicial 4–6 semanas. Si persiste, EDX para confirmar y descartar diagnósticos diferenciales.',
+      no: 'Si persiste &gt; 6 semanas o aparece déficit motor, sí se indica.'
+    }
+  },
+  {
+    texto: 'Tamizaje preocupacional en empleado asintomático que ingresa a trabajo con uso intensivo de teclado.',
+    correcta: 'no',
+    feedbacks: {
+      pedir: 'La EDX no se usa para tamizar. Solicitarla en pacientes asintomáticos genera hallazgos limítrofes que llevan a decisiones equivocadas.',
+      esperar: 'No es cuestión de momento: el tamizaje en asintomáticos no es indicación.',
+      no: 'Correcto. El electrodiagnóstico no es prueba de tamizaje. Educar al paciente en ergonomía sí está indicado.'
+    }
+  }
+];
+
+const escenariosUL = document.getElementById('escenarios');
+escenarios.forEach((e, idx) => {
+  const li = document.createElement('li');
+  li.className = 'escenario';
+  li.innerHTML = `
+    <div class="texto">${e.texto}</div>
+    <div class="opciones">
+      <button data-eleccion="pedir">Pedir EDX</button>
+      <button data-eleccion="esperar">Esperar</button>
+      <button data-eleccion="no">No pedir</button>
+    </div>
+    <div class="feedback" data-idx="${idx}"></div>`;
+  escenariosUL.appendChild(li);
+  li.querySelectorAll('.opciones button').forEach(b => {
+    b.addEventListener('click', () => {
+      li.querySelectorAll('.opciones button').forEach(x => x.classList.remove('seleccion'));
+      b.classList.add('seleccion');
+      const fb = li.querySelector('.feedback');
+      const eleccion = b.dataset.eleccion;
+      fb.className = 'feedback show ' + (eleccion === e.correcta ? 'acierto' : 'error');
+      fb.innerHTML = (eleccion === e.correcta ? '✓ ' : '✗ ') + e.feedbacks[eleccion];
+    });
+  });
+});
+
+// ============================================================
+// Quiz miotomas
+// ============================================================
+const miotomas = [
+  { enunciado: '¿Qué raíz inerva el extensor hallucis longus (extensor del primer dedo)?', opciones: ['L3', 'L4', 'L5', 'S1'], correcta: 'L5' },
+  { enunciado: '¿Qué músculo es centinela de la raíz S1?', opciones: ['Tibialis anterior', 'Gastrocnemius medial', 'Quadriceps femoris', 'Iliopsoas'], correcta: 'Gastrocnemius medial' },
+  { enunciado: '¿Qué reflejo osteotendinoso explora la raíz C7?', opciones: ['Bicipital', 'Estilorradial', 'Tricipital', 'Rotuliano'], correcta: 'Tricipital' },
+  { enunciado: 'En radiculopatía L5, ¿en qué músculos buscaría denervación activa?', opciones: ['Quadriceps + iliopsoas', 'Tibialis anterior + extensor hallucis longus + paraespinales L5', 'Gastrocnemius + sóleo', 'Abductor digiti minimi + flexor digitorum profundus'], correcta: 'Tibialis anterior + extensor hallucis longus + paraespinales L5' },
+  { enunciado: '¿Cuál de estos hallazgos es más específico de radiculopatía S1?', opciones: ['Reflejo H abolido unilateral', 'Latencia motora del peroneo prolongada', 'Amplitud sensitiva del sural disminuida', 'Onda F prolongada del tibial'], correcta: 'Reflejo H abolido unilateral' }
+];
+
+const miotomaContainer = document.getElementById('miotoma-quiz');
+miotomas.forEach((q) => {
+  const div = document.createElement('div');
+  div.className = 'pregunta';
+  div.innerHTML = `<div class="enunciado">${q.enunciado}</div>
+    <div class="opciones">${q.opciones.map(o => `<button>${o}</button>`).join('')}</div>`;
+  miotomaContainer.appendChild(div);
+  const btns = div.querySelectorAll('button');
+  btns.forEach(b => {
+    b.addEventListener('click', () => {
+      btns.forEach(x => x.disabled = true);
+      btns.forEach(x => {
+        if (x.textContent === q.correcta) x.classList.add('acierto');
+        else if (x === b) x.classList.add('error');
+      });
+    });
+  });
+});
+
+// ============================================================
+// Casos clínicos
+// ============================================================
+const casos = [
+  {
+    titulo: 'Caso 1 — Mujer con parestesias nocturnas',
+    historia: 'Mujer de 52 años, secretaria, consulta por adormecimiento nocturno en la mano derecha que la despierta y mejora al sacudirla. Ocho meses de evolución. No diabetes. Examen físico: oposición y abducción del pulgar normales, eminencia tenar conservada, Phalen y Durkan positivos. Tinel dudoso.',
+    preguntas: [
+      {
+        enunciado: '¿Qué conducta inicial es la más razonable?',
+        opciones: [
+          'Solicitar resonancia cervical para descartar radiculopatía C6',
+          'Solicitar electrodiagnóstico para confirmar túnel del carpo y graduar severidad',
+          'Iniciar AINE y reevaluar en seis meses sin pruebas adicionales',
+          'Remitir directamente a cirugía de mano'
+        ],
+        correcta: 1,
+        feedback: 'El cuadro clínico es típico de túnel del carpo. La EDX confirma, gradúa y orienta el manejo. La resonancia cervical no es la primera prueba aquí; la cirugía sin documentación no es razonable; esperar seis meses sin pruebas pierde la ventana de manejo conservador.'
+      },
+      {
+        enunciado: 'El informe de neuroconducción reporta: latencia sensitiva del mediano 3,9 ms (normal &lt; 3,5), latencia motora distal 4,2 ms (normal &lt; 4,4), amplitud motora 7 mV. ¿Cuál es la severidad estimada?',
+        opciones: [
+          'Normal',
+          'Leve',
+          'Moderado',
+          'Severo'
+        ],
+        correcta: 1,
+        feedback: 'Latencia sensitiva levemente prolongada, motora normal y amplitud motora preservada → escala de Padua leve. Indicación de manejo conservador: ortesis nocturna, modificación ergonómica, AINE en exacerbaciones. Reevaluar a las 6–8 semanas.'
+      },
+      {
+        enunciado: 'Tres meses después con manejo conservador la paciente persiste sintomática y aparece debilidad en oposición del pulgar. ¿Próximo paso?',
+        opciones: [
+          'Aumentar el AINE',
+          'Repetir el electrodiagnóstico y considerar remisión a cirugía',
+          'Iniciar gabapentina',
+          'Pedir resonancia cervical'
+        ],
+        correcta: 1,
+        feedback: 'La aparición de déficit motor objetivable es indicación clara de remisión a cirugía. La EDX de control documenta la progresión y el contexto laboral, y respalda la decisión quirúrgica.'
+      }
+    ]
+  },
+  {
+    titulo: 'Caso 2 — Pie caído sin dolor',
+    historia: 'Hombre de 45 años, soldador, consulta por pie caído derecho de cinco días, sin dolor lumbar ni traumatismo conocido. Antecedente: pérdida de 12 kg en los últimos tres meses (en programa de control de peso). Examen: parálisis dorsiflexora del pie derecho, parálisis del extensor del primer dedo, hipoestesia en dorso del pie, reflejo aquileo presente y simétrico. Lasègue negativo.',
+    preguntas: [
+      {
+        enunciado: 'Antes de pedir cualquier estudio, ¿cuál es el diagnóstico diferencial más probable que debe valorar?',
+        opciones: [
+          'Radiculopatía L5 vs. radiculopatía S1',
+          'Radiculopatía L5 vs. neuropatía peroneal en cabeza del peroné',
+          'Polineuropatía distal vs. miopatía distal',
+          'Esclerosis múltiple vs. enfermedad de motoneurona'
+        ],
+        correcta: 1,
+        feedback: 'Pie caído sin dolor radicular y con pérdida reciente de peso en oficio que implica permanecer agachado o cruzando piernas: el diagnóstico que hay que separar es radiculopatía L5 (donde habría dolor y compromiso de paraespinales) vs. neuropatía peroneal por compresión en la cabeza del peroné.'
+      },
+      {
+        enunciado: '¿Qué hallazgo electrofisiológico orientaría a neuropatía peroneal aislada y NO a radiculopatía L5?',
+        opciones: [
+          'Denervación activa en paraespinales lumbares bajos',
+          'Bloqueo de conducción focal del peroneo común a nivel de la cabeza del peroné, con preservación de paraespinales y tensor de la fascia lata',
+          'Reducción de la amplitud sensitiva del nervio sural',
+          'Onda F prolongada del nervio tibial'
+        ],
+        correcta: 1,
+        feedback: 'El bloqueo focal en el peroné con preservación de músculos proximales L5 (tensor de la fascia lata) y de paraespinales lumbares es la firma de neuropatía peroneal compresiva. Si fuera radiculopatía L5 se afectarían paraespinales y músculos proximales además del peroneo.'
+      },
+      {
+        enunciado: 'Confirmada la neuropatía peroneal por compresión (pérdida de peso reciente + posición laboral): ¿cuál es la conducta?',
+        opciones: [
+          'Cirugía descompresiva inmediata',
+          'Ortesis tipo AFO + modificación ergonómica + protección de la cabeza del peroné, control en 6–12 semanas',
+          'Antiagregantes plaquetarios',
+          'Gabapentina y reposo absoluto'
+        ],
+        correcta: 1,
+        feedback: 'La mayoría de neuropatías peroneales por compresión se recuperan con manejo conservador: AFO para mejorar la marcha, evitar las posiciones que comprimen el nervio (cruzar piernas, cuclillas prolongadas), almohadillado para proteger el área. La cirugía se reserva para falta de mejoría a 3–6 meses o lesión severa demostrada en EDX.'
+      }
+    ]
+  }
+];
+
+const casosContainer = document.getElementById('casos-container');
+casos.forEach((c) => {
+  const div = document.createElement('div');
+  div.className = 'caso';
+  div.innerHTML = `<h3>${c.titulo}</h3><div class="historia">${c.historia}</div>`;
+  c.preguntas.forEach((p) => {
+    const pdiv = document.createElement('div');
+    pdiv.className = 'pregunta';
+    pdiv.innerHTML = `<div class="enunciado">${p.enunciado}</div>
+      <div class="opciones">${p.opciones.map(o => `<button>${o}</button>`).join('')}</div>
+      <div class="feedback"></div>`;
+    div.appendChild(pdiv);
+    const btns = pdiv.querySelectorAll('.opciones button');
+    btns.forEach((b, i) => {
+      b.addEventListener('click', () => {
+        btns.forEach(x => x.disabled = true);
+        btns.forEach((x, j) => {
+          if (j === p.correcta) x.classList.add('acierto');
+          else if (j === i) x.classList.add('error');
+        });
+        const fb = pdiv.querySelector('.feedback');
+        fb.className = 'feedback show ' + (i === p.correcta ? 'acierto' : 'error');
+        fb.innerHTML = p.feedback;
+      });
+    });
+  });
+  casosContainer.appendChild(div);
+});
+
+// ============================================================
+// Autoevaluación: 10 preguntas de selección múltiple
+// ============================================================
+const examenPreguntas = [
+  {
+    enunciado: 'Una paciente de 50 años consulta por adormecimiento de las manos principalmente en las noches. El diagnóstico más probable es:',
+    opciones: ['Plexopatía braquial', 'Síndrome del túnel del carpo', 'Radiculopatía cervical', 'Polineuropatía sensitiva'],
+    correcta: 1,
+    feedback: 'Adormecimiento bilateral nocturno es la presentación clásica del túnel del carpo. La radiculopatía cervical suele ser unilateral con dolor irradiado, y la polineuropatía afecta primero los pies.'
+  },
+  {
+    enunciado: '¿Cuál es la característica electrofisiológica típica más común en pacientes con síndrome del túnel del carpo?',
+    opciones: [
+      'Velocidad de conducción motora del mediano disminuida',
+      'Prolongación de la latencia sensitiva del nervio mediano',
+      'Disminución de la amplitud del potencial sensitivo del mediano',
+      'Disminución de la amplitud del potencial motor del mediano'
+    ],
+    correcta: 1,
+    feedback: 'La prolongación de la latencia sensitiva del mediano es el hallazgo más temprano y específico (S ≈ 0,6; E &gt; 0,95). La amplitud motora cae solo en estadios moderados-severos.'
+  },
+  {
+    enunciado: 'En el contexto del atrapamiento del nervio cubital en el codo, ¿qué hallazgo clínico es más frecuente?',
+    opciones: [
+      'Parestesias en los dedos 2.° y 3.°',
+      'Parestesias en los dedos 4.° y 5.°',
+      'Disminución del trofismo del primer interóseo dorsal',
+      'Atrofia del flexor carpi ulnaris'
+    ],
+    correcta: 1,
+    feedback: 'El nervio cubital inerva sensitivamente la mitad cubital del cuarto dedo y el quinto. Las parestesias en estos dedos son lo más frecuente; la atrofia del primer interóseo dorsal es un hallazgo más tardío.'
+  },
+  {
+    enunciado: 'Un paciente con dolor en el miembro inferior tiene EMG con actividad espontánea en paraespinales lumbares bajos, gastronemio lateral y glúteo máximo. El diagnóstico más probable es:',
+    opciones: [
+      'Lesión del nervio ciático común',
+      'Radiculopatía S1',
+      'Radiculopatía L4–L5',
+      'Plexopatía lumbosacra'
+    ],
+    correcta: 1,
+    feedback: 'La denervación en músculos S1 (gastrocnemio, glúteo mayor) más paraespinales lumbares bajos es la firma de radiculopatía S1.'
+  },
+  {
+    enunciado: 'En los estudios de electrodiagnóstico, el reflejo H es particularmente útil en el diagnóstico de:',
+    opciones: ['Radiculopatía L3', 'Radiculopatía L4', 'Radiculopatía L5', 'Radiculopatía S1'],
+    correcta: 3,
+    feedback: 'El reflejo H es el equivalente electrofisiológico del reflejo aquiliano. Su ausencia unilateral es muy específica de radiculopatía S1.'
+  },
+  {
+    enunciado: 'Paciente con parálisis dorsiflexora del tobillo, prueba de Hoffman positiva, atrofia del primer interóseo dorsal de la mano, y EMG con denervación en paraespinales torácicos, primer interóseo dorsal y tibial anterior bilaterales. El diagnóstico más probable es:',
+    opciones: [
+      'Mielopatía cervical',
+      'Esclerosis lateral amiotrófica',
+      'Mononeuritis múltiple',
+      'Polineuropatía motora axonal'
+    ],
+    correcta: 1,
+    feedback: 'Combinación de signos de neurona motora superior (Hoffman) e inferior (atrofia, denervación difusa) en regiones múltiples = ELA.'
+  },
+  {
+    enunciado: 'Paciente con dolor lumbar propagado al miembro inferior derecho. En el examen se encuentra arreflexia aquiliana derecha. El diagnóstico más probable es:',
+    opciones: [
+      'Lesión del nervio ciático común',
+      'Osteoartritis de cadera',
+      'Radiculopatía S1',
+      'Lesión del nervio tibial'
+    ],
+    correcta: 2,
+    feedback: 'Arreflexia aquiliana unilateral con dolor lumbar irradiado al miembro inferior es prácticamente diagnóstica de radiculopatía S1.'
+  },
+  {
+    enunciado: 'En la evaluación de la miastenia gravis, ¿qué prueba electrofisiológica es la más sensible?',
+    opciones: [
+      'Onda F',
+      'Electromiografía de fibra única (jitter)',
+      'Electromiografía convencional con aguja concéntrica',
+      'Neuroconducción motora estándar'
+    ],
+    correcta: 1,
+    feedback: 'La EMG de fibra única (jitter aumentado) es la prueba más sensible para miastenia. La estimulación repetitiva a 3 Hz tiene menor sensibilidad pero sigue siendo útil.'
+  },
+  {
+    enunciado: 'En la polineuropatía diabética, ¿qué hallazgo en los estudios de conducción nerviosa es el más precoz?',
+    opciones: [
+      'Neuropatía por atrapamiento de mediano y cubital',
+      'Disminución de la amplitud de los potenciales sensitivos en miembros inferiores',
+      'Bloqueo de la conducción motora',
+      'Ausencia de onda F'
+    ],
+    correcta: 1,
+    feedback: 'La disminución de las amplitudes sensitivas en miembros inferiores es el primer hallazgo en la polineuropatía diabética. Lo demás aparece progresivamente.'
+  },
+  {
+    enunciado: '¿Cuál es el momento óptimo para realizar electrodiagnóstico tras una lesión nerviosa traumática?',
+    opciones: [
+      'Inmediatamente al ingreso, en las primeras 24 horas',
+      'Entre 3 y 7 días post-lesión',
+      'Entre 3 semanas y 3 meses post-lesión',
+      'Después del primer año'
+    ],
+    correcta: 2,
+    feedback: 'Los signos de denervación activa requieren completarse la degeneración walleriana (10–21 días). El estudio entre 3 semanas y 3 meses ofrece la mejor caracterización del compromiso axonal.'
+  }
+];
+
+let aciertos = 0;
+const examenContainer = document.getElementById('examen-container');
+const puntajeTexto = document.getElementById('examen-puntaje-texto');
+examenPreguntas.forEach((p, idx) => {
+  const div = document.createElement('div');
+  div.className = 'pregunta';
+  div.innerHTML = `<span class="num">Pregunta ${idx+1}</span>
+    <div class="enunciado">${p.enunciado}</div>
+    <div class="opciones">${p.opciones.map(o => `<button>${o}</button>`).join('')}</div>
+    <div class="feedback"></div>`;
+  examenContainer.appendChild(div);
+  const btns = div.querySelectorAll('.opciones button');
+  let respondida = false;
+  btns.forEach((b, i) => {
+    b.addEventListener('click', () => {
+      if (respondida) return;
+      respondida = true;
+      btns.forEach(x => x.disabled = true);
+      btns.forEach((x, j) => {
+        if (j === p.correcta) x.classList.add('acierto');
+        else if (j === i) x.classList.add('error');
+      });
+      const fb = div.querySelector('.feedback');
+      const correcto = i === p.correcta;
+      fb.className = 'feedback show ' + (correcto ? 'acierto' : 'error');
+      fb.innerHTML = (correcto ? '✓ Correcto. ' : '✗ Incorrecto. ') + p.feedback;
+      if (correcto) aciertos++;
+      puntajeTexto.textContent = `${aciertos} de ${examenPreguntas.length} preguntas correctas`;
+    });
+  });
+});
+</script>
+</body>
+</html>
