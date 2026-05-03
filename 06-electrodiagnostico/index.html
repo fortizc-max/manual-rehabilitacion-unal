@@ -426,38 +426,102 @@ footer a:hover { text-decoration: underline; }
   </div>
 
   <div class="calc">
-    <div class="calc-title">Clasificador del patrón electrofisiológico</div>
-    <p style="font-size: 0.88rem; margin-bottom: 14px;">Ingresa los tres valores reportados en una neuroconducción motora distal y obtén el patrón electrofisiológico aproximado. <em>Solo orientativo: la interpretación clínica completa requiere el informe completo y la integración con EMG.</em></p>
+    <div class="calc-title">Tabla de neuroconducciones — diagnósticos sugeridos</div>
+    <p style="font-size: 0.88rem; margin-bottom: 14px;">Ingresa los valores reportados en el informe del paciente. No hace falta llenar todos los nervios: el algoritmo evalúa el patrón sobre los nervios disponibles y propone diagnósticos compatibles. Las amplitudes sensitivas se reportan en μV y las motoras en mV. <em>Solo orientativo: la interpretación clínica completa requiere el informe completo y la integración con EMG.</em></p>
 
-    <div class="calc-row">
-      <div class="calc-field">
-        <label>Nervio explorado</label>
-        <select id="ncv-nervio">
-          <option value="mediano">Mediano motor</option>
-          <option value="cubital">Cubital motor</option>
-          <option value="peroneo">Peroneo motor</option>
-          <option value="tibial">Tibial motor</option>
-        </select>
-      </div>
-      <div class="calc-field">
-        <label>Latencia distal (ms)</label>
-        <input type="number" id="ncv-lat" step="0.1" placeholder="ej. 3.8">
-      </div>
-      <div class="calc-field">
-        <label>Amplitud distal (mV)</label>
-        <input type="number" id="ncv-amp" step="0.1" placeholder="ej. 6.5">
-      </div>
-      <div class="calc-field">
-        <label>Velocidad (m/s)</label>
-        <input type="number" id="ncv-vel" step="0.5" placeholder="ej. 52">
-      </div>
+    <div class="tabla-wrap">
+      <table class="ncv-tabla" style="font-size: 0.88rem;">
+        <thead>
+          <tr>
+            <th style="min-width: 160px;">Nervio (límites normales)</th>
+            <th style="min-width: 95px;">Latencia (ms)</th>
+            <th style="min-width: 95px;">Amplitud</th>
+            <th style="min-width: 95px;">Velocidad (m/s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mediano sensitivo</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,5; amp ≥ 10 μV</span></td>
+            <td><input type="number" step="0.1" data-n="medSens" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="medSens" data-p="amp"></td>
+            <td style="text-align: center; color: var(--gris);">—</td>
+          </tr>
+          <tr>
+            <td><strong>Mediano motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 4,4; amp ≥ 4 mV; vel ≥ 50</span></td>
+            <td><input type="number" step="0.1" data-n="medMot" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="medMot" data-p="amp"></td>
+            <td><input type="number" step="0.5" data-n="medMot" data-p="vel"></td>
+          </tr>
+          <tr>
+            <td><strong>Cubital sensitivo</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,1; amp ≥ 10 μV</span></td>
+            <td><input type="number" step="0.1" data-n="cubSens" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="cubSens" data-p="amp"></td>
+            <td style="text-align: center; color: var(--gris);">—</td>
+          </tr>
+          <tr>
+            <td><strong>Cubital motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,3; amp ≥ 6 mV; vel ≥ 50</span></td>
+            <td><input type="number" step="0.1" data-n="cubMot" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="cubMot" data-p="amp"></td>
+            <td><input type="number" step="0.5" data-n="cubMot" data-p="vel"></td>
+          </tr>
+          <tr>
+            <td><strong>Sural</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 4,4; amp ≥ 6 μV</span></td>
+            <td><input type="number" step="0.1" data-n="sural" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="sural" data-p="amp"></td>
+            <td style="text-align: center; color: var(--gris);">—</td>
+          </tr>
+          <tr>
+            <td><strong>Tibial motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 6,0; amp ≥ 4 mV</span></td>
+            <td><input type="number" step="0.1" data-n="tibMot" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="tibMot" data-p="amp"></td>
+            <td style="text-align: center; color: var(--gris);">—</td>
+          </tr>
+          <tr>
+            <td><strong>Peroneo motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 6,5; amp ≥ 2 mV; vel ≥ 40</span></td>
+            <td><input type="number" step="0.1" data-n="perMot" data-p="lat"></td>
+            <td><input type="number" step="0.1" data-n="perMot" data-p="amp"></td>
+            <td><input type="number" step="0.5" data-n="perMot" data-p="vel"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <p style="font-size: 0.8rem; color: var(--gris); margin-top: 8px;">Las celdas marcadas con "—" no aplican (no se mide velocidad sensitiva en este modelo simplificado).</p>
 
     <div class="calc-result" id="ncv-resultado">
       <div id="ncv-titulo"></div>
       <div id="ncv-detalle" style="margin-top: 8px; font-size: 0.9rem;"></div>
     </div>
   </div>
+
+  <style>
+    .ncv-tabla input[type="number"] {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid var(--gris-borde);
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: white;
+      transition: border 0.15s, background 0.15s;
+    }
+    .ncv-tabla input[type="number"]:focus {
+      outline: none;
+      border-color: var(--azul);
+      box-shadow: 0 0 0 2px rgba(30,64,175,0.12);
+    }
+    .ncv-tabla input.anormal {
+      background: var(--rojo-claro);
+      border-color: var(--rojo);
+      color: #7f1d1d;
+      font-weight: 600;
+    }
+    .ncv-tabla input.normal {
+      background: var(--verde-claro);
+      border-color: var(--verde);
+      color: #065f46;
+    }
+  </style>
 
   <h3>Ondas tardías: F y H</h3>
   <p>A los parámetros distales se suman dos respuestas que exploran segmentos proximales:</p>
@@ -826,73 +890,208 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ============================================================
-// Calculadora: patrón EDX (axonal vs desmielinizante)
+// Tabla de neuroconducciones — diagnósticos sugeridos
 // ============================================================
-const ncvNormales = {
-  mediano:  { lat: 4.4, amp: 4, vel: 50 },
-  cubital:  { lat: 3.3, amp: 6, vel: 50 },
-  peroneo:  { lat: 6.5, amp: 2, vel: 40 },
-  tibial:   { lat: 6.0, amp: 4, vel: 40 }
+const ncvRefs = {
+  medSens: { lat: 3.5, amp: 10, hasVel: false, label: 'Mediano sensitivo',  ampUnit: 'μV' },
+  medMot:  { lat: 4.4, amp: 4,  vel: 50, hasVel: true,  label: 'Mediano motor',     ampUnit: 'mV' },
+  cubSens: { lat: 3.1, amp: 10, hasVel: false, label: 'Cubital sensitivo',  ampUnit: 'μV' },
+  cubMot:  { lat: 3.3, amp: 6,  vel: 50, hasVel: true,  label: 'Cubital motor',     ampUnit: 'mV' },
+  sural:   { lat: 4.4, amp: 6,  hasVel: false, label: 'Sural',              ampUnit: 'μV' },
+  tibMot:  { lat: 6.0, amp: 4,  hasVel: false, label: 'Tibial motor',       ampUnit: 'mV' },
+  perMot:  { lat: 6.5, amp: 2,  vel: 40, hasVel: true,  label: 'Peroneo motor',     ampUnit: 'mV' }
 };
-function interpretarNCV() {
-  const nervio = document.getElementById('ncv-nervio').value;
-  const lat = parseFloat(document.getElementById('ncv-lat').value);
-  const amp = parseFloat(document.getElementById('ncv-amp').value);
-  const vel = parseFloat(document.getElementById('ncv-vel').value);
+
+function leerNCV() {
+  const datos = {};
+  Object.keys(ncvRefs).forEach(n => {
+    const ref = ncvRefs[n];
+    const inLat = document.querySelector(`[data-n="${n}"][data-p="lat"]`);
+    const inAmp = document.querySelector(`[data-n="${n}"][data-p="amp"]`);
+    const inVel = ref.hasVel ? document.querySelector(`[data-n="${n}"][data-p="vel"]`) : null;
+    const lat = parseFloat(inLat.value);
+    const amp = parseFloat(inAmp.value);
+    const vel = inVel ? parseFloat(inVel.value) : NaN;
+    const evaluado = !isNaN(lat) || !isNaN(amp) || (ref.hasVel && !isNaN(vel));
+    const latProl = !isNaN(lat) && lat > ref.lat;
+    const ampBaja = !isNaN(amp) && amp < ref.amp;
+    const velBaja = ref.hasVel && !isNaN(vel) && vel < ref.vel;
+    const anormal = latProl || ampBaja || velBaja;
+    datos[n] = { evaluado, latProl, ampBaja, velBaja, anormal, lat, amp, vel,
+                 inLat, inAmp, inVel };
+  });
+  return datos;
+}
+
+function colorearCeldas(datos) {
+  Object.keys(datos).forEach(n => {
+    const d = datos[n];
+    [['inLat', d.latProl, !isNaN(d.lat)],
+     ['inAmp', d.ampBaja, !isNaN(d.amp)],
+     ['inVel', d.velBaja, !isNaN(d.vel)]].forEach(([k, anormal, lleno]) => {
+      const el = d[k];
+      if (!el) return;
+      el.classList.remove('anormal','normal');
+      if (lleno) el.classList.add(anormal ? 'anormal' : 'normal');
+    });
+  });
+}
+
+function gradoSTC(d) {
+  if (!d.medMot.evaluado && !d.medSens.evaluado) return null;
+  if (d.medMot.evaluado && !isNaN(d.medMot.amp) && d.medMot.amp < 4) return 'severo (amplitud motora baja)';
+  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > 6.5) return 'severo (latencia motora muy prolongada)';
+  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > 4.4) return 'moderado (latencia motora prolongada)';
+  if (d.medSens.evaluado && !isNaN(d.medSens.lat) && d.medSens.lat > 3.5) return 'leve (solo latencia sensitiva prolongada)';
+  return 'incipiente (hallazgos limítrofes)';
+}
+
+function generarHallazgos(datos) {
+  let html = '<ul style="margin: 0 0 0 18px; font-size: 0.85rem;">';
+  let any = false;
+  Object.keys(ncvRefs).forEach(n => {
+    const d = datos[n];
+    const ref = ncvRefs[n];
+    if (!d.evaluado) return;
+    any = true;
+    const items = [];
+    if (d.latProl) items.push(`latencia prolongada (${d.lat} ms)`);
+    if (d.ampBaja) items.push(`amplitud baja (${d.amp} ${ref.ampUnit})`);
+    if (d.velBaja) items.push(`velocidad disminuida (${d.vel} m/s)`);
+    const desc = items.length ? items.join(', ') : 'parámetros dentro de rango';
+    const color = items.length ? 'var(--rojo)' : 'var(--verde)';
+    html += `<li><strong>${ref.label}:</strong> <span style="color: ${color}">${desc}</span></li>`;
+  });
+  html += '</ul>';
+  return any ? html : '';
+}
+
+function analizarNCV() {
+  const datos = leerNCV();
+  colorearCeldas(datos);
+
+  const algunoEvaluado = Object.values(datos).some(d => d.evaluado);
   const box = document.getElementById('ncv-resultado');
   const tit = document.getElementById('ncv-titulo');
   const det = document.getElementById('ncv-detalle');
-  const ref = ncvNormales[nervio];
+  if (!algunoEvaluado) { box.style.display = 'none'; return; }
 
-  // Si no se ha ingresado ningún valor, ocultar el cuadro
-  if (isNaN(lat) && isNaN(amp) && isNaN(vel)) {
-    box.style.display = 'none';
-    return;
+  const diagnosticos = [];
+
+  // 1. Síndrome del túnel del carpo
+  const medianoAnormal = (datos.medSens.evaluado && datos.medSens.anormal) ||
+                        (datos.medMot.evaluado && datos.medMot.anormal);
+  const cubitalNormal = (!datos.cubSens.evaluado || !datos.cubSens.anormal) &&
+                       (!datos.cubMot.evaluado  || !datos.cubMot.anormal);
+  const miNormal = (!datos.sural.evaluado || !datos.sural.anormal) &&
+                   (!datos.tibMot.evaluado || !datos.tibMot.anormal) &&
+                   (!datos.perMot.evaluado || !datos.perMot.anormal);
+  if (medianoAnormal && cubitalNormal && miNormal) {
+    diagnosticos.push({
+      nombre: 'Síndrome del túnel del carpo',
+      evidencia: 'Compromiso aislado del nervio mediano (latencia prolongada o amplitud baja en el segmento de muñeca) con cubital y nervios de miembro inferior preservados. La diferencia comparativa mediano–cubital sensitiva > 0,4 ms o motora > 1,5 ms refuerza el diagnóstico.',
+      severidad: gradoSTC(datos)
+    });
   }
 
-  // Si faltan algunos valores, mostrar un recordatorio
-  if (isNaN(lat) || isNaN(amp) || isNaN(vel)) {
-    const faltan = [];
-    if (isNaN(lat)) faltan.push('latencia');
-    if (isNaN(amp)) faltan.push('amplitud');
-    if (isNaN(vel)) faltan.push('velocidad');
-    box.style.display = 'block';
-    box.className = 'calc-result';
-    tit.innerHTML = '<em>Faltan valores para clasificar</em>';
-    det.innerHTML = `Para obtener el patrón electrofisiológico ingresa los tres parámetros del nervio ${nervio}. Faltan: <strong>${faltan.join(', ')}</strong>. Referencia normal: latencia &lt; ${ref.lat} ms, amplitud &gt; ${ref.amp} mV, velocidad &gt; ${ref.vel} m/s.`;
-    return;
+  // 2. Neuropatía cubital en codo
+  const cubitalAnormal = (datos.cubSens.evaluado && datos.cubSens.anormal) ||
+                        (datos.cubMot.evaluado  && datos.cubMot.anormal);
+  const medianoNormal = (!datos.medSens.evaluado || !datos.medSens.anormal) &&
+                        (!datos.medMot.evaluado  || !datos.medMot.anormal);
+  if (cubitalAnormal && medianoNormal && miNormal && !medianoAnormal) {
+    diagnosticos.push({
+      nombre: 'Neuropatía cubital (sospecha de atrapamiento en codo)',
+      evidencia: 'Compromiso aislado del nervio cubital con mediano y nervios de miembro inferior preservados. Si el laboratorio reporta velocidad cubital atravesando el codo enlentecida focalmente respecto al segmento antebrazo, es muy sugestivo de atrapamiento epitrocleo-olecraneano.'
+    });
   }
 
-  const latProl = lat > ref.lat;
-  const ampBaja = amp < ref.amp;
-  const velBaja = vel < ref.vel;
-  let clase, titulo, detalle;
-  if (!latProl && !ampBaja && !velBaja) {
-    clase = 'verde';
-    titulo = '<strong>Patrón normal</strong>';
-    detalle = `Los tres parámetros están dentro del rango aproximado para el nervio ${nervio} (latencia &lt; ${ref.lat} ms, amplitud &gt; ${ref.amp} mV, velocidad &gt; ${ref.vel} m/s). No hay evidencia de neuropatía focal en el segmento estudiado.`;
-  } else if (ampBaja && !latProl && !velBaja) {
-    clase = 'naranja';
-    titulo = '<strong>Patrón axonal</strong>';
-    detalle = `La amplitud está disminuida con latencia y velocidad preservadas. Sugiere pérdida de axones funcionantes. Diferenciales: polineuropatía axonal (diabetes, alcohol, tóxicos), lesión traumática axonal, fase tardía de atrapamiento.`;
-  } else if ((latProl || velBaja) && !ampBaja) {
-    clase = 'azul';
-    titulo = '<strong>Patrón desmielinizante</strong>';
-    detalle = `Latencia prolongada o velocidad enlentecida con amplitud preservada. Sugiere alteración de la mielina en el segmento estudiado. Diferenciales: atrapamiento focal (túnel del carpo si es mediano, codo si es cubital), Guillain-Barré, CIDP, Charcot-Marie-Tooth tipo 1.`;
-  } else {
-    clase = 'rojo';
-    titulo = '<strong>Patrón mixto axonal-desmielinizante</strong>';
-    detalle = `Hay alteración tanto en amplitud como en latencia/velocidad. Suele indicar lesión severa o crónica con compromiso secundario del axón. La interpretación final requiere correlación con la EMG con aguja.`;
+  // 3. Mononeuropatía peroneal
+  const peroneoAnormal = datos.perMot.evaluado && datos.perMot.anormal;
+  const tibialNormal = (!datos.tibMot.evaluado || !datos.tibMot.anormal);
+  const suralNormal = (!datos.sural.evaluado || !datos.sural.anormal);
+  const msNormal = (!datos.medSens.evaluado || !datos.medSens.anormal) &&
+                   (!datos.medMot.evaluado  || !datos.medMot.anormal) &&
+                   (!datos.cubSens.evaluado || !datos.cubSens.anormal) &&
+                   (!datos.cubMot.evaluado  || !datos.cubMot.anormal);
+  if (peroneoAnormal && tibialNormal && suralNormal && msNormal) {
+    diagnosticos.push({
+      nombre: 'Mononeuropatía peroneal',
+      evidencia: 'Peroneo motor anormal con tibial, sural y nervios de miembro superior preservados. Considerar atrapamiento en cabeza del peroné, sobre todo si hay pérdida de peso reciente, encamamiento o posiciones forzadas (cuclillas, cruzar piernas).'
+    });
   }
+
+  // 4. Polineuropatía axonal distal
+  const sensitivosBajos = [datos.medSens, datos.cubSens, datos.sural].filter(d => d.evaluado && d.ampBaja).length;
+  const motoresBajos = [datos.tibMot, datos.perMot, datos.medMot, datos.cubMot].filter(d => d.evaluado && d.ampBaja).length;
+  const suralAfectado = datos.sural.evaluado && datos.sural.ampBaja;
+  const muchasVelocidadesBajas = Object.values(datos).filter(d => d.evaluado && d.velBaja).length;
+  if ((suralAfectado || sensitivosBajos >= 2) && motoresBajos >= 1 && muchasVelocidadesBajas <= 1) {
+    diagnosticos.push({
+      nombre: 'Polineuropatía axonal distal',
+      evidencia: 'Predominio de caída de amplitudes (sural y otros sensitivos distales más motores distales) con velocidades preservadas o levemente disminuidas. Causa más frecuente: diabetes mellitus. Otras: alcohol, fármacos neurotóxicos (quimioterapia con taxanos, platinos, vincristina), tóxicos (metales pesados), polineuropatías hereditarias axonales.'
+    });
+  }
+
+  // 5. Polineuropatía desmielinizante
+  const evaluadosTotal = Object.values(datos).filter(d => d.evaluado).length;
+  const desmielinizantes = Object.values(datos).filter(d => d.evaluado && (d.latProl || d.velBaja)).length;
+  if (desmielinizantes >= 3 && evaluadosTotal >= 4 && motoresBajos < desmielinizantes) {
+    diagnosticos.push({
+      nombre: 'Polineuropatía desmielinizante',
+      evidencia: 'Compromiso multifocal con prolongación de latencias y/o disminución de velocidades, amplitudes inicialmente preservadas. Considerar Guillain-Barré (curso agudo, días a semanas), CIDP (crónico, > 8 semanas, recaídas) o Charcot-Marie-Tooth tipo 1 (hereditaria, antecedente familiar, pies cavos, inicio juvenil).'
+    });
+  }
+
+  // 6. Patrón sugestivo de radiculopatía
+  const sensEvaluados = [datos.medSens, datos.cubSens, datos.sural].filter(d => d.evaluado);
+  const todosSensNormales = sensEvaluados.length >= 2 && sensEvaluados.every(d => !d.anormal);
+  const algunMotorAnormal = [datos.medMot, datos.cubMot, datos.tibMot, datos.perMot].some(d => d.evaluado && d.anormal);
+  if (todosSensNormales && algunMotorAnormal) {
+    diagnosticos.push({
+      nombre: 'Patrón compatible con radiculopatía',
+      evidencia: 'Conducciones sensitivas conservadas (la lesión radicular es proximal al ganglio dorsal) con compromiso motor distal. La confirmación necesita EMG con aguja: denervación activa en músculos de la misma raíz pero distinto nervio periférico, además de paraespinales del segmento sospechado.'
+    });
+  }
+
+  // 7. Si no entró en patrón conocido
+  if (diagnosticos.length === 0) {
+    const algunoAnormal = Object.values(datos).some(d => d.anormal);
+    if (!algunoAnormal) {
+      diagnosticos.push({
+        nombre: 'Patrón electrofisiológico normal',
+        evidencia: 'Todos los nervios evaluados están dentro de rangos. Si la clínica es muy sugestiva, considerar pruebas comparativas (mediano–cubital sensitiva), ultrasonido nervioso de alta resolución o reevaluación a las 4–6 semanas.'
+      });
+    } else {
+      diagnosticos.push({
+        nombre: 'Alteración no encuadrada en patrón típico',
+        evidencia: 'Hay anormalidades pero el patrón no encaja claramente con los seis cuadros más frecuentes. La interpretación precisa requiere el informe completo (incluyendo EMG con aguja, ondas F y reflejo H) y correlación clínica.'
+      });
+    }
+  }
+
+  // Render
+  let html = '<strong>Diagnósticos sugeridos por el patrón:</strong><ol style="margin: 8px 0 12px 22px; padding: 0;">';
+  diagnosticos.forEach(d => {
+    html += `<li style="margin-bottom: 8px;"><strong>${d.nombre}.</strong> <span style="font-weight: 400;">${d.evidencia}</span>`;
+    if (d.severidad) html += `<br><em>Severidad estimada: ${d.severidad}.</em>`;
+    html += '</li>';
+  });
+  html += '</ol>';
+  const hallazgos = generarHallazgos(datos);
+  if (hallazgos) {
+    html += '<details style="margin-top: 8px;"><summary style="cursor: pointer; color: var(--azul); font-size: 0.85rem;">▸ Ver hallazgos por nervio</summary>' + hallazgos + '</details>';
+  }
+
   box.style.display = 'block';
-  box.className = 'calc-result ' + clase;
-  tit.innerHTML = titulo;
-  det.innerHTML = detalle;
+  box.className = 'calc-result';
+  tit.innerHTML = '';
+  det.innerHTML = html;
 }
-['ncv-nervio','ncv-lat','ncv-amp','ncv-vel'].forEach(id => {
-  const el = document.getElementById(id);
-  el.addEventListener('input', interpretarNCV);
-  el.addEventListener('change', interpretarNCV);
+
+document.querySelectorAll('.ncv-tabla input[data-n]').forEach(el => {
+  el.addEventListener('input', analizarNCV);
+  el.addEventListener('change', analizarNCV);
 });
 
 // ============================================================
