@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anatomía aplicada · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva de anatomía aplicada a la rotación de Medicina Física y Rehabilitación: dermatomas, miotomas, plexo braquial, articulaciones, localizador raíz/nervio, casos clínicos y autoevaluación.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+:root {
+  --azul: #1e40af;
+  --azul-osc: #1e3a8a;
+  --azul-claro: #dbeafe;
+  --azul-bg: #eff6ff;
+  --naranja: #ea580c;
+  --naranja-claro: #fed7aa;
+  --verde: #047857;
+  --verde-claro: #d1fae5;
+  --rojo: #b91c1c;
+  --rojo-claro: #fee2e2;
+  --amarillo: #b45309;
+  --amarillo-claro: #fef3c7;
+  --gris: #475569;
+  --gris-claro: #f1f5f9;
+  --gris-borde: #e2e8f0;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  margin: 0;
+  background: var(--gris-claro);
+  color: #0f172a;
+  line-height: 1.55;
+}
+header {
+  background: var(--azul);
+  color: white;
+  padding: 28px 24px;
+  text-align: center;
+}
+header h1 { margin: 0 0 4px; font-size: 1.6rem; font-weight: 700; }
+header .sub { font-size: 0.92rem; opacity: 0.9; }
+header a.back {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-top: 8px;
+  border-bottom: 1px dashed rgba(255,255,255,0.5);
+}
+
+.tab-nav {
+  background: white;
+  border-bottom: 2px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--gris);
+  transition: background 0.12s, color 0.12s;
+}
+.tab-btn:hover { background: #e2e8f0; }
+.tab-btn.active { background: var(--azul); color: white; border-color: var(--azul); }
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+h2 {
+  color: var(--azul);
+  margin-top: 8px;
+  font-size: 1.45rem;
+  border-bottom: 2px solid var(--azul-claro);
+  padding-bottom: 6px;
+}
+h3 { color: var(--azul-osc); margin-top: 20px; }
+h4 { color: var(--azul-osc); margin-bottom: 6px; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 12px 0;
+}
+.card.azul { border-left-color: var(--azul); background: var(--azul-bg); }
+.card.naranja { border-left-color: var(--naranja); background: #fff7ed; }
+.card.verde { border-left-color: var(--verde); background: var(--verde-claro); }
+.card.roja { border-left-color: var(--rojo); background: var(--rojo-claro); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-claro); }
+
+.card h4 { margin-top: 0; }
+
+.tabla-wrap { overflow-x: auto; margin: 14px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  background: white;
+}
+table.t th, table.t td {
+  border: 1px solid var(--gris-borde);
+  padding: 8px 10px;
+  text-align: left;
+}
+table.t th {
+  background: var(--azul-bg);
+  color: var(--azul-osc);
+  font-weight: 600;
+}
+table.t tbody tr:hover { background: var(--gris-claro); cursor: default; }
+table.t .root { font-weight: 700; color: var(--azul); white-space: nowrap; }
+
+em { font-style: italic; color: #334155; }
+
+/* === Dermatomas SVG === */
+.derma-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .derma-layout { grid-template-columns: 1fr; }
+}
+
+.svg-wrap {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.view-toggle { display: flex; gap: 6px; justify-content: center; }
+.view-toggle button {
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--gris);
+}
+.view-toggle button.active {
+  background: var(--azul); color: white; border-color: var(--azul);
+}
+
+svg.body { width: 100%; height: auto; max-height: 560px; user-select: none; }
+.derm {
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 1.2;
+  transition: opacity 0.12s, filter 0.12s;
+  opacity: 0.85;
+}
+.derm:hover { opacity: 1; filter: brightness(1.15) drop-shadow(0 0 4px rgba(0,0,0,0.25)); }
+.derm.selected { opacity: 1; stroke: #111; stroke-width: 2; }
+.body-outline { fill: none; stroke: #94a3b8; stroke-width: 1.5; }
+.label {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  fill: #0f172a;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.info-panel {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 12px;
+  padding: 16px;
+  position: sticky;
+  top: 80px;
+}
+.info-panel h3 { margin: 0 0 4px; color: var(--azul); font-size: 1.3rem; }
+.info-panel .sub2 {
+  font-size: 0.75rem; color: var(--gris); margin: 0 0 12px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.info-panel .row { display: flex; gap: 8px; font-size: 0.88rem; margin-bottom: 6px; }
+.info-panel .row .key { color: var(--gris); min-width: 80px; flex-shrink: 0; }
+.info-panel .row .val { color: #0f172a; }
+.info-panel .pearl {
+  margin-top: 10px;
+  padding: 9px 12px;
+  background: var(--azul-claro);
+  border-left: 3px solid var(--azul);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+}
+.info-panel .empty {
+  color: var(--gris); font-size: 0.88rem; text-align: center;
+  padding: 14px 0; font-style: italic;
+}
+
+/* === Plexo braquial SVG === */
+svg.plexo {
+  width: 100%;
+  height: auto;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 12px;
+  padding: 8px;
+}
+.plexo-node {
+  cursor: pointer;
+  transition: filter 0.12s;
+}
+.plexo-node:hover { filter: brightness(1.15) drop-shadow(0 0 3px rgba(0,0,0,0.2)); }
+.plexo-node.selected rect, .plexo-node.selected ellipse { stroke: #111; stroke-width: 2.5; }
+.plexo-line {
+  stroke: #94a3b8;
+  stroke-width: 1.4;
+  fill: none;
+}
+.plexo-line.highlight { stroke: var(--azul); stroke-width: 2.5; }
+.plexo-text {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  fill: white;
+  pointer-events: none;
+  text-anchor: middle;
+}
+.plexo-text.dark { fill: #0f172a; }
+
+/* === Acordeón articulaciones === */
+details.acc {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 0;
+}
+details.acc[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.acc summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azul-osc);
+  list-style: none;
+}
+details.acc summary::-webkit-details-marker { display: none; }
+details.acc summary::before { content: '▸ '; color: var(--azul); transition: transform 0.15s; display: inline-block; }
+details.acc[open] summary::before { transform: rotate(90deg); }
+details.acc .acc-body { padding: 0 16px 14px; }
+
+/* === Localizador (matriz visual) === */
+.loc-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+@media (max-width: 700px) { .loc-steps { grid-template-columns: 1fr; } }
+.loc-step {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.loc-step .num {
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--azul); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.95rem;
+}
+.loc-step .txt { font-size: 0.85rem; color: var(--gris); line-height: 1.4; }
+.loc-step .txt strong { color: var(--azul-osc); }
+
+.loc-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .loc-grid { grid-template-columns: 1fr; }
+}
+.loc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .loc-cols { grid-template-columns: 1fr; } }
+.loc-block {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.loc-block h4 { margin: 0 0 8px; font-size: 0.95rem; color: var(--azul-osc); }
+.loc-block label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  margin: 4px 0;
+  cursor: pointer;
+}
+.loc-block label input { cursor: pointer; }
+.loc-block label.checked { background: var(--azul-claro); border-radius: 4px; padding: 2px 4px; }
+
+.loc-derm {
+  cursor: pointer;
+  stroke: white;
+  stroke-width: 1.2;
+  opacity: 0.35;
+  transition: opacity 0.15s, stroke 0.15s, stroke-width 0.15s;
+}
+.loc-derm:hover { opacity: 0.7; }
+.loc-derm.selected {
+  opacity: 1 !important;
+  stroke: #0f172a;
+  stroke-width: 2.5;
+}
+
+.loc-counter {
+  font-size: 0.78rem;
+  color: var(--gris);
+  text-align: center;
+  padding: 6px 0;
+  background: var(--gris-claro);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.loc-counter strong { color: var(--azul); }
+
+.loc-result {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  display: none;
+}
+.loc-result.show { display: block; }
+.loc-result h4 { margin: 0 0 8px; color: var(--azul); font-size: 1.05rem; }
+.loc-result .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 2px 4px 4px 0;
+}
+.loc-result .badge-rad { background: var(--rojo-claro); color: var(--rojo); }
+.loc-result .badge-nrv { background: var(--azul-claro); color: var(--azul); }
+.loc-result .badge-mix { background: var(--amarillo-claro); color: var(--amarillo); }
+.loc-empty {
+  background: var(--gris-claro);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  color: var(--gris);
+  font-style: italic;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+button.reset {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font: inherit; font-size: 0.85rem; cursor: pointer; color: var(--gris);
+  margin-top: 10px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* === Casos clínicos === */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  margin: 16px 0;
+  padding: 16px 20px;
+}
+.caso h4 { margin: 0 0 8px; color: var(--azul); }
+.caso .historia { font-style: italic; color: #334155; padding: 10px 12px; background: var(--gris-claro); border-radius: 6px; margin: 6px 0 12px; font-size: 0.92rem; }
+.caso .pregunta { font-weight: 600; margin-bottom: 6px; }
+.caso .opcion {
+  display: block;
+  padding: 8px 12px;
+  margin: 4px 0;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.12s;
+}
+.caso .opcion:hover { background: #e2e8f0; }
+.caso .opcion.correct { background: var(--verde-claro); border-color: var(--verde); color: #064e3b; font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-claro); border-color: var(--rojo); color: #7f1d1d; }
+.caso .feedback {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--azul-bg);
+  border-left: 3px solid var(--azul);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  display: none;
+}
+.caso .feedback.show { display: block; }
+
+/* === Autoevaluación === */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.q .pregunta { font-weight: 600; margin-bottom: 8px; }
+.q .opcion {
+  display: block; padding: 7px 12px; margin: 3px 0;
+  border: 1px solid var(--gris-borde); border-radius: 6px;
+  background: var(--gris-claro); cursor: pointer; font-size: 0.9rem;
+}
+.q .opcion:hover { background: #e2e8f0; }
+.q .opcion.correct { background: var(--verde-claro); border-color: var(--verde); color: #064e3b; font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-claro); border-color: var(--rojo); color: #7f1d1d; }
+.q .explicacion { display: none; margin-top: 8px; font-size: 0.86rem; color: var(--gris); padding: 8px 12px; background: var(--gris-claro); border-radius: 6px; }
+.q .explicacion.show { display: block; }
+
+.score-box {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.score-box strong { color: var(--azul); font-size: 1.1rem; }
+
+/* === Etiqueta destacada === */
+.etiq {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: var(--azul-claro);
+  color: var(--azul);
+  margin-right: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.85rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azul); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Anatomía aplicada para la rotación</h1>
+  <div class="sub">Capítulo 1 · Manual de Rehabilitación · Universidad Nacional de Colombia</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Por qué importa</button>
+  <button class="tab-btn" data-tab="cervical">2. Raíces cervicales</button>
+  <button class="tab-btn" data-tab="lumbar">3. Raíces lumbosacras</button>
+  <button class="tab-btn" data-tab="dermatomas">4. Mapa de dermatomas</button>
+  <button class="tab-btn" data-tab="plexo">5. Plexo braquial</button>
+  <button class="tab-btn" data-tab="articulaciones">6. Articulaciones</button>
+  <button class="tab-btn" data-tab="localizador">7. 🔎 Localizador</button>
+  <button class="tab-btn" data-tab="casos">8. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">9. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ====================== TAB 1: INTRO ====================== -->
+<section class="tab-content active" id="intro">
+  <h2>Por qué este repaso es indispensable</h2>
+  <p>La anatomía se estudia en los primeros semestres de la carrera, sin contexto clínico, y se olvida con rapidez. En séptimo semestre el estudiante recuerda que el <em>biceps brachii</em> (bíceps braquial) flexiona el codo, pero ya no recuerda que su raíz dominante es C6 ni que su nervio es el musculocutáneo. Ese vacío bloquea todo lo que viene después: el examen segmentario del paciente con ataque cerebrovascular, la interpretación del electrodiagnóstico, la lectura de un paciente con radiculopatía o neuropatía por atrapamiento.</p>
+
+  <div class="card azul">
+    <h4>Regla pedagógica del capítulo</h4>
+    <p style="margin-bottom: 0">Si no puedo recordar un músculo, su raíz, su nervio y su función, no puedo evaluarlo. Esa es la unidad mínima de la rotación.</p>
+  </div>
+
+  <h3>Cómo navegar esta guía</h3>
+  <ul>
+    <li><strong>Pestañas 2–3:</strong> raíces cervicales y lumbosacras, con sus dermatomas, miotomas y reflejos.</li>
+    <li><strong>Pestaña 4:</strong> mapa interactivo de dermatomas en cuerpo completo (anterior y posterior).</li>
+    <li><strong>Pestaña 5:</strong> esquema interactivo del plexo braquial.</li>
+    <li><strong>Pestaña 6:</strong> articulaciones por región, con los nervios en riesgo en cada una.</li>
+    <li><strong>Pestaña 7:</strong> 🔎 <strong>Localizador</strong>. Marque dermatomas afectados y músculos débiles, y la guía sugiere si el patrón es radicular o neural y qué nivel/nervio es más probable.</li>
+    <li><strong>Pestaña 8:</strong> 10 casos clínicos progresivos.</li>
+    <li><strong>Pestaña 9:</strong> autoevaluación con explicación.</li>
+  </ul>
+
+  <div class="card amarilla">
+    <h4>Convención de nombres anatómicos</h4>
+    <p style="margin-bottom: 0">A lo largo de la guía los músculos se nombran en latín (<em>Terminologia Anatomica</em>) seguido del nombre tradicional en español: <em>biceps brachii</em> (bíceps braquial), <em>quadriceps femoris</em> (cuádriceps femoral), <em>tibialis anterior</em> (tibial anterior). Es la convención del libro.</p>
+  </div>
+</section>
+
+<!-- ====================== TAB 2: CERVICAL ====================== -->
+<section class="tab-content" id="cervical">
+  <h2>Raíces cervicales que importan: C5 a T1</h2>
+  <p>La columna cervical tiene siete vértebras y ocho raíces nerviosas. La raíz C1 sale por encima de C1 y la raíz C8 sale por debajo de C7, encima de T1. De C5 a T1 las raíces forman el plexo braquial. Cada raíz tiene un dermatoma reconocible, un grupo muscular dominante y un reflejo osteotendinoso.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Raíz</th><th>Dermatoma</th><th>Músculo dominante</th><th>Reflejo</th></tr></thead>
+      <tbody>
+        <tr><td class="root">C5</td><td>Hombro lateral y tercio superior del brazo</td><td><em>Deltoideus</em> (deltoides) — abducción de hombro</td><td>Bicipital</td></tr>
+        <tr><td class="root">C6</td><td>Pulgar y borde radial del antebrazo</td><td><em>Biceps brachii</em> (bíceps braquial), <em>extensor carpi radialis</em> (extensor radial del carpo)</td><td>Estilorradial</td></tr>
+        <tr><td class="root">C7</td><td>Dedo medio</td><td><em>Triceps brachii</em> (tríceps braquial), extensores de muñeca y dedos</td><td>Tricipital</td></tr>
+        <tr><td class="root">C8</td><td>Meñique y borde cubital</td><td><em>Flexor digitorum profundus</em> (flexor profundo de los dedos)</td><td>—</td></tr>
+        <tr><td class="root">T1</td><td>Cara medial del brazo</td><td><em>Abductor pollicis brevis</em> (abductor corto del pulgar), <em>interossei</em> (interóseos)</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card azul">
+    <h4>Aplicación clínica · Cervicobraquialgia C6</h4>
+    <p style="margin-bottom: 0">Mujer de 55 años con dolor cervical irradiado al pulgar derecho, hipoestesia en pulgar y debilidad para flexionar el codo. El estudiante debe poder concluir <strong>antes</strong> de pedir una resonancia que se trata de una radiculopatía <strong>C6</strong>: pulgar = C6, <em>biceps brachii</em> = C6.</p>
+  </div>
+
+  <div class="card naranja">
+    <h4>Tip examen</h4>
+    <p style="margin-bottom: 0">Para localizar una raíz cervical en la columna, recuerde: la raíz sale <strong>por encima</strong> de la vértebra de su número (regla cervical), excepto C8 que sale por debajo de C7 (no hay vértebra C8). Una hernia C5–C6 atrapa la raíz <strong>C6</strong>.</p>
+  </div>
+</section>
+
+<!-- ====================== TAB 3: LUMBOSACRAS ====================== -->
+<section class="tab-content" id="lumbar">
+  <h2>Raíces lumbosacras imprescindibles: L4, L5, S1</h2>
+  <p>La columna lumbar tiene cinco vértebras. A diferencia de la cervical, las raíces lumbares y sacras salen <strong>por debajo</strong> del pedículo de la vértebra de su número. Las raíces que conducen el examen del miembro inferior son L4, L5 y S1.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Raíz</th><th>Dermatoma</th><th>Músculo dominante</th><th>Reflejo</th></tr></thead>
+      <tbody>
+        <tr><td class="root">L4</td><td>Cara medial de la pierna y maléolo medial</td><td><em>Quadriceps femoris</em> (cuádriceps femoral)</td><td>Rotuliano</td></tr>
+        <tr><td class="root">L5</td><td>Dorso del primer dedo del pie y cara anterolateral de la pierna</td><td><em>Tibialis anterior</em> (tibial anterior), <em>extensor hallucis longus</em>, <em>gluteus medius</em> (glúteo medio)</td><td>—</td></tr>
+        <tr><td class="root">S1</td><td>Borde lateral y planta del pie</td><td><em>Triceps surae</em> — gastrocnemios + sóleo</td><td>Aquileo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>La regla más cobrada en el examen</h4>
+    <p style="margin-bottom: 0">Una hernia posterolateral del disco <strong>L4–L5</strong> atrapa la raíz <strong>L5</strong>, no la L4. ¿Por qué? Porque la raíz L4 ya salió por debajo de L4, mientras que la raíz L5 está cruzando el espacio L4–L5 antes de salir por debajo del pedículo de L5. Es la lesión más frecuente y la causa más típica de pie caído de origen radicular.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Aplicación clínica · Pie caído L5</h4>
+    <p style="margin-bottom: 0">Hombre de 40 años con lumbalgia irradiada a dorso del pie y dificultad para caminar en talones. Antes de la imagen, el estudiante debe sospechar <strong>radiculopatía L5</strong>: dorso del primer dedo (dermatoma L5) y debilidad de dorsiflexión (<em>tibialis anterior</em>, L5). Causa probable: hernia L4–L5.</p>
+  </div>
+
+  <div class="card naranja">
+    <h4>Pie caído: radiculopatía L5 vs neuropatía peroneal</h4>
+    <p>Ambos producen pie caído. Cómo separarlas en el examen:</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Reflejo aquileo:</strong> conservado en peroneal, conservado también en L5 (es S1).</li>
+      <li><strong>Inversión del pie</strong> (<em>tibialis posterior</em>, raíz L5, nervio tibial): <strong>débil en L5</strong>, conservada en peroneal.</li>
+      <li><strong>Abducción de cadera</strong> (<em>gluteus medius</em>, raíz L5, nervio glúteo superior): <strong>débil en L5</strong>, conservada en peroneal.</li>
+      <li><strong>Dolor lumbar irradiado:</strong> presente en L5 radicular, ausente en peroneal.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== TAB 4: DERMATOMAS SVG ====================== -->
+<section class="tab-content" id="dermatomas">
+  <h2>Mapa interactivo de dermatomas</h2>
+  <p>Pase el cursor sobre una zona para resaltarla. Haga clic para fijar la información en el panel lateral. Use los botones para alternar vista anterior/posterior.</p>
+
+  <div class="derma-layout">
+    <div class="svg-wrap">
+      <div class="view-toggle">
+        <button class="active" data-view="anterior" onclick="setDermView('anterior')">Vista anterior</button>
+        <button data-view="posterior" onclick="setDermView('posterior')">Vista posterior</button>
+      </div>
+
+      <svg class="body" id="svg-anterior" viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg">
+        <ellipse class="body-outline" cx="200" cy="50" rx="34" ry="42"/>
+        <path class="body-outline" d="M180,88 L180,118 L220,118 L220,88"/>
+        <path class="body-outline" d="M150,118 Q140,135 140,170 L140,310 Q140,330 160,335 L240,335 Q260,330 260,310 L260,170 Q260,135 250,118 Z"/>
+        <path class="body-outline" d="M260,140 L380,140 L380,180 L260,180"/>
+        <path class="body-outline" d="M140,140 L20,140 L20,180 L140,180"/>
+        <rect class="body-outline" x="380" y="148" width="14" height="24" rx="3"/>
+        <rect class="body-outline" x="6"   y="148" width="14" height="24" rx="3"/>
+        <path class="body-outline" d="M150,335 L155,395 L245,395 L250,335"/>
+        <path class="body-outline" d="M155,395 L165,560 L195,560 L195,395"/>
+        <path class="body-outline" d="M205,395 L205,560 L235,560 L245,395"/>
+        <ellipse class="body-outline" cx="180" cy="585" rx="22" ry="12"/>
+        <ellipse class="body-outline" cx="220" cy="585" rx="22" ry="12"/>
+
+        <rect class="derm" data-key="C3-C4" x="180" y="88"  width="40" height="30" fill="#fde68a"/>
+        <rect class="derm" data-key="C5" x="245" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="C5" x="120" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="C5" x="280" y="140" width="40" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="C5" x="80"  y="140" width="40" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="C6" x="320" y="140" width="40" height="20" fill="#fb923c"/>
+        <rect class="derm" data-key="C6" x="40"  y="140" width="40" height="20" fill="#fb923c"/>
+        <rect class="derm" data-key="C6" x="380" y="148" width="14" height="12" fill="#fb923c"/>
+        <rect class="derm" data-key="C6" x="6"   y="148" width="14" height="12" fill="#fb923c"/>
+        <rect class="derm" data-key="C7" x="360" y="160" width="20" height="20" fill="#f87171"/>
+        <rect class="derm" data-key="C7" x="20"  y="160" width="20" height="20" fill="#f87171"/>
+        <rect class="derm" data-key="C7" x="380" y="160" width="14" height="6" fill="#f87171"/>
+        <rect class="derm" data-key="C7" x="6"   y="160" width="14" height="6" fill="#f87171"/>
+        <rect class="derm" data-key="C8" x="320" y="160" width="40" height="20" fill="#f472b6"/>
+        <rect class="derm" data-key="C8" x="40"  y="160" width="40" height="20" fill="#f472b6"/>
+        <rect class="derm" data-key="C8" x="380" y="166" width="14" height="6" fill="#f472b6"/>
+        <rect class="derm" data-key="C8" x="6"   y="166" width="14" height="6" fill="#f472b6"/>
+        <rect class="derm" data-key="T1" x="280" y="160" width="40" height="20" fill="#c084fc"/>
+        <rect class="derm" data-key="T1" x="80"  y="160" width="40" height="20" fill="#c084fc"/>
+        <rect class="derm" data-key="T2-T3" x="150" y="120" width="100" height="30" fill="#a78bfa"/>
+        <rect class="derm" data-key="T4" x="150" y="150" width="100" height="22" fill="#818cf8"/>
+        <rect class="derm" data-key="T6-T8" x="150" y="172" width="100" height="44" fill="#60a5fa"/>
+        <rect class="derm" data-key="T10" x="148" y="216" width="104" height="30" fill="#38bdf8"/>
+        <rect class="derm" data-key="T12-L1" x="148" y="246" width="104" height="42" fill="#22d3ee"/>
+        <rect class="derm" data-key="L2" x="148" y="288" width="104" height="50" fill="#2dd4bf"/>
+        <rect class="derm" data-key="L2" x="155" y="335" width="40" height="35" fill="#2dd4bf"/>
+        <rect class="derm" data-key="L2" x="205" y="335" width="40" height="35" fill="#2dd4bf"/>
+        <rect class="derm" data-key="L3" x="160" y="370" width="35" height="80" fill="#34d399"/>
+        <rect class="derm" data-key="L3" x="205" y="370" width="35" height="80" fill="#34d399"/>
+        <rect class="derm" data-key="L4" x="170" y="450" width="20" height="100" fill="#86efac"/>
+        <rect class="derm" data-key="L4" x="210" y="450" width="20" height="100" fill="#86efac"/>
+        <ellipse class="derm" data-key="L4" cx="195" cy="585" rx="8" ry="10" fill="#86efac"/>
+        <ellipse class="derm" data-key="L4" cx="205" cy="585" rx="8" ry="10" fill="#86efac"/>
+        <ellipse class="derm" data-key="L5" cx="170" cy="585" rx="9" ry="9" fill="#facc15"/>
+        <ellipse class="derm" data-key="L5" cx="230" cy="585" rx="9" ry="9" fill="#facc15"/>
+
+        <text class="label" x="200" y="105">C3</text>
+        <text class="label" x="262" y="135">C5</text>
+        <text class="label" x="138" y="135">C5</text>
+        <text class="label" x="338" y="155">C6</text>
+        <text class="label" x="62"  y="155">C6</text>
+        <text class="label" x="370" y="175">C7</text>
+        <text class="label" x="30"  y="175">C7</text>
+        <text class="label" x="338" y="175">C8</text>
+        <text class="label" x="62"  y="175">C8</text>
+        <text class="label" x="300" y="175">T1</text>
+        <text class="label" x="100" y="175">T1</text>
+        <text class="label" x="200" y="138">T2</text>
+        <text class="label" x="200" y="165">T4</text>
+        <text class="label" x="200" y="195">T7</text>
+        <text class="label" x="200" y="235">T10</text>
+        <text class="label" x="200" y="270">L1</text>
+        <text class="label" x="200" y="320">L2</text>
+        <text class="label" x="200" y="410">L3</text>
+        <text class="label" x="200" y="500">L4</text>
+        <text class="label" x="170" y="588">L5</text>
+        <text class="label" x="230" y="588">L5</text>
+      </svg>
+
+      <svg class="body" id="svg-posterior" viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <ellipse class="body-outline" cx="200" cy="50" rx="34" ry="42"/>
+        <path class="body-outline" d="M180,88 L180,118 L220,118 L220,88"/>
+        <path class="body-outline" d="M150,118 Q140,135 140,170 L140,310 Q140,330 160,335 L240,335 Q260,330 260,310 L260,170 Q260,135 250,118 Z"/>
+        <path class="body-outline" d="M260,140 L380,140 L380,180 L260,180"/>
+        <path class="body-outline" d="M140,140 L20,140 L20,180 L140,180"/>
+        <rect class="body-outline" x="380" y="148" width="14" height="24" rx="3"/>
+        <rect class="body-outline" x="6"   y="148" width="14" height="24" rx="3"/>
+        <path class="body-outline" d="M150,335 L155,395 L245,395 L250,335"/>
+        <path class="body-outline" d="M155,395 L165,560 L195,560 L195,395"/>
+        <path class="body-outline" d="M205,395 L205,560 L235,560 L245,395"/>
+        <ellipse class="body-outline" cx="180" cy="585" rx="22" ry="12"/>
+        <ellipse class="body-outline" cx="220" cy="585" rx="22" ry="12"/>
+
+        <rect class="derm" data-key="C2" x="180" y="92"  width="40" height="26" fill="#fde68a"/>
+        <text class="label" x="200" y="108">C2</text>
+        <rect class="derm" data-key="C5" x="245" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="C5" x="120" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="derm" data-key="T2-T6" x="150" y="120" width="100" height="80" fill="#a78bfa"/>
+        <text class="label" x="200" y="160">T2-T6</text>
+        <rect class="derm" data-key="T10-T12" x="150" y="200" width="100" height="60" fill="#38bdf8"/>
+        <text class="label" x="200" y="232">T10</text>
+        <rect class="derm" data-key="L1-L3" x="150" y="260" width="100" height="65" fill="#22d3ee"/>
+        <text class="label" x="200" y="295">L1-L3</text>
+        <rect class="derm" data-key="S1-S2" x="150" y="325" width="100" height="65" fill="#fb7185"/>
+        <text class="label" x="200" y="360">S1-S2</text>
+        <rect class="derm" data-key="L5" x="155" y="390" width="40" height="120" fill="#facc15"/>
+        <rect class="derm" data-key="L5" x="205" y="390" width="40" height="120" fill="#facc15"/>
+        <text class="label" x="175" y="450">L5</text>
+        <text class="label" x="225" y="450">L5</text>
+        <rect class="derm" data-key="S1" x="170" y="510" width="25" height="50" fill="#fda4af"/>
+        <rect class="derm" data-key="S1" x="205" y="510" width="25" height="50" fill="#fda4af"/>
+        <ellipse class="derm" data-key="S1" cx="160" cy="585" rx="14" ry="10" fill="#fda4af"/>
+        <ellipse class="derm" data-key="S1" cx="240" cy="585" rx="14" ry="10" fill="#fda4af"/>
+        <text class="label" x="180" y="540">S1</text>
+        <text class="label" x="220" y="540">S1</text>
+      </svg>
+    </div>
+
+    <div class="info-panel" id="info-panel">
+      <div class="empty">Pase el cursor o haga clic en una zona del cuerpo para ver el dermatoma.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TAB 5: PLEXO BRAQUIAL ====================== -->
+<section class="tab-content" id="plexo">
+  <h2>Plexo braquial: raíces, cordones y nervios terminales</h2>
+  <p>El plexo braquial nace de las raíces C5–T1, se reorganiza en troncos (superior, medio, inferior), divisiones y cordones (lateral, posterior, medial), y termina en cinco nervios principales del miembro superior. <strong>Haga clic</strong> en cualquier elemento para resaltar el camino y ver su detalle clínico.</p>
+
+  <svg class="plexo" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+    <!-- líneas de conexión raíces->troncos -->
+    <line class="plexo-line" id="ln-c5-tsup" x1="80"  y1="60"  x2="240" y2="100"/>
+    <line class="plexo-line" id="ln-c6-tsup" x1="80"  y1="120" x2="240" y2="100"/>
+    <line class="plexo-line" id="ln-c7-tmed" x1="80"  y1="180" x2="240" y2="180"/>
+    <line class="plexo-line" id="ln-c8-tinf" x1="80"  y1="240" x2="240" y2="260"/>
+    <line class="plexo-line" id="ln-t1-tinf" x1="80"  y1="300" x2="240" y2="260"/>
+
+    <!-- troncos -> cordones -->
+    <line class="plexo-line" id="ln-tsup-fl" x1="280" y1="100" x2="430" y2="120"/>
+    <line class="plexo-line" id="ln-tsup-fp" x1="280" y1="100" x2="430" y2="200"/>
+    <line class="plexo-line" id="ln-tmed-fl" x1="280" y1="180" x2="430" y2="120"/>
+    <line class="plexo-line" id="ln-tmed-fp" x1="280" y1="180" x2="430" y2="200"/>
+    <line class="plexo-line" id="ln-tinf-fp" x1="280" y1="260" x2="430" y2="200"/>
+    <line class="plexo-line" id="ln-tinf-fm" x1="280" y1="260" x2="430" y2="280"/>
+
+    <!-- cordones -> nervios -->
+    <line class="plexo-line" id="ln-fl-mc"  x1="490" y1="120" x2="650" y2="60"/>
+    <line class="plexo-line" id="ln-fl-md"  x1="490" y1="120" x2="650" y2="200"/>
+    <line class="plexo-line" id="ln-fp-ax"  x1="490" y1="200" x2="650" y2="120"/>
+    <line class="plexo-line" id="ln-fp-rd"  x1="490" y1="200" x2="650" y2="160"/>
+    <line class="plexo-line" id="ln-fm-md"  x1="490" y1="280" x2="650" y2="200"/>
+    <line class="plexo-line" id="ln-fm-cb"  x1="490" y1="280" x2="650" y2="260"/>
+
+    <!-- ramas pre-terminales (etiquetas decorativas) -->
+    <line class="plexo-line" id="ln-c5-dse" x1="80" y1="60" x2="160" y2="20" stroke-dasharray="3,3"/>
+    <text class="plexo-text dark" x="245" y="22" text-anchor="start">N. dorsal escapular (rhomboidei) ← C5</text>
+    <line class="plexo-line" id="ln-c567-tl" x1="80" y1="180" x2="160" y2="350" stroke-dasharray="3,3"/>
+    <text class="plexo-text dark" x="170" y="385" text-anchor="start">N. torácico largo (serratus anterior) ← C5–C7</text>
+    <line class="plexo-line" id="ln-tsup-se" x1="280" y1="100" x2="370" y2="40" stroke-dasharray="3,3"/>
+    <text class="plexo-text dark" x="380" y="38" text-anchor="start">N. supraescapular (supraspinatus, infraspinatus) ← tronco superior</text>
+
+    <!-- raíces -->
+    <g class="plexo-node" data-id="C5">
+      <rect x="20" y="44" width="60" height="32" rx="6" fill="#1e40af"/>
+      <text class="plexo-text" x="50" y="65">C5</text>
+    </g>
+    <g class="plexo-node" data-id="C6">
+      <rect x="20" y="104" width="60" height="32" rx="6" fill="#1e40af"/>
+      <text class="plexo-text" x="50" y="125">C6</text>
+    </g>
+    <g class="plexo-node" data-id="C7">
+      <rect x="20" y="164" width="60" height="32" rx="6" fill="#1e40af"/>
+      <text class="plexo-text" x="50" y="185">C7</text>
+    </g>
+    <g class="plexo-node" data-id="C8">
+      <rect x="20" y="224" width="60" height="32" rx="6" fill="#1e40af"/>
+      <text class="plexo-text" x="50" y="245">C8</text>
+    </g>
+    <g class="plexo-node" data-id="T1">
+      <rect x="20" y="284" width="60" height="32" rx="6" fill="#1e40af"/>
+      <text class="plexo-text" x="50" y="305">T1</text>
+    </g>
+
+    <!-- troncos -->
+    <g class="plexo-node" data-id="Tsup">
+      <rect x="240" y="84" width="100" height="32" rx="6" fill="#0891b2"/>
+      <text class="plexo-text" x="290" y="105">Tronco sup.</text>
+    </g>
+    <g class="plexo-node" data-id="Tmed">
+      <rect x="240" y="164" width="100" height="32" rx="6" fill="#0891b2"/>
+      <text class="plexo-text" x="290" y="185">Tronco medio</text>
+    </g>
+    <g class="plexo-node" data-id="Tinf">
+      <rect x="240" y="244" width="100" height="32" rx="6" fill="#0891b2"/>
+      <text class="plexo-text" x="290" y="265">Tronco inf.</text>
+    </g>
+
+    <!-- cordones -->
+    <g class="plexo-node" data-id="FL">
+      <rect x="430" y="104" width="100" height="32" rx="6" fill="#7c3aed"/>
+      <text class="plexo-text" x="480" y="125">Cord. lateral</text>
+    </g>
+    <g class="plexo-node" data-id="FP">
+      <rect x="430" y="184" width="100" height="32" rx="6" fill="#7c3aed"/>
+      <text class="plexo-text" x="480" y="205">Cord. posterior</text>
+    </g>
+    <g class="plexo-node" data-id="FM">
+      <rect x="430" y="264" width="100" height="32" rx="6" fill="#7c3aed"/>
+      <text class="plexo-text" x="480" y="285">Cord. medial</text>
+    </g>
+
+    <!-- nervios terminales -->
+    <g class="plexo-node" data-id="MC">
+      <rect x="650" y="44" width="130" height="32" rx="6" fill="#16a34a"/>
+      <text class="plexo-text" x="715" y="65">Musculocutáneo</text>
+    </g>
+    <g class="plexo-node" data-id="AX">
+      <rect x="650" y="104" width="130" height="32" rx="6" fill="#16a34a"/>
+      <text class="plexo-text" x="715" y="125">Axilar</text>
+    </g>
+    <g class="plexo-node" data-id="RD">
+      <rect x="650" y="144" width="130" height="32" rx="6" fill="#16a34a"/>
+      <text class="plexo-text" x="715" y="165">Radial</text>
+    </g>
+    <g class="plexo-node" data-id="MD">
+      <rect x="650" y="184" width="130" height="32" rx="6" fill="#16a34a"/>
+      <text class="plexo-text" x="715" y="205">Mediano</text>
+    </g>
+    <g class="plexo-node" data-id="CB">
+      <rect x="650" y="244" width="130" height="32" rx="6" fill="#16a34a"/>
+      <text class="plexo-text" x="715" y="265">Cubital</text>
+    </g>
+
+    <text class="plexo-text dark" x="50" y="445">Raíces (C5–T1)</text>
+    <text class="plexo-text dark" x="290" y="445">Troncos</text>
+    <text class="plexo-text dark" x="480" y="445">Cordones</text>
+    <text class="plexo-text dark" x="715" y="445">Nervios terminales</text>
+  </svg>
+
+  <div class="info-panel" id="plexo-info" style="position: relative; top: auto; margin-top: 14px;">
+    <div class="empty">Haga clic en una raíz, tronco, cordón o nervio para ver función e información clínica.</div>
+  </div>
+
+  <div class="card amarilla" style="margin-top: 16px;">
+    <h4>Lecturas clínicas del plexo</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Lesión proximal (preganglionar):</strong> compromete las ramas tempranas (dorsal escapular, torácico largo, supraescapular) → escápula alada (<em>serratus anterior</em>), debilidad de rotadores externos, atrofia de romboides.</li>
+      <li><strong>Parálisis de Erb-Duchenne (C5–C6, tronco superior):</strong> brazo en aducción y rotación interna, antebrazo extendido y pronado ("postura del propinero"). Por tracción del hombro al nacer o trauma del hombro.</li>
+      <li><strong>Parálisis de Klumpke (C8–T1, tronco inferior):</strong> mano en garra, atrofia de intrínsecos, a veces síndrome de Horner por compromiso simpático cervical.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== TAB 6: ARTICULACIONES ====================== -->
+<section class="tab-content" id="articulaciones">
+  <h2>Articulaciones por región: anatomía mínima clínicamente útil</h2>
+  <p>Para cada articulación: lo que el médico general necesita recordar (anatomía clave, nervio en riesgo, cuadro clínico arquetípico). El detalle quirúrgico no entra acá.</p>
+
+  <details class="acc" open>
+    <summary>Hombro y manguito rotador</summary>
+    <div class="acc-body">
+      <p>El hombro es un complejo de cuatro articulaciones: glenohumeral, acromioclavicular, esternoclavicular y escapulotorácica. La estabilidad glenohumeral depende menos de la congruencia ósea (cabeza humeral apoyada en glenoides poco profunda) y más del equilibrio activo del <strong>manguito rotador</strong>: <em>supraspinatus</em> (supraespinoso), <em>infraspinatus</em> (infraespinoso), <em>teres minor</em> (redondo menor) y <em>subscapularis</em> (subescapular).</p>
+      <div class="card naranja">
+        <h4>Tendinitis del supraespinoso · "arco doloroso"</h4>
+        <p style="margin-bottom: 0">El <em>supraspinatus</em> pasa por debajo del arco coracoacromial. Cualquier movimiento de elevación repetida (pintar techos, lanzar) lo comprime contra el acromion. Aparece dolor entre 60° y 120° de abducción ("arco doloroso") y, en pacientes mayores, desgarro completo del manguito.</p>
+      </div>
+      <p><strong>Nervio en riesgo</strong>: axilar (C5–C6), tras luxación anterior de hombro o cirugía de hombro. Se manifiesta como pérdida de abducción + hipoestesia del hombro lateral.</p>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Codo</summary>
+    <div class="acc-body">
+      <p>Tres referencias clínicas:</p>
+      <ul>
+        <li><strong>Epicóndilo lateral</strong>: origen de los extensores comunes de muñeca y dedos. Punto doloroso en la <em>epicondilitis lateral</em> ("codo de tenista").</li>
+        <li><strong>Epicóndilo medial</strong>: origen de flexores comunes y pronador. Dolor en la <em>epicondilitis medial</em> ("codo de golfista").</li>
+        <li><strong>Surco epitrocleo-olecraneano</strong>: el nervio cubital pasa superficial por aquí. Sitio de atrapamiento más frecuente del cubital después del túnel cubital.</li>
+      </ul>
+      <div class="card azul">
+        <h4>Síndrome del túnel cubital</h4>
+        <p style="margin-bottom: 0">Parestesias en borde cubital de la mano y meñique tras dormir con los codos flexionados. La compresión está en el surco epitrocleano. Es la segunda neuropatía por atrapamiento más frecuente del miembro superior, después del túnel del carpo.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Muñeca y túnel del carpo</summary>
+    <div class="acc-body">
+      <p>El túnel del carpo es un espacio cerrado en la cara palmar de la muñeca, limitado por los huesos del carpo en el dorso y por el <strong>retináculo flexor</strong> en la cara palmar. Por él pasan nueve tendones flexores y el <strong>nervio mediano</strong>.</p>
+      <p>El mediano da sensibilidad palmar a los tres primeros dedos y mitad radial del cuarto, y motor a los músculos tenares (oposición y abducción del pulgar). Cualquier condición que aumente el contenido del túnel (sinovitis, edema gestacional, hipotiroidismo) o reduzca el continente (artrosis del carpo) lo comprime.</p>
+      <div class="card azul">
+        <h4>Síndrome del túnel del carpo</h4>
+        <p style="margin-bottom: 0">Parestesias nocturnas en pulgar, índice y dedo medio que mejoran al sacudir la mano. Maniobra de Phalen positiva. Confirmación electrofisiológica.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Cadera</summary>
+    <div class="acc-body">
+      <p>Articulación esférica profunda, muy estable. Movimientos principales: flexión (<em>iliopsoas</em>, L1–L3), extensión (<em>gluteus maximus</em>, L5–S1), abducción (<em>gluteus medius</em>, L4–L5).</p>
+      <ul>
+        <li><strong>Trocánter mayor</strong>: referencia para medir altura de bastones y caminadores. Sitio de la <em>bursitis trocantérica</em>.</li>
+        <li><strong>Cabeza femoral</strong>: sitio de la fractura de cadera del adulto mayor. Su irrigación retrógrada explica la necrosis avascular post-fractura.</li>
+        <li><strong>Pliegue inguinal</strong>: dolor a este nivel sugiere patología intraarticular (coxartrosis, pinzamiento femoroacetabular).</li>
+      </ul>
+      <div class="card naranja">
+        <h4>Signo de Trendelenburg</h4>
+        <p style="margin-bottom: 0">Caída de la pelvis hacia el lado sano durante el apoyo monopodal del lado afectado. Refleja debilidad del <em>gluteus medius</em> (raíz L4–L5, nervio glúteo superior). Aparece en radiculopatía L5, prótesis de cadera reciente o lesión del nervio glúteo superior.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Rodilla</summary>
+    <div class="acc-body">
+      <p>Bisagra con un grado de rotación. Estabilidad por cuatro ligamentos (cruzados anterior y posterior, colaterales medial y lateral) y los meniscos. Su extensión depende del aparato extensor: <em>quadriceps femoris</em> (cuádriceps), tendón rotuliano, rótula y tuberosidad tibial.</p>
+      <div class="card azul">
+        <h4>"Se le va la rodilla" tras artroplastia</h4>
+        <p style="margin-bottom: 0">Causa más frecuente: debilidad del <em>quadriceps femoris</em> (raíz L3–L4, nervio femoral). El paciente no logra mantener la extensión activa durante el apoyo. La rehabilitación se centra en recuperar fuerza del cuádriceps.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary>Tobillo y pie</summary>
+    <div class="acc-body">
+      <p>El tobillo articula tibia, peroné y astrágalo. Movimientos: dorsiflexión (<em>tibialis anterior</em>, L4–L5) y plantiflexión (<em>gastrocnemius</em> y <em>soleus</em>, S1–S2). El nervio peroneo común pasa superficial por la cabeza del peroné, donde es vulnerable.</p>
+      <div class="card roja">
+        <h4>Pie caído por compresión peroneal</h4>
+        <p style="margin-bottom: 0">Paciente hospitalizado prolongado, encamado o con yeso largo, desarrolla pie caído. El sitio probable es la <strong>cabeza del peroné</strong>: compresión del peroneo común por el colchón, las medias antiembólicas mal ajustadas o por cruzar las piernas.</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ====================== TAB 7: LOCALIZADOR ====================== -->
+<section class="tab-content" id="localizador">
+  <h2>🔎 Localizador raíz/nervio</h2>
+  <p style="margin-bottom: 0">Una herramienta de razonamiento clínico. Usted le dice a la guía qué encontró en el examen físico (qué territorios sensitivos están alterados y qué músculos están débiles) y la guía le propone si lo más probable es una <strong>radiculopatía</strong> (lesión en una raíz nerviosa de la columna), una <strong>neuropatía periférica</strong> (lesión en un nervio terminal) o un patrón mixto.</p>
+
+  <div class="loc-steps">
+    <div class="loc-step"><div class="num">1</div><div class="txt"><strong>Marque dermatomas afectados</strong> haciendo clic sobre las zonas coloreadas del cuerpo (las que aparecen tenues hasta que las activa).</div></div>
+    <div class="loc-step"><div class="num">2</div><div class="txt"><strong>Marque los músculos débiles</strong> en las casillas de la derecha (puede marcar varios).</div></div>
+    <div class="loc-step"><div class="num">3</div><div class="txt"><strong>Lea el patrón sugerido</strong> abajo: la guía analiza cuál raíz o nervio explica todos los hallazgos.</div></div>
+  </div>
+
+  <div class="card amarilla" style="margin-top: 0; margin-bottom: 14px;">
+    <h4 style="margin-top: 0;">Tres ejemplos para entrenar el razonamiento</h4>
+    <ul style="margin: 0; padding-left: 20px; font-size: 0.88rem;">
+      <li><strong>Radiculopatía C6:</strong> marque dermatoma C6 (pulgar) + <em>Biceps brachii</em> + <em>Extensor carpi radialis</em>. Comparten raíz C6 pero tienen nervios distintos (musculocutáneo y radial) → patrón radicular.</li>
+      <li><strong>Neuropatía cubital:</strong> marque <em>Flexor digitorum profundus</em> + <em>Abductor digiti minimi</em> + <em>Interossei</em>. Tienen raíces distintas (C8, T1) pero comparten el nervio cubital → patrón neuropático.</li>
+      <li><strong>Pie caído L5:</strong> marque dermatoma L5 + <em>Tibialis anterior</em> + <em>Gluteus medius</em> + <em>Tibialis posterior</em>. Tres nervios distintos (peroneo profundo, glúteo superior, tibial) que comparten raíz L5 → radiculopatía L5, no neuropatía peroneal.</li>
+    </ul>
+  </div>
+
+  <div class="loc-grid">
+    <!-- Cuerpo SVG con clicks -->
+    <div class="svg-wrap">
+      <div class="loc-counter" id="loc-counter"><strong id="loc-num-derm">0</strong> dermatomas · <strong id="loc-num-musc">0</strong> músculos seleccionados</div>
+      <svg class="body" id="svg-loc" viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg">
+        <ellipse class="body-outline" cx="200" cy="50" rx="34" ry="42"/>
+        <path class="body-outline" d="M180,88 L180,118 L220,118 L220,88"/>
+        <path class="body-outline" d="M150,118 Q140,135 140,170 L140,310 Q140,330 160,335 L240,335 Q260,330 260,310 L260,170 Q260,135 250,118 Z"/>
+        <path class="body-outline" d="M260,140 L380,140 L380,180 L260,180"/>
+        <path class="body-outline" d="M140,140 L20,140 L20,180 L140,180"/>
+        <rect class="body-outline" x="380" y="148" width="14" height="24" rx="3"/>
+        <rect class="body-outline" x="6"   y="148" width="14" height="24" rx="3"/>
+        <path class="body-outline" d="M150,335 L155,395 L245,395 L250,335"/>
+        <path class="body-outline" d="M155,395 L165,560 L195,560 L195,395"/>
+        <path class="body-outline" d="M205,395 L205,560 L235,560 L245,395"/>
+        <ellipse class="body-outline" cx="180" cy="585" rx="22" ry="12"/>
+        <ellipse class="body-outline" cx="220" cy="585" rx="22" ry="12"/>
+
+        <rect class="loc-derm" data-key="C5" x="245" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="loc-derm" data-key="C5" x="120" y="120" width="35" height="40" fill="#fbbf24"/>
+        <rect class="loc-derm" data-key="C6" x="320" y="140" width="40" height="20" fill="#fb923c"/>
+        <rect class="loc-derm" data-key="C6" x="40"  y="140" width="40" height="20" fill="#fb923c"/>
+        <rect class="loc-derm" data-key="C6" x="380" y="148" width="14" height="12" fill="#fb923c"/>
+        <rect class="loc-derm" data-key="C6" x="6"   y="148" width="14" height="12" fill="#fb923c"/>
+        <rect class="loc-derm" data-key="C7" x="360" y="160" width="20" height="20" fill="#f87171"/>
+        <rect class="loc-derm" data-key="C7" x="20"  y="160" width="20" height="20" fill="#f87171"/>
+        <rect class="loc-derm" data-key="C8" x="320" y="160" width="40" height="20" fill="#f472b6"/>
+        <rect class="loc-derm" data-key="C8" x="40"  y="160" width="40" height="20" fill="#f472b6"/>
+        <rect class="loc-derm" data-key="T1" x="280" y="160" width="40" height="20" fill="#c084fc"/>
+        <rect class="loc-derm" data-key="T1" x="80"  y="160" width="40" height="20" fill="#c084fc"/>
+        <rect class="loc-derm" data-key="L4" x="170" y="450" width="20" height="100" fill="#86efac"/>
+        <rect class="loc-derm" data-key="L4" x="210" y="450" width="20" height="100" fill="#86efac"/>
+        <ellipse class="loc-derm" data-key="L5" cx="170" cy="585" rx="9" ry="9" fill="#facc15"/>
+        <ellipse class="loc-derm" data-key="L5" cx="230" cy="585" rx="9" ry="9" fill="#facc15"/>
+        <rect class="loc-derm" data-key="L5-pst" x="155" y="370" width="40" height="80" fill="#facc15" opacity="0.5"/>
+        <rect class="loc-derm" data-key="L5-pst" x="205" y="370" width="40" height="80" fill="#facc15" opacity="0.5"/>
+        <rect class="loc-derm" data-key="S1" x="175" y="450" width="20" height="100" fill="#fda4af" opacity="0.5"/>
+        <rect class="loc-derm" data-key="S1" x="205" y="450" width="20" height="100" fill="#fda4af" opacity="0.5"/>
+
+        <text class="label" x="262" y="135">C5</text>
+        <text class="label" x="138" y="135">C5</text>
+        <text class="label" x="338" y="155">C6</text>
+        <text class="label" x="62"  y="155">C6</text>
+        <text class="label" x="370" y="175">C7</text>
+        <text class="label" x="30"  y="175">C7</text>
+        <text class="label" x="338" y="175">C8</text>
+        <text class="label" x="62"  y="175">C8</text>
+        <text class="label" x="300" y="175">T1</text>
+        <text class="label" x="100" y="175">T1</text>
+        <text class="label" x="180" y="500">L4</text>
+        <text class="label" x="170" y="588">L5</text>
+        <text class="label" x="230" y="588">L5</text>
+      </svg>
+      <div style="font-size: 0.75rem; color: var(--gris);">Mapa simplificado: solo los dermatomas claves para el localizador.</div>
+    </div>
+
+    <!-- Lista de músculos -->
+    <div>
+      <div class="loc-cols">
+        <div class="loc-block">
+          <h4>Miembro superior</h4>
+          <label><input type="checkbox" data-musc="deltoideus"> <em>Deltoideus</em> (abducción hombro)</label>
+          <label><input type="checkbox" data-musc="biceps"> <em>Biceps brachii</em> (flexión codo)</label>
+          <label><input type="checkbox" data-musc="ecr"> <em>Extensor carpi radialis</em> (extensión muñeca)</label>
+          <label><input type="checkbox" data-musc="triceps"> <em>Triceps brachii</em> (extensión codo)</label>
+          <label><input type="checkbox" data-musc="fdp"> <em>Flexor digitorum profundus</em> (flexión dedos)</label>
+          <label><input type="checkbox" data-musc="apb"> <em>Abductor pollicis brevis</em> (abducción pulgar)</label>
+          <label><input type="checkbox" data-musc="adm"> <em>Abductor digiti minimi</em> (abducción meñique)</label>
+          <label><input type="checkbox" data-musc="interossei"> <em>Interossei</em> (intrínsecos mano)</label>
+        </div>
+        <div class="loc-block">
+          <h4>Miembro inferior</h4>
+          <label><input type="checkbox" data-musc="iliopsoas"> <em>Iliopsoas</em> (flexión cadera)</label>
+          <label><input type="checkbox" data-musc="quadriceps"> <em>Quadriceps femoris</em> (extensión rodilla)</label>
+          <label><input type="checkbox" data-musc="gluteus_med"> <em>Gluteus medius</em> (abducción cadera)</label>
+          <label><input type="checkbox" data-musc="hamstrings"> Isquiotibiales (flexión rodilla)</label>
+          <label><input type="checkbox" data-musc="tib_ant"> <em>Tibialis anterior</em> (dorsiflexión)</label>
+          <label><input type="checkbox" data-musc="ehl"> <em>Extensor hallucis longus</em> (extensión 1.er dedo)</label>
+          <label><input type="checkbox" data-musc="tib_post"> <em>Tibialis posterior</em> (inversión pie)</label>
+          <label><input type="checkbox" data-musc="triceps_surae"> <em>Triceps surae</em> (plantiflexión)</label>
+        </div>
+      </div>
+
+      <button class="reset" onclick="resetLoc()">Reiniciar selección</button>
+
+      <div class="loc-result" id="loc-result">
+        <h4>Patrón sugerido</h4>
+        <div id="loc-detalle"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TAB 8: CASOS CLÍNICOS ====================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes. Para cada uno, identifique la raíz, el nervio o el sitio anatómico responsable. Haga clic en la opción que considere correcta; la guía le da retroalimentación.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ====================== TAB 9: AUTOEVALUACIÓN ====================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de raíces, nervios, dermatomas y patrones. Haga clic en la opción correcta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Dermatomas SVG (Tab 4)
+// =========================================================
+const dermData = {
+  'C2':       { name:'C2', region:'Occipital posterior', musc:'—', reflex:'—', pearl:'Cefalea occipital crónica con dolor a la palpación de la nuca: descartar neuralgia de Arnold (rama dorsal de C2).' },
+  'C3-C4':    { name:'C3–C4', region:'Cuello y trapecio superior', musc:'Diafragma (frénico, C3–C5)', reflex:'—', pearl:'Lesión medular C3 o superior compromete el diafragma → ventilación mecánica.' },
+  'C5':       { name:'C5', region:'Hombro lateral y tercio superior del brazo (territorio del nervio axilar)', musc:'Deltoideus (deltoides) — abducción de hombro', reflex:'Bicipital', pearl:'Hipoestesia del hombro lateral + debilidad de abducción tras luxación de hombro = neuropraxia del nervio axilar.' },
+  'C6':       { name:'C6', region:'Pulgar y borde radial del antebrazo', musc:'Biceps brachii (bíceps braquial), extensor carpi radialis (extensores radiales del carpo)', reflex:'Estilorradial', pearl:'Cervicobraquialgia con dolor al pulgar + debilidad para flexionar codo = radiculopatía C6 (típica hernia C5-C6).' },
+  'C7':       { name:'C7', region:'Dedo medio', musc:'Triceps brachii (tríceps braquial), extensores de muñeca y dedos', reflex:'Tricipital', pearl:'Brazo caído con tríceps débil y arreflexia tricipital = sospechar radiculopatía C7.' },
+  'C8':       { name:'C8', region:'Meñique y borde cubital del antebrazo', musc:'Flexor digitorum profundus (flexor profundo de los dedos)', reflex:'—', pearl:'Garra cubital y debilidad para flexionar la falange distal del meñique: pensar en raíz C8 o nervio cubital alto.' },
+  'T1':       { name:'T1', region:'Cara medial del brazo', musc:'Abductor pollicis brevis (abductor corto del pulgar) — músculo de registro del mediano motor; interossei (interóseos, intrínsecos de la mano)', reflex:'—', pearl:'Síndrome de Pancoast (tumor del vértice pulmonar): T1 + Horner. Dolor del brazo medial + atrofia tenar e interósea.' },
+  'T2-T3':    { name:'T2–T3', region:'Pecho alto', musc:'—', reflex:'—', pearl:'Banda T2-T3 marca el límite cefálico del compromiso medular cervical bajo.' },
+  'T2-T6':    { name:'T2–T6', region:'Tronco superior posterior', musc:'—', reflex:'—', pearl:'—' },
+  'T4':       { name:'T4', region:'Línea del pezón', musc:'—', reflex:'—', pearl:'Nivel sensitivo T4 = lesión medular a la altura de los pezones. Referencia anatómica clave.' },
+  'T6-T8':    { name:'T6–T8', region:'Epigastrio', musc:'—', reflex:'—', pearl:'—' },
+  'T10':      { name:'T10', region:'Ombligo', musc:'—', reflex:'Cutáneo abdominal', pearl:'Nivel sensitivo T10 = lesión medular a la altura del ombligo. Las dos referencias clave son T4 (pezón) y T10 (ombligo).' },
+  'T10-T12':  { name:'T10–T12', region:'Espalda baja', musc:'—', reflex:'—', pearl:'—' },
+  'T12-L1':   { name:'T12–L1', region:'Pliegue inguinal', musc:'—', reflex:'Cremastérico (L1-L2)', pearl:'Nivel sensitivo L1 = lesión medular a la altura del pliegue inguinal.' },
+  'L1-L3':    { name:'L1–L3', region:'Cintura posterior y glúteo alto', musc:'—', reflex:'—', pearl:'—' },
+  'L2':       { name:'L2', region:'Muslo proximal anterior', musc:'Iliopsoas (psoas ilíaco) — flexión de cadera', reflex:'—', pearl:'Debilidad para flexionar cadera + hipoestesia muslo anterior = pensar en compresión L2 o lesión del plexo lumbar.' },
+  'L3':       { name:'L3', region:'Cara medial del muslo y rodilla anterior', musc:'Quadriceps femoris (cuádriceps femoral)', reflex:'Rotuliano (L3–L4)', pearl:'"Se le va la rodilla" tras artroplastia + arreflexia rotuliana = debilidad de cuádriceps. Raíz dominante L3-L4, nervio femoral.' },
+  'L4':       { name:'L4', region:'Cara medial de la pierna y maléolo medial', musc:'Quadriceps femoris (cuádriceps femoral) parcial, tibialis anterior (tibial anterior)', reflex:'Rotuliano', pearl:'Hernia L3-L4 atrapa la raíz L4 (la que sale por debajo del pedículo de L4).' },
+  'L5':       { name:'L5', region:'Dorso del primer dedo del pie y cara anterolateral de la pierna; cara lateral y posterior del muslo (vista posterior)', musc:'Pierna anterior: tibialis anterior (tibial anterior), extensor hallucis longus (extensor largo del primer dedo). Cadera/abductores: gluteus medius (glúteo medio), tensor fasciae latae (tensor de la fascia lata) — abducción de cadera, nervio glúteo superior. Muslo posterior (isquiotibiales L5–S1, ciático): biceps femoris (bíceps femoral), semimembranosus (semimembranoso), semitendinosus (semitendinoso).', reflex:'—', pearl:'Pie caído + hipoestesia en dorso del pie = radiculopatía L5. Trendelenburg = glúteo medio = L5. Diferenciar de neuropatía peroneal: en esta el reflejo aquileo, la inversión y los abductores de cadera están conservados.' },
+  'S1':       { name:'S1', region:'Borde lateral y planta del pie', musc:'Triceps surae — gastrocnemius (gastrocnemios) + soleus (sóleo). Comparte la inervación de los isquiotibiales con L5.', reflex:'Aquileo', pearl:'Dolor lumbar irradiado a borde lateral del pie + arreflexia aquilea = radiculopatía S1 (hernia L5-S1).' },
+  'S1-S2':    { name:'S1–S2', region:'Glúteo y cara posterior del muslo', musc:'Banda dermatómica posterior. Los isquiotibiales (biceps femoris, semimembranosus, semitendinosus) están inervados por raíz L5–S1 (nervio ciático). En el pie, triceps surae es S1–S2.', reflex:'Aquileo', pearl:'Buen ejemplo de cómo el mapa cutáneo y el muscular no siempre coinciden segmento a segmento: la cara posterior del muslo es S1-S2 cutáneo, pero los músculos que viajan allí son L5-S1.' }
+};
+
+let currentSel = null;
+function showDermInfo(key) {
+  const d = dermData[key];
+  const panel = document.getElementById('info-panel');
+  if (!d) {
+    panel.innerHTML = '<div class="empty">Pase el cursor o haga clic en una zona del cuerpo para ver el dermatoma.</div>';
+    return;
+  }
+  let html = `<h3>${d.name}</h3><div class="sub2">Dermatoma</div>`;
+  html += `<div class="row"><div class="key">Región</div><div class="val">${d.region}</div></div>`;
+  if (d.musc !== '—') html += `<div class="row"><div class="key">Músculo</div><div class="val">${d.musc}</div></div>`;
+  if (d.reflex !== '—') html += `<div class="row"><div class="key">Reflejo</div><div class="val">${d.reflex}</div></div>`;
+  if (d.pearl !== '—') html += `<div class="pearl">${d.pearl}</div>`;
+  panel.innerHTML = html;
+}
+
+document.querySelectorAll('#dermatomas .derm').forEach(el => {
+  const key = el.dataset.key;
+  el.addEventListener('mouseenter', () => { if (!currentSel) showDermInfo(key); });
+  el.addEventListener('mouseleave', () => { if (!currentSel) showDermInfo(null); });
+  el.addEventListener('click', e => {
+    e.stopPropagation();
+    document.querySelectorAll('#dermatomas .derm.selected').forEach(s => s.classList.remove('selected'));
+    document.querySelectorAll(`#dermatomas .derm[data-key="${key}"]`).forEach(s => s.classList.add('selected'));
+    currentSel = key;
+    showDermInfo(key);
+  });
+});
+
+document.getElementById('dermatomas').addEventListener('click', e => {
+  if (!e.target.classList.contains('derm')) {
+    document.querySelectorAll('#dermatomas .derm.selected').forEach(s => s.classList.remove('selected'));
+    currentSel = null;
+    showDermInfo(null);
+  }
+});
+
+function setDermView(view) {
+  document.getElementById('svg-anterior').style.display  = view === 'anterior' ? '' : 'none';
+  document.getElementById('svg-posterior').style.display = view === 'posterior' ? '' : 'none';
+  document.querySelectorAll('#dermatomas .view-toggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
+  });
+  currentSel = null;
+  showDermInfo(null);
+}
+
+// =========================================================
+// Plexo braquial (Tab 5)
+// =========================================================
+const plexoData = {
+  'C5': { titulo: 'Raíz C5', detalle: 'Forma parte del tronco superior junto con C6. Da el nervio dorsal escapular (rhomboidei) y contribuye al supraescapular y al frénico (C3–C5). Dermatoma: hombro lateral. Músculo dominante: <em>deltoideus</em>. Reflejo: bicipital.', highlight: ['ln-c5-tsup', 'ln-c5-dse'] },
+  'C6': { titulo: 'Raíz C6', detalle: 'Forma parte del tronco superior con C5. Dermatoma: pulgar y borde radial. Músculos dominantes: <em>biceps brachii</em>, <em>extensor carpi radialis</em>. Reflejo: estilorradial. Una hernia C5–C6 atrapa la raíz C6 (regla cervical: la raíz sale por encima de la vértebra de su número).', highlight: ['ln-c6-tsup'] },
+  'C7': { titulo: 'Raíz C7', detalle: 'Constituye el tronco medio del plexo. Contribuye al nervio torácico largo. Dermatoma: dedo medio. Músculo dominante: <em>triceps brachii</em>. Reflejo: tricipital.', highlight: ['ln-c7-tmed', 'ln-c567-tl'] },
+  'C8': { titulo: 'Raíz C8', detalle: 'Junto con T1 forma el tronco inferior. Dermatoma: meñique y borde cubital. Músculo dominante: <em>flexor digitorum profundus</em>. Una avulsión de C8–T1 produce parálisis de Klumpke (mano en garra).', highlight: ['ln-c8-tinf'] },
+  'T1': { titulo: 'Raíz T1', detalle: 'Junto con C8 forma el tronco inferior. Dermatoma: cara medial del brazo. Músculos: <em>abductor pollicis brevis</em>, <em>interossei</em>. Tumor de Pancoast (vértice pulmonar) compromete T1 y el simpático cervical → Horner.', highlight: ['ln-t1-tinf'] },
+  'Tsup': { titulo: 'Tronco superior (C5–C6)', detalle: 'Origina el nervio supraescapular (<em>supraspinatus</em>, <em>infraspinatus</em>) antes de dividirse en divisiones anterior y posterior. La parálisis de Erb-Duchenne afecta el tronco superior: postura "del propinero" (brazo en aducción y rotación interna, antebrazo extendido y pronado).', highlight: ['ln-c5-tsup', 'ln-c6-tsup', 'ln-tsup-fl', 'ln-tsup-fp', 'ln-tsup-se'] },
+  'Tmed': { titulo: 'Tronco medio (C7)', detalle: 'Aporta a los cordones lateral y posterior. Lesiones aisladas son raras.', highlight: ['ln-c7-tmed', 'ln-tmed-fl', 'ln-tmed-fp'] },
+  'Tinf': { titulo: 'Tronco inferior (C8–T1)', detalle: 'Aporta principalmente al cordón medial (cubital) y al posterior (radial bajo). Una avulsión radicular produce parálisis de Klumpke con síndrome de Horner.', highlight: ['ln-c8-tinf', 'ln-t1-tinf', 'ln-tinf-fp', 'ln-tinf-fm'] },
+  'FL': { titulo: 'Cordón lateral', detalle: 'Da el musculocutáneo y la raíz lateral del mediano. Lleva fibras sensitivas del territorio C5–C7.', highlight: ['ln-tsup-fl', 'ln-tmed-fl', 'ln-fl-mc', 'ln-fl-md'] },
+  'FP': { titulo: 'Cordón posterior', detalle: 'Da el axilar y el radial. Lleva fibras de C5–T1. La debilidad de extensión (codo, muñeca, dedos) más debilidad de abducción de hombro sugiere lesión del cordón posterior.', highlight: ['ln-tsup-fp', 'ln-tmed-fp', 'ln-tinf-fp', 'ln-fp-ax', 'ln-fp-rd'] },
+  'FM': { titulo: 'Cordón medial', detalle: 'Da el cubital y la raíz medial del mediano. Lesiones aquí afectan intrínsecos de la mano.', highlight: ['ln-tinf-fm', 'ln-fm-md', 'ln-fm-cb'] },
+  'MC': { titulo: 'Nervio musculocutáneo (C5–C6)', detalle: 'Inerva <em>biceps brachii</em>, <em>brachialis</em> y <em>coracobrachialis</em>. Sensibilidad del antebrazo lateral. Lesión: pérdida de flexión del codo y reflejo bicipital.', highlight: ['ln-fl-mc'] },
+  'AX': { titulo: 'Nervio axilar (C5–C6)', detalle: 'Inerva <em>deltoideus</em> y <em>teres minor</em>. Sensibilidad: hombro lateral. Pasa por debajo de la cabeza humeral. Vulnerable en luxación anterior de hombro: pérdida de abducción + hipoestesia del hombro lateral.', highlight: ['ln-fp-ax'] },
+  'RD': { titulo: 'Nervio radial (C5–T1)', detalle: 'Inerva <em>triceps brachii</em>, supinador y todos los extensores de muñeca y dedos. Sensibilidad: cara dorsal del antebrazo y dorso radial de la mano. Lesión clásica: "parálisis del sábado en la noche" (compresión axilar contra el respaldo) → mano caída.', highlight: ['ln-fp-rd'] },
+  'MD': { titulo: 'Nervio mediano (C6–T1)', detalle: 'Inerva pronadores, flexores de muñeca y de los tres primeros dedos, y los músculos tenares (oposición y abducción del pulgar — <em>abductor pollicis brevis</em>). Sensibilidad: palma de los tres primeros dedos y mitad radial del cuarto. Sitio de atrapamiento más frecuente: túnel del carpo.', highlight: ['ln-fl-md', 'ln-fm-md'] },
+  'CB': { titulo: 'Nervio cubital (C8–T1)', detalle: 'Inerva flexor cubital del carpo, mitad cubital del flexor profundo y casi todos los intrínsecos de la mano (interóseos, lumbricales mediales, hipotenares, aductor del pulgar). Sensibilidad: meñique y mitad cubital del cuarto dedo. Atrapamiento típico: surco epitrocleo-olecraneano.', highlight: ['ln-fm-cb'] }
+};
+
+document.querySelectorAll('.plexo-node').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.plexo-node.selected').forEach(s => s.classList.remove('selected'));
+    document.querySelectorAll('.plexo-line.highlight').forEach(s => s.classList.remove('highlight'));
+    el.classList.add('selected');
+    const id = el.dataset.id;
+    const data = plexoData[id];
+    if (data && data.highlight) data.highlight.forEach(lid => {
+      const ln = document.getElementById(lid);
+      if (ln) ln.classList.add('highlight');
+    });
+    const panel = document.getElementById('plexo-info');
+    if (data) {
+      panel.innerHTML = `<h3>${data.titulo}</h3><div class="sub2">Plexo braquial</div><div class="row"><div class="val">${data.detalle}</div></div>`;
+    }
+  });
+});
+
+// =========================================================
+// Localizador (Tab 7)
+// =========================================================
+const muscData = {
+  deltoideus:    { nombre:'Deltoideus', root:'C5', nerve:'Axilar' },
+  biceps:        { nombre:'Biceps brachii', root:'C6', nerve:'Musculocutáneo' },
+  ecr:           { nombre:'Extensor carpi radialis', root:'C6', nerve:'Radial' },
+  triceps:       { nombre:'Triceps brachii', root:'C7', nerve:'Radial' },
+  fdp:           { nombre:'Flexor digitorum profundus (mitad cubital)', root:'C8', nerve:'Cubital' },
+  apb:           { nombre:'Abductor pollicis brevis', root:'T1', nerve:'Mediano' },
+  adm:           { nombre:'Abductor digiti minimi', root:'T1', nerve:'Cubital' },
+  interossei:    { nombre:'Interossei', root:'T1', nerve:'Cubital' },
+  iliopsoas:     { nombre:'Iliopsoas', root:'L2', nerve:'Femoral' },
+  quadriceps:    { nombre:'Quadriceps femoris', root:'L4', nerve:'Femoral' },
+  gluteus_med:   { nombre:'Gluteus medius', root:'L5', nerve:'Glúteo superior' },
+  hamstrings:    { nombre:'Isquiotibiales', root:'S1', nerve:'Ciático' },
+  tib_ant:       { nombre:'Tibialis anterior', root:'L5', nerve:'Peroneo profundo' },
+  ehl:           { nombre:'Extensor hallucis longus', root:'L5', nerve:'Peroneo profundo' },
+  tib_post:      { nombre:'Tibialis posterior', root:'L5', nerve:'Tibial' },
+  triceps_surae: { nombre:'Triceps surae', root:'S1', nerve:'Tibial' }
+};
+
+const dermRoot = {
+  C5:'C5', C6:'C6', C7:'C7', C8:'C8', T1:'T1',
+  L4:'L4', L5:'L5', 'L5-pst':'L5', S1:'S1'
+};
+
+let locDerms = new Set();
+
+document.querySelectorAll('#svg-loc .loc-derm').forEach(el => {
+  el.addEventListener('click', () => {
+    const k = el.dataset.key;
+    const root = dermRoot[k];
+    const isOn = locDerms.has(root);
+    if (isOn) {
+      locDerms.delete(root);
+      // Quitar selected de todas las zonas con la misma RAÍZ (no solo el mismo data-key)
+      document.querySelectorAll('#svg-loc .loc-derm').forEach(s => {
+        if (dermRoot[s.dataset.key] === root) s.classList.remove('selected');
+      });
+    } else {
+      locDerms.add(root);
+      document.querySelectorAll('#svg-loc .loc-derm').forEach(s => {
+        if (dermRoot[s.dataset.key] === root) s.classList.add('selected');
+      });
+    }
+    actualizarLocCounter();
+    analizarLoc();
+  });
+});
+
+document.querySelectorAll('#localizador input[data-musc]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.parentElement.classList.toggle('checked', cb.checked);
+    actualizarLocCounter();
+    analizarLoc();
+  });
+});
+
+function actualizarLocCounter() {
+  const nd = locDerms.size;
+  const nm = document.querySelectorAll('#localizador input[data-musc]:checked').length;
+  document.getElementById('loc-num-derm').textContent = nd;
+  document.getElementById('loc-num-musc').textContent = nm;
+}
+
+function resetLoc() {
+  locDerms.clear();
+  document.querySelectorAll('#svg-loc .loc-derm.selected').forEach(s => s.classList.remove('selected'));
+  document.querySelectorAll('#localizador input[data-musc]').forEach(cb => {
+    cb.checked = false;
+    cb.parentElement.classList.remove('checked');
+  });
+  actualizarLocCounter();
+  analizarLoc();
+}
+
+function analizarLoc() {
+  const muscSel = [];
+  document.querySelectorAll('#localizador input[data-musc]:checked').forEach(cb => {
+    muscSel.push(muscData[cb.dataset.musc]);
+  });
+  const result = document.getElementById('loc-result');
+  const det = document.getElementById('loc-detalle');
+
+  if (muscSel.length === 0 && locDerms.size === 0) {
+    result.classList.remove('show');
+    return;
+  }
+
+  // Conteo por raíz y por nervio
+  const rootCount = {};
+  const nerveCount = {};
+  muscSel.forEach(m => {
+    rootCount[m.root] = (rootCount[m.root] || 0) + 1;
+    nerveCount[m.nerve] = (nerveCount[m.nerve] || 0) + 1;
+  });
+
+  const topRoot  = Object.entries(rootCount).sort((a,b)=>b[1]-a[1])[0];
+  const topNerve = Object.entries(nerveCount).sort((a,b)=>b[1]-a[1])[0];
+
+  let interp = '';
+  let badges = '';
+
+  // Si todos los músculos comparten un nervio → neuropatía periférica
+  if (muscSel.length >= 2 && topNerve && topNerve[1] === muscSel.length) {
+    interp = `Todos los músculos seleccionados comparten el nervio <strong>${topNerve[0]}</strong>. Patrón compatible con <strong>neuropatía periférica</strong> de ese nervio. Buscar el sitio de atrapamiento clásico (p. ej., túnel del carpo para mediano, surco epitrocleano para cubital, cabeza del peroné para peroneal).`;
+    badges = `<span class="badge badge-nrv">Neuropatía: ${topNerve[0]}</span>`;
+  }
+  // Si todos los músculos comparten una raíz → radiculopatía
+  else if (muscSel.length >= 2 && topRoot && topRoot[1] === muscSel.length) {
+    interp = `Todos los músculos seleccionados comparten la raíz <strong>${topRoot[0]}</strong>. Patrón compatible con <strong>radiculopatía ${topRoot[0]}</strong>. Confirmar con dermatoma correspondiente y reflejos.`;
+    badges = `<span class="badge badge-rad">Radiculopatía ${topRoot[0]}</span>`;
+  }
+  // Si músculos están en >1 nervio Y >1 raíz → patrón mixto / polineuropatía / lesión central
+  else if (muscSel.length >= 2) {
+    interp = `Los músculos seleccionados se distribuyen en <strong>${Object.keys(rootCount).length}</strong> raíz/raíces y <strong>${Object.keys(nerveCount).length}</strong> nervio(s). Patrón no encuadrado en un solo síndrome periférico. Considerar polineuropatía, lesión central (motoneurona o cortical) o múltiples atrapamientos.`;
+    badges = `<span class="badge badge-rad">Patrón difuso</span>`;
+  }
+  // Solo un músculo
+  else if (muscSel.length === 1) {
+    interp = `Un músculo seleccionado: <em>${muscSel[0].nombre}</em>. Raíz dominante <strong>${muscSel[0].root}</strong>, nervio <strong>${muscSel[0].nerve}</strong>. Para discriminar entre radiculopatía y neuropatía hay que examinar otros músculos del mismo nervio (mismo nervio, distinta raíz) y de la misma raíz (misma raíz, distinto nervio).`;
+    badges = `<span class="badge badge-rad">${muscSel[0].root}</span><span class="badge badge-nrv">${muscSel[0].nerve}</span>`;
+  }
+
+  // Concordancia con dermatomas marcados
+  let dermLine = '';
+  if (locDerms.size > 0) {
+    const dermStr = [...locDerms].join(', ');
+    if (topRoot && locDerms.has(topRoot[0])) {
+      dermLine = `<p style="margin-top: 8px;">El dermatoma marcado (<strong>${dermStr}</strong>) es <strong>concordante</strong> con la raíz dominante de los músculos seleccionados. Esto refuerza el patrón radicular.</p>`;
+    } else if (topRoot) {
+      dermLine = `<p style="margin-top: 8px;">El dermatoma marcado (<strong>${dermStr}</strong>) <strong>no concuerda</strong> con la raíz dominante de los músculos. Reconsiderar: la lesión podría ser de un nervio periférico que cubre tanto territorio motor como sensitivo (p. ej., mediano en el túnel del carpo).</p>`;
+    } else {
+      dermLine = `<p style="margin-top: 8px;">Solo dermatoma marcado (<strong>${dermStr}</strong>). Si es un dermatoma puro, la lesión podría estar en la raíz <strong>${dermStr}</strong> sin compromiso motor (radiculopatía sensitiva pura) o en un nervio sensitivo periférico.</p>`;
+    }
+  }
+
+  // Lista de músculos seleccionados
+  let muscLista = '';
+  if (muscSel.length > 0) {
+    muscLista = '<div style="margin-top: 10px; font-size: 0.85rem;"><strong>Músculos seleccionados:</strong><ul style="margin: 4px 0 0 18px;">';
+    muscSel.forEach(m => muscLista += `<li><em>${m.nombre}</em> — raíz ${m.root}, nervio ${m.nerve}</li>`);
+    muscLista += '</ul></div>';
+  }
+
+  det.innerHTML = `<div style="margin-bottom: 8px;">${badges}</div><p>${interp}</p>${dermLine}${muscLista}`;
+  result.classList.add('show');
+}
+
+// =========================================================
+// Casos clínicos (Tab 8)
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Cervicobraquialgia con dolor al pulgar',
+    historia: 'Mujer de 55 años con dolor cervical irradiado al pulgar derecho desde hace tres semanas, hipoestesia en el pulgar y debilidad para flexionar el codo. Maniobra de Spurling positiva.',
+    pregunta: '¿Cuál es el diagnóstico topográfico más probable antes de la imagen?',
+    opciones: [
+      { texto: 'Radiculopatía C5', correcto: false },
+      { texto: 'Radiculopatía C6', correcto: true },
+      { texto: 'Síndrome del túnel del carpo', correcto: false },
+      { texto: 'Plexopatía del tronco superior', correcto: false }
+    ],
+    feedback: 'Radiculopatía C6: el dermatoma es el pulgar y el músculo dominante es <em>biceps brachii</em>. La causa más frecuente es una hernia C5–C6 (la raíz cervical sale por encima de la vértebra de su número).'
+  },
+  {
+    titulo: 'Caso 2 · Pie caído tras lumbalgia',
+    historia: 'Hombre de 40 años con lumbalgia irradiada al dorso del pie derecho y dificultad para caminar en talones. Reflejo aquileo conservado.',
+    pregunta: '¿Cuál es el diagnóstico topográfico más probable?',
+    opciones: [
+      { texto: 'Radiculopatía L4 por hernia L3–L4', correcto: false },
+      { texto: 'Radiculopatía L5 por hernia L4–L5', correcto: true },
+      { texto: 'Radiculopatía S1 por hernia L5–S1', correcto: false },
+      { texto: 'Neuropatía peroneal en cabeza del peroné', correcto: false }
+    ],
+    feedback: 'Radiculopatía L5: dorso del primer dedo (dermatoma L5), debilidad de dorsiflexión (<em>tibialis anterior</em>, L5), reflejo aquileo conservado (es S1). Hernia L4–L5 es la más frecuente. Para diferenciar de la neuropatía peroneal hay que examinar abductores de cadera (glúteo medio, L5) y la inversión del pie (<em>tibialis posterior</em>, L5): ambos están débiles en L5 y conservados en peroneal.'
+  },
+  {
+    titulo: 'Caso 3 · Hombro doloroso tras luxación',
+    historia: 'Hombre de 25 años con luxación anterior de hombro reducida hace 5 días. Refiere dolor de hombro, no puede abducir el brazo y tiene hipoestesia en el hombro lateral.',
+    pregunta: '¿Cuál es la lesión más probable?',
+    opciones: [
+      { texto: 'Lesión de la raíz C5', correcto: false },
+      { texto: 'Neuropraxia del nervio axilar', correcto: true },
+      { texto: 'Plexopatía del tronco superior', correcto: false },
+      { texto: 'Tendinitis del supraespinoso', correcto: false }
+    ],
+    feedback: 'Neuropraxia del nervio axilar: la imposibilidad de abducir + la hipoestesia del hombro lateral son la firma del axilar. El nervio pasa por debajo de la cabeza humeral y es vulnerable en la luxación anterior de hombro. La recuperación suele ser completa en 4–8 semanas.'
+  },
+  {
+    titulo: 'Caso 4 · Parestesias del meñique al despertar',
+    historia: 'Hombre de 35 años, programador, con parestesias en el borde cubital de la mano derecha y meñique tras dormir con los codos flexionados. Tinel positivo en surco epitrocleano.',
+    pregunta: '¿Cuál es el sitio anatómico más probable de la lesión?',
+    opciones: [
+      { texto: 'Túnel del carpo', correcto: false },
+      { texto: 'Canal de Guyon', correcto: false },
+      { texto: 'Surco epitrocleo-olecraneano', correcto: true },
+      { texto: 'Raíz C8' , correcto: false }
+    ],
+    feedback: 'Surco epitrocleo-olecraneano: es el sitio más frecuente de atrapamiento del cubital. La flexión sostenida del codo durante el sueño aumenta la presión intraneural. El examen incluye Tinel en el surco y debilidad de los intrínsecos (interóseos, ADM).'
+  },
+  {
+    titulo: 'Caso 5 · Parestesias nocturnas en pulgar e índice',
+    historia: 'Mujer de 50 años con parestesias nocturnas en pulgar, índice y medio que la despiertan y mejoran al sacudir la mano. Embarazada, tercer trimestre. Phalen positivo.',
+    pregunta: '¿Cuál es el diagnóstico más probable?',
+    opciones: [
+      { texto: 'Radiculopatía C6', correcto: false },
+      { texto: 'Síndrome del túnel del carpo', correcto: true },
+      { texto: 'Neuropatía cubital alta', correcto: false },
+      { texto: 'Síndrome del desfiladero torácico', correcto: false }
+    ],
+    feedback: 'Síndrome del túnel del carpo: el embarazo es un factor predisponente clásico (edema). El meñique queda fuera (territorio cubital, no del mediano). El dorso de la mano queda libre porque la rama sensitiva del mediano cruza por encima del retináculo. La confirmación es electrofisiológica.'
+  },
+  {
+    titulo: 'Caso 6 · Marcha con caída pélvica tras prótesis',
+    historia: 'Mujer de 70 años con prótesis de cadera derecha hace 6 meses. Al caminar, la pelvis cae hacia el lado izquierdo (sano) durante el apoyo del lado operado.',
+    pregunta: '¿Qué músculo está débil?',
+    opciones: [
+      { texto: '<em>Iliopsoas</em>', correcto: false },
+      { texto: '<em>Gluteus maximus</em>', correcto: false },
+      { texto: '<em>Gluteus medius</em>', correcto: true },
+      { texto: '<em>Tensor fasciae latae</em> aislado', correcto: false }
+    ],
+    feedback: 'Signo de Trendelenburg: caída pélvica contralateral durante el apoyo monopodal del lado afectado. Refleja debilidad del <em>gluteus medius</em> (raíz L4–L5, nervio glúteo superior). En este paciente la causa es secundaria a la cirugía; en otros contextos puede deberse a radiculopatía L5 o lesión del nervio glúteo superior.'
+  },
+  {
+    titulo: 'Caso 7 · Rodilla que falla tras artroplastia',
+    historia: 'Hombre de 65 años con artroplastia de rodilla derecha hace dos meses. Refiere que "se le va la rodilla" cuando se levanta de una silla. No tiene dolor agudo. Reflejo rotuliano disminuido.',
+    pregunta: '¿Cuál es la causa más probable?',
+    opciones: [
+      { texto: 'Aflojamiento de la prótesis', correcto: false },
+      { texto: 'Debilidad del <em>quadriceps femoris</em>', correcto: true },
+      { texto: 'Lesión del nervio peroneo común', correcto: false },
+      { texto: 'Radiculopatía S1', correcto: false }
+    ],
+    feedback: 'Debilidad del <em>quadriceps femoris</em> (raíz L3–L4, nervio femoral). El paciente no logra mantener la extensión activa de la rodilla durante el apoyo: la rodilla "se va" en flexión. Es la causa más frecuente de inestabilidad post-artroplastia y se trata con rehabilitación de cuádriceps.'
+  },
+  {
+    titulo: 'Caso 8 · Pie caído tras hospitalización prolongada',
+    historia: 'Hombre de 60 años, hospitalizado por neumonía durante 3 semanas. Al ponerse de pie tropieza con la punta del pie izquierdo. Examen: debilidad para dorsiflexión y eversión del pie izquierdo, reflejo aquileo y rotuliano normales, inversión del pie conservada, abductores de cadera normales.',
+    pregunta: '¿Cuál es la lesión más probable?',
+    opciones: [
+      { texto: 'Radiculopatía L5', correcto: false },
+      { texto: 'Neuropatía peroneal en cabeza del peroné', correcto: true },
+      { texto: 'Polineuropatía diabética', correcto: false },
+      { texto: 'Lesión del nervio tibial', correcto: false }
+    ],
+    feedback: 'Neuropatía peroneal en cabeza del peroné, por compresión durante el reposo en cama prolongado (colchón, cruzar las piernas, medias antiembólicas mal ajustadas). La pista clave para diferenciarla de la radiculopatía L5 es la <strong>inversión conservada</strong> (<em>tibialis posterior</em> es L5 pero por nervio tibial, no peroneal) y los <strong>abductores de cadera conservados</strong> (<em>gluteus medius</em>, L5, nervio glúteo superior).'
+  },
+  {
+    titulo: 'Caso 9 · Mano caída al despertar',
+    historia: 'Hombre de 30 años despierta con incapacidad para extender la muñeca izquierda y los dedos. La noche anterior estuvo en una fiesta y durmió en un sillón con el brazo colgando del respaldo. Sensibilidad disminuida en el dorso radial de la mano.',
+    pregunta: '¿Qué nervio está comprometido?',
+    opciones: [
+      { texto: 'Mediano', correcto: false },
+      { texto: 'Cubital', correcto: false },
+      { texto: 'Radial', correcto: true },
+      { texto: 'Musculocutáneo', correcto: false }
+    ],
+    feedback: '"Parálisis del sábado en la noche" — neuropatía radial por compresión axilar contra el respaldo del sillón durante el sueño. El radial inerva los extensores de muñeca y dedos: su lesión produce mano caída (<em>wrist drop</em>). La sensibilidad cae en el dorso radial de la mano. Es habitualmente neuropraxia y se recupera completamente en 6–12 semanas.'
+  },
+  {
+    titulo: 'Caso 10 · Dolor de espalda baja con ciática',
+    historia: 'Hombre de 45 años con dolor lumbar irradiado al borde lateral del pie derecho, hipoestesia en el borde lateral del pie y arreflexia aquilea derecha. Lasègue positivo.',
+    pregunta: '¿Cuál es el diagnóstico topográfico más probable?',
+    opciones: [
+      { texto: 'Radiculopatía L4', correcto: false },
+      { texto: 'Radiculopatía L5', correcto: false },
+      { texto: 'Radiculopatía S1', correcto: true },
+      { texto: 'Neuropatía tibial', correcto: false }
+    ],
+    feedback: 'Radiculopatía S1 por hernia L5–S1: dermatoma del borde lateral del pie + arreflexia aquilea. La hernia L5–S1 es la segunda más frecuente después de la L4–L5. La debilidad para caminar de puntillas (<em>triceps surae</em>, S1) confirma el cuadro.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación (Tab 9)
+// =========================================================
+const auto = [
+  { p: 'El dermatoma del meñique corresponde a la raíz:', o:['C6','C7','C8','T1'], c:2, e:'C8 cubre el meñique y borde cubital del antebrazo.' },
+  { p: 'El músculo de registro estándar para el estudio motor del nervio mediano es:', o:['<em>Biceps brachii</em>','<em>Abductor pollicis brevis</em>','<em>Flexor digitorum profundus</em>','<em>Interossei</em>'], c:1, e:'APB es la diana del mediano motor, raíz dominante T1.' },
+  { p: 'Una hernia discal L4–L5 atrapa típicamente la raíz:', o:['L3','L4','L5','S1'], c:2, e:'En la columna lumbar la raíz cruza el espacio del disco y sale por debajo del pedículo siguiente. La hernia L4–L5 atrapa L5.' },
+  { p: 'El reflejo aquileo corresponde a la raíz:', o:['L3–L4','L5','S1','S2'], c:2, e:'Reflejo aquileo = S1. Su pérdida en una radiculopatía sugiere hernia L5–S1.' },
+  { p: 'Tras una luxación anterior de hombro, el paciente no abduce el brazo y tiene hipoestesia del hombro lateral. Sospecha clínica:', o:['Radiculopatía C5','Lesión del plexo medio','Neuropraxia del nervio axilar','Tendinitis del supraespinoso'], c:2, e:'Pérdida de abducción + hipoestesia del hombro lateral es la firma del nervio axilar.' },
+  { p: 'El nervio que pasa por el surco epitrocleo-olecraneano es:', o:['Mediano','Cubital','Radial','Musculocutáneo'], c:1, e:'El cubital pasa superficial por el surco epitrocleano. Es el segundo sitio de atrapamiento más frecuente del miembro superior, después del túnel del carpo.' },
+  { p: 'El signo de Trendelenburg refleja debilidad de:', o:['<em>Iliopsoas</em>','<em>Gluteus maximus</em>','<em>Gluteus medius</em>','<em>Quadriceps femoris</em>'], c:2, e:'Trendelenburg = debilidad de <em>gluteus medius</em>, raíz L4–L5, nervio glúteo superior.' },
+  { p: 'En un paciente con pie caído, la inversión del pie está conservada. Esto sugiere:', o:['Radiculopatía L5','Neuropatía peroneal en cabeza del peroné','Lesión del nervio tibial','Mielopatía cervical'], c:1, e:'La inversión es del <em>tibialis posterior</em> (L5 por nervio tibial). Si está conservada, la lesión está en el peroneal y no en la raíz L5.' },
+  { p: '"Parálisis del sábado en la noche" se debe a compresión del nervio:', o:['Mediano','Radial','Cubital','Musculocutáneo'], c:1, e:'Compresión axilar del nervio radial contra un respaldo durante el sueño profundo → mano caída.' },
+  { p: 'En el síndrome del túnel del carpo, el meñique no se afecta porque:', o:['No tiene receptores sensitivos','El cubital lo inerva, no el mediano','El meñique tiene inervación dorsal solamente','Se afecta solo en casos avanzados'], c:1, e:'El meñique es territorio cubital. El mediano cubre los tres primeros dedos y mitad radial del cuarto.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0, autoAnswered = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    autoAnswered++;
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
