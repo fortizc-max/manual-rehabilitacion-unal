@@ -427,7 +427,30 @@ footer a:hover { text-decoration: underline; }
 
   <div class="calc">
     <div class="calc-title">Tabla de neuroconducciones — diagnósticos sugeridos</div>
-    <p style="font-size: 0.88rem; margin-bottom: 14px;">Ingresa los valores reportados en el informe del paciente. No hace falta llenar todos los nervios: el algoritmo evalúa el patrón sobre los nervios disponibles y propone diagnósticos compatibles. Las amplitudes sensitivas se reportan en μV y las motoras en mV. <em>Solo orientativo: la interpretación clínica completa requiere el informe completo y la integración con EMG.</em></p>
+    <p style="font-size: 0.88rem; margin-bottom: 12px;">Ingresa los datos del paciente y los valores reportados en el informe. Los límites normales se ajustan automáticamente por edad, sexo y talla siguiendo los datos normativos de Buschbacher (1999, 2003). No hace falta llenar todos los nervios: el algoritmo evalúa el patrón sobre los disponibles. Amplitudes sensitivas en μV y motoras en mV. <em>Solo orientativo: la interpretación completa requiere el informe íntegro y la integración con EMG. Aplica solo a población adulta (≥18 años).</em></p>
+
+    <div class="ncv-demog">
+      <div>
+        <label for="ncv-sexo">Sexo</label>
+        <select id="ncv-sexo">
+          <option value="">—</option>
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+      </div>
+      <div>
+        <label for="ncv-edad">Edad (años)</label>
+        <input type="number" id="ncv-edad" min="18" max="100" step="1" placeholder="≥ 18">
+      </div>
+      <div>
+        <label for="ncv-talla">Talla (cm)</label>
+        <input type="number" id="ncv-talla" min="120" max="220" step="1" placeholder="ej. 170">
+      </div>
+      <div>
+        <label for="ncv-peso">Peso (kg)</label>
+        <input type="number" id="ncv-peso" min="30" max="200" step="0.5" placeholder="ej. 70">
+      </div>
+    </div>
 
     <div class="tabla-wrap">
       <table class="ncv-tabla" style="font-size: 0.88rem;">
@@ -441,43 +464,43 @@ footer a:hover { text-decoration: underline; }
         </thead>
         <tbody>
           <tr>
-            <td><strong>Mediano sensitivo</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,5; amp ≥ 10 μV</span></td>
+            <td><strong>Mediano sensitivo</strong><br><span class="ncv-lim" data-n="medSens"></span></td>
             <td><input type="number" step="0.1" data-n="medSens" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="medSens" data-p="amp"></td>
             <td style="text-align: center; color: var(--gris);">—</td>
           </tr>
           <tr>
-            <td><strong>Mediano motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 4,4; amp ≥ 4 mV; vel ≥ 50</span></td>
+            <td><strong>Mediano motor</strong><br><span class="ncv-lim" data-n="medMot"></span></td>
             <td><input type="number" step="0.1" data-n="medMot" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="medMot" data-p="amp"></td>
             <td><input type="number" step="0.5" data-n="medMot" data-p="vel"></td>
           </tr>
           <tr>
-            <td><strong>Cubital sensitivo</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,1; amp ≥ 10 μV</span></td>
+            <td><strong>Cubital sensitivo</strong><br><span class="ncv-lim" data-n="cubSens"></span></td>
             <td><input type="number" step="0.1" data-n="cubSens" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="cubSens" data-p="amp"></td>
             <td style="text-align: center; color: var(--gris);">—</td>
           </tr>
           <tr>
-            <td><strong>Cubital motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 3,3; amp ≥ 6 mV; vel ≥ 50</span></td>
+            <td><strong>Cubital motor</strong><br><span class="ncv-lim" data-n="cubMot"></span></td>
             <td><input type="number" step="0.1" data-n="cubMot" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="cubMot" data-p="amp"></td>
             <td><input type="number" step="0.5" data-n="cubMot" data-p="vel"></td>
           </tr>
           <tr>
-            <td><strong>Sural</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 4,4; amp ≥ 6 μV</span></td>
+            <td><strong>Sural</strong><br><span class="ncv-lim" data-n="sural"></span></td>
             <td><input type="number" step="0.1" data-n="sural" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="sural" data-p="amp"></td>
             <td style="text-align: center; color: var(--gris);">—</td>
           </tr>
           <tr>
-            <td><strong>Tibial motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 6,0; amp ≥ 4 mV</span></td>
+            <td><strong>Tibial motor</strong><br><span class="ncv-lim" data-n="tibMot"></span></td>
             <td><input type="number" step="0.1" data-n="tibMot" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="tibMot" data-p="amp"></td>
-            <td style="text-align: center; color: var(--gris);">—</td>
+            <td><input type="number" step="0.5" data-n="tibMot" data-p="vel"></td>
           </tr>
           <tr>
-            <td><strong>Peroneo motor</strong><br><span style="font-size: 0.78rem; color: var(--gris);">lat ≤ 6,5; amp ≥ 2 mV; vel ≥ 40</span></td>
+            <td><strong>Peroneo motor</strong><br><span class="ncv-lim" data-n="perMot"></span></td>
             <td><input type="number" step="0.1" data-n="perMot" data-p="lat"></td>
             <td><input type="number" step="0.1" data-n="perMot" data-p="amp"></td>
             <td><input type="number" step="0.5" data-n="perMot" data-p="vel"></td>
@@ -486,7 +509,7 @@ footer a:hover { text-decoration: underline; }
       </table>
     </div>
 
-    <p style="font-size: 0.8rem; color: var(--gris); margin-top: 8px;">Las celdas marcadas con "—" no aplican (no se mide velocidad sensitiva en este modelo simplificado).</p>
+    <p style="font-size: 0.8rem; color: var(--gris); margin-top: 8px;">Las celdas marcadas con "—" no aplican (no se mide velocidad sensitiva en este modelo simplificado). Valores normales basados en los estudios normativos de Buschbacher (<em>Am J Phys Med Rehabil</em> 1999;78 supl. y 2003;82:421-426): se usa el 97º percentil para latencias y el 3º percentil para amplitudes y velocidades. Verifique siempre con los valores de referencia de su laboratorio.</p>
 
     <div class="calc-result" id="ncv-resultado">
       <div id="ncv-titulo"></div>
@@ -520,6 +543,46 @@ footer a:hover { text-decoration: underline; }
       background: var(--verde-claro);
       border-color: var(--verde);
       color: #065f46;
+    }
+    .ncv-demog {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--gris-borde);
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .ncv-demog label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--gris);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .ncv-demog input,
+    .ncv-demog select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid var(--gris-borde);
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: white;
+    }
+    .ncv-demog input:focus,
+    .ncv-demog select:focus {
+      outline: none;
+      border-color: var(--azul);
+      box-shadow: 0 0 0 2px rgba(30,64,175,0.12);
+    }
+    .ncv-lim {
+      font-size: 0.78rem;
+      color: var(--gris);
+    }
+    @media (max-width: 600px) {
+      .ncv-demog { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
@@ -891,18 +954,74 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 // ============================================================
 // Tabla de neuroconducciones — diagnósticos sugeridos
+// Valores normales basados en estudios normativos de Buschbacher
+// (Am J Phys Med Rehabil 1999; 2003), 97º percentil para latencias
+// y 3º percentil para amplitudes y velocidades. Latencias sensitivas
+// medidas al inicio de la onda (onset). Solo población adulta.
 // ============================================================
-const ncvRefs = {
-  medSens: { lat: 3.5, amp: 10, hasVel: false, label: 'Mediano sensitivo',  ampUnit: 'μV' },
-  medMot:  { lat: 4.4, amp: 4,  vel: 50, hasVel: true,  label: 'Mediano motor',     ampUnit: 'mV' },
-  cubSens: { lat: 3.1, amp: 10, hasVel: false, label: 'Cubital sensitivo',  ampUnit: 'μV' },
-  cubMot:  { lat: 3.3, amp: 6,  vel: 50, hasVel: true,  label: 'Cubital motor',     ampUnit: 'mV' },
-  sural:   { lat: 4.4, amp: 6,  hasVel: false, label: 'Sural',              ampUnit: 'μV' },
-  tibMot:  { lat: 6.0, amp: 4,  hasVel: false, label: 'Tibial motor',       ampUnit: 'mV' },
-  perMot:  { lat: 6.5, amp: 2,  vel: 40, hasVel: true,  label: 'Peroneo motor',     ampUnit: 'mV' }
-};
+function getRefs() {
+  const sexo = document.getElementById('ncv-sexo').value;
+  const edad = parseFloat(document.getElementById('ncv-edad').value);
+  const talla = parseFloat(document.getElementById('ncv-talla').value);
+  const M = sexo === 'M';
+  const mayor50 = !isNaN(edad) && edad >= 50;
+  const mayor40 = !isNaN(edad) && edad >= 40;
+  const mayor60 = !isNaN(edad) && edad >= 60;
+  const alto = !isNaN(talla) && talla >= 170;
+  const bajo = !isNaN(talla) && talla < 160;
+  const sexoConocido = sexo === 'M' || sexo === 'F';
+
+  return {
+    medSens: { lat: 3.2, amp: 14, hasVel: false,
+               label: 'Mediano sensitivo', ampUnit: 'μV' },
+    medMot:  {
+      lat: sexoConocido ? (M ? (mayor50 ? 4.7 : 4.6) : 4.4) : 4.6,
+      amp: mayor60 ? 3.8 : 4.2,
+      vel: sexoConocido ? (M ? (mayor40 ? 47 : 49) : (mayor40 ? 51 : 53)) : 49,
+      hasVel: true, label: 'Mediano motor', ampUnit: 'mV'
+    },
+    cubSens: { lat: 3.1, amp: 9, hasVel: false,
+               label: 'Cubital sensitivo', ampUnit: 'μV' },
+    cubMot:  { lat: 3.7, amp: 8, vel: 52, hasVel: true,
+               label: 'Cubital motor', ampUnit: 'mV' },
+    sural:   { lat: 3.6, amp: 4, hasVel: false,
+               label: 'Sural', ampUnit: 'μV' },
+    tibMot:  {
+      lat: 6.1,
+      amp: mayor60 ? 1.1 : (mayor40 || (!isNaN(edad) && edad >= 30) ? 5.3 : 5.8),
+      vel: !isNaN(talla) && !isNaN(edad)
+            ? (bajo ? (mayor50 ? 40 : 44)
+               : alto ? (mayor50 ? 34 : 37)
+               : (mayor50 ? 37 : 42))
+            : 38,
+      hasVel: true, label: 'Tibial motor', ampUnit: 'mV'
+    },
+    perMot:  {
+      lat: 6.5,
+      amp: mayor40 ? 1.1 : 2.6,
+      vel: !isNaN(talla) && !isNaN(edad)
+            ? (alto ? (mayor40 ? 36 : 37) : (mayor40 ? 39 : 43))
+            : 39,
+      hasVel: true, label: 'Peroneo motor', ampUnit: 'mV'
+    }
+  };
+}
+
+function actualizarLimitesNCV() {
+  const refs = getRefs();
+  document.querySelectorAll('.ncv-lim').forEach(span => {
+    const n = span.dataset.n;
+    const r = refs[n];
+    if (!r) return;
+    const fmt = (v) => String(v).replace('.', ',');
+    let txt = `lat ≤ ${fmt(r.lat)}; amp ≥ ${fmt(r.amp)} ${r.ampUnit}`;
+    if (r.hasVel) txt += `; vel ≥ ${fmt(r.vel)}`;
+    span.textContent = txt;
+  });
+}
 
 function leerNCV() {
+  const ncvRefs = getRefs();
   const datos = {};
   Object.keys(ncvRefs).forEach(n => {
     const ref = ncvRefs[n];
@@ -938,15 +1057,20 @@ function colorearCeldas(datos) {
 }
 
 function gradoSTC(d) {
+  const refs = getRefs();
+  const latUL = refs.medMot.lat;            // límite normal superior motor
+  const latSens = refs.medSens.lat;         // límite normal superior sensitivo
+  const ampLL = refs.medMot.amp;            // límite normal inferior amplitud motora
   if (!d.medMot.evaluado && !d.medSens.evaluado) return null;
-  if (d.medMot.evaluado && !isNaN(d.medMot.amp) && d.medMot.amp < 4) return 'severo (amplitud motora baja)';
-  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > 6.5) return 'severo (latencia motora muy prolongada)';
-  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > 4.4) return 'moderado (latencia motora prolongada)';
-  if (d.medSens.evaluado && !isNaN(d.medSens.lat) && d.medSens.lat > 3.5) return 'leve (solo latencia sensitiva prolongada)';
+  if (d.medMot.evaluado && !isNaN(d.medMot.amp) && d.medMot.amp < ampLL) return 'severo (amplitud motora baja)';
+  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > latUL + 2.0) return 'severo (latencia motora muy prolongada)';
+  if (d.medMot.evaluado && !isNaN(d.medMot.lat) && d.medMot.lat > latUL) return 'moderado (latencia motora prolongada)';
+  if (d.medSens.evaluado && !isNaN(d.medSens.lat) && d.medSens.lat > latSens) return 'leve (solo latencia sensitiva prolongada)';
   return 'incipiente (hallazgos limítrofes)';
 }
 
 function generarHallazgos(datos) {
+  const ncvRefs = getRefs();
   let html = '<ul style="margin: 0 0 0 18px; font-size: 0.85rem;">';
   let any = false;
   Object.keys(ncvRefs).forEach(n => {
@@ -1093,6 +1217,15 @@ document.querySelectorAll('.ncv-tabla input[data-n]').forEach(el => {
   el.addEventListener('input', analizarNCV);
   el.addEventListener('change', analizarNCV);
 });
+
+['ncv-sexo','ncv-edad','ncv-talla','ncv-peso'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', () => { actualizarLimitesNCV(); analizarNCV(); });
+  el.addEventListener('change', () => { actualizarLimitesNCV(); analizarNCV(); });
+});
+
+actualizarLimitesNCV();
 
 // ============================================================
 // Calculadora: escala de Padua para STC
