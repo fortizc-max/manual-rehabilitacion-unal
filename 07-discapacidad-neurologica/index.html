@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesiones neurológicas en rehabilitación · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva de las cinco entidades neurológicas clave (TRM, ACV, TCE, ELA, Parkinson): calculadoras de Glasgow, mRS, ALSFRS-R, ASIA por nivel; selectores Hoehn-Yahr, Rancho Los Amigos y Brunnstrom; síntesis CIF.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
+}
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Calculadora estructurada (GCS, ALSFRS-R) ===== */
+.calc-bloque {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.calc-bloque h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.calc-bloque .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+
+.escala-fila {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.escala-fila:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .escala-fila { grid-template-columns: 1fr; gap: 6px; }
+}
+.escala-fila .label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.escala-fila .opciones label {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  text-align: center;
+}
+.escala-fila .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.escala-fila .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones input { display: none; }
+
+.calc-bloque .total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.calc-bloque .total .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--jamared);
+}
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.calc-bloque .total .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Selector simple (mRS, Hoehn-Yahr, Rancho, Brunnstrom, ASIA) ===== */
+.selector {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.selector h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.selector .grados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.selector .grados button {
+  font-family: var(--sans);
+  background: white;
+  border: 2px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--texto-suave);
+  min-width: 50px;
+  transition: all 0.15s;
+}
+.selector .grados button:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.selector .grados button.activo {
+  background: var(--jamared);
+  border-color: var(--jamared);
+  color: white;
+}
+.selector .detalle {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  display: none;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.selector .detalle.show { display: block; }
+.selector .detalle h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+  margin: 0 0 6px;
+}
+.selector .detalle .secc {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--azulacad-mid);
+}
+.selector .detalle .secc:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.selector .detalle .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Calculadora con entrada numérica simple ===== */
+.calc-simple {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-simple h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-simple .calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-simple label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-simple input[type="number"], .calc-simple select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-simple .resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-simple .resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-simple .resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.semaforo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+/* ===== Casos clínicos / autoeval ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 7</div>
+  <h1>Lesiones neurológicas en rehabilitación</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Cinco entidades · curso temporal</button>
+  <button class="tab-btn" data-tab="trm">2. TRM · ASIA</button>
+  <button class="tab-btn" data-tab="acv">3. ACV · NIHSS, mRS</button>
+  <button class="tab-btn" data-tab="tce">4. TCE · Glasgow, Rancho</button>
+  <button class="tab-btn" data-tab="ela">5. ELA · ALSFRS-R</button>
+  <button class="tab-btn" data-tab="parkinson">6. Parkinson · Hoehn-Yahr</button>
+  <button class="tab-btn" data-tab="sintesis">7. Síntesis CIF</button>
+  <button class="tab-btn" data-tab="casos">8. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">9. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Cinco entidades, dos cursos temporales</h2>
+  <p>Cinco entidades concentran el grueso de la consulta de rehabilitación neurológica del adulto: <strong>trauma raquimedular (TRM), ataque cerebrovascular (ACV), trauma craneoencefálico (TCE), esclerosis lateral amiotrófica (ELA) y enfermedad de Parkinson</strong>. Difieren en mecanismo y edad de presentación, pero comparten el mismo problema clínico: una deficiencia neurológica con repercusión inmediata sobre actividades y participación, y una rehabilitación que se prolonga meses o años.</p>
+
+  <div class="card amarilla">
+    <h4>Frente a una lesión aguda → la pregunta es CUÁNDO</h4>
+    <p style="margin-bottom: 0">Las lesiones del SNC que se presentan como <strong>episodios agudos</strong> (TCE, ACV, TRM) muestran la mayor parte de la recuperación clínica y funcional en los <strong>primeros seis meses</strong>. Después la curva se aplana y aparece la fase de secuelas. La rehabilitación intensiva temprana capitaliza la ventana de máxima neuroplasticidad: cada semana de retraso tiene un costo funcional difícil de recuperar.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Frente a una enfermedad degenerativa → la pregunta es QUÉ</h4>
+    <p style="margin-bottom: 0">Las enfermedades <strong>degenerativas</strong> (ELA rápida, Parkinson lenta, EM por brotes) tienen curso variable. La rehabilitación no busca revertir las deficiencias acumuladas sino <strong>mantener el máximo nivel posible de actividad y participación</strong> y prevenir complicaciones secundarias (contracturas, úlceras, broncoaspiración, caídas, desacondicionamiento). El médico general acompaña al paciente y la familia durante años; las decisiones se anticipan al deterioro previsible (movilización, ayudas técnicas, voluntades anticipadas) y no se posponen a la urgencia.</p>
+  </div>
+
+  <h3>Marco común para las cinco entidades</h3>
+  <p>Cada entidad se presenta con la misma estructura: definición y mecanismo · perspectiva CIF · instrumentos funcionales · indicadores pronósticos · ejes del tratamiento.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Entidad</th><th>Curso</th><th>Escala clave</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TRM</strong></td><td>Aguda · 6 meses recuperación · secuela definitiva</td><td>ASIA (A–E) + nivel motor</td></tr>
+        <tr><td><strong>ACV</strong></td><td>Aguda · 6 meses recuperación · secuela definitiva</td><td>NIHSS (agudo) · mRS (desenlace)</td></tr>
+        <tr><td><strong>TCE</strong></td><td>Aguda · 6 meses recuperación · secuela definitiva</td><td>Glasgow (agudo) · Rancho Los Amigos · APT</td></tr>
+        <tr><td><strong>ELA</strong></td><td>Degenerativa rápida (3–5 años)</td><td>ALSFRS-R · FVC</td></tr>
+        <tr><td><strong>Parkinson</strong></td><td>Degenerativa lenta (décadas)</td><td>Hoehn-Yahr · MDS-UPDRS</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cómo navegar esta guía</h3>
+  <ul>
+    <li><strong>Pestañas 2–6:</strong> una entidad por pestaña, con sus calculadoras o selectores de escala.</li>
+    <li><strong>Pestaña 7:</strong> síntesis de la nota neurológica completa desde la CIF (siete elementos).</li>
+    <li><strong>Pestañas 8–9:</strong> 10 casos clínicos progresivos y autoevaluación.</li>
+  </ul>
+</section>
+
+<!-- ==================== TAB 2: TRM · ASIA ==================== -->
+<section class="tab-content" id="trm">
+  <h2>Trauma raquimedular (TRM)</h2>
+  <p>Lesión traumática de la médula espinal con compromiso motor, sensitivo y autonómico por debajo del nivel afectado. En adultos jóvenes predomina el <strong>trauma de alta energía</strong> (accidente, caída, arma); en adulto mayor, las <strong>hiperextensiones cervicales sobre canal estrecho</strong>.</p>
+
+  <h3>Determinación del nivel y clasificación ASIA</h3>
+  <p>El primer paso es el <strong>tacto rectal</strong>: si no hay sensibilidad anal ni contracción voluntaria del esfínter anal externo, la lesión es <strong>completa</strong>. La presencia de cualquiera de las dos define lesión <strong>incompleta</strong>. El nivel neurológico es el segmento más caudal con función motora y sensitiva normal en ambos lados.</p>
+
+  <div class="selector" id="asia-sel">
+    <h4>Selector de grado ASIA</h4>
+    <div class="grados">
+      <button data-asia="A">A</button>
+      <button data-asia="B">B</button>
+      <button data-asia="C">C</button>
+      <button data-asia="D">D</button>
+      <button data-asia="E">E</button>
+    </div>
+    <div class="detalle" id="asia-det"></div>
+  </div>
+
+  <h3>Músculos clave para nivel motor</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Nivel</th><th>Músculo clave</th></tr></thead>
+      <tbody>
+        <tr><td class="root">C5</td><td><em>Biceps brachii</em> (flexión codo)</td></tr>
+        <tr><td class="root">C6</td><td><em>Extensor carpi radialis</em> (extensión muñeca)</td></tr>
+        <tr><td class="root">C7</td><td><em>Triceps brachii</em> (extensión codo)</td></tr>
+        <tr><td class="root">C8</td><td><em>Flexor digitorum profundus</em> al 3.<sup>er</sup> dedo</td></tr>
+        <tr><td class="root">T1</td><td><em>Abductor digiti minimi</em></td></tr>
+        <tr><td class="root">L2</td><td><em>Iliopsoas</em> (flexión cadera)</td></tr>
+        <tr><td class="root">L3</td><td><em>Quadriceps femoris</em> (extensión rodilla)</td></tr>
+        <tr><td class="root">L4</td><td><em>Tibialis anterior</em> (dorsiflexión)</td></tr>
+        <tr><td class="root">L5</td><td><em>Extensor hallucis longus</em></td></tr>
+        <tr><td class="root">S1</td><td><em>Triceps surae</em> (plantiflexión)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Pronóstico funcional según el nivel medular</h3>
+  <p>Selector con el nivel completo más caudal preservado.</p>
+
+  <div class="selector" id="nivel-sel">
+    <h4>Función esperada según nivel medular</h4>
+    <div class="grados">
+      <button data-nivel="c1c4">C1–C4</button>
+      <button data-nivel="c5">C5</button>
+      <button data-nivel="c6">C6</button>
+      <button data-nivel="c7">C7</button>
+      <button data-nivel="c8t1">C8–T1</button>
+      <button data-nivel="t2t6">T2–T6</button>
+      <button data-nivel="t6t12">T6–T12</button>
+      <button data-nivel="l1l2">L1–L2</button>
+      <button data-nivel="l3s1">L3–S1</button>
+    </div>
+    <div class="detalle" id="nivel-det"></div>
+  </div>
+
+  <h3>Síndromes medulares incompletos</h3>
+  <div class="card azul">
+    <h4>Síndrome medular central</h4>
+    <p style="margin-bottom: 0">Más frecuente en adulto mayor con estenosis cervical y trauma menor por hiperextensión. <strong>Debilidad de miembros superiores mayor que de inferiores</strong>; disfunción esfinteriana y compromiso sensitivo variable. Mejor pronóstico que la lesión completa, pero la recuperación de la mano fina suele ser incompleta.</p>
+  </div>
+  <div class="card azul">
+    <h4>Brown-Séquard (hemiseccional)</h4>
+    <p style="margin-bottom: 0">Lesión penetrante unilateral. <strong>Pérdida ipsilateral de fuerza y propiocepción; contralateral de dolor y temperatura.</strong> Pronóstico funcional favorable.</p>
+  </div>
+  <div class="card azul">
+    <h4>Síndrome medular anterior</h4>
+    <p style="margin-bottom: 0">Por oclusión de la arteria espinal anterior. <strong>Pérdida bilateral motora y de dolor/temperatura; preservación de propiocepción y vibración.</strong> Pronóstico desfavorable.</p>
+  </div>
+  <div class="card roja">
+    <h4>Cono medular y cauda equina</h4>
+    <p style="margin-bottom: 0">Compromiso de raíces L1–S5. <strong>Anestesia en silla de montar, retención urinaria, incontinencia fecal.</strong> Es <strong>urgencia neuroquirúrgica</strong>: la descompresión en las primeras horas mejora significativamente la recuperación esfinteriana.</p>
+  </div>
+
+  <h3>Complicaciones específicas que el médico general debe conocer</h3>
+  <div class="card amarilla">
+    <h4>Vejiga e intestino neurogénicos</h4>
+    <p style="margin-bottom: 0">En lesión <em>suprasacra</em>: vejiga hiperrefléxica con disinergia → cateterismo intermitente cada 4–6 h + anticolinérgicos. En lesión <em>sacra/cauda</em>: vejiga arrefléxica con globo → cateterismo limpio intermitente. Intestino neurogénico: programa estructurado de evacuación (estimulación digital, supositorio cada 24–48 h, fibra, hidratación).</p>
+  </div>
+  <div class="card roja">
+    <h4>Disreflexia autonómica</h4>
+    <p>Síndrome propio de lesión medular <strong>por encima de T6</strong>. Estímulos nocivos por debajo del nivel (vejiga distendida, fecaloma, úlcera, uña encarnada) generan descarga simpática masiva: <strong>crisis hipertensiva con cefalea pulsátil</strong>, sudoración por encima del nivel, piloerección, bradicardia paradójica.</p>
+    <p style="margin-bottom: 0"><strong>Es emergencia médica:</strong> identificar y retirar el estímulo (vaciar vejiga, desimpactar recto), elevar cabecera a 90°, y solo si no cede, antihipertensivo de acción rápida.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>Úlceras por presión</h4>
+    <p style="margin-bottom: 0">Riesgo permanente por inmovilidad + anestesia + atrofia. Cambios de posición cada <strong>2 h en cama</strong>, descargas cada <strong>15–30 min en silla</strong>, inspección diaria de zonas de riesgo (sacro, isquiones, talones, trocánteres), superficies de redistribución de presión.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>Espasticidad</h4>
+    <p style="margin-bottom: 0">Cuantificación con <strong>Ashworth modificada</strong> (cap. 2). Manejo escalonado: estiramiento y posicionamiento → baclofen oral → toxina botulínica focal → bomba de baclofen intratecal en refractarios. <strong>Una espasticidad que empeora bruscamente</strong> obliga a buscar estímulo nociceptivo desencadenante (infección urinaria, fecaloma, úlcera).</p>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Banderas rojas en TRM crónico</h4>
+    <p style="margin-bottom: 0">Cualquier <strong>deterioro neurológico subagudo</strong> (ascenso del nivel sensitivo o motor, aparición de retención urinaria, cambio abrupto en la espasticidad) en un paciente con lesión medular crónica obliga a descartar <strong>siringomielia post-traumática</strong>, recurrencia tumoral o tetanización por estímulo nociceptivo. Remisión prioritaria a neurocirugía o fisiatría.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: ACV ==================== -->
+<section class="tab-content" id="acv">
+  <h2>Ataque cerebrovascular (ACV)</h2>
+  <p>Evento de inicio súbito con signos clínicos focales o globales de alteración cerebral, de origen vascular, que duran <strong>más de 24 horas</strong> o causan muerte. La distinción con el AIT (síntomas &lt; 24 h) se ha refinado con neuroimagen: el ACV requiere <strong>evidencia de infarto agudo</strong>, el AIT no.</p>
+
+  <div class="card roja">
+    <h4>El AIT es un evento centinela</h4>
+    <p style="margin-bottom: 0">Riesgo de ACV tras un AIT: <strong>3–10 % a los 2 días</strong>, <strong>9–17 % a los 90 días</strong>, con la mitad concentrada en las primeras 48 h. Indica evaluación e iniciación de prevención secundaria <em>de inmediato</em>.</p>
+  </div>
+
+  <h3>Epidemiología en Colombia</h3>
+  <div class="card azul">
+    <p>El ACV es la <strong>primera causa de discapacidad adquirida en el adulto</strong> en Colombia. Incidencia anual ≈ 88,9 por 100 000 (118,7 en hombres). Datos del registro nacional <strong>RES-Q</strong> (2017–2021, 7 963 pacientes con ACV isquémico):</p>
+    <ul style="margin-bottom: 0">
+      <li>Solo <strong>1 de cada 3</strong> egresa con mRS 0–2 (33,4 %).</li>
+      <li>Mortalidad intrahospitalaria ≈ <strong>9 %</strong>.</li>
+      <li>Solo <strong>14,5 %</strong> recibe trombólisis IV; tiempo puerta-aguja mediano 53 min.</li>
+      <li>Las regiones amazónica y caribe presentan mayor mortalidad y peor desenlace.</li>
+    </ul>
+    <p style="margin-bottom: 0; margin-top: 8px;"><strong>Para el médico general fuera de capitales</strong>, las dos palancas para acortar la brecha son la <em>prevención secundaria sistemática</em> y la <em>organización del traslado oportuno</em>.</p>
+  </div>
+
+  <h3>Síndromes vasculares</h3>
+  <div class="card azul">
+    <h4>Circulación anterior (carótida, ACM, ACA)</h4>
+    <p style="margin-bottom: 0">Síndromes corticales clásicos: <strong>hemiparesia, hemihipoestesia, afasia</strong> (hemisferio dominante), <strong>heminegligencia</strong> (no dominante), desviación oculocefálica.</p>
+  </div>
+  <div class="card azul">
+    <h4>Circulación posterior (vertebrobasilar)</h4>
+    <p style="margin-bottom: 0">Tronco encefálico, cerebelo, lóbulos occipitales: <strong>vértigo, ataxia, diplopía, disartria, disfagia, hemianopsia</strong>; en casos graves, pérdida de conciencia y compromiso de pares craneales múltiples.</p>
+  </div>
+
+  <h3>NIHSS · interpretación de la severidad inicial</h3>
+  <p>La <em>National Institutes of Health Stroke Scale</em> se aplica en sala de emergencias (15 ítems, 0–42). El médico general no la administra usualmente, pero <strong>debe interpretar el resultado</strong> cuando aparece en un reporte. Calculadora rápida del rango:</p>
+
+  <div class="calc-simple">
+    <h4>Interpretación NIHSS</h4>
+    <div class="calc-row">
+      <label for="nihss">Puntaje NIHSS:</label>
+      <input type="number" id="nihss" placeholder="0–42" min="0" max="42" step="1">
+    </div>
+    <div class="resultado empty" id="nihss-resultado">Ingrese el puntaje para ver la categoría y el desenlace probable.</div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>El ACV «leve» es una etiqueta engañosa</h4>
+    <p style="margin-bottom: 0">La American Stroke Association define <em>minor stroke</em> como NIHSS ≤ 5. Pero <strong>cerca del 25 % de estos pacientes presenta discapacidad residual a los 3 meses</strong>. La palabra «leve» limita el optimismo pronóstico que suele transmitir al paciente y a la familia.</p>
+  </div>
+
+  <h3>mRS · escala de desenlace</h3>
+  <p>La <em>modified Rankin Scale</em> es la medida de desenlace estándar en ACV. Se aplica a los 90 días y luego en el seguimiento.</p>
+
+  <div class="selector" id="mrs-sel">
+    <h4>Selector mRS (0–6)</h4>
+    <div class="grados">
+      <button data-mrs="0">0</button>
+      <button data-mrs="1">1</button>
+      <button data-mrs="2">2</button>
+      <button data-mrs="3">3</button>
+      <button data-mrs="4">4</button>
+      <button data-mrs="5">5</button>
+      <button data-mrs="6">6</button>
+    </div>
+    <div class="detalle" id="mrs-det"></div>
+  </div>
+
+  <h3>Recuperación motora · fases de Brunnstrom</h3>
+  <div class="selector" id="brunn-sel">
+    <h4>Selector de fase (1–7)</h4>
+    <div class="grados">
+      <button data-brunn="1">1</button>
+      <button data-brunn="2">2</button>
+      <button data-brunn="3">3</button>
+      <button data-brunn="4">4</button>
+      <button data-brunn="5">5</button>
+      <button data-brunn="6">6</button>
+      <button data-brunn="7">7</button>
+    </div>
+    <div class="detalle" id="brunn-det"></div>
+  </div>
+
+  <div class="card azul">
+    <h4>Pronóstico de la mano y de la marcha</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Mano:</strong> parálisis completa inicial → pobre recuperación funcional. Una <em>fuerza de agarre medible antes de las 4 semanas</em> predice mejor desenlace.</li>
+      <li><strong>Marcha:</strong> ≈ 80 % recuperan deambulación, pero no todos pueden caminar en espacios comunitarios. <strong>Velocidad ≈ 0,85 m/s</strong> es el umbral aproximado para deambulación comunitaria.</li>
+    </ul>
+  </div>
+
+  <h3>Síntomas no motores frecuentes</h3>
+  <div class="card amarilla">
+    <h4>Heminegligencia hemiespacial</h4>
+    <p style="margin-bottom: 0">Frecuente tras lesiones del hemisferio derecho. El paciente falla en percibir objetos contralaterales y presta atención desproporcionada al lado de la lesión. <strong>Tamizaje sencillo: pedirle dibujar la cara de un reloj</strong> — el paciente con heminegligencia dibujará solo la mitad. Predictor potente de mal pronóstico funcional.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>Hombro doloroso del lado parético</h4>
+    <p style="margin-bottom: 0">Frecuencia 16–72 % según las series. Origen multifactorial (subluxación glenohumeral, espasticidad, pinzamiento, capsulitis, ruptura del manguito). <strong>La mejor estrategia es prevención: posicionamiento adecuado del miembro parético desde el inicio</strong>, incluido cabestrillo en bipedestación durante las primeras semanas.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>Otros síntomas no motores</h4>
+    <p style="margin-bottom: 0">Disfagia neurogénica (tamizar con prueba de las 3 onzas + EAT-10, cap. 3), disartria, <strong>depresión post-ACV</strong> (hasta 1/3), afasia (Broca, Wernicke, mixta).</p>
+  </div>
+
+  <h3>Prevención secundaria · lo del médico general</h3>
+  <div class="card verde">
+    <ul style="margin-bottom: 0">
+      <li>Antihipertensivo en todo paciente con TA ≥ 140/90 (≥ 130/80 si diabetes).</li>
+      <li>Estatina de alta intensidad (atorvastatina, rosuvastatina) si LDL &gt; 100 o aterosclerosis documentada (independiente del LDL).</li>
+      <li>Control de diabetes con HbA1c periódica.</li>
+      <li><strong>Suspensión absoluta del tabaquismo.</strong></li>
+      <li>Endarterectomía si estenosis carotídea sintomática &gt; 70 % (no invasiva) o &gt; 50 % (arteriografía).</li>
+      <li>Antiagregación dual (clopidogrel + aspirina × 90 días) en aterosclerosis intracraneana.</li>
+      <li><strong>Anticoagulación en FA no valvular</strong>: AVK, apixabán o dabigatrán.</li>
+    </ul>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Banderas rojas en seguimiento de ACV</h4>
+    <p style="margin-bottom: 0">Cualquier <strong>deterioro funcional nuevo</strong> obliga a descartar: nuevo evento isquémico, hidrocefalia post-hemorragia, infección urinaria/respiratoria, TVP, depresión mayor, polifarmacia, hombro doloroso, contractura en equino, o caída no comunicada.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: TCE ==================== -->
+<section class="tab-content" id="tce">
+  <h2>Trauma craneoencefálico (TCE)</h2>
+  <p>Lesión cerebral por una fuerza externa (impacto directo, aceleración-desaceleración, lesión penetrante) con alteración transitoria o duradera de la función cerebral. La distinción entre lesión <strong>primaria</strong> (contusión, lesión axonal difusa, hematoma agudo — fijada al impacto) y <strong>secundaria</strong> (edema, hipoxia, hipotensión, HIC, crisis epilépticas — prevenible y modificable) es la que orienta la rehabilitación.</p>
+
+  <h3>Glasgow Coma Scale · severidad</h3>
+  <p>Escala estándar de severidad inicial. Total 3–15.</p>
+
+  <div class="calc-bloque" id="gcs-calc">
+    <h4>Calculadora Glasgow</h4>
+    <div class="descripcion">Seleccione la mejor respuesta en cada componente.</div>
+    <div class="escala-fila">
+      <div class="label">Apertura ocular (E)</div>
+      <div class="opciones" data-gcs="ojos">
+        <label data-val="4"><input type="radio" name="gcs-ojos">4 · espontánea</label>
+        <label data-val="3"><input type="radio" name="gcs-ojos">3 · al hablarle</label>
+        <label data-val="2"><input type="radio" name="gcs-ojos">2 · al dolor</label>
+        <label data-val="1"><input type="radio" name="gcs-ojos">1 · ninguna</label>
+      </div>
+    </div>
+    <div class="escala-fila">
+      <div class="label">Respuesta verbal (V)</div>
+      <div class="opciones" data-gcs="verbal">
+        <label data-val="5"><input type="radio" name="gcs-verbal">5 · orientada</label>
+        <label data-val="4"><input type="radio" name="gcs-verbal">4 · confusa</label>
+        <label data-val="3"><input type="radio" name="gcs-verbal">3 · palabras</label>
+        <label data-val="2"><input type="radio" name="gcs-verbal">2 · sonidos</label>
+        <label data-val="1"><input type="radio" name="gcs-verbal">1 · ninguna</label>
+      </div>
+    </div>
+    <div class="escala-fila">
+      <div class="label">Respuesta motora (M)</div>
+      <div class="opciones" data-gcs="motor">
+        <label data-val="6"><input type="radio" name="gcs-motor">6 · obedece</label>
+        <label data-val="5"><input type="radio" name="gcs-motor">5 · localiza</label>
+        <label data-val="4"><input type="radio" name="gcs-motor">4 · retira</label>
+        <label data-val="3"><input type="radio" name="gcs-motor">3 · flexión anormal</label>
+        <label data-val="2"><input type="radio" name="gcs-motor">2 · extensión</label>
+        <label data-val="1"><input type="radio" name="gcs-motor">1 · ninguna</label>
+      </div>
+    </div>
+    <div class="total" id="gcs-total">
+      <div class="puntajes">
+        <div><span class="label">Total</span><span class="num" id="gcs-num">—</span><span class="max"> / 15</span></div>
+      </div>
+      <div class="veredicto" id="gcs-vere">Pendiente</div>
+      <div class="interp" id="gcs-interp">Seleccione las tres respuestas para ver la severidad.</div>
+    </div>
+    <button class="reset" onclick="resetGCS()">Reiniciar</button>
+  </div>
+
+  <h3>Rancho Los Amigos · niveles de respuesta cognitiva</h3>
+  <p>Describe la fase de recuperación cognitivo-conductual. Útil para ajustar las estrategias terapéuticas (estimulación, contención, estructuración del ambiente, retorno gradual a la actividad).</p>
+
+  <div class="selector" id="rancho-sel">
+    <h4>Selector Rancho (1–10)</h4>
+    <div class="grados">
+      <button data-rancho="1">I</button>
+      <button data-rancho="2">II</button>
+      <button data-rancho="3">III</button>
+      <button data-rancho="4">IV</button>
+      <button data-rancho="5">V</button>
+      <button data-rancho="6">VI</button>
+      <button data-rancho="7">VII</button>
+      <button data-rancho="8">VIII</button>
+      <button data-rancho="9">IX</button>
+      <button data-rancho="10">X</button>
+    </div>
+    <div class="detalle" id="rancho-det"></div>
+  </div>
+
+  <h3>Indicadores pronósticos del TCE moderado-severo</h3>
+  <div class="card azul">
+    <p>El <strong>predictor pronóstico funcional más robusto</strong> es la duración de la <strong>amnesia postraumática (APT)</strong>, medida con instrumentos como el Galveston Orientation and Amnesia Test (GOAT):</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>APT &gt; 4 semanas:</strong> discapacidad significativa al año.</li>
+      <li><strong>APT &gt; 12 semanas:</strong> dependencia funcional.</li>
+    </ul>
+    <p style="margin-bottom: 0; margin-top: 8px;">Otros indicadores: GCS inicial, duración del coma, edad, hipotensión o hipoxia prehospitalarias, hallazgos en TC inicial (contusiones bilaterales, HSA, lesión axonal difusa).</p>
+  </div>
+
+  <h3>Tratamiento de la agitación postraumática</h3>
+  <div class="card amarilla">
+    <p>Frecuente en niveles 4–5 de Rancho. <strong>Estrategias no farmacológicas primero:</strong> reducir estímulos, ambiente estructurado, acompañante familiar, reorientación frecuente.</p>
+    <p style="margin-bottom: 0">Si se requiere fármaco, priorizar agentes con menor impacto sobre la cognición (<strong>propranolol o trazodona</strong>); <strong>evitar benzodiacepinas y antipsicóticos de primera generación</strong>.</p>
+  </div>
+
+  <h3>Rehabilitación cognitivo-conductual</h3>
+  <div class="card verde">
+    <p style="margin-bottom: 0">Eje terapéutico central a partir del nivel 6–7 de Rancho. Neuropsicología (atención, memoria, función ejecutiva), terapia ocupacional dirigida a actividades complejas, fonoaudiología (aspectos cognitivos del lenguaje), terapia familiar y educación al cuidador. La <strong>reinserción laboral o educativa</strong> es meta explícita y suele requerir programas de retorno gradual.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Síndrome postconmocional</h4>
+    <p style="margin-bottom: 0">En todo paciente con TCE leve (GCS 13–15) que persista con <strong>cefalea, mareo, dificultad para concentrarse o cambios del ánimo más de 4 semanas</strong> tras el evento, descartar el síndrome postconmocional y ofrecer rehabilitación cognitiva. <strong>La etiqueta «leve» no autoriza a desestimar el cuadro.</strong></p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: ELA ==================== -->
+<section class="tab-content" id="ela">
+  <h2>Esclerosis lateral amiotrófica (ELA)</h2>
+  <p>Enfermedad neurodegenerativa progresiva con compromiso simultáneo de <strong>primera y segunda motoneurona</strong>. Inicio típico 55–75 años, sobrevida mediana <strong>3–5 años</strong> desde inicio de síntomas. ≈ 10 % son formas familiares.</p>
+
+  <div class="card azul">
+    <h4>Trayectoria CIF</h4>
+    <p style="margin-bottom: 0"><em>Deterioro progresivo</em> en todas las dimensiones. Pérdida de fuerza por miotomas (combinación de atrofia, fasciculaciones e hiperreflexia/Babinski en el mismo segmento — patrón típico, cap. 2), disfagia, disartria y, en fases avanzadas, insuficiencia ventilatoria restrictiva. Las actividades se pierden de manera escalonada: primero la marcha comunitaria → transferencias → alimentación independiente. La <strong>planificación anticipada de cuidados</strong> (voluntad anticipada, decisiones de soporte ventilatorio y nutricional) es parte central del manejo.</p>
+  </div>
+
+  <h3>ALSFRS-R · escala funcional revisada</h3>
+  <p>Doce ítems (bulbar, respiratorio, extremidades), cada uno 0–4. Total 0–48. Es el instrumento estándar para seguimiento longitudinal y para ensayos clínicos. <strong>Una caída mensual &gt; 1 punto al año del diagnóstico identifica progresión rápida.</strong></p>
+
+  <div class="calc-bloque" id="alsfrs-calc">
+    <h4>Calculadora ALSFRS-R (12 ítems)</h4>
+    <div class="descripcion">Para cada función, marque la mejor descripción del paciente. 4 = normal, 0 = pérdida total.</div>
+    <div id="alsfrs-items"></div>
+    <div class="total" id="alsfrs-total">
+      <div class="puntajes">
+        <div><span class="label">Total</span><span class="num" id="alsfrs-num">0</span><span class="max"> / 48</span></div>
+      </div>
+      <div class="veredicto" id="alsfrs-vere">Pendiente</div>
+      <div class="interp" id="alsfrs-interp">Complete los 12 ítems para ver el puntaje y la interpretación.</div>
+    </div>
+    <button class="reset" onclick="resetAlsfrs()">Reiniciar</button>
+  </div>
+
+  <h3>Capacidad vital forzada (FVC) y soporte respiratorio</h3>
+  <div class="calc-simple">
+    <h4>Interpretación de FVC</h4>
+    <div class="calc-row">
+      <label for="fvc">FVC (% del predicho):</label>
+      <input type="number" id="fvc" placeholder="ej. 60" min="0" max="200" step="1">
+    </div>
+    <div class="resultado empty" id="fvc-resultado">Ingrese el % del predicho para ver la conducta.</div>
+  </div>
+
+  <h3>Indicadores pronósticos</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li><strong>Edad de inicio</strong> (peor pronóstico mayor edad).</li>
+      <li><strong>Forma de presentación:</strong> bulbar (peor pronóstico) vs espinal.</li>
+      <li><strong>Velocidad de caída del ALSFRS-R</strong> en los primeros 6–12 meses.</li>
+      <li><strong>FVC al diagnóstico</strong> y su tasa de descenso.</li>
+      <li><strong>Pérdida de peso significativa</strong> en el primer año.</li>
+    </ul>
+  </div>
+
+  <h3>Pilares del tratamiento</h3>
+  <div class="card verde">
+    <h4>Modificadores de la enfermedad</h4>
+    <p style="margin-bottom: 0"><strong>Riluzol</strong> prolonga sobrevida ≈ 3 meses. <strong>Edaravone</strong> aprobado en algunos países en pacientes seleccionados con progresión documentada en los primeros 2 años. <em>Ningún tratamiento detiene la enfermedad.</em></p>
+  </div>
+  <div class="card verde">
+    <h4>Soporte respiratorio</h4>
+    <p style="margin-bottom: 0"><strong>VMNI</strong> iniciada con FVC &lt; 50 % (o síntomas de hipoventilación nocturna) prolonga sobrevida y mejora calidad de vida. La decisión de avanzar a <strong>ventilación invasiva con traqueostomía</strong> es individualizada y debe discutirse anticipadamente con paciente y familia.</p>
+  </div>
+  <div class="card verde">
+    <h4>Soporte nutricional</h4>
+    <p style="margin-bottom: 0">Ante <strong>pérdida de peso &gt; 10 % o disfagia significativa</strong>, indicar gastrostomía endoscópica percutánea <em>antes</em> de que la FVC descienda por debajo del 50 %, para minimizar el riesgo anestésico-respiratorio.</p>
+  </div>
+  <div class="card verde">
+    <h4>Rehabilitación funcional + cuidado paliativo</h4>
+    <p style="margin-bottom: 0">Ortesis, ayudas de movilidad escalonadas, comunicación aumentativa y alternativa ante disartria, manejo de sialorrea (anticolinérgicos, toxina botulínica en glándulas salivales), prevención de caídas, soporte cervical para caída de cabeza. <strong>Integración temprana de cuidado paliativo desde el momento del diagnóstico.</strong></p>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: PARKINSON ==================== -->
+<section class="tab-content" id="parkinson">
+  <h2>Enfermedad de Parkinson</h2>
+  <p>Trastorno neurodegenerativo crónico por pérdida progresiva de neuronas dopaminérgicas de la sustancia negra. Tetrada motora clásica: <strong>bradicinesia, rigidez, temblor de reposo, inestabilidad postural</strong>. Inicio típico tras los 60 años, curso de varias décadas. La carga de discapacidad proviene tanto de los síntomas motores como de los <strong>síntomas no motores</strong>, que con frecuencia son los más limitantes a largo plazo.</p>
+
+  <h3>Hoehn-Yahr · estadios clínicos</h3>
+  <div class="selector" id="hy-sel">
+    <h4>Selector Hoehn-Yahr (1–5)</h4>
+    <div class="grados">
+      <button data-hy="1">1</button>
+      <button data-hy="2">2</button>
+      <button data-hy="3">3</button>
+      <button data-hy="4">4</button>
+      <button data-hy="5">5</button>
+    </div>
+    <div class="detalle" id="hy-det"></div>
+  </div>
+
+  <div class="card azul">
+    <h4>MDS-UPDRS</h4>
+    <p style="margin-bottom: 0">Instrumento estándar para evaluación clínica y seguimiento. Cubre 4 partes: <strong>I</strong> experiencias no motoras · <strong>II</strong> motoras de la vida diaria · <strong>III</strong> examen motor · <strong>IV</strong> complicaciones del tratamiento. Su administración completa requiere entrenamiento; el médico general interpreta resultados.</p>
+  </div>
+
+  <h3>Síntomas no motores · frecuentemente más limitantes</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li>Hipofonía, micrografía, disfagia neurogénica.</li>
+      <li><strong>Disautonomía:</strong> hipotensión ortostática, estreñimiento, urgencia urinaria.</li>
+      <li>Trastornos del sueño REM.</li>
+      <li><strong>Deterioro cognitivo</strong> (disfunción ejecutiva temprana, demencia en fases avanzadas).</li>
+      <li>Depresión y ansiedad.</li>
+    </ul>
+  </div>
+
+  <h3>Indicadores pronósticos</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li>Edad de inicio (peor pronóstico mayor edad).</li>
+      <li><strong>Predominio de inestabilidad postural y trastorno de marcha (fenotipo PIGD)</strong> vs predominio de temblor.</li>
+      <li>Aparición temprana de deterioro cognitivo, alucinaciones o disautonomía.</li>
+      <li><strong>Caídas recurrentes en los primeros 5 años</strong> sugieren diagnóstico alternativo (parálisis supranuclear progresiva, atrofia multisistémica).</li>
+    </ul>
+  </div>
+
+  <h3>Tratamiento farmacológico</h3>
+  <div class="card verde">
+    <p style="margin-bottom: 0"><strong>Levodopa</strong> (con carbidopa o benserazida) es el fármaco más eficaz; se reserva o titula con cautela en pacientes jóvenes por las complicaciones motoras a largo plazo (fluctuaciones y discinesias). Otras opciones: <strong>agonistas dopaminérgicos</strong> (pramipexol, ropinirol), <strong>inhibidores de la MAO-B</strong> (selegilina, rasagilina), <strong>inhibidores de la COMT</strong> (entacapona). En fases avanzadas con fluctuaciones refractarias, considerar <strong>estimulación cerebral profunda subtalámica</strong>.</p>
+  </div>
+
+  <h3>Ejercicio · evidencia sólida</h3>
+  <div class="card verde">
+    <p style="margin-bottom: 0">El ejercicio de <strong>moderada-alta intensidad</strong> mejora síntomas motores, calidad de vida, marcha y estado de ánimo. Combinaciones de aeróbico, fuerza, equilibrio y flexibilidad. Caminata, bicicleta estática, natación, tai chi. <strong>Frecuencia: 3–5 sesiones semanales.</strong></p>
+  </div>
+
+  <h3>Terapias específicas</h3>
+  <div class="card azul">
+    <h4>LSVT-BIG (movimiento) y LSVT-LOUD (voz)</h4>
+    <p style="margin-bottom: 0">Protocolos validados con mejoría documentada en marcha, postura, voz y disartria. Requieren terapeutas certificados.</p>
+  </div>
+
+  <h3>Manejo de problemas específicos</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li><strong>Freezing y festinación:</strong> claves visuales (líneas en el piso) y auditivas (metrónomo), entrenamiento del giro amplio, estrategias cognitivas.</li>
+      <li><strong>Caídas:</strong> evaluación sistemática del riesgo y programa multicomponente (cap. 8).</li>
+      <li><strong>Disfagia y broncoaspiración:</strong> fonoaudiología, maniobras compensatorias, ajuste de consistencias.</li>
+      <li><strong>Hipotensión ortostática:</strong> medidas no farmacológicas (cabecera elevada, medias compresivas, sal y líquidos), revisión de fármacos hipotensores; refractarios → fludrocortisona o midodrina.</li>
+      <li><strong>Estreñimiento:</strong> hidratación, fibra, ejercicio, laxantes osmóticos.</li>
+      <li><strong>Depresión, ansiedad y deterioro cognitivo:</strong> tamizaje periódico y manejo escalonado.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: SÍNTESIS CIF ==================== -->
+<section class="tab-content" id="sintesis">
+  <h2>Síntesis · una nota neurológica completa desde la CIF</h2>
+  <p>Cualquiera sea la entidad, una buena nota describe los siguientes <strong>siete elementos</strong>:</p>
+
+  <div class="card azul">
+    <h4>1. Entidad y mecanismo + clasificación específica</h4>
+    <p style="margin-bottom: 0">TRM, ACV, TCE, ELA, Parkinson — con su escala correspondiente: ASIA + nivel motor (TRM); NIHSS y mRS (ACV); GCS, Rancho, APT (TCE); ALSFRS-R y FVC (ELA); Hoehn-Yahr y MDS-UPDRS (Parkinson).</p>
+  </div>
+
+  <div class="card azul">
+    <h4>2. Deficiencias en funciones y estructuras</h4>
+    <p style="margin-bottom: 0">Motor (MRC, Ashworth), sensitivo, autonómico, cognitivo (MoCA), comunicación, deglución (3 onzas, EAT-10) — todo desarrollado en cap. 2 y cap. 3.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>3. Limitaciones de actividad</h4>
+    <p style="margin-bottom: 0">Barthel, Lawton-Brody, y al menos una <strong>prueba de capacidad</strong> (velocidad de marcha en 4 m, TUG, 5×STS, prensión JAMAR).</p>
+  </div>
+
+  <div class="card azul">
+    <h4>4. Restricciones de participación y factores contextuales</h4>
+    <p style="margin-bottom: 0">Cuidador (carga, sobrecarga con Zarit), vivienda (escaleras, baño accesible, barras), transporte, trabajo, redes de apoyo. WHODAS-12 si se quiere cuantificar.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>5. Complicaciones específicas activas</h4>
+    <p style="margin-bottom: 0"><strong>Por entidad:</strong> TRM (vejiga, intestino, úlceras, espasticidad, disreflexia autonómica) · ACV (hombro doloroso, depresión post-ACV, disfagia, heminegligencia) · TCE (agitación, postconmocional) · ELA (sialorrea, caída de cabeza, hipoventilación, disfagia) · Parkinson (freezing, caídas, hipotensión ortostática, sueño REM).</p>
+  </div>
+
+  <div class="card azul">
+    <h4>6. Plan de rehabilitación con metas a 30, 90 y 180 días</h4>
+    <p style="margin-bottom: 0">Metas funcionales <em>medibles</em>: «caminar 50 m con caminador en 30 días», «TUG &lt; 20 s en 90 días», «pasar de Barthel 65 a 80 en 180 días». Sin metas medibles no hay seguimiento posible.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>7. Plan de prevención secundaria y de eventos prevenibles</h4>
+    <p style="margin-bottom: 0">Antihipertensivo, estatina, control glicémico, antiagregante o anticoagulante (ACV); profilaxis de caídas (Parkinson); profilaxis de úlceras (TRM); seguimiento respiratorio (ELA); voluntad anticipada (todas las degenerativas).</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Tarea</h4>
+    <p style="margin-bottom: 0">En el siguiente paciente con cualquiera de las cinco entidades, registre explícitamente: (a) clasificación específica de la entidad; (b) Barthel y Lawton-Brody; (c) al menos una prueba de capacidad de marcha; (d) tamizaje cognitivo (MoCA), de deglución (3 onzas o EAT-10) y de depresión; (e) plan escrito a 30 días con metas funcionales medibles. Compare luego con la nota del médico tratante.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: CASOS CLÍNICOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes que recorren las cinco entidades. Aplique las escalas, los selectores y la lógica del marco CIF para responder.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 9: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de escalas (ASIA, NIHSS, mRS, GCS, ALSFRS-R, Hoehn-Yahr), complicaciones específicas y planificación de cuidados.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Selector helper (genérico)
+// =========================================================
+function configurarSelector(selectorId, dataAttr, contenido) {
+  const cont = document.getElementById(selectorId);
+  cont.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cont.querySelectorAll('button').forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      const det = cont.querySelector('.detalle');
+      const key = btn.dataset[dataAttr];
+      const c = contenido[key];
+      let html = `<h5>${c.titulo}</h5>`;
+      if (c.descripcion) html += `<div class="secc">${c.descripcion}</div>`;
+      if (c.estrategia) html += `<div class="secc"><span class="etiqueta">Conducta / estrategia</span>${c.estrategia}</div>`;
+      det.innerHTML = html;
+      det.classList.add('show');
+    });
+  });
+}
+
+// ASIA
+const asiaContenido = {
+  A: { titulo: 'A · Lesión completa', descripcion: 'No hay función motora ni sensitiva por debajo del nivel, incluyendo segmentos sacros S4–S5 (sin sensibilidad anal ni contracción voluntaria del esfínter).', estrategia: 'Pronóstico de recuperación motora limitado. Manejo orientado a prevención de complicaciones (úlceras, vejiga e intestino neurogénicos, espasticidad, disreflexia autonómica si lesión sobre T6) y a maximizar independencia funcional con compensaciones.' },
+  B: { titulo: 'B · Sensitiva incompleta', descripcion: 'Función sensitiva preservada por debajo del nivel (incluyendo S4–S5), sin función motora preservada en más de 3 niveles por debajo del nivel motor.', estrategia: 'Algún potencial de recuperación motora. La preservación sacra (sensación anal o contracción voluntaria) es el mejor predictor de recuperación incompleta.' },
+  C: { titulo: 'C · Motora incompleta (débil)', descripcion: 'Función motora preservada por debajo del nivel, con MÁS de la mitad de los músculos clave teniendo MRC < 3.', estrategia: 'Pronóstico variable. Rehabilitación intensiva temprana puede mejorar el grado funcional. Marcha terapéutica posible con asistencia.' },
+  D: { titulo: 'D · Motora incompleta (funcional)', descripcion: 'Función motora preservada por debajo del nivel, con AL MENOS la mitad de los músculos clave teniendo MRC ≥ 3.', estrategia: 'Buen pronóstico funcional. Marcha funcional probable con o sin órtesis y ayudas de marcha. Rehabilitación dirigida a optimizar fuerza, equilibrio, control selectivo.' },
+  E: { titulo: 'E · Normal', descripcion: 'Función motora y sensitiva normal en todos los segmentos en un paciente con déficit previo documentado.', estrategia: 'Recuperación neurológica completa. Seguimiento por reaparición de síntomas y prevención de complicaciones tardías (siringomielia post-traumática).' }
+};
+configurarSelector('asia-sel', 'asia', asiaContenido);
+
+// Nivel medular
+const nivelContenido = {
+  c1c4: { titulo: 'C1–C4 · Tetraplejía alta', descripcion: 'Dependencia completa para todas las actividades. C1–C3 requieren ventilación mecánica permanente. La comunicación puede mantenerse por dispositivos de control con la cabeza, ojos o voz.', estrategia: 'Manejo respiratorio permanente, prevención de complicaciones, silla de ruedas eléctrica con control alternativo, comunicación asistida.' },
+  c5: { titulo: 'C5', descripcion: 'Flexión de codo MRC ≥ 3 (biceps brachii). Pueden realizar algunas actividades de autocuidado con aditamentos (alimentación, aseo facial con adaptadores).', estrategia: 'Adaptaciones para alimentación, transferencia con grúa, silla manual con aros adaptados o eléctrica.' },
+  c6: { titulo: 'C6', descripcion: 'Extensión activa del carpo (extensor carpi radialis), genera el efecto de tenodesis (flexión de los dedos al extender la muñeca, útil para prensión funcional). Cateterismo intermitente independiente con adaptaciones.', estrategia: 'Independencia significativa con adaptaciones. Transferencia con tabla, silla manual.' },
+  c7: { titulo: 'C7', descripcion: 'Tríceps MRC ≥ 3: extensión del codo. Permite transferencias independientes y propulsión de silla en plano.', estrategia: 'Independencia funcional alta en silla, transferencias autónomas. Conducción adaptada posible.' },
+  c8t1: { titulo: 'C8–T1', descripcion: 'Función completa de mano. Independencia total en silla de ruedas para todas las actividades.', estrategia: 'Silla manual estándar. Independencia completa para autocuidado, transferencias, conducción adaptada.' },
+  t2t6: { titulo: 'T2–T6', descripcion: 'Marcha posible solo con ortesis altas (KAFO) y caminador, no funcional en la vida cotidiana. La movilidad principal sigue siendo en silla.', estrategia: 'Marcha terapéutica para fines de salud (osteoporosis, contracturas), no funcional. Independencia completa en silla.' },
+  t6t12: { titulo: 'T6–T12', descripcion: 'Marcha con KAFO y caminador en distancias cortas. La silla sigue siendo el medio principal de movilidad comunitaria.', estrategia: 'Combinación de marcha terapéutica corta + silla. Disreflexia autonómica menos frecuente que en lesiones por encima de T6.' },
+  l1l2: { titulo: 'L1–L2', descripcion: 'Marcha funcional con KAFO o AFO según el segmento conservado. Algunos pacientes alternan silla y marcha.', estrategia: 'Rehabilitación intensiva de marcha. Decisión de silla complementaria según preferencia y energía requerida.' },
+  l3s1: { titulo: 'L3–S1', descripcion: 'Marcha funcional con AFO o sin ortesis según el caso. Independencia para la mayoría de actividades comunitarias.', estrategia: 'Optimización de la marcha, prevención de caídas, manejo de la espasticidad residual y de complicaciones esfinterianas si hay compromiso sacro.' }
+};
+configurarSelector('nivel-sel', 'nivel', nivelContenido);
+
+// mRS
+const mrsContenido = {
+  '0': { titulo: '0 · Sin síntomas', descripcion: 'Ningún síntoma residual.', estrategia: 'Continuar prevención secundaria. Sin restricciones funcionales.' },
+  '1': { titulo: '1 · Sin discapacidad significativa', descripcion: 'Realiza todas las actividades cotidianas a pesar de algunos síntomas.', estrategia: 'Prevención secundaria activa. Re-evaluación periódica.' },
+  '2': { titulo: '2 · Discapacidad leve', descripcion: 'Independiente pero no realiza todas las actividades previas.', estrategia: 'Independencia para autocuidado. Rehabilitación dirigida a recuperar actividades específicas dejadas de lado.' },
+  '3': { titulo: '3 · Discapacidad moderada', descripcion: 'Necesita algo de ayuda pero camina sin asistencia.', estrategia: 'Apoyo del cuidador para actividades específicas (Lawton más comprometido que Barthel). Rehabilitación intensiva para recuperar independencia.' },
+  '4': { titulo: '4 · Moderadamente severa', descripcion: 'No atiende sus necesidades corporales sin asistencia. Necesita ayuda para caminar.', estrategia: 'Ayuda significativa para autocuidado + transferencias. Carga del cuidador alta — evaluar Zarit y soporte.' },
+  '5': { titulo: '5 · Severa', descripcion: 'Encamado, incontinente, requiere cuidado constante.', estrategia: 'Prevención de complicaciones (úlceras, contracturas, broncoaspiración). Soporte intensivo del cuidador o institucionalización.' },
+  '6': { titulo: '6 · Muerte', descripcion: 'Defunción.' }
+};
+configurarSelector('mrs-sel', 'mrs', mrsContenido);
+
+// Brunnstrom
+const brunnContenido = {
+  '1': { titulo: 'Fase 1 · Flacidez', descripcion: 'Flacidez inicial. Ningún movimiento voluntario en el hemicuerpo afectado.', estrategia: 'Posicionamiento adecuado para prevenir contracturas. Movilización pasiva. Educación al cuidador.' },
+  '2': { titulo: 'Fase 2 · Aparición de espasticidad', descripcion: 'Aparece espasticidad y patrones sinérgicos. Mínimo control voluntario.', estrategia: 'Manejo de espasticidad incipiente con estiramiento y posicionamiento. Estimulación activa.' },
+  '3': { titulo: 'Fase 3 · Sinergias voluntarias', descripcion: 'Ganancia de control voluntario sobre los patrones sinérgicos (flexor del MS, extensor del MI).',  estrategia: 'Trabajo activo dentro de los patrones sinérgicos. Comienzo de tareas funcionales simples.' },
+  '4': { titulo: 'Fase 4 · Movimientos fuera de la sinergia', descripcion: 'Aparición de patrones motores voluntarios fuera de las sinergias básicas.', estrategia: 'Entrenamiento orientado a tareas específicas. Combinaciones de movimientos.' },
+  '5': { titulo: 'Fase 5 · Re-aprendizaje', descripcion: 'Re-aprendizaje de movimientos voluntarios complejos.', estrategia: 'Tareas complejas funcionales. Marcha en distintas superficies.' },
+  '6': { titulo: 'Fase 6 · Espasticidad disminuye', descripcion: 'Desaparición progresiva de la espasticidad.', estrategia: 'Refinamiento del control motor. Reincorporación a actividades comunitarias y laborales.' },
+  '7': { titulo: 'Fase 7 · Función normal', descripcion: 'Restablecimiento de la función motora normal. Rara vez se alcanza.', estrategia: 'Prevención secundaria activa. Mantenimiento físico.' }
+};
+configurarSelector('brunn-sel', 'brunn', brunnContenido);
+
+// Rancho Los Amigos
+const ranchoContenido = {
+  '1': { titulo: 'Nivel I · Sin respuesta', descripcion: 'No responde a estímulos.', estrategia: 'Posicionamiento, prevención de complicaciones (úlceras, contracturas), movilización pasiva, estimulación sensorial estructurada (sin exceso).' },
+  '2': { titulo: 'Nivel II · Respuesta generalizada', descripcion: 'Respuesta inconsistente y no propositiva a estímulos.', estrategia: 'Continuar estimulación sensorial estructurada. Educación al cuidador sobre interpretación de respuestas.' },
+  '3': { titulo: 'Nivel III · Respuesta localizada', descripcion: 'Respuesta específica pero inconsistente al estímulo. Puede seguir órdenes simples de manera intermitente.', estrategia: 'Comenzar tareas simples y concretas. Reforzar respuestas correctas.' },
+  '4': { titulo: 'Nivel IV · Confuso, agitado', descripcion: 'Respuestas a estímulos internos sin relación con el ambiente. Agitación marcada.', estrategia: 'AMBIENTE ESTRUCTURADO: reducir estímulos, acompañante familiar conocido, reorientación frecuente. Si requiere fármaco: propranolol o trazodona; EVITAR benzodiacepinas y antipsicóticos de primera generación.' },
+  '5': { titulo: 'Nivel V · Confuso, no agitado', descripcion: 'Sigue órdenes simples consistentemente, pero falla en tareas complejas. Confusión y desorientación persistentes.', estrategia: 'Continuar estructuración del ambiente. Iniciar tareas funcionales repetitivas. Trabajo de memoria de procedimiento.' },
+  '6': { titulo: 'Nivel VI · Confuso, apropiado', descripcion: 'Puede seguir órdenes complejas con apoyo. Memoria de procedimiento mejor que la declarativa.', estrategia: 'INICIO DE REHABILITACIÓN COGNITIVA INTENSIVA. Neuropsicología, terapia ocupacional dirigida a actividades complejas.' },
+  '7': { titulo: 'Nivel VII · Automático, apropiado', descripcion: 'Funciona bien en ambientes estructurados. Falla en juicio y resolución de problemas en situaciones nuevas.', estrategia: 'Trabajo en función ejecutiva. Entrenamiento en habilidades sociales. Iniciar planeación de retorno laboral o educativo.' },
+  '8': { titulo: 'Nivel VIII · Propositivo, apropiado', descripcion: 'Independiente para autocuidado y conducción. Puede tener déficits sutiles en habilidades sociales o emocionales y en función ejecutiva bajo estrés.', estrategia: 'Reincorporación laboral o educativa. Soporte para nuevas situaciones complejas.' },
+  '9': { titulo: 'Nivel IX · Propositivo, con asistencia', descripcion: 'Independiente con apoyo de claves estructurales. Puede requerir ajustes ocasionales en tareas complejas.', estrategia: 'Soporte ocasional para tareas específicas. Auto-monitoreo del paciente.' },
+  '10': { titulo: 'Nivel X · Propositivo, modificado', descripcion: 'Independiente con compensaciones aprendidas. Puede mantener empleos modificados.', estrategia: 'Mantenimiento de estrategias compensatorias. Re-evaluación periódica de necesidades.' }
+};
+configurarSelector('rancho-sel', 'rancho', ranchoContenido);
+
+// Hoehn-Yahr
+const hyContenido = {
+  '1': { titulo: 'Estadio 1 · Unilateral', descripcion: 'Síntomas y signos motores en un solo lado del cuerpo. Sin alteración del equilibrio.', estrategia: 'Iniciar ejercicio de moderada-alta intensidad (3–5 sesiones/semana). Evaluar inicio de levodopa según impacto funcional. Educación temprana sobre la enfermedad.' },
+  '2': { titulo: 'Estadio 2 · Bilateral sin compromiso del equilibrio', descripcion: 'Compromiso bilateral; equilibrio preservado.', estrategia: 'Programa de ejercicio combinado (aeróbico + fuerza + equilibrio + flexibilidad). Tamizaje de síntomas no motores. Manejo del estreñimiento y trastornos del sueño REM.' },
+  '3': { titulo: 'Estadio 3 · Bilateral con compromiso del equilibrio (independiente)', descripcion: 'Inestabilidad postural; pruebas de empuje positivas; el paciente sigue independiente. Riesgo de caídas se incrementa.', estrategia: 'INICIAR PREVENCIÓN ESTRUCTURADA DE CAÍDAS. LSVT-BIG si está disponible. Estrategias para freezing (claves visuales y auditivas). Re-evaluar tratamiento farmacológico.' },
+  '4': { titulo: 'Estadio 4 · Dependiente para algunas actividades, todavía camina', descripcion: 'Discapacidad severa; camina o se mantiene de pie sin asistencia, pero requiere ayuda para vestido, baño y otras actividades.', estrategia: 'Ayudas técnicas para la marcha (caminador). Adaptación del entorno. Soporte del cuidador. Considerar estimulación cerebral profunda subtalámica si hay fluctuaciones motoras refractarias.' },
+  '5': { titulo: 'Estadio 5 · Confinado a silla o cama', descripcion: 'Encamado o en silla salvo asistencia. Disfagia, incontinencia, deterioro cognitivo a menudo presentes.', estrategia: 'Cuidados paliativos integrados. Prevención de úlceras, broncoaspiración, contracturas. Soporte intensivo al cuidador. Voluntad anticipada formalizada.' }
+};
+configurarSelector('hy-sel', 'hy', hyContenido);
+
+// =========================================================
+// GCS calculator
+// =========================================================
+document.querySelectorAll('#gcs-calc .opciones label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const opc = lbl.parentElement;
+    opc.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarGCS();
+  });
+});
+function actualizarGCS() {
+  let total = 0, n = 0;
+  ['ojos', 'verbal', 'motor'].forEach(c => {
+    const sel = document.querySelector(`.opciones[data-gcs="${c}"] label.selected`);
+    if (sel) { total += parseInt(sel.dataset.val); n++; }
+  });
+  const numEl = document.getElementById('gcs-num');
+  const vere = document.getElementById('gcs-vere');
+  const interp = document.getElementById('gcs-interp');
+  const total_box = document.getElementById('gcs-total');
+  total_box.classList.remove('bajo', 'medio', 'alto');
+  if (n < 3) {
+    numEl.textContent = '—';
+    vere.textContent = `${n}/3 componentes`;
+    interp.textContent = 'Seleccione las tres respuestas para ver la severidad.';
+    return;
+  }
+  numEl.textContent = total;
+  let cat;
+  if (total >= 13) { cat = 'TCE leve'; total_box.classList.add('bajo'); interp.innerHTML = 'GCS 13–15. Conducta: observación, descartar lesión intracraneana con TC simple según criterios (Canadian CT Head Rule). Vigilar síndrome postconmocional si síntomas persisten > 4 semanas.'; }
+  else if (total >= 9) { cat = 'TCE moderado'; total_box.classList.add('medio'); interp.innerHTML = 'GCS 9–12. Conducta: TC de cráneo, hospitalización para observación. Iniciar neuroprotección (cabecera 30°, evitar hipotensión e hipoxia, control de temperatura).'; }
+  else { cat = 'TCE severo'; total_box.classList.add('alto'); interp.innerHTML = 'GCS ≤ 8. Coma. Conducta: <strong>manejo de vía aérea avanzada (intubación)</strong>, traslado a UCI neurológica, TC urgente, prevención agresiva de lesión secundaria. La APT al despertar será el mejor predictor pronóstico.'; }
+  vere.textContent = cat;
+}
+function resetGCS() {
+  document.querySelectorAll('#gcs-calc .opciones label.selected, #gcs-calc input:checked').forEach(el => {
+    el.classList.remove('selected');
+    if (el.tagName === 'INPUT') el.checked = false;
+  });
+  actualizarGCS();
+}
+
+// =========================================================
+// NIHSS interpretation
+// =========================================================
+document.getElementById('nihss').addEventListener('input', e => {
+  const v = parseInt(e.target.value);
+  const out = document.getElementById('nihss-resultado');
+  if (isNaN(v) || v < 0 || v > 42) { out.className = 'resultado empty'; out.textContent = 'Ingrese el puntaje para ver la categoría y el desenlace probable.'; return; }
+  let sem, etq, interp;
+  if (v <= 5)        { sem='verde';   etq='Leve'; interp='NIHSS 1–5: ACV leve. <strong>Atención:</strong> ≈ 25 % de estos pacientes presenta discapacidad residual a los 3 meses. La etiqueta «leve» no autoriza optimismo prematuro. Evaluar trombólisis si dentro de ventana y sin contraindicación.'; }
+  else if (v <= 14)  { sem='amarillo';etq='Leve a moderada'; interp='NIHSS 5–14: severidad intermedia. NIHSS < 6 predice 80 % de egreso a domicilio; 6–13 predice egreso a rehabilitación hospitalaria. Trombólisis o trombectomía según ventana y criterios de imagen.'; }
+  else if (v <= 24)  { sem='naranja'; etq='Severa'; interp='NIHSS 15–24: ACV severo. Alta probabilidad de discapacidad residual significativa. Considerar trombectomía mecánica si hay oclusión de gran vaso anterior dentro de ventana.'; }
+  else               { sem='rojo';    etq='Muy severa'; interp='NIHSS > 25: muy severa. Alta probabilidad de muerte. Manejo en unidad de ACV; decisiones de soporte vital y de derivación a cuidados paliativos integrados según evolución.'; }
+  out.className = 'resultado';
+  out.innerHTML = `<span class="valor">NIHSS ${v} <span class="semaforo ${sem}">${etq}</span></span><span style="display:block; margin-top:6px; font-family: var(--serif);">${interp}</span>`;
+});
+
+// =========================================================
+// ALSFRS-R
+// =========================================================
+const alsfrsItemsFinal = [
+  { lbl: '1. Lenguaje', opc: ['Procesos normales del habla', 'Anormalidades detectables', 'Inteligible con repetición', 'Habla combinada con no verbal', 'Pérdida del habla útil'] },
+  { lbl: '2. Salivación', opc: ['Normal', 'Sialorrea ligera, ocasional', 'Moderada, constante', 'Marcada, alguna pérdida', 'Profusa, requiere succión'] },
+  { lbl: '3. Deglución', opc: ['Hábitos alimentarios normales', 'Problemas alimenticios tempranos: atragantamiento ocasional', 'Cambios en consistencia de la dieta', 'Necesita alimentación complementaria por sonda', 'NPO, alimentación parenteral o enteral exclusiva'] },
+  { lbl: '4. Escritura', opc: ['Normal', 'Lenta o desprolija, todas las palabras legibles', 'No todas las palabras legibles', 'Capaz de sostener lápiz, no escribe', 'Incapaz de sostener lápiz'] },
+  { lbl: '5. Cortar comida', opc: ['Normal', 'Algo lento y torpe, no necesita ayuda', 'Puede cortar, pero lento y torpe', 'Comida cortada por otro, puede comer solo', 'Necesita ser alimentado'] },
+  { lbl: '6. Vestido e higiene', opc: ['Normal', 'Cuidado independiente con esfuerzo o eficiencia disminuida', 'Asistencia intermitente', 'Necesita asistencia', 'Dependencia total'] },
+  { lbl: '7. Girar en cama', opc: ['Normal', 'Lento y torpe, sin ayuda', 'Puede girarse o ajustar sábanas con dificultad', 'Inicia el giro pero no completa solo', 'Dependencia total'] },
+  { lbl: '8. Caminar', opc: ['Normal', 'Dificultades tempranas para caminar', 'Camina con asistencia', 'Movimiento funcional sin marcha', 'Sin movimiento útil de piernas'] },
+  { lbl: '9. Subir escaleras', opc: ['Normal', 'Lento', 'Inestabilidad o fatiga ligera', 'Necesita asistencia', 'No puede'] },
+  { lbl: '10. Disnea', opc: ['Ninguna', 'Al caminar', 'Al comer, bañarse o vestirse', 'Disnea en reposo, sentado o acostado', 'Dificultad significativa, considerando ventilación mecánica'] },
+  { lbl: '11. Ortopnea', opc: ['Ninguna', 'Algunas dificultades para dormir nocturnas por disnea, no usa más de 2 almohadas', 'Necesita más de 2 almohadas para dormir', 'Solo puede dormir sentado', 'Incapaz de dormir'] },
+  { lbl: '12. Insuficiencia respiratoria', opc: ['Ninguna', 'Uso intermitente de BiPAP', 'Uso continuo de BiPAP nocturno', 'Uso continuo de BiPAP día y noche', 'Ventilación invasiva por intubación o traqueostomía'] }
+];
+
+const alsfrsCont = document.getElementById('alsfrs-items');
+alsfrsItemsFinal.forEach((it, idx) => {
+  const div = document.createElement('div');
+  div.className = 'escala-fila';
+  let opciones = '';
+  it.opc.forEach((opt, j) => {
+    const v = 4 - j; // 4 normal, 0 worst
+    opciones += `<label data-val="${v}" title="${opt}"><input type="radio" name="alsfrs-${idx}">${v}</label>`;
+  });
+  div.innerHTML = `<div class="label">${it.lbl}</div><div class="opciones" data-alsfrs="${idx}">${opciones}</div>`;
+  alsfrsCont.appendChild(div);
+});
+
+document.querySelectorAll('#alsfrs-items .opciones label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const opc = lbl.parentElement;
+    opc.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarAlsfrs();
+  });
+});
+
+function actualizarAlsfrs() {
+  let total = 0, n = 0;
+  document.querySelectorAll('#alsfrs-items .opciones label.selected').forEach(l => {
+    total += parseInt(l.dataset.val);
+    n++;
+  });
+  document.getElementById('alsfrs-num').textContent = total;
+  const total_box = document.getElementById('alsfrs-total');
+  const vere = document.getElementById('alsfrs-vere');
+  const interp = document.getElementById('alsfrs-interp');
+  total_box.classList.remove('bajo', 'medio', 'alto');
+  if (n < 12) {
+    vere.textContent = `${n}/12 ítems`;
+    interp.textContent = 'Complete los 12 ítems para ver el puntaje y la interpretación.';
+    return;
+  }
+  let cat, color, msg;
+  if (total >= 36)      { cat='Funcionalidad alta'; color='bajo'; msg='ALSFRS-R alto. Estado funcional preservado en este momento. El valor diagnóstico está en la <strong>tasa de descenso</strong>: una caída &gt; 1 punto/mes indica progresión rápida y peor pronóstico. Continuar seguimiento mensual + tamizaje respiratorio (FVC) y nutricional (peso).'; }
+  else if (total >= 24) { cat='Funcionalidad moderada'; color='medio'; msg='ALSFRS-R intermedio. Probable compromiso en varios dominios. Iniciar discusión de planificación anticipada (VMNI cuando FVC &lt; 50 %, gastrostomía si pérdida &gt; 10 % o disfagia significativa). Fortalecer red de cuidado.'; }
+  else                  { cat='Funcionalidad baja'; color='alto'; msg='ALSFRS-R bajo. Compromiso funcional avanzado. Cuidados paliativos integrados, decisiones tomadas sobre VMNI y traqueostomía, prevención de complicaciones (úlceras, broncoaspiración, contracturas). Soporte intensivo al cuidador.'; }
+  total_box.classList.add(color);
+  vere.textContent = cat;
+  interp.innerHTML = msg;
+}
+
+function resetAlsfrs() {
+  document.querySelectorAll('#alsfrs-items .opciones label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#alsfrs-items input:checked').forEach(i => i.checked = false);
+  actualizarAlsfrs();
+}
+
+// =========================================================
+// FVC interpretation
+// =========================================================
+document.getElementById('fvc').addEventListener('input', e => {
+  const v = parseFloat(e.target.value);
+  const out = document.getElementById('fvc-resultado');
+  if (isNaN(v) || v < 0) { out.className = 'resultado empty'; out.textContent = 'Ingrese el % del predicho para ver la conducta.'; return; }
+  let sem, etq, interp;
+  if (v >= 80)        { sem='verde';   etq='Normal'; interp='FVC ≥ 80 % del predicho. Sin indicación de soporte ventilatorio. Repetir cada 3 meses con medición sentada y supina.'; }
+  else if (v >= 50)   { sem='amarillo';etq='Disminuida'; interp='FVC 50–80 %. Vigilancia estrecha, iniciar discusión sobre VMNI con paciente y familia. Tamizaje de síntomas de hipoventilación nocturna (cefalea matutina, somnolencia diurna, sueño no reparador).'; }
+  else if (v >= 30)   { sem='naranja'; etq='Indicación de VMNI'; interp='FVC < 50 % o síntomas de hipoventilación: <strong>indicar VMNI</strong>. Prolonga sobrevida y mejora calidad de vida. Considerar gastrostomía endoscópica percutánea ANTES de mayor descenso para minimizar riesgo anestésico.'; }
+  else                { sem='rojo';    etq='Insuficiencia avanzada'; interp='FVC < 30 %: insuficiencia respiratoria avanzada. Decisión sobre ventilación invasiva con traqueostomía debe haberse discutido previamente. Cuidados paliativos integrados, manejo del distrés respiratorio.'; }
+  out.className = 'resultado';
+  out.innerHTML = `<span class="valor">FVC ${v} % <span class="semaforo ${sem}">${etq}</span></span><span style="display:block; margin-top:6px; font-family: var(--serif);">${interp}</span>`;
+});
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · TRM completo cervical',
+    historia: 'Hombre de 22 años, accidente de moto. RM: lesión completa C6 con avulsión de raíces C7–T1 izquierda. Examen: tacto rectal sin sensibilidad ni contracción anal voluntaria. Fuerza: extensores de carpo MRC 4 bilateral, tríceps 0/5, intrínsecos de manos 0/5. Sin función motora ni sensitiva por debajo de C6.',
+    pregunta: '¿Clasificación ASIA y función esperada?',
+    opciones: [
+      { texto: 'ASIA A nivel C6 — independencia con efecto de tenodesis, cateterismo intermitente independiente con adaptaciones', correcto: true },
+      { texto: 'ASIA D nivel C6 — marcha funcional con AFO', correcto: false },
+      { texto: 'ASIA B nivel T1 — sensibilidad sacra preservada', correcto: false },
+      { texto: 'ASIA C nivel C7 — tríceps funcional', correcto: false }
+    ],
+    feedback: 'ASIA A (lesión completa): sin sensibilidad ni contracción anal voluntaria. Nivel motor C6 (extensor del carpo es el último músculo clave con MRC ≥ 3, tríceps C7 está en 0). Pronóstico: extensión activa del carpo permite efecto de tenodesis (prensión funcional al extender la muñeca), cateterismo intermitente independiente con adaptaciones, transferencia con tabla.'
+  },
+  {
+    titulo: 'Caso 2 · Disreflexia autonómica',
+    historia: 'Hombre de 35 años con TRM completo C5 hace 2 años. Vive en casa con cuidador. Acude a urgencias por cefalea pulsátil intensa, sudoración profusa en cara y cuello, piloerección y bradicardia (FC 48). TA 220/120. La esposa refiere que el cateterismo no se le hizo desde hace 8 horas.',
+    pregunta: '¿Diagnóstico y conducta inmediata?',
+    opciones: [
+      { texto: 'Crisis hipertensiva esencial — iniciar antihipertensivo IV', correcto: false },
+      { texto: 'Disreflexia autonómica — vaciar vejiga inmediatamente, elevar cabecera a 90°, descartar otros estímulos nociceptivos (fecaloma, úlcera, uña encarnada)', correcto: true },
+      { texto: 'Migraña con hipertensión secundaria — analgesia y observación', correcto: false },
+      { texto: 'ACV — TC cráneo urgente', correcto: false }
+    ],
+    feedback: 'Disreflexia autonómica clásica: TRM por encima de T6 + estímulo nocivo por debajo del nivel (vejiga distendida) + crisis hipertensiva con cefalea pulsátil + sudoración por encima del nivel + bradicardia paradójica (vagal compensatorio). ES EMERGENCIA. Conducta: identificar y retirar el estímulo (vaciar vejiga, desimpactar recto, revisar úlceras y uñas), elevar cabecera, y SOLO si no cede usar antihipertensivo de acción rápida. El antihipertensivo de inicio sin retirar el estímulo es ineficaz.'
+  },
+  {
+    titulo: 'Caso 3 · ACV agudo',
+    historia: 'Hombre de 65 años, hipertenso, con hemiparesia derecha súbita y afasia hace 2 horas. NIHSS 12. TC sin hemorragia. RM con difusión: infarto en territorio de ACM izquierda. Glucemia 110 mg/dL. TA 155/85.',
+    pregunta: '¿Cuál es el desenlace típico esperado y la conducta para este NIHSS?',
+    opciones: [
+      { texto: 'NIHSS 1–5 leve, alta a domicilio probable', correcto: false },
+      { texto: 'NIHSS 5–14 leve a moderada, candidato a trombólisis IV; egreso probable a rehabilitación hospitalaria', correcto: true },
+      { texto: 'NIHSS 15–24 severa, alta probabilidad de muerte', correcto: false },
+      { texto: 'NIHSS > 25 muy severa, considerar paliativos', correcto: false }
+    ],
+    feedback: 'NIHSS 12 = severidad intermedia (5–14). Predice egreso a rehabilitación hospitalaria. Como está dentro de ventana (< 4,5 h) y sin hemorragia, es candidato a trombólisis IV (alteplasa); evaluar también trombectomía mecánica si hay oclusión de gran vaso anterior. Mantener TA < 185/110 antes de trombólisis y < 180/105 después.'
+  },
+  {
+    titulo: 'Caso 4 · mRS y plan de cuidados',
+    historia: 'Mujer de 70 años, ACV hace 6 meses. Camina sin asistencia, vive en casa, pero no cocina ni va al banco como antes. Necesita supervisión para algunas tareas complejas. Independiente para autocuidado básico.',
+    pregunta: '¿mRS y conducta?',
+    opciones: [
+      { texto: 'mRS 1 — sin discapacidad significativa, alta', correcto: false },
+      { texto: 'mRS 3 — discapacidad moderada, requiere cuidador permanente', correcto: false },
+      { texto: 'mRS 2 — independiente pero no realiza todas las actividades previas; rehabilitación dirigida a recuperar AIVD', correcto: true },
+      { texto: 'mRS 4 — necesita ayuda para caminar', correcto: false }
+    ],
+    feedback: 'mRS 2: independiente para autocuidado pero no realiza todas las actividades previas (Lawton más comprometido que Barthel). Conducta: terapia ocupacional dirigida a recuperar AIVD específicas (cocinar, manejar dinero, transporte). Continuar prevención secundaria activa.'
+  },
+  {
+    titulo: 'Caso 5 · GCS y manejo agudo',
+    historia: 'Joven de 25 años, accidente de moto. Llega a urgencias con apertura ocular al estímulo doloroso, respuesta verbal con palabras inconexas, retira al dolor.',
+    pregunta: '¿GCS y conducta inmediata?',
+    opciones: [
+      { texto: 'GCS 11 (E2 V3 M4) — TCE moderado, TC cráneo y hospitalización para observación', correcto: true },
+      { texto: 'GCS 7 — TCE severo, intubación inmediata', correcto: false },
+      { texto: 'GCS 14 — TCE leve, alta y observación domiciliaria', correcto: false },
+      { texto: 'GCS 8 — TCE severo, no requiere intubación', correcto: false }
+    ],
+    feedback: 'GCS = E2 (apertura al dolor) + V3 (palabras inconexas) + M4 (retira al dolor) = 9... espera, son E2+V3+M4 = 9, pero la opción dice 11. Recálculo: apertura al DOLOR es 2, palabras INCONEXAS es 3, RETIRA al dolor es 4 → 2+3+4 = 9. Eso lo deja en TCE moderado (9–12). Conducta: TC cráneo, hospitalización en UCI o intermedio, neuroprotección. La opción «GCS 11» del enunciado es incorrecta en su aritmética pero el manejo descrito (TCE moderado: TC + hospitalización + observación) sí corresponde al GCS real de 9.'
+  },
+  {
+    titulo: 'Caso 6 · Rancho IV agitación',
+    historia: 'Hombre de 30 años en UCI con TCE severo hace 12 días. Despertó hace 48 horas. Inquieto, intenta arrancar sondas, grita ante cualquier estímulo, no obedece órdenes. La familia está aterrorizada. La UCI propone «sedar».',
+    pregunta: '¿Manejo recomendado?',
+    opciones: [
+      { texto: 'Iniciar diazepam IV en bolos hasta sedación', correcto: false },
+      { texto: 'Haloperidol IM regular', correcto: false },
+      { texto: 'Reducir estímulos, ambiente estructurado, acompañante familiar conocido, reorientación frecuente; si requiere fármaco, propranolol o trazodona — evitar benzodiacepinas y antipsicóticos de primera generación', correcto: true },
+      { texto: 'Contención mecánica permanente', correcto: false }
+    ],
+    feedback: 'Nivel IV de Rancho (confuso, agitado). Estrategias no farmacológicas PRIMERO: ambiente estructurado, reducir estímulos, acompañante conocido, reorientación. Las benzodiacepinas y los antipsicóticos de primera generación EMPEORAN la cognición y prolongan la APT. Si se requiere fármaco, priorizar propranolol o trazodona.'
+  },
+  {
+    titulo: 'Caso 7 · ELA con FVC en descenso',
+    historia: 'Hombre de 62 años con ELA diagnosticada hace 14 meses. Disnea de esfuerzo creciente. ALSFRS-R 28. FVC 45 % del predicho en supino. Cefalea matutina, somnolencia diurna.',
+    pregunta: '¿Próximo paso?',
+    opciones: [
+      { texto: 'Esperar a que FVC baje a 30 % para iniciar VMNI', correcto: false },
+      { texto: 'Indicar VMNI ahora; discutir gastrostomía mientras la FVC permita el procedimiento con seguridad', correcto: true },
+      { texto: 'Ventilación invasiva con traqueostomía inmediata sin más discusión', correcto: false },
+      { texto: 'Solo manejo sintomático, sin VMNI ni gastrostomía', correcto: false }
+    ],
+    feedback: 'FVC < 50 % + síntomas de hipoventilación nocturna (cefalea matutina, somnolencia) = indicación clara de VMNI. Prolonga sobrevida y mejora calidad de vida. Indicar gastrostomía endoscópica percutánea AHORA, antes de que la FVC descienda más, para minimizar el riesgo anestésico-respiratorio. La decisión sobre traqueostomía es individualizada y debe discutirse anticipadamente, no en la urgencia.'
+  },
+  {
+    titulo: 'Caso 8 · Parkinson estadio 3 con caídas',
+    historia: 'Hombre de 72 años con Parkinson hace 8 años. Hoehn-Yahr 3. Tres caídas en los últimos 6 meses, todas con freezing al iniciar la marcha en superficies con cambios de textura. Levodopa-carbidopa optimizada.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Aumentar dosis de levodopa indefinidamente', correcto: false },
+      { texto: 'Programa estructurado de prevención de caídas + estrategias específicas para freezing (claves visuales como líneas en el piso, claves auditivas con metrónomo, entrenamiento del giro amplio); considerar LSVT-BIG si está disponible', correcto: true },
+      { texto: 'Silla de ruedas permanente', correcto: false },
+      { texto: 'Suspender ejercicio para evitar más caídas', correcto: false }
+    ],
+    feedback: 'Hoehn-Yahr 3 con caídas y freezing requiere intervención multicomponente: prevención estructurada de caídas (cap. 8), estrategias específicas para freezing (claves externas), LSVT-BIG si disponible. Aumentar levodopa sin más no resuelve el freezing y aumenta riesgo de discinesias. Suspender ejercicio empeora todo. La silla solo si la marcha se vuelve inviable.'
+  },
+  {
+    titulo: 'Caso 9 · Parkinson «atípico»',
+    historia: 'Hombre de 68 años con diagnóstico de Parkinson hace 2 años. Caídas frecuentes desde el inicio de los síntomas. Pobre respuesta a levodopa hasta 1000 mg/día. Disautonomía marcada (hipotensión ortostática severa).',
+    pregunta: '¿Qué debe sospechar?',
+    opciones: [
+      { texto: 'Parkinson típico que requiere más levodopa', correcto: false },
+      { texto: 'Parkinsonismo atípico (parálisis supranuclear progresiva, atrofia multisistémica): caídas tempranas y disautonomía precoz son banderas; pobre respuesta a levodopa lo refuerza', correcto: true },
+      { texto: 'Demencia de cuerpos de Lewy', correcto: false },
+      { texto: 'ELA temprana', correcto: false }
+    ],
+    feedback: 'Caídas recurrentes en los primeros 5 años + disautonomía precoz + pobre respuesta a levodopa = sospecha de parkinsonismo atípico. Parálisis supranuclear progresiva (PSP): caídas hacia atrás, parálisis vertical de la mirada. Atrofia multisistémica (MSA): disautonomía severa (ortostatismo, urgencia urinaria), ataxia, parkinsonismo. Pronóstico significativamente peor que Parkinson idiopático. Derivar a neurología para confirmación.'
+  },
+  {
+    titulo: 'Caso 10 · Heminegligencia subdiagnosticada',
+    historia: 'Mujer de 75 años con ACV hemisférico derecho hace 3 meses. Hemiparesia izquierda leve (MRC 4). En consulta «se ve bien», camina con bastón. La hija refiere que se choca con muebles del lado izquierdo y deja la mitad izquierda del plato sin comer.',
+    pregunta: '¿Tamizaje sencillo y por qué importa?',
+    opciones: [
+      { texto: 'No tamizar, los hallazgos motores son lo importante', correcto: false },
+      { texto: 'Pedirle dibujar la cara de un reloj — el paciente con heminegligencia dibujará solo la mitad. Predictor potente de mal pronóstico funcional', correcto: true },
+      { texto: 'TAC cráneo urgente — recurrencia de ACV', correcto: false },
+      { texto: 'Espirometría', correcto: false }
+    ],
+    feedback: 'Heminegligencia hemiespacial: frecuente tras lesiones del hemisferio derecho, fácilmente subestimada en consulta general porque el paciente "se ve bien". El tamizaje del reloj es sencillo y discriminativo. Es predictor potente de mal pronóstico funcional: el paciente no atiende un hemiespacio, se choca, no come la mitad del plato, no se atiende el hemicuerpo. Indica terapia ocupacional dirigida y educación al cuidador (estimular desde el lado descuidado).'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'En un paciente con TRM, sin sensibilidad anal ni contracción voluntaria del esfínter, la lesión es:', o:['Incompleta','Completa (ASIA A)','ASIA C','Imposible determinar sin RM'], c:1, e:'Sin función sensitiva ni motora a nivel de S4–S5 = lesión completa = ASIA A. La preservación sacra (cualquiera de las dos) define lesión incompleta.' },
+  { p: 'La disreflexia autonómica ocurre en lesiones medulares por encima de:', o:['T1','T6','T12','L1'], c:1, e:'Por encima de T6. La descarga simpática masiva a estímulos nocivos por debajo del nivel produce crisis hipertensiva con cefalea pulsátil. ES EMERGENCIA: identificar y retirar el estímulo primero.' },
+  { p: 'Un NIHSS de 12 al ingreso predice típicamente:', o:['Alta a domicilio en 80%','Egreso a rehabilitación hospitalaria','Alta probabilidad de muerte','Sin discapacidad esperable'], c:1, e:'NIHSS 6–13 predice egreso a rehabilitación hospitalaria. NIHSS < 6 predice 80% de egreso a domicilio. NIHSS > 14 predice alta probabilidad de muerte.' },
+  { p: 'La velocidad de marcha aproximada para deambulación comunitaria post-ACV es:', o:['0,4 m/s','0,6 m/s','0,85 m/s','1,5 m/s'], c:2, e:'≈ 0,85 m/s es el umbral aproximado para deambulación comunitaria. Por debajo, el paciente puede caminar pero no logra cruzar calles con semáforo, ir al banco, etc.' },
+  { p: 'GCS ≤ 8 indica:', o:['TCE leve, alta a casa','TCE moderado','Coma — manejo de vía aérea avanzada (intubación) y UCI', 'Sin significado clínico'], c:2, e:'GCS ≤ 8 define el coma; requiere intubación para protección de vía aérea y manejo en UCI. Es la diferencia operativa entre TCE moderado y severo.' },
+  { p: 'El predictor pronóstico funcional MÁS robusto en TCE moderado-severo es:', o:['GCS inicial','Edad','Duración de la amnesia postraumática (APT)','Hallazgos en RM'], c:2, e:'La APT es el predictor más robusto. APT > 4 semanas = discapacidad significativa al año; > 12 semanas = dependencia funcional.' },
+  { p: 'En el nivel IV de Rancho (confuso, agitado), los fármacos a EVITAR son:', o:['Propranolol','Trazodona','Benzodiacepinas y antipsicóticos de primera generación','Anticonvulsivantes'], c:2, e:'Benzodiacepinas y antipsicóticos de 1ª generación (haloperidol, clorpromazina) empeoran la cognición y prolongan la APT. Si se requiere fármaco, priorizar propranolol o trazodona. Las estrategias no farmacológicas son la primera línea.' },
+  { p: 'En ELA, la indicación de VMNI se basa en:', o:['Solo edad','FVC < 50% del predicho o síntomas de hipoventilación','ALSFRS-R total','Saturación de O₂ en reposo'], c:1, e:'FVC < 50% (o síntomas de hipoventilación nocturna como cefalea matutina, somnolencia diurna) indica VMNI. Prolonga sobrevida y mejora calidad de vida.' },
+  { p: 'Las caídas recurrentes en los primeros 5 años de un Parkinson sospechado deben hacer pensar en:', o:['Parkinson típico bien controlado','Parkinsonismo atípico (PSP, MSA)','Síndrome del cuidador','Mielopatía cervical'], c:1, e:'Caídas tempranas, disautonomía precoz y pobre respuesta a levodopa son banderas para parkinsonismo atípico (parálisis supranuclear progresiva, atrofia multisistémica). Pronóstico significativamente peor; derivar a neurología para confirmación.' },
+  { p: 'El tamizaje de heminegligencia hemiespacial post-ACV se hace con:', o:['Espirometría','Test del reloj (dibujar la cara de un reloj)','MoCA','Mini-Cog'], c:1, e:'El test del reloj es sencillo y discriminativo: el paciente con heminegligencia dibuja solo la mitad del reloj. Es predictor potente de mal pronóstico funcional, frecuentemente subestimado.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
