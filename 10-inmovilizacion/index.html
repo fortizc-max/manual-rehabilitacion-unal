@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inmovilización del paciente joven y crítico · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva del cap. 10: ICU-AW (calculadora MRC sum-score), síndrome PICS, paquete ABCDEF, verificador de seguridad para movilización en UCI, síndrome de inmovilización del joven, post-COVID con MPE.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: background 0.12s, color 0.12s, border-color 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; margin-top: 6px; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; letter-spacing: 0.01em; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado { font-family: var(--sans); font-weight: 700; color: var(--jamared); white-space: nowrap; text-align: center; }
+
+/* ===== MRC sum-score: tabla de músculos × MRC ===== */
+.mrc-grid {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.mrc-grid h4 { margin: 0 0 6px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.mrc-grid .descripcion { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin-bottom: 14px; }
+.mrc-grid .mrc-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.mrc-grid .mrc-row:last-child { border-bottom: none; }
+.mrc-grid .mrc-row.header {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--azulacad);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 0;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+.mrc-grid .mrc-row .musculo {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  color: var(--texto);
+}
+.mrc-grid .mrc-row .musculo .label-secundario {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+.mrc-grid .mrc-cell { display: flex; gap: 4px; flex-wrap: wrap; }
+.mrc-grid .mrc-cell label {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  min-width: 32px;
+  text-align: center;
+}
+.mrc-grid .mrc-cell label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.mrc-grid .mrc-cell label.selected { background: var(--azulacad); color: white; border-color: var(--azulacad); font-weight: 600; }
+.mrc-grid .mrc-cell input { display: none; }
+@media (max-width: 700px) {
+  .mrc-grid .mrc-row { grid-template-columns: 1fr; gap: 4px; }
+  .mrc-grid .mrc-row.header { display: none; }
+  .mrc-grid .mrc-row .mrc-cell::before { content: attr(data-lado); font-family: var(--sans); font-size: 0.74rem; font-weight: 700; color: var(--gris); margin-right: 6px; align-self: center; }
+}
+
+.mrc-total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.mrc-total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.mrc-total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.mrc-total .puntajes { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+.mrc-total .puntajes .num { font-family: var(--serif); font-style: italic; font-size: 1.8rem; color: var(--jamared); }
+.mrc-total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.mrc-total .puntajes .label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--azulacad); font-weight: 700; display: block; margin-bottom: 2px; }
+.mrc-total .veredicto { font-family: var(--serif); font-style: italic; font-size: 1.3rem; font-weight: 500; margin-bottom: 6px; }
+.mrc-total.bajo .veredicto { color: var(--verde); }
+.mrc-total.alto .veredicto { color: var(--jamared); }
+.mrc-total .interp { font-family: var(--serif); font-size: 0.94rem; line-height: 1.55; }
+
+button.reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== ABCDEF cards ===== */
+.abcdef-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.abcdef-card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 16px 18px;
+  position: relative;
+}
+.abcdef-card .letra {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--jamared);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.abcdef-card h4 {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--azulacad);
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.abcdef-card p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin: 0;
+}
+.abcdef-card .accion {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--azulacad);
+  font-weight: 600;
+  display: block;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--azulacad-mid);
+}
+
+/* ===== Verificador de seguridad para movilización ===== */
+.verif {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.verif h4 { margin: 0 0 6px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.verif .descripcion { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin-bottom: 14px; }
+.verif-sistema {
+  border-top: 1px solid var(--gris-borde);
+  padding: 12px 0;
+}
+.verif-sistema:first-of-type { border-top: none; padding-top: 0; }
+.verif-sistema h5 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  margin: 0 0 8px;
+}
+.verif-sistema label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.verif-sistema label:hover { background: var(--jamared-suave); }
+.verif-sistema label.checked {
+  background: var(--jamared-suave);
+  font-weight: 600;
+  color: var(--jamared);
+}
+.verif-sistema label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.verif-resultado {
+  margin-top: 18px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--verde);
+  background: var(--verde-suave);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.verif-resultado.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.verif-resultado .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--verde);
+  margin-bottom: 6px;
+}
+.verif-resultado.alto .veredicto { color: var(--jamared); }
+.verif-resultado .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* ===== Tamizaje MPE ===== */
+.mpe {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--jamared);
+  border-radius: 4px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.mpe h4 { margin: 0 0 10px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.mpe .pregunta-clave {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--texto);
+  padding: 14px 18px;
+  background: var(--jamared-suave);
+  border-radius: 6px;
+  margin: 10px 0;
+}
+.mpe .opciones { display: flex; gap: 8px; margin: 10px 0; }
+.mpe .opciones button {
+  font-family: var(--sans);
+  background: white;
+  border: 2px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: all 0.15s;
+}
+.mpe .opciones button:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.mpe .opciones button.activo {
+  background: var(--jamared);
+  color: white;
+  border-color: var(--jamared);
+}
+.mpe-resultado {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  display: none;
+}
+.mpe-resultado.show { display: block; }
+.mpe-resultado.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+
+.semaforo { display: inline-block; padding: 4px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+/* ===== Casos / autoeval ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 10</div>
+  <h1>Inmovilización y desacondicionamiento del paciente joven y crítico</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. El desacondicionamiento no es solo del viejito</button>
+  <button class="tab-btn" data-tab="icuaw">2. 🔢 ICU-AW · MRC sum-score</button>
+  <button class="tab-btn" data-tab="pics">3. PICS · físico, cognitivo, mental</button>
+  <button class="tab-btn" data-tab="abcdef">4. Paquete ABCDEF</button>
+  <button class="tab-btn" data-tab="seguridad">5. 🔢 Movilización en UCI · seguridad</button>
+  <button class="tab-btn" data-tab="joven">6. Inmovilización del joven</button>
+  <button class="tab-btn" data-tab="postcovid">7. Post-COVID con MPE</button>
+  <button class="tab-btn" data-tab="casos">8. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">9. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>El desacondicionamiento NO es solo del viejito</h2>
+  <p>El cap. 9 abordó el desacondicionamiento asociado a hospitalización (HAD) en su forma arquetípica: el adulto mayor frágil. Este capítulo recoge <strong>tres escenarios donde la misma fisiopatología golpea a pacientes que no son ancianos pero quedan con secuelas funcionales graves</strong> si la rehabilitación no se prescribe desde la fase aguda.</p>
+
+  <div class="card amarilla">
+    <h4>Westlake et al. 2025</h4>
+    <p style="margin-bottom: 0">El rótulo HAD, originalmente geriátrico, aplica hoy a cualquier adulto: <strong>los cambios fisiológicos del reposo en cama empiezan en la tercera década de la vida</strong>.</p>
+  </div>
+
+  <h3>Tres escenarios prácticos</h3>
+
+  <div class="card azul">
+    <h4>1. Paciente crítico de cualquier edad con estancia prolongada en UCI</h4>
+    <p style="margin-bottom: 0">Debilidad adquirida en UCI (<strong>ICU-AW</strong>) y síndrome post-cuidado intensivo (<strong>PICS</strong>). Pestañas 2–5.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>2. Adulto joven con hospitalización quirúrgica o postraumática prolongada</h4>
+    <p style="margin-bottom: 0"><strong>Síndrome de inmovilización</strong> o de desuso (<em>disuse syndrome</em>). Pestaña 6.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>3. Adulto con secuelas funcionales persistentes tras COVID-19</h4>
+    <p style="margin-bottom: 0"><strong>Post-COVID con malestar post-esfuerzo (MPE)</strong>. Pestaña 7. <em>Cuidado: NO aplicar ejercicio aeróbico progresivo estándar.</em></p>
+  </div>
+
+  <h3>Principios comunes a los tres escenarios</h3>
+  <p>Los principios son los mismos que los del paciente anciano (<a href="../09-adulto-mayor/" style="color: var(--azulacad);">cap. 9</a>):</p>
+  <ul>
+    <li><strong>Movilización temprana</strong> (24–72 horas) según condiciones de seguridad.</li>
+    <li><strong>Aporte proteico adecuado</strong> (1,2–1,5 g/kg/día; hasta 1,5–2 g/kg/día en crítico catabólico).</li>
+    <li><strong>Prevención de complicaciones del reposo</strong>: úlceras, contracturas, ortostatismo, neuropatías por atrapamiento.</li>
+    <li><strong>Retiro temprano de anclas iatrogénicas</strong>: sondas, catéteres, contenciones, sedación innecesaria.</li>
+  </ul>
+
+  <p>Con <strong>dos matices que el médico general debe conocer</strong>:</p>
+  <ul>
+    <li>El <strong>paquete ABCDEF</strong> en UCI (pestaña 4).</li>
+    <li>La advertencia específica de <strong>NO aplicar ejercicio aeróbico progresivo estándar en post-COVID con MPE</strong> (pestaña 7).</li>
+  </ul>
+
+  <div class="card roja">
+    <h4>Mensaje central</h4>
+    <p style="margin-bottom: 0">Independientemente de la edad, el desacondicionamiento es casi siempre una complicación <strong>prevenible</strong>. <strong>La intervención más eficaz no es un ejercicio sofisticado al día 10, sino no haber dejado al paciente quieto el día 1.</strong> La movilización temprana, la prescripción explícita de actividad como parte del plan médico, el control de los anclajes iatrogénicos y el refuerzo nutricional son intervenciones de bajo costo, alto impacto y al alcance del médico general.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: ICU-AW ==================== -->
+<section class="tab-content" id="icuaw">
+  <h2>ICU-acquired weakness (ICU-AW)</h2>
+  <p>Debilidad muscular generalizada adquirida durante la estancia en UCI, <strong>sin otra causa identificable</strong>. Aparece en <strong>33–60 %</strong> de los pacientes con estancia prolongada en UCI, sin importar la edad.</p>
+
+  <div class="card azul">
+    <h4>Diagnóstico: MRC sum-score &lt; 48 / 60</h4>
+    <p style="margin-bottom: 0">Suma de la fuerza MRC en <strong>6 grupos musculares × 2 lados = 12 mediciones</strong>, total 0–60. Un puntaje <strong>&lt; 48</strong> define ICU-AW.</p>
+  </div>
+
+  <h3>Calculadora MRC sum-score</h3>
+  <p>Califique cada grupo muscular bilateral con la escala MRC (0 = sin contracción, 5 = fuerza normal). Los seis grupos: abducción de hombro, flexión de codo, extensión de muñeca, flexión de cadera, extensión de rodilla, dorsiflexión de tobillo.</p>
+
+  <div class="mrc-grid" id="mrc-grid">
+    <h4>MRC sum-score</h4>
+    <div class="descripcion">Marque el grado MRC (0–5) en cada lado para cada grupo muscular.</div>
+    <div class="mrc-row header">
+      <div>Grupo muscular</div>
+      <div>Derecho</div>
+      <div>Izquierdo</div>
+    </div>
+    <div id="mrc-rows"></div>
+    <div class="mrc-total" id="mrc-total">
+      <div class="puntajes">
+        <div><span class="label">MRC sum-score</span><span class="num" id="mrc-num">—</span><span class="max"> / 60</span></div>
+        <div><span class="label">Mediciones</span><span class="num" id="mrc-mediciones">0</span><span class="max"> / 12</span></div>
+      </div>
+      <div class="veredicto" id="mrc-vere">Pendiente</div>
+      <div class="interp" id="mrc-interp">Califique los 12 grupos para ver el resultado.</div>
+    </div>
+    <button class="reset" onclick="resetMrc()">Reiniciar</button>
+  </div>
+
+  <h3>Factores de riesgo</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li><strong>Ventilación mecánica &gt; 7 días</strong></li>
+      <li><strong>Sepsis</strong></li>
+      <li><strong>Falla multiorgánica</strong></li>
+      <li><strong>Uso prolongado de sedantes y bloqueadores neuromusculares</strong></li>
+      <li><strong>Hiperglicemia</strong></li>
+      <li><strong>Inmovilidad</strong></li>
+    </ul>
+  </div>
+
+  <div class="card roja">
+    <h4>La prevención cambia el desenlace</h4>
+    <p style="margin-bottom: 0">El paquete <strong>ABCDEF</strong> (pestaña 4), aplicado de manera sistemática, reduce ICU-AW, días de ventilación, delirium y mortalidad. No hay un tratamiento «mágico» de la ICU-AW una vez establecida; lo determinante es la prevención durante la estancia.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: PICS ==================== -->
+<section class="tab-content" id="pics">
+  <h2>Síndrome post-cuidado intensivo (PICS)</h2>
+  <p>Conjunto de secuelas que persisten meses o años tras el alta de UCI. Tres dominios:</p>
+
+  <div class="card azul">
+    <h4>Físico</h4>
+    <p style="margin-bottom: 0">ICU-AW persistente, fatiga, pérdida de masa muscular, intolerancia al ejercicio, dolor crónico.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Cognitivo</h4>
+    <p style="margin-bottom: 0">Memoria, atención, funciones ejecutivas. <strong>Más frecuente y persistente de lo que se reconoce</strong>: hasta un tercio de los sobrevivientes presenta deterioro cognitivo significativo a los 12 meses, comparable al de Alzheimer leve a moderado.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Mental</h4>
+    <p style="margin-bottom: 0">Depresión, ansiedad, estrés postraumático. La depresión persistente afecta a 30 % a los 12 meses.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>PICS-F · la familia también es paciente</h4>
+    <p style="margin-bottom: 0">El <strong>PICS-F</strong> es la afectación equivalente en la familia del sobreviviente: ansiedad, depresión, estrés postraumático, deterioro funcional propio. <strong>El médico general que recibe al sobreviviente debe también atender al cuidador</strong>: tamizaje de ansiedad/depresión y soporte social.</p>
+  </div>
+
+  <h3>Evaluación al egreso de UCI y en el primer control ambulatorio</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Dominio</th><th>Tamizaje sugerido</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Físico</strong></td><td>MRC sum-score · Barthel · prueba de marcha de 6 min cuando esté disponible · TUG</td></tr>
+        <tr><td><strong>Cognitivo</strong></td><td>MoCA (preferible al MMSE por mayor sensibilidad para disfunción ejecutiva)</td></tr>
+        <tr><td><strong>Mental</strong></td><td>PHQ-9 para depresión · GAD-7 para ansiedad · IES-R o PCL-5 para estrés postraumático</td></tr>
+        <tr><td><strong>Familia (PICS-F)</strong></td><td>PHQ-9 / GAD-7 al cuidador principal · Zarit para sobrecarga</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Manejo</h3>
+  <div class="card verde">
+    <ul style="margin-bottom: 0">
+      <li><strong>Físico:</strong> programa de fortalecimiento progresivo (50–60 % 1RM al inicio, progresar a 70–80 %, 8–12 reps a fallo, 2–3 veces/sem) + entrenamiento aeróbico interválico.</li>
+      <li><strong>Cognitivo:</strong> rehabilitación cognitiva con neuropsicología, estrategias compensatorias.</li>
+      <li><strong>Mental:</strong> terapia cognitivo-conductual y, en casos seleccionados, antidepresivos. Tamizar ideación suicida.</li>
+      <li><strong>Familia:</strong> educación, soporte, derivar a salud mental cuando se requiera.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: ABCDEF ==================== -->
+<section class="tab-content" id="abcdef">
+  <h2>Paquete ABCDEF · ICU Liberation (SCCM)</h2>
+  <p>Marco multidisciplinario propuesto por la <em>Society of Critical Care Medicine</em> que <strong>reduce delirium, ICU-AW, días de ventilación y mortalidad</strong>. Cada letra cubre un componente con evidencia individual.</p>
+
+  <div class="abcdef-grid">
+    <div class="abcdef-card">
+      <div class="letra">A</div>
+      <h4>Assess, prevent and manage pain</h4>
+      <p>Evaluar y manejar dolor con escalas validadas (BPS, CPOT en paciente intubado; NRS en consciente).</p>
+      <span class="accion">Acción del médico: escala de dolor cada turno. Analgesia primero antes de sedación.</span>
+    </div>
+    <div class="abcdef-card">
+      <div class="letra">B</div>
+      <h4>Both spontaneous awakening and breathing trials</h4>
+      <p>Interrupción diaria de sedación (SAT) y prueba de respiración espontánea (SBT).</p>
+      <span class="accion">Acción del médico: protocolo diario de SAT/SBT. Reduce días de ventilación y delirium.</span>
+    </div>
+    <div class="abcdef-card">
+      <div class="letra">C</div>
+      <h4>Choice of analgesia and sedation</h4>
+      <p>Preferir analgesia y minimizar sedantes. <strong>Evitar benzodiacepinas</strong>; preferir dexmedetomidina o propofol.</p>
+      <span class="accion">Acción del médico: revisar diariamente la indicación y nivel de sedación. Objetivo RASS −1 a 0 cuando sea posible.</span>
+    </div>
+    <div class="abcdef-card">
+      <div class="letra">D</div>
+      <h4>Delirium: assess, prevent and manage</h4>
+      <p>Tamizaje con CAM-ICU o ICDSC. Medidas no farmacológicas primero: orientación, ventana de luz, sueño protegido, presencia familiar, manejo de pain/sedación.</p>
+      <span class="accion">Acción del médico: CAM-ICU cada turno. Evitar haloperidol como prevención. Tratar causa subyacente.</span>
+    </div>
+    <div class="abcdef-card">
+      <div class="letra">E</div>
+      <h4>Early mobility and exercise</h4>
+      <p>Movilización temprana en las primeras <strong>24–72 horas</strong>, escalonada según estabilidad. Pasiva, asistida, activa, sedestación, bipedestación, marcha.</p>
+      <span class="accion">Acción del médico: prescripción explícita en órdenes («sedestación al borde 3 veces al día»). Verificador de seguridad en pestaña 5.</span>
+    </div>
+    <div class="abcdef-card">
+      <div class="letra">F</div>
+      <h4>Family engagement and empowerment</h4>
+      <p>Visita y participación activa de la familia. Comunicación clara sobre evolución y plan.</p>
+      <span class="accion">Acción del médico: facilitar visitas, involucrar a la familia en cuidados básicos seguros, comunicar diariamente.</span>
+    </div>
+  </div>
+
+  <div class="card roja">
+    <h4>El paquete ABCDEF NO se «aplica»: se VIVE</h4>
+    <p style="margin-bottom: 0">Lo crítico no es marcarlo como casilla cumplida: es que <strong>las 6 letras estén abiertas todos los días en cada paciente</strong>. La omisión de B (sedación interrumpida diariamente) o de E (movilización temprana) es responsable de buena parte del PICS y la ICU-AW que el médico general luego ve en consulta ambulatoria.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Tarea para el residente / interno en UCI</h4>
+    <p style="margin-bottom: 0">En la nota diaria: registrar explícitamente cuál de las 6 letras está «abierta» y cuál «cerrada» en este paciente, con la justificación y el plan para abrir las cerradas.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: SEGURIDAD MOVILIZACIÓN ==================== -->
+<section class="tab-content" id="seguridad">
+  <h2>Verificador de seguridad para movilización activa en UCI</h2>
+  <p>La movilización debe comenzar en las <strong>primeras 24–72 horas</strong>, una vez verificadas las condiciones de seguridad (Sommers 2015).</p>
+
+  <div class="card amarilla">
+    <h4>La presencia de un solo parámetro alterado NO contraindica todas las formas de movilización</h4>
+    <p style="margin-bottom: 0"><strong>Movilización pasiva, posicionamiento y cambios posturales se hacen igual</strong> aunque haya criterios para no progresar a movilización activa. La inmovilidad absoluta nunca está indicada.</p>
+  </div>
+
+  <h3>Marque los parámetros que NO se cumplen en su paciente</h3>
+
+  <div class="verif" id="verif-ucI">
+    <h4>Checklist de seguridad</h4>
+    <div class="descripcion">Cada item marcado contraindica la <em>movilización activa</em>. La movilización pasiva se mantiene siempre.</div>
+
+    <div class="verif-sistema">
+      <h5>Cardíaco</h5>
+      <label><input type="checkbox" data-verif><span>FC &lt; 40 lpm o &gt; 130 lpm</span></label>
+      <label><input type="checkbox" data-verif><span>Falla cardíaca descompensada</span></label>
+      <label><input type="checkbox" data-verif><span>Requerimiento creciente de inotrópicos</span></label>
+      <label><input type="checkbox" data-verif><span>Arritmias inestables</span></label>
+    </div>
+
+    <div class="verif-sistema">
+      <h5>Hemodinámico</h5>
+      <label><input type="checkbox" data-verif><span>PAM &lt; 60 mmHg o &gt; 110 mmHg</span></label>
+      <label><input type="checkbox" data-verif><span>Hipotensión sintomática</span></label>
+    </div>
+
+    <div class="verif-sistema">
+      <h5>Respiratorio</h5>
+      <label><input type="checkbox" data-verif><span>FR &gt; 40 rpm</span></label>
+      <label><input type="checkbox" data-verif><span>SpO₂ &lt; 90 %</span></label>
+      <label><input type="checkbox" data-verif><span>PEEP &gt; 10 cmH₂O</span></label>
+      <label><input type="checkbox" data-verif><span>FiO₂ &gt; 0,6</span></label>
+    </div>
+
+    <div class="verif-sistema">
+      <h5>Neurológico</h5>
+      <label><input type="checkbox" data-verif><span>Glasgow &lt; 9 sin protección de vía aérea</span></label>
+      <label><input type="checkbox" data-verif><span>Hipertensión endocraneana no controlada</span></label>
+    </div>
+
+    <div class="verif-sistema">
+      <h5>Hematológico</h5>
+      <label><input type="checkbox" data-verif><span>Plaquetas &lt; 50.000/mL</span></label>
+      <label><input type="checkbox" data-verif><span>Sangrado activo</span></label>
+    </div>
+
+    <div class="verif-sistema">
+      <h5>Metabólico</h5>
+      <label><input type="checkbox" data-verif><span>Glicemia &gt; 300 mg/dL</span></label>
+      <label><input type="checkbox" data-verif><span>Cetoacidosis</span></label>
+      <label><input type="checkbox" data-verif><span>Hipoglicemia (no resuelta)</span></label>
+    </div>
+
+    <div class="verif-resultado" id="verif-resultado">
+      <div class="veredicto" id="verif-vere">SIN criterios marcados</div>
+      <div class="interp" id="verif-interp"><strong>Movilización activa SEGURA.</strong> Iniciar con sedestación al borde, progresar a bipedestación asistida y marcha asistida. Documentar la prescripción explícita en las órdenes médicas.</div>
+    </div>
+    <button class="reset" onclick="resetVerif()">Reiniciar</button>
+  </div>
+
+  <h3>Etapas de movilización en UCI</h3>
+  <div class="card azul">
+    <ol style="margin-bottom: 0">
+      <li><strong>Posicionamiento + movilización pasiva:</strong> siempre, desde el día 1. Cambio postural cada 2 h. Apoyo de pie en 90° para prevenir equino.</li>
+      <li><strong>Movilización activa-asistida:</strong> cuando los criterios de seguridad lo permiten. Ejercicios resistidos básicos en cama.</li>
+      <li><strong>Sedestación al borde de la cama:</strong> cuando tolere, con monitorización de TA/FC/SpO₂.</li>
+      <li><strong>Bipedestación asistida:</strong> con o sin plano inclinado.</li>
+      <li><strong>Marcha asistida:</strong> con dispositivo de transferencia, vigilancia de tubuladuras y catéteres.</li>
+      <li><strong>Marcha independiente:</strong> dentro y fuera de la habitación.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: INMOVILIZACIÓN JOVEN ==================== -->
+<section class="tab-content" id="joven">
+  <h2>Síndrome de inmovilización en politrauma joven</h2>
+  <p>Es el escenario menos estudiado bajo el rótulo HAD, pero <strong>el más frecuente en hospitales colombianos de tercer nivel</strong>.</p>
+
+  <h3>Subgrupos típicos</h3>
+
+  <div class="card azul">
+    <h4>Politraumatizado</h4>
+    <p style="margin-bottom: 0">Joven con fractura de fémur, inmovilizado en cama 6 días con tracción esquelética antes de la cirugía. <strong>La pérdida de masa muscular ipsilateral es medible al egreso y la asimetría persiste meses si no se rehabilita.</strong></p>
+  </div>
+
+  <div class="card azul">
+    <h4>Postquirúrgico de larga estancia</h4>
+    <p style="margin-bottom: 0">Pancreatitis grave, peritonitis, cirugía oncológica abdominal mayor. <strong>La inflamación sistémica suma a la inactividad.</strong></p>
+  </div>
+
+  <h3>Mecanismo y desenlace</h3>
+  <div class="card amarilla">
+    <p>El término clásico aplicable es <strong>síndrome de inmovilización</strong> o <em>disuse syndrome</em> (Bortz 1984). La fisiopatología es la del cap. 9 (HAD), pero con <strong>reserva fisiológica preservada</strong>: el desenlace tiende a ser bueno si la rehabilitación se prescribe pronto.</p>
+    <p style="margin-bottom: 0"><strong>La trampa es NO prescribirla</strong>, dando por sentado que el paciente joven se recuperará solo. Esta omisión convierte una recuperación previsible en una secuela funcional persistente.</p>
+  </div>
+
+  <h3>Plan en politrauma joven</h3>
+  <div class="card verde">
+    <ol style="margin-bottom: 0">
+      <li><strong>Movilización temprana del miembro contralateral</strong> mientras el lesionado está inmovilizado.</li>
+      <li><strong>Trabajo activo del miembro intervenido</strong> según restricciones del cirujano (carga, rango).</li>
+      <li><strong>Electroestimulación neuromuscular</strong> (NMES) del cuádriceps ipsilateral: previene atrofia.</li>
+      <li><strong>Fortalecimiento progresivo</strong> tras consolidación o cuando el cirujano lo autoriza: 50–60 % 1RM al inicio, progresar a 70–80 %, 8–12 reps a fallo.</li>
+      <li><strong>Entrenamiento propioceptivo</strong> para prevenir lesiones secundarias.</li>
+      <li><strong>Reentrenamiento aeróbico</strong> hacia las semanas 6–8.</li>
+    </ol>
+  </div>
+
+  <div class="card roja">
+    <h4>Dato cuantitativo del cap. 9 que aplica también aquí</h4>
+    <p style="margin-bottom: 0">Pérdida de tejido magro de <strong>0,5–1 % por día</strong> durante la primera semana de reposo, también en el adulto joven. <strong>10 días en cama le cuestan a un joven 5–10 % de su masa magra.</strong> No es despreciable.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: POST-COVID MPE ==================== -->
+<section class="tab-content" id="postcovid">
+  <h2>Post-COVID con malestar post-esfuerzo (MPE)</h2>
+  <p>Adulto joven o de mediana edad con <strong>fatiga, intolerancia al ejercicio, taquicardia ortostática y disnea persistentes &gt; 12 semanas</strong> tras la infección aguda por SARS-CoV-2.</p>
+
+  <div class="card roja">
+    <h4>🚩 La advertencia central · NO ejercicio aeróbico progresivo estándar</h4>
+    <p style="margin-bottom: 0">La American Heart Association, en su declaración científica de 2025, recomienda <strong>individualizar la rehabilitación, vigilar el malestar post-esfuerzo (MPE) y, en presencia de MPE, NO aplicar entrenamiento aeróbico progresivo estándar</strong>. Se prefiere actividad recumbente, fortalecimiento de baja intensidad y entrenamiento autonómico.</p>
+  </div>
+
+  <h3>🔢 Tamizaje de MPE</h3>
+  <p>Antes de prescribir cualquier programa de ejercicio, hay que descartar MPE.</p>
+
+  <div class="mpe">
+    <h4>Pregunta clave de tamizaje</h4>
+    <div class="pregunta-clave">«¿Algún esfuerzo físico, mental o emocional le produce un agravamiento de los síntomas que dura más de 24 horas?»</div>
+    <div class="opciones" data-mpe>
+      <button data-val="si">Sí</button>
+      <button data-val="no">No</button>
+    </div>
+    <div class="mpe-resultado" id="mpe-resultado"></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Diferencia central</h4>
+    <p style="margin-bottom: 0">No es lo mismo <strong>desacondicionamiento</strong> (que mejora con ejercicio progresivo) que <strong>intolerancia al ejercicio post-COVID con MPE</strong> (que <em>empeora</em> con ejercicio mal dosificado). Esta es la decisión clínica más importante en este escenario.</p>
+  </div>
+
+  <h3>Manejo del paciente con MPE positivo</h3>
+  <div class="card verde">
+    <h4>Pacing · ritmo dosificado dentro de la ventana energética</h4>
+    <p style="margin-bottom: 0">El paciente identifica su <em>umbral energético diario</em> (lo que puede hacer sin desencadenar MPE en las 24 horas siguientes) y NO lo cruza. Educación sobre pacing es la piedra angular.</p>
+  </div>
+  <div class="card verde">
+    <h4>Actividad recumbente y fortalecimiento de baja intensidad</h4>
+    <p style="margin-bottom: 0">Bicicleta recumbente, ejercicios en piscina, fortalecimiento liviano. Evitar bipedestación prolongada (frecuente intolerancia ortostática asociada).</p>
+  </div>
+  <div class="card verde">
+    <h4>Entrenamiento autonómico</h4>
+    <p style="margin-bottom: 0">Maniobras de respiración, biofeedback, manejo del componente disautonómico (taquicardia ortostática postural — POTS).</p>
+  </div>
+  <div class="card verde">
+    <h4>Tratamiento de comorbilidades específicas</h4>
+    <p style="margin-bottom: 0">Disautonomía (sal, líquidos, medias compresivas, eventualmente fludrocortisona o midodrina), trastornos del sueño, depresión, dolor crónico.</p>
+  </div>
+
+  <h3>Manejo del paciente sin MPE</h3>
+  <div class="card azul">
+    <p style="margin-bottom: 0">Si el tamizaje de MPE es <strong>negativo</strong>, el paciente probablemente tiene desacondicionamiento clásico tras hospitalización o infección prolongada. En este caso aplica el <strong>esquema de rehabilitación cardiopulmonar y de fortalecimiento progresivo estándar</strong> (cap. 8). Reevaluar MPE periódicamente: puede aparecer en cualquier punto de la convalecencia.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: CASOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes que recorren los tres escenarios del capítulo (UCI, joven inmovilizado, post-COVID con MPE).</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 9: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de ICU-AW (MRC sum-score), PICS, paquete ABCDEF, criterios de seguridad para movilización en UCI y manejo de post-COVID con MPE.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// MRC sum-score (12 mediciones × 0-5)
+// =========================================================
+const mrcGrupos = [
+  { lbl: 'Abducción de hombro', sub: 'Deltoides medio (C5)' },
+  { lbl: 'Flexión de codo', sub: 'Bíceps (C5–C6)' },
+  { lbl: 'Extensión de muñeca', sub: 'Extensor del carpo (C6–C7)' },
+  { lbl: 'Flexión de cadera', sub: 'Iliopsoas (L1–L3)' },
+  { lbl: 'Extensión de rodilla', sub: 'Cuádriceps (L3–L4)' },
+  { lbl: 'Dorsiflexión de tobillo', sub: 'Tibial anterior (L4–L5)' }
+];
+
+const mrcRows = document.getElementById('mrc-rows');
+mrcGrupos.forEach((g, idx) => {
+  const div = document.createElement('div');
+  div.className = 'mrc-row';
+  let derLab = '', izqLab = '';
+  for (let v = 0; v <= 5; v++) {
+    derLab += `<label data-val="${v}"><input type="radio" name="mrc-d-${idx}">${v}</label>`;
+    izqLab += `<label data-val="${v}"><input type="radio" name="mrc-i-${idx}">${v}</label>`;
+  }
+  div.innerHTML = `
+    <div class="musculo">${g.lbl}<span class="label-secundario">${g.sub}</span></div>
+    <div class="mrc-cell" data-row="${idx}" data-lado="Der">${derLab}</div>
+    <div class="mrc-cell" data-row="${idx}" data-lado="Izq">${izqLab}</div>
+  `;
+  mrcRows.appendChild(div);
+});
+
+document.querySelectorAll('#mrc-grid .mrc-cell label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const cell = lbl.parentElement;
+    cell.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarMrc();
+  });
+});
+
+function actualizarMrc() {
+  let total = 0, n = 0;
+  document.querySelectorAll('#mrc-grid .mrc-cell label.selected').forEach(l => {
+    total += parseInt(l.dataset.val);
+    n++;
+  });
+  document.getElementById('mrc-mediciones').textContent = n;
+  const totalBox = document.getElementById('mrc-total');
+  const v = document.getElementById('mrc-vere');
+  const i = document.getElementById('mrc-interp');
+  const numEl = document.getElementById('mrc-num');
+  totalBox.classList.remove('bajo', 'alto');
+  if (n < 12) {
+    numEl.textContent = '—';
+    v.textContent = `${n}/12 mediciones`;
+    i.textContent = 'Califique los 12 grupos para ver el resultado.';
+    return;
+  }
+  numEl.textContent = total;
+  if (total < 48) {
+    totalBox.classList.add('alto');
+    v.textContent = 'ICU-AW (MRC sum-score < 48)';
+    i.innerHTML = '<strong>Diagnóstico de ICU-acquired weakness.</strong> Iniciar/intensificar programa de rehabilitación: fortalecimiento progresivo (50–60 % 1RM al inicio, progresar a 70–80 %, 8–12 reps a fallo, 2–3 veces/sem cuando alcance MRC ≥ 4) + entrenamiento aeróbico interválico + tamizaje de PICS (físico, cognitivo, mental). Soporte nutricional con 1,5–2 g/kg/día de proteína. Educación al paciente y la familia sobre la trayectoria esperada. Reevaluar a los 30, 60 y 90 días.';
+  } else {
+    totalBox.classList.add('bajo');
+    v.textContent = 'No cumple criterio de ICU-AW';
+    i.innerHTML = '<strong>MRC sum-score ≥ 48.</strong> No cumple definición de ICU-acquired weakness. Continuar con rehabilitación general según escenario clínico (movilización progresiva, prevención de complicaciones del reposo, soporte nutricional). Reevaluar si la estancia se prolonga o aparecen factores de riesgo nuevos (sepsis, ventilación prolongada, falla multiorgánica).';
+  }
+}
+
+function resetMrc() {
+  document.querySelectorAll('#mrc-grid .mrc-cell label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#mrc-grid input:checked').forEach(i => i.checked = false);
+  actualizarMrc();
+}
+
+// =========================================================
+// Verificador de seguridad para movilización en UCI
+// =========================================================
+document.querySelectorAll('#verif-ucI input[data-verif]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.parentElement.classList.toggle('checked', cb.checked);
+    actualizarVerif();
+  });
+});
+
+function actualizarVerif() {
+  const n = document.querySelectorAll('#verif-ucI input[data-verif]:checked').length;
+  const r = document.getElementById('verif-resultado');
+  const v = document.getElementById('verif-vere');
+  const i = document.getElementById('verif-interp');
+  r.classList.remove('alto');
+  if (n === 0) {
+    v.textContent = 'SIN criterios marcados — movilización activa SEGURA';
+    i.innerHTML = '<strong>Movilización activa segura.</strong> Iniciar con sedestación al borde, progresar a bipedestación asistida y marcha asistida según tolerancia. Documentar la prescripción explícita en las órdenes médicas («sedestación al borde 3 veces al día»).';
+  } else {
+    r.classList.add('alto');
+    v.textContent = `${n} criterio(s) marcado(s) — movilización activa CONTRAINDICADA`;
+    i.innerHTML = `<strong>${n} criterio(s) de inestabilidad activos.</strong> NO iniciar movilización activa hasta resolución/control. <strong>SÍ continuar con:</strong> posicionamiento adecuado, cambios posturales cada 2 h, movilización pasiva de todas las articulaciones, prevención de úlceras y de retracciones. <em>La inmovilidad absoluta nunca está indicada.</em> Reevaluar diariamente.`;
+  }
+}
+function resetVerif() {
+  document.querySelectorAll('#verif-ucI input[data-verif]:checked').forEach(cb => {
+    cb.checked = false;
+    cb.parentElement.classList.remove('checked');
+  });
+  actualizarVerif();
+}
+actualizarVerif();
+
+// =========================================================
+// Tamizaje MPE
+// =========================================================
+document.querySelectorAll('.mpe .opciones[data-mpe] button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mpe .opciones[data-mpe] button').forEach(b => b.classList.remove('activo'));
+    btn.classList.add('activo');
+    const r = document.getElementById('mpe-resultado');
+    r.classList.remove('alto');
+    if (btn.dataset.val === 'si') {
+      r.classList.add('show', 'alto');
+      r.innerHTML = '<strong>MPE positivo.</strong> NO aplicar entrenamiento aeróbico progresivo estándar — puede empeorar al paciente. Conducta: <em>pacing</em> (ritmo dosificado dentro de la ventana energética), actividad recumbente, fortalecimiento de baja intensidad, entrenamiento autonómico, tratamiento de comorbilidades específicas (POTS, sueño, depresión, dolor). Educar al paciente y la familia sobre la diferencia entre desacondicionamiento e intolerancia al ejercicio post-COVID.';
+    } else {
+      r.classList.add('show');
+      r.innerHTML = '<strong>MPE negativo.</strong> Probable desacondicionamiento clásico tras hospitalización o infección prolongada. Aplica el esquema de rehabilitación cardiopulmonar y de fortalecimiento progresivo estándar (cap. 8). <em>Reevaluar MPE periódicamente</em>: puede aparecer en cualquier punto de la convalecencia.';
+    }
+  });
+});
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Daniel, 28 años · Dengue grave en UCI',
+    historia: 'Joven previamente sano, ingresa por dengue grave con extravasación. Requiere UCI 12 días, ventilación mecánica 9 días, sedación con midazolam y fentanilo, bloqueador neuromuscular intermitente. Sale de UCI sin foco infeccioso pero con MRC sum-score 36, tetraparesia simétrica proximal y dificultad para mantener bipedestación. A los 30 días refiere fatiga incapacitante y dificultad para concentrarse.',
+    pregunta: 'Diagnóstico y elemento del paquete ABCDEF que más habría reducido el riesgo:',
+    opciones: [
+      { texto: 'Solo síndrome postraumático; manejar con benzodiacepinas', correcto: false },
+      { texto: 'ICU-AW como componente físico de PICS (físico + cognitivo). Letra «C» del paquete: preferencia de dexmedetomidina/propofol sobre benzodiacepinas; y letra «B»: interrupción diaria de sedación', correcto: true },
+      { texto: 'Encefalopatía viral por dengue', correcto: false },
+      { texto: 'Polimialgia reumática', correcto: false }
+    ],
+    feedback: 'MRC sum-score 36 < 48 = ICU-AW. La fatiga + dificultad para concentrarse al mes apunta a PICS (físico + cognitivo). El midazolam (benzodiacepina) prolongado prolonga ventilación, aumenta delirium e ICU-AW; la C del paquete (Choice of analgesia and sedation) recomienda preferir dexmedetomidina o propofol y evitar benzodiacepinas. La B (Both SAT/SBT) reduce días de ventilación. Tratamiento: fortalecimiento progresivo cuando MRC ≥ 4, aeróbico interválico, screening de depresión y de MPE.'
+  },
+  {
+    titulo: 'Caso 2 · Carolina, 34 años · Politrauma con fractura de fémur',
+    historia: 'Accidente de tránsito: fractura de diáfisis femoral derecha, contusión pulmonar leve. Cirugía con clavo intramedular al día 6 (esperaba fijación quirúrgica). Inmovilizada con tracción durante esos 6 días. Al egreso: asimetría visible de cuádriceps (perímetro 5 cm menor a derecha), debilidad 3+/5 de cuádriceps derecho, dolor 4/10 con la marcha, fatiga generalizada al subir escaleras.',
+    pregunta: 'Diagnóstico y plan postquirúrgico:',
+    opciones: [
+      { texto: 'Solo dolor postquirúrgico; opioides y reposo', correcto: false },
+      { texto: 'Síndrome de inmovilización (disuse syndrome) con desacondicionamiento focal y sistémico. Plan: movilización temprana del miembro contralateral + trabajo activo del intervenido + electroestimulación neuromuscular del cuádriceps ipsilateral + fortalecimiento progresivo + propioceptivo + reentrenamiento aeróbico hacia las semanas 6-8', correcto: true },
+      { texto: 'Daño nervioso femoral; remitir a neurocirugía', correcto: false },
+      { texto: 'Recuperación espontánea garantizada por su edad joven', correcto: false }
+    ],
+    feedback: 'La fisiopatología es la del HAD (cap. 9), pero con reserva preservada: el desenlace tiende a ser bueno SI se prescribe rehabilitación pronto. La trampa es no prescribirla. La pérdida de masa muscular ipsilateral medible al egreso indica desacondicionamiento focal por inmovilización + sistémico por hospitalización. NMES previene atrofia mientras la consolidación permite carga.'
+  },
+  {
+    titulo: 'Caso 3 · Sebastián, 38 años · Post-COVID',
+    historia: 'A los 4 meses de un COVID-19 agudo manejado en casa, refiere fatiga incapacitante, taquicardia al ponerse de pie, intolerancia al ejercicio. Su médico anterior le indicó "caminata aeróbica progresiva 30 min/día". Tras 2 semanas refiere que cada caminata lo deja postrado 2-3 días con cefalea, dolor muscular y agravamiento de la fatiga.',
+    pregunta: 'Diagnóstico y conducta:',
+    opciones: [
+      { texto: 'Insistir con caminata aeróbica, "es solo desacondicionamiento"', correcto: false },
+      { texto: 'Malestar post-esfuerzo (MPE) post-COVID: SUSPENDER ejercicio aeróbico progresivo estándar; iniciar pacing dentro de la ventana energética + actividad recumbente + fortalecimiento de baja intensidad + entrenamiento autonómico; manejar disautonomía y comorbilidades', correcto: true },
+      { texto: 'Depresión mayor, antidepresivo de inicio', correcto: false },
+      { texto: 'Síndrome de fatiga crónica idiopático sin tratamiento', correcto: false }
+    ],
+    feedback: 'MPE positivo (esfuerzo desencadena agravamiento sostenido > 24 h). NO es desacondicionamiento clásico. La AHA 2025 advierte explícitamente: en presencia de MPE NO aplicar entrenamiento aeróbico progresivo estándar. El paciente requiere pacing, actividad recumbente, fortalecimiento de baja intensidad y entrenamiento autonómico. La depresión puede coexistir y debe manejarse, pero el problema central es la disautonomía y MPE.'
+  },
+  {
+    titulo: 'Caso 4 · Verificador de seguridad en UCI',
+    historia: 'Paciente de 45 años en UCI por sepsis abdominal, día 4. FC 95 lpm, PAM 75 mmHg con noradrenalina estable a 0,05 µg/kg/min en descenso. FR 22 rpm, SpO₂ 96 % con FiO₂ 0,4 y PEEP 8. Glasgow 14, despierto, colaborador. Plaquetas 180.000. Glicemia 145 mg/dL.',
+    pregunta: '¿Es seguro iniciar movilización activa?',
+    opciones: [
+      { texto: 'NO — está en UCI, esperar a que salga', correcto: false },
+      { texto: 'SÍ — todos los parámetros están dentro de los criterios de seguridad. Iniciar con sedestación al borde, progresar según tolerancia. La noradrenalina baja y en descenso no contraindica la movilización; lo que contraindica es requerimiento creciente.', correcto: true },
+      { texto: 'NO — PEEP 8 contraindica movilización', correcto: false },
+      { texto: 'SÍ — pero solo movilización pasiva', correcto: false }
+    ],
+    feedback: 'Todos los parámetros están dentro de los criterios de Sommers 2015: FC 40-130, PAM 60-110, FR < 40, SpO₂ ≥ 90 %, PEEP ≤ 10, FiO₂ ≤ 0,6, Glasgow ≥ 9, plaquetas ≥ 50.000, glicemia < 300. La noradrenalina estable o en descenso NO contraindica movilización; el criterio es "requerimiento creciente". Iniciar con sedestación al borde es el siguiente paso lógico, con monitorización.'
+  },
+  {
+    titulo: 'Caso 5 · MRC sum-score borderline',
+    historia: 'Paciente de 52 años, día 18 en UCI por SDRA. MRC: hombros 3/3, codos 4/4, muñecas 4/4, caderas 4/4, rodillas 4/4, tobillos 3/3.',
+    pregunta: 'Calcule el MRC sum-score y diagnóstico:',
+    opciones: [
+      { texto: '36 — ICU-AW severa', correcto: false },
+      { texto: '44 — cumple criterio de ICU-AW (< 48)', correcto: true },
+      { texto: '50 — no cumple criterio de ICU-AW', correcto: false },
+      { texto: '60 — fuerza normal', correcto: false }
+    ],
+    feedback: 'Suma: hombros (3+3)=6 + codos (4+4)=8 + muñecas (4+4)=8 + caderas (4+4)=8 + rodillas (4+4)=8 + tobillos (3+3)=6 = 44. Está por debajo de 48, por tanto cumple criterio de ICU-AW. Iniciar/intensificar programa de rehabilitación: fortalecimiento progresivo cuando MRC ≥ 4 en el grupo entrenado, aeróbico interválico, soporte nutricional 1,5 g/kg/día de proteína, vigilar PICS.'
+  },
+  {
+    titulo: 'Caso 6 · PICS-F · la familia también',
+    historia: 'Paciente de 55 años egresa de UCI tras 3 semanas por shock séptico con buena recuperación física (MRC sum-score 50). En el primer control ambulatorio refiere que su esposa, principal cuidadora, no duerme bien, ha bajado 4 kg, tiene crisis de llanto y le cuesta concentrarse en su trabajo. Ella nunca estuvo enferma.',
+    pregunta: 'Conducta:',
+    opciones: [
+      { texto: 'Solo enfocarse en el paciente que estuvo en UCI', correcto: false },
+      { texto: 'Reconocer PICS-F (síndrome post-cuidado intensivo en familia): aplicar PHQ-9 / GAD-7 a la esposa, considerar Zarit para sobrecarga, derivar a salud mental si confirma depresión o ansiedad significativa. Educación + soporte. Su recuperación es parte del cuidado integral del paciente', correcto: true },
+      { texto: 'Indicarle a la esposa que «descanse»', correcto: false },
+      { texto: 'No hay nada que hacer por la familia', correcto: false }
+    ],
+    feedback: 'PICS-F: ansiedad, depresión y estrés postraumático en la familia del sobreviviente de UCI. Es parte del cuadro de PICS y debe abordarse explícitamente. La afectación del cuidador predice claudicación y peor desenlace funcional del paciente. PHQ-9 + GAD-7 + Zarit son las herramientas básicas; derivar a salud mental cuando se requiera.'
+  },
+  {
+    titulo: 'Caso 7 · Letra omitida del ABCDEF',
+    historia: 'En la nota del día de un paciente intubado de 60 años, dice: «sedación con midazolam continuo, RASS −4, sin interrupción. CAM-ICU positivo el día anterior, hoy no evaluable por sedación. Sin movilización por inestabilidad ayer (resuelta). Sin visitas de la familia por norma de la institución».',
+    pregunta: '¿Qué letras del ABCDEF están abiertas?',
+    opciones: [
+      { texto: 'Todas — el paquete está completo', correcto: false },
+      { texto: 'Ninguna — A, B, C, D, E y F están todas cerradas u omitidas (sedación profunda y continua sin SAT, benzodiacepina como sedante de elección, CAM-ICU no evaluable por sedación, sin movilización pese a estabilidad recobrada, sin participación familiar)', correcto: true },
+      { texto: 'Solo A está abierta', correcto: false },
+      { texto: 'Solo D está abierta', correcto: false }
+    ],
+    feedback: 'B cerrada (sedación continua sin interrupción diaria), C cerrada (benzodiacepina como sedante — recomendación es preferir dexmedetomidina/propofol), D cerrada (CAM-ICU no evaluable por sobresedación), E cerrada (sin movilización pese a estabilidad), F cerrada (sin visitas familiares). La A (dolor) tampoco aparece evaluada en la nota. Esta combinación predice ICU-AW, delirium, días extra de ventilación y mortalidad. Revertir todas las cerradas.'
+  },
+  {
+    titulo: 'Caso 8 · Paciente recién extubado',
+    historia: 'Paciente de 32 años, neumonía severa, recién extubado tras 6 días de ventilación. Hemodinámicamente estable. RASS 0, alerta, colaboradora. Refiere debilidad marcada, no logra levantar los brazos contra gravedad ni sostener una bandeja con un vaso de agua.',
+    pregunta: 'Conducta inicial:',
+    opciones: [
+      { texto: 'Reposo absoluto hasta que la fuerza vuelva sola', correcto: false },
+      { texto: 'Aplicar MRC sum-score para confirmar/cuantificar ICU-AW; iniciar movilización progresiva (sedestación al borde, bipedestación asistida, marcha asistida); soporte nutricional 1,5 g/kg/día de proteína; vigilar PICS', correcto: true },
+      { texto: 'Reintubar profilácticamente', correcto: false },
+      { texto: 'Atribuirlo a "debilidad esperable, sin acción"', correcto: false }
+    ],
+    feedback: 'Cumple los criterios de seguridad para movilización (estable, alerta, colaborador). Cuantificar la fuerza con MRC sum-score documenta el punto de partida y permite seguimiento. Movilización progresiva inmediata + soporte nutricional + vigilancia de los 3 dominios de PICS (físico, cognitivo, mental). Reposo absoluto empeora todo; reintubar sin indicación es desproporcionado.'
+  },
+  {
+    titulo: 'Caso 9 · Joven en posquirúrgico de pancreatitis',
+    historia: 'Hombre de 40 años, día 12 de hospitalización por pancreatitis grave con peritonitis secundaria. 8 días en UCI, ahora en sala. Sin sondas, sin oxígeno suplementario. Camina con ayuda lentamente hasta el baño, refiere fatiga marcada y debilidad. MRC global 4/5, masa muscular visiblemente reducida en muslos.',
+    pregunta: 'Conducta:',
+    opciones: [
+      { texto: 'Alta a casa con cita en 2 meses', correcto: false },
+      { texto: 'Síndrome de inmovilización con componente inflamatorio (pancreatitis). Plan: movilización progresiva, fortalecimiento estructurado (50–60 % 1RM al inicio, progresar a 70–80 %), aporte proteico 1,2–1,5 g/kg/día, reentrenamiento aeróbico hacia las semanas 6-8, derivación a fisioterapia institucional para programa supervisado', correcto: true },
+      { texto: 'Reposo en cama prolongado para que se recupere', correcto: false },
+      { texto: 'Solicitar electromiografía urgente', correcto: false }
+    ],
+    feedback: 'Adulto joven con desacondicionamiento por hospitalización prolongada + componente inflamatorio sistémico. La trampa: dar por sentada la recuperación espontánea y no prescribir rehabilitación. Plan estructurado durante semanas para evitar secuela funcional persistente. Reposo prolongado empeora; EMG no aporta sin sospecha específica de polineuropatía o miopatía secundaria.'
+  },
+  {
+    titulo: 'Caso 10 · Post-COVID sin MPE',
+    historia: 'Mujer de 50 años, COVID-19 hace 5 meses con neumonía que requirió hospitalización 2 semanas (sin UCI). Refiere fatiga al subir escaleras y caminar largas distancias. Pregunta clave de MPE: «¿algún esfuerzo le produce un agravamiento que dura más de 24 horas?» — responde NO. Tras una caminata se siente cansada en el momento pero al día siguiente está igual o mejor.',
+    pregunta: '¿Aplica el mismo manejo que un paciente con MPE positivo?',
+    opciones: [
+      { texto: 'Sí, todos los pacientes post-COVID requieren pacing y actividad recumbente', correcto: false },
+      { texto: 'No: MPE negativo. Aplica el esquema de rehabilitación cardiopulmonar y fortalecimiento progresivo estándar (cap. 8). Reevaluar MPE periódicamente porque puede aparecer', correcto: true },
+      { texto: 'Solo reposo absoluto hasta «sentirse mejor»', correcto: false },
+      { texto: 'Indicar antidepresivo de inicio', correcto: false }
+    ],
+    feedback: 'La diferenciación es central: MPE positivo → NO ejercicio aeróbico progresivo estándar (puede empeorar). MPE negativo → desacondicionamiento clásico, rehabilitación estándar es apropiada. El error frecuente es generalizar la prudencia post-COVID a todos los pacientes y privarlos de un programa eficaz de rehabilitación cardiopulmonar. Pero también el inverso: aplicar ejercicio progresivo a un paciente con MPE no diagnosticado lo deteriora. Reevaluar periódicamente porque MPE puede aparecer en cualquier punto de la convalecencia.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'El MRC sum-score que define ICU-AW es:', o:['< 60','< 48','< 30','< 24'], c:1, e:'< 48 / 60 (suma de 6 grupos musculares × 2 lados, cada uno MRC 0-5). Es el criterio operativo más usado.' },
+  { p: 'En el paquete ABCDEF, la letra C («Choice of analgesia and sedation») recomienda:', o:['Sedación profunda continua con benzodiacepinas','Preferir analgesia y minimizar sedantes; evitar benzodiacepinas','Bloqueo neuromuscular continuo','Ningún sedante en ningún caso'], c:1, e:'Preferir dexmedetomidina o propofol sobre benzodiacepinas. Las benzodiacepinas se asocian a más delirium, más días de ventilación e ICU-AW.' },
+  { p: 'Movilización temprana en UCI debe iniciarse, según condiciones de seguridad, en:', o:['Las primeras 24-72 horas','Después del día 7','Cuando el paciente lo solicite','Solo tras retirar la ventilación mecánica'], c:0, e:'24-72 horas, una vez verificadas las condiciones de seguridad. La inmovilidad absoluta nunca está indicada; movilización pasiva siempre es posible.' },
+  { p: 'En el paciente con post-COVID y MPE positivo, el ejercicio aeróbico progresivo estándar:', o:['Es la primera línea de tratamiento','Está indicado para todos los pacientes post-COVID','NO está indicado; puede empeorar al paciente. Se prefiere pacing, actividad recumbente y fortalecimiento de baja intensidad','Solo se aplica en piscina'], c:2, e:'AHA 2025: en MPE positivo NO aplicar ejercicio aeróbico progresivo estándar. Pacing, recumbencia y baja intensidad son la norma. Es la diferencia entre desacondicionamiento e intolerancia al ejercicio post-COVID.' },
+  { p: 'PICS-F se refiere a:', o:['Una variante de PICS solo en mujeres','Síndrome post-cuidado intensivo en la FAMILIA del sobreviviente: ansiedad, depresión, estrés postraumático','Síndrome post-COVID familiar','PICS de fase fría'], c:1, e:'PICS-F = Family. La familia del sobreviviente puede desarrollar ansiedad, depresión y estrés postraumático. Tamizar con PHQ-9, GAD-7 y Zarit. Su afectación predice claudicación y peor desenlace del paciente.' },
+  { p: 'Pérdida de tejido magro durante la primera semana de reposo en cama en adulto joven:', o:['No hay pérdida si come bien','Aproximadamente 0,5–1 % por día','3–5 % por día','Solo en mujeres'], c:1, e:'0,5–1 % por día también en adulto joven. 10 días de reposo le cuestan a un joven 5–10 % de su masa magra. La fisiología del reposo afecta a cualquier adulto, no solo al anciano.' },
+  { p: 'En UCI, el criterio respiratorio que contraindica movilización ACTIVA es:', o:['Cualquier oxígeno suplementario','SpO₂ < 90 %, FR > 40, PEEP > 10, FiO₂ > 0,6','Solo intubación','SpO₂ < 95 %'], c:1, e:'Criterios de Sommers 2015: SpO₂ < 90 %, FR > 40 rpm, PEEP > 10 cmH₂O, FiO₂ > 0,6. Si alguno se cumple, no movilización activa pero SÍ posicionamiento, cambios posturales y movilización pasiva.' },
+  { p: 'En el adulto joven postquirúrgico, la mayor «trampa» del médico es:', o:['Prescribir demasiada rehabilitación','NO prescribir rehabilitación dando por sentado que se recuperará solo por su edad joven','Indicar fortalecimiento muy temprano','Solicitar EMG urgente'], c:1, e:'La fisiopatología del HAD aplica también al joven, pero con reserva preservada — el desenlace tiende a ser bueno SI se prescribe rehabilitación. La trampa frecuente es no hacerlo.' },
+  { p: 'El tamizaje de MPE post-COVID se hace con:', o:['Una espirometría','La pregunta: «¿Algún esfuerzo físico, mental o emocional le produce un agravamiento de los síntomas que dura más de 24 horas?»','MoCA','Solo prueba de marcha de 6 minutos'], c:1, e:'Pregunta clave única, sencilla y operativa. Una respuesta afirmativa cambia radicalmente el plan de rehabilitación.' },
+  { p: 'En el paciente egresado de UCI, los tres dominios de PICS a tamizar son:', o:['Cardíaco, pulmonar, renal','Físico, cognitivo, mental','Hígado, riñón, corazón','Solo el componente físico'], c:1, e:'PICS = Post Intensive Care Syndrome: físico (ICU-AW persistente, fatiga), cognitivo (memoria, atención, función ejecutiva), mental (depresión, ansiedad, estrés postraumático). El componente cognitivo es frecuentemente subestimado.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
