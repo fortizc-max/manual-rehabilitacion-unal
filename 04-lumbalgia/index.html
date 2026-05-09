@@ -910,7 +910,7 @@ footer a:hover { text-decoration: underline; }
 
   <div class="startback" id="sb-calc">
     <h4>Calculadora STarT Back (9 ítems)</h4>
-    <div class="descripcion">«En las últimas dos semanas…» Marque «de acuerdo» o «en desacuerdo» en cada ítem. El último ítem se puntúa de 0 a 4. Los ítems 5–9 forman la subescala de distrés psicosocial.</div>
+    <div class="descripcion">«En las últimas dos semanas…» Marque «de acuerdo» o «en desacuerdo» en cada ítem. El último ítem se puntúa de 0 a 4. Los ítems 5–9 forman la subescala de malestar emocional.</div>
     <div id="sb-items"></div>
     <div class="startback-resultado empty" id="sb-resultado">
       Conteste los 9 ítems para ver el puntaje y el plan de manejo según riesgo.
@@ -924,8 +924,8 @@ footer a:hover { text-decoration: underline; }
       <li>Ítems 1–8: <strong>1 punto</strong> si responde «de acuerdo».</li>
       <li>Ítem 9: <strong>1 punto</strong> si responde «mucho» o «muchísimo» (3 o 4); 0 en otro caso.</li>
       <li><strong>Bajo riesgo:</strong> total 0–3.</li>
-      <li><strong>Medio riesgo:</strong> total ≥ 4 con subescala de distrés (ítems 5–9) ≤ 3.</li>
-      <li><strong>Alto riesgo:</strong> subescala de distrés ≥ 4.</li>
+      <li><strong>Medio riesgo:</strong> total ≥ 4 con subescala de malestar emocional (ítems 5–9) ≤ 3.</li>
+      <li><strong>Alto riesgo:</strong> subescala de malestar emocional ≥ 4.</li>
     </ul>
   </div>
 </section>
@@ -1078,11 +1078,11 @@ footer a:hover { text-decoration: underline; }
   </div>
   <div class="card verde">
     <h4>Intervenciones psicosociales</h4>
-    <p style="margin-bottom: 0">Terapia cognitivo-conductual, programas de manejo del dolor, mindfulness. Particularmente eficaces en pacientes con kinesiofobia, catastrofización del dolor o distrés alto en STarT Back. Cambian el desenlace funcional más que el dolor crudo.</p>
+    <p style="margin-bottom: 0">Terapia cognitivo-conductual, programas de manejo del dolor, mindfulness. Particularmente eficaces en pacientes con kinesiofobia, catastrofización del dolor o malestar emocional alto en STarT Back. Cambian el desenlace funcional más que el dolor crudo.</p>
   </div>
   <div class="card verde">
     <h4>Manejo farmacológico</h4>
-    <p style="margin-bottom: 0">AINE como primera línea sintomática. <strong>Antidepresivos (duloxetina)</strong> en algunos pacientes con componente neuropático o distrés acompañante. Los <strong>opioides fuertes NO están recomendados</strong> para uso crónico en lumbalgia inespecífica.</p>
+    <p style="margin-bottom: 0">AINE como primera línea sintomática. <strong>Antidepresivos (duloxetina)</strong> en algunos pacientes con componente neuropático o malestar emocional acompañante. Los <strong>opioides fuertes NO están recomendados</strong> para uso crónico en lumbalgia inespecífica.</p>
   </div>
   <div class="card amarilla">
     <h4>Cuándo remitir a especialista</h4>
@@ -1124,7 +1124,7 @@ footer a:hover { text-decoration: underline; }
         <li><strong>Mecanismo:</strong> esfuerzo identificable; sin trauma significativo.</li>
         <li><strong>Banderas rojas (las cuatro preguntas en bloque):</strong> niega fiebre, niega pérdida de peso, niega problemas con orina o control de esfínteres, niega debilidad clara para mover la pierna o el pie. <strong>Ninguna bandera roja activa.</strong></li>
         <li><strong>Irradiación:</strong> el dolor llega hasta la nalga y la cara posterior del muslo, <strong>no pasa de la rodilla</strong>.</li>
-        <li><strong>STarT Back:</strong> 5 puntos totales, subescala de distrés 3 → <strong>riesgo medio</strong>, principalmente por <em>kinesiofobia</em> («no es seguro moverme», ítem 5) y por <em>catastrofización</em> («mi dolor es terrible y no va a mejorar», ítem 7).</li>
+        <li><strong>STarT Back:</strong> 5 puntos totales, subescala de malestar emocional 3 → <strong>riesgo medio</strong>, principalmente por <em>kinesiofobia</em> («no es seguro moverme», ítem 5) y por <em>catastrofización</em> («mi dolor es terrible y no va a mejorar», ítem 7).</li>
       </ul>
     </div>
   </details>
@@ -1326,7 +1326,7 @@ sbItems.forEach((it, idx) => {
       <label data-item="${idx}" data-val="0"><input type="radio" name="sb-${idx}" value="0">En desacuerdo</label>
     `;
   }
-  div.innerHTML = `<span class="pregunta"><span class="num">${idx + 1}.</span>${it.txt}${it.sub ? '<span class="subescala">distrés</span>' : ''}</span><div class="opciones">${opciones}</div>`;
+  div.innerHTML = `<span class="pregunta"><span class="num">${idx + 1}.</span>${it.txt}${it.sub ? '<span class="subescala">malestar</span>' : ''}</span><div class="opciones">${opciones}</div>`;
   sbCont.appendChild(div);
 });
 
@@ -1366,7 +1366,7 @@ const sbPlanes = {
     plan: `<strong>Plan:</strong>
       <ul>
         <li>Educación + analgesia + fisioterapia activa.</li>
-        <li><strong>Intervención cognitivo-conductual:</strong> programa estructurado para abordar catastrofización, kinesiofobia y distrés psicosocial.</li>
+        <li><strong>Intervención cognitivo-conductual:</strong> programa estructurado para abordar catastrofización, kinesiofobia y malestar emocional.</li>
         <li>Considerar manejo multidisciplinario (medicina física, psicología, fisioterapia).</li>
         <li>Vigilancia activa de cronificación; reevaluación frecuente.</li>
       </ul>`
@@ -1397,7 +1397,7 @@ function actualizarStartback() {
   r.innerHTML = `
     <div class="puntajes">
       <div><span class="label">Puntaje total</span><span class="num">${total}</span><span class="max"> / 9</span></div>
-      <div><span class="label">Subescala de distrés</span><span class="num">${distres}</span><span class="max"> / 5</span></div>
+      <div><span class="label">Subescala de malestar emocional</span><span class="num">${distres}</span><span class="max"> / 5</span></div>
     </div>
     <div class="categoria">${p.cat}</div>
     <div class="plan">${p.plan}</div>
@@ -1456,7 +1456,7 @@ const casos = [
   },
   {
     titulo: 'Caso 3 · Lumbalgia con radiografía «aterradora»',
-    historia: 'Hombre de 48 años, mecánico. Lumbalgia aguda de 1 semana. Trae radiografía con informe de «espondiloartrosis severa, discopatía L4–L5 y L5–S1, osteofitos marginales». Está aterrorizado: «el médico me dijo que tengo la columna destruida». Examen físico normal, sin radiculopatía, sin banderas rojas. STarT Back: 4 puntos, distrés 3 (riesgo medio).',
+    historia: 'Hombre de 48 años, mecánico. Lumbalgia aguda de 1 semana. Trae radiografía con informe de «espondiloartrosis severa, discopatía L4–L5 y L5–S1, osteofitos marginales». Está aterrorizado: «el médico me dijo que tengo la columna destruida». Examen físico normal, sin radiculopatía, sin banderas rojas. STarT Back: 4 puntos, malestar emocional 3 (riesgo medio).',
     pregunta: '¿Cómo aborda la radiografía?',
     opciones: [
       { texto: 'Confirmar al paciente que tiene la columna gravemente dañada', correcto: false },
@@ -1492,7 +1492,7 @@ const casos = [
   },
   {
     titulo: 'Caso 6 · STarT Back alto',
-    historia: 'Mujer de 38 años con lumbalgia crónica de 8 meses. STarT Back 8/9, distrés 5/5: catastrofización marcada, kinesiofobia, anhedonia. Examen físico sin déficit. Múltiples consultas previas, varios analgésicos sin mejoría.',
+    historia: 'Mujer de 38 años con lumbalgia crónica de 8 meses. STarT Back 8/9, malestar emocional 5/5: catastrofización marcada, kinesiofobia, anhedonia. Examen físico sin déficit. Múltiples consultas previas, varios analgésicos sin mejoría.',
     pregunta: '¿Plan más adecuado?',
     opciones: [
       { texto: 'Solo AINE más fuertes', correcto: false },
@@ -1540,7 +1540,7 @@ const casos = [
   },
   {
     titulo: 'Caso 10 · Lumbalgia subaguda sin mejoría',
-    historia: 'Mujer de 45 años con lumbalgia de 8 semanas. Manejo inicial con AINE y educación; mejoría parcial pero sigue con dolor moderado y limitación funcional. Sin banderas rojas, sin déficit neurológico. STarT Back 5/9, distrés 3/5 (medio).',
+    historia: 'Mujer de 45 años con lumbalgia de 8 semanas. Manejo inicial con AINE y educación; mejoría parcial pero sigue con dolor moderado y limitación funcional. Sin banderas rojas, sin déficit neurológico. STarT Back 5/9, malestar emocional 3/5 (medio).',
     pregunta: '¿Próximo paso?',
     opciones: [
       { texto: 'Resonancia para «buscar la causa»', correcto: false },
@@ -1585,7 +1585,7 @@ document.querySelectorAll('.caso .opcion').forEach(op => {
 const auto = [
   { p: 'La proporción de consultas por lumbalgia en atención primaria que corresponden a la forma inespecífica es:', o:['Aproximadamente 50%','Aproximadamente 70%','Más del 90%','Menos del 30%'], c:2, e:'Más del 90% de las lumbalgias en atención primaria son inespecíficas. Las causas específicas suman menos del 10%.' },
   { p: 'Una sola bandera roja para cauda equina (anestesia en silla de montar):', o:['No cambia la conducta si está aislada','Es urgencia quirúrgica e indica derivación inmediata','Solo justifica radiografía simple','Se puede manejar ambulatoriamente con AINE'], c:1, e:'Es la excepción a la regla de "combinar banderas". El síndrome de cauda equina es urgencia quirúrgica: derivación neuroquirúrgica inmediata sin esperar imagen ambulatoria.' },
-  { p: 'En el STarT Back, el alto riesgo se define por:', o:['Puntaje total ≥ 7','Subescala de distrés (ítems 5–9) ≥ 4','Cualquier respuesta afirmativa al ítem 1','Edad mayor a 60 años'], c:1, e:'Alto riesgo = subescala de distrés psicosocial ≥ 4. Indica intervención cognitivo-conductual además del manejo estándar.' },
+  { p: 'En el STarT Back, el alto riesgo se define por:', o:['Puntaje total ≥ 7','Subescala de malestar emocional (ítems 5–9) ≥ 4','Cualquier respuesta afirmativa al ítem 1','Edad mayor a 60 años'], c:1, e:'Alto riesgo = subescala de malestar emocional ≥ 4. Indica intervención cognitivo-conductual además del manejo estándar.' },
   { p: 'En lumbalgia aguda inespecífica sin banderas rojas, la conducta correcta sobre imagen es:', o:['Radiografía rutinaria','Resonancia rutinaria','No pedir imagen','Solo TAC'], c:2, e:'No se pide imagen rutinaria. Los hallazgos degenerativos son ubicuos en asintomáticos (84% a los 80 años) y la imagen indiscriminada se asocia a peor pronóstico.' },
   { p: 'La maniobra de Lasègue es positiva cuando:', o:['Reproduce dolor lumbar a cualquier ángulo','Reproduce dolor radicular irradiado por debajo de la rodilla entre 30–70°','Reproduce dolor en cara posterior del muslo','Provoca dolor a 90° de elevación'], c:1, e:'Lasègue positivo = dolor radicular (territorio L5 o S1, por debajo de la rodilla) entre 30 y 70°. Dolor lumbar puro o en cara posterior del muslo NO es Lasègue positivo (es contractura o limitación de isquiotibiales).' },
   { p: 'La caminata en talones explora:', o:['Raíces L2–L3','Raíces L4–L5 (dorsiflexores)','Raíz S1 (plantiflexores)','Raíz S2'], c:1, e:'Caminar en talones evalúa dorsiflexores (L4–L5). Caminar en puntillas evalúa plantiflexores (S1). Cubre las dos raíces más comprometidas en hernia discal.' },
