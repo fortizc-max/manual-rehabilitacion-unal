@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumbalgia inespecífica · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva de lumbalgia inespecífica para el médico general: tamizaje de banderas rojas por síndrome, calculadora STarT Back con plan de manejo según riesgo, algoritmo decisional para imágenes, examen físico mínimo dirigido, casos y autoevaluación.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 32px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--azulacad);
+  margin: 0 auto 18px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
+}
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Banderas rojas: checklist por síndrome ===== */
+.bandera-grupo {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--jamared);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.bandera-grupo h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+  margin: 0 0 4px;
+}
+.bandera-grupo .urgencia {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--jamared);
+  color: white;
+  padding: 2px 9px;
+  border-radius: 99px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.bandera-grupo label {
+  font-family: var(--serif);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.94rem;
+  margin: 6px 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.12s;
+}
+.bandera-grupo label:hover { background: var(--jamared-suave); }
+.bandera-grupo label.checked {
+  background: var(--jamared-suave);
+  font-weight: 600;
+  color: var(--jamared);
+}
+.bandera-grupo label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.bandera-summary {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.bandera-summary h4 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--azulacad);
+}
+.bandera-summary .alertas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.bandera-summary .alerta-pill {
+  background: var(--jamared);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.bandera-summary .alerta-pill.warn { background: var(--amarillo); }
+.bandera-summary .empty {
+  font-style: italic;
+  color: var(--gris);
+  font-family: var(--serif);
+}
+
+/* ===== STarT Back ===== */
+.startback {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.startback h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.startback .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+.startback .item {
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 12px 0;
+}
+.startback .item:last-child { border-bottom: none; }
+.startback .item .num {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--jamared);
+  margin-right: 6px;
+}
+.startback .item .pregunta {
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  color: var(--texto);
+  margin-bottom: 6px;
+  display: block;
+}
+.startback .item .subescala {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-left: 6px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.startback .opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.startback .opciones label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--texto-suave);
+}
+.startback .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.startback .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.startback .opciones input { display: none; }
+
+.startback-resultado {
+  margin-top: 18px;
+  padding: 18px 22px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.startback-resultado.empty {
+  background: var(--gris-claro);
+  border-left-color: var(--gris-borde);
+  color: var(--gris);
+  font-style: italic;
+  text-align: center;
+}
+.startback-resultado.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.startback-resultado.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.startback-resultado.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+
+.startback-resultado .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.startback-resultado .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--jamared);
+}
+.startback-resultado .puntajes .max { color: var(--gris); font-size: 1.1rem; }
+.startback-resultado .puntajes .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.startback-resultado .categoria {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.startback-resultado.bajo .categoria { color: var(--verde); }
+.startback-resultado.medio .categoria { color: var(--amarillo); }
+.startback-resultado.alto .categoria { color: var(--jamared); }
+.startback-resultado .plan {
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  margin-top: 8px;
+}
+.startback-resultado .plan ul { margin: 6px 0 0 18px; }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Algoritmo decisional para imagen ===== */
+.algo {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.algo h4 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.algo .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--azulacad);
+  margin: 16px 0 8px;
+}
+.algo .ramas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.algo .rama {
+  font-family: var(--sans);
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: all 0.15s;
+}
+.algo .rama:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.algo .rama.selected {
+  background: var(--jamared);
+  color: white;
+  border-color: var(--jamared);
+  font-weight: 600;
+}
+.algo .respuesta {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 16px;
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  display: none;
+}
+.algo .respuesta.show { display: block; }
+.algo .respuesta strong {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+}
+
+/* ===== Caso completo (Carlos) - acordeón ===== */
+details.fase {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.fase[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.fase summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.fase summary::-webkit-details-marker { display: none; }
+details.fase summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.fase[open] summary::before { transform: rotate(90deg); }
+details.fase summary .tiempo {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.fase .fase-body {
+  padding: 0 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.no-hacer {
+  background: var(--jamared-suave);
+  border: 1px solid var(--jamared);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.no-hacer h4 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+}
+.no-hacer ul { margin: 0; padding-left: 22px; }
+.no-hacer li { color: var(--texto); margin: 6px 0; }
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer {
+  font-family: var(--sans);
+  text-align: center;
+  padding: 26px 24px;
+  font-size: 0.82rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 4</div>
+  <h1>Lumbalgia inespecífica</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Por qué importa</button>
+  <button class="tab-btn" data-tab="banderas">2. 🚩 Banderas rojas</button>
+  <button class="tab-btn" data-tab="startback">3. 🔢 STarT Back</button>
+  <button class="tab-btn" data-tab="examen">4. Examen mínimo</button>
+  <button class="tab-btn" data-tab="imagen">5. ¿Imagen?</button>
+  <button class="tab-btn" data-tab="aguda">6. Tratamiento agudo</button>
+  <button class="tab-btn" data-tab="cronica">7. Tratamiento crónico</button>
+  <button class="tab-btn" data-tab="caso15">8. Caso · 15 minutos</button>
+  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Por qué un capítulo dedicado a la lumbalgia</h2>
+  <p>La lumbalgia es la <strong>primera causa mundial de años vividos con discapacidad</strong> y la sexta causa global de carga de enfermedad medida por años de vida ajustados por discapacidad (AVAD). La prevalencia puntual oscila alrededor del <strong>18 %</strong> y la prevalencia mes alrededor del <strong>30 %</strong> en la mayoría de los países; es más frecuente en mujeres y en personas entre los 40 y 69 años.</p>
+
+  <div class="card azul">
+    <h4>Modelo de razonamiento clínico en rehabilitación</h4>
+    <p style="margin-bottom: 0">La lumbalgia es un modelo casi perfecto: la enorme mayoría son <strong>inespecíficas</strong> (sin causa anatómica identificable), una minoría son <strong>específicas</strong> (con una patología seria detrás), y la única forma de distinguirlas con eficiencia es aplicando una estrategia de <em>triage</em> basada en banderas rojas y un examen físico orientado.</p>
+  </div>
+
+  <h3>Definición y clasificación por duración</h3>
+  <p>Lumbalgia inespecífica = dolor lumbar <strong>sin causa patoanatómica conocida</strong> ni atribuible a patología específica (neoplasia, infección, fractura por compresión, espondiloartritis axial, síndrome de cauda equina o radiculopatía).</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Categoría</th><th>Duración</th><th>Conducta dominante</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aguda</strong></td><td>&lt; 6 semanas</td><td>Educación, mantener actividad, AINE en ciclo corto, control en 4 sem.</td></tr>
+        <tr><td><strong>Subaguda</strong></td><td>6–12 semanas</td><td>Reevaluar STarT Back; intensificar ejercicio supervisado.</td></tr>
+        <tr><td><strong>Crónica</strong></td><td>&gt; 12 semanas</td><td>Ejercicio terapéutico sostenido, intervenciones psicosociales, no opioides fuertes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Frecuencias en atención primaria</h3>
+  <p>Más del <strong>90 %</strong> de las consultas por lumbalgia corresponden a la forma <strong>inespecífica</strong>. Las causas específicas representan en conjunto menos del 10 %:</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Causa específica</th><th>Frecuencia aproximada</th></tr></thead>
+      <tbody>
+        <tr><td>Fractura por compresión</td><td>≈ 4 %</td></tr>
+        <tr><td>Estenosis del canal</td><td>≈ 3 %</td></tr>
+        <tr><td>Enfermedad visceral (referido)</td><td>≈ 2 %</td></tr>
+        <tr><td>Tumor o metástasis</td><td>≈ 0,7 %</td></tr>
+        <tr><td>Infección espinal</td><td>≈ 0,01 %</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Las tres preguntas que ordenan toda consulta por lumbalgia</h4>
+    <ol style="margin-bottom: 0">
+      <li><strong>¿Hay banderas rojas?</strong> Si las hay, no es inespecífica y el rumbo cambia (pestaña 2).</li>
+      <li><strong>¿Hay déficit neurológico o radiculopatía?</strong> Si lo hay, es lumbociatalgia: documentar el nivel y decidir entre conservador y derivación (pestaña 4).</li>
+      <li><strong>¿Hay riesgo psicosocial elevado de cronificación?</strong> Esta pregunta cambia más el desenlace a un año que cualquier prescripción farmacológica. Se contesta en dos minutos con la herramienta STarT Back (pestaña 3).</li>
+    </ol>
+  </div>
+
+  <h3>Cómo navegar esta guía</h3>
+  <ul>
+    <li><strong>Pestaña 2:</strong> 🚩 banderas rojas como tamizaje interactivo organizado por síndrome (cáncer, infección, cauda equina, fractura, espondiloartritis).</li>
+    <li><strong>Pestaña 3:</strong> 🔢 calculadora STarT Back con plan de manejo según nivel de riesgo (bajo / medio / alto).</li>
+    <li><strong>Pestaña 4:</strong> examen físico mínimo dirigido para consulta de 15 minutos.</li>
+    <li><strong>Pestaña 5:</strong> algoritmo decisional «¿pido imagen sí o no?».</li>
+    <li><strong>Pestañas 6–7:</strong> tratamiento de la fase aguda y crónica con la lista de «lo que NO se debe hacer».</li>
+    <li><strong>Pestaña 8:</strong> caso clínico desplegado fase por fase (consulta de 15 minutos, paciente Carlos).</li>
+    <li><strong>Pestañas 9–10:</strong> 10 casos progresivos y 10 preguntas de autoevaluación.</li>
+  </ul>
+</section>
+
+<!-- ==================== TAB 2: BANDERAS ROJAS ==================== -->
+<section class="tab-content" id="banderas">
+  <h2>🚩 Banderas rojas · tamizaje por síndrome</h2>
+  <p>Las banderas rojas son hallazgos del interrogatorio o del examen físico que aumentan la probabilidad de patología seria. Tomadas <strong>aisladamente</strong> la mayoría tiene baja exactitud diagnóstica: en un estudio australiano, 80 % de los pacientes con lumbalgia aguda tenía al menos una bandera roja, pero menos del 1 % tenía enfermedad seria. Lo correcto no es disparar una imagen ante cualquier bandera aislada, sino <strong>combinar hallazgos</strong> en un patrón coherente.</p>
+
+  <p>Marque los hallazgos que reconoce en su paciente. La guía resume al final qué síndrome se está activando.</p>
+
+  <div class="bandera-grupo" data-sindrome="cancer">
+    <h4>Sospecha de cáncer</h4>
+    <label><input type="checkbox" data-bandera><span>Edad > 50 años</span></label>
+    <label><input type="checkbox" data-bandera><span>Historia previa de cáncer</span></label>
+    <label><input type="checkbox" data-bandera><span>Pérdida de peso inexplicada</span></label>
+    <label><input type="checkbox" data-bandera><span>Dolor que no mejora con el reposo</span></label>
+    <label><input type="checkbox" data-bandera><span>Dolor nocturno persistente</span></label>
+  </div>
+
+  <div class="bandera-grupo" data-sindrome="infeccion">
+    <h4>Sospecha de infección espinal</h4>
+    <label><input type="checkbox" data-bandera><span>Fiebre</span></label>
+    <label><input type="checkbox" data-bandera><span>Inmunosupresión</span></label>
+    <label><input type="checkbox" data-bandera><span>Uso de drogas intravenosas</span></label>
+    <label><input type="checkbox" data-bandera><span>Infección reciente (urinaria, piel, etc.)</span></label>
+    <label><input type="checkbox" data-bandera><span>Procedimiento espinal reciente</span></label>
+  </div>
+
+  <div class="bandera-grupo" data-sindrome="cauda" data-urgencia="true">
+    <h4>Síndrome de cauda equina <span class="urgencia">Urgencia quirúrgica</span></h4>
+    <label><input type="checkbox" data-bandera><span>Disfunción reciente de esfínter anal o vesical</span></label>
+    <label><input type="checkbox" data-bandera><span>Anestesia en silla de montar</span></label>
+    <label><input type="checkbox" data-bandera><span>Debilidad progresiva en miembros inferiores</span></label>
+    <label><input type="checkbox" data-bandera><span>Retención urinaria de aparición reciente</span></label>
+  </div>
+
+  <div class="bandera-grupo" data-sindrome="fractura">
+    <h4>Sospecha de fractura por compresión</h4>
+    <label><input type="checkbox" data-bandera><span>Historia de osteoporosis</span></label>
+    <label><input type="checkbox" data-bandera><span>Uso prolongado de glucocorticoides</span></label>
+    <label><input type="checkbox" data-bandera><span>Trauma significativo</span></label>
+    <label><input type="checkbox" data-bandera><span>Edad > 65 años en mujeres o > 75 años en hombres</span></label>
+    <label><input type="checkbox" data-bandera><span>Dolor a la palpación de apófisis espinosa</span></label>
+  </div>
+
+  <div class="bandera-grupo" data-sindrome="espa">
+    <h4>Espondiloartritis axial</h4>
+    <label><input type="checkbox" data-bandera><span>Inicio antes de los 45 años</span></label>
+    <label><input type="checkbox" data-bandera><span>Dolor lumbar inflamatorio (insidioso, mejora con ejercicio)</span></label>
+    <label><input type="checkbox" data-bandera><span>No mejora con reposo / dolor nocturno con mejoría al levantarse</span></label>
+    <label><input type="checkbox" data-bandera><span>Duración > 3 meses</span></label>
+    <label><input type="checkbox" data-bandera><span>Buena respuesta a AINE</span></label>
+    <label><input type="checkbox" data-bandera><span>Manifestaciones extraarticulares (uveítis, psoriasis, EII)</span></label>
+  </div>
+
+  <div class="bandera-summary" id="bandera-summary">
+    <h4>Resumen del tamizaje</h4>
+    <div class="alertas" id="bandera-alertas"></div>
+    <div id="bandera-msg" class="empty">Marque hallazgos arriba para ver qué síndrome se está activando.</div>
+  </div>
+
+  <button class="reset" onclick="resetBanderas()">Reiniciar tamizaje</button>
+
+  <div class="card amarilla">
+    <h4>Cómo combinar hallazgos</h4>
+    <p style="margin-bottom: 0">Una bandera aislada no es suficiente para indicar imagen o derivación. Lo que cambia la conducta es la <strong>concurrencia de varias banderas en el mismo síndrome</strong>: ej. edad &gt; 50 + historia de cáncer + pérdida de peso + dolor nocturno = sospecha de metástasis vertebral, indicar resonancia. La excepción es la cauda equina: <strong>una sola bandera de ese síndrome</strong> es urgencia quirúrgica y obliga a derivación inmediata.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: STARTBACK ==================== -->
+<section class="tab-content" id="startback">
+  <h2>🔢 STarT Back Screening Tool</h2>
+  <p>El <em>Keele STarT Back Screening Tool</em> (Hill 2011, validado por NICE NG59) estratifica al paciente con lumbalgia en <strong>bajo, medio o alto riesgo</strong> de persistencia y discapacidad a los seis meses. Su valor predictivo es robusto: en el ensayo original, la proporción de pacientes con dolor incapacitante persistente fue de <strong>22 %</strong> en bajo riesgo, <strong>62 %</strong> en medio y <strong>80 %</strong> en alto.</p>
+
+  <div class="card azul">
+    <h4>Por qué importa</h4>
+    <p style="margin-bottom: 0">Adaptar el tratamiento al riesgo (educar y dejar ir al de bajo riesgo, fisioterapia activa al de medio, manejo cognitivo-conductual al de alto) <strong>mejora desenlaces y ahorra costos al sistema</strong>. Es probablemente la herramienta de mayor impacto clínico-económico en la consulta de lumbalgia.</p>
+  </div>
+
+  <div class="startback" id="sb-calc">
+    <h4>Calculadora STarT Back (9 ítems)</h4>
+    <div class="descripcion">«En las últimas dos semanas…» Marque «de acuerdo» o «en desacuerdo» en cada ítem. El último ítem se puntúa de 0 a 4. Los ítems 5–9 forman la subescala de distrés psicosocial.</div>
+    <div id="sb-items"></div>
+    <div class="startback-resultado empty" id="sb-resultado">
+      Conteste los 9 ítems para ver el puntaje y el plan de manejo según riesgo.
+    </div>
+    <button class="reset" onclick="resetStartback()">Reiniciar</button>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Reglas de puntuación</h4>
+    <ul style="margin-bottom: 0">
+      <li>Ítems 1–8: <strong>1 punto</strong> si responde «de acuerdo».</li>
+      <li>Ítem 9: <strong>1 punto</strong> si responde «mucho» o «muchísimo» (3 o 4); 0 en otro caso.</li>
+      <li><strong>Bajo riesgo:</strong> total 0–3.</li>
+      <li><strong>Medio riesgo:</strong> total ≥ 4 con subescala de distrés (ítems 5–9) ≤ 3.</li>
+      <li><strong>Alto riesgo:</strong> subescala de distrés ≥ 4.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: EXAMEN MÍNIMO ==================== -->
+<section class="tab-content" id="examen">
+  <h2>Examen físico mínimo dirigido</h2>
+  <p>Cuando no hay banderas rojas, el examen físico de la lumbalgia inespecífica puede reducirse al esencial sin perder seguridad clínica. Tres minutos bien usados:</p>
+
+  <div class="card azul">
+    <h4>1. Inspección y palpación rápidas (30 s)</h4>
+    <p style="margin-bottom: 0">Postura, deformidades obvias (cifosis, escoliosis, hiperlordosis), dolor a la palpación de las apófisis espinosas (sospecha de fractura), de articulaciones sacroilíacas y de musculatura paraespinal. Lesiones cutáneas (psoriasis, manchas café con leche).</p>
+  </div>
+  <div class="card azul">
+    <h4>2. Movilidad lumbar grosera</h4>
+    <p style="margin-bottom: 0">Pedirle al paciente flexionarse hacia adelante (intentar tocarse los pies) y extenderse hacia atrás. Documentar limitación funcional, no dolor reproducido. La distancia dedos-suelo cuantifica la flexión global.</p>
+  </div>
+  <div class="card azul">
+    <h4>3. Maniobra de Lasègue (una sola)</h4>
+    <p>Paciente acostado en decúbito supino. Elevación pasiva del miembro inferior extendido. Es <strong>positiva</strong> cuando reproduce dolor <em>radicular</em> (irradiado por debajo de la rodilla en territorio L5 o S1) entre los <strong>30 y 70°</strong>.</p>
+    <p style="margin-bottom: 0"><strong>No es Lasègue positivo:</strong> dolor puramente lumbar o dolor en cara posterior del muslo (eso es contractura muscular o limitación de los <em>ischiocrurales</em>).</p>
+  </div>
+  <div class="card azul">
+    <h4>4. Fuerza dirigida a L5 y S1</h4>
+    <p style="margin-bottom: 0"><strong>Caminar en talones</strong> (L4–L5, dorsiflexores). <strong>Caminar en puntillas</strong> (S1, plantiflexores). Cubre las dos raíces más comprometidas en hernia discal.</p>
+  </div>
+  <div class="card azul">
+    <h4>5. Reflejos rotuliano (L2–L4) y aquíleo (S1)</h4>
+    <p style="margin-bottom: 0">Comparar lados. Una arreflexia aquílea unilateral con dolor irradiado al borde lateral del pie sugiere radiculopatía S1.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Cuándo ampliar el examen</h4>
+    <p style="margin-bottom: 0">El examen completo de miembros inferiores por <strong>miotomas y dermatomas</strong> (cap. 2 y 1) se reserva para cuando hay sospecha de radiculopatía o déficit motor en el examen mínimo. La <strong>maniobra de Bragard</strong> (Lasègue + dorsiflexión plantar) y el <strong>Lasègue cruzado</strong> (más específico para hernia discal) se aplican cuando el Lasègue inicial sugiere compromiso radicular.</p>
+  </div>
+
+  <h3>Recordatorio de raíces lumbosacras</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Raíz</th><th>Miotoma clave</th><th>Dermatoma</th><th>Reflejo</th></tr></thead>
+      <tbody>
+        <tr><td class="root">L2</td><td><em>Iliopsoas</em> (flexión cadera)</td><td>Cara anterior del muslo</td><td>—</td></tr>
+        <tr><td class="root">L3</td><td><em>Quadriceps femoris</em> (extensión rodilla)</td><td>Rodilla anterior</td><td>Rotuliano</td></tr>
+        <tr><td class="root">L4</td><td><em>Tibialis anterior</em> (dorsiflexión)</td><td>Maléolo medial / cara medial pierna</td><td>Rotuliano</td></tr>
+        <tr><td class="root">L5</td><td><em>Extensor hallucis longus</em>; talones</td><td>Dorso del primer dedo</td><td>—</td></tr>
+        <tr><td class="root">S1</td><td><em>Triceps surae</em>; puntillas</td><td>Borde lateral del pie / planta</td><td>Aquíleo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: IMAGEN ==================== -->
+<section class="tab-content" id="imagen">
+  <h2>¿Pido imagen sí o no?</h2>
+  <p>Las guías de práctica clínica concuerdan en <strong>NO pedir imágenes de manera rutinaria</strong> en lumbalgia inespecífica. Tres razones:</p>
+
+  <div class="card roja">
+    <ol style="margin-bottom: 0">
+      <li>Los hallazgos degenerativos en resonancia (protrusiones, deshidratación discal, cambios facetarios) son <strong>ubicuos en personas asintomáticas</strong>: 30 % a los 20 años, 60 % a los 50 y 84 % a los 80.</li>
+      <li>La imagen indiscriminada se asocia a <strong>más imágenes posteriores, mayor uso de cirugía e inyecciones, más ausentismo laboral y peor pronóstico</strong>.</li>
+      <li>Una imagen anormal puede convertirse en un poderoso <strong>nocebo</strong> para el paciente: «algo está dañado en mi columna».</li>
+    </ol>
+  </div>
+
+  <h3>Algoritmo decisional</h3>
+
+  <div class="algo">
+    <h4>Paso 1 · ¿Hay banderas rojas concurrentes para algún síndrome?</h4>
+    <div class="ramas">
+      <button class="rama" data-algo="bandera-si">Sí — patrón coherente</button>
+      <button class="rama" data-algo="bandera-no">No</button>
+    </div>
+    <div class="respuesta" id="resp-bandera-si"><strong>Conducta:</strong> indicar la imagen apropiada al síndrome (resonancia para sospecha de cáncer/infección/cauda equina, radiografía simple si solo hay sospecha de fractura, sacroilíacas si espondiloartritis axial). En cauda equina, derivar inmediatamente sin esperar imagen.</div>
+    <div class="respuesta" id="resp-bandera-no"><strong>Conducta:</strong> pasar al paso 2.</div>
+  </div>
+
+  <div class="algo">
+    <h4>Paso 2 · ¿Hay déficit neurológico al examen mínimo o sospecha clínica de radiculopatía con dolor por debajo de la rodilla?</h4>
+    <div class="ramas">
+      <button class="rama" data-algo="rad-si">Sí, déficit o radiculopatía clara</button>
+      <button class="rama" data-algo="rad-progresivo">Sí, además progresivo o severo</button>
+      <button class="rama" data-algo="rad-no">No</button>
+    </div>
+    <div class="respuesta" id="resp-rad-si"><strong>Conducta:</strong> manejo conservador 4–6 semanas (AINE, mantener actividad, fisioterapia activa). La imagen solo se indica si tras este período persiste el déficit, hay deterioro o es candidato a cirugía electiva.</div>
+    <div class="respuesta" id="resp-rad-progresivo"><strong>Conducta:</strong> imagen pronta (resonancia preferentemente) y derivación a especialista. Considerar consulta de columna o neurocirugía.</div>
+    <div class="respuesta" id="resp-rad-no"><strong>Conducta:</strong> pasar al paso 3.</div>
+  </div>
+
+  <div class="algo">
+    <h4>Paso 3 · ¿La lumbalgia es aguda (&lt; 6 semanas) sin banderas rojas ni déficit?</h4>
+    <div class="ramas">
+      <button class="rama" data-algo="aguda">Sí, aguda</button>
+      <button class="rama" data-algo="cronica-sin-mejoria">No, &gt; 6 semanas sin mejoría con manejo adecuado</button>
+    </div>
+    <div class="respuesta" id="resp-aguda"><strong>Conducta:</strong> NO pedir imagen. Educación, mantener actividad, AINE en ciclo corto, calor superficial, control en 4 semanas.</div>
+    <div class="respuesta" id="resp-cronica-sin-mejoria"><strong>Conducta:</strong> reevaluar STarT Back, intensificar ejercicio supervisado e intervención psicosocial. La imagen solo se justifica si aparecen banderas rojas nuevas, hay déficit neurológico o el paciente es candidato a procedimiento intervencionista.</div>
+  </div>
+
+  <div class="card verde">
+    <h4>Resumen de bolsillo</h4>
+    <p style="margin-bottom: 0"><strong>Pida imagen si y solo si:</strong> banderas rojas coherentes con un síndrome serio · déficit neurológico progresivo · radiculopatía persistente &gt; 4–6 semanas con manejo conservador adecuado · candidato a cirugía electiva · sospecha de patología específica (no degenerativa). En todos los demás casos, no.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: TRATAMIENTO AGUDO ==================== -->
+<section class="tab-content" id="aguda">
+  <h2>Tratamiento de la lumbalgia aguda</h2>
+  <p>Las cinco medidas que las guías recomiendan en la lumbalgia aguda inespecífica:</p>
+
+  <div class="card verde">
+    <h4>1. Educación y tranquilización</h4>
+    <p style="margin-bottom: 0">Explicar que es un síntoma frecuente, que el pronóstico es favorable, que no hay señales de patología seria y que las imágenes no son útiles. <strong>La educación es más efectiva cuando la entrega un médico</strong> que cuando la entrega un fisioterapeuta o un enfermero — usted está en el rol con mayor potencia terapéutica para esta intervención.</p>
+  </div>
+  <div class="card verde">
+    <h4>2. Mantener la actividad ordinaria</h4>
+    <p style="margin-bottom: 0">El reposo en cama está <strong>contraindicado</strong>. Mantener la actividad ordinaria, incluso con dolor moderado, mejora la recuperación. La actividad gradual es parte del tratamiento, no su consecuencia.</p>
+  </div>
+  <div class="card verde">
+    <h4>3. Volver al trabajo lo antes posible</h4>
+    <p style="margin-bottom: 0">Las incapacidades prolongadas predicen cronificación. Adaptar la tarea (evitar cargas pesadas, posturas estáticas prolongadas) más que prohibir la actividad.</p>
+  </div>
+  <div class="card verde">
+    <h4>4. Analgesia farmacológica</h4>
+    <p style="margin-bottom: 0">AINE en <strong>ciclos cortos</strong> como primera línea (ej. ibuprofeno 400 mg c/8 h × 5–7 días). Opioides débiles solo en exacerbaciones, en ciclos muy cortos. <strong>Paracetamol como monoterapia tiene evidencia limitada</strong> de eficacia en lumbalgia aguda, pero puede usarse como adyuvante o cuando el AINE está contraindicado.</p>
+  </div>
+  <div class="card verde">
+    <h4>5. Calor superficial</h4>
+    <p style="margin-bottom: 0">Tiene evidencia de eficacia <strong>pequeña pero consistente</strong>. Bajo riesgo, bajo costo, alto valor pedagógico (refuerza el mensaje de manejo activo).</p>
+  </div>
+
+  <h3>Las tres acciones de cierre obligatorias</h3>
+  <div class="card amarilla">
+    <p>Una consulta por lumbalgia que no incluye estas tres acciones está incompleta, por más que el examen físico haya sido impecable:</p>
+    <ol style="margin-bottom: 0">
+      <li><strong>Diagnóstico positivo claro:</strong> «esto que usted tiene es una lumbalgia inespecífica» es más útil que enumerar lo que el paciente <em>no</em> tiene. La incertidumbre es el mejor combustible para la cronificación.</li>
+      <li><strong>Educación con tres mensajes:</strong> (a) el pronóstico es bueno, la mayoría mejora en semanas; (b) mantener la actividad ordinaria es parte del tratamiento, el reposo en cama empeora el cuadro; (c) los hallazgos de imagen son comunes en personas sin dolor, por eso en ausencia de banderas rojas no hay indicación de pedirlas.</li>
+      <li><strong>Plan en tres líneas:</strong> analgesia (AINE en ciclo corto), actividad (volver al trabajo, caminar, evitar reposo), control en cuatro semanas o antes si aparecen banderas rojas.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: TRATAMIENTO CRÓNICO ==================== -->
+<section class="tab-content" id="cronica">
+  <h2>Tratamiento de la lumbalgia crónica</h2>
+  <p>A las medidas de la fase aguda se suman, en la lumbalgia crónica (&gt; 12 semanas):</p>
+
+  <div class="card verde">
+    <h4>Ejercicio terapéutico · el tratamiento con mayor evidencia</h4>
+    <p style="margin-bottom: 0">Es la intervención con mayor evidencia en lumbalgia crónica. <strong>No hay un tipo de ejercicio claramente superior</strong> (Pilates, McKenzie, fortalecimiento de core, yoga, hidroterapia): importa que sea <strong>sostenido y supervisado</strong>. La adherencia a largo plazo es el mejor predictor de respuesta.</p>
+  </div>
+  <div class="card verde">
+    <h4>Intervenciones psicosociales</h4>
+    <p style="margin-bottom: 0">Terapia cognitivo-conductual, programas de manejo del dolor, mindfulness. Particularmente eficaces en pacientes con kinesiofobia, catastrofización del dolor o distrés alto en STarT Back. Cambian el desenlace funcional más que el dolor crudo.</p>
+  </div>
+  <div class="card verde">
+    <h4>Manejo farmacológico</h4>
+    <p style="margin-bottom: 0">AINE como primera línea sintomática. <strong>Antidepresivos (duloxetina)</strong> en algunos pacientes con componente neuropático o distrés acompañante. Los <strong>opioides fuertes NO están recomendados</strong> para uso crónico en lumbalgia inespecífica.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>Cuándo remitir a especialista</h4>
+    <ul style="margin-bottom: 0">
+      <li>Sin mejoría tras <strong>4 semanas</strong> con manejo adecuado.</li>
+      <li>Sospecha de radiculopatía o estenosis del canal candidata a cirugía.</li>
+      <li>Sospecha de patología específica.</li>
+      <li>Riesgo psicosocial alto en STarT Back con limitación funcional importante (programa multidisciplinario).</li>
+    </ul>
+  </div>
+
+  <div class="no-hacer">
+    <h4>🚫 Lo que NO se debe hacer</h4>
+    <ul>
+      <li>No pedir radiografía o resonancia de rutina en lumbalgia inespecífica sin banderas rojas.</li>
+      <li>No prescribir reposo en cama.</li>
+      <li>No prescribir opioides fuertes para lumbalgia crónica inespecífica.</li>
+      <li>No prescribir relajantes musculares por períodos prolongados.</li>
+      <li>No prometer «arreglar» lo que aparece en la imagen (protrusión discal, discopatía degenerativa).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: CASO 15 MIN (Carlos) ==================== -->
+<section class="tab-content" id="caso15">
+  <h2>Caso clínico de la consulta de 15 minutos</h2>
+  <p>Acompañe la consulta paso a paso. Cada fase abre con un clic.</p>
+
+  <div class="card azul">
+    <h4>Presentación</h4>
+    <p style="margin-bottom: 0"><strong>Carlos, 45 años, conductor de bus.</strong> Viene a consulta por dolor lumbar de 3 días que comenzó al cargar una caja en el trabajo. No le pasa de la rodilla. Tiene una <strong>radiografía simple de columna lumbar</strong> que se hizo por su cuenta en una clínica privada el día anterior; el informe dice «espondiloartrosis L4–L5 con osteofitos y discopatía degenerativa». Está preocupado porque «tengo el disco salido y me dijeron que me puede dar parálisis».</p>
+  </div>
+
+  <details class="fase" open>
+    <summary>Fase 1 · Anamnesis dirigida <span class="tiempo">5 min</span></summary>
+    <div class="fase-body">
+      <ul>
+        <li><strong>Tiempo:</strong> 3 días. Aguda.</li>
+        <li><strong>Mecanismo:</strong> esfuerzo identificable; sin trauma significativo.</li>
+        <li><strong>Banderas rojas (las cuatro preguntas en bloque):</strong> niega fiebre, niega pérdida de peso, niega problemas con orina o control de esfínteres, niega debilidad clara para mover la pierna o el pie. <strong>Ninguna bandera roja activa.</strong></li>
+        <li><strong>Irradiación:</strong> el dolor llega hasta la nalga y la cara posterior del muslo, <strong>no pasa de la rodilla</strong>.</li>
+        <li><strong>STarT Back:</strong> 5 puntos totales, subescala de distrés 3 → <strong>riesgo medio</strong>, principalmente por <em>kinesiofobia</em> («no es seguro moverme», ítem 5) y por <em>catastrofización</em> («mi dolor es terrible y no va a mejorar», ítem 7).</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 2 · Examen físico mínimo <span class="tiempo">3 min</span></summary>
+    <div class="fase-body">
+      <ul>
+        <li>Sin deformidades.</li>
+        <li>Flexión global limitada por dolor; extensión conservada.</li>
+        <li><strong>Lasègue negativo bilateral.</strong></li>
+        <li>Camina en talones y en puntillas sin dificultad (L4–L5 y S1 conservadas).</li>
+        <li>Reflejos rotuliano y aquíleo simétricos.</li>
+      </ul>
+      <p style="margin-bottom: 0; color: var(--azulacad); font-weight: 600;">Conclusión del examen: sin déficit neurológico, sin radiculopatía.</p>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 3 · Manejo de la radiografía traída por el paciente <span class="tiempo">2 min</span></summary>
+    <div class="fase-body">
+      <p style="font-style: italic; padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 0 0 10px;">«Carlos, los hallazgos que aparecen aquí —osteofitos, discopatía— son parte del envejecimiento normal de la columna y se ven en la mayoría de las personas de su edad sin que tengan dolor. Tres de cada cinco personas de cincuenta años tienen una protrusión discal en la resonancia y caminan sin saberlo. <strong>Esto no es lo que le está produciendo el dolor.</strong>»</p>
+      <p style="margin-bottom: 0">La radiografía que llegó como amenaza se convierte en oportunidad pedagógica. Devolver el control al paciente es parte del tratamiento.</p>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 4 · Diagnóstico positivo y plan <span class="tiempo">5 min</span></summary>
+    <div class="fase-body">
+      <p style="font-style: italic; padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 0 0 12px;">«Lo que usted tiene es una <strong>lumbalgia inespecífica aguda</strong>, por sobrecarga del trabajo. Casi todas mejoran en dos a cuatro semanas. El reposo en cama empeora este cuadro. Le voy a recomendar:»</p>
+      <ul>
+        <li><strong>Analgesia:</strong> ibuprofeno 400 mg c/8 h × 5–7 días; paracetamol 1 g c/8 h si persiste el dolor.</li>
+        <li><strong>Actividad:</strong> caminar al menos 20 minutos cada día, seguir manejando el bus si tolera el dolor, evitar cargar pesos &gt; 10 kg en las próximas dos semanas.</li>
+        <li><strong>Educación dirigida al riesgo medio:</strong> material escrito con los mensajes clave; enfatizar que el <em>miedo a moverse</em> es lo que más cronifica el dolor; sesión corta con fisioterapia centrada en educación y reactivación, no en modalidades pasivas.</li>
+        <li><strong>Banderas rojas para volver antes:</strong> debilidad, pérdida de control de esfínteres, fiebre, dolor que no mejora en absoluto en dos semanas.</li>
+        <li><strong>Control en 4 semanas</strong> para reevaluar y repetir el STarT Back.</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="card verde">
+    <h4>Lo que el médico general logró en 15 minutos</h4>
+    <p style="margin-bottom: 0">Carlos sale con un <strong>diagnóstico positivo</strong>, una <strong>conducta clara</strong>, <strong>sin nuevas imágenes</strong> y con una <strong>intervención psicosocial proporcional al riesgo</strong>. La radiografía que llegó como amenaza se convirtió en oportunidad pedagógica. Ese es el ejercicio del médico general en la consulta de quince minutos.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 9: CASOS CLÍNICOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes. Aplique banderas rojas, STarT Back y los criterios de imagen para responder.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 10: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de banderas rojas, STarT Back, examen físico, criterios de imagen y tratamiento.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Banderas rojas — tamizaje por síndrome
+// =========================================================
+const sindromeNombres = {
+  cancer:    'Cáncer',
+  infeccion: 'Infección espinal',
+  cauda:     'Cauda equina',
+  fractura:  'Fractura por compresión',
+  espa:      'Espondiloartritis axial'
+};
+
+const sindromePlan = {
+  cancer:    'Resonancia magnética; descartar metástasis vertebral. Buscar primario si es necesario.',
+  infeccion: 'Hemograma, PCR, hemocultivos; resonancia con contraste; remisión a infectología/columna según hallazgos.',
+  cauda:     'Urgencia quirúrgica. Remisión inmediata a neurocirugía. NO esperar imagen ambulatoria.',
+  fractura:  'Radiografía simple de columna lumbar inicialmente; densitometría si se confirma fractura osteoporótica.',
+  espa:      'Buscar VSG, PCR, HLA-B27; radiografía de sacroilíacas; remisión a reumatología si patrón coherente.'
+};
+
+document.querySelectorAll('.bandera-grupo input[data-bandera]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const lbl = cb.parentElement;
+    lbl.classList.toggle('checked', cb.checked);
+    actualizarBanderas();
+  });
+});
+
+function actualizarBanderas() {
+  const alertas = document.getElementById('bandera-alertas');
+  const msg = document.getElementById('bandera-msg');
+  alertas.innerHTML = '';
+  let activos = [];
+  let cauda = false;
+
+  document.querySelectorAll('.bandera-grupo').forEach(grupo => {
+    const sind = grupo.dataset.sindrome;
+    const total = grupo.querySelectorAll('input[data-bandera]').length;
+    const marcados = grupo.querySelectorAll('input[data-bandera]:checked').length;
+    if (marcados === 0) return;
+    if (sind === 'cauda' && marcados >= 1) cauda = true;
+    activos.push({ sind, marcados, total });
+  });
+
+  if (activos.length === 0) {
+    msg.className = 'empty';
+    msg.textContent = 'Marque hallazgos arriba para ver qué síndrome se está activando.';
+    return;
+  }
+
+  // Cauda equina: 1 bandera ya es urgencia
+  activos.forEach(a => {
+    const pill = document.createElement('span');
+    pill.className = 'alerta-pill' + (a.marcados >= 2 || a.sind === 'cauda' ? '' : ' warn');
+    pill.textContent = `${sindromeNombres[a.sind]} · ${a.marcados}/${a.total}`;
+    alertas.appendChild(pill);
+  });
+
+  let html = '<ul style="margin: 8px 0 0 18px;">';
+  activos.forEach(a => {
+    const fuerte = a.marcados >= 2 || a.sind === 'cauda';
+    if (fuerte) {
+      html += `<li><strong style="color: var(--jamared);">${sindromeNombres[a.sind]}:</strong> ${sindromePlan[a.sind]}</li>`;
+    } else {
+      html += `<li><strong style="color: var(--amarillo);">${sindromeNombres[a.sind]} (1 hallazgo aislado):</strong> ampliar anamnesis dirigida; combinación con otros hallazgos del mismo síndrome cambia la conducta.</li>`;
+    }
+  });
+  html += '</ul>';
+
+  if (cauda) {
+    html = `<div style="background: var(--jamared); color: white; padding: 10px 14px; border-radius: 4px; margin-bottom: 10px; font-weight: 600;">⚠ Cauda equina sospechada: derivación neuroquirúrgica inmediata, sin esperar imagen ambulatoria.</div>` + html;
+  }
+
+  msg.className = '';
+  msg.innerHTML = html;
+}
+
+function resetBanderas() {
+  document.querySelectorAll('.bandera-grupo input[data-bandera]:checked').forEach(cb => {
+    cb.checked = false;
+    cb.parentElement.classList.remove('checked');
+  });
+  actualizarBanderas();
+}
+
+// =========================================================
+// STarT Back
+// =========================================================
+const sbItems = [
+  { txt: 'Mi dolor de espalda se ha extendido por la pierna en algún momento.', sub: false },
+  { txt: 'He tenido dolor en el hombro o en el cuello en algún momento.', sub: false },
+  { txt: 'Solo he caminado distancias cortas por mi dolor de espalda.', sub: false },
+  { txt: 'Me he vestido más despacio de lo habitual por mi dolor de espalda.', sub: false },
+  { txt: 'No es realmente seguro que una persona con mi dolor sea físicamente activa.', sub: true },
+  { txt: 'Pensamientos preocupantes han pasado por mi mente con frecuencia.', sub: true },
+  { txt: 'Siento que mi dolor de espalda es terrible y nunca va a mejorar.', sub: true },
+  { txt: 'En general no he disfrutado las cosas como solía hacerlo.', sub: true },
+  { txt: '¿Cuán molesto ha sido en general el dolor de espalda?', sub: true, escala: true }
+];
+
+const sbCont = document.getElementById('sb-items');
+sbItems.forEach((it, idx) => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  let opciones;
+  if (it.escala) {
+    opciones = `
+      <label data-item="${idx}" data-val="0"><input type="radio" name="sb-${idx}" value="0">Nada</label>
+      <label data-item="${idx}" data-val="0"><input type="radio" name="sb-${idx}" value="0">Poco</label>
+      <label data-item="${idx}" data-val="0"><input type="radio" name="sb-${idx}" value="0">Moderado</label>
+      <label data-item="${idx}" data-val="1"><input type="radio" name="sb-${idx}" value="1">Mucho</label>
+      <label data-item="${idx}" data-val="1"><input type="radio" name="sb-${idx}" value="1">Muchísimo</label>
+    `;
+  } else {
+    opciones = `
+      <label data-item="${idx}" data-val="1"><input type="radio" name="sb-${idx}" value="1">De acuerdo</label>
+      <label data-item="${idx}" data-val="0"><input type="radio" name="sb-${idx}" value="0">En desacuerdo</label>
+    `;
+  }
+  div.innerHTML = `<span class="pregunta"><span class="num">${idx + 1}.</span>${it.txt}${it.sub ? '<span class="subescala">distrés</span>' : ''}</span><div class="opciones">${opciones}</div>`;
+  sbCont.appendChild(div);
+});
+
+document.querySelectorAll('#sb-items label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const itemIdx = lbl.dataset.item;
+    sbCont.querySelectorAll(`label[data-item="${itemIdx}"]`).forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarStartback();
+  });
+});
+
+const sbPlanes = {
+  bajo: {
+    cat: 'Bajo riesgo',
+    plan: `<strong>Plan:</strong>
+      <ul>
+        <li><strong>Educación + tranquilización:</strong> diagnóstico positivo, mensajes clave, mantener actividad ordinaria.</li>
+        <li><strong>Analgesia:</strong> AINE en ciclo corto.</li>
+        <li><strong>Sin fisioterapia rutinaria:</strong> el sobre-tratamiento empeora desenlaces en este grupo.</li>
+        <li>Control en 4 semanas si persiste o si aparecen banderas rojas.</li>
+      </ul>`
+  },
+  medio: {
+    cat: 'Riesgo medio',
+    plan: `<strong>Plan:</strong>
+      <ul>
+        <li>Educación + tranquilización + analgesia (igual que bajo riesgo).</li>
+        <li><strong>Fisioterapia activa:</strong> centrada en educación, reactivación y movilidad funcional, NO en modalidades pasivas (TENS, ultrasonido, etc.).</li>
+        <li>Refuerzo del mensaje contra la kinesiofobia: el miedo a moverse cronifica más que el dolor mismo.</li>
+        <li>Control en 4 semanas con repetición del STarT Back.</li>
+      </ul>`
+  },
+  alto: {
+    cat: 'Alto riesgo',
+    plan: `<strong>Plan:</strong>
+      <ul>
+        <li>Educación + analgesia + fisioterapia activa.</li>
+        <li><strong>Intervención cognitivo-conductual:</strong> programa estructurado para abordar catastrofización, kinesiofobia y distrés psicosocial.</li>
+        <li>Considerar manejo multidisciplinario (medicina física, psicología, fisioterapia).</li>
+        <li>Vigilancia activa de cronificación; reevaluación frecuente.</li>
+      </ul>`
+  }
+};
+
+function actualizarStartback() {
+  const seleccionados = document.querySelectorAll('#sb-items label.selected');
+  const r = document.getElementById('sb-resultado');
+  if (seleccionados.length < 9) {
+    r.className = 'startback-resultado empty';
+    r.textContent = `Conteste los 9 ítems para ver el puntaje y el plan de manejo según riesgo. (${seleccionados.length}/9 contestados)`;
+    return;
+  }
+  let total = 0, distres = 0;
+  seleccionados.forEach(lbl => {
+    const v = parseInt(lbl.dataset.val);
+    const idx = parseInt(lbl.dataset.item);
+    total += v;
+    if (sbItems[idx].sub) distres += v;
+  });
+  let nivel;
+  if (total <= 3) nivel = 'bajo';
+  else if (distres <= 3) nivel = 'medio';
+  else nivel = 'alto';
+  const p = sbPlanes[nivel];
+  r.className = 'startback-resultado ' + nivel;
+  r.innerHTML = `
+    <div class="puntajes">
+      <div><span class="label">Puntaje total</span><span class="num">${total}</span><span class="max"> / 9</span></div>
+      <div><span class="label">Subescala de distrés</span><span class="num">${distres}</span><span class="max"> / 5</span></div>
+    </div>
+    <div class="categoria">${p.cat}</div>
+    <div class="plan">${p.plan}</div>
+  `;
+}
+function resetStartback() {
+  document.querySelectorAll('#sb-items label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#sb-items input:checked').forEach(i => i.checked = false);
+  const r = document.getElementById('sb-resultado');
+  r.className = 'startback-resultado empty';
+  r.textContent = 'Conteste los 9 ítems para ver el puntaje y el plan de manejo según riesgo.';
+}
+
+// =========================================================
+// Algoritmo decisional para imagen
+// =========================================================
+document.querySelectorAll('.algo .rama').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const algo = btn.dataset.algo;
+    const cont = btn.closest('.algo');
+    cont.querySelectorAll('.rama').forEach(b => b.classList.remove('selected'));
+    cont.querySelectorAll('.respuesta').forEach(r => r.classList.remove('show'));
+    btn.classList.add('selected');
+    const resp = document.getElementById('resp-' + algo);
+    if (resp) resp.classList.add('show');
+  });
+});
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Lumbalgia aguda en adulto joven',
+    historia: 'Mujer de 32 años, oficinista. Dolor lumbar de 5 días tras mover muebles en su casa. No irradia más allá del glúteo. Sin fiebre, sin pérdida de peso, sin disfunción de esfínteres. Examen físico sin déficit neurológico. STarT Back: 2 puntos.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Resonancia magnética lumbar urgente', correcto: false },
+      { texto: 'Educación + AINE ciclo corto + mantener actividad + control en 4 semanas', correcto: true },
+      { texto: 'Reposo en cama por 7 días', correcto: false },
+      { texto: 'Tramadol + relajante muscular por 2 meses', correcto: false }
+    ],
+    feedback: 'Lumbalgia inespecífica aguda, bajo riesgo en STarT Back, sin banderas rojas. La conducta es educación con diagnóstico positivo, AINE en ciclo corto, mantener actividad ordinaria y control en 4 semanas. La imagen no aporta y puede ser nocebo. El reposo en cama empeora el cuadro.'
+  },
+  {
+    titulo: 'Caso 2 · Cauda equina',
+    historia: 'Hombre de 50 años con dolor lumbar y dolor irradiado bilateral en las piernas desde hace 3 semanas. Esta mañana refiere incontinencia urinaria nueva y sensación de adormecimiento perineal. Examen: hipoestesia en silla de montar, debilidad bilateral de dorsiflexión.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'AINE y control ambulatorio en 1 semana', correcto: false },
+      { texto: 'Resonancia ambulatoria a la semana siguiente', correcto: false },
+      { texto: 'Derivación inmediata a neurocirugía — urgencia quirúrgica', correcto: true },
+      { texto: 'Fisioterapia urgente', correcto: false }
+    ],
+    feedback: 'Síndrome de cauda equina: anestesia en silla de montar + incontinencia urinaria nueva + déficit motor bilateral. Es urgencia quirúrgica. La derivación a neurocirugía es inmediata; no se espera imagen ambulatoria. La descompresión temprana mejora el pronóstico funcional.'
+  },
+  {
+    titulo: 'Caso 3 · Lumbalgia con radiografía «aterradora»',
+    historia: 'Hombre de 48 años, mecánico. Lumbalgia aguda de 1 semana. Trae radiografía con informe de «espondiloartrosis severa, discopatía L4–L5 y L5–S1, osteofitos marginales». Está aterrorizado: «el médico me dijo que tengo la columna destruida». Examen físico normal, sin radiculopatía, sin banderas rojas. STarT Back: 4 puntos, distrés 3 (riesgo medio).',
+    pregunta: '¿Cómo aborda la radiografía?',
+    opciones: [
+      { texto: 'Confirmar al paciente que tiene la columna gravemente dañada', correcto: false },
+      { texto: 'Explicar que esos hallazgos son comunes en personas sin dolor de su edad y que no son la causa del dolor; reencuadrar como envejecimiento normal', correcto: true },
+      { texto: 'Solicitar resonancia para «confirmar» los hallazgos', correcto: false },
+      { texto: 'Derivar a neurocirugía', correcto: false }
+    ],
+    feedback: 'Los hallazgos degenerativos en imagen son ubicuos en asintomáticos (60% a los 50 años tienen protrusión). Reencuadrar es parte central del tratamiento: convertir la radiografía-amenaza en oportunidad pedagógica reduce la catastrofización y mejora el pronóstico. Riesgo medio en STarT Back justifica fisioterapia activa centrada en educación y reactivación.'
+  },
+  {
+    titulo: 'Caso 4 · Sospecha de fractura por compresión',
+    historia: 'Mujer de 78 años con osteoporosis conocida. Dolor lumbar súbito tras toser fuertemente esta mañana. Dolor a la palpación de apófisis espinosa de T12. Sin déficit neurológico. Sin fiebre, sin pérdida de peso.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'AINE y control en 4 semanas, sin imagen', correcto: false },
+      { texto: 'Radiografía simple de columna dorsolumbar', correcto: true },
+      { texto: 'Resonancia magnética con contraste urgente', correcto: false },
+      { texto: 'Solo manejo del dolor, no es relevante', correcto: false }
+    ],
+    feedback: 'Banderas rojas para fractura por compresión: osteoporosis + dolor a la palpación de apófisis espinosa + edad > 65 + trauma trivial (toser puede ser suficiente en columna osteoporótica). La radiografía simple es la imagen inicial apropiada. Densitometría confirmatoria si se documenta fractura osteoporótica nueva. Considerar inicio o ajuste de terapia antirresortiva.'
+  },
+  {
+    titulo: 'Caso 5 · Espondiloartritis axial',
+    historia: 'Hombre de 28 años con lumbalgia de 8 meses. Insidiosa, peor en las mañanas con rigidez de 1 hora, mejora al moverse. Buena respuesta a AINE. Antecedente de uveítis hace 2 años. Sin trauma.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Diagnóstico de lumbalgia inespecífica, AINE prolongado, sin más', correcto: false },
+      { texto: 'Sospecha de espondiloartritis axial: VSG, PCR, HLA-B27, radiografía de sacroilíacas, remisión a reumatología', correcto: true },
+      { texto: 'Resonancia lumbar para descartar hernia discal', correcto: false },
+      { texto: 'Reposo absoluto y opioide', correcto: false }
+    ],
+    feedback: 'Patrón clásico de espondiloartritis axial: < 45 años, dolor inflamatorio (insidioso, mejora con ejercicio, rigidez matutina prolongada), respuesta a AINE, manifestación extraarticular (uveítis previa). Es necesario VSG/PCR, HLA-B27, radiografía de sacroilíacas (o resonancia si Rx normal y alta sospecha) y remisión a reumatología.'
+  },
+  {
+    titulo: 'Caso 6 · STarT Back alto',
+    historia: 'Mujer de 38 años con lumbalgia crónica de 8 meses. STarT Back 8/9, distrés 5/5: catastrofización marcada, kinesiofobia, anhedonia. Examen físico sin déficit. Múltiples consultas previas, varios analgésicos sin mejoría.',
+    pregunta: '¿Plan más adecuado?',
+    opciones: [
+      { texto: 'Solo AINE más fuertes', correcto: false },
+      { texto: 'Pedir resonancia para «encontrar la causa real»', correcto: false },
+      { texto: 'Educación + ejercicio supervisado + intervención cognitivo-conductual + manejo multidisciplinario', correcto: true },
+      { texto: 'Iniciar opioide fuerte', correcto: false }
+    ],
+    feedback: 'Alto riesgo en STarT Back exige adaptar el tratamiento: el componente psicosocial es lo que más predice el desenlace. Educación + ejercicio supervisado + intervención cognitivo-conductual + manejo multidisciplinario. Los opioides fuertes NO están recomendados para lumbalgia crónica inespecífica. Más imagen no aclara nada y puede empeorar la catastrofización.'
+  },
+  {
+    titulo: 'Caso 7 · Lumbociatalgia con radiculopatía L5',
+    historia: 'Hombre de 40 años con dolor lumbar irradiado al dorso del primer dedo del pie izquierdo desde hace 2 semanas. Dificultad para caminar en talones. Examen: fuerza 4/5 en dorsiflexión y extensión del primer dedo izquierdo; reflejo aquíleo simétrico. Lasègue positivo a 45° izquierdo. Sin banderas rojas.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Resonancia magnética urgente y derivación inmediata a neurocirugía', correcto: false },
+      { texto: 'Manejo conservador 4–6 semanas (AINE, mantener actividad, fisioterapia activa) y reevaluar', correcto: true },
+      { texto: 'Reposo absoluto en cama y opioide', correcto: false },
+      { texto: 'Cirugía de hernia discal de inmediato', correcto: false }
+    ],
+    feedback: 'Radiculopatía L5 (dolor en dorso del primer dedo, debilidad de dorsiflexión, talones) sin déficit progresivo ni cauda equina. La imagen no es necesaria de inmediato; la conducta es manejo conservador 4–6 semanas. Si persiste o progresa el déficit, entonces resonancia y consulta de columna. La cirugía electiva se reserva para los que no mejoran o tienen indicación clara.'
+  },
+  {
+    titulo: 'Caso 8 · El paciente que pide la resonancia',
+    historia: 'Hombre de 55 años con lumbalgia de 4 semanas, sin irradiación más allá del glúteo, sin banderas rojas, examen normal. STarT Back 3/9 (bajo riesgo). Insiste: «doctor, hágame la resonancia, quiero saber qué tengo».',
+    pregunta: '¿Cuál es la mejor respuesta?',
+    opciones: [
+      { texto: 'Solicitar la resonancia para satisfacer al paciente', correcto: false },
+      { texto: 'Explicar el diagnóstico positivo (lumbalgia inespecífica) y los argumentos contra la imagen rutinaria; pactar control en 4 semanas y ofrecer imagen si aparecen banderas rojas o no hay mejoría', correcto: true },
+      { texto: 'Despachar al paciente sin más explicación', correcto: false },
+      { texto: 'Solicitar radiografía como «alternativa intermedia»', correcto: false }
+    ],
+    feedback: 'La conducta correcta es educación: explicar por qué la imagen no aporta (alta prevalencia de hallazgos en asintomáticos, riesgo de nocebo, ausencia de cambio en el manejo). Pactar un plan claro y un criterio de reevaluación. Ceder a la solicitud por «satisfacer al paciente» normaliza la imagen y a largo plazo empeora desenlaces.'
+  },
+  {
+    titulo: 'Caso 9 · Sospecha de cáncer',
+    historia: 'Hombre de 62 años con antecedente de cáncer de próstata tratado hace 3 años. Lumbalgia de 4 semanas que no mejora con el reposo, peor en la noche. Pérdida de 5 kg en 2 meses. Examen: dolor a la palpación de L3.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'AINE y control en 4 semanas', correcto: false },
+      { texto: 'Resonancia magnética lumbar para descartar metástasis vertebral; ampliar estudio oncológico', correcto: true },
+      { texto: 'Tranquilizar al paciente, es lumbalgia inespecífica', correcto: false },
+      { texto: 'Solo radiografía simple', correcto: false }
+    ],
+    feedback: 'Cuatro banderas rojas concurrentes para sospecha de cáncer: edad > 50 + cáncer previo + pérdida de peso + dolor nocturno que no mejora con reposo. La concurrencia de banderas en un mismo síndrome es lo que cambia la conducta (no una bandera aislada). Resonancia + ampliar estudio oncológico (PSA, marcadores, valoración por oncología).'
+  },
+  {
+    titulo: 'Caso 10 · Lumbalgia subaguda sin mejoría',
+    historia: 'Mujer de 45 años con lumbalgia de 8 semanas. Manejo inicial con AINE y educación; mejoría parcial pero sigue con dolor moderado y limitación funcional. Sin banderas rojas, sin déficit neurológico. STarT Back 5/9, distrés 3/5 (medio).',
+    pregunta: '¿Próximo paso?',
+    opciones: [
+      { texto: 'Resonancia para «buscar la causa»', correcto: false },
+      { texto: 'Iniciar opioide fuerte', correcto: false },
+      { texto: 'Intensificar fisioterapia activa con ejercicio supervisado, reevaluar STarT Back, considerar adyuvantes farmacológicos', correcto: true },
+      { texto: 'Reposo absoluto en cama', correcto: false }
+    ],
+    feedback: 'Subaguda con riesgo medio en STarT Back: intensificar fisioterapia activa con ejercicio supervisado (no modalidades pasivas), reforzar educación contra la kinesiofobia y reevaluar. La imagen no se justifica sin banderas rojas ni déficit. Los opioides fuertes y el reposo están contraindicados.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'La proporción de consultas por lumbalgia en atención primaria que corresponden a la forma inespecífica es:', o:['Aproximadamente 50%','Aproximadamente 70%','Más del 90%','Menos del 30%'], c:2, e:'Más del 90% de las lumbalgias en atención primaria son inespecíficas. Las causas específicas suman menos del 10%.' },
+  { p: 'Una sola bandera roja para cauda equina (anestesia en silla de montar):', o:['No cambia la conducta si está aislada','Es urgencia quirúrgica e indica derivación inmediata','Solo justifica radiografía simple','Se puede manejar ambulatoriamente con AINE'], c:1, e:'Es la excepción a la regla de "combinar banderas". El síndrome de cauda equina es urgencia quirúrgica: derivación neuroquirúrgica inmediata sin esperar imagen ambulatoria.' },
+  { p: 'En el STarT Back, el alto riesgo se define por:', o:['Puntaje total ≥ 7','Subescala de distrés (ítems 5–9) ≥ 4','Cualquier respuesta afirmativa al ítem 1','Edad mayor a 60 años'], c:1, e:'Alto riesgo = subescala de distrés psicosocial ≥ 4. Indica intervención cognitivo-conductual además del manejo estándar.' },
+  { p: 'En lumbalgia aguda inespecífica sin banderas rojas, la conducta correcta sobre imagen es:', o:['Radiografía rutinaria','Resonancia rutinaria','No pedir imagen','Solo TAC'], c:2, e:'No se pide imagen rutinaria. Los hallazgos degenerativos son ubicuos en asintomáticos (84% a los 80 años) y la imagen indiscriminada se asocia a peor pronóstico.' },
+  { p: 'La maniobra de Lasègue es positiva cuando:', o:['Reproduce dolor lumbar a cualquier ángulo','Reproduce dolor radicular irradiado por debajo de la rodilla entre 30–70°','Reproduce dolor en cara posterior del muslo','Provoca dolor a 90° de elevación'], c:1, e:'Lasègue positivo = dolor radicular (territorio L5 o S1, por debajo de la rodilla) entre 30 y 70°. Dolor lumbar puro o en cara posterior del muslo NO es Lasègue positivo (es contractura o limitación de isquiotibiales).' },
+  { p: 'La caminata en talones explora:', o:['Raíces L2–L3','Raíces L4–L5 (dorsiflexores)','Raíz S1 (plantiflexores)','Raíz S2'], c:1, e:'Caminar en talones evalúa dorsiflexores (L4–L5). Caminar en puntillas evalúa plantiflexores (S1). Cubre las dos raíces más comprometidas en hernia discal.' },
+  { p: 'En lumbalgia crónica inespecífica, los opioides fuertes:', o:['Son la primera línea de manejo','Se recomiendan si dura > 12 semanas','NO están recomendados','Solo en pacientes ancianos'], c:2, e:'Los opioides fuertes NO están recomendados para uso crónico en lumbalgia inespecífica. Riesgo de tolerancia, dependencia, hiperalgesia inducida por opioides; sin beneficio sostenido en función.' },
+  { p: 'El tratamiento con mayor evidencia en lumbalgia crónica es:', o:['Opioides','Inyecciones epidurales','Ejercicio terapéutico sostenido y supervisado','Cirugía'], c:2, e:'Ejercicio terapéutico es la intervención con mayor evidencia. No hay un tipo claramente superior; importa que sea sostenido y supervisado. La adherencia es el mejor predictor de respuesta.' },
+  { p: 'La prevalencia de protrusión discal en personas asintomáticas a los 50 años es aproximadamente:', o:['10%','30%','60%','90%'], c:2, e:'A los 50 años, ~60% de los asintomáticos tiene protrusión discal en resonancia. La prevalencia sube a 84% a los 80 años. Esto explica por qué un hallazgo de imagen rara vez explica el síntoma.' },
+  { p: 'El paciente con lumbalgia y STarT Back de bajo riesgo se beneficia más de:', o:['Fisioterapia con modalidades pasivas','Educación + tranquilización + manejo simple, evitando sobre-tratamiento','Resonancia inmediata','Programa multidisciplinario intensivo'], c:1, e:'Bajo riesgo: educación + tranquilización + AINE en ciclo corto. El sobre-tratamiento (fisioterapia rutinaria, modalidades pasivas, imágenes) empeora desenlaces en este grupo. La esencia del enfoque STarT Back es adaptar la intensidad al riesgo.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
