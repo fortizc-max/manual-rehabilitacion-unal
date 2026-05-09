@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo C · Atlas de fuerza muscular · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo C: atlas operativo de exploración manual de la fuerza muscular. 15 grupos musculares con inervación, posición del paciente y del examinador, estabilización, resistencia y sustituciones. Escala MRC, brazo de palanca y mapa músculo-raíz-nervio.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: background 0.12s, color 0.12s, border-color 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; margin-top: 6px; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; letter-spacing: 0.01em; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .grado { font-family: var(--sans); font-weight: 700; color: var(--jamared); white-space: nowrap; text-align: center; }
+table.t .raiz { font-family: var(--sans); font-weight: 700; color: var(--azulacad); white-space: nowrap; }
+
+/* Selector de músculo */
+.atlas-selector {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.atlas-selector h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.atlas-selector select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 560px;
+}
+.atlas-selector select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+
+.atlas-detalle {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 8px 8px 0;
+  display: none;
+}
+.atlas-detalle.show { display: block; }
+.atlas-detalle h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+  margin: 0 0 6px;
+}
+.atlas-detalle .meta {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--azulacad);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.atlas-detalle .meta .raiz {
+  background: var(--azulacad-suave);
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-right: 6px;
+}
+.atlas-detalle .meta .nervio {
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 10px;
+  border-radius: 99px;
+}
+.atlas-detalle .secc {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--azulacad-mid);
+}
+.atlas-detalle .secc:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.atlas-detalle .secc .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+.atlas-detalle .secc .contenido {
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+.atlas-detalle .secc.sustituciones {
+  background: var(--amarillo-suave);
+  margin: 14px -22px -18px;
+  padding: 14px 22px 18px;
+  border-radius: 0 0 8px 0;
+  border-top: 1px solid var(--amarillo);
+}
+.atlas-detalle .secc.sustituciones .etiqueta { color: var(--amarillo); }
+
+/* MRC scale visual */
+.mrc-scale { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+.mrc-scale h4 { margin: 0 0 14px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.3rem; color: var(--jamared); }
+.mrc-grados { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.mrc-grado-btn {
+  font-family: var(--sans);
+  background: white;
+  border: 2px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--texto-suave);
+  min-width: 56px;
+  transition: all 0.15s;
+}
+.mrc-grado-btn:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.mrc-grado-btn.active { background: var(--jamared); border-color: var(--jamared); color: white; }
+.mrc-detalle {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  display: none;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+}
+.mrc-detalle.show { display: block; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo C</div>
+  <h1>Atlas de fuerza muscular</h1>
+  <div class="sub">15 grupos musculares · MRC · Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Cómo usar el atlas</button>
+  <button class="tab-btn" data-tab="mrc">2. Escala MRC</button>
+  <button class="tab-btn" data-tab="palanca">3. Brazo de palanca</button>
+  <button class="tab-btn" data-tab="sust">4. Sustituciones</button>
+  <button class="tab-btn" data-tab="atlas">5. 🔎 Atlas · selector de 15 grupos</button>
+  <button class="tab-btn" data-tab="mapa">6. Mapa músculo-raíz-nervio</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Cómo usar este atlas</h2>
+  <p>Este atlas reúne, organizadas por región anatómica, las pruebas manuales de fuerza muscular más útiles para el médico general en la rotación de Rehabilitación. La obra de referencia obligada para profundizar es <strong>Daniels y Worthingham</strong> (Hislop 2014, novena edición en español), del que se han adaptado libremente las maniobras y los criterios de graduación.</p>
+
+  <p>El presente atlas no pretende sustituir esa fuente, sino servir como <strong>guía operativa de bolsillo</strong>: 15 grupos musculares seleccionados por su rendimiento clínico en pregrado, descripciones en clave práctica con énfasis en los errores de ejecución y en las sustituciones que el médico general debe reconocer. Para maniobras ausentes o para el detalle de los grados inferiores (0–2), remitimos al lector a Hislop (2014).</p>
+
+  <h3>Estructura uniforme de cada entrada</h3>
+  <div class="card azul">
+    <ul style="margin-bottom: 0">
+      <li><strong>Inervación</strong> — nervio responsable y raíces medulares.</li>
+      <li><strong>Posición del paciente.</strong></li>
+      <li><strong>Posición del examinador.</strong></li>
+      <li><strong>Estabilización.</strong></li>
+      <li><strong>Resistencia</strong> — punto de contacto y dirección de la fuerza.</li>
+      <li><strong>Sustituciones</strong> — movimientos compensatorios que pueden aparentar fuerza normal cuando el músculo evaluado está débil.</li>
+    </ul>
+  </div>
+
+  <h3>Cómo navegar este anexo</h3>
+  <ul>
+    <li><strong>Pestaña 2:</strong> escala MRC interactiva (clic en cada grado para ver descripción).</li>
+    <li><strong>Pestaña 3:</strong> brazo de palanca · ventaja vs. desventaja, la diferencia entre 4 y 5.</li>
+    <li><strong>Pestaña 4:</strong> sustituciones más frecuentes — las trampas que sobreestiman la fuerza.</li>
+    <li><strong>Pestaña 5:</strong> 🔎 atlas con selector de los 15 grupos musculares.</li>
+    <li><strong>Pestaña 6:</strong> mapa músculo-raíz-nervio para lectura rápida en consulta.</li>
+  </ul>
+
+  <div class="card amarilla">
+    <h4>Tarea operativa</h4>
+    <p style="margin-bottom: 0">Practique las 15 maniobras del atlas con un compañero hasta ejecutarlas sin titubear. Para cada una, verifique mentalmente: <strong>(1) la inervación correspondiente, (2) la posición de ventaja vs. desventaja, y (3) las sustituciones que el paciente podría usar para aparentar fuerza normal</strong>. Esa lista mental es lo que diferencia un examen MRC de 4 minutos de uno de 30 segundos.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: MRC ==================== -->
+<section class="tab-content" id="mrc">
+  <h2>Escala MRC · Medical Research Council</h2>
+  <p>La escala del MRC es el estándar para cuantificar la fuerza muscular manual. Sus seis grados se publican desde 1942 en el manual oficial del MRC. Haga clic en cada grado para ver la descripción.</p>
+
+  <div class="mrc-scale">
+    <h4>Escala MRC (0–5)</h4>
+    <div class="mrc-grados">
+      <button class="mrc-grado-btn" data-mrc="0">0</button>
+      <button class="mrc-grado-btn" data-mrc="1">1</button>
+      <button class="mrc-grado-btn" data-mrc="2">2</button>
+      <button class="mrc-grado-btn" data-mrc="3">3</button>
+      <button class="mrc-grado-btn" data-mrc="4">4</button>
+      <button class="mrc-grado-btn" data-mrc="5">5</button>
+    </div>
+    <div class="mrc-detalle" id="mrc-detalle"></div>
+  </div>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Grado</th><th>Descripción clínica</th></tr></thead>
+      <tbody>
+        <tr><td class="grado">0</td><td>Sin contracción muscular visible o palpable.</td></tr>
+        <tr><td class="grado">1</td><td>Contracción visible o palpable, sin movimiento articular.</td></tr>
+        <tr><td class="grado">2</td><td>Movimiento completo del segmento solo si se elimina la gravedad (movimiento en plano horizontal).</td></tr>
+        <tr><td class="grado">3</td><td>Movimiento completo contra la gravedad, sin resistencia.</td></tr>
+        <tr><td class="grado">4</td><td>Movimiento completo contra la gravedad con resistencia moderada.</td></tr>
+        <tr><td class="grado">5</td><td>Fuerza normal: movimiento completo contra la gravedad con resistencia máxima.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Modificadores 4−, 4 y 4+</h4>
+    <p style="margin-bottom: 0">El grado 4 es heterogéneo (cubre desde apenas vencer resistencia mínima hasta resistencia casi normal). Muchos servicios usan los modificadores <strong>4−</strong>, <strong>4</strong> y <strong>4+</strong>. Especifíquelos en la nota.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: BRAZO DE PALANCA ==================== -->
+<section class="tab-content" id="palanca">
+  <h2>Brazo de palanca · ventaja vs. desventaja</h2>
+  <p>La dificultad práctica del médico general no está en distinguir grado 0 del 1 ni grado 1 del 2, sino en <strong>diferenciar el grado 5 del grado 4</strong>. La solución consiste en explorar cada grupo muscular en posiciones de <strong>ventaja</strong> y <strong>desventaja</strong> del brazo de palanca.</p>
+
+  <div class="card azul">
+    <h4>Posición de ventaja</h4>
+    <p style="margin-bottom: 0">La articulación se coloca en el rango medio del arco de movimiento, con la <strong>palanca corta</strong>. La fuerza detectable es máxima. <em>La mayoría de los pacientes resisten con facilidad, incluso aquellos con debilidad sutil.</em></p>
+  </div>
+
+  <div class="card azul">
+    <h4>Posición de desventaja</h4>
+    <p style="margin-bottom: 0">La articulación se coloca al final del arco o con la <strong>palanca extendida</strong> (codo en extensión, rodilla extendida, etc.). Se aplica resistencia distal. <em>Se detectan pérdidas sutiles que no se ven en ventaja.</em></p>
+  </div>
+
+  <div class="card roja">
+    <h4>Regla operativa</h4>
+    <p style="margin-bottom: 0">Si el paciente conserva grado 5 en posición de <strong>desventaja</strong>, la fuerza es realmente normal. Si solo conserva el grado en ventaja pero falla en desventaja, asignar <strong>grado 4</strong>. <strong>Documentar el método empleado</strong> evita variabilidad inter-examinador.</p>
+  </div>
+
+  <h3>Ejemplo de aplicación · flexores del codo</h3>
+  <div class="card amarilla">
+    <p>Examen del <em>biceps brachii</em>:</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Posición de ventaja:</strong> codo flexionado cerca de 90°, antebrazo en supinación. El momento muscular es máximo y casi todos los pacientes resisten con facilidad — útil para confirmar la integridad gruesa pero NO permite separar grado 5 de grado 4.</li>
+      <li><strong>Posición de desventaja:</strong> codo casi extendido. El brazo de palanca se alarga, el momento muscular efectivo disminuye y el paciente debe generar mucho más esfuerzo para resistir la misma fuerza del examinador. <strong>Es la posición que descubre las debilidades sutiles</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: SUSTITUCIONES ==================== -->
+<section class="tab-content" id="sust">
+  <h2>Sustituciones · las trampas más frecuentes</h2>
+  <p>El paciente con debilidad real frecuentemente <strong>compensa con otros grupos musculares</strong> para completar el movimiento. Reconocer las sustituciones evita sobrevalorar la fuerza.</p>
+
+  <div class="card azul">
+    <h4>Sustitución por gravedad o impulso</h4>
+    <p style="margin-bottom: 0">El paciente <strong>lanza el segmento</strong> aprovechando el peso o un impulso del tronco. Visible como un movimiento brusco al inicio del arco que pierde control después.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Sustitución por músculos sinergistas</h4>
+    <p style="margin-bottom: 0">Otro músculo con función parcialmente solapada toma el relevo. Ejemplo clásico: el <em>pectoralis major</em> sustituyendo al <em>deltoideus</em> anterior en flexión de hombro.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Sustitución por inclinación del tronco</h4>
+    <p style="margin-bottom: 0">Frecuente en pruebas de cadera y de hombro: el paciente <strong>desplaza el centro de masa</strong> para producir movimiento aparente. Por eso al examinar flexión de cadera sentado debe vigilarse que el tronco no se incline hacia atrás.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Sustitución por reposicionamiento articular</h4>
+    <p style="margin-bottom: 0">El paciente <strong>modifica el ángulo articular</strong> para mejorar el brazo de palanca a su favor. Detectable porque la postura inicial cambia subrepticiamente durante la prueba.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>Detectarlas implica observar el cuerpo entero, no solo el músculo evaluado</h4>
+    <p style="margin-bottom: 0">El error frecuente es centrar la atención en el segmento donde se aplica resistencia. La compensación ocurre lejos: en el tronco, en la pelvis, en la cabeza, en el hombro contralateral. <strong>Mire lo que hace el resto del cuerpo</strong> mientras el paciente intenta producir el movimiento.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: ATLAS · SELECTOR ==================== -->
+<section class="tab-content" id="atlas">
+  <h2>🔎 Atlas · selector por grupo muscular</h2>
+  <p>Quince grupos musculares organizados por región. Seleccione uno para ver el protocolo completo.</p>
+
+  <div class="atlas-selector">
+    <h4>¿Qué grupo muscular va a evaluar?</h4>
+    <select id="atlas-select">
+      <option value="">— elija un grupo muscular —</option>
+      <optgroup label="Cintura escapular">
+        <option value="trapecio-medio">Aducción escapular (trapezius fibras medias)</option>
+        <option value="romboides">Aducción con rotación inferior (rhomboideus mayor y menor)</option>
+        <option value="serrato">Abducción y rotación superior (serratus anterior)</option>
+      </optgroup>
+      <optgroup label="Miembro superior">
+        <option value="abd-hombro">Abducción del hombro (deltoideus + supraspinatus)</option>
+        <option value="flex-codo">Flexión del codo (biceps brachii + brachialis)</option>
+        <option value="ext-codo">Extensión del codo (triceps brachii)</option>
+        <option value="ext-carpo">Extensión del carpo (extensor carpi radialis y ulnaris)</option>
+        <option value="abd-pulgar">Abducción del pulgar (abductor pollicis brevis)</option>
+      </optgroup>
+      <optgroup label="Miembro inferior">
+        <option value="flex-cadera">Flexión de cadera (iliopsoas)</option>
+        <option value="ext-cadera">Extensión de cadera (gluteus maximus + isquiotibiales)</option>
+        <option value="abd-cadera">Abducción de cadera (gluteus medius + minimus)</option>
+        <option value="ext-rodilla">Extensión de rodilla (quadriceps femoris)</option>
+        <option value="flex-rodilla">Flexión de rodilla (isquiotibiales)</option>
+        <option value="dorsiflex">Dorsiflexión del tobillo (tibialis anterior)</option>
+        <option value="plantiflex">Flexión plantar (gastrocnemius + soleus)</option>
+      </optgroup>
+    </select>
+    <div class="atlas-detalle" id="atlas-det"></div>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: MAPA ==================== -->
+<section class="tab-content" id="mapa">
+  <h2>Mapa músculo-raíz-nervio</h2>
+  <p>Resumen para lectura rápida en consulta o durante interconsulta hospitalaria. Las acciones evaluadas en este atlas, con su correlato radicular y nervioso.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Acción</th><th>Raíz / nervio</th><th>Músculo principal</th></tr></thead>
+      <tbody>
+        <tr><td>Aducción escapular</td><td class="raiz">C3–C4 / espinal accesorio</td><td><em>Trapezius</em> (fibras medias)</td></tr>
+        <tr><td>Aducción con rotación inferior</td><td class="raiz">C4–C5 / dorsal escapular</td><td><em>Rhomboideus</em> mayor y menor</td></tr>
+        <tr><td>Abducción escapular</td><td class="raiz">C5–C7 / torácico largo</td><td><em>Serratus anterior</em></td></tr>
+        <tr><td>Abducción del hombro</td><td class="raiz">C5–C6 / axilar, supraescapular</td><td><em>Deltoideus</em> + <em>supraspinatus</em></td></tr>
+        <tr><td>Flexión del codo</td><td class="raiz">C5–C6 / musculocutáneo</td><td><em>Biceps brachii</em>, <em>brachialis</em></td></tr>
+        <tr><td>Extensión del codo</td><td class="raiz">C7 / radial</td><td><em>Triceps brachii</em></td></tr>
+        <tr><td>Extensión del carpo</td><td class="raiz">C6–C7 / radial</td><td><em>Extensor carpi radialis</em> y <em>ulnaris</em></td></tr>
+        <tr><td>Abducción del pulgar</td><td class="raiz">C8–T1 / mediano</td><td><em>Abductor pollicis brevis</em></td></tr>
+        <tr><td>Flexión de cadera</td><td class="raiz">L1–L3 / femoral, plexo lumbar</td><td><em>Iliopsoas</em></td></tr>
+        <tr><td>Extensión de cadera</td><td class="raiz">L5–S2 / glúteo inferior, ciático</td><td><em>Gluteus maximus</em>, isquiotibiales</td></tr>
+        <tr><td>Abducción de cadera</td><td class="raiz">L4–S1 / glúteo superior</td><td><em>Gluteus medius</em></td></tr>
+        <tr><td>Extensión de rodilla</td><td class="raiz">L2–L4 / femoral</td><td><em>Quadriceps femoris</em></td></tr>
+        <tr><td>Flexión de rodilla</td><td class="raiz">L5–S2 / ciático</td><td>Isquiotibiales</td></tr>
+        <tr><td>Dorsiflexión del tobillo</td><td class="raiz">L4–L5 / peroneo profundo</td><td><em>Tibialis anterior</em></td></tr>
+        <tr><td>Flexión plantar</td><td class="raiz">S1–S2 / tibial</td><td><em>Gastrocnemius</em>, <em>soleus</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card azul">
+    <h4>Cómo usar este mapa en consulta</h4>
+    <p style="margin-bottom: 0">Cuando un paciente consulta por debilidad focal, identifique el patrón:</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Patrón por raíz:</strong> debilidad en músculos inervados por <em>nervios distintos pero raíces comunes</em> → <em>radiculopatía</em>.</li>
+      <li><strong>Patrón por nervio:</strong> debilidad en músculos inervados por <em>raíces distintas pero un nervio común</em> → <em>neuropatía periférica</em>.</li>
+      <li><strong>Patrón distribuido en muchos territorios:</strong> polineuropatía, miopatía o lesión central.</li>
+    </ul>
+    <p style="margin-bottom: 0; margin-top: 8px;">El localizador de raíz/nervio del cap. 1 (<a href="../01-anatomia/" style="color: var(--azulacad);">anatomía aplicada</a>) automatiza esta lógica.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// MRC scale
+const mrcDesc = {
+  '0': { titulo: 'Grado 0 · Sin contracción', desc: 'Ausencia de contracción muscular visible o palpable. Equivale a plejía completa del músculo evaluado.' },
+  '1': { titulo: 'Grado 1 · Esbozo de contracción', desc: 'Contracción visible o palpable, sin movimiento articular. El examinador palpa la unidad músculo-tendón mientras pide al paciente que produzca el movimiento.' },
+  '2': { titulo: 'Grado 2 · Movimiento sin gravedad', desc: 'Movimiento completo del segmento solo si se elimina la gravedad (movimiento en plano horizontal). El paciente recorre todo el arco articular pero no logra vencer el peso del segmento contra la gravedad.' },
+  '3': { titulo: 'Grado 3 · Contra gravedad', desc: 'Movimiento completo contra la gravedad, sin resistencia adicional aplicada por el examinador. Es el umbral funcional mínimo para muchas actividades cotidianas.' },
+  '4': { titulo: 'Grado 4 · Contra resistencia parcial', desc: 'Movimiento completo contra la gravedad con resistencia moderada. Heterogéneo: cubre desde apenas vencer resistencia mínima (4−) hasta resistencia casi normal (4+). Documentar el modificador.' },
+  '5': { titulo: 'Grado 5 · Fuerza normal', desc: 'Movimiento completo contra la gravedad con resistencia máxima esperada para edad y sexo. La diferencia entre 5 y 4 se confirma con la posición de desventaja del brazo de palanca: si conserva 5 en desventaja, la fuerza es realmente normal.' }
+};
+document.querySelectorAll('.mrc-grado-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mrc-grado-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const d = mrcDesc[btn.dataset.mrc];
+    const det = document.getElementById('mrc-detalle');
+    det.innerHTML = `<h5 style="font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.2rem; color: var(--jamared); margin: 0 0 6px;">${d.titulo}</h5><div>${d.desc}</div>`;
+    det.classList.add('show');
+  });
+});
+
+// Atlas
+const atlas = {
+  'trapecio-medio': {
+    titulo: 'Aducción escapular',
+    musculo: 'Trapezius (fibras medias)',
+    raices: 'C3–C4',
+    nervio: 'Espinal accesorio (NC XI)',
+    paciente: 'Decúbito prono, cabeza girada al lado opuesto al examinado. Hombro a 90° de abducción horizontal, codo extendido, antebrazo y mano colgando del borde de la camilla con palma hacia el suelo.',
+    examinador: 'De pie, lateral a la camilla, del lado del miembro examinado.',
+    estabilizacion: 'Mano contraria sobre la escápula opuesta o el hemitórax, evitando rotación del tronco.',
+    resistencia: 'Aplicada en la cara dorsal del tercio distal del húmero, en dirección al suelo (abducción horizontal).',
+    sustituciones: 'Rotación del tronco; uso del rhomboideus mayor (que también aduce la escápula pero con descenso simultáneo).'
+  },
+  'romboides': {
+    titulo: 'Aducción escapular con rotación inferior',
+    musculo: 'Rhomboideus mayor y menor',
+    raices: 'C4–C5 (predomina C5)',
+    nervio: 'Dorsal escapular',
+    paciente: 'Decúbito prono. La mano del lado examinado se coloca sobre la región lumbar baja, con la palma hacia arriba; el codo flexionado y el hombro en rotación interna y extensión leve. Esta postura coloca al rhomboideus en posición ventajosa y limita la participación del trapezius medio.',
+    examinador: 'De pie al lado del paciente, en el costado opuesto al examinado.',
+    estabilizacion: 'Una mano sobre el hemitórax contralateral o la cresta ilíaca, evitando rotación del tronco.',
+    resistencia: 'La otra mano se apoya sobre el codo y la cara medial del brazo, empujando en dirección al suelo (contra el movimiento de aducción y elevación escapular). Una variante útil es palpar simultáneamente el borde medial de la escápula para sentir la contracción del rhomboideus.',
+    sustituciones: 'Aducción escapular por trapezius medio (si el brazo se aleja del lumbar antes de tiempo); extensión de hombro por deltoideus posterior; rotación del tronco hacia el lado opuesto.'
+  },
+  'serrato': {
+    titulo: 'Abducción y rotación superior escapular',
+    musculo: 'Serratus anterior',
+    raices: 'C5–C7',
+    nervio: 'Torácico largo',
+    paciente: 'Sentado, hombro en flexión a 130° con codo extendido y palma orientada hacia adelante.',
+    examinador: 'De pie o arrodillado detrás del paciente.',
+    estabilizacion: 'Una mano monitorea el ángulo inferior y el borde vertebral de la escápula, vigilando el aleteo (escápula alada medial).',
+    resistencia: 'Aplicada inmediatamente proximal al codo, en la cara dorsal del húmero, dirigida hacia el suelo y ligeramente posterior.',
+    sustituciones: 'Rotación del tronco hacia el lado opuesto; elevación del hombro por el trapezius superior. <strong>Variante funcional de cabecera</strong>: pedir al paciente empujar con la palma extendida contra una pared con codo recto; si el serrato está débil, el borde medial de la escápula se desprende y aparece la escápula alada medial.'
+  },
+  'abd-hombro': {
+    titulo: 'Abductores del hombro',
+    musculo: 'Deltoideus (porción media) y supraspinatus',
+    raices: 'C5–C6',
+    nervio: 'Axilar (deltoideus) y supraescapular (supraspinatus)',
+    paciente: 'Sentado, codo ligeramente flexionado, extremidad superior abducida a 90° en el plano de la escápula, palma hacia abajo.',
+    examinador: 'De pie detrás del paciente, del lado del miembro examinado.',
+    estabilizacion: 'Mano contraria sobre el hombro opuesto si el paciente tiende a inclinarse al lado contrario.',
+    resistencia: 'La mano contacta la cara lateral del brazo inmediatamente proximal al codo y empuja hacia abajo.',
+    sustituciones: 'Inclinación del tronco al lado contrario; elevación de la cintura escapular por el trapezius superior.'
+  },
+  'flex-codo': {
+    titulo: 'Flexores del codo',
+    musculo: 'Biceps brachii y brachialis',
+    raices: 'C5–C6',
+    nervio: 'Musculocutáneo',
+    paciente: 'Sentado, brazos al lado del cuerpo, antebrazo en supinación (palma hacia arriba) para aislar el biceps brachii.',
+    examinador: 'De pie de frente al paciente.',
+    estabilizacion: 'Mano contraria bajo el hombro homolateral, sobre el deltoideus anterior, evitando flexión compensatoria de hombro.',
+    resistencia: 'Aplicada sobre la cara volar del tercio distal del antebrazo, en dirección a la extensión del codo. <strong>Aplicar siempre en al menos dos ángulos</strong>: ventaja (codo a 90°) y desventaja (codo casi extendido) para distinguir grado 5 de grado 4.',
+    sustituciones: 'Flexión del hombro; uso del brachioradialis al explorar con antebrazo en posición neutra (de ahí la importancia de la supinación).'
+  },
+  'ext-codo': {
+    titulo: 'Extensores del codo',
+    musculo: 'Triceps brachii',
+    raices: 'C6–C8 (predomina C7)',
+    nervio: 'Radial',
+    paciente: 'Sentado o decúbito prono con el hombro abducido a 90° apoyado en la camilla, codo flexionado y antebrazo colgando vertical en el lateral de la camilla.',
+    examinador: 'De pie al lado de la camilla o de frente al paciente sentado, del lado examinado.',
+    estabilizacion: 'Mano contraria sostiene el brazo justo por encima del codo.',
+    resistencia: 'Aplicada en la cara dorsal del antebrazo, proximal a la muñeca, en dirección a la flexión del codo. La instrucción al paciente es «no me deje doblar el codo».',
+    sustituciones: 'Rotación externa del hombro con antebrazo prono (la gravedad extiende el codo sin participación del triceps); <em>lock</em> en hiperextensión por bloqueo articular — la pasiva tensión articular puede simular grado 5 cuando el músculo está realmente débil.'
+  },
+  'ext-carpo': {
+    titulo: 'Extensores del carpo',
+    musculo: 'Extensor carpi radialis longus, brevis y extensor carpi ulnaris',
+    raices: 'C6–C7',
+    nervio: 'Radial',
+    paciente: 'Sentado, codo flexionado, antebrazo en pronación completa apoyado en la camilla, mano y muñeca por fuera del borde.',
+    examinador: 'Sentado o de pie diagonal al paciente.',
+    estabilizacion: 'Mano contraria sostiene la cara volar del antebrazo distal.',
+    resistencia: 'Aplicada con cuatro dedos sobre el dorso de los metacarpianos, en dirección a la flexión de la muñeca.',
+    sustituciones: 'Extensión de los dedos (que extiende parcialmente la muñeca por tracción tendinosa). <strong>Mantener los dedos relajados durante la prueba</strong>: si el paciente extiende los dedos, el extensor común arrastra la muñeca y enmascara una debilidad real de los extensores del carpo.'
+  },
+  'abd-pulgar': {
+    titulo: 'Abductor corto del pulgar',
+    musculo: 'Abductor pollicis brevis',
+    raices: 'C8–T1',
+    nervio: 'Mediano (rama tenar)',
+    paciente: 'Antebrazo en supinación, muñeca neutra, pulgar relajado en aducción contra el índice. La mano se apoya en la camilla o en la mano del examinador.',
+    examinador: 'Sentado de frente a la mano del paciente.',
+    estabilizacion: 'Mano contraria atraviesa la palma del paciente en <em>handshake</em>, manteniendo la muñeca neutra y los metacarpianos fijos.',
+    resistencia: 'Con el dedo índice del examinador, sobre la cara radial de la falange proximal del pulgar, en dirección a la aducción hacia la palma. Instrucción al paciente: «levante el pulgar hasta que apunte al techo».',
+    sustituciones: 'Si el plano del movimiento se inclina al lado radial, el abductor pollicis longus (radial) puede sustituir. Verificar que el pulgar suba <strong>perpendicular a la palma</strong>. La pérdida selectiva de este músculo, sin hipoestesia tenar acompañante, es típica del síndrome del túnel del carpo en estadios moderado-severo.'
+  },
+  'flex-cadera': {
+    titulo: 'Flexores de cadera',
+    musculo: 'Iliopsoas (psoas major + iliacus)',
+    raices: 'L1–L3',
+    nervio: 'Plexo lumbar y femoral',
+    paciente: 'Sentado al borde de la camilla, muslos apoyados, piernas colgando, manos a los lados sosteniendo el tronco. Tronco neutro, sin inclinación posterior.',
+    examinador: 'De pie al lado del miembro examinado. <strong>NUNCA enfrente ni encima del paciente</strong>: si empuja desde arriba puede transferir parte de su propio peso a la maniobra y sobreestimar la debilidad.',
+    estabilizacion: 'No requiere mano estabilizadora si el paciente se autosostiene; alternativamente, mano contraria sobre la cresta ilíaca homolateral.',
+    resistencia: 'Aplicada con una sola mano sobre la cara anterior del muslo distal, justo proximal a la rodilla, en dirección al suelo.',
+    sustituciones: 'Inclinación posterior del tronco para usar la gravedad — vigilar activamente, es la sustitución más frecuente. Tracción de los miembros superiores en la camilla; contracción del tensor fasciae latae.'
+  },
+  'ext-cadera': {
+    titulo: 'Extensores de cadera',
+    musculo: 'Gluteus maximus e isquiotibiales',
+    raices: 'L5–S2',
+    nervio: 'Glúteo inferior (gluteus maximus) y rama tibial del ciático (isquiotibiales)',
+    paciente: 'Decúbito prono, miembros inferiores extendidos. Tronco fijo a la camilla. <strong>Variante para aislar el gluteus maximus</strong>: rodilla flexionada a 90° (acorta los isquiotibiales y reduce su contribución).',
+    examinador: 'De pie al lado del miembro examinado, a la altura de la pelvis.',
+    estabilizacion: 'Mano contraria sobre la región posterosuperior ilíaca, presionando firmemente, para evitar inclinación pélvica anterior.',
+    resistencia: 'Aplicada en la cara posterior del muslo distal, proximal a la rodilla, dirigida al suelo. Instrucción: «levante el muslo de la camilla sin doblar más la rodilla».',
+    sustituciones: 'Inclinación pélvica anterior para aparentar extensión de cadera — vigilar activamente con la mano estabilizadora. Flexión de rodilla durante la prueba (afecta la lectura del gluteus maximus). <strong>Variante supina alternativa</strong> cuando el paciente no tolera prono: brazos cruzados sobre el tórax (no apoyados en la camilla), examinador ahueca ambas manos bajo el talón e intenta elevar la pierna; el paciente resiste presionando el talón hacia abajo.'
+  },
+  'abd-cadera': {
+    titulo: 'Abductores de cadera',
+    musculo: 'Gluteus medius y minimus',
+    raices: 'L4–S1',
+    nervio: 'Glúteo superior',
+    paciente: 'Decúbito lateral con el miembro a examinar en posición superior. Miembro inferior contralateral con cadera y rodilla flexionadas para estabilizar la pelvis. Miembro examinado extendido en línea con el tronco, abducido a 30–40° con leve extensión de cadera, evitando flexión y rotación interna.',
+    examinador: 'De pie detrás del paciente, a nivel de la pelvis.',
+    estabilizacion: 'Mano contraria sobre la pelvis lateral (cresta ilíaca) para impedir rotación pélvica.',
+    resistencia: 'En la cara lateral del muslo distal (grado 4) o en el tobillo lateral (grado 5, brazo de palanca completo), dirigida al suelo. Si la resistencia se aplica sobre el tobillo y el paciente la vence = grado 5; si solo aguanta cuando la presión se aplica más cerca de la rodilla = grado 4.',
+    sustituciones: 'Flexión de cadera para reclutar el tensor fasciae latae (vigilar que el muslo no flexione ni rote internamente — cualquier desplazamiento al plano anterior recluta al tensor). Rotación externa de cadera para reclutar sartorius y rotadores externos. Rotación pélvica posterior.'
+  },
+  'ext-rodilla': {
+    titulo: 'Extensores de rodilla',
+    musculo: 'Quadriceps femoris',
+    raices: 'L2–L4',
+    nervio: 'Femoral',
+    paciente: 'Sentado al borde de la camilla, manos apoyadas atrás (o sosteniendo el borde), leve inclinación posterior del tronco permitida para relajar isquiotibiales. Rodilla extendida sin alcanzar hiperextensión.',
+    examinador: 'De pie al lado del miembro examinado. Una cuña o la mano del examinador soporta el muslo distal por debajo (para que el peso de la pierna no fatigue al paciente).',
+    estabilizacion: 'Mano contraria bajo el muslo distal, proximal a la rodilla.',
+    resistencia: 'Aplicada en la cara anterior del tercio distal de la pierna, proximal al tobillo, dirigida hacia abajo y posterior.',
+    sustituciones: '<strong>Hiperextensión de rodilla (bloqueo articular)</strong> — la cápsula y los ligamentos sostienen pasivamente la articulación y la prueba pierde sentido. Extensión de cadera para usar la gravedad si el tronco se inclina hacia atrás más allá del límite. <strong>Limitación práctica</strong>: la fuerza del quadriceps suele superar la que el examinador puede vencer manualmente — para precisión, dinamómetro isocinético.'
+  },
+  'flex-rodilla': {
+    titulo: 'Flexores de rodilla',
+    musculo: 'Isquiotibiales (biceps femoris, semitendinosus, semimembranosus)',
+    raices: 'L5–S2',
+    nervio: 'Rama tibial del ciático (biceps femoris cabeza corta recibe la rama peronea)',
+    paciente: 'Decúbito prono. Para el biceps femoris (porción externa) se solicita rotación externa de la pierna (puntas del pie hacia afuera); para semitendinoso/semimembranoso (porción interna), rotación interna (puntas hacia adentro). Rodilla flexionada a < 90°.',
+    examinador: 'De pie al lado del miembro examinado, a la altura de la rodilla.',
+    estabilizacion: 'Mano contraria en la cara posterior del muslo proximal a la fosa poplítea.',
+    resistencia: 'En la cara posterior del tercio distal de la pierna, proximal al tobillo, dirigida hacia la extensión de la rodilla.',
+    sustituciones: 'Flexión de cadera con la rodilla flexionada (da la apariencia de flexión de rodilla activa).'
+  },
+  'dorsiflex': {
+    titulo: 'Dorsiflexores del tobillo',
+    musculo: 'Tibialis anterior',
+    raices: 'L4–L5',
+    nervio: 'Peroneo profundo',
+    paciente: 'Sentado al borde de la camilla con la pierna colgando; alternativamente, decúbito supino. El talón apoya en el muslo del examinador. Pie en dorsiflexión y supinación («arriba y adentro»), dedos relajados.',
+    examinador: 'Sentado en taburete bajo, frente al paciente, con el talón del paciente sobre su muslo.',
+    estabilizacion: 'Mano contraria bajo la pierna distal, proximal a los maléolos.',
+    resistencia: 'En la cara dorsomedial del pie, sobre el primer metatarsiano y la cuña medial, en dirección a la flexión plantar y eversión.',
+    sustituciones: '<strong>Extensión de los dedos</strong> por reclutamiento del extensor largo de los dedos y del extensor hallucis longus, que producen dorsiflexión secundaria. Mantener los dedos relajados durante la prueba.'
+  },
+  'plantiflex': {
+    titulo: 'Plantiflexores del tobillo',
+    musculo: 'Gastrocnemius y soleus',
+    raices: 'S1–S2',
+    nervio: 'Tibial',
+    paciente: '<strong>Bipedestación sobre el miembro examinado</strong>, rodilla en extensión completa. El miembro contralateral levantado, cadera y rodilla en flexión leve. La mano del paciente apoyada <em>ligeramente</em> sobre una superficie estable (pared, respaldo) solo para equilibrio, sin descargar peso.',
+    examinador: 'De pie lateral al paciente, observa la altura del talón.',
+    estabilizacion: 'Ninguna — prueba funcional sin contacto.',
+    resistencia: 'El propio peso corporal. Se solicita al paciente <strong>elevar el talón al máximo</strong> y descenderlo en ciclos de aproximadamente 2 segundos, hasta que la altura cae al 50 % de la inicial. Repetir el conteo de elevaciones.',
+    sustituciones: 'Apoyarse con la mano en el soporte para reducir la carga; rotación o desplazamiento del peso al miembro contralateral. <strong>Punto cardinal</strong>: la prueba manual contra resistencia en decúbito supino tiene baja sensibilidad — incluso un paciente con 25 % de fuerza puede vencer la resistencia manual. La prueba funcional de elevación del talón monopodal es el estándar clínico para detectar debilidad real de gastrocnemius/soleus.'
+  }
+};
+
+document.getElementById('atlas-select').addEventListener('change', e => {
+  const v = e.target.value;
+  const det = document.getElementById('atlas-det');
+  if (!v) { det.classList.remove('show'); return; }
+  const a = atlas[v];
+  det.innerHTML = `
+    <h5>${a.titulo}</h5>
+    <div style="font-family: var(--serif); font-style: italic; color: var(--azulacad); margin-bottom: 6px;">${a.musculo}</div>
+    <div class="meta"><span class="raiz">Raíces: ${a.raices}</span> <span class="nervio">Nervio: ${a.nervio}</span></div>
+    <div class="secc"><span class="etiqueta">Posición del paciente</span><div class="contenido">${a.paciente}</div></div>
+    <div class="secc"><span class="etiqueta">Posición del examinador</span><div class="contenido">${a.examinador}</div></div>
+    <div class="secc"><span class="etiqueta">Estabilización</span><div class="contenido">${a.estabilizacion}</div></div>
+    <div class="secc"><span class="etiqueta">Resistencia</span><div class="contenido">${a.resistencia}</div></div>
+    <div class="secc sustituciones"><span class="etiqueta">⚠ Sustituciones · trampas a vigilar</span><div class="contenido">${a.sustituciones}</div></div>
+  `;
+  det.classList.add('show');
+});
+</script>
+
+</body>
+</html>
