@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tratamientos de rehabilitación · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva del cap. 8: manejo del dolor (agudo vs crónico no oncológico), prescripción FITT con calculadoras de FCmax y Karvonen, prevención de caídas (STEADI completo), STC manejo conservador, derivación a fisioterapia con plantilla de remisión.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: background 0.12s, color 0.12s, border-color 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; margin-top: 6px; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; letter-spacing: 0.01em; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root { font-family: var(--sans); font-weight: 700; color: var(--jamared); white-space: nowrap; text-align: center; }
+
+/* ===== Comparador dos columnas ===== */
+.comp-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+@media (max-width: 700px) { .comp-2col { grid-template-columns: 1fr; } }
+.comp-col {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.comp-col.alt { border-top-color: var(--jamared); }
+.comp-col h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: var(--azulacad);
+}
+.comp-col.alt h4 { color: var(--jamared); }
+.comp-col .lab {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  display: block;
+  margin: 12px 0 4px;
+}
+.comp-col .lab:first-of-type { margin-top: 0; }
+
+/* ===== Calculadoras ===== */
+.calc {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-row label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-row input[type="number"], .calc-row select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-row input[type="number"]:focus, .calc-row select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.calc-resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+.calc-resultado .interp {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--texto);
+  line-height: 1.5;
+  margin-top: 6px;
+  font-family: var(--serif);
+}
+.calc-resultado .par {
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 4px;
+}
+.calc-resultado .par .lab {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+}
+.calc-resultado .par .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+
+/* ===== Selector ===== */
+.selector {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.selector h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.selector select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 480px;
+}
+.selector .detalle {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  display: none;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-top: 14px;
+}
+.selector .detalle.show { display: block; }
+.selector .detalle h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+  margin: 0 0 8px;
+}
+.selector .detalle .secc {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--azulacad-mid);
+}
+.selector .detalle .secc:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.selector .detalle .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Estratificador (botones) ===== */
+.estrat {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.estrat h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.estrat .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--azulacad);
+  margin: 14px 0 6px;
+}
+.estrat .pregunta:first-of-type { margin-top: 0; }
+.estrat .opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.estrat .opciones button {
+  font-family: var(--sans);
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: all 0.15s;
+}
+.estrat .opciones button:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.estrat .opciones button.activo {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+.estrat .resultado {
+  margin-top: 14px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--azulacad);
+  background: var(--azulacad-suave);
+  border-radius: 0 6px 6px 0;
+  display: none;
+  font-family: var(--sans);
+}
+.estrat .resultado.show { display: block; }
+.estrat .resultado.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.estrat .resultado.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.estrat .resultado.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.estrat .resultado .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.estrat .resultado.bajo .veredicto { color: var(--verde); }
+.estrat .resultado.medio .veredicto { color: var(--amarillo); }
+.estrat .resultado.alto .veredicto { color: var(--jamared); }
+.estrat .resultado .interp {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== STEADI workflow ===== */
+.steadi-paso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--jamared);
+  border-radius: 4px;
+  margin: 12px 0;
+  padding: 16px 20px;
+}
+.steadi-paso .num-paso {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--jamared);
+  margin-bottom: 4px;
+}
+.steadi-paso h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--azulacad);
+  margin: 0 0 10px;
+}
+.checklist label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.checklist label:hover { background: var(--azulacad-suave); }
+.checklist label.checked {
+  background: var(--azulacad-suave);
+  font-weight: 600;
+  color: var(--azulacad);
+}
+.checklist label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+/* ===== Plantilla generador (cap 8) ===== */
+.plantilla {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.plantilla h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.plantilla .field {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .plantilla .field { grid-template-columns: 1fr; gap: 4px; }
+}
+.plantilla .field label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--azulacad);
+  font-weight: 600;
+  padding-top: 8px;
+}
+.plantilla .field input, .plantilla .field textarea {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  width: 100%;
+}
+.plantilla .field textarea { min-height: 60px; resize: vertical; }
+.plantilla .field input:focus, .plantilla .field textarea:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.plantilla-out {
+  margin-top: 14px;
+  padding: 16px 20px;
+  background: var(--crema);
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.plantilla-out.empty {
+  background: var(--gris-claro);
+  border-left-color: var(--gris-borde);
+  color: var(--gris);
+  font-style: italic;
+  text-align: center;
+}
+.plantilla button.copiar {
+  font-family: var(--sans);
+  background: var(--azulacad);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.plantilla button.copiar:hover { background: var(--jamared); }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+.semaforo { display: inline-block; padding: 4px 12px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-left: 8px; vertical-align: middle; }
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+/* ===== Casos clínicos / autoeval ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 8</div>
+  <h1>Tratamientos de rehabilitación · lo que debe saber todo médico</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Lo del médico vs lo del especialista</button>
+  <button class="tab-btn" data-tab="dolor">2. Dolor · agudo vs crónico</button>
+  <button class="tab-btn" data-tab="ejercicio">3. 🔢 Prescripción FITT</button>
+  <button class="tab-btn" data-tab="condicion">4. FITT por condición</button>
+  <button class="tab-btn" data-tab="caidas">5. Prevención de caídas</button>
+  <button class="tab-btn" data-tab="stc">6. STC manejo conservador</button>
+  <button class="tab-btn" data-tab="educacion">7. Educación terapéutica</button>
+  <button class="tab-btn" data-tab="derivacion">8. Derivación · plantilla</button>
+  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>El médico general como protagonista del tratamiento</h2>
+  <p>La rehabilitación se asocia con frecuencia, en el imaginario del estudiante, con el especialista (fisiatra, fisioterapeuta, terapeuta ocupacional, técnico ortesista). Esta percepción es parcial. <strong>La mayor parte del tratamiento que recibe un paciente con una condición rehabilitable pasa por el médico general:</strong> él evalúa, prescribe analgesia y ejercicio, educa al paciente y a la familia, decide cuándo derivar y mantiene la coordinación del cuidado en el largo plazo.</p>
+
+  <div class="card azul">
+    <h4>Este capítulo se organiza alrededor de esa premisa</h4>
+    <p style="margin-bottom: 0">Empieza con un panorama de los tratamientos que <em>sí</em> requieren especialista (manejo de espasticidad, formulación específica de órtesis y prótesis, sillas de ruedas adaptadas, dolor complejo) para que reconozca cuándo derivar. El cuerpo desarrolla las intervenciones al alcance del médico general: dolor, educación, ejercicio (FITT), prevención de caídas, manejo inicial del STC y criterios para remitir a fisioterapia institucional.</p>
+  </div>
+
+  <h3>Lo que corresponde al especialista (4 escenarios)</h3>
+
+  <div class="card amarilla">
+    <h4>Manejo de la espasticidad</h4>
+    <p style="margin-bottom: 0">Cuando la espasticidad limita la función (marcha, transferencias, aseo, sueño), genera dolor o predispone a contractura. El arsenal del fisiatra: <strong>toxina botulínica tipo A</strong> (local, guiada por EMG o ecografía) · <strong>baclofén oral</strong> (titulación lenta) · <strong>baclofén intratecal</strong> (refractarios) · <strong>bloqueos con fenol o alcohol</strong> · <strong>cirugía ortopédica funcional</strong> y rizotomía dorsal selectiva. La derivación oportuna evita contracturas estructuradas.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Formulación de órtesis y prótesis</h4>
+    <p style="margin-bottom: 0">La <em>indicación funcional</em> la reconoce el médico general; la <em>prescripción específica</em> (tipo de articulación, material, ajustes biomecánicos, puntos de carga) la hace el equipo fisiatra-terapeuta-técnico ortesista. Una férula prescrita «a ojo» que no se ajusta termina en un cajón o lesionando piel y articulaciones. Indicaciones para derivar: pie caído de cualquier causa con compromiso de la marcha · deformidades en flexión de muñeca, dedos o tobillo · inestabilidad articular postraumática o posquirúrgica · amputación de miembro.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Sillas de ruedas adaptadas y sistemas de posicionamiento</h4>
+    <p style="margin-bottom: 0">La silla <em>estándar</em> sí puede recomendarla el médico general en pacientes sin alteración postural significativa. La silla <em>adaptada</em> (asiento moldeado, control de tronco, sistema de presión diferencial, basculación, propulsión motorizada) requiere equipo interdisciplinario. Indicaciones: lesión medular alta · deformidad espinal estructurada · riesgo elevado de úlcera por presión · enfermedad neuromuscular progresiva · niños y adolescentes en crecimiento.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Dolor complejo o de difícil control</h4>
+    <p style="margin-bottom: 0">Cuatro escenarios para clínica del dolor o fisiatría con subespecialización: <strong>dolor neuropático refractario</strong> a esquema convencional optimizado 8–12 sem · <strong>síndrome doloroso regional complejo (SDRC)</strong> · <strong>dolor central postlesional</strong> (post-ACV, lesión medular, EM) con respuesta parcial · <strong>dolor crónico no oncológico que requiere opioides potentes a largo plazo</strong>.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>Regla de oro de la derivación</h4>
+    <p style="margin-bottom: 0">El médico general que detecta cualquiera de las situaciones de esta sección <strong>debe iniciar medidas de soporte</strong> (analgesia básica, prevención de complicaciones, educación al paciente y familia) mientras se concreta la evaluación especializada. <strong>Derivar no significa abandonar el manejo: significa compartirlo.</strong></p>
+  </div>
+
+  <h3>Cómo navegar esta guía</h3>
+  <ul>
+    <li><strong>Pestaña 2:</strong> manejo del dolor con comparador agudo vs crónico no oncológico (cambio de paradigma).</li>
+    <li><strong>Pestaña 3:</strong> 🔢 prescripción FITT con calculadoras de FCmax (Tanaka, Fox-Haskell), Karvonen y estratificador de riesgo cardiovascular.</li>
+    <li><strong>Pestaña 4:</strong> selector de prescripción por condición clínica (HTA, DM2, OA, lumbalgia, fibromialgia, Parkinson, cáncer, post-COVID, ENM, obesidad).</li>
+    <li><strong>Pestaña 5:</strong> STEADI completo en 3 pasos (tamizaje + evaluación multifactorial + intervenciones).</li>
+    <li><strong>Pestañas 6–7:</strong> STC manejo conservador y educación terapéutica.</li>
+    <li><strong>Pestaña 8:</strong> decisor de derivación a fisioterapia + plantilla de remisión que se autocompleta.</li>
+    <li><strong>Pestañas 9–10:</strong> 10 casos clínicos y 10 preguntas de autoevaluación.</li>
+  </ul>
+</section>
+
+<!-- ==================== TAB 2: DOLOR ==================== -->
+<section class="tab-content" id="dolor">
+  <h2>Manejo del dolor desde atención primaria</h2>
+  <p>El dolor es uno de los síntomas más transversales en rehabilitación: acompaña a la lumbalgia (cap. 4), a los cuadros MSK crónicos (cap. 5), al paciente con discapacidad neurológica (cap. 7) y al adulto mayor frágil (cap. 9). El médico general resuelve la mayor parte de los cuadros sin derivación.</p>
+
+  <h3>Tres preguntas antes de prescribir analgesia</h3>
+  <div class="card azul">
+    <h4>1. ¿Qué tipo de dolor es?</h4>
+    <p style="margin-bottom: 0"><strong>Nociceptivo</strong> (localizado, punzante u opresivo) → paracetamol, AINE, opioides. <strong>Neuropático</strong> (urente, eléctrico, en territorio de un nervio o dermatoma, disestesia o alodinia) → gabapentinoides y antidepresivos duales. <strong>Central</strong> (post-ACV, EM, lesión medular) y <strong>nociplástico</strong> (fibromialgia, dolor crónico inespecífico) → manejo combinado, frecuente derivación.</p>
+  </div>
+  <div class="card azul">
+    <h4>2. ¿Intensidad e impacto funcional?</h4>
+    <p style="margin-bottom: 0">EVA o NRS para pacientes que las puedan usar. <strong>Caras Wong-Baker</strong> en niños o adulto mayor con dificultad abstractiva. <strong>PAINAD</strong> en deterioro cognitivo avanzado (respiración, vocalización, expresión facial, lenguaje corporal, consolabilidad). Documentar siempre dolor en reposo y en movimiento + impacto sobre sueño, marcha y ABVD.</p>
+  </div>
+  <div class="card azul">
+    <h4>3. ¿Hay banderas rojas?</h4>
+    <p style="margin-bottom: 0">Dolor nocturno que despierta, fiebre, pérdida de peso, déficit neurológico progresivo, dolor que no se modifica con la posición, antecedente reciente de cáncer, uso prolongado de esteroides o inmunosupresores, traumatismo. <strong>Cualquiera obliga a estudio antes de cronificar la analgesia.</strong></p>
+  </div>
+
+  <h3>Dos escenarios distintos</h3>
+  <p>La práctica clínica del dolor cambió en la última década. NICE NG193 (dolor primario crónico), OMS 2023 (lumbalgia primaria crónica) y OARSI 2019 (osteoartritis) coinciden en que <strong>para el dolor crónico no oncológico, el orden tradicional «primero el analgésico, luego lo demás» debe invertirse</strong>. La piedra angular es ejercicio + educación + abordaje biopsicosocial; el fármaco se reserva para casos seleccionados.</p>
+
+  <div class="comp-2col">
+    <div class="comp-col">
+      <h4>Dolor agudo, postoperatorio u oncológico</h4>
+      <span class="lab">La escalera analgésica de la OMS sigue siendo válida</span>
+      <p>Esguinces, fracturas, postoperatorio MSK, dolor neoplásico, exacerbaciones agudas de cuadros crónicos.</p>
+
+      <span class="lab">Escalón 1 · dolor leve</span>
+      <p>Paracetamol 500–1000 mg c/6–8 h (máx. 3 g/día en adulto mayor o hepatópata, 4 g en adulto sano).</p>
+      <p style="margin-top: 6px;"><em>Alternativa inflamatorio leve-moderado:</em> AINE (ibuprofeno, naproxeno, diclofenaco) en cursos cortos &lt; 7–14 días. Precaución en adulto mayor, HTA, IRC, ICC, antecedente de úlcera, anticoagulación.</p>
+
+      <span class="lab">Escalón 2 · moderado</span>
+      <p>Tramadol 50–100 mg c/6–8 h (máx. 400 mg/día), idealmente con paracetamol. <strong>Riesgo:</strong> náusea, mareo, caídas, síndrome serotoninérgico con ISRS y duales. Codeína 30–60 mg c/4–6 h (variable por CYP2D6).</p>
+
+      <span class="lab">Escalón 3 · severo</span>
+      <p>Opioides potentes (morfina, oxicodona, hidromorfona) preferiblemente bajo derivación. El médico general puede iniciar dosis bajas en cuadros agudos transitorios.</p>
+
+      <span class="lab">Adyuvantes (componente neuropático)</span>
+      <p style="margin-bottom: 0">Gabapentinoides (gabapentina, pregabalina) en neuropático bien definido (radiculopatía, neuralgia postherpética). Duales (duloxetina, venlafaxina), tricíclicos (amitriptilina, nortriptilina). Capsaicina y lidocaína 5 % tópicas en neuropático localizado.</p>
+    </div>
+
+    <div class="comp-col alt">
+      <h4>Dolor crónico NO oncológico</h4>
+      <span class="lab">Cambio de paradigma · NICE NG193, OMS 2023, OARSI 2019</span>
+      <p>OA de rodilla/cadera, lumbalgia primaria crónica, fibromialgia, dolor primario MSK inespecífico, dolor neuropático crónico, dolor central tras lesión SNC.</p>
+
+      <span class="lab">1. Núcleo del tratamiento</span>
+      <p><strong>Ejercicio terapéutico</strong> individualizado y supervisado · <strong>Educación terapéutica</strong> con modelo biopsicosocial · <strong>Control del peso</strong> en OA y dolor lumbar · Manejo de comorbilidad psiquiátrica. <em>Es la única línea con beneficio sostenido demostrado.</em></p>
+
+      <span class="lab">2. Adyuvantes farmacológicos seleccionados</span>
+      <p><strong>AINE tópicos</strong> en OA de rodilla o mano (recomendación fuerte OARSI). <strong>Antidepresivos</strong> en dolor primario crónico (duloxetina, amitriptilina, ISRS) — dosis bajas, revisar a 4–6 sem y suspender si no hay beneficio. <strong>AINE sistémicos</strong> solo en cursos cortos para exacerbaciones, NUNCA crónico de mantenimiento.</p>
+
+      <span class="lab">3. Lo que en general NO se debe iniciar</span>
+      <p><strong>Paracetamol crónico</strong> (sin beneficio en OA ni lumbalgia). <strong>Opioides</strong> en dolor crónico no oncológico. <strong>Gabapentinoides</strong> en dolor primario o lumbalgia primaria (mantienen su lugar en neuropático bien definido). <strong>Benzodiacepinas y corticoides sistémicos</strong> como analgésicos de mantenimiento.</p>
+
+      <span class="lab">4. Si el paciente ya recibe estos fármacos</span>
+      <p style="margin-bottom: 0">No suspender bruscamente. Pactar deprescripción gradual cuando el balance riesgo-beneficio sea desfavorable, acompañando con consolidación del núcleo no farmacológico.</p>
+    </div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Cinco principios prácticos en dolor agudo</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Por reloj</strong> y no a demanda en dolor estable que requiere analgesia continua.</li>
+      <li><strong>Titulación al alza lenta</strong> en gabapentinoides y opioides, sobre todo en adulto mayor.</li>
+      <li><strong>Revisar la lista completa</strong> antes de añadir un fármaco nuevo (polifarmacia + tramadol + gabapentinoide → caídas, sedación, síndrome serotoninérgico).</li>
+      <li><strong>Reevaluar a las 2–4 semanas</strong> y suspender lo que no agregue control de síntomas o función.</li>
+      <li><strong>Cierre temporal:</strong> el dolor agudo debe resolverse en horizonte definido. Si a las 8–12 sem el paciente sigue dependiendo de escalón 2 o 3, ya no es agudo y requiere reformular.</li>
+    </ul>
+  </div>
+
+  <h3>Componentes no farmacológicos con mejor evidencia</h3>
+  <div class="card verde">
+    <ul style="margin-bottom: 0">
+      <li><strong>Ejercicio supervisado en grupo</strong> (programa estructurado de varias semanas) — la intervención con mayor evidencia en dolor crónico MSK, fibromialgia, OA, lumbalgia y dolor primario crónico.</li>
+      <li><strong>Educación terapéutica</strong> centrada en la naturaleza benigna del dolor crónico inespecífico, modelo biopsicosocial, diferenciación dolor vs daño tisular.</li>
+      <li><strong>Intervenciones psicológicas estructuradas</strong> (TCC, ACT) tienen evidencia para dolor primario crónico cuando están disponibles.</li>
+      <li><strong>Termoterapia:</strong> calor superficial en MSK crónicos, frío en lesiones agudas. Costo bajo, evidencia limitada pero útil.</li>
+      <li><strong>Lo que en general NO aporta:</strong> TENS, ultrasonido terapéutico, terapia interferencial, biofeedback en dolor primario crónico (NICE NG193).</li>
+    </ul>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Banderas rojas que obligan a derivar</h4>
+    <ul style="margin-bottom: 0">
+      <li>Dolor que no mejora con esquema convencional adecuado en 4–6 sem.</li>
+      <li>Dolor neuropático severo o de inicio agudo con déficit motor.</li>
+      <li>Sospecha de SDRC (dolor desproporcionado, cambios autonómicos, trastorno motor, alodinia).</li>
+      <li>Dolor central tras lesión del SNC con impacto funcional o sobre el sueño.</li>
+      <li>Sospecha de causa estructural no diagnosticada.</li>
+      <li>Necesidad de iniciar opioides potentes en dolor crónico no oncológico.</li>
+      <li>Comorbilidad psiquiátrica significativa.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: PRESCRIPCIÓN FITT ==================== -->
+<section class="tab-content" id="ejercicio">
+  <h2>Prescripción del ejercicio · esquema FITT</h2>
+  <p>La <em>actividad física</em> es cualquier movimiento corporal sobre el nivel basal. El <strong>ejercicio físico</strong> es actividad <em>repetida, planificada, estructurada y con propósito definido</em> — una intervención terapéutica que el médico <strong>prescribe</strong> con dosis, intensidad y duración.</p>
+
+  <div class="card azul">
+    <h4>Recomendación OMS 2020 para adulto general</h4>
+    <p style="margin-bottom: 0"><strong>150–300 min/sem</strong> de actividad aeróbica moderada (esfuerzo perceptible, hablar pero no cantar) <em>o</em> 75–150 min vigorosa, más <strong>≥ 2 sesiones semanales de fortalecimiento muscular</strong>. En adultos mayores se añade <strong>actividad multicomponente con énfasis en equilibrio y fuerza funcional, ≥ 3 días por semana</strong>.</p>
+  </div>
+
+  <h3>Estratificación del riesgo cardiopulmonar</h3>
+  <p>Antes de prescribir ejercicio, definir la categoría de riesgo. Marque las opciones que apliquen:</p>
+
+  <div class="estrat" id="cv-estrat">
+    <div class="pregunta">¿Tiene síntomas cardiopulmonares (dolor torácico, disnea desproporcionada, palpitaciones, presíncope)?</div>
+    <div class="opciones" data-eje="sintomas">
+      <button data-val="si">Sí</button>
+      <button data-val="no">No</button>
+    </div>
+    <div class="pregunta">¿Tiene enfermedad cardiovascular establecida, EPOC moderado-severo, enfermedad renal o metabólica conocida, o diabetes con complicaciones?</div>
+    <div class="opciones" data-eje="enfermedad">
+      <button data-val="si">Sí</button>
+      <button data-val="no">No</button>
+    </div>
+    <div class="pregunta">¿Cuántos factores de riesgo cardiovascular tiene? (HTA, dislipidemia, tabaquismo, obesidad, diabetes, sedentarismo, antecedente familiar)</div>
+    <div class="opciones" data-eje="factores">
+      <button data-val="0">0–1</button>
+      <button data-val="2">≥ 2</button>
+    </div>
+    <div class="resultado" id="cv-resultado"></div>
+  </div>
+
+  <h3>Calculadora de FCmax y zona de entrenamiento</h3>
+  <p>La intensidad se define como % de la FCmax: zona moderada 64–76 %, zona vigorosa 77–93 %.</p>
+
+  <div class="calc">
+    <h4>FCmax · Tanaka y Fox-Haskell</h4>
+    <div class="calc-row">
+      <label for="edad-fc">Edad (años):</label>
+      <input type="number" id="edad-fc" min="10" max="100" placeholder="ej. 45" step="1">
+    </div>
+    <div class="calc-resultado empty" id="fc-resultado">Ingrese la edad para ver FCmax y zonas de entrenamiento.</div>
+  </div>
+
+  <div class="calc">
+    <h4>Karvonen · FC objetivo individualizada</h4>
+    <p style="font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin: 0 0 12px;">FC objetivo = FCreposo + %intensidad × (FCmax − FCreposo)</p>
+    <div class="calc-row">
+      <label for="edad-k">Edad:</label>
+      <input type="number" id="edad-k" min="10" max="100" placeholder="años" step="1">
+      <label for="reposo-k">FC reposo:</label>
+      <input type="number" id="reposo-k" min="30" max="120" placeholder="lpm" step="1">
+      <label for="int-k">Intensidad:</label>
+      <select id="int-k">
+        <option value="">—</option>
+        <option value="0.5">50 % · ligera</option>
+        <option value="0.6">60 % · moderada baja</option>
+        <option value="0.7">70 % · moderada</option>
+        <option value="0.8">80 % · vigorosa</option>
+        <option value="0.85">85 % · vigorosa alta</option>
+      </select>
+    </div>
+    <div class="calc-resultado empty" id="karv-resultado">Ingrese edad, FC de reposo e intensidad objetivo para ver la FC blanco.</div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Bloqueadores beta · cuidado con FCmax</h4>
+    <p style="margin-bottom: 0">En pacientes con bloqueador beta la FCmax cae 20–30 % y las fórmulas pierden validez. Prescribir por <strong>esfuerzo percibido</strong> (Borg modificada 0–10): objetivo <strong>4–6 para moderada</strong>, <strong>7–8 para vigorosa</strong>.</p>
+  </div>
+
+  <h3>Esquema FITT base · adulto sano</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Componente</th><th>Prescripción base</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aeróbico</strong></td><td>3–5 días/sem · 30–60 min · moderada (64–76 % FCmax) o vigorosa (77–93 %) · caminata, bicicleta, natación.</td></tr>
+        <tr><td><strong>Fuerza</strong></td><td>2–3 días/sem · 8–10 ejercicios para grupos mayores · 1–3 series × 8–12 reps al 60–80 % de 1RM.</td></tr>
+        <tr><td><strong>Equilibrio</strong></td><td>2–3 días/sem en mayores de 65 años o riesgo de caída · Tai Chi, programa Otago, ejercicios específicos.</td></tr>
+        <tr><td><strong>Flexibilidad</strong></td><td>Diaria o cuasi diaria · estiramientos sostenidos 15–30 s por grupo muscular.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card verde">
+    <h4>Progresión</h4>
+    <p style="margin-bottom: 0">Aeróbico: <strong>aumentar 10 % por semana</strong> en cualquiera de las tres variables (frecuencia, duración o intensidad), nunca dos al tiempo. Fuerza: cuando complete la serie sin fatiga, subir el peso 5–10 % o añadir una repetición.</p>
+  </div>
+
+  <h3>Estructura de la sesión</h3>
+  <div class="card azul">
+    <ol style="margin-bottom: 0">
+      <li><strong>Calentamiento (5–10 min):</strong> movilidad articular y aeróbico de baja intensidad. Aumenta la temperatura muscular, reduce riesgo de lesión, prepara el sistema cardiovascular.</li>
+      <li><strong>Fase central (20–40 min):</strong> componente aeróbico, fuerza o combinado según prescripción.</li>
+      <li><strong>Enfriamiento (5–10 min):</strong> reducción gradual + estiramientos. Previene hipotensión post-esfuerzo.</li>
+    </ol>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Banderas para detener la sesión</h4>
+    <p style="margin-bottom: 0">Dolor torácico opresivo o irradiado · disnea desproporcionada · mareo o presíncope · palpitaciones nuevas · dolor MSK agudo · hipoglucemia sintomática · caída inexplicada del rendimiento. <strong>Obligan a reevaluar la prescripción y, eventualmente, el diagnóstico de base.</strong></p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>La barrera principal NO es la prescripción · es la adherencia</h4>
+    <p style="margin-bottom: 0">El paciente abandona por horarios, falta de espacio, aburrimiento, desconocimiento de la técnica. <strong>Cualquier prescripción que no contemple cómo el paciente va a sostenerla está incompleta.</strong> Discutir explícitamente las barreras y construir estrategias para cada una.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: FITT POR CONDICIÓN ==================== -->
+<section class="tab-content" id="condicion">
+  <h2>Prescripción por condición clínica</h2>
+  <p>El esquema FITT base se modifica según la patología. Selector con las 10 condiciones más frecuentes en consulta.</p>
+
+  <div class="selector">
+    <h4>Selector de condición</h4>
+    <select id="cond-select">
+      <option value="">— elija una condición —</option>
+      <option value="hta">Hipertensión arterial</option>
+      <option value="dm2">Diabetes mellitus tipo 2</option>
+      <option value="acv">Post-ACV (fase ambulatoria)</option>
+      <option value="oa">Osteoartritis (rodilla, cadera)</option>
+      <option value="lumbalgia">Lumbalgia crónica inespecífica</option>
+      <option value="fibro">Fibromialgia</option>
+      <option value="frag">Adulto mayor frágil / sarcopenia</option>
+      <option value="park">Enfermedad de Parkinson</option>
+      <option value="cancer">Cáncer (durante o después del tratamiento)</option>
+      <option value="covid">Post-COVID con fatiga prolongada</option>
+      <option value="enm">Enfermedades neuromusculares (ELA, distrofias)</option>
+      <option value="obes">Obesidad</option>
+    </select>
+    <div class="detalle" id="cond-det"></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Adherencia importa más que modalidad</h4>
+    <p style="margin-bottom: 0">En la mayoría de las condiciones, no hay un tipo de ejercicio claramente superior. Lo que cambia el desenlace es <strong>que el programa sea sostenido y supervisado</strong>. La adherencia a un programa que el paciente puede mantener supera al fracaso de un programa óptimo al que no asiste.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: PREVENCIÓN DE CAÍDAS ==================== -->
+<section class="tab-content" id="caidas">
+  <h2>Prevención de caídas · STEADI completo</h2>
+  <p>Las caídas son un evento centinela. <strong>1 de cada 3</strong> adultos &gt; 65 años cae al menos una vez al año; <strong>1 de cada 2</strong> en los &gt; 80. Una caída se asocia a fractura de cadera (20–30 % de mortalidad al primer año), TCE, miedo a caer, inmovilismo, dependencia e institucionalización.</p>
+
+  <div class="card azul">
+    <h4>El riesgo no se limita al adulto mayor</h4>
+    <p style="margin-bottom: 0">El <strong>paciente joven con discapacidad motora</strong> (TRM, ACV, EM, parálisis cerebral en transición, ataxias) enfrenta los mismos factores intrínsecos más espasticidad, uso de órtesis, fatiga, sedestación prolongada en silla. Las estrategias de evaluación y prevención son aplicables a todo paciente con compromiso del control postural o la marcha.</p>
+  </div>
+
+  <div class="card verde">
+    <h4>La prevención funciona</h4>
+    <p style="margin-bottom: 0">Una revisión Cochrane mostró <strong>reducción del 23 % en todas las caídas</strong> con programas de ejercicio multicomponente.</p>
+  </div>
+
+  <div class="steadi-paso">
+    <div class="num-paso">Paso 1 · Tamizaje</div>
+    <h4>Tres preguntas + una prueba funcional</h4>
+    <p>Una respuesta afirmativa a cualquiera activa la evaluación multifactorial.</p>
+    <div class="checklist" id="steadi1">
+      <label><input type="checkbox" data-st1><span>¿Se ha caído en el último año?</span></label>
+      <label><input type="checkbox" data-st1><span>¿Se siente inestable cuando está parado o caminando?</span></label>
+      <label><input type="checkbox" data-st1><span>¿Tiene preocupación o miedo de caerse?</span></label>
+      <label><input type="checkbox" data-st1><span>TUG ≥ 12 s (o, si dispone de más tiempo: POMA Tinetti &lt; 25 / Berg &lt; 45)</span></label>
+    </div>
+    <div id="steadi1-res" style="margin-top: 12px; font-family: var(--sans); font-size: 0.92rem;"></div>
+  </div>
+
+  <div class="steadi-paso">
+    <div class="num-paso">Paso 2 · Evaluación multifactorial</div>
+    <h4>Si el tamizaje es positivo, explorar factores intrínsecos y extrínsecos</h4>
+
+    <p style="font-family: var(--sans); font-weight: 600; color: var(--azulacad); margin-top: 14px;">Factores intrínsecos</p>
+    <div class="checklist">
+      <label><input type="checkbox"><span>Historia de caídas previas (dónde, cuándo, cómo, con o sin pérdida de conciencia, con o sin lesiones)</span></label>
+      <label><input type="checkbox"><span>Marcha y equilibrio: TUG, equilibrio en 4 etapas, levantarse-sentarse 5 veces</span></label>
+      <label><input type="checkbox"><span>Fuerza de miembros inferiores: cuádriceps y glúteo medio</span></label>
+      <label><input type="checkbox"><span>Examen neurológico: Parkinson, neuropatía periférica, mielopatía, espasticidad</span></label>
+      <label><input type="checkbox"><span>Visión y audición: agudeza, campo, catarata, hipoacusia</span></label>
+      <label><input type="checkbox"><span>Hipotensión ortostática (protocolo abajo)</span></label>
+      <label><input type="checkbox"><span>Función cognitiva: Mini-Cog, MoCA breve</span></label>
+      <label><input type="checkbox"><span>Calzado y uso de ayudas técnicas</span></label>
+      <label><input type="checkbox"><span>Continencia (urgencia urinaria nocturna es factor infravalorado)</span></label>
+      <label><input type="checkbox"><span>Pies: deformidades, dolor, sensibilidad plantar</span></label>
+      <label><input type="checkbox"><span>Salud mental: depresión, ansiedad</span></label>
+      <label><input type="checkbox"><span>Hueso: factores de riesgo de osteoporosis (sexo femenino postmenopáusico, antecedente familiar, esteroides, bajo peso, baja actividad)</span></label>
+    </div>
+
+    <p style="font-family: var(--sans); font-weight: 600; color: var(--azulacad); margin-top: 14px;">Factores extrínsecos</p>
+    <div class="checklist">
+      <label><input type="checkbox"><span>Iluminación insuficiente, especialmente en recorrido nocturno al baño</span></label>
+      <label><input type="checkbox"><span>Tapetes, cables, suelos resbalosos</span></label>
+      <label><input type="checkbox"><span>Ausencia de barras en baño</span></label>
+      <label><input type="checkbox"><span>Escaleras sin pasamanos</span></label>
+      <label><input type="checkbox"><span>Mascotas que se interponen</span></label>
+    </div>
+
+    <p style="font-family: var(--sans); font-weight: 600; color: var(--azulacad); margin-top: 14px;">Polifarmacia y medicamentos de riesgo</p>
+    <div class="card amarilla" style="margin-top: 0;">
+      <p style="margin-bottom: 0">Benzodiacepinas, antidepresivos sedantes, antipsicóticos, opioides, antihipertensivos en ortostatismo, hipoglucemiantes con riesgo de hipoglucemia, anticolinérgicos, antihistamínicos de 1ª generación. <strong>En todo adulto mayor con caída se justifica revisar la lista con criterios STOPP/START o Beers.</strong></p>
+    </div>
+  </div>
+
+  <div class="steadi-paso">
+    <div class="num-paso">Paso 3 · Intervenciones de mayor evidencia</div>
+    <h4>Programa multicomponente coordinado</h4>
+    <ol>
+      <li><strong>Ejercicio multicomponente</strong> (Otago 3 días/sem × 30 min × ≥ 3 meses, o Tai Chi 2 sesiones/sem) — <strong>reduce caídas 23–30 %</strong>. Equilibrio + fuerza progresiva de MMII + trabajo funcional.</li>
+      <li><strong>Revisión y desprescripción</strong> de medicamentos de riesgo.</li>
+      <li><strong>Manejo de hipotensión ortostática:</strong> hidratación, levantarse en dos tiempos, ajuste de antihipertensivos en horario inadecuado, medias compresivas seleccionadas.</li>
+      <li><strong>Vitamina D 800 UI/día</strong> en pacientes con déficit documentado o en hogares geriátricos.</li>
+      <li><strong>Modificación del entorno:</strong> iluminación nocturna en recorrido al baño, retirar tapetes, barras en baño, pasamanos en escaleras, calzado cerrado con suela antideslizante.</li>
+      <li><strong>Tratamiento de problemas sensoriales:</strong> cirugía de catarata, corrección refractiva, audífonos.</li>
+      <li><strong>Ayudas técnicas adecuadamente prescritas y entrenadas</strong> (cap. 11).</li>
+      <li><strong>Manejo del riesgo óseo:</strong> densitometría cuando esté indicada, calcio + vitamina D, bifosfonatos en osteoporosis confirmada o fractura de fragilidad.</li>
+      <li><strong>Educación y empoderamiento</strong> del paciente y la familia.</li>
+    </ol>
+  </div>
+
+  <div class="card azul">
+    <h4>Protocolo de ortostatismo · frecuentemente subdiagnosticado</h4>
+    <ol style="margin-bottom: 0">
+      <li>Paciente acostado al menos 5 min. Tomar TA y FC.</li>
+      <li>Pasar a bipedestación. Tomar TA y FC al minuto 1 y al minuto 3.</li>
+      <li><strong>Positivo:</strong> caída de TAS ≥ 20 mmHg, TAD ≥ 10 mmHg, o aparición de síntomas (mareo, debilidad, visión borrosa).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: STC ==================== -->
+<section class="tab-content" id="stc">
+  <h2>Síndrome del túnel del carpo · manejo conservador</h2>
+  <p>El STC es la <strong>mononeuropatía periférica más frecuente</strong> en consulta general. Su reconocimiento temprano permite iniciar tratamiento conservador con alta probabilidad de éxito y reservar la derivación al especialista para los casos que la requieran.</p>
+
+  <h3>Tres elementos sostienen el diagnóstico clínico</h3>
+  <div class="card azul">
+    <h4>1. Síntomas característicos</h4>
+    <p style="margin-bottom: 0">Parestesias y dolor en el territorio del mediano (cara palmar de pulgar, índice, medio y mitad radial del anular), <strong>de predominio nocturno</strong>, que despiertan al paciente y mejoran al sacudir la mano. En fases avanzadas: torpeza para manipular objetos pequeños, caída de objetos.</p>
+  </div>
+  <div class="card azul">
+    <h4>2. Factores agravantes y de riesgo</h4>
+    <p style="margin-bottom: 0">Actividades con flexión o extensión sostenida de la muñeca (digitación, manualidades, manejo prolongado), embarazo, hipotiroidismo, diabetes, artritis inflamatoria, obesidad. <strong>Toda anamnesis del STC debe incluir tamizaje para causas secundarias.</strong></p>
+  </div>
+  <div class="card azul">
+    <h4>3. Maniobras provocativas (sensibilidad y especificidad moderadas)</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Phalen:</strong> flexión palmar máxima sostenida 60 s.</li>
+      <li><strong>Tinel:</strong> percusión sobre el túnel del carpo.</li>
+      <li><strong>Compresión carpal de Durkan:</strong> presión sostenida con ambos pulgares 30 s — <em>suele ser más sensible que Phalen y Tinel</em>.</li>
+    </ul>
+  </div>
+
+  <h3>Cuándo solicitar electrodiagnóstico</h3>
+  <div class="card amarilla">
+    <p style="margin-bottom: 0">No es indispensable para iniciar tratamiento conservador en cuadros leves con presentación clásica. <strong>Sí está indicado si:</strong></p>
+    <ul style="margin-bottom: 0">
+      <li>Sospecha de causa secundaria o diagnóstico alternativo.</li>
+      <li>Antes de cualquier intervención quirúrgica o infiltración.</li>
+      <li>Casos atípicos (síntomas bilaterales severos en paciente joven, pérdida sensitiva persistente, debilidad documentada).</li>
+      <li>Cuando el cuadro no mejora con tratamiento conservador en 4–6 semanas.</li>
+    </ul>
+  </div>
+
+  <h3>Tratamiento conservador</h3>
+  <div class="card verde">
+    <ol style="margin-bottom: 0">
+      <li><strong>Férula de muñeca en posición neutra</strong>, idealmente <em>uso nocturno</em> y diurno en actividades provocadoras. Mantener la muñeca en 0–10° de extensión (NO en flexión). Es la intervención conservadora con mejor evidencia en cuadros leves a moderados.</li>
+      <li><strong>Modificación ergonómica:</strong> pausas en tareas repetitivas, ajuste de altura del teclado, ratón vertical, evitar flexión prolongada. <em>Es parte del tratamiento, no un añadido cosmético.</em></li>
+      <li><strong>AINE</strong> en exacerbaciones agudas, períodos cortos. Evidencia limitada para uso prolongado.</li>
+      <li><strong>Ejercicios de deslizamiento del nervio mediano</strong> y de los tendones flexores. Pautados por fisioterapia o por el médico con instrucción adecuada.</li>
+      <li><strong>Tratar la causa secundaria</strong> cuando se identifique: control glicémico en diabetes, suplencia tiroidea, manejo del componente inflamatorio. <em>En el embarazo, explicar que la mayoría se resuelve en el postparto.</em></li>
+    </ol>
+    <p style="margin-bottom: 0; margin-top: 8px;"><strong>Reevaluar a las 4–6 semanas.</strong> Si hay mejoría parcial, sostener el esquema otras 4–6 sem.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Cuándo derivar al especialista</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Déficit motor objetivo:</strong> debilidad de oposición o abducción del pulgar.</li>
+      <li><strong>Atrofia de la eminencia tenar</strong> — signo tardío que indica lesión axonal y obliga a descompresión quirúrgica relativamente urgente.</li>
+      <li>Sin mejoría con tratamiento conservador adecuado en 4–6 sem, especialmente si afecta sueño o función laboral.</li>
+      <li>Cuadro electrofisiológicamente severo (latencias muy prolongadas, denervación activa en APB), aun sin déficit motor clínico evidente.</li>
+      <li>Sospecha de causa secundaria no controlable desde APS (artritis inflamatoria activa, masa ocupante).</li>
+      <li>Persistencia más allá del postparto en STC del embarazo.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Diagnóstico diferencial · NO etiquetar todo como STC</h4>
+    <p style="margin-bottom: 0">Antes de etiquetar todo dolor o parestesia de mano como STC, considerar: <strong>radiculopatía cervical C6–C7</strong> (dolor irradiado desde el cuello, signos en otros músculos del MS), plexopatía braquial, neuropatía cubital o radial coexistente, polineuropatía generalizada (diabetes, alcohol, B12), tenosinovitis de De Quervain (síntomas sobre la estiloides radial, NO parestesias), artrosis trapecio-metacarpiana. <strong>La exploración del cuello, codo y mano contralateral es parte de la evaluación inicial.</strong></p>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: EDUCACIÓN ==================== -->
+<section class="tab-content" id="educacion">
+  <h2>Educación terapéutica</h2>
+  <p>La educación terapéutica <strong>no es un trámite del final de la consulta</strong>: es una intervención con efecto medible sobre adherencia, intensidad sintomática, uso de urgencias y calidad de vida. Las guías recientes la sitúan como <strong>parte del núcleo del tratamiento del dolor crónico</strong>: una evaluación centrada en la persona, una conversación honesta sobre el pronóstico y la construcción conjunta de un plan tienen efecto comparable al de las intervenciones formales.</p>
+
+  <h3>Cinco componentes de una buena educación</h3>
+  <div class="card azul">
+    <h4>1. Explicación comprensible de la condición</h4>
+    <p style="margin-bottom: 0">El paciente debería poder repetir, con sus palabras, qué tiene, por qué le pasó y cuál es el pronóstico esperado. <strong>Los términos técnicos sin traducción generan ansiedad y mala adherencia.</strong></p>
+  </div>
+  <div class="card azul">
+    <h4>2. Objetivos funcionales realistas</h4>
+    <p style="margin-bottom: 0">En lugar de «mejorar el dolor», acuerdar metas <strong>medibles y vinculadas a la vida del paciente</strong>: subir las escaleras de la casa, retomar el trabajo administrativo, cargar al nieto. Revisarlas periódicamente.</p>
+  </div>
+  <div class="card azul">
+    <h4>3. Autocuidado: lo que el paciente hace en casa</h4>
+    <p style="margin-bottom: 0">Cómo ejecutar los ejercicios, dosificar la analgesia, aplicar calor o frío, modificar actividades laborales y domésticas, prevenir complicaciones (úlceras, contracturas, caídas).</p>
+  </div>
+  <div class="card azul">
+    <h4>4. Reconocimiento de signos de alarma</h4>
+    <p style="margin-bottom: 0">Banderas rojas específicas que obligan a consultar sin esperar la cita programada: aumento brusco del dolor con déficit neurológico nuevo, fiebre, pérdida del control de esfínteres en patología espinal, cambios cutáneos, caída de tolerancia funcional, hipoglucemia con ejercicio en diabéticos.</p>
+  </div>
+  <div class="card azul">
+    <h4>5. Adherencia · barreras y estrategias</h4>
+    <p style="margin-bottom: 0"><strong>Identificar y discutir explícitamente</strong> las barreras (tiempo, transporte, costo, dolor, miedo, baja motivación) y proponer estrategias concretas. <em>Una prescripción que el paciente no puede sostener no es viable, por correcta que sea.</em></p>
+  </div>
+
+  <h3>Cinco recursos prácticos en la consulta</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li><strong>Lenguaje sencillo y analogías:</strong> «la sensibilización central es como una alarma que se quedó encendida», «la sarcopenia es una cuenta de ahorros muscular que se gasta con la inactividad».</li>
+      <li><strong>Material escrito o gráfico breve:</strong> hoja con prescripción de ejercicio, esquema de la zona afectada, diagrama del túnel del carpo.</li>
+      <li><strong>Comprobación por repetición</strong> (<em>teach-back</em>): pedir al paciente al final que explique con sus palabras lo que va a hacer en casa. Toma menos de 1 minuto y es el método de validación más eficaz.</li>
+      <li><strong>Decisiones compartidas</strong> cuando hay alternativas razonables (analgésico A vs B, programa institucional vs domiciliario, cirugía vs conservador).</li>
+      <li><strong>Pacto de seguimiento:</strong> próxima fecha de control + lista de banderas rojas + canal de contacto realista.</li>
+    </ul>
+  </div>
+
+  <h3>Educación al cuidador</h3>
+  <div class="card azul">
+    <p>En condiciones crónicas con discapacidad, el cuidador informal (generalmente familiar) es <strong>parte del equipo terapéutico</strong>. Sin entrenamiento específico, su carga aumenta y con ella el riesgo de claudicación, depresión y enfermedad propia.</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Técnicas de transferencia y movilización seguras</strong> (evitar lumbalgia ocupacional del cuidador).</li>
+      <li><strong>Manejo postural</strong> con cambios cada 2 h en pacientes postrados.</li>
+      <li><strong>Reconocimiento de complicaciones evitables:</strong> úlceras, broncoaspiración, infecciones urinarias, deshidratación.</li>
+      <li><strong>Manejo de medicamentos</strong> con instrucciones escritas, especialmente analgesia y antiespásticos.</li>
+      <li><strong>Cuidado del cuidador:</strong> programar respiros, redes de apoyo, tamizaje de depresión y carga (Zarit). La omisión predice claudicación e institucionalización del paciente.</li>
+    </ul>
+  </div>
+
+  <h3>Escenarios donde la educación cambia el desenlace</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Escenario</th><th>Mensajes que cambian la trayectoria</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dolor crónico inespecífico</strong> (lumbalgia, fibromialgia)</td><td>Modelo biopsicosocial · diferencia entre dolor y daño tisular · naturaleza generalmente benigna del cuadro. Reduce kinesiofobia, mejora adherencia al ejercicio, disminuye catastrofismo.</td></tr>
+        <tr><td><strong>Postoperatorio MSK</strong></td><td>Cronograma de carga progresiva e hitos esperados por semana → mejor adherencia al protocolo.</td></tr>
+        <tr><td><strong>Condiciones progresivas</strong> (Parkinson, ELA, EM)</td><td>Educación anticipatoria sobre la trayectoria esperada permite tomar decisiones (movilización, ayudas técnicas, voluntades anticipadas) antes de que la urgencia las imponga.</td></tr>
+        <tr><td><strong>Adulto mayor con caída</strong></td><td>Riesgo de caídas recurrentes y de fractura de cadera, evidencia del ejercicio multicomponente para reducirlo → mejor adherencia al programa.</td></tr>
+        <tr><td><strong>Diabetes con neuropatía</strong></td><td>Autoexamen del pie, calzado, consulta temprana ante lesiones — la intervención no farmacológica con mayor impacto en la prevención de amputación.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: DERIVACIÓN ==================== -->
+<section class="tab-content" id="derivacion">
+  <h2>Derivación a un programa institucional de fisioterapia</h2>
+  <p>El médico general es la puerta de entrada al recurso de fisioterapia y, en buena medida, su administrador. Una derivación oportuna y bien formulada acelera la recuperación; una inespecífica o prematura desperdicia un recurso costoso (tiempo, transporte, copagos, disponibilidad).</p>
+
+  <div class="card azul">
+    <h4>Tres preguntas en orden</h4>
+    <ol style="margin-bottom: 0">
+      <li>¿Necesita programa institucional supervisado, o puede progresar con un programa domiciliario pautado desde la consulta?</li>
+      <li>Si necesita institucional, ¿requiere primero evaluación por fisiatría para definir el plan, o puedo remitir directamente a fisioterapia?</li>
+      <li>¿Qué información mínima debe llevar a la primera sesión para que el fisioterapeuta no tenga que reconstruirla?</li>
+    </ol>
+  </div>
+
+  <h3>🔎 Decisor de derivación por situación</h3>
+  <div class="selector">
+    <h4>¿Qué situación clínica tiene?</h4>
+    <select id="der-select">
+      <option value="">— elija una situación —</option>
+      <option value="postop">Postoperatorio musculoesquelético</option>
+      <option value="acv-sub">Fase subaguda neurológica (ACV, TCE, lesión medular)</option>
+      <option value="reentr">Reentrenamiento motor específico (control selectivo, equilibrio dinámico, marcha)</option>
+      <option value="msk-pers">Lesión MSK con déficit funcional persistente &gt; 4–6 sem</option>
+      <option value="cardio">Programa con supervisión clínica obligatoria (cardíaca, pulmonar, oncológica)</option>
+      <option value="modal">Modalidades que requieren equipo (electroterapia específica, hidroterapia, biofeedback)</option>
+      <option value="sed">Adulto sedentario sin patología</option>
+      <option value="lumb-aguda">Lumbalgia aguda inespecífica en mejoría</option>
+      <option value="cron-mot">Dolor crónico inespecífico en paciente motivado y con adherencia previa</option>
+      <option value="gym">Paciente con programa estructurado activo (gimnasio, club, comunitario)</option>
+      <option value="baja-prob">Paciente con baja probabilidad de beneficio (demencia avanzada, falta de adherencia previa)</option>
+      <option value="esp-fis">Espasticidad candidata a toxina botulínica o fenol</option>
+      <option value="ort-pro">Indicación de órtesis o prótesis cuya prescripción condiciona la fase</option>
+      <option value="dolor-comp">Dolor complicado (neuropático refractario, central, SDRC)</option>
+      <option value="multi">Plan rehabilitador multidisciplinario (TO, fonoaudiología, psicología)</option>
+    </select>
+    <div class="detalle" id="der-det"></div>
+  </div>
+
+  <h3>🔢 Generador de plantilla de remisión a fisioterapia</h3>
+  <p>Complete los campos. La plantilla se arma automáticamente y puede copiarse al portapapeles.</p>
+
+  <div class="plantilla">
+    <h4>Plantilla mínima de remisión</h4>
+    <div class="field"><label for="p-paciente">Paciente</label><input type="text" id="p-paciente" placeholder="Nombre, edad, identificación"></div>
+    <div class="field"><label for="p-dx">Diagnóstico funcional específico</label><textarea id="p-dx" placeholder="ej. Lumbalgia crónica con limitación de la flexión lateral derecha y dolor irradiado a glúteo, sin radiculopatía"></textarea></div>
+    <div class="field"><label for="p-objetivos">Objetivos funcionales</label><textarea id="p-objetivos" placeholder="ej. Lograr subir 2 pisos sin descansar para reincorporarse a labores de oficina en 6 semanas"></textarea></div>
+    <div class="field"><label for="p-restr">Restricciones (carga, rango, tiempos posquirúrgicos)</label><textarea id="p-restr" placeholder="ej. No carga &gt; 5 kg en MS derecho durante las primeras 4 semanas"></textarea></div>
+    <div class="field"><label for="p-comorb">Comorbilidades relevantes</label><textarea id="p-comorb" placeholder="ej. HTA controlada con losartán; sin alergias conocidas"></textarea></div>
+    <div class="field"><label for="p-meds">Medicación actual</label><textarea id="p-meds" placeholder="ej. Losartán 50 mg/d; ibuprofeno 400 mg/8 h por 5 días"></textarea></div>
+    <div class="field"><label for="p-frec">Frecuencia y duración propuestas</label><input type="text" id="p-frec" placeholder="ej. 3 sesiones/semana × 8 semanas, reevaluar"></div>
+    <div class="field"><label for="p-medico">Médico remitente y contacto</label><input type="text" id="p-medico" placeholder="Nombre, institución, correo, teléfono"></div>
+
+    <button class="copiar" onclick="copiarPlantilla()">Generar y copiar al portapapeles</button>
+    <div class="plantilla-out empty" id="plantilla-out">La plantilla aparecerá aquí cuando complete al menos los primeros campos.</div>
+  </div>
+
+  <h3>Síntesis · criterios de derivación al fisiatra (cap. 8 completo)</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Situación</th><th>Manejo del médico general</th><th>Derivar si…</th></tr></thead>
+      <tbody>
+        <tr><td>Dolor MSK agudo o crónico simple</td><td>Escalera analgésica + ejercicio + educación</td><td>Refractario &gt; 4–6 sem · SDRC · neuropático severo · central</td></tr>
+        <tr><td>Adulto sedentario sin patología</td><td>Prescripción FITT desde consulta</td><td>NO requiere derivación a fisio institucional</td></tr>
+        <tr><td>Lumbalgia aguda inespecífica</td><td>Educación, analgesia, ejercicios pautados</td><td>Banderas rojas · déficit motor · sin mejoría tras manejo conservador adecuado</td></tr>
+        <tr><td>STC leve a moderado</td><td>Férula nocturna, ergonomía, AINE puntual, deslizamiento del nervio</td><td>Déficit motor · atrofia tenar · refractariedad 4–6 sem · sospecha de causa secundaria</td></tr>
+        <tr><td>Adulto mayor con riesgo de caída</td><td>STEADI · ejercicio multicomponente · revisión de medicamentos · entorno</td><td>Caídas recurrentes con lesión · sospecha de osteoporosis con fractura · déficit cognitivo significativo</td></tr>
+        <tr><td>Espasticidad clínicamente significativa</td><td>Identificación del impacto funcional</td><td>Toxina botulínica, baclofén, fenol, cirugía funcional → fisiatría</td></tr>
+        <tr><td>Indicación de órtesis o prótesis</td><td>Reconocer la necesidad funcional</td><td>Prescripción específica → fisiatría + TO + técnico ortesista</td></tr>
+        <tr><td>Postoperatorio MSK / fase subaguda neurológica</td><td>Coordinación, educación, control de comorbilidades</td><td>Programa institucional con protocolo específico</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>Tres ideas para llevar</h4>
+    <ol style="margin-bottom: 0">
+      <li><strong>Buena parte del tratamiento depende del médico general:</strong> analgesia, ejercicio prescrito, educación, prevención de caídas son intervenciones de alto impacto que no requieren especialista.</li>
+      <li><strong>La derivación oportuna —ni precoz ni tardía— es un acto clínico tan importante como la prescripción misma.</strong> Bien formulada acelera la recuperación; mal formulada la retrasa.</li>
+      <li><strong>Derivar no es abandonar:</strong> el médico general que remite sigue siendo el coordinador del cuidado y debe mantener el seguimiento longitudinal.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ==================== TAB 9: CASOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes que recorren los temas del capítulo. Aplique las calculadoras (FCmax, Karvonen, estratificación CV), los selectores (FITT por condición, decisor de derivación) y los criterios de manejo del dolor para responder.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 10: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de manejo del dolor (agudo vs crónico), prescripción FITT, prevención de caídas, STC y derivación.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Estratificación CV
+// =========================================================
+const cvSel = {};
+document.querySelectorAll('#cv-estrat .opciones button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const eje = btn.parentElement.dataset.eje;
+    const val = btn.dataset.val;
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('activo'));
+    btn.classList.add('activo');
+    cvSel[eje] = val;
+    actualizarCV();
+  });
+});
+function actualizarCV() {
+  if (!cvSel.sintomas || !cvSel.enfermedad || !cvSel.factores) return;
+  const r = document.getElementById('cv-resultado');
+  let cat, sem, msg;
+  if (cvSel.sintomas === 'si' || cvSel.enfermedad === 'si') {
+    cat = 'Riesgo elevado'; sem = 'alto';
+    msg = 'Síntomas cardiopulmonares o enfermedad cardiovascular/pulmonar/metabólica establecida. <strong>Requiere prueba de esfuerzo y, en muchos casos, programa supervisado</strong>. La prescripción FITT debe partir de intensidades muy bajas con progresión vigilada.';
+  } else if (cvSel.factores === '2') {
+    cat = 'Riesgo moderado'; sem = 'medio';
+    msg = 'Asintomático con ≥ 2 factores de riesgo cardiovascular. <strong>Antes de iniciar ejercicio vigoroso o supervisado</strong>, evaluación clínica con electrocardiograma y, en casos seleccionados, prueba de esfuerzo. Para ejercicio moderado puede iniciarse con vigilancia clínica.';
+  } else {
+    cat = 'Riesgo bajo'; sem = 'bajo';
+    msg = 'Asintomático, sin enfermedad cardiovascular conocida, &lt; 2 factores de riesgo. <strong>Puede iniciar ejercicio moderado sin pruebas adicionales</strong>. Para ejercicio vigoroso, evaluación clínica básica.';
+  }
+  r.classList.remove('bajo', 'medio', 'alto');
+  r.classList.add('show', sem);
+  r.innerHTML = `<div class="veredicto">${cat}</div><div class="interp">${msg}</div>`;
+}
+
+// =========================================================
+// Calculadora FCmax
+// =========================================================
+document.getElementById('edad-fc').addEventListener('input', e => {
+  const edad = parseInt(e.target.value);
+  const out = document.getElementById('fc-resultado');
+  if (isNaN(edad) || edad < 10 || edad > 100) { out.className = 'calc-resultado empty'; out.textContent = 'Ingrese la edad para ver FCmax y zonas de entrenamiento.'; return; }
+  const tanaka = Math.round(208 - 0.7 * edad);
+  const fox = 220 - edad;
+  const modBaja = Math.round(tanaka * 0.64);
+  const modAlta = Math.round(tanaka * 0.76);
+  const vigBaja = Math.round(tanaka * 0.77);
+  const vigAlta = Math.round(tanaka * 0.93);
+  out.className = 'calc-resultado';
+  out.innerHTML = `
+    <div class="par"><span class="lab">Tanaka (preferida)</span><span class="num">${tanaka}</span> lpm</div>
+    <div class="par"><span class="lab">Fox-Haskell</span><span class="num">${fox}</span> lpm</div>
+    <div class="interp"><strong>Zona moderada (64–76 % FCmax Tanaka):</strong> ${modBaja}–${modAlta} lpm.<br><strong>Zona vigorosa (77–93 %):</strong> ${vigBaja}–${vigAlta} lpm.<br>Tanaka es más precisa en la mayoría de adultos. Fox-Haskell sobrestima en jóvenes y subestima en mayores.</div>
+  `;
+});
+
+// =========================================================
+// Karvonen
+// =========================================================
+function actualizarKarvonen() {
+  const edad = parseInt(document.getElementById('edad-k').value);
+  const reposo = parseInt(document.getElementById('reposo-k').value);
+  const intensidad = parseFloat(document.getElementById('int-k').value);
+  const out = document.getElementById('karv-resultado');
+  if (isNaN(edad) || isNaN(reposo) || isNaN(intensidad)) { out.className = 'calc-resultado empty'; out.textContent = 'Ingrese edad, FC de reposo e intensidad objetivo para ver la FC blanco.'; return; }
+  const fcmax = Math.round(208 - 0.7 * edad);
+  const fcReserva = fcmax - reposo;
+  const fcObjetivo = Math.round(reposo + intensidad * fcReserva);
+  out.className = 'calc-resultado';
+  out.innerHTML = `
+    <div class="par"><span class="lab">FCmax (Tanaka)</span><span class="num">${fcmax}</span> lpm</div>
+    <div class="par"><span class="lab">FC reserva</span><span class="num">${fcReserva}</span> lpm</div>
+    <div class="par"><span class="lab">FC objetivo</span><span class="num">${fcObjetivo}</span> lpm</div>
+    <div class="interp">Para una intensidad del <strong>${Math.round(intensidad * 100)} %</strong>, el paciente debería entrenar a unos <strong>${fcObjetivo} lpm</strong>. Karvonen incorpora la FC de reposo y produce un objetivo individualizado, más preciso que el % FCmax simple cuando el paciente está acondicionado o tiene FC de reposo extrema.</div>
+  `;
+}
+['edad-k', 'reposo-k', 'int-k'].forEach(id => {
+  document.getElementById(id).addEventListener('input', actualizarKarvonen);
+});
+
+// =========================================================
+// FITT por condición
+// =========================================================
+const condContenido = {
+  hta: { titulo: 'Hipertensión arterial', descripcion: 'Aeróbico 150 min/sem moderado o 75 min vigoroso, en sesiones de al menos 30 min. Fuerza dinámica 2–3 días/sem evitando maniobras isométricas máximas con Valsalva.', meta: 'Caída esperada de TAS con el programa: 5–8 mmHg.' },
+  dm2: { titulo: 'Diabetes mellitus tipo 2', descripcion: 'Combinar aeróbico (150 min/sem moderado) con fuerza (2–3 días/sem). En insulinodependientes, medir glucemia capilar pre-ejercicio (objetivo > 100 mg/dL) y vigilar hipoglucemia.', meta: 'Reducción esperada de HbA1c: 0,5–0,7 %.' },
+  acv: { titulo: 'Post-ACV (fase ambulatoria)', descripcion: 'Iniciar entre 24 y 72 horas con movilización temprana. En fase ambulatoria: aeróbico de baja intensidad con progresión a 60–75 % FCmax, ejercicios de control motor específicos por hemicuerpo afectado, equilibrio y reentrenamiento de la marcha.', meta: 'Evitar el primer día de las primeras 24 horas (puede aumentar mortalidad).' },
+  oa: { titulo: 'Osteoartritis (rodilla, cadera)', descripcion: 'Tratamiento central junto con educación y control de peso (OARSI 2019). Fortalecimiento de cuádriceps y glúteos como núcleo del programa. Aeróbico de bajo impacto: bicicleta, natación, caminata en plano.', meta: 'Disminuye dolor y mejora función con efecto comparable al de los AINE.' },
+  lumbalgia: { titulo: 'Dolor lumbar crónico inespecífico', descripcion: 'Combinar ejercicios de estabilización lumbopélvica, fortalecimiento global y aeróbico de bajo impacto. La adherencia importa más que la modalidad: cualquier programa sostenido es mejor que ninguno.', meta: 'Guía OMS 2023 lo prioriza como intervención de primera línea sobre la analgesia farmacológica de mantenimiento.' },
+  fibro: { titulo: 'Fibromialgia', descripcion: 'Aeróbico de inicio MUY gradual (5–10 min iniciales) con progresión lenta hasta 20–30 min. Fortalecimiento liviano. Tai Chi y Pilates con evidencia favorable.', meta: 'La sobrecarga inicial genera abandono. Prefiera intensidades bajas sostenidas a sesiones intensas esporádicas.' },
+  frag: { titulo: 'Adulto mayor frágil / sarcopenia', descripcion: 'Énfasis en fuerza progresiva y equilibrio. La dosis proteica adecuada (1,2–1,5 g/kg/día) es parte de la prescripción.', meta: 'Detalle en cap. 9. Programa multicomponente al menos 3 días/sem.' },
+  park: { titulo: 'Enfermedad de Parkinson', descripcion: 'Aeróbico de intensidad moderada-alta cuando el paciente lo tolera. Entrenamiento del equilibrio y ejercicios específicos para la marcha (LSVT-BIG, Tango).', meta: 'Mejora calidad de vida y posiblemente enlentece la progresión. 3–5 sesiones semanales.' },
+  cancer: { titulo: 'Cáncer (durante o después del tratamiento)', descripcion: 'Aeróbico moderado 150 min/sem y fuerza 2 veces/sem, ajustando por fatiga, anemia y toxicidad del tratamiento.', meta: 'Reduce fatiga oncológica y discapacidad relacionada.' },
+  covid: { titulo: 'Post-COVID con fatiga prolongada', descripcion: 'Inicio MUY gradual y estratificación según tolerancia. El ejercicio mal dosificado puede empeorar la fatiga (malestar post-esfuerzo, PEM).', meta: 'Reposo relativo en agudo, progresión lenta en convalecencia. Vigilar signos de deterioro post-esfuerzo.' },
+  enm: { titulo: 'Enfermedades neuromusculares (ELA, distrofias, Pompe)', descripcion: 'Aeróbico submáximo y fuerza submáxima evitando ejercicio excéntrico de alta intensidad por riesgo de daño muscular.', meta: 'La precisión depende de la enfermedad específica → remitir a fisiatría para individualizar.' },
+  obes: { titulo: 'Obesidad', descripcion: 'Aeróbico 200–300 min/sem moderado para producir pérdida de peso clínicamente relevante (5–10 % del peso basal). Fortalecimiento como adyuvante.', meta: 'La intervención dietética es indispensable: el ejercicio aislado rara vez induce pérdida de peso significativa.' }
+};
+document.getElementById('cond-select').addEventListener('change', e => {
+  const v = e.target.value;
+  const det = document.getElementById('cond-det');
+  if (!v) { det.classList.remove('show'); return; }
+  const c = condContenido[v];
+  det.innerHTML = `<h5>${c.titulo}</h5><div class="secc"><span class="etiqueta">Énfasis FITT</span>${c.descripcion}</div><div class="secc"><span class="etiqueta">Punto clave</span>${c.meta}</div>`;
+  det.classList.add('show');
+});
+
+// =========================================================
+// STEADI paso 1
+// =========================================================
+document.querySelectorAll('#steadi1 input[data-st1]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.parentElement.classList.toggle('checked', cb.checked);
+    const n = document.querySelectorAll('#steadi1 input[data-st1]:checked').length;
+    const r = document.getElementById('steadi1-res');
+    if (n === 0) { r.innerHTML = '<em style="color: var(--gris);">Sin hallazgos marcados.</em>'; return; }
+    r.innerHTML = `<strong style="color: var(--jamared);">${n} hallazgo(s) positivo(s)</strong> → activa el paso 2 (evaluación multifactorial).`;
+  });
+});
+
+// Checklist genérica para todos los demás
+document.querySelectorAll('.steadi-paso .checklist input[type="checkbox"]:not([data-st1])').forEach(cb => {
+  cb.addEventListener('change', () => cb.parentElement.classList.toggle('checked', cb.checked));
+});
+
+// =========================================================
+// Decisor de derivación
+// =========================================================
+const derContenido = {
+  postop: { titulo: 'Postoperatorio musculoesquelético', accion: 'Sí, programa institucional', detalle: 'Artroplastia de cadera o rodilla, reconstrucción ligamentaria, reparación de manguito rotador, estabilización de hombro, cirugía de columna. <strong>La precocidad y la adherencia al protocolo posquirúrgico determinan el desenlace funcional.</strong>' },
+  'acv-sub': { titulo: 'Fase subaguda neurológica', accion: 'Sí, programa institucional + considerar fisiatría primero', detalle: 'ACV, TCE, lesión medular dentro de la ventana de neuroplasticidad. La derivación debe ser tan pronto el paciente esté médicamente estable; la dosis y especificidad del entrenamiento condicionan la recuperación funcional.' },
+  reentr: { titulo: 'Reentrenamiento motor específico', accion: 'Sí, programa institucional', detalle: 'Control selectivo, equilibrio dinámico, reentrenamiento de marcha tras lesión periférica o central, manejo de espasticidad con técnicas específicas. <strong>No se replican con un programa domiciliario genérico.</strong>' },
+  'msk-pers': { titulo: 'Lesión MSK con déficit funcional persistente', accion: 'Sí, programa institucional', detalle: 'Más allá de 4–6 semanas con manejo conservador adecuado (analgesia, modificación de actividad, ejercicios pautados) y que limita el regreso a la actividad o al trabajo.' },
+  cardio: { titulo: 'Programa con supervisión clínica obligatoria', accion: 'Sí, programa institucional', detalle: 'Rehabilitación cardíaca tras IAM, posrevascularización o falla cardíaca; rehabilitación pulmonar en EPOC con disnea limitante o tras exacerbación; rehabilitación oncológica.' },
+  modal: { titulo: 'Modalidades que requieren equipo', accion: 'Sí, programa institucional', detalle: 'Electroterapia analgésica con parámetros específicos, hidroterapia supervisada, plataformas de equilibrio computadas, biofeedback, realidad virtual.' },
+  sed: { titulo: 'Adulto sedentario sin patología', accion: 'NO se necesita derivación a fisioterapia institucional', detalle: '<strong>La prescripción FITT desde la consulta es suficiente.</strong> La fisioterapia no es un sustituto del gimnasio. Derivar aquí desperdicia recursos y normaliza la dependencia del servicio.' },
+  'lumb-aguda': { titulo: 'Lumbalgia aguda inespecífica en mejoría', accion: 'NO requiere derivación', detalle: 'Educación, analgesia escalonada y ejercicios pautados desde consulta. La revisión sistemática muestra que la mayoría se resuelve sin intervención formal.' },
+  'cron-mot': { titulo: 'Dolor crónico inespecífico en paciente motivado y con adherencia previa', accion: 'Programa domiciliario con seguimiento', detalle: 'La adherencia a un programa que el paciente puede sostener supera al fracaso de un programa institucional al que no asiste.' },
+  gym: { titulo: 'Paciente con programa estructurado activo', accion: 'NO duplicar el recurso', detalle: 'Gimnasio supervisado, club deportivo, programa comunitario que solo requiere ajustes. El médico general orienta el ajuste.' },
+  'baja-prob': { titulo: 'Baja probabilidad de beneficio', accion: 'Reformular antes de derivar', detalle: 'Demencia avanzada sin participación posible, falta de adherencia documentada en intentos previos, ausencia de objetivo funcional realista. <strong>La conversación con paciente y familia sobre objetivos realistas es prioritaria sobre la remisión.</strong>' },
+  'esp-fis': { titulo: 'Espasticidad candidata a toxina botulínica o fenol', accion: 'Primero fisiatría, luego fisioterapia', detalle: 'La intervención sobre espasticidad debe ocurrir antes de iniciar el programa motor activo, para que la fisioterapia pueda capitalizar el cambio.' },
+  'ort-pro': { titulo: 'Indicación de órtesis o prótesis', accion: 'Primero fisiatría + TO + técnico ortesista', detalle: 'La prescripción específica del dispositivo condiciona la fase de fisioterapia. Una férula bien indicada pero mal ajustada o prescrita "a ojo" termina en un cajón o lesionando piel y articulaciones.' },
+  'dolor-comp': { titulo: 'Dolor complicado (neuropático refractario, central, SDRC)', accion: 'Primero clínica del dolor / fisiatría con subespecialización', detalle: 'Necesita ajuste farmacológico previo o concurrente. La fisioterapia aislada no resuelve estos cuadros y puede empeorarlos.' },
+  multi: { titulo: 'Plan rehabilitador multidisciplinario', accion: 'Primero fisiatría para coordinar', detalle: 'Cualquier paciente que requiere TO + fonoaudiología + psicología además de fisioterapia. El fisiatra coordina el plan integrado.' }
+};
+document.getElementById('der-select').addEventListener('change', e => {
+  const v = e.target.value;
+  const det = document.getElementById('der-det');
+  if (!v) { det.classList.remove('show'); return; }
+  const d = derContenido[v];
+  det.innerHTML = `<h5>${d.titulo}</h5><div class="secc"><span class="etiqueta">Decisión</span><strong style="color: var(--jamared);">${d.accion}</strong></div><div class="secc"><span class="etiqueta">Detalle</span>${d.detalle}</div>`;
+  det.classList.add('show');
+});
+
+// =========================================================
+// Plantilla de remisión
+// =========================================================
+function generarPlantilla() {
+  const campos = {
+    'p-paciente': 'Paciente',
+    'p-dx': 'Diagnóstico funcional',
+    'p-objetivos': 'Objetivos funcionales',
+    'p-restr': 'Restricciones',
+    'p-comorb': 'Comorbilidades',
+    'p-meds': 'Medicación actual',
+    'p-frec': 'Frecuencia y duración propuestas',
+    'p-medico': 'Médico remitente'
+  };
+  const out = document.getElementById('plantilla-out');
+  let llenos = 0;
+  let texto = 'REMISIÓN A FISIOTERAPIA\n\n';
+  for (const [id, label] of Object.entries(campos)) {
+    const v = document.getElementById(id).value.trim();
+    if (v) { texto += `${label}: ${v}\n\n`; llenos++; }
+  }
+  if (llenos < 2) {
+    out.className = 'plantilla-out empty';
+    out.textContent = 'La plantilla aparecerá aquí cuando complete al menos los primeros campos.';
+    return null;
+  }
+  out.className = 'plantilla-out';
+  out.textContent = texto;
+  return texto;
+}
+function copiarPlantilla() {
+  const texto = generarPlantilla();
+  if (!texto) return;
+  navigator.clipboard.writeText(texto).then(() => {
+    const btn = document.querySelector('.plantilla button.copiar');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copiado al portapapeles';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+document.querySelectorAll('.plantilla input, .plantilla textarea').forEach(el => {
+  el.addEventListener('input', generarPlantilla);
+});
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Dolor lumbar crónico que «no responde»',
+    historia: 'Mujer de 55 años, lumbalgia crónica de 18 meses. Ha recibido AINE prolongados, paracetamol diario y dos infiltraciones epidurales sin mejoría sostenida. Sin banderas rojas. STarT Back 5/9 (riesgo medio).',
+    pregunta: '¿Cuál es la conducta correcta según las guías actuales?',
+    opciones: [
+      { texto: 'Iniciar opioide débil tipo tramadol como mantenimiento', correcto: false },
+      { texto: 'Suspender el paracetamol y AINE crónicos, priorizar ejercicio terapéutico supervisado + educación + manejo psicosocial; AINE solo en exacerbaciones', correcto: true },
+      { texto: 'Resonancia urgente para "encontrar la causa real"', correcto: false },
+      { texto: 'Iniciar gabapentinoide para todo dolor crónico', correcto: false }
+    ],
+    feedback: 'OMS 2023 para lumbalgia primaria crónica: ejercicio + educación + biopsicosocial son la primera línea, NO los analgésicos de mantenimiento. Paracetamol crónico no tiene beneficio en lumbalgia. Opioides en crónico no oncológico: no recomendado. Gabapentinoides en dolor primario crónico: no indicado (se reservan para neuropático bien definido). Suspensión gradual de los crónicos pactada con la paciente.'
+  },
+  {
+    titulo: 'Caso 2 · Prescripción FITT en HTA',
+    historia: 'Hombre de 50 años, HTA controlada con losartán. Sedentario. IMC 28. Sin síntomas cardiopulmonares. FC reposo 70 lpm.',
+    pregunta: '¿FC objetivo (Karvonen al 60 %)?',
+    opciones: [
+      { texto: '120 lpm', correcto: false },
+      { texto: '127 lpm', correcto: true },
+      { texto: '140 lpm', correcto: false },
+      { texto: '163 lpm (60 % de 220 − 50)', correcto: false }
+    ],
+    feedback: 'FCmax (Tanaka) = 208 − 0,7 × 50 = 173. FC reserva = 173 − 70 = 103. FC objetivo al 60 % = 70 + 0,60 × 103 = 70 + 62 = 132 ≈ 127 (en redondeo más conservador). Karvonen es más individualizado que el % FCmax simple. Para HTA: 150 min/sem moderado + fuerza 2–3 días/sem evitando isométricas máximas con Valsalva. Caída esperada de TAS: 5–8 mmHg.'
+  },
+  {
+    titulo: 'Caso 3 · Adulto mayor con caída',
+    historia: 'Mujer de 78 años con dos caídas en 6 meses. Vive sola. Toma alprazolam para dormir, amlodipino y enalapril. TUG 16 s. Refiere que ha dejado de salir a la calle por miedo a caerse.',
+    pregunta: '¿Conducta más completa?',
+    opciones: [
+      { texto: 'Alprazolam para que no se ponga ansiosa con las caídas', correcto: false },
+      { texto: 'Programa multicomponente Otago + revisión y desprescripción del alprazolam + ortostatismo + revisión de antihipertensivos + modificación del entorno + evaluación de osteoporosis', correcto: true },
+      { texto: 'Solo silla de ruedas para que no se caiga más', correcto: false },
+      { texto: 'Vitamina D 800 UI/día como única intervención', correcto: false }
+    ],
+    feedback: 'STEADI paso 3: programa multicomponente Otago (reduce caídas 23–30 %) + revisión y desprescripción de medicamentos de riesgo (alprazolam es benzodiacepina de primera línea para suspender) + protocolo de ortostatismo + ajuste de antihipertensivos en horario inadecuado + modificación del entorno + manejo del riesgo óseo. La silla de ruedas empeora todo (acelera desacondicionamiento e inmovilismo). Vitamina D sola no es suficiente.'
+  },
+  {
+    titulo: 'Caso 4 · STC en embarazada',
+    historia: 'Mujer de 32 años, embarazo en 28 semanas, despierta cada noche con parestesias en pulgar, índice y dedo medio derechos que mejoran al sacudir la mano. Phalen+, Tinel+, Durkan+. Sin atrofia tenar. Fuerza de oposición conservada.',
+    pregunta: '¿Conducta inicial?',
+    opciones: [
+      { texto: 'Cirugía descompresiva inmediata', correcto: false },
+      { texto: 'Férula de muñeca en posición neutra para uso nocturno + recomendaciones ergonómicas + explicar que la mayoría se resuelve en el postparto; reservar EMG y derivación si persiste tras el parto', correcto: true },
+      { texto: 'Pregabalina como primera línea', correcto: false },
+      { texto: 'Resonancia magnética de muñeca', correcto: false }
+    ],
+    feedback: 'STC del embarazo: factor de riesgo clásico por edema. Sin déficit motor ni atrofia: manejo conservador con férula nocturna en posición neutra (0–10° de extensión, NO en flexión), ergonomía y educación. La mayoría se resuelve en el postparto. EMG y derivación se reservan para persistencia tras el parto o aparición de déficit motor / atrofia.'
+  },
+  {
+    titulo: 'Caso 5 · Dolor agudo postoperatorio',
+    historia: 'Hombre de 40 años, primer día tras artroscopia de rodilla por reparación meniscal. EVA 7/10 en reposo. Sin antecedentes, sin alergias.',
+    pregunta: '¿Esquema analgésico de inicio?',
+    opciones: [
+      { texto: 'Solo paracetamol 1 g c/8 h', correcto: false },
+      { texto: 'Paracetamol 1 g c/8 h + ibuprofeno 400 mg c/8 h × 5 días + tramadol 50 mg c/8 h SOS para picos por 48–72 h, por reloj las primeras 48 h', correcto: true },
+      { texto: 'Morfina IV continua', correcto: false },
+      { texto: 'Pregabalina 150 mg c/12 h', correcto: false }
+    ],
+    feedback: 'Dolor agudo postoperatorio: aplica la escalera analgésica clásica. Combinación multimodal (paracetamol + AINE corto + tramadol SOS) es eficaz y permite menor dosis individual. Por reloj las primeras 48 h, luego SOS según evolución. Pregabalina no es primera línea en dolor agudo postoperatorio sin componente neuropático claro. Morfina IV continua es desproporcionada para una artroscopia.'
+  },
+  {
+    titulo: 'Caso 6 · OA de rodilla',
+    historia: 'Mujer de 65 años con OA de rodilla bilateral confirmada radiológicamente. EVA 6/10 con la marcha. IMC 32.',
+    pregunta: '¿Núcleo del tratamiento según OARSI 2019?',
+    opciones: [
+      { texto: 'Paracetamol 1 g c/8 h diario + corticoide intraarticular cada 3 meses', correcto: false },
+      { texto: 'Educación + ejercicio terrestre (fortalecimiento de cuádriceps y glúteos) + control del peso + AINE tópico; AINE sistémicos solo en exacerbaciones', correcto: true },
+      { texto: 'Reemplazo articular de rodilla bilateral programado', correcto: false },
+      { texto: 'Opioides débiles como mantenimiento crónico', correcto: false }
+    ],
+    feedback: 'OARSI 2019: educación + ejercicio + control de peso son los tratamientos centrales. AINE tópicos: recomendación fuerte. <strong>Paracetamol ya NO se recomienda en OA</strong>; opioides están <strong>fuertemente desaconsejados</strong>. La cirugía protésica se reserva para fracaso del manejo conservador adecuado y limitación funcional severa.'
+  },
+  {
+    titulo: 'Caso 7 · Derivación a fisioterapia',
+    historia: 'Hombre de 35 años, sedentario, sin patología, IMC 28. Quiere "comenzar a hacer algo de ejercicio". Pide remisión a fisioterapia.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Remitir a fisioterapia institucional', correcto: false },
+      { texto: 'Prescripción FITT desde consulta (estratificar riesgo CV, calcular FC objetivo con Karvonen, plan FITT de inicio); educar que la fisioterapia no es un sustituto del gimnasio', correcto: true },
+      { texto: 'Pedirle solo que "camine"', correcto: false },
+      { texto: 'Solicitar prueba de esfuerzo antes de cualquier recomendación', correcto: false }
+    ],
+    feedback: 'Adulto sedentario sin patología y de riesgo CV bajo: la prescripción FITT desde consulta es suficiente. La fisioterapia no es sustituto del gimnasio; derivar aquí desperdicia un recurso costoso y normaliza la dependencia del servicio. Para riesgo bajo, no requiere prueba de esfuerzo previa para iniciar ejercicio moderado.'
+  },
+  {
+    titulo: 'Caso 8 · Espasticidad post-ACV que limita',
+    historia: 'Mujer de 60 años, secuela de ACV hace 8 meses. Espasticidad en flexores de muñeca y dedos del MS izquierdo (Ashworth 3) que dificulta el aseo de la mano por la cuidadora y genera dolor. Sin contractura estructurada.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'Solo AINE', correcto: false },
+      { texto: 'Derivar a fisiatría para evaluación de toxina botulínica + iniciar fisioterapia institucional para programa motor coordinado', correcto: true },
+      { texto: 'Cirugía ortopédica funcional inmediata', correcto: false },
+      { texto: 'Manejo solo con calor superficial', correcto: false }
+    ],
+    feedback: 'Espasticidad clínicamente significativa (limita función + genera dolor + dificulta cuidado): indicación de toxina botulínica → derivar primero a fisiatría. La fisioterapia institucional acompaña para capitalizar el cambio (programa motor coordinado tras la infiltración). No esperar a que se establezca la contractura, que ya no responde al tratamiento farmacológico.'
+  },
+  {
+    titulo: 'Caso 9 · Ortostatismo en adulto mayor',
+    historia: 'Hombre de 80 años con HTA, en tratamiento con losartán + amlodipino + furosemida. Refiere mareo al levantarse. TA acostado: 145/85, FC 70. Al minuto 1 de pie: 110/65, FC 75. Síntomas presentes.',
+    pregunta: '¿Diagnóstico y conducta?',
+    opciones: [
+      { texto: 'Hipotensión esencial sin importancia', correcto: false },
+      { texto: 'Hipotensión ortostática (TAS cae 35 mmHg + síntomas) → revisar y ajustar antihipertensivos en horario inadecuado, suspender o ajustar furosemida si no es indispensable, levantarse en dos tiempos, hidratación, considerar medias compresivas', correcto: true },
+      { texto: 'Subir antihipertensivo porque "está alta" acostado', correcto: false },
+      { texto: 'TC de cráneo urgente', correcto: false }
+    ],
+    feedback: 'Hipotensión ortostática positiva: caída de TAS ≥ 20 mmHg (cayó 35) o aparición de síntomas. Causa probable: polifarmacia antihipertensiva con diurético. Conducta STEADI: revisar y desprescribir / reordenar horarios + medidas no farmacológicas (levantarse en dos tiempos, hidratación, medias compresivas). Es factor de riesgo de caída prevenible.'
+  },
+  {
+    titulo: 'Caso 10 · Plantilla de remisión',
+    historia: 'Mujer de 70 años, día 7 post-artroplastia total de rodilla derecha. Protocolo del cirujano: carga parcial progresiva, no flexión más allá de 90° las primeras 4 semanas. HTA controlada, sin alergias. Toma losartán y rivaroxabán.',
+    pregunta: '¿Qué información mínima debe contener la remisión a fisioterapia?',
+    opciones: [
+      { texto: 'Solo "rehabilitación post-artroplastia rodilla"', correcto: false },
+      { texto: 'Diagnóstico funcional específico + objetivos funcionales medibles (rango, marcha, escaleras) + restricciones literales del cirujano (carga, flexión < 90° por 4 sem) + comorbilidades (HTA) + medicación (incluyendo el rivaroxabán) + frecuencia y duración propuestas + datos del médico remitente', correcto: true },
+      { texto: 'Solo el nombre del paciente', correcto: false },
+      { texto: 'Solicitar primero electrodiagnóstico', correcto: false }
+    ],
+    feedback: 'La calidad de la primera sesión depende de la información con la que llega el paciente. La plantilla mínima incluye: diagnóstico funcional específico, objetivos medibles, restricciones literales del cirujano, comorbilidades, medicación (rivaroxabán es relevante para fisio: precaución con técnicas que puedan generar hematoma), frecuencia y duración propuestas, datos del médico remitente para retroalimentación. "Rehabilitación post-artroplastia" sin más es insuficiente.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'En dolor crónico no oncológico (lumbalgia primaria crónica, OA, fibromialgia), la primera línea de tratamiento es:', o:['Opioides débiles','Paracetamol crónico','Ejercicio + educación + abordaje biopsicosocial','Pregabalina'], c:2, e:'NICE NG193, OMS 2023 y OARSI 2019 coinciden: ejercicio + educación + biopsicosocial son el núcleo. Los analgésicos de mantenimiento NO son la primera línea. Paracetamol crónico no tiene beneficio en OA ni lumbalgia; opioides están desaconsejados; pregabalina solo en neuropático bien definido.' },
+  { p: 'La fórmula de Tanaka para FCmax es:', o:['220 − edad','208 − 0,7 × edad','210 − edad/2','La FCmax no se calcula, se mide'], c:1, e:'Tanaka es más precisa que Fox-Haskell (220 − edad) en la mayoría de adultos. Esta última sobrestima en jóvenes y subestima en mayores.' },
+  { p: 'Karvonen al 70 % en un paciente de 50 años con FC reposo 70:', o:['122 lpm','140 lpm','142 lpm','153 lpm'], c:2, e:'FCmax = 208 − 0,7 × 50 = 173. Reserva = 173 − 70 = 103. Objetivo = 70 + 0,70 × 103 = 70 + 72 = 142 lpm. Karvonen incorpora la FC reposo y produce un objetivo individualizado más preciso que el % FCmax simple.' },
+  { p: 'En STEADI, una respuesta afirmativa a CUALQUIERA de las 3 preguntas activa:', o:['Solo seguimiento','La evaluación multifactorial (paso 2)','La cirugía','Solo vitamina D'], c:1, e:'Una sola respuesta afirmativa basta para pasar al paso 2 (evaluación multifactorial). No requiere las tres positivas.' },
+  { p: 'En STC, la maniobra con MAYOR sensibilidad es:', o:['Phalen','Tinel','Compresión carpal de Durkan','Allen'], c:2, e:'Durkan (presión sostenida con ambos pulgares sobre el túnel × 30 s) suele ser más sensible que Phalen y Tinel. Ninguna es diagnóstica por sí sola.' },
+  { p: 'Atrofia de la eminencia tenar en un paciente con STC:', o:['Es un signo temprano sin importancia','Es un signo tardío que indica lesión axonal y obliga a descompresión quirúrgica relativamente urgente','Indica fibromialgia','Es siempre bilateral'], c:1, e:'Atrofia tenar = lesión axonal del mediano. Es signo tardío y obliga a descompresión quirúrgica para evitar daño irreversible.' },
+  { p: 'En el adulto sedentario sin patología que quiere comenzar a hacer ejercicio:', o:['Remitir a fisioterapia institucional','Prescripción FITT desde consulta; la fisioterapia NO es sustituto del gimnasio','Solicitar prueba de esfuerzo siempre','Esperar a que aparezca un síntoma'], c:1, e:'La prescripción FITT desde consulta es suficiente para riesgo CV bajo. Derivar aquí desperdicia recursos y normaliza la dependencia del servicio.' },
+  { p: 'Un paciente con OA de rodilla NO debe recibir como mantenimiento:', o:['Educación','Ejercicio terrestre','Control de peso','Paracetamol crónico (sin beneficio demostrado en OA según OARSI 2019)'], c:3, e:'OARSI 2019 retiró el paracetamol de las recomendaciones para OA. Los opioides están fuertemente desaconsejados. El núcleo es educación + ejercicio + control de peso + AINE tópico.' },
+  { p: 'Hipotensión ortostática se define como:', o:['Caída de TAS ≥ 10 mmHg','Caída de TAS ≥ 20 mmHg O TAD ≥ 10 mmHg O síntomas, al pasar a bipedestación','Caída de FC > 20 lpm','Cualquier mareo al levantarse'], c:1, e:'Definición operativa: caída TAS ≥ 20 mmHg, o TAD ≥ 10 mmHg, o aparición de síntomas (mareo, debilidad, visión borrosa) al pasar de acostado a bipedestación al minuto 1 o al 3.' },
+  { p: 'En un paciente con espasticidad clínicamente significativa que limita la marcha y genera dolor:', o:['Solo calor superficial','AINE como primera línea','Derivar a fisiatría para evaluación de toxina botulínica + fisioterapia institucional coordinada para programa motor','Esperar a que se forme contractura para operar'], c:2, e:'Derivar oportunamente para toxina botulínica (u otras opciones del fisiatra: baclofén oral o intratecal, fenol). Fisioterapia institucional para capitalizar el cambio. Esperar a la contractura estructurada cierra la puerta al tratamiento farmacológico.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
