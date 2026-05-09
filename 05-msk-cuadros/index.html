@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuadros musculoesqueléticos frecuentes · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva de cuadros musculoesqueléticos para el médico general: decisor de maniobra provocativa por región, exámenes de hombro/codo/muñeca/cervical/cadera/rodilla, calculadora ACR 2016 de fibromialgia, tamizaje de dolor nociplástico, 30-CST, casos y autoevaluación.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 32px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--azulacad);
+  margin: 0 auto 18px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
+}
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Decisor de maniobra ===== */
+.decisor {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.decisor h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.decisor select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 480px;
+}
+.decisor select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.decisor-respuesta {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  display: none;
+}
+.decisor-respuesta.show { display: block; }
+.decisor-respuesta h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+  margin: 0 0 10px;
+}
+.decisor-respuesta .seccion {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--azulacad-mid);
+}
+.decisor-respuesta .seccion:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.decisor-respuesta .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Maniobras: tarjetas dentro de un capítulo regional ===== */
+.maniobra {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.maniobra h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+}
+.maniobra .estructura {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.maniobra .row-key {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.maniobra .row-key .k {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  padding-top: 3px;
+}
+
+/* ===== Fibromialgia / Nociplástico ===== */
+.calc-bloque {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-bloque h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-bloque .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+.calc-bloque h5 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--azulacad-mid);
+}
+
+.checklist {
+  display: grid;
+  gap: 4px;
+}
+.checklist label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.checklist label:hover { background: var(--azulacad-suave); }
+.checklist label.checked {
+  background: var(--azulacad-suave);
+  font-weight: 600;
+  color: var(--azulacad);
+}
+.checklist label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.checklist.cuadrantes {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+@media (max-width: 600px) {
+  .checklist.cuadrantes { grid-template-columns: 1fr; }
+}
+
+.checklist.wpi {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+@media (max-width: 700px) {
+  .checklist.wpi { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .checklist.wpi { grid-template-columns: 1fr; }
+}
+
+.escala-fila {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.escala-fila:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .escala-fila { grid-template-columns: 1fr; gap: 6px; }
+}
+.escala-fila .label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones {
+  display: flex;
+  gap: 6px;
+}
+.escala-fila .opciones label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  flex: 1;
+  text-align: center;
+}
+.escala-fila .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.escala-fila .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones input { display: none; }
+
+.calc-bloque .total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.calc-bloque .total .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--jamared);
+}
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.calc-bloque .total .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* Calculadora simple (entrada numérica) */
+.calc-simple {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-simple h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-simple .calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-simple label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-simple input[type="number"], .calc-simple select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-simple .resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-simple .resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-simple .resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.semaforo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Caso completo (Beatriz) - acordeón ===== */
+details.fase {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.fase[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.fase summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.fase summary::-webkit-details-marker { display: none; }
+details.fase summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.fase[open] summary::before { transform: rotate(90deg); }
+details.fase summary .tiempo {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.fase .fase-body {
+  padding: 0 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer {
+  font-family: var(--sans);
+  text-align: center;
+  padding: 26px 24px;
+  font-size: 0.82rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 5</div>
+  <h1>Cuadros musculoesqueléticos frecuentes en consulta</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Consulta de 15 min</button>
+  <button class="tab-btn" data-tab="decisor">2. 🔎 Decisor de maniobra</button>
+  <button class="tab-btn" data-tab="hombro">3. Hombro y manguito</button>
+  <button class="tab-btn" data-tab="codo-mano">4. Codo, muñeca y mano</button>
+  <button class="tab-btn" data-tab="cervical">5. Cervical</button>
+  <button class="tab-btn" data-tab="cadera-rodilla">6. Cadera y rodilla</button>
+  <button class="tab-btn" data-tab="nociplastico">7. 🔢 Dolor nociplástico</button>
+  <button class="tab-btn" data-tab="caso15">8. Caso · 15 minutos</button>
+  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO / Consulta 15 min ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>El médico general como primer evaluador</h2>
+  <p>El dolor musculoesquelético del miembro superior, el dolor lumbar irradiado y el dolor articular del miembro inferior son tres de los motivos más frecuentes de consulta en atención primaria. La inmensa mayoría de los pacientes que terminan llegando al fisiatra, al ortopedista o al neurólogo <strong>ya pasaron antes por un médico general</strong>; la calidad de la evaluación inicial determina si el estudio se orienta bien, si se evita la sobreutilización de imágenes y si el paciente recibe un tratamiento conservador oportuno antes de cronificarse.</p>
+
+  <div class="card azul">
+    <h4>Esquema mental común para todas las regiones</h4>
+    <p style="margin-bottom: 0">Aunque el médico general puede recibir consultas por dolor en una decena de regiones distintas, el <em>esquema</em> para abordarlas en quince minutos es el mismo, sin importar si la queja es de hombro, mano, codo, cuello o rodilla. Lo que cambia es la <strong>maniobra provocativa</strong> que se aplica al final.</p>
+  </div>
+
+  <h3>Cuatro preguntas que ordenan la consulta</h3>
+  <ol>
+    <li><strong>¿Dónde duele exactamente y a dónde se irradia?</strong> El punto de máximo dolor y el patrón de irradiación —en territorio de un dermatoma, de un nervio periférico, sin patrón claro— orienta el diagnóstico antes de tocar al paciente.</li>
+    <li><strong>¿Cuándo comenzó y cómo?</strong> Trauma agudo, sobreuso ocupacional repetitivo, inicio espontáneo, dolor presente al despertar son patrones distintos con conductas distintas.</li>
+    <li><strong>¿Hay banderas rojas?</strong> Cuatro preguntas en bloque: debilidad clara para mover la extremidad, atrofia visible, fiebre o malestar sistémico, pérdida de peso involuntaria. Una sola respuesta afirmativa cambia la conducta.</li>
+    <li><strong>¿Qué dejó de hacer el paciente?</strong> Subir escaleras, peinarse, abrocharse la camisa, manejar, dormir. La pregunta funcional concreta el impacto y orienta la urgencia del manejo.</li>
+  </ol>
+
+  <h3>Cinco escenarios y su conducta</h3>
+  <div class="card roja">
+    <h4>1. Banderas rojas sistémicas o tumorales</h4>
+    <p style="margin-bottom: 0">(fiebre, pérdida de peso, dolor nocturno desproporcionado, antecedente de cáncer, dolor que no mejora). <strong>Estudio dirigido y derivación oportuna</strong> al servicio que corresponda (infectología, hematología, ortopedia oncológica).</p>
+  </div>
+  <div class="card roja">
+    <h4>2. Déficit motor objetivo, atrofia o signos de neuropatía progresiva</h4>
+    <p style="margin-bottom: 0">Derivación a fisiatría con solicitud de electrodiagnóstico (cap. 6). En cervical o lumbar, descartar mielopatía o cauda equina como urgencia.</p>
+  </div>
+  <div class="card naranja">
+    <h4>3. Trauma agudo con probable lesión estructural</h4>
+    <p style="margin-bottom: 0">(ruptura tendinosa, derrame intraarticular significativo, inestabilidad articular evidente). El médico general inmoviliza, da analgesia, agenda y deriva a ortopedia.</p>
+  </div>
+  <div class="card verde">
+    <h4>4. Dolor crónico mecánico sin déficit ni banderas rojas</h4>
+    <p style="margin-bottom: 0"><strong>Manejo conservador estructurado en consulta</strong> (educación + AINE corto + ortesis específica + fisioterapia activa), control en 4–6 semanas.</p>
+  </div>
+  <div class="card amarilla">
+    <h4>5. Sospecha de patología sistémica articular</h4>
+    <p style="margin-bottom: 0">(artritis inflamatoria, espondiloartritis, artritis cristalina): estudio reumatológico básico y derivación según severidad.</p>
+  </div>
+
+  <h3>Tres acciones de cierre en el escenario más frecuente (escenario 4)</h3>
+  <ol>
+    <li><strong>Diagnóstico positivo claro y nombre de la estructura.</strong> «Esto es una tendinopatía del manguito rotador», «esto es una epicondilitis lateral», «esto es un síndrome del túnel del carpo». Igual que en lumbalgia, la incertidumbre alimenta la cronificación.</li>
+    <li><strong>Educación con dos mensajes:</strong> identificar la actividad desencadenante / patrón ergonómico que sostiene el síntoma; la <em>progresión del ejercicio terapéutico</em>, no el reposo absoluto, es lo que mejora el cuadro.</li>
+    <li><strong>Plan en cuatro líneas:</strong> AINE en ciclo corto si hay componente inflamatorio (no opioides en dolor mecánico crónico); ortesis específica; fisioterapia con énfasis en ejercicio activo; control en 4–6 semanas.</li>
+  </ol>
+
+  <h3>Cuándo NO pedir imágenes</h3>
+  <div class="card amarilla">
+    <p>La sobreutilización de imágenes es una causa frecuente de iatrogenia: los hallazgos estructurales (tendinopatía del supraespinoso, condropatía rotuliana, lesiones meniscales degenerativas) son <strong>ubicuos en personas asintomáticas</strong> y pocas veces explican el síntoma.</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Radiografía simple:</strong> sospecha de fractura, dolor articular crónico del miembro inferior en mayores de 50 años (osteoartritis), sospecha de luxación o cuerpo libre intraarticular.</li>
+      <li><strong>Ecografía:</strong> sospecha clínica clara de ruptura tendinosa significativa, derrame o lesión bursal específica. No como tamizaje.</li>
+      <li><strong>Resonancia magnética:</strong> no es de primera línea en atención primaria. Habitualmente preoperatoria o ante banderas rojas.</li>
+    </ul>
+  </div>
+
+  <h3>Cómo navegar esta guía</h3>
+  <ul>
+    <li><strong>Pestaña 2:</strong> 🔎 decisor de maniobra — selector por región/cuadro que muestra la maniobra recomendada y cómo interpretarla.</li>
+    <li><strong>Pestañas 3–6:</strong> maniobras detalladas por región (hombro, codo/mano, cervical, cadera/rodilla).</li>
+    <li><strong>Pestaña 7:</strong> 🔢 dolor nociplástico, calculadora ACR 2016 de fibromialgia y prueba 30-CST.</li>
+    <li><strong>Pestaña 8:</strong> caso clínico de 15 minutos paso a paso (Beatriz, hombro).</li>
+    <li><strong>Pestañas 9–10:</strong> 10 casos progresivos y 10 preguntas de autoevaluación.</li>
+  </ul>
+</section>
+
+<!-- ==================== TAB 2: DECISOR ==================== -->
+<section class="tab-content" id="decisor">
+  <h2>🔎 Decisor de maniobra provocativa</h2>
+  <p>Una maniobra por región. Seleccione el cuadro que sospecha y la guía despliega: cómo se hace, qué reproduce, qué significa positiva, qué significa negativa.</p>
+
+  <div class="decisor">
+    <h4>¿Qué cuadro sospecha?</h4>
+    <select id="decisor-select">
+      <option value="">— elija una región o cuadro —</option>
+      <optgroup label="Miembro superior">
+        <option value="stc">Síndrome del túnel del carpo (mediano)</option>
+        <option value="cubital">Atrapamiento del cubital en el codo</option>
+        <option value="dequervain">Tenosinovitis de De Quervain</option>
+        <option value="impingement">Impingement subacromial</option>
+        <option value="supraespinoso">Lesión del supraespinoso</option>
+        <option value="subescapular">Lesión del subescapular</option>
+        <option value="ruptura">Ruptura completa del manguito</option>
+        <option value="ela">Epicondilitis lateral («codo de tenista»)</option>
+        <option value="ema">Epicondilitis medial («codo de golfista»)</option>
+      </optgroup>
+      <optgroup label="Cervical / lumbosacro">
+        <option value="radcerv">Radiculopatía cervical</option>
+        <option value="radlumb">Radiculopatía lumbosacra</option>
+      </optgroup>
+      <optgroup label="Cadera y rodilla">
+        <option value="cadera-intra">Patología intraarticular de cadera (impingement, labrum)</option>
+        <option value="trendelenburg">Debilidad del glúteo medio (Trendelenburg)</option>
+        <option value="lca">Lesión del ligamento cruzado anterior</option>
+        <option value="menisco">Lesión meniscal</option>
+        <option value="colaterales">Lesión de ligamentos colaterales</option>
+      </optgroup>
+    </select>
+    <div class="decisor-respuesta" id="decisor-resp"></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Recordatorio</h4>
+    <p style="margin-bottom: 0">Ninguna maniobra es diagnóstica por sí sola. Su valor crece cuando se interpreta junto con la <em>localización del dolor</em>, el <em>mecanismo de inicio</em> y los <em>hallazgos del examen general</em> (atrofia, debilidad, alteración sensitiva, irradiación). El positivo aislado no diagnostica; el negativo aislado tampoco descarta.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: HOMBRO ==================== -->
+<section class="tab-content" id="hombro">
+  <h2>Hombro y manguito rotador</h2>
+  <p>El síndrome de manguito rotador engloba tendinitis, tendinosis y rupturas del <em>supraspinatus</em>, <em>infraspinatus</em>, <em>subscapularis</em> y <em>teres minor</em>, además de la bursitis subacromial. El <strong><em>supraspinatus</em> es el más afectado</strong>: pasa por debajo del arco coracoacromial y se comprime con cada elevación.</p>
+
+  <div class="card azul">
+    <h4>Estrategia de tamizaje recomendada al médico general</h4>
+    <p style="margin-bottom: 0">Cuando se ejecutan correctamente, un puñado de pruebas permite al médico general aproximarse al desempeño diagnóstico del especialista y evitar la solicitud de imágenes en la mayoría de los casos. Tres tipos de pruebas:</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>Provocación de dolor:</strong> arco doloroso (60–120° de abducción activa).</li>
+      <li><strong>Fuerza:</strong> internal rotation lag, external rotation lag, drop arm test.</li>
+      <li><strong>Compuesta:</strong> external rotation resistance test.</li>
+    </ul>
+  </div>
+
+  <h3>Maniobras por estructura</h3>
+
+  <div class="maniobra">
+    <div class="estructura">Pinzamiento subacromial</div>
+    <h4>Hawkins-Kennedy</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Hombro en flexión 90°, codo flexionado 90°.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Rotación interna pasiva del hombro.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor en el espacio subacromial.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Pinzamiento subacromial / tendinopatía del supraespinoso.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Pinzamiento subacromial</div>
+    <h4>Neer</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Examinador estabiliza la escápula.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Eleva pasivamente el miembro en flexión con rotación interna (pulgar hacia abajo).</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor durante la elevación.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Pinzamiento subacromial.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Supraspinatus</div>
+    <h4>Jobe («lata vacía»)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Hombros en abducción 90°, flexión anterior 30° (plano escapular), rotación interna (pulgar hacia abajo, como vaciando una lata).</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Resistencia descendente sobre los antebrazos.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor o debilidad en el plano escapular.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Compromiso del supraespinoso.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Subscapularis</div>
+    <h4>Lift-off de Gerber</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Mano detrás de la espalda (en la región lumbar).</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>El paciente debe separar la mano del cuerpo activamente.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>No puede separarla / la separa con marcada debilidad.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Lesión del subescapular.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Manguito rotador (ruptura)</div>
+    <h4>Drop arm («brazo caído»)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>El examinador eleva pasivamente el brazo a 90° de abducción.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Suelta el brazo y pide al paciente que lo sostenga en esa posición.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>El paciente no puede sostenerlo y deja caer el brazo.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Ruptura significativa del manguito rotador.</div></div>
+  </div>
+
+  <h3>Manejo inicial en consulta</h3>
+  <div class="card verde">
+    <p style="margin-bottom: 0">Fisioterapia con énfasis en <strong>estabilizadores escapulares</strong>, AINE en ciclos cortos, infiltración subacromial con corticoide en casos seleccionados (no más de 2–3 infiltraciones por riesgo de deteriorar el tendón). Remisión a cirugía en pacientes jóvenes con ruptura traumática aguda y en refractarios al tratamiento conservador.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: CODO, MUÑECA Y MANO ==================== -->
+<section class="tab-content" id="codo-mano">
+  <h2>Codo, muñeca y mano</h2>
+
+  <h3>Síndrome del túnel del carpo (mediano)</h3>
+  <p>Atrapamiento del nervio mediano por compresión directa que obstruye el flujo venoso, genera edema y eventualmente isquemia. Síntomas mayores: <strong>parestesias, adormecimiento y aparición nocturna</strong> (despierta y se calma al sacudir la mano). Síntomas menores: dolor, debilidad, alteración en destrezas finas (no atina a abotonar la camisa, deja caer objetos).</p>
+
+  <div class="maniobra">
+    <div class="estructura">Mediano · túnel del carpo</div>
+    <h4>Phalen</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Flexión máxima de ambas muñecas durante 30–60 s.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Aparición o exacerbación de parestesias en territorio del mediano.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Mediano · túnel del carpo</div>
+    <h4>Tinel</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Percusión sobre la cara volar de la muñeca, justo por encima del ligamento transverso del carpo.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Parestesias en territorio del mediano distal al sitio del estímulo.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Mediano · túnel del carpo</div>
+    <h4>Durkan (compresión carpal)</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Compresión sostenida del túnel con los pulgares durante 30 s.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Reproducción de los síntomas.</div></div>
+    <div class="row-key"><div class="k">Sensibilidad</div><div><strong>Mejor</strong> que Phalen y Tinel.</div></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Manejo inicial desde atención primaria · STC</h4>
+    <p style="margin-bottom: 0">Recomendaciones ergonómicas, AINE en ciclos cortos, <strong>ortesis antebraquiopalmar en posición neutra para uso nocturno</strong>. Remitir si: déficit motor o atrofia tenar (indicación quirúrgica), persistencia más de 6–8 semanas con tratamiento conservador, o para confirmación electrofisiológica (cap. 6).</p>
+  </div>
+
+  <h3>Epicondilitis lateral («codo de tenista») y medial («codo de golfista»)</h3>
+  <p>Lesión por sobreuso de la inserción de los tendones extensores (lateral) o flexores (medial) del carpo. <strong>No es proceso inflamatorio</strong>: hoy se entiende como tendinosis degenerativa con displasia angiofibroblástica, sin infiltrado inflamatorio relevante. Por eso los AINE tienen eficacia limitada.</p>
+
+  <div class="maniobra">
+    <div class="estructura">Epicondilitis lateral</div>
+    <h4>Cozen (extensión resistida)</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Extensión resistida del carpo con el codo extendido.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor en el epicóndilo lateral.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Epicondilitis lateral</div>
+    <h4>Mill</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Examinador palpa el epicóndilo lateral mientras realiza pasivamente: pronación del antebrazo + flexión de la muñeca + extensión del codo.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor reproducido en el epicóndilo lateral.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Epicondilitis lateral</div>
+    <h4>Maudsley</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Extensión resistida del tercer dedo.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor en el epicóndilo lateral.</div></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Epicondilitis medial: explorar el cubital</h4>
+    <p style="margin-bottom: 0">El atrapamiento del cubital coexiste hasta en <strong>60 %</strong> de las epicondilitis mediales. Explorar: signo de Tinel en el canal cubital, fuerza de los intrínsecos (interóseo dorsal I), sensibilidad en territorio cubital. <strong>Sin estos hallazgos no se justifica EMG</strong>; sí se justifica si hay antecedente de trauma (luxación, fractura supracondílea) o hallazgos neurológicos objetivos.</p>
+  </div>
+
+  <div class="card verde">
+    <h4>Tratamiento de epicondilitis</h4>
+    <p style="margin-bottom: 0">Modificación de la actividad, AINE en ciclos cortos, <strong>ejercicios excéntricos</strong> para extensores (lateral) o flexores (medial), banda infraepicondílea de neopreno (lateral). En refractarios: infiltraciones o cirugía. La evidencia actual <strong>no respalda</strong> el uso rutinario de corticoides, ondas de choque, plasma rico en plaquetas ni cirugía como primera línea.</p>
+  </div>
+
+  <h3>Tenosinovitis de De Quervain</h3>
+  <p>Inflamación de los tendones <em>abductor pollicis longus</em> y <em>extensor pollicis brevis</em> en el primer compartimento extensor de la muñeca. Frecuente en madres lactantes, trabajadores manuales y personas con uso intensivo del pulgar (mensajería en teléfono móvil).</p>
+
+  <div class="maniobra">
+    <div class="estructura">De Quervain</div>
+    <h4>Finkelstein</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>El paciente cierra el puño con el <strong>pulgar adentro</strong> y desvía la muñeca cubitalmente.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor sobre la apófisis estiloides del radio (primer compartimento).</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">De Quervain</div>
+    <h4>Eichhoff</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Variante en la que el examinador realiza la desviación pasiva.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Igual reproducción del dolor.</div></div>
+  </div>
+
+  <div class="card verde">
+    <p style="margin-bottom: 0"><strong>Tratamiento inicial:</strong> reposo relativo, ortesis con inmovilización de muñeca y pulgar (<em>spica</em>), AINE y fisioterapia. Las infiltraciones con corticoide y la cirugía se reservan a casos refractarios.</p>
+  </div>
+
+  <h3>Parálisis del sábado por la noche (radial)</h3>
+  <div class="card naranja">
+    <p>Tras dormir con el brazo colgando bajo efecto del alcohol o sedantes, el paciente despierta con <strong>mano caída</strong> — imposibilidad de extender muñeca y dedos contra gravedad.</p>
+    <p style="margin-bottom: 0">La <strong>extensión del codo y la supinación están preservadas</strong> (las ramas correspondientes salen proximales al sitio de compresión). El reflejo tricipital se conserva. Pronóstico favorable: neurapraxia con recuperación en semanas a pocos meses; manejo conservador con ortesis de muñeca y fisioterapia.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: CERVICAL ==================== -->
+<section class="tab-content" id="cervical">
+  <h2>Cervical · radiculopatía y mielopatía</h2>
+  <p>Ante un paciente con dolor cervical irradiado al miembro superior, acompañado de parestesias o debilidad, sospechar <strong>radiculopatía cervical</strong> por compresión radicular (hernia discal, osteofitos, disminución del espacio foraminal).</p>
+
+  <div class="maniobra">
+    <div class="estructura">Radiculopatía cervical</div>
+    <h4>Spurling</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Paciente sentado.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Extensión cervical + rotación hacia el lado sintomático + compresión axial.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Reproducción del dolor irradiado al miembro superior en territorio dermatomérico.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Compresión radicular cervical (hernia, osteofito, foraminal).</div></div>
+  </div>
+
+  <h3>Distribución típica del compromiso radicular cervical</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Raíces</th><th>Músculos comprometidos</th></tr></thead>
+      <tbody>
+        <tr><td class="root">C5–C6</td><td>Deltoides y <em>supraspinatus</em></td></tr>
+        <tr><td class="root">C6–C7</td><td>Bíceps braquial, <em>flexor carpi radialis</em>, <em>triceps brachii</em></td></tr>
+        <tr><td class="root">C8–T1</td><td>Abductor del meñique, abductor corto del pulgar, interóseos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Mielopatía cervical · cuándo sospecharla</h4>
+    <p>La <strong>estenosis del canal cervical con mielopatía</strong> es común en mayores de 60 años y debe distinguirse de una radiculopatía simple. Sospecharla ante:</p>
+    <ul>
+      <li><strong>Trastorno de la marcha</strong> (pasos cortos, base amplia, inestabilidad).</li>
+      <li><strong>Pérdida de destrezas finas</strong> (dificultad para abotonarse, manejar monedas).</li>
+      <li><strong>Alteraciones sensitivas</strong> en las manos.</li>
+      <li>En casos avanzados: signos de neurona motora superior — <strong>hiperreflexia en miembros inferiores, clonus, Babinski, espasticidad</strong> y alteración del control de esfínteres.</li>
+    </ul>
+    <p style="margin-bottom: 0"><strong>Estos hallazgos obligan a remisión prioritaria</strong> (ortopedia/neurocirugía con resonancia cervical).</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: CADERA Y RODILLA ==================== -->
+<section class="tab-content" id="cadera-rodilla">
+  <h2>Cadera y rodilla</h2>
+
+  <h3>Cadera</h3>
+  <p>Tres preguntas que debe resolver el médico general ante un dolor de cadera (Metcalfe 2019):</p>
+  <ol>
+    <li>¿El dolor proviene de la cadera?</li>
+    <li>¿Es de origen intraarticular?</li>
+    <li>¿La artritis es la causa probable?</li>
+  </ol>
+
+  <div class="card azul">
+    <h4>Localización del dolor → orientación inicial</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Inguinal o cara anterior:</strong> intraarticular.</li>
+      <li><strong>Lateral o glúteo:</strong> extraarticular (tendinitis glútea, bursitis trocantérica).</li>
+      <li><strong>Por debajo de la rodilla o con parestesias:</strong> radiculopatía.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Hallazgos físicos asociados a osteoartritis de cadera</h4>
+    <p style="margin-bottom: 0">En orden de fuerza diagnóstica: dolor posterior al ponerse en cuclillas → dolor inguinal con la abducción o aducción → debilidad de los abductores → disminución de la aducción → <strong>reducción de la rotación interna</strong>.</p>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Cadera · intraarticular vs sacroilíaca</div>
+    <h4>FABER (flexión, abducción, rotación externa)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Paciente en decúbito supino. Tobillo del lado examinado sobre la rodilla contralateral.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Examinador estabiliza la pelvis y aplica presión descendente sobre la rodilla flexionada.</div></div>
+    <div class="row-key"><div class="k">Dolor inguinal</div><div>Patología intraarticular de cadera.</div></div>
+    <div class="row-key"><div class="k">Dolor en glúteo o sacroilíaca</div><div>Sacroileítis.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Cadera · impingement femoroacetabular</div>
+    <h4>FADIR (flexión, aducción, rotación interna)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Paciente en decúbito supino, cadera flexionada 90°.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Aducción y rotación interna pasivas.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor inguinal reproducido.</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Impingement femoroacetabular o lesión del labrum.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Glúteo medio</div>
+    <h4>Trendelenburg</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Apoyo monopodal del lado sintomático durante 30 s.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>La pelvis cae al lado contralateral (sano).</div></div>
+    <div class="row-key"><div class="k">Sugiere</div><div>Debilidad del <em>gluteus medius</em> (coxartrosis, secuela posquirúrgica, tendinopatía glútea, lesión del nervio glúteo superior).</div></div>
+  </div>
+
+  <h3>Rodilla</h3>
+  <p>La evaluación clínica parte del <strong>mecanismo de lesión</strong>: traumatismos en valgo → ligamentos colaterales; desaceleración brusca → ligamento cruzado anterior; torsiones en carga → lesiones meniscales.</p>
+
+  <div class="maniobra">
+    <div class="estructura">LCA</div>
+    <h4>Lachman</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Rodilla en flexión 20–30°.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Una mano estabiliza el muslo, la otra tracciona la tibia hacia anterior.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Traslación anterior excesiva o pérdida del tope firme.</div></div>
+    <div class="row-key"><div class="k">Importancia</div><div><strong>La prueba más sensible para LCA.</strong></div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">LCA / LCP</div>
+    <h4>Cajón anterior y posterior</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Rodilla en flexión 90°.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Tracción de la tibia anterior (LCA) o posterior (LCP).</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Desplazamiento excesivo en la dirección examinada.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Ligamentos colaterales</div>
+    <h4>Estrés en valgo y varo</h4>
+    <div class="row-key"><div class="k">Maniobra</div><div>Con la rodilla en extensión completa y a 30° de flexión, fuerza en valgo (LCM) o varo (LCL).</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Apertura excesiva de la interlínea articular del lado examinado.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Meniscos</div>
+    <h4>McMurray</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Decúbito supino, rodilla y cadera flexionadas.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>El examinador rota tibia (interna y externa) mientras extiende la rodilla.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Chasquido o dolor en la interlínea.</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Meniscos</div>
+    <h4>Apley (compresión)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Decúbito prono, rodilla a 90°.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>Compresión axial con rotación tibial.</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Dolor meniscal en la interlínea correspondiente.</div></div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Imágenes de rodilla en atención primaria</h4>
+    <p style="margin-bottom: 0">La <strong>radiografía simple</strong> es el primer estudio en mayores de 50 años con dolor crónico de rodilla. La <strong>resonancia magnética NO es de primera línea</strong> en atención primaria; los hallazgos estructurales son frecuentes en personas asintomáticas y su sobreinterpretación lleva a cirugías innecesarias.</p>
+  </div>
+
+  <h3>Lumbalgia con dolor irradiado · maniobras radiculares</h3>
+
+  <div class="maniobra">
+    <div class="estructura">Radiculopatía lumbosacra</div>
+    <h4>Lasègue (elevación de la pierna recta)</h4>
+    <div class="row-key"><div class="k">Posición</div><div>Decúbito supino.</div></div>
+    <div class="row-key"><div class="k">Maniobra</div><div>El examinador eleva lentamente la pierna extendida (rodilla en extensión).</div></div>
+    <div class="row-key"><div class="k">Positiva</div><div>Antes de los 45° aparece dolor irradiado por el ciático (territorios L5 o S1).</div></div>
+    <div class="row-key"><div class="k">Confirmación</div><div>Al flexionar la rodilla el dolor disminuye (apoya origen radicular vs articular/muscular).</div></div>
+  </div>
+
+  <div class="maniobra">
+    <div class="estructura">Radiculopatía · sensibilizadores</div>
+    <h4>Bragard y Lasègue cruzado</h4>
+    <div class="row-key"><div class="k">Bragard</div><div>Dorsiflexión pasiva del pie con la pierna elevada → aumenta sensibilidad del Lasègue.</div></div>
+    <div class="row-key"><div class="k">Lasègue cruzado</div><div>Elevación de la pierna no afectada que reproduce dolor en la pierna sintomática a ≤ 40° → muy específico de hernia discal central con irritación radicular severa.</div></div>
+  </div>
+
+  <div class="card azul">
+    <h4>Hallazgos por raíz lumbosacra</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>L4:</strong> debilidad del <em>quadriceps femoris</em>, hiporreflexia rotuliana, hipoestesia en cara medial de la pierna.</li>
+      <li><strong>L5:</strong> debilidad dorsiflexora del tobillo y del extensor del hallux, hipoestesia en cara lateral de la pierna y dorso del pie. <em>Reflejo aquíleo y rotuliano normales.</em></li>
+      <li><strong>S1:</strong> debilidad plantiflexora, hipoestesia en cara lateral del pie, <strong>arreflexia aquilea unilateral</strong> (hallazgo muy específico).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: NOCIPLÁSTICO Y FIBROMIALGIA ==================== -->
+<section class="tab-content" id="nociplastico">
+  <h2>Cuando el dolor ya no está donde el paciente lo siente</h2>
+  <p>Una proporción importante de los pacientes con dolor crónico de hombro, antebrazo, glúteo o lumbar <strong>ya no responde a las intervenciones locales</strong>. Han pasado por todo el circuito (AINE prolongados, infiltraciones, fisioterapia con modalidades pasivas, más imágenes) y siguen igual o peor. La razón es que el <em>generador del dolor</em> ya no está donde el paciente lo señala: está en el sistema nervioso central, que aprendió a mantener encendida la alarma.</p>
+
+  <h3>Tres mecanismos del dolor (IASP)</h3>
+  <div class="card azul">
+    <h4>Nociceptivo</h4>
+    <p style="margin-bottom: 0">Por estímulo de los nociceptores en un tejido lesionado o en riesgo. Localizado, punzante/opresivo/sordo, mejora con analgesia convencional.</p>
+  </div>
+  <div class="card azul">
+    <h4>Neuropático</h4>
+    <p style="margin-bottom: 0">Por lesión o disfunción del sistema nervioso periférico o central. Urente, eléctrico, sigue territorio de un nervio o dermatoma; suele acompañarse de disestesia o alodinia.</p>
+  </div>
+  <div class="card azul">
+    <h4>Nociplástico</h4>
+    <p style="margin-bottom: 0">Por <em>nocicepción alterada</em> sin estímulo tisular ni lesión nerviosa que lo explique. El sistema central procesa de manera amplificada estímulos que en otras personas serían inocuos. La fibromialgia es el ejemplo paradigmático; también puede ser <strong>regional</strong> y manifestarse como dolor crónico musculoesquelético localizado que no responde al tratamiento local.</p>
+  </div>
+
+  <h3>🔢 Tamizaje de dolor nociplástico (Kosek 2021 / IASP 2022)</h3>
+  <p>Marque los criterios presentes en su paciente. La calculadora indica si el cuadro encaja como <em>posible</em> o <em>probable</em> nociplástico.</p>
+
+  <div class="calc-bloque">
+    <h4>Calculadora de tamizaje nociplástico</h4>
+    <h5>Criterios de "posible" (deben cumplirse los 4)</h5>
+    <div class="checklist" id="nopos-items">
+      <label><input type="checkbox" data-nopos><span>1. Duración del dolor &gt; 3 meses</span></label>
+      <label><input type="checkbox" data-nopos><span>2. Distribución regional, multifocal o generalizada (no discreta como una lesión anatómica única)</span></label>
+      <label><input type="checkbox" data-nopos><span>3. El dolor no se explica completamente por mecanismos nociceptivos ni neuropáticos (imágenes normales o con hallazgos triviales; examen sin déficit motor ni signos inflamatorios proporcionales)</span></label>
+      <label><input type="checkbox" data-nopos><span>4. Signos clínicos de hipersensibilidad regional: alodinia (dolor al roce de la ropa), hiperalgesia (dolor exagerado a palpación suave), o dolor a la presión leve</span></label>
+    </div>
+
+    <h5>Criterios adicionales de "probable" (suman al "posible")</h5>
+    <div class="checklist" id="noprob-items">
+      <label><input type="checkbox" data-noprob><span>Historia de hipersensibilidad referida por el paciente («cualquier presión me molesta», «no tolero las costuras», «el agua caliente o fría me duele de manera exagerada»)</span></label>
+      <label><input type="checkbox" data-noprob><span>≥ 1 comorbilidad típica: sueño no reparador con despertares, fatiga, niebla cognitiva, hipersensibilidad a luz/sonido/olores</span></label>
+    </div>
+
+    <div class="total" id="nop-total">
+      <div class="veredicto" id="nop-veredicto">Marque los criterios para ver el resultado</div>
+      <div class="interp" id="nop-interp">El tamizaje requiere los 4 criterios «posible» y, para «probable», los 2 adicionales.</div>
+    </div>
+    <button class="reset" onclick="resetNoplas()">Reiniciar</button>
+  </div>
+
+  <div class="card amarilla">
+    <h4>La señal más útil en consulta</h4>
+    <p style="margin-bottom: 0"><strong>Discordancia entre la narrativa y los hallazgos:</strong> dolor severo, persistente e incapacitante, con un examen que no encuentra el sustrato proporcional. Si además el paciente trae imágenes negativas o con hallazgos triviales y ya falló a varios tratamientos locales, el dolor nociplástico debe estar arriba del diferencial.</p>
+  </div>
+
+  <h3>Del dolor nociplástico regional a la fibromialgia</h3>
+  <p>El dolor nociplástico se ubica en un espectro de extensión: <strong>regional</strong> (una zona) → <strong>multifocal</strong> (2–3 regiones no contiguas) → <strong>generalizada</strong> (≥ 4 regiones). Esta última, con el síndrome típico (sueño no reparador, fatiga, niebla cognitiva), es la <strong>fibromialgia</strong>.</p>
+
+  <h3>🔢 Calculadora ACR 2016 · diagnóstico de fibromialgia</h3>
+  <p>Diagnóstico clínico que el médico general puede hacer en consulta. Criterios revisados del American College of Rheumatology (Wolfe 2016): sensibilidad ≈ 80 %, especificidad ≈ 90 %.</p>
+
+  <div class="calc-bloque">
+    <h4>Calculadora ACR 2016 fibromialgia</h4>
+
+    <h5>1. Distribución del dolor — debe afectar al menos 4 de 5 regiones</h5>
+    <div class="checklist cuadrantes" id="fm-regiones">
+      <label><input type="checkbox" data-region><span>Cuadrante superior izquierdo</span></label>
+      <label><input type="checkbox" data-region><span>Cuadrante superior derecho</span></label>
+      <label><input type="checkbox" data-region><span>Cuadrante inferior izquierdo</span></label>
+      <label><input type="checkbox" data-region><span>Cuadrante inferior derecho</span></label>
+      <label style="grid-column: 1 / -1;"><input type="checkbox" data-region><span>Eje axial (cuello, espalda, tórax, abdomen)</span></label>
+    </div>
+
+    <h5>2. Duración ≥ 3 meses con intensidad similar</h5>
+    <div class="checklist">
+      <label id="fm-duracion-label"><input type="checkbox" id="fm-duracion"><span>Sí, dolor presente al menos 3 meses</span></label>
+    </div>
+
+    <h5>3. WPI · 19 áreas dolorosas en la última semana (cada una vale 1)</h5>
+    <div class="checklist wpi" id="fm-wpi"></div>
+
+    <h5>4. SSS · escala de severidad de síntomas (última semana)</h5>
+    <div id="fm-sss"></div>
+
+    <h5>SSS · síntomas somáticos generales en los últimos 6 meses</h5>
+    <div class="escala-fila">
+      <div class="label">Cefalea, calambres abdominales, depresión, otros</div>
+      <div class="opciones" data-eje="somaticos">
+        <label data-val="0"><input type="radio" name="fm-somaticos">0 · ninguno</label>
+        <label data-val="1"><input type="radio" name="fm-somaticos">1 · pocos</label>
+        <label data-val="2"><input type="radio" name="fm-somaticos">2 · moderado</label>
+        <label data-val="3"><input type="radio" name="fm-somaticos">3 · mucho</label>
+      </div>
+    </div>
+
+    <div class="total" id="fm-total">
+      <div class="puntajes">
+        <div><span class="label">WPI</span><span class="num" id="fm-wpi-num">0</span><span class="max"> / 19</span></div>
+        <div><span class="label">SSS</span><span class="num" id="fm-sss-num">0</span><span class="max"> / 12</span></div>
+        <div><span class="label">Regiones</span><span class="num" id="fm-reg-num">0</span><span class="max"> / 5</span></div>
+      </div>
+      <div class="veredicto" id="fm-veredicto">Pendiente</div>
+      <div class="interp" id="fm-interp">Complete los 4 criterios para ver el diagnóstico.</div>
+    </div>
+    <button class="reset" onclick="resetFibro()">Reiniciar</button>
+  </div>
+
+  <h3>30-CST · evaluación funcional en fibromialgia</h3>
+  <p>La <em>Sit-to-Stand de 30 segundos</em> (Rikli & Jones, <em>Senior Fitness Test</em>) es la prueba ideal en fibromialgia: cuantifica resistencia funcional de miembros inferiores, sin cronómetro fino, y es muy sensible al cambio con ejercicio.</p>
+
+  <div class="card amarilla">
+    <h4>Procedimiento</h4>
+    <p style="margin-bottom: 0"><strong>Posición:</strong> sentado en silla con respaldo (asiento ≈ 43 cm), pies en piso, brazos cruzados sobre el pecho. <strong>Consigna:</strong> «cuando le diga, póngase de pie y siéntese de nuevo lo más rápido que pueda, completamente, sin usar los brazos. Vamos durante 30 segundos.» <strong>Conteo:</strong> cada vez que alcanza la posición de pie completamente erguido. <strong>Detener si:</strong> dolor severo, mareo, disnea o requiere ayuda de las manos.</p>
+  </div>
+
+  <div class="calc-simple">
+    <h4>Calculadora 30-CST</h4>
+    <div class="calc-row">
+      <label for="cst-rep">Repeticiones en 30 s:</label>
+      <input type="number" id="cst-rep" placeholder="ej. 11" min="0" max="50" step="1">
+    </div>
+    <div class="resultado empty" id="cst-resultado">Ingrese las repeticiones para ver la interpretación.</div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Lo que cambia en la conducta cuando se reconoce dolor nociplástico</h4>
+    <ol style="margin-bottom: 0">
+      <li><strong>Validar el dolor.</strong> Es real y tiene sustrato neurobiológico, no es psicógeno. La validación explícita es terapéutica.</li>
+      <li><strong>No insistir en intervenciones locales:</strong> más imágenes, más infiltraciones, AINE crónicos, opioides o fisioterapia con modalidades pasivas no cambian el desenlace y muchos generan daño.</li>
+      <li><strong>Reformular expectativas:</strong> la meta es <em>mejorar la función y la calidad de vida</em>, no eliminar el dolor.</li>
+      <li><strong>Cuatro pilares:</strong> educación con modelo biopsicosocial · ejercicio aeróbico de inicio gradual y progresión muy lenta · higiene del sueño · abordaje psicosocial (TCC). Como única opción farmacológica considerable: antidepresivos (amitriptilina, duloxetina, ISRS) según NICE NG193.</li>
+    </ol>
+  </div>
+
+  <div class="card roja">
+    <h4>🚩 Banderas rojas antes de aceptar el rótulo nociplástico</h4>
+    <ul style="margin-bottom: 0">
+      <li>Banderas rojas habituales (cáncer, infección, fractura por compresión).</li>
+      <li><strong>Déficit motor objetivo, atrofia o signos de neuropatía progresiva.</strong> El dolor nociplástico no produce debilidad real ni atrofia.</li>
+      <li>Síntomas sistémicos: fiebre, pérdida de peso, sudoración nocturna, anemia, marcadores inflamatorios elevados.</li>
+      <li><strong>Causas farmacológicas:</strong> estatinas, diuréticos, fluoroquinolonas, inhibidores de aromatasa.</li>
+      <li><strong>Inicio reciente o factor desencadenante claro:</strong> el dolor nociplástico se desarrolla en meses-años; un cuadro agudo o subagudo merece más estudio.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: CASO 15 MIN (Beatriz) ==================== -->
+<section class="tab-content" id="caso15">
+  <h2>Caso clínico de la consulta de 15 minutos</h2>
+  <p>Acompañe la consulta paso a paso. Cada fase abre con un clic.</p>
+
+  <div class="card azul">
+    <h4>Presentación</h4>
+    <p style="margin-bottom: 0"><strong>Beatriz, 52 años, asistente administrativa.</strong> Viene a consulta por dolor en el hombro derecho de seis semanas. Comenzó después de una limpieza prolongada del techo de la casa. El dolor le despierta cuando se acuesta sobre ese lado. Ha dejado de peinarse con la mano derecha. Trae una <strong>ecografía</strong> que dice «tendinopatía del supraespinoso, sin ruptura, bursitis subacromial».</p>
+  </div>
+
+  <details class="fase" open>
+    <summary>Fase 1 · Anamnesis dirigida <span class="tiempo">4 min</span></summary>
+    <div class="fase-body">
+      <ul>
+        <li><strong>Localización:</strong> dolor en cara lateral del hombro, irradia a la cara lateral del brazo, no pasa del codo.</li>
+        <li><strong>Mecanismo:</strong> sobreuso por trabajo doméstico repetitivo en elevación; sin trauma agudo.</li>
+        <li><strong>Banderas rojas:</strong> niega debilidad clara, no atrofia referida, sin fiebre, sin pérdida de peso. Dolor nocturno posicional, pero <em>no</em> dolor que despierte sin causa.</li>
+        <li><strong>Función:</strong> ha dejado de peinarse con esa mano, no se abrocha el brassiere por la espalda.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 2 · Examen físico mínimo <span class="tiempo">3 min</span></summary>
+    <div class="fase-body">
+      <ul>
+        <li>Sin atrofia visible.</li>
+        <li>Palpación dolorosa en el espacio subacromial.</li>
+        <li><strong>Arco doloroso entre 70° y 120°</strong> de abducción.</li>
+        <li><strong>Hawkins positivo. Jobe positivo. Lift-off negativo.</strong></li>
+        <li>No hay debilidad significativa al ejercer fuerza contra resistencia.</li>
+        <li>Reflejos preservados, sin déficit neurológico.</li>
+      </ul>
+      <p style="margin-bottom: 0; color: var(--azulacad); font-weight: 600;">Conclusión: síndrome de impingement subacromial con tendinopatía del supraespinoso. Sin lesión del subescapular, sin ruptura completa.</p>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 3 · Manejo de la ecografía traída por la paciente <span class="tiempo">1 min</span></summary>
+    <div class="fase-body">
+      <p style="font-style: italic; padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 0 0 10px;">«Beatriz, los hallazgos que aparecen aquí —tendinopatía y bursitis— son <strong>muy comunes en personas de su edad sin dolor de hombro</strong>: cuatro de cada diez personas mayores de 50 años tienen cambios similares en una ecografía y no lo saben. Lo que sí explica su síntoma es el patrón clínico de <em>impingement por sobreuso</em>. La ecografía no cambia el tratamiento.»</p>
+      <p style="margin-bottom: 0">La ecografía-amenaza se convierte en oportunidad pedagógica.</p>
+    </div>
+  </details>
+
+  <details class="fase">
+    <summary>Fase 4 · Diagnóstico positivo y plan <span class="tiempo">5 min</span></summary>
+    <div class="fase-body">
+      <p style="font-style: italic; padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 0 0 12px;">«Lo que usted tiene es un <strong>síndrome de impingement subacromial con tendinopatía del supraespinoso</strong>, por sobreuso en posición de elevación. La conducta es:»</p>
+      <ul>
+        <li><strong>Educación:</strong> identificar y modificar la actividad detonante (limpieza prolongada con el brazo en elevación). Pausas activas cada 30 minutos en el trabajo administrativo. Evitar dormir sobre el lado afectado las próximas semanas.</li>
+        <li><strong>Analgesia:</strong> ibuprofeno 400 mg c/8 h × 7 días.</li>
+        <li><strong>Fisioterapia activa:</strong> fortalecimiento progresivo del manguito rotador y estabilizadores escapulares. <em>No</em> modalidades pasivas como única intervención.</li>
+        <li><strong>Control en 4–6 semanas.</strong> Si no hay mejoría significativa: derivación al fisiatra para considerar infiltración subacromial guiada por ecografía y reevaluación del programa. La cirugía solo se considera tras fracaso del manejo conservador adecuado.</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="card verde">
+    <h4>Lo que el médico general logró en 15 minutos</h4>
+    <p style="margin-bottom: 0">Beatriz sale con un <strong>diagnóstico positivo</strong>, una <strong>conducta clara</strong>, <strong>sin nuevas imágenes</strong>. La ecografía-amenaza se usó como oportunidad pedagógica. La pregunta funcional —«no me peino con la mano derecha»— guía el éxito o fracaso del tratamiento mejor que cualquier imagen de control.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 9: CASOS CLÍNICOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes. Aplique el decisor de maniobra, los criterios de banderas rojas y las herramientas de tamizaje (nociplástico, fibromialgia) para responder.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 10: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de maniobras provocativas, mielopatía cervical, dolor nociplástico, fibromialgia y manejo conservador.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Decisor de maniobra
+// =========================================================
+const decisorData = {
+  stc: {
+    titulo: 'Síndrome del túnel del carpo (mediano)',
+    como: 'Compresión sostenida del túnel con los pulgares durante 30 segundos (Durkan). Como complementarias: Phalen (flexión máxima de muñecas 30–60 s) y Tinel (percusión sobre la cara volar de la muñeca).',
+    positiva: 'Reproducción de parestesias en territorio del mediano (cara palmar de los tres primeros dedos y mitad radial del cuarto).',
+    interp: 'Durkan tiene mejor sensibilidad que Phalen y Tinel. Ninguna es diagnóstica por sí sola: el patrón temporal nocturno, la distribución y la fuerza de oposición del pulgar refuerzan el diagnóstico. Confirmación: electrodiagnóstico (cap. 6).'
+  },
+  cubital: {
+    titulo: 'Atrapamiento del cubital en el codo',
+    como: 'Tinel sobre el surco epitrocleo-olecraniano + flexión del codo sostenida 30 s.',
+    positiva: 'Parestesias en borde cubital del antebrazo, dedo meñique y mitad cubital del anular.',
+    interp: 'Buscar también debilidad de intrínsecos (interóseo dorsal I, abductor del meñique). Si hay atrofia hipotenar o de interóseos, indica EMG y considerar cirugía. Frecuente coexistencia con epicondilitis medial (hasta 60%).'
+  },
+  dequervain: {
+    titulo: 'Tenosinovitis de De Quervain',
+    como: 'Finkelstein: el paciente cierra el puño con el pulgar adentro y desvía la muñeca cubitalmente.',
+    positiva: 'Dolor sobre la apófisis estiloides del radio (primer compartimento extensor).',
+    interp: 'Variante con desviación pasiva = Eichhoff. Manejo inicial: ortesis con inmovilización de muñeca y pulgar (spica), AINE, fisioterapia. Frecuente en madres lactantes y uso intensivo del pulgar (mensajería en móvil).'
+  },
+  impingement: {
+    titulo: 'Impingement subacromial',
+    como: 'Hawkins-Kennedy: hombro en flexión 90°, codo flexionado 90°, rotación interna pasiva.',
+    positiva: 'Dolor en el espacio subacromial.',
+    interp: 'Complementar con Neer (elevación pasiva en flexión + rotación interna) y arco doloroso (60–120° de abducción activa). Tendinopatía del supraespinoso es la causa más frecuente; manejo conservador con ejercicio activo de estabilizadores escapulares.'
+  },
+  supraespinoso: {
+    titulo: 'Lesión del supraespinoso',
+    como: 'Jobe (lata vacía): hombros en abducción 90°, flexión anterior 30° (plano escapular), rotación interna (pulgar hacia abajo). Resistencia descendente sobre los antebrazos.',
+    positiva: 'Dolor o debilidad clara.',
+    interp: 'Si hay debilidad significativa o el drop arm es positivo, sospechar ruptura completa del manguito y solicitar ecografía o resonancia. Tendinopatía sin ruptura: manejo conservador.'
+  },
+  subescapular: {
+    titulo: 'Lesión del subescapular',
+    como: 'Lift-off de Gerber: mano en la región lumbar; el paciente intenta separarla del cuerpo.',
+    positiva: 'No puede separarla o lo hace con marcada debilidad.',
+    interp: 'Lesión del subescapular (rotador interno). Frecuente en luxaciones anteriores recurrentes. Confirmación con ecografía o resonancia.'
+  },
+  ruptura: {
+    titulo: 'Ruptura completa del manguito rotador',
+    como: 'Drop arm: el examinador eleva pasivamente el brazo a 90° de abducción, lo suelta y pide al paciente sostenerlo.',
+    positiva: 'No puede sostenerlo y lo deja caer.',
+    interp: 'Indica ruptura significativa. Solicitar ecografía o resonancia. En jóvenes con ruptura traumática aguda: derivación pronta a ortopedia. En mayores con ruptura crónica degenerativa: priorizar manejo conservador antes de plantear cirugía.'
+  },
+  ela: {
+    titulo: 'Epicondilitis lateral («codo de tenista»)',
+    como: 'Mill: examinador palpa el epicóndilo lateral mientras realiza pasivamente pronación + flexión de muñeca + extensión del codo. Alternativa: Maudsley (extensión resistida del 3er dedo) o Cozen (extensión resistida del carpo).',
+    positiva: 'Dolor en el epicóndilo lateral.',
+    interp: 'Tendinosis degenerativa del extensor carpi radialis brevis, no inflamación; los AINE tienen eficacia limitada. Manejo: modificar actividad + ejercicios excéntricos + banda infraepicondílea de neopreno. Evidencia NO respalda corticoides, ondas de choque, PRP ni cirugía como primera línea.'
+  },
+  ema: {
+    titulo: 'Epicondilitis medial («codo de golfista»)',
+    como: 'Flexión resistida del carpo con el codo extendido.',
+    positiva: 'Dolor en el epicóndilo medial.',
+    interp: 'OBLIGADO: explorar el cubital (Tinel epitrocleano, fuerza de intrínsecos, sensibilidad cubital). Coexistencia con atrapamiento cubital hasta en 60%. Si hay parestesias del 5° dedo o debilidad de intrínsecos, solicitar EMG.'
+  },
+  radcerv: {
+    titulo: 'Radiculopatía cervical',
+    como: 'Spurling: paciente sentado, extensión cervical + rotación al lado sintomático + compresión axial.',
+    positiva: 'Reproducción del dolor irradiado al miembro superior en territorio dermatomérico.',
+    interp: 'Distribución típica: C5–C6 (deltoides, supraespinoso) · C6–C7 (bíceps, FCR, tríceps) · C8–T1 (intrínsecos de mano). Si aparecen signos de neurona motora superior en miembros inferiores (hiperreflexia, Babinski, clonus, alteración esfinteriana), sospechar mielopatía cervical y derivar prioritariamente.'
+  },
+  radlumb: {
+    titulo: 'Radiculopatía lumbosacra',
+    como: 'Lasègue (elevación de pierna recta): decúbito supino, examinador eleva lentamente la pierna extendida.',
+    positiva: 'Dolor irradiado por el ciático antes de los 45° (territorios L5 o S1). Al flexionar la rodilla, el dolor disminuye.',
+    interp: 'Sensibilizadores: Bragard (dorsiflexión pasiva del pie) y Lasègue cruzado (≤ 40° en pierna no afectada que reproduce dolor en la sintomática = muy específico de hernia discal central). Por raíz: L4 = quadriceps + reflejo rotuliano; L5 = dorsiflexores + dorso del pie; S1 = plantiflexores + arreflexia aquilea.'
+  },
+  'cadera-intra': {
+    titulo: 'Patología intraarticular de cadera (impingement, labrum)',
+    como: 'FADIR: decúbito supino, cadera en flexión 90°, aducción y rotación interna pasivas. Complementar con FABER (flexión + abducción + rotación externa) para discriminar de sacroilíaca.',
+    positiva: 'FADIR: dolor inguinal (impingement, labrum). FABER con dolor inguinal: intraarticular; FABER con dolor glúteo/sacroilíaco: sacroileítis.',
+    interp: 'El dolor inguinal orienta a intraarticular. La rotación interna disminuida es el hallazgo físico más sensible para osteoartritis de cadera (Metcalfe 2019).'
+  },
+  trendelenburg: {
+    titulo: 'Debilidad del glúteo medio (Trendelenburg)',
+    como: 'Apoyo monopodal del lado sintomático durante 30 s.',
+    positiva: 'La pelvis cae al lado contralateral (sano) durante el apoyo.',
+    interp: 'Marcador de cronicidad y gravedad en cualquier patología que comprometa los abductores: coxartrosis avanzada, secuela posquirúrgica, tendinopatía glútea, lesión del nervio glúteo superior. Buscar dolor a la palpación del trocánter mayor para tendinopatía glútea.'
+  },
+  lca: {
+    titulo: 'Lesión del ligamento cruzado anterior',
+    como: 'Lachman: rodilla en flexión 20–30°, una mano estabiliza el muslo, la otra tracciona la tibia hacia anterior.',
+    positiva: 'Traslación anterior excesiva o pérdida del tope firme.',
+    interp: 'Es la prueba MÁS SENSIBLE para LCA. El cajón anterior (rodilla a 90°) es complementario. Mecanismo típico: desaceleración brusca, pivote sin contacto. Indicar resonancia y derivación a ortopedia (la cirugía de LCA suele ser electiva, no urgente).'
+  },
+  menisco: {
+    titulo: 'Lesión meniscal',
+    como: 'McMurray: decúbito supino, rodilla y cadera flexionadas; el examinador rota la tibia (interna y externa) mientras extiende la rodilla. Apley (decúbito prono, rodilla 90°, compresión axial con rotación) es complementario.',
+    positiva: 'Chasquido o dolor en la interlínea articular.',
+    interp: 'Mecanismo típico: torsión en carga. La radiografía es la imagen inicial en mayores de 50 años para descartar artrosis; la resonancia NO es de primera línea en atención primaria (lesiones degenerativas asintomáticas son frecuentes). Manejo conservador inicialmente; meniscectomía artroscópica solo en casos seleccionados.'
+  },
+  colaterales: {
+    titulo: 'Lesión de ligamentos colaterales',
+    como: 'Estrés en valgo (LCM) y varo (LCL) con la rodilla en extensión completa y a 30° de flexión.',
+    positiva: 'Apertura excesiva de la interlínea correspondiente.',
+    interp: 'Mecanismo: valgo forzado (LCM, frecuente en deportes de contacto) o varo. Las lesiones aisladas de LCM grado I-II responden a manejo conservador con ortesis y rehabilitación. Lesiones combinadas (LCM + LCA + meniscal = «triada infeliz») requieren evaluación quirúrgica.'
+  }
+};
+
+document.getElementById('decisor-select').addEventListener('change', e => {
+  const v = e.target.value;
+  const r = document.getElementById('decisor-resp');
+  if (!v) { r.classList.remove('show'); return; }
+  const d = decisorData[v];
+  r.innerHTML = `
+    <h5>${d.titulo}</h5>
+    <div class="seccion"><span class="etiqueta">Cómo se hace</span>${d.como}</div>
+    <div class="seccion"><span class="etiqueta">Positiva</span>${d.positiva}</div>
+    <div class="seccion"><span class="etiqueta">Interpretación</span>${d.interp}</div>
+  `;
+  r.classList.add('show');
+});
+
+// =========================================================
+// Checklist helper (toggle .checked)
+// =========================================================
+document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('label').classList.toggle('checked', cb.checked);
+  });
+});
+
+// =========================================================
+// Tamizaje nociplástico
+// =========================================================
+function actualizarNoplas() {
+  const pos = document.querySelectorAll('#nopos-items input:checked').length;
+  const prob = document.querySelectorAll('#noprob-items input:checked').length;
+  const total = document.getElementById('nop-total');
+  const v = document.getElementById('nop-veredicto');
+  const i = document.getElementById('nop-interp');
+
+  total.classList.remove('bajo', 'medio', 'alto');
+
+  if (pos < 4) {
+    v.textContent = `${pos} de 4 criterios "posible"`;
+    i.innerHTML = 'Para sospechar dolor nociplástico <strong>posible</strong> deben cumplirse los 4 criterios. Si solo hay alguno, considere otros mecanismos (nociceptivo o neuropático) o ampliar la anamnesis.';
+  } else if (prob < 2) {
+    v.textContent = 'Dolor nociplástico POSIBLE';
+    i.innerHTML = `Los 4 criterios "posible" cumplidos (${pos}/4). Para clasificarlo como <strong>probable</strong>, busque también una historia de hipersensibilidad referida por el paciente y al menos una comorbilidad típica (sueño no reparador, fatiga, niebla cognitiva, hipersensibilidad a luz/sonido/olores).`;
+    total.classList.add('medio');
+  } else {
+    v.textContent = 'Dolor nociplástico PROBABLE';
+    i.innerHTML = `Los 4 criterios "posible" + ${prob}/2 adicionales cumplidos. Conducta: validar el dolor, evitar más intervenciones locales, reformular expectativas (función > eliminar dolor) y aplicar los 4 pilares del manejo (educación biopsicosocial, ejercicio aeróbico gradual, higiene del sueño, abordaje psicosocial). Antes de aceptar el rótulo, descarte banderas rojas (cap. 7 lo desarrolla).`;
+    total.classList.add('alto');
+  }
+}
+document.querySelectorAll('#nopos-items input, #noprob-items input').forEach(cb => cb.addEventListener('change', actualizarNoplas));
+function resetNoplas() {
+  document.querySelectorAll('#nopos-items input:checked, #noprob-items input:checked').forEach(cb => {
+    cb.checked = false;
+    cb.closest('label').classList.remove('checked');
+  });
+  actualizarNoplas();
+}
+
+// =========================================================
+// Fibromialgia ACR 2016
+// =========================================================
+const wpiAreas = [
+  'Cintura escapular izq.', 'Cintura escapular der.',
+  'Brazo izq.', 'Brazo der.',
+  'Antebrazo izq.', 'Antebrazo der.',
+  'Cadera/glúteo izq.', 'Cadera/glúteo der.',
+  'Muslo izq.', 'Muslo der.',
+  'Pierna izq.', 'Pierna der.',
+  'Mandíbula izq.', 'Mandíbula der.',
+  'Espalda alta', 'Espalda baja',
+  'Cuello', 'Tórax', 'Abdomen'
+];
+
+const wpiCont = document.getElementById('fm-wpi');
+wpiAreas.forEach((area, idx) => {
+  const lbl = document.createElement('label');
+  lbl.innerHTML = `<input type="checkbox" data-wpi><span>${area}</span>`;
+  wpiCont.appendChild(lbl);
+});
+
+// SSS rows (3 síntomas con escala 0-3)
+const sssItems = [
+  { id: 'fatiga', label: 'Fatiga' },
+  { id: 'sueno', label: 'Sueño no reparador' },
+  { id: 'cog', label: 'Síntomas cognitivos' }
+];
+const sssCont = document.getElementById('fm-sss');
+sssItems.forEach(it => {
+  const div = document.createElement('div');
+  div.className = 'escala-fila';
+  let opciones = '';
+  for (let v = 0; v <= 3; v++) {
+    const lab = ['0 · ausente', '1 · leve', '2 · moderada', '3 · severa'][v];
+    opciones += `<label data-val="${v}"><input type="radio" name="sss-${it.id}">${lab}</label>`;
+  }
+  div.innerHTML = `<div class="label">${it.label}</div><div class="opciones" data-sss="${it.id}">${opciones}</div>`;
+  sssCont.appendChild(div);
+});
+
+// Toggle handlers para escala-fila
+document.querySelectorAll('.escala-fila .opciones label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const opc = lbl.parentElement;
+    opc.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarFibro();
+  });
+});
+
+// WPI / región / duración → recálculo
+document.querySelectorAll('#fm-wpi input, #fm-regiones input, #fm-duracion').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('label').classList.toggle('checked', cb.checked);
+    actualizarFibro();
+  });
+});
+
+function actualizarFibro() {
+  const wpi = document.querySelectorAll('#fm-wpi input:checked').length;
+  const reg = document.querySelectorAll('#fm-regiones input:checked').length;
+  const duracion = document.getElementById('fm-duracion').checked;
+
+  let sssSum = 0;
+  ['fatiga', 'sueno', 'cog'].forEach(id => {
+    const sel = document.querySelector(`.opciones[data-sss="${id}"] label.selected`);
+    if (sel) sssSum += parseInt(sel.dataset.val);
+  });
+  const somSel = document.querySelector('.opciones[data-eje="somaticos"] label.selected');
+  if (somSel) sssSum += parseInt(somSel.dataset.val);
+
+  document.getElementById('fm-wpi-num').textContent = wpi;
+  document.getElementById('fm-sss-num').textContent = sssSum;
+  document.getElementById('fm-reg-num').textContent = reg;
+
+  const total = document.getElementById('fm-total');
+  const v = document.getElementById('fm-veredicto');
+  const i = document.getElementById('fm-interp');
+
+  total.classList.remove('bajo', 'medio', 'alto');
+
+  // Criterios ACR 2016
+  const cumpleRegiones = reg >= 4;
+  const cumpleDuracion = duracion;
+  const cumplePuntaje = (wpi >= 7 && sssSum >= 5) || (wpi >= 4 && wpi <= 6 && sssSum >= 9);
+
+  if (!cumpleRegiones || !cumpleDuracion) {
+    v.textContent = 'No cumple criterios';
+    let faltan = [];
+    if (!cumpleRegiones) faltan.push(`distribución regional (${reg}/4 mínimas)`);
+    if (!cumpleDuracion) faltan.push('duración ≥ 3 meses');
+    i.innerHTML = `Para diagnóstico positivo de fibromialgia (ACR 2016) faltan: <strong>${faltan.join(', ')}</strong>.`;
+    total.classList.add('bajo');
+  } else if (!cumplePuntaje) {
+    v.textContent = 'No cumple criterios de puntaje';
+    i.innerHTML = `Distribución y duración cumplen, pero el puntaje no alcanza: se requiere <strong>WPI ≥ 7 y SSS ≥ 5</strong>, o <strong>WPI 4–6 y SSS ≥ 9</strong>. Revise si la información clínica completa puede aumentar los puntajes.`;
+    total.classList.add('medio');
+  } else {
+    v.textContent = '✓ Diagnóstico positivo de fibromialgia';
+    i.innerHTML = `Cumple los 3 requisitos: distribución (≥ 4 regiones de 5), duración (≥ 3 meses), puntaje (WPI=${wpi}, SSS=${sssSum}). Conducta: validar el diagnóstico, descartar banderas rojas y causas farmacológicas, aplicar los 4 pilares del manejo (educación biopsicosocial, ejercicio aeróbico gradual, higiene del sueño, abordaje psicosocial). Considerar amitriptilina, duloxetina o ISRS según NICE NG193.`;
+    total.classList.add('alto');
+  }
+}
+
+function resetFibro() {
+  document.querySelectorAll('#fm-wpi input:checked, #fm-regiones input:checked').forEach(cb => {
+    cb.checked = false;
+    cb.closest('label').classList.remove('checked');
+  });
+  document.getElementById('fm-duracion').checked = false;
+  document.getElementById('fm-duracion-label').classList.remove('checked');
+  document.querySelectorAll('#fm-sss .opciones label.selected, .opciones[data-eje="somaticos"] label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#fm-sss input:checked, .opciones[data-eje="somaticos"] input:checked').forEach(i => i.checked = false);
+  actualizarFibro();
+}
+actualizarFibro();
+actualizarNoplas();
+
+// =========================================================
+// Calculadora 30-CST
+// =========================================================
+document.getElementById('cst-rep').addEventListener('input', e => {
+  const r = parseInt(e.target.value);
+  const out = document.getElementById('cst-resultado');
+  if (isNaN(r) || r < 0) {
+    out.className = 'resultado empty';
+    out.textContent = 'Ingrese las repeticiones para ver la interpretación.';
+    return;
+  }
+  let sem, etq, interp;
+  if (r >= 14)      { sem='verde';   etq='Rango normal'; interp='Dentro del promedio de mujeres adultas sanas (14–17 reps). Buen marcador funcional para seguimiento longitudinal.'; }
+  else if (r >= 10) { sem='amarillo';etq='Reducido'; interp='Por debajo del promedio sano y dentro del rango habitual en pacientes con fibromialgia (10–12 reps). Ideal para evaluar respuesta al ejercicio: una mejoría de 2 repeticiones es clínicamente significativa.'; }
+  else if (r >= 5)  { sem='naranja'; etq='Marcadamente reducido'; interp='Sugiere debilidad funcional importante de los miembros inferiores. Considere descondicionamiento, sarcopenia o dolor inhibitorio. Indicar fortalecimiento progresivo.'; }
+  else              { sem='rojo';    etq='Severamente comprometido'; interp='Limitación severa de la función. Evaluar por qué no completa más repeticiones (dolor, debilidad, miedo, fatiga) y plantear plan multidisciplinario.'; }
+  out.className = 'resultado';
+  out.innerHTML = `<span class="valor">${r} repeticiones <span class="semaforo ${sem}">${etq}</span></span><span style="display:block; margin-top:6px; font-family: var(--serif);">${interp}</span>`;
+});
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Hombro doloroso por sobreuso',
+    historia: 'Mujer de 48 años con dolor en hombro derecho de 4 semanas tras pintar el techo. Dolor nocturno al apoyarse sobre ese lado. Arco doloroso entre 70° y 110° de abducción. Hawkins positivo, Jobe positivo. Lift-off negativo. Sin debilidad significativa.',
+    pregunta: '¿Diagnóstico clínico?',
+    opciones: [
+      { texto: 'Lesión del subescapular', correcto: false },
+      { texto: 'Síndrome de impingement subacromial con tendinopatía del supraespinoso', correcto: true },
+      { texto: 'Ruptura completa del manguito rotador', correcto: false },
+      { texto: 'Capsulitis adhesiva', correcto: false }
+    ],
+    feedback: 'Patrón clásico de impingement subacromial: arco doloroso 60–120°, Hawkins+, Jobe+ con dolor (no debilidad marcada), lift-off negativo (subescapular indemne). Drop arm negativo (no ruptura significativa). Manejo conservador: educación, AINE corto, fisioterapia activa con énfasis en estabilizadores escapulares.'
+  },
+  {
+    titulo: 'Caso 2 · Mano nocturna',
+    historia: 'Mujer de 50 años, obesa, embarazo en tercer trimestre. Despierta cada noche con parestesias en pulgar, índice y dedo medio que mejoran al sacudir la mano. Phalen positivo, Tinel positivo, Durkan reproduce los síntomas. Sin atrofia tenar. Fuerza de oposición conservada.',
+    pregunta: '¿Conducta inicial?',
+    opciones: [
+      { texto: 'Cirugía descompresiva inmediata', correcto: false },
+      { texto: 'Recomendaciones ergonómicas, AINE en ciclo corto, ortesis antebraquiopalmar nocturna en posición neutra', correcto: true },
+      { texto: 'Resonancia magnética de muñeca', correcto: false },
+      { texto: 'Infiltración con corticoide como primera línea', correcto: false }
+    ],
+    feedback: 'Síndrome del túnel del carpo en embarazo (factor de riesgo clásico por edema). Sin atrofia ni déficit motor: manejo conservador con ortesis nocturna en posición neutra, recomendaciones ergonómicas, AINE corto. Si persiste 6–8 semanas o aparece atrofia tenar, derivar para EMG y considerar quirúrgico.'
+  },
+  {
+    titulo: 'Caso 3 · Codo de tenista',
+    historia: 'Hombre de 45 años, jugador recreativo de tenis. Dolor en cara lateral del codo derecho de 3 meses. Dolor a la palpación del epicóndilo lateral. Mill positivo, Maudsley positivo. Sin parestesias en mano, fuerza de prensión y de intrínsecos conservada.',
+    pregunta: '¿Tratamiento de elección como primera línea?',
+    opciones: [
+      { texto: 'Infiltración con corticoide ahora', correcto: false },
+      { texto: 'Ondas de choque', correcto: false },
+      { texto: 'Modificación de la actividad + ejercicios excéntricos para extensores + banda infraepicondílea', correcto: true },
+      { texto: 'Cirugía de liberación', correcto: false }
+    ],
+    feedback: 'Epicondilitis lateral: tendinosis degenerativa, no inflamación. La evidencia actual NO respalda corticoides, ondas de choque, PRP ni cirugía como primera línea. El estándar es modificar la actividad detonante + ejercicios excéntricos para extensores + banda infraepicondílea de neopreno. AINE en ciclo corto solo para exacerbaciones.'
+  },
+  {
+    titulo: 'Caso 4 · Mielopatía cervical disfrazada',
+    historia: 'Hombre de 68 años con dolor cervical y dificultad para abotonarse la camisa desde hace 6 meses. Marcha levemente inestable de base ampliada. Hiperreflexia rotuliana y aquilea bilateral, Babinski bilateral, clonus aquiliano izquierdo. Sin alteración esfinteriana evidente.',
+    pregunta: '¿Conducta?',
+    opciones: [
+      { texto: 'AINE, fisioterapia y control en 6 semanas', correcto: false },
+      { texto: 'Resonancia cervical urgente y derivación prioritaria a neurocirugía / ortopedia de columna', correcto: true },
+      { texto: 'Inyección epidural cervical', correcto: false },
+      { texto: 'Tratamiento como radiculopatía cervical simple', correcto: false }
+    ],
+    feedback: 'Mielopatía cervical: pérdida de destrezas finas + alteración de marcha + signos de neurona motora superior en miembros inferiores (hiperreflexia, Babinski, clonus). Es una urgencia relativa que requiere imagen pronta y derivación prioritaria. La descompresión quirúrgica oportuna mejora el pronóstico funcional.'
+  },
+  {
+    titulo: 'Caso 5 · Dolor de cadera en adulto mayor',
+    historia: 'Mujer de 70 años con dolor inguinal derecho progresivo en 2 años, peor al levantarse de la silla y al subir escaleras. Examen: rotación interna disminuida bilateralmente (más derecha), FABER reproduce dolor inguinal derecho.',
+    pregunta: '¿Diagnóstico clínico más probable y siguiente paso?',
+    opciones: [
+      { texto: 'Bursitis trocantérica → infiltración', correcto: false },
+      { texto: 'Osteoartritis de cadera → radiografía simple, manejo conservador inicial', correcto: true },
+      { texto: 'Sacroileítis → resonancia de sacroilíacas', correcto: false },
+      { texto: 'Hernia inguinal → evaluación quirúrgica', correcto: false }
+    ],
+    feedback: 'Patrón clásico de osteoartritis de cadera: dolor inguinal, mayor de 50 años, rotación interna disminuida (hallazgo más sensible), FABER con dolor inguinal (intraarticular). La radiografía simple es el primer estudio. Manejo conservador inicial: educación, ejercicio terapéutico (fortalecimiento de glúteos y core), control de peso, paracetamol/AINE según tolerancia. La cirugía protésica se considera tras fracaso del manejo conservador.'
+  },
+  {
+    titulo: 'Caso 6 · Lesión de rodilla en deporte',
+    historia: 'Hombre de 22 años, futbolista. Hace 3 días sintió un «pop» en la rodilla derecha al cambiar de dirección sin contacto, derrame inmediato y sensación de inestabilidad. Examen: derrame moderado, Lachman con traslación anterior aumentada y sin tope firme.',
+    pregunta: '¿Diagnóstico y conducta inicial?',
+    opciones: [
+      { texto: 'Lesión meniscal aislada → meniscectomía', correcto: false },
+      { texto: 'Lesión del LCA → resonancia + derivación a ortopedia (cirugía electiva, no urgente)', correcto: true },
+      { texto: 'Esguince benigno → AINE y fisioterapia', correcto: false },
+      { texto: 'Luxación rotuliana → reducción urgente', correcto: false }
+    ],
+    feedback: 'Mecanismo (desaceleración brusca sin contacto, pop, derrame inmediato) y Lachman positivo: lesión del LCA. Solicitar resonancia y derivar a ortopedia. La cirugía es electiva (no urgente); el momento se decide según edad, demanda funcional y nivel de actividad. Iniciar prehabilitación con fortalecimiento de cuádriceps y propiocepción.'
+  },
+  {
+    titulo: 'Caso 7 · Dolor crónico que no responde',
+    historia: 'Mujer de 45 años con dolor en hombro y antebrazo derecho desde hace 8 meses. Ha recibido 3 ciclos de AINE, dos infiltraciones subacromiales, fisioterapia con TENS y ultrasonido. Resonancia normal. Examen: alodinia al roce de la ropa, dolor al apretón leve, sin atrofia, sin déficit motor. Reporta sueño no reparador y fatiga marcada.',
+    pregunta: '¿Cómo encuadra el cuadro?',
+    opciones: [
+      { texto: 'Solicitar más imágenes (TAC, gammagrafía)', correcto: false },
+      { texto: 'Iniciar opioide fuerte', correcto: false },
+      { texto: 'Dolor nociplástico regional probable: validar, no insistir en tratamiento local, reformular expectativas y aplicar los 4 pilares', correcto: true },
+      { texto: 'Cirugía exploratoria del hombro', correcto: false }
+    ],
+    feedback: 'Reúne los 4 criterios "posible" de dolor nociplástico (>3 meses, distribución regional, no explicado por imagen ni examen, signos de hipersensibilidad regional) más comorbilidades típicas (sueño no reparador, fatiga). Más imágenes o más intervenciones locales no cambian el desenlace. Conducta: validar, reformular meta (función > eliminar dolor) y aplicar los pilares (educación biopsicosocial, ejercicio aeróbico gradual, higiene del sueño, abordaje psicosocial).'
+  },
+  {
+    titulo: 'Caso 8 · Diagnóstico de fibromialgia',
+    historia: 'Mujer de 42 años con dolor generalizado de 6 meses. Áreas dolorosas: cuello, ambos hombros, ambos brazos, espalda alta, espalda baja, ambos muslos, ambas piernas. Fatiga diaria, sueño fragmentado y no reparador, dificultad de concentración. Examen físico sin déficit motor, sin signos inflamatorios. Hemograma, PCR, función tiroidea normales.',
+    pregunta: '¿Diagnóstico?',
+    opciones: [
+      { texto: 'Polimiositis', correcto: false },
+      { texto: 'Fibromialgia (criterios ACR 2016)', correcto: true },
+      { texto: 'Espondiloartritis axial', correcto: false },
+      { texto: 'Polimialgia reumática', correcto: false }
+    ],
+    feedback: 'Cumple criterios ACR 2016: distribución (≥ 4 de 5 regiones — cuadrantes superior izq y der, inferior izq y der, eje axial), duración ≥ 3 meses, WPI alto (varias áreas) + SSS alto (fatiga + sueño no reparador + síntomas cognitivos = 3+3+2 = 8). Examen sin déficit motor descarta miopatías. PCR normal y ausencia de signos inflamatorios separan de espondiloartritis y polimialgia. Diagnóstico positivo de fibromialgia.'
+  },
+  {
+    titulo: 'Caso 9 · Mano caída al despertar',
+    historia: 'Hombre de 30 años, despierta el sábado con incapacidad para extender muñeca y dedos derechos. La noche anterior estuvo en una fiesta y durmió en un sillón con el brazo colgando. Examen: imposibilidad de extender muñeca y dedos contra gravedad. Extensión del codo y supinación conservadas. Sensibilidad disminuida en dorso radial de la mano. Reflejo tricipital normal.',
+    pregunta: '¿Diagnóstico y conducta?',
+    opciones: [
+      { texto: 'Radiculopatía C7 → resonancia cervical', correcto: false },
+      { texto: 'Parálisis del nervio radial («del sábado por la noche») por compresión axilar; manejo conservador con ortesis y fisioterapia', correcto: true },
+      { texto: 'ACV cortical', correcto: false },
+      { texto: 'Síndrome del túnel del carpo agudo', correcto: false }
+    ],
+    feedback: 'Parálisis del sábado por la noche por compresión axilar del nervio radial. Características: extensión de codo y supinación conservadas (las ramas correspondientes salen proximales al sitio de compresión), reflejo tricipital normal. Es neurapraxia con recuperación en semanas a pocos meses. Manejo: ortesis de muñeca para evitar contracturas en flexión y fisioterapia. No se requiere cirugía.'
+  },
+  {
+    titulo: 'Caso 10 · Cuándo no pedir resonancia',
+    historia: 'Mujer de 55 años con dolor crónico de hombro de 3 meses, sin trauma. Examen sin déficit motor, sin atrofia, sin debilidad. Hawkins positivo, Jobe con dolor pero sin debilidad clara. Sin banderas rojas. Pide «la resonancia para ver qué tengo».',
+    pregunta: '¿Cuál es la mejor respuesta?',
+    opciones: [
+      { texto: 'Solicitar la resonancia para satisfacer a la paciente', correcto: false },
+      { texto: 'Educación: explicar que los hallazgos estructurales son ubicuos en personas asintomáticas y que la imagen no cambia el manejo conservador inicial; pactar control y ofrecer imagen si no hay mejoría o aparece déficit', correcto: true },
+      { texto: 'Solicitar gammagrafía como alternativa', correcto: false },
+      { texto: 'Despachar sin más explicación', correcto: false }
+    ],
+    feedback: 'Igual que en lumbalgia: la sobreutilización de imágenes es iatrogenia frecuente. La tendinopatía del supraespinoso por imagen está presente en ~40% de los > 50 años asintomáticos. Antes del manejo conservador adecuado, la imagen no cambia la conducta. Pactar control en 4–6 semanas y ofrecer imagen si: no hay mejoría con manejo conservador adecuado, aparece déficit motor, o se sospecha ruptura significativa.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'La maniobra con mejor sensibilidad para síndrome del túnel del carpo es:', o:['Phalen','Tinel','Durkan (compresión carpal)','Lift-off'], c:2, e:'Durkan supera en sensibilidad a Phalen y a Tinel. Ninguna es diagnóstica por sí sola; el patrón temporal nocturno y la fuerza de oposición del pulgar refuerzan el diagnóstico.' },
+  { p: 'En epicondilitis medial coexiste con atrapamiento del cubital hasta en:', o:['10%','30%','60%','90%'], c:2, e:'Hasta 60%. Por eso es obligado explorar Tinel cubital, fuerza de intrínsecos y sensibilidad cubital ante toda epicondilitis medial.' },
+  { p: 'La prueba más sensible para lesión del LCA es:', o:['Cajón anterior a 90°','Lachman','McMurray','Estrés en valgo'], c:1, e:'Lachman (rodilla 20–30°) es más sensible que el cajón anterior. La pérdida del tope firme o la traslación anterior excesiva lo definen como positivo.' },
+  { p: 'El hallazgo físico más sensible para osteoartritis de cadera es:', o:['Crepitación articular','Disminución de la rotación interna','Acortamiento del miembro','Atrofia del cuádriceps'], c:1, e:'Disminución de la rotación interna de la cadera es el hallazgo físico más sensible (Metcalfe 2019). El dolor inguinal es el síntoma más útil.' },
+  { p: 'En mielopatía cervical, los hallazgos en miembros inferiores incluyen:', o:['Hiporreflexia y atrofia','Hiperreflexia, clonus, Babinski y trastorno de la marcha','Solo dolor lumbar','Solo parestesias distales'], c:1, e:'Mielopatía cervical: signos de neurona motora superior en MMII (hiperreflexia, clonus, Babinski, espasticidad), pérdida de destrezas finas en MMSS, alteración de marcha. Obliga a remisión prioritaria con resonancia.' },
+  { p: 'En dolor nociplástico, la conducta correcta es:', o:['Más imágenes para encontrar la causa','Opioides fuertes','Validar el dolor, evitar más intervenciones locales y reformular la meta a mejorar función','Cirugía exploratoria'], c:2, e:'El dolor nociplástico no responde a intervenciones locales. La conducta es validar, reformular expectativas (función > eliminar dolor) y aplicar los 4 pilares: educación biopsicosocial, ejercicio gradual, higiene del sueño, abordaje psicosocial.' },
+  { p: 'Para diagnóstico positivo de fibromialgia (ACR 2016) se requiere:', o:['Solo presencia de puntos sensibles','Dolor en ≥ 4 de 5 regiones, ≥ 3 meses, WPI ≥ 7 + SSS ≥ 5 (o WPI 4–6 + SSS ≥ 9)','Resonancia con hallazgos compatibles','Anticuerpos anti-fibromialgia positivos'], c:1, e:'Los criterios ACR 2016 reemplazaron los puntos sensibles por distribución del dolor + duración + puntajes WPI/SSS. No requiere imagen ni laboratorio específico.' },
+  { p: 'La 30-CST en una mujer con fibromialgia que hace 11 repeticiones se interpreta como:', o:['Normal','Reducido (rango habitual en fibromialgia, 10–12 reps); ideal para evaluar respuesta al ejercicio','Severamente comprometido','No interpretable'], c:1, e:'10–12 repeticiones es el rango habitual en fibromialgia (vs 14–17 en mujeres adultas sanas). Una mejoría de 2 repeticiones tras un programa de ejercicio es clínicamente significativa.' },
+  { p: 'La parálisis del sábado por la noche compromete:', o:['Nervio mediano','Nervio cubital','Nervio radial (con preservación de extensión de codo y supinación)','Nervio musculocutáneo'], c:2, e:'Compresión axilar del radial. Mano caída con preservación de extensión de codo, supinación y reflejo tricipital (las ramas correspondientes salen proximales al sitio de compresión).' },
+  { p: 'Antes de aceptar el rótulo de dolor nociplástico, se debe descartar:', o:['Solo la fibromialgia','Banderas rojas, déficit motor objetivo, síntomas sistémicos y causas farmacológicas','Solo enfermedades reumatológicas','Nada más, el diagnóstico es positivo'], c:1, e:'Banderas rojas habituales (cáncer, infección, fractura), déficit motor objetivo (el nociplástico no produce debilidad real), síntomas sistémicos, y causas farmacológicas (estatinas, fluoroquinolonas, inhibidores de aromatasa). Inicio agudo o factor desencadenante claro también deben hacer reconsiderar.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
