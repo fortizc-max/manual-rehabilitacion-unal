@@ -1414,12 +1414,12 @@ const casos = [
     historia: 'Joven de 25 años, accidente de moto. Llega a urgencias con apertura ocular al estímulo doloroso, respuesta verbal con palabras inconexas, retira al dolor.',
     pregunta: '¿GCS y conducta inmediata?',
     opciones: [
-      { texto: 'GCS 11 (E2 V3 M4) — TCE moderado, TC cráneo y hospitalización para observación', correcto: true },
+      { texto: 'GCS 9 (E2 V3 M4) — TCE moderado, TC cráneo y hospitalización para observación', correcto: true },
       { texto: 'GCS 7 — TCE severo, intubación inmediata', correcto: false },
       { texto: 'GCS 14 — TCE leve, alta y observación domiciliaria', correcto: false },
-      { texto: 'GCS 8 — TCE severo, no requiere intubación', correcto: false }
+      { texto: 'GCS 11 — TCE moderado, manejo ambulatorio', correcto: false }
     ],
-    feedback: 'GCS = E2 (apertura al dolor) + V3 (palabras inconexas) + M4 (retira al dolor) = 9... espera, son E2+V3+M4 = 9, pero la opción dice 11. Recálculo: apertura al DOLOR es 2, palabras INCONEXAS es 3, RETIRA al dolor es 4 → 2+3+4 = 9. Eso lo deja en TCE moderado (9–12). Conducta: TC cráneo, hospitalización en UCI o intermedio, neuroprotección. La opción «GCS 11» del enunciado es incorrecta en su aritmética pero el manejo descrito (TCE moderado: TC + hospitalización + observación) sí corresponde al GCS real de 9.'
+    feedback: 'GCS = E2 (apertura al dolor) + V3 (palabras inconexas) + M4 (retira al dolor) = 9. Cae justo en el límite TCE moderado (9–12). Conducta: TC de cráneo, hospitalización para observación con neuroprotección (cabecera 30°, evitar hipotensión e hipoxia). El paciente con GCS 9 está en el límite con el coma (≤ 8); vigilar evolución cada hora porque un descenso a 8 obliga a intubación.'
   },
   {
     titulo: 'Caso 6 · Rancho IV agitación',
