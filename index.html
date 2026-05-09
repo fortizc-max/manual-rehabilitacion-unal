@@ -11,88 +11,98 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+
 :root {
-  --azul: #1e40af;
-  --azul-osc: #1e3a8a;
-  --azul-claro: #dbeafe;
-  --azul-bg: #eff6ff;
-  --gris: #475569;
-  --gris-claro: #f1f5f9;
-  --gris-borde: #e2e8f0;
-  --texto: #0f172a;
-  --texto-suave: #334155;
-  --verde: #047857;
-  --verde-claro: #d1fae5;
-  --naranja: #ea580c;
-  --naranja-claro: #fed7aa;
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--serif);
   color: var(--texto);
-  background: #f8fafc;
+  background: var(--crema);
   line-height: 1.55;
+  font-size: 17px;
 }
 
-header {
-  background: linear-gradient(135deg, var(--azul-osc), var(--azul));
-  color: white;
-  padding: 40px 20px 36px;
+header.portada {
+  background: white;
+  padding: 60px 24px 44px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
 }
-header .inner { max-width: 900px; margin: 0 auto; }
-header .institucion {
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; opacity: 0.85; margin-bottom: 4px;
+header.portada .institucion {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
 }
-header .departamento {
-  font-size: 0.88rem; font-weight: 400; opacity: 0.92;
-  margin-bottom: 24px;
+header.portada .departamento {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--texto-suave);
+  margin-bottom: 36px;
 }
-header h1 {
-  font-size: 1.8rem; font-weight: 700; letter-spacing: -0.015em;
-  line-height: 1.2;
+header.portada h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.6rem;
+  color: var(--azulacad);
+  line-height: 1.18;
+  max-width: 720px;
+  margin: 0 auto 14px;
 }
-header .sub {
-  font-size: 0.95rem; font-weight: 400; opacity: 0.92;
-  margin-top: 6px;
+header.portada .sub {
+  font-family: var(--sans);
+  font-size: 0.92rem; color: var(--gris);
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 main {
-  max-width: 900px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 32px 20px 60px;
+  padding: 36px 24px 60px;
 }
 
 .intro {
   background: white;
   border: 1px solid var(--gris-borde);
-  border-radius: 10px;
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
   padding: 18px 22px;
-  margin-bottom: 28px;
-  font-size: 0.95rem;
+  margin-bottom: 32px;
+  font-size: 0.96rem;
   color: var(--texto-suave);
+  line-height: 1.6;
 }
-.intro strong { color: var(--azul-osc); }
-
-h2 {
-  font-size: 1.1rem;
-  color: var(--azul);
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
+.intro strong { color: var(--azulacad); }
 
 .parte-label {
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gris);
-  margin: 24px 0 10px;
-  padding-top: 14px;
-  border-top: 1px solid var(--gris-borde);
+  color: var(--jamared);
+  margin: 32px 0 12px;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--jamared);
 }
 
 .cap-list {
@@ -103,7 +113,7 @@ h2 {
 .cap {
   background: white;
   border: 1px solid var(--gris-borde);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 14px 18px;
   display: flex;
   gap: 14px;
@@ -113,55 +123,61 @@ h2 {
   transition: border-color 0.12s, box-shadow 0.12s, transform 0.08s;
 }
 .cap.disponible:hover {
-  border-color: var(--azul);
-  box-shadow: 0 2px 8px rgba(30,64,175,0.10);
+  border-color: var(--azulacad);
+  box-shadow: 0 2px 10px rgba(0,51,102,0.10);
   transform: translateY(-1px);
 }
 .cap.proximo {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 
 .cap .num {
+  font-family: var(--sans);
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--azul-claro);
-  color: var(--azul-osc);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
-.cap.disponible .num { background: var(--verde-claro); color: var(--verde); }
+.cap.disponible .num { background: var(--jamared); color: white; }
 
 .cap .body { flex: 1; min-width: 0; }
 .cap .titulo {
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--texto);
-  margin-bottom: 2px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--azulacad);
+  margin-bottom: 3px;
+  line-height: 1.3;
 }
+.cap.disponible .titulo { color: var(--jamared); }
 .cap .descripcion {
-  font-size: 0.85rem;
-  color: var(--gris);
-  line-height: 1.4;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  line-height: 1.45;
 }
 
 .cap .estado {
+  font-family: var(--sans);
   flex-shrink: 0;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 99px;
   align-self: center;
 }
 .cap.disponible .estado {
-  background: var(--verde-claro);
+  background: var(--verde-suave);
   color: var(--verde);
 }
 .cap.proximo .estado {
@@ -169,34 +185,45 @@ h2 {
   color: var(--gris);
 }
 
+.subnav {
+  font-family: var(--sans);
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+.subnav a {
+  color: var(--azulacad);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--azulacad-mid);
+}
+.subnav a:hover { background: var(--azulacad-suave); }
+
 footer {
+  font-family: var(--sans);
   background: white;
   border-top: 1px solid var(--gris-borde);
   text-align: center;
-  padding: 22px;
-  font-size: 0.85rem;
+  padding: 26px;
+  font-size: 0.82rem;
   color: var(--gris);
 }
-footer a { color: var(--azul); text-decoration: none; }
+footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="inner">
-    <div class="institucion">Universidad Nacional de Colombia</div>
-    <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
-    <h1>Manual de Rehabilitación para el Médico General</h1>
-    <div class="sub">Versión interactiva · Capítulos del libro de pregrado de séptimo semestre</div>
-  </div>
+<header class="portada">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <h1>Manual de Rehabilitación para el Médico General</h1>
+  <div class="sub">Versión interactiva · Capítulos del libro de pregrado de séptimo semestre</div>
 </header>
 
 <main>
 
   <div class="intro">
-    Este sitio reúne las versiones interactivas de los capítulos del <strong>Manual de Rehabilitación</strong>. Cada capítulo del libro impreso tiene una contraparte digital con calculadoras, casos clínicos progresivos, mapas anatómicos interactivos y autoevaluación. Pensado como complemento de la rotación clínica de séptimo semestre, no como reemplazo del libro.
+    Este sitio reúne las versiones interactivas de los capítulos del <strong>Manual de Rehabilitación</strong>. Cada capítulo del libro impreso tiene una contraparte digital con escalas interactivas, mapas anatómicos en SVG, calculadoras, casos clínicos progresivos y autoevaluación. Pensado como complemento de la rotación clínica de séptimo semestre, no como reemplazo del libro.
   </div>
 
   <div class="parte-label">Parte I · Marco conceptual y evaluación</div>
@@ -209,36 +236,28 @@ footer a:hover { text-decoration: underline; }
       </div>
       <div class="estado">Disponible</div>
     </a>
-    <div class="cap proximo">
+    <a class="cap disponible" href="02-funciones-estructuras/">
       <div class="num">2</div>
       <div class="body">
-        <div class="titulo">Discapacidad, CIF y evaluación funcional</div>
-        <div class="descripcion">Marco de la Clasificación Internacional del Funcionamiento; índices de Barthel y Lawton-Brody.</div>
+        <div class="titulo">Evaluación de funciones y estructuras corporales</div>
+        <div class="descripcion">Escala MRC, Ashworth y reflejos interactivas; primera vs segunda neurona motora; 8 patrones clínicos sindrómicos; clasificador de patrón motor; 9 patrones patológicos de marcha; casos y autoevaluación.</div>
       </div>
-      <div class="estado">Próximamente</div>
-    </div>
+      <div class="estado">Disponible</div>
+    </a>
     <div class="cap proximo">
       <div class="num">3</div>
       <div class="body">
-        <div class="titulo">Interrogatorio orientado a la función</div>
-        <div class="descripcion">El examen funcional como tamizaje en consulta general.</div>
+        <div class="titulo">Actividades, participación y factores contextuales</div>
+        <div class="descripcion">Pruebas de capacidad (TUG, 6MWT, velocidad de marcha), Barthel, Lawton, WHODAS, PROMIS y anamnesis funcional.</div>
       </div>
       <div class="estado">Próximamente</div>
     </div>
   </div>
 
-  <div class="parte-label">Parte II · Examen físico orientado a función</div>
+  <div class="parte-label">Parte II · Cuadros clínicos prevalentes</div>
   <div class="cap-list">
     <div class="cap proximo">
       <div class="num">4</div>
-      <div class="body">
-        <div class="titulo">Evaluación neurológica y musculoesquelética</div>
-        <div class="descripcion">Examen segmentario integrado con la anatomía aplicada.</div>
-      </div>
-      <div class="estado">Próximamente</div>
-    </div>
-    <div class="cap proximo">
-      <div class="num">5</div>
       <div class="body">
         <div class="titulo">Lumbalgia inespecífica</div>
         <div class="descripcion">Tamizaje de banderas rojas y manejo en atención primaria.</div>
@@ -246,15 +265,15 @@ footer a:hover { text-decoration: underline; }
       <div class="estado">Próximamente</div>
     </div>
     <div class="cap proximo">
-      <div class="num">6</div>
+      <div class="num">5</div>
       <div class="body">
-        <div class="titulo">Evaluación de la debilidad muscular</div>
-        <div class="descripcion">Patrones de debilidad: motoneurona superior vs inferior, miopatía, neuropatía.</div>
+        <div class="titulo">Cuadros musculoesqueléticos frecuentes en consulta</div>
+        <div class="descripcion">Manguito rotador, túnel carpiano, epicondilitis, De Quervain, radiculopatía, mielopatía, lumbalgia con dolor irradiado.</div>
       </div>
       <div class="estado">Próximamente</div>
     </div>
     <a class="cap disponible" href="06-electrodiagnostico/">
-      <div class="num">7</div>
+      <div class="num">6</div>
       <div class="body">
         <div class="titulo">Electrodiagnóstico aplicado</div>
         <div class="descripcion">Tabla multi-nervio de neuroconducción con valores de Buschbacher ajustados por edad/sexo/talla, escala de Padua, casos clínicos, autoevaluación.</div>
@@ -266,18 +285,10 @@ footer a:hover { text-decoration: underline; }
   <div class="parte-label">Parte III · Discapacidad neurológica</div>
   <div class="cap-list">
     <div class="cap proximo">
-      <div class="num">8</div>
+      <div class="num">7</div>
       <div class="body">
-        <div class="titulo">Evaluación funcional del paciente con discapacidad neurológica</div>
-        <div class="descripcion">Escalas de discapacidad, modificaciones del entorno, ayudas técnicas.</div>
-      </div>
-      <div class="estado">Próximamente</div>
-    </div>
-    <div class="cap proximo">
-      <div class="num">9</div>
-      <div class="body">
-        <div class="titulo">Ataque cerebrovascular</div>
-        <div class="descripcion">Manejo agudo, rehabilitación y reintegro funcional.</div>
+        <div class="titulo">Lesiones neurológicas en rehabilitación</div>
+        <div class="descripcion">Cinco entidades clave: trauma raquimedular, ataque cerebrovascular, trauma craneoencefálico, esclerosis lateral amiotrófica y enfermedad de Parkinson. Cada una con su evaluación funcional, indicadores pronósticos y tratamiento.</div>
       </div>
       <div class="estado">Próximamente</div>
     </div>
@@ -285,24 +296,25 @@ footer a:hover { text-decoration: underline; }
 
   <div class="parte-label">Parte IV · Adulto mayor, ejercicio y marcha</div>
   <div class="cap-list">
-    <a class="cap disponible" href="10-prescripcion/">
-      <div class="num">10</div>
-      <div class="body">
-        <div class="titulo">Prescripción de ejercicio en rehabilitación</div>
-        <div class="descripcion">Calculadoras de FCmax, Karvonen, VO₂max, IMC y %1RM; estratificación de riesgo CV; prescripción por patología; casos clínicos.</div>
-      </div>
-      <div class="estado">Disponible</div>
-    </a>
     <div class="cap proximo">
-      <div class="num">11</div>
+      <div class="num">8</div>
       <div class="body">
-        <div class="titulo">Adulto mayor en rehabilitación</div>
-        <div class="descripcion">Fragilidad, sarcopenia, desacondicionamiento, caídas y ejercicio multicomponente.</div>
+        <div class="titulo">Tratamientos de rehabilitación</div>
+        <div class="descripcion">Lo que debe saber todo médico: equipo interdisciplinario, manejo del dolor (escenarios agudo y crónico), educación terapéutica, prescripción del ejercicio, prevención de caídas, criterios de derivación.</div>
+        <div class="subnav"><a href="09-prescripcion/">→ Calculadora de prescripción de ejercicio (FCmax, Karvonen, VO₂max, %1RM)</a></div>
       </div>
       <div class="estado">Próximamente</div>
     </div>
     <div class="cap proximo">
-      <div class="num">12</div>
+      <div class="num">9</div>
+      <div class="body">
+        <div class="titulo">Adulto mayor en rehabilitación</div>
+        <div class="descripcion">Fragilidad, sarcopenia, desacondicionamiento y ejercicio multicomponente.</div>
+      </div>
+      <div class="estado">Próximamente</div>
+    </div>
+    <div class="cap proximo">
+      <div class="num">10</div>
       <div class="body">
         <div class="titulo">Inmovilización del paciente joven y crítico</div>
         <div class="descripcion">ICU-AW, PICS, paquete ABCDEF, post-COVID con PEM.</div>
@@ -310,18 +322,10 @@ footer a:hover { text-decoration: underline; }
       <div class="estado">Próximamente</div>
     </div>
     <div class="cap proximo">
-      <div class="num">13</div>
+      <div class="num">11</div>
       <div class="body">
-        <div class="titulo">Ayudas técnicas para la marcha</div>
-        <div class="descripcion">Bastones, caminadores, muletas: indicación y prescripción.</div>
-      </div>
-      <div class="estado">Próximamente</div>
-    </div>
-    <div class="cap proximo">
-      <div class="num">14</div>
-      <div class="body">
-        <div class="titulo">Ortesis de miembro inferior</div>
-        <div class="descripcion">Indicación y prescripción según patología.</div>
+        <div class="titulo">Ayudas para la marcha y órtesis</div>
+        <div class="descripcion">Bastones, caminadores, muletas y órtesis de miembro inferior: indicación y prescripción.</div>
       </div>
       <div class="estado">Próximamente</div>
     </div>

@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funciones y estructuras corporales · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva para la evaluación de funciones y estructuras corporales: escala MRC, Ashworth, primera vs segunda neurona, patrones clínicos de debilidad, examen segmentario, marcha, casos y autoevaluación.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 32px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--azulacad);
+  margin: 0 auto 18px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
+}
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Escalas interactivas (MRC, Ashworth, reflejos) ===== */
+.escala {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 18px 0;
+}
+.escala-grados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.grado-btn {
+  font-family: var(--sans);
+  background: white;
+  border: 2px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--texto-suave);
+  min-width: 56px;
+  transition: all 0.15s;
+}
+.grado-btn:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.grado-btn.active {
+  background: var(--jamared);
+  border-color: var(--jamared);
+  color: white;
+}
+.grado-detalle {
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  padding: 14px 18px;
+  display: none;
+  font-size: 0.95rem;
+}
+.grado-detalle.show { display: block; }
+.grado-detalle h4 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+.grado-detalle .ejemplo {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--azulacad-mid);
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+.grado-detalle .ejemplo strong {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Patrones clínicos (acordeón) ===== */
+details.patron {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--jamared);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.patron[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.patron summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.patron summary::-webkit-details-marker { display: none; }
+details.patron summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.patron[open] summary::before { transform: rotate(90deg); }
+details.patron summary .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.patron .patron-body {
+  padding: 0 18px 16px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+details.patron .patron-body .row-key {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--gris-borde);
+  font-size: 0.92rem;
+}
+details.patron .patron-body .row-key .k {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  padding-top: 3px;
+}
+
+/* ===== Clasificador de patrón motor (interactivo) ===== */
+.clas-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+@media (max-width: 700px) { .clas-steps { grid-template-columns: 1fr; } }
+.clas-step {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.clas-step .num {
+  font-family: var(--sans);
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--jamared); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem;
+}
+.clas-step .txt {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  line-height: 1.4;
+}
+.clas-step .txt strong { color: var(--azulacad); }
+
+.clas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.clas-block {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+.clas-block h4 {
+  margin: 0 0 10px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--azulacad);
+}
+.clas-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.clas-op {
+  font-family: var(--sans);
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: all 0.15s;
+}
+.clas-op:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.clas-op.activo {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+.clas-acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.84rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+}
+button.reset:hover { background: var(--gris-claro); }
+
+.clas-counter {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--gris);
+}
+.clas-counter strong { color: var(--jamared); }
+
+.clas-result {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--jamared);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  display: none;
+}
+.clas-result.show { display: block; }
+.clas-result h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.clas-result .badge {
+  font-family: var(--sans);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin: 2px 4px 4px 0;
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+}
+.clas-result .candidato {
+  border-top: 1px solid var(--gris-borde);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.clas-result .candidato .nombre {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.clas-result .candidato .score {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--jamared);
+  margin-left: 8px;
+}
+.clas-result .candidato p {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+/* ===== Marcha: catálogo de patrones ===== */
+.marcha-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.marcha-card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+.marcha-card h4 {
+  margin: 0 0 6px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.marcha-card .descripcion {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+.marcha-card .enfermedad {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--gris-borde);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+/* ===== Nota clínica destacada ===== */
+.nota-clinica {
+  background: var(--crema);
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--texto-suave);
+}
+
+footer {
+  font-family: var(--sans);
+  text-align: center;
+  padding: 26px 24px;
+  font-size: 0.82rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 2</div>
+  <h1>Evaluación de funciones y estructuras corporales</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Por qué este examen</button>
+  <button class="tab-btn" data-tab="fuerza">2. Fuerza · MRC</button>
+  <button class="tab-btn" data-tab="nms-nmi">3. NMS vs NMI</button>
+  <button class="tab-btn" data-tab="patrones">4. Patrones clínicos</button>
+  <button class="tab-btn" data-tab="clasificador">5. 🔎 Clasificador</button>
+  <button class="tab-btn" data-tab="tono">6. Tono · Ashworth</button>
+  <button class="tab-btn" data-tab="reflejos">7. Reflejos y sensibilidad</button>
+  <button class="tab-btn" data-tab="marcha">8. Marcha</button>
+  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Qué evalúa este capítulo dentro de la CIF</h2>
+  <p>La Clasificación Internacional del Funcionamiento (CIF) ordena los hallazgos del paciente en tres componentes: <strong>funciones y estructuras corporales</strong>, <strong>actividades</strong> y <strong>participación</strong>. Este capítulo desarrolla el primero: cómo el médico general explora las <em>funciones</em> (fuerza, tono, control selectivo, reflejos, sensibilidad) y las <em>estructuras</em> (trofismo, alineación, integridad articular) que sostienen el movimiento. Las <em>deficiencias</em> en este componente (paresia, espasticidad, hiporreflexia, hipoestesia) son los hallazgos del examen físico clásico, traducidos al lenguaje funcional de la CIF.</p>
+
+  <div class="card azul">
+    <h4>De dónde viene y a dónde va</h4>
+    <p style="margin-bottom: 0">El cap. 1 le dio el sustrato anatómico (qué músculo, qué raíz, qué nervio). Este capítulo le da el método para <strong>cuantificar</strong> qué tan comprometidas están esas estructuras en un paciente concreto. La evaluación de actividades y participación —cómo esa deficiencia se traduce en limitación funcional cotidiana— se desarrolla en el cap. 3.</p>
+  </div>
+
+  <h3>Estructura del examen físico</h3>
+  <p>El examen musculoesquelético y neurológico se ejecuta siempre en el mismo orden, independientemente de la región afectada. Haga clic en cada paso para desplegar el detalle.</p>
+
+  <details class="patron" open>
+    <summary>1. Inspección</summary>
+    <div class="patron-body">
+      <p>Simetría, alineación, atrofias, edema, deformidad, signos inflamatorios, estado de la piel y los anexos. La columna cervical y la cintura escapular se exploran siempre porque el miembro superior se conecta al tronco a través de ellas; la columna lumbar y la pelvis, en todo dolor del miembro inferior.</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>2. Palpación</summary>
+    <div class="patron-body">
+      <p>Relieves óseos, articulaciones, masas musculares e inserciones tendinosas. Se buscan puntos dolorosos reproducibles.</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>3. Arcos de movimiento</summary>
+    <div class="patron-body">
+      <p>Activos primero, pasivos después; se compara con el lado contralateral como referente de normalidad.</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>4. Fuerza muscular</summary>
+    <div class="patron-body">
+      <p>Con la escala MRC 0–5 (pestaña 2). En presencia de dolor la fuerza puede estar limitada por inhibición, no por debilidad real, lo cual debe explicitarse en la nota.</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>5. Examen neurológico segmentario</summary>
+    <div class="patron-body">
+      <p>Reflejos, trofismo, sensibilidad por dermatomas y por territorios de nervios periféricos.</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>6. Tono muscular</summary>
+    <div class="patron-body">
+      <p>Resistencia al estiramiento pasivo; permite distinguir lesiones de motoneurona superior (espasticidad) de motoneurona inferior (flacidez).</p>
+    </div>
+  </details>
+  <details class="patron">
+    <summary>7. Pruebas especiales</summary>
+    <div class="patron-body">
+      <p>Se eligen las que más aportan al diagnóstico diferencial planteado. Ninguna prueba es diagnóstica por sí sola; cada una tiene una sensibilidad y especificidad específicas y deben interpretarse en conjunto. Las maniobras provocativas (Phalen, Tinel, Hawkins, Neer, Jobe, Finkelstein, Mill, FABER, Lasègue, Lachman, McMurray) se desarrollan en el cap. 5.</p>
+    </div>
+  </details>
+
+  <div class="card amarilla">
+    <h4>Cómo navegar esta guía</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Pestañas 2, 6, 7:</strong> escalas interactivas (MRC, Ashworth, reflejos). Haga clic en cada grado para ver su definición y ejemplo clínico.</li>
+      <li><strong>Pestaña 3:</strong> tabla comparativa primera vs segunda neurona motora.</li>
+      <li><strong>Pestaña 4:</strong> los 8 patrones clínicos sindrómicos como tarjetas desplegables.</li>
+      <li><strong>Pestaña 5:</strong> 🔎 <strong>Clasificador de patrón motor</strong>. Marque hallazgos del examen y la guía sugiere a cuál síndrome corresponden.</li>
+      <li><strong>Pestaña 8:</strong> los 9 patrones patológicos de la marcha como catálogo visual.</li>
+      <li><strong>Pestañas 9–10:</strong> casos clínicos progresivos y autoevaluación.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: FUERZA · MRC ==================== -->
+<section class="tab-content" id="fuerza">
+  <h2>Fuerza muscular</h2>
+  <p>La debilidad es uno de los signos cardinales del paciente que llega a rehabilitación. Aparece en las dos grandes vertientes de la rotación: en el hospital, como secuela de ataque cerebrovascular, trauma craneoencefálico o lesión medular; y en consulta externa, como expresión de neuropatías por atrapamiento, miopatías, sarcopenia o enfermedades neurodegenerativas raras.</p>
+
+  <h3>Tres preguntas previas a graduar la fuerza</h3>
+  <div class="card azul">
+    <h4>1. ¿Es debilidad verdadera?</h4>
+    <p style="margin-bottom: 0">Hay que diferenciarla de fatiga subjetiva (cansancio sin pérdida de fuerza objetiva), inhibición motora por dolor, y limitación por disfunción articular o tendinosa. La maniobra concreta es pedir movimientos contra resistencia y observar si la fuerza realmente cede.</p>
+  </div>
+  <div class="card azul">
+    <h4>2. ¿Cuál es el patrón?</h4>
+    <p style="margin-bottom: 0">Simétrico vs. asimétrico, proximal vs. distal, agudo vs. subagudo vs. crónico, con o sin síntomas sensitivos, con o sin síntomas bulbares.</p>
+  </div>
+  <div class="card azul">
+    <h4>3. ¿Hay signos asociados sistémicos o cutáneos?</h4>
+    <p style="margin-bottom: 0">Los hallazgos extramusculares (rash heliotropo o signo del chal en dermatomiositis, tendinopatías por quinolonas, estrías violáceas en Cushing, piel bronceada en Addison) cambian el diagnóstico diferencial.</p>
+  </div>
+
+  <h3>Escala MRC interactiva</h3>
+  <p>La graduación de la fuerza se hace con la escala del <em>Medical Research Council</em>. Es la única escala universalmente aceptada para documentar fuerza muscular en una nota clínica. Debe escribirse indicando el grupo muscular y el lado: «flexión de cadera derecha 3/5»; nunca «debilidad leve». <strong>Haga clic en cada grado</strong> para ver definición y ejemplo.</p>
+
+  <div class="escala">
+    <div class="escala-grados" id="mrc-grados">
+      <button class="grado-btn" data-mrc="0">0</button>
+      <button class="grado-btn" data-mrc="1">1</button>
+      <button class="grado-btn" data-mrc="2">2</button>
+      <button class="grado-btn" data-mrc="3">3</button>
+      <button class="grado-btn" data-mrc="4">4</button>
+      <button class="grado-btn" data-mrc="5">5</button>
+    </div>
+    <div class="grado-detalle" id="mrc-detalle"></div>
+  </div>
+
+  <div class="card roja">
+    <h4>Por qué importa el grado 4</h4>
+    <p style="margin-bottom: 0">El grado 4 es heterogéneo: cubre desde apenas se vence resistencia mínima hasta resistencia casi normal. Por eso muchos servicios usan los modificadores <strong>4−</strong>, <strong>4</strong> y <strong>4+</strong>. Especifíquelos en su nota. La verdadera dificultad clínica no está en distinguir 0 de 1, sino en diferenciar el 5 del 4 sutil.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Brazo de palanca: ventaja vs desventaja</h4>
+    <p style="margin-bottom: 0">Para detectar debilidades sutiles que pasarían inadvertidas, cada grupo muscular se explora en posiciones de <em>ventaja</em> y de <em>desventaja</em> del brazo de palanca. El detalle por grupo muscular —posición del paciente y del examinador, mano estabilizadora, mano de resistencia, dirección de la fuerza y sustituciones que vigilar— se desarrolla en el <strong>Anexo C: Atlas de fuerza muscular</strong> (próximamente). Allí se reúnen 15 grupos musculares seleccionados por su rendimiento clínico en pregrado.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: NMS vs NMI ==================== -->
+<section class="tab-content" id="nms-nmi">
+  <h2>Primera neurona vs. segunda neurona motora</h2>
+  <p>La distinción anatomofuncional más útil para el médico general es si el daño está en la <strong>primera neurona motora</strong> (motoneurona superior, NMS — vías corticoespinal y corticobulbar) o en la <strong>segunda neurona motora</strong> (motoneurona inferior, NMI — asta anterior, raíz, plexo o nervio periférico). El patrón de hallazgos es opuesto y orienta el diagnóstico antes de cualquier imagen.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead>
+        <tr>
+          <th>Hallazgo</th>
+          <th>Primera neurona (NMS)</th>
+          <th>Segunda neurona (NMI)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Tono</strong></td><td>Aumentado (espasticidad)</td><td>Disminuido (flacidez)</td></tr>
+        <tr><td><strong>Trofismo</strong></td><td>Conservado (atrofia tardía por desuso)</td><td>Atrofia precoz</td></tr>
+        <tr><td><strong>Reflejos OT</strong></td><td>Hiperreflexia</td><td>Hiporreflexia o arreflexia</td></tr>
+        <tr><td><strong>Babinski</strong></td><td>Presente</td><td>Ausente</td></tr>
+        <tr><td><strong>Clonus</strong></td><td>Puede haber</td><td>Ausente</td></tr>
+        <tr><td><strong>Fasciculaciones</strong></td><td>Ausentes</td><td>Presentes</td></tr>
+        <tr><td><strong>Patrón motor</strong></td><td>Hemi-, para-, tetraparesia con distribución piramidal</td><td>Distribución por raíz, plexo o nervio periférico</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>La excepción que confirma la regla: ELA</h4>
+    <p style="margin-bottom: 0">La <strong>esclerosis lateral amiotrófica</strong> es el ejemplo clásico de afectación simultánea de ambas neuronas motoras, con coexistencia de signos de primera neurona (espasticidad, hiperreflexia, Babinski) y de segunda neurona (atrofia, fasciculaciones, debilidad) en el mismo paciente. Cuando vea esta combinación —hiperreflexia y fasciculaciones juntas— pensar en ELA y remitir a neurología.</p>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Distribución piramidal en hemiparesia</h4>
+    <p style="margin-bottom: 0">En lesiones de NMS hemisférica (tipo ataque cerebrovascular en territorio carotídeo), la debilidad predomina en <strong>extensores del miembro superior</strong> (<em>triceps brachii</em>, extensores de muñeca y dedos) y en <strong>flexores del miembro inferior</strong> (flexores de cadera y dorsiflexores de tobillo). Esto produce la postura típica de Wernicke-Mann: brazo en flexión, pierna en extensión y equino.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: PATRONES CLÍNICOS ==================== -->
+<section class="tab-content" id="patrones">
+  <h2>Ocho patrones clínicos como tarjetas de identidad</h2>
+  <p>El estudiante no necesita memorizar el manejo de cada enfermedad neurológica o muscular. Sí necesita reconocer el patrón al examen físico y saber <em>cuándo sospechar</em> cada categoría diagnóstica. Cada tarjeta resume distribución, hallazgos cardinales y enfermedad prototipo.</p>
+
+  <details class="patron" open>
+    <summary>Hemiparesia faciobraquiocrural <span class="etiqueta">NMS · ECV</span></summary>
+    <div class="patron-body">
+      <p>Debilidad unilateral de hemicara, miembro superior y miembro inferior, con hiperreflexia, espasticidad (que aparece en días o semanas) y Babinski.</p>
+      <div class="row-key"><div class="k">Distribución</div><div>Piramidal: extensores del MS y flexores del MI predominan.</div></div>
+      <div class="row-key"><div class="k">Postura típica</div><div>Wernicke-Mann (brazo en flexión, pierna en extensión, equino).</div></div>
+      <div class="row-key"><div class="k">Enfermedad</div><div>Ataque cerebrovascular en territorio carotídeo.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Paraparesia con nivel sensitivo <span class="etiqueta">Médula</span></summary>
+    <div class="patron-body">
+      <p>Debilidad simétrica de miembros inferiores con un nivel sensitivo en tronco. Patrón típico de lesión medular.</p>
+      <div class="row-key"><div class="k">Causas</div><div>Trauma raquimedular, mielitis transversa, compresión medular tumoral o inflamatoria.</div></div>
+      <div class="row-key"><div class="k">Bandera roja</div><div>Retención urinaria o incontinencia con anestesia en silla de montar = <strong>síndrome de cauda equina</strong>, urgencia.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Debilidad proximal simétrica <span class="etiqueta">Miopatía</span></summary>
+    <div class="patron-body">
+      <p>Compromete cinturas escapular y pélvica, sin déficit sensitivo, con reflejos normales o disminuidos.</p>
+      <div class="row-key"><div class="k">Síntomas</div><div>Dificultad para peinarse, levantar los brazos, levantarse de una silla baja o subir escaleras (signo de Gowers en niños y adultos jóvenes con distrofia).</div></div>
+      <div class="row-key"><div class="k">Causas</div><div>Distrofias musculares, polimiositis, dermatomiositis, miopatía por estatinas, miopatía por glucocorticoides, miopatía tirotóxica, miopatía por hipotiroidismo.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Debilidad distal asimétrica con fasciculaciones <span class="etiqueta">ELA</span></summary>
+    <div class="patron-body">
+      <p>Atrofia de músculos intrínsecos de la mano o del pie, con fasciculaciones, evolución gradual y eventual extensión a otros segmentos.</p>
+      <div class="row-key"><div class="k">Pista clave</div><div>Cuando coexisten signos de primera neurona en el mismo paciente, el diagnóstico de sospecha es ELA.</div></div>
+      <div class="row-key"><div class="k">Reconocer para</div><div>Remitir oportunamente a neurología, no para tratarla.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Debilidad fluctuante con fatigabilidad <span class="etiqueta">Miastenia</span></summary>
+    <div class="patron-body">
+      <p>Debilidad que empeora con la repetición y mejora con el reposo, predominantemente proximal y craneal.</p>
+      <div class="row-key"><div class="k">Hallazgos</div><div>Ptosis palpebral, diplopía, disartria. La debilidad puede empeorar a lo largo del día.</div></div>
+      <div class="row-key"><div class="k">Enfermedad</div><div>Miastenia gravis.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Debilidad ascendente aguda con arreflexia <span class="etiqueta">Guillain-Barré</span></summary>
+    <div class="patron-body">
+      <p>Debilidad simétrica de miembros inferiores que progresa hacia arriba, con arreflexia y posible compromiso respiratorio o bulbar.</p>
+      <div class="row-key"><div class="k">Antecedente</div><div>Con frecuencia precedido de infección respiratoria o gastrointestinal (<em>Campylobacter jejuni</em>).</div></div>
+      <div class="row-key"><div class="k">Bandera roja</div><div>Compromiso respiratorio = vigilancia en UCI.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Debilidad por neuropatía por atrapamiento <span class="etiqueta">Periférico</span></summary>
+    <div class="patron-body">
+      <p>Debilidad y atrofia limitadas a la distribución de un nervio periférico, asociadas a parestesias en su territorio.</p>
+      <div class="row-key"><div class="k">Ejemplos</div><div>Síndrome del túnel del carpo (mediano), atrapamiento del cubital en el codo, parálisis del peroneo común a la altura de la cabeza del peroné.</div></div>
+      <div class="row-key"><div class="k">Población</div><div>Frecuentes en pacientes desacondicionados con inmovilización prolongada. Semiología detallada en cap. 5.</div></div>
+    </div>
+  </details>
+
+  <details class="patron">
+    <summary>Sarcopenia y fragilidad <span class="etiqueta">Adulto mayor</span></summary>
+    <div class="patron-body">
+      <p>Debilidad simétrica de aparición gradual en el adulto mayor, acompañada de pérdida de masa muscular, lentitud de la marcha y disminución de la fuerza de prensión.</p>
+      <div class="row-key"><div class="k">Naturaleza</div><div>Diagnóstico <em>positivo</em> (no de exclusión). Se discute en cap. 9.</div></div>
+    </div>
+  </details>
+
+  <h3>Control selectivo en lesiones encefálicas</h3>
+  <p>En pacientes con ataque cerebrovascular o trauma craneoencefálico, la valoración tradicional grupo a grupo (5/5 vs 3/5) es poco útil: el paciente no es débil en sentido NMI sino que ha perdido <strong>control selectivo</strong>. En su reemplazo se valoran patrones motores funcionales:</p>
+
+  <div class="card azul">
+    <h4>Pruebas funcionales del control motor</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Levantarse de una silla:</strong> evalúa extensores de cadera y de columna.</li>
+      <li><strong>Caminar en talones:</strong> evalúa dorsiflexores del tobillo (L4–L5).</li>
+      <li><strong>Tocarse la cabeza con la palma:</strong> evalúa abductores del hombro y rotadores externos.</li>
+      <li><strong>Resistencia de los flexores de cuello:</strong> tiempo durante el cual el paciente mantiene el cuello flexionado contra gravedad. Útil en dolor cervical y seguimiento de enfermedades neuromusculares.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Tamizaje rápido de lesión central</h4>
+    <p style="margin-bottom: 0">Sentado, pedir al paciente que <strong>mueva el tobillo lo más rápido posible golpeando el piso durante 10 segundos</strong>. Esta prueba es tan sensible —o más— que el signo de Babinski para detectar lesión central.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: CLASIFICADOR ==================== -->
+<section class="tab-content" id="clasificador">
+  <h2>🔎 Clasificador de patrón motor</h2>
+  <p>Una herramienta de razonamiento clínico. Marque los hallazgos que reconoce en su paciente y la guía estima cuál de los 8 patrones sindrómicos del cap. 2 explica mejor el cuadro. Es heurístico, no sustituye el juicio clínico ni la evaluación neurológica completa.</p>
+
+  <div class="clas-steps">
+    <div class="clas-step"><div class="num">1</div><div class="txt"><strong>Marque hallazgos</strong> en cada eje (distribución, neurona, sensibilidad, evolución, signos asociados).</div></div>
+    <div class="clas-step"><div class="num">2</div><div class="txt"><strong>Lea el patrón sugerido</strong> abajo: la guía rankea los 8 patrones según concordancia con sus hallazgos.</div></div>
+    <div class="clas-step"><div class="num">3</div><div class="txt"><strong>Confirme clínicamente</strong>: el clasificador es heurístico. Use el resultado como hipótesis a contrastar.</div></div>
+  </div>
+
+  <div class="clas-grid">
+    <div class="clas-block">
+      <h4>Distribución</h4>
+      <div class="clas-opciones" data-eje="distribucion">
+        <button class="clas-op" data-val="hemi">Hemiparesia</button>
+        <button class="clas-op" data-val="para">Paraparesia</button>
+        <button class="clas-op" data-val="proximal">Proximal simétrica</button>
+        <button class="clas-op" data-val="distal-asim">Distal asimétrica</button>
+        <button class="clas-op" data-val="distal-sim">Distal simétrica (en bota/guante)</button>
+        <button class="clas-op" data-val="craneal">Craneal/bulbar</button>
+        <button class="clas-op" data-val="nervio">Territorio de un nervio</button>
+      </div>
+    </div>
+
+    <div class="clas-block">
+      <h4>Neurona motora</h4>
+      <div class="clas-opciones" data-eje="neurona">
+        <button class="clas-op" data-val="nms">NMS (espasticidad, hiperreflexia, Babinski)</button>
+        <button class="clas-op" data-val="nmi">NMI (flacidez, hiporreflexia, atrofia)</button>
+        <button class="clas-op" data-val="ambas">Mixto (signos de NMS + NMI)</button>
+        <button class="clas-op" data-val="fascic">Fasciculaciones</button>
+      </div>
+    </div>
+
+    <div class="clas-block">
+      <h4>Sensibilidad</h4>
+      <div class="clas-opciones" data-eje="sensibilidad">
+        <button class="clas-op" data-val="conservada">Conservada</button>
+        <button class="clas-op" data-val="nivel">Nivel sensitivo en tronco</button>
+        <button class="clas-op" data-val="parestesias">Parestesias en territorio de nervio</button>
+        <button class="clas-op" data-val="hipoestesia-distal">Hipoestesia distal en bota/guante</button>
+      </div>
+    </div>
+
+    <div class="clas-block">
+      <h4>Evolución</h4>
+      <div class="clas-opciones" data-eje="evolucion">
+        <button class="clas-op" data-val="aguda">Aguda (horas–días)</button>
+        <button class="clas-op" data-val="subaguda">Subaguda (semanas)</button>
+        <button class="clas-op" data-val="cronica">Crónica (meses–años)</button>
+        <button class="clas-op" data-val="fluctuante">Fluctuante con fatigabilidad</button>
+        <button class="clas-op" data-val="ascendente">Ascendente</button>
+      </div>
+    </div>
+
+    <div class="clas-block">
+      <h4>Signos asociados</h4>
+      <div class="clas-opciones" data-eje="asociados">
+        <button class="clas-op" data-val="bulbar">Síntomas bulbares (disartria, disfagia)</button>
+        <button class="clas-op" data-val="respiratorio">Compromiso respiratorio</button>
+        <button class="clas-op" data-val="esfinter">Disfunción de esfínteres</button>
+        <button class="clas-op" data-val="caidas">Caídas, lentitud de marcha (adulto mayor)</button>
+        <button class="clas-op" data-val="ptosis">Ptosis o diplopía</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="clas-acciones">
+    <button class="reset" onclick="resetClas()">Reiniciar selección</button>
+    <span class="clas-counter"><strong id="clas-num">0</strong> hallazgos seleccionados</span>
+  </div>
+
+  <div class="clas-result" id="clas-result">
+    <h4>Patrones que mejor encajan</h4>
+    <div id="clas-detalle"></div>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: TONO · ASHWORTH ==================== -->
+<section class="tab-content" id="tono">
+  <h2>Tono muscular y espasticidad</h2>
+  <p>La <strong>espasticidad</strong> es una alteración sensitivo-motora por lesión de motoneurona superior, que se manifiesta como activación muscular involuntaria sostenida o intermitente. Es de las complicaciones más frecuentes en lesiones del SNC y deteriora la higiene, los traslados, el posicionamiento sedente y genera deformidades a largo plazo (la más común: equino del tobillo).</p>
+
+  <h3>Escala de Ashworth modificada</h3>
+  <p>La cuantificación estándar. <strong>Haga clic en cada grado</strong> para ver definición y matiz clínico.</p>
+
+  <div class="escala">
+    <div class="escala-grados" id="ashworth-grados">
+      <button class="grado-btn" data-ash="0">0</button>
+      <button class="grado-btn" data-ash="1">1</button>
+      <button class="grado-btn" data-ash="1+">1+</button>
+      <button class="grado-btn" data-ash="2">2</button>
+      <button class="grado-btn" data-ash="3">3</button>
+      <button class="grado-btn" data-ash="4">4</button>
+    </div>
+    <div class="grado-detalle" id="ashworth-detalle"></div>
+  </div>
+
+  <div class="card azul">
+    <h4>Otras escalas de tono y espasmos</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Escala de Tardieu:</strong> distingue resistencia a movimiento pasivo lento (retracción) de resistencia a movimiento pasivo rápido (espasticidad). Más exacta que Ashworth pero menos difundida.</li>
+      <li><strong>Escala de Penn:</strong> cuantifica frecuencia y severidad de los espasmos. Especialmente útil en lesión medular.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Trofismo: la inspección que no se omite</h4>
+    <p>La atrofia sugiere lesión de NMI (denervación), pero también ocurre por desuso en enfermedades articulares dolorosas, inmovilización prolongada y sarcopenia. La <em>distribución</em> orienta el diagnóstico:</p>
+    <ul style="margin-bottom: 0">
+      <li>Atrofia simétrica proximal → miopatía.</li>
+      <li>Atrofia asimétrica distal con fasciculaciones → enfermedad de motoneurona.</li>
+      <li>Atrofia limitada al territorio de un nervio → neuropatía por atrapamiento.</li>
+    </ul>
+    <p style="margin-top: 8px; margin-bottom: 0">Confirme la impresión visual con cinta métrica a la misma altura referencial. Una diferencia <strong>≥ 1 cm</strong> en muslo o pantorrilla se considera significativa.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: REFLEJOS Y SENSIBILIDAD ==================== -->
+<section class="tab-content" id="reflejos">
+  <h2>Reflejos osteotendinosos, patológicos y sensibilidad</h2>
+
+  <h3>Cinco reflejos imprescindibles</h3>
+  <p>Hay que examinarlos en todo paciente con discapacidad neurológica. Pequeños hallazgos cambian diagnósticos: hiperreflexia rotuliana en un paciente añoso con dolor de rodillas amplía el diferencial hacia mielopatía cervical o ELA; la arreflexia aquílea es signo precoz de neuropatía diabética; la arreflexia generalizada en debilidad aguda sugiere Guillain-Barré.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Reflejo</th><th>Raíz</th><th>Observación</th></tr></thead>
+      <tbody>
+        <tr><td>Bicipital</td><td class="root">C5–C6</td><td>Golpe sobre el tendón del <em>biceps brachii</em> en el pliegue del codo.</td></tr>
+        <tr><td>Tricipital</td><td class="root">C7</td><td>Golpe en el tendón del <em>triceps brachii</em> con el codo en semiflexión.</td></tr>
+        <tr><td>Estilorradial</td><td class="root">C5–C6</td><td>Golpe en la apófisis estiloides del radio.</td></tr>
+        <tr><td>Rotuliano</td><td class="root">L2–L4</td><td>Golpe en el tendón rotuliano con la rodilla en semiflexión.</td></tr>
+        <tr><td>Aquíleo</td><td class="root">S1</td><td>Golpe en el tendón de Aquiles con leve dorsiflexión pasiva.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Graduación 0–4 interactiva</h3>
+  <p><strong>Haga clic en cada grado</strong> para ver definición y significado clínico.</p>
+
+  <div class="escala">
+    <div class="escala-grados" id="reflejo-grados">
+      <button class="grado-btn" data-ref="0">0</button>
+      <button class="grado-btn" data-ref="1">1</button>
+      <button class="grado-btn" data-ref="2">2</button>
+      <button class="grado-btn" data-ref="3">3</button>
+      <button class="grado-btn" data-ref="4">4</button>
+    </div>
+    <div class="grado-detalle" id="reflejo-detalle"></div>
+  </div>
+
+  <h3>Reflejos patológicos</h3>
+  <div class="card roja">
+    <h4>Babinski</h4>
+    <p style="margin-bottom: 0">Estímulo con punta roma del borde lateral de la planta hasta antepié. Positivo si extiende el primer dedo y abre los demás. <strong>Indica lesión piramidal.</strong></p>
+  </div>
+  <div class="card roja">
+    <h4>Hoffmann</h4>
+    <p style="margin-bottom: 0">Pellizcar la falange distal del 3.<sup>er</sup> dedo y soltar. Positivo si flexiona pulgar e índice. <strong>Equivalente al Babinski en miembro superior.</strong></p>
+  </div>
+  <div class="card roja">
+    <h4>Clonus</h4>
+    <p style="margin-bottom: 0">Oscilaciones rítmicas al estirar bruscamente los gastrocnemios (dorsiflexión rápida del tobillo). <strong>Indica lesión piramidal.</strong></p>
+  </div>
+
+  <h3>Examen sensitivo</h3>
+  <p>Ante parestesias, lo primero es definir si el origen es <strong>central</strong> (no respeta territorio de raíz o nervio, no sigue gradiente distal-proximal) o <strong>periférico</strong> (respeta territorio anatómico). En el periférico se diferencia focal (síndrome de túnel del carpo, cubital en codo) de generalizado (polineuropatía con distribución en bota o guante).</p>
+
+  <div class="card azul">
+    <h4>Sensibilidad superficial: territorios clave</h4>
+    <p>Tacto y pinchazo en dermatomas estratégicos: <strong>cara V2/V3</strong> (maxilar y mandibular), <strong>hombro</strong> (C5), <strong>pulgar</strong> (C6), <strong>dedo medio</strong> (C7), <strong>meñique</strong> (C8), <strong>pezón</strong> (T4), <strong>ombligo</strong> (T10), <strong>cara medial del muslo</strong> (L2), <strong>rodilla anterior</strong> (L3), <strong>maléolo medial</strong> (L4), <strong>dorso del primer dedo del pie</strong> (L5), <strong>borde lateral del pie</strong> (S1), <strong>periné</strong> (S4–S5).</p>
+    <p style="margin-bottom: 0;"><a href="../01-anatomia/" style="color: var(--azulacad);">→ Mapa interactivo completo de dermatomas en el cap. 1</a></p>
+  </div>
+
+  <div class="card azul">
+    <h4>Sensibilidad profunda</h4>
+    <p style="margin-bottom: 0"><strong>Vibración</strong> con diapasón de 128 Hz aplicado al primer dedo del pie y al maléolo medial. <strong>Propiocepción</strong> mediante movimiento pasivo del primer dedo del pie con los ojos cerrados, pidiendo al paciente identificar la dirección. Se altera precozmente en mielopatía dorsal, polineuropatía sensitiva y déficit de vitamina B12.</p>
+  </div>
+
+  <h3>Coordinación, equilibrio y pares craneales</h3>
+  <div class="card amarilla">
+    <h4>Coordinación</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Dedo-nariz</strong> y <strong>talón-rodilla:</strong> dismetría sugiere lesión cerebelosa.</li>
+      <li><strong>Diadococinesia:</strong> pronación-supinación rápida del antebrazo.</li>
+      <li><strong>Romberg:</strong> pies juntos, ojos abiertos y luego cerrados. Caída con ojos cerrados (Romberg positivo) sugiere lesión sensitiva (cordones posteriores, polineuropatía); caída con ojos abiertos sugiere afectación cerebelosa o vestibular.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Pares craneales orientados a función</h4>
+    <p>El examen completo de los doce pares es del resorte del neurólogo. Para el médico general en rehabilitación basta una exploración orientada:</p>
+    <ul style="margin-bottom: 0">
+      <li><strong>II:</strong> agudeza visual gruesa, campos por confrontación (buscar hemianopsia y heminegligencia).</li>
+      <li><strong>III, IV, VI:</strong> movimientos oculares en seis posiciones; diplopía, ptosis (sospecha de miastenia).</li>
+      <li><strong>V:</strong> sensibilidad facial, fuerza de los maseteros.</li>
+      <li><strong>VII:</strong> simetría facial al sonreír, fruncir y cerrar los ojos. <strong>Diferenciar parálisis central</strong> (respeta frente) <strong>de periférica.</strong></li>
+      <li><strong>IX, X:</strong> elevación del paladar; reflejo nauseoso solo si hay sospecha de disfagia.</li>
+      <li><strong>XII:</strong> protrusión de la lengua, movimientos laterales, fasciculaciones.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 8: MARCHA ==================== -->
+<section class="tab-content" id="marcha">
+  <h2>Marcha como función corporal</h2>
+  <p>La marcha se evalúa desde tres ángulos distintos. Este capítulo cubre el primero: la marcha como <strong>función corporal</strong> (cinemática y cinética del movimiento). La marcha como <em>actividad-desempeño</em> (cuestionarios) y como <em>actividad-capacidad</em> (TUG, 6MWT, velocidad de marcha) se desarrolla en el cap. 3.</p>
+
+  <div class="card azul">
+    <h4>Cómo observar la marcha en consulta</h4>
+    <p>Pedir al paciente que camine al menos 10 metros a paso habitual y observar:</p>
+    <ul>
+      <li>Fases de apoyo (60% del ciclo) y de balanceo (40%).</li>
+      <li>Cadencia, longitud del paso, simetría, base de apoyo.</li>
+      <li>Balanceo de los miembros superiores y postura del tronco.</li>
+      <li>Habilidad para girar.</li>
+    </ul>
+    <p style="margin-bottom: 0"><strong>Tres maniobras adicionales</strong>: caminar en talones (dorsiflexores L4–L5), caminar en puntillas (plantiflexores S1) y marcha en tándem (sensible para alteración cerebelosa, vestibular o mielopatía cervical).</p>
+  </div>
+
+  <h3>Patrones patológicos de la marcha</h3>
+  <p>Para el médico general la observación cualitativa al pie de la cama es suficiente para detectar los patrones que orientan al diagnóstico topográfico; el análisis instrumentado tridimensional con captura de movimiento queda reservado al laboratorio de marcha.</p>
+
+  <div class="marcha-grid">
+    <div class="marcha-card">
+      <h4>Hemiparética</h4>
+      <div class="descripcion">Circunducción del miembro afectado, equino, brazo en flexión, tronco inclinado al lado sano.</div>
+      <div class="enfermedad">Ataque cerebrovascular</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Espástica en tijera</h4>
+      <div class="descripcion">Aducción excesiva de muslos, base estrecha.</div>
+      <div class="enfermedad">Parálisis cerebral, mielopatía</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Parkinsoniana</h4>
+      <div class="descripcion">Pasos cortos, postura en flexión, festinación, dificultad para iniciar.</div>
+      <div class="enfermedad">Enfermedad de Parkinson</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Atáxica cerebelosa</h4>
+      <div class="descripcion">Base ancha, inestabilidad lateral.</div>
+      <div class="enfermedad">Esclerosis múltiple, ictus cerebeloso</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Atáxica sensitiva</h4>
+      <div class="descripcion">Mira los pies para caminar, signo de Romberg positivo.</div>
+      <div class="enfermedad">Neuropatía sensitiva, mielopatía dorsal</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Estepaje</h4>
+      <div class="descripcion">Elevación exagerada de cadera y rodilla por pie caído.</div>
+      <div class="enfermedad">Lesión del peroneo común, polineuropatía</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Trendelenburg</h4>
+      <div class="descripcion">Caída de la cadera contralateral en el apoyo.</div>
+      <div class="enfermedad">Debilidad del <em>gluteus medius</em></div>
+    </div>
+    <div class="marcha-card">
+      <h4>Antiálgica</h4>
+      <div class="descripcion">Fase de apoyo acortada en el lado doloroso.</div>
+      <div class="enfermedad">Coxartrosis, gonartrosis</div>
+    </div>
+    <div class="marcha-card">
+      <h4>Miopática (de pato)</h4>
+      <div class="descripcion">Bamboleo lateral por debilidad del cinturón pélvico.</div>
+      <div class="enfermedad">Distrofias musculares</div>
+    </div>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Equino del tobillo</h4>
+    <p style="margin-bottom: 0">En lesiones del SNC, las anormalidades más frecuentes están en la movilidad del tobillo durante apoyo y balanceo y en la movilidad de la rodilla. La disminución anormal de la dorsiflexión durante el apoyo configura el <strong>equino del tobillo</strong>; el paciente compensa con circunducción, marcha en estepaje o <em>vaulting</em>.</p>
+  </div>
+
+  <h3>Ejemplo de nota clínica funcional</h3>
+  <p>Una buena nota neurológica funcional describe en una línea cada dominio. Más útil que un párrafo genérico de «hemiplejía derecha»; permite seguimiento longitudinal cuantificable.</p>
+
+  <div class="nota-clinica">
+    Paciente alerta, orientado, sin alteraciones de pares craneales. Tono normal en miembro superior derecho, espasticidad Ashworth 1+ en miembro inferior derecho. Fuerza 5/5 en hemicuerpo izquierdo, 3/5 en deltoides derecho, 2/5 en extensores de muñeca, 4/5 en flexores de cadera, 3/5 en dorsiflexores. Reflejos vivos 3+ en hemicuerpo derecho con clonus aquíleo, normales 2+ en izquierdo. Babinski derecho positivo. Sensibilidad superficial y profunda conservadas. Marcha hemiparética con equino dinámico, TUG 22 segundos. Velocidad de marcha 0,6 m/s. Barthel 65/100. mRS 3.
+  </div>
+</section>
+
+<!-- ==================== TAB 9: CASOS CLÍNICOS ==================== -->
+<section class="tab-content" id="casos">
+  <h2>Casos clínicos progresivos</h2>
+  <p>Diez pacientes. Aplique escala MRC, Ashworth, distinción NMS/NMI, patrón sindrómico y patrón de marcha. Haga clic en la opción que considere correcta; la guía da retroalimentación.</p>
+  <div id="casos-cont"></div>
+</section>
+
+<!-- ==================== TAB 10: AUTOEVALUACIÓN ==================== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 10 preguntas</h2>
+  <p>Mezcla de escalas, neurona motora, patrones clínicos, reflejos y marcha.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 10</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Escala MRC interactiva
+// =========================================================
+const mrcData = {
+  '0': { titulo: 'Grado 0 · Sin contracción', def: 'No hay contracción visible ni palpable.', ejemplo: 'Plejía completa. Tras una sección medular alta o un ataque cerebrovascular extenso, no hay siquiera contracción palpable al solicitar el movimiento.' },
+  '1': { titulo: 'Grado 1 · Esbozo', def: 'Contracción visible o palpable sin movimiento articular.', ejemplo: 'En un paciente con hemiparesia profunda se palpa la contracción del biceps brachii al pedir flexión del codo, pero el antebrazo no se desplaza.' },
+  '2': { titulo: 'Grado 2 · Movimiento sin gravedad', def: 'Movimiento articular completo eliminando la gravedad.', ejemplo: 'En decúbito lateral el paciente flexiona la cadera (movimiento horizontal) pero en supino no logra levantar el muslo del plano de la cama.' },
+  '3': { titulo: 'Grado 3 · Contra gravedad', def: 'Movimiento contra gravedad pero no contra resistencia adicional.', ejemplo: 'Sentado, el paciente extiende la rodilla completamente (vence el peso de la pierna), pero cede inmediatamente cuando el examinador empuja desde el tobillo.' },
+  '4': { titulo: 'Grado 4 · Contra resistencia parcial', def: 'Movimiento contra gravedad y contra resistencia, pero menor que el lado contralateral o que lo esperado para la edad/sexo.', ejemplo: 'Es el grado más heterogéneo y el más difícil de graduar. Se subdivide en 4−, 4 y 4+ según cuánta resistencia vence. Una asimetría leve respecto al lado sano ya califica.' },
+  '5': { titulo: 'Grado 5 · Fuerza normal', def: 'Vence la resistencia máxima esperada para el segmento, edad y sexo del paciente.', ejemplo: 'La dificultad clínica está en distinguir un 5 verdadero de un 4+ sutil. La exploración en posiciones de desventaja del brazo de palanca ayuda a detectar debilidades pequeñas.' }
+};
+
+document.querySelectorAll('#mrc-grados .grado-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#mrc-grados .grado-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const d = mrcData[btn.dataset.mrc];
+    const det = document.getElementById('mrc-detalle');
+    det.innerHTML = `<h4>${d.titulo}</h4><p>${d.def}</p><div class="ejemplo"><strong>Ejemplo clínico</strong>${d.ejemplo}</div>`;
+    det.classList.add('show');
+  });
+});
+
+// =========================================================
+// Escala Ashworth interactiva
+// =========================================================
+const ashData = {
+  '0':  { titulo: 'Grado 0 · Tono normal', def: 'Sin aumento del tono al estiramiento pasivo.', ejemplo: 'El segmento se moviliza libremente en todo su rango sin resistencia detectable.' },
+  '1':  { titulo: 'Grado 1 · Aumento ligero con enganche al final', def: 'Aumento ligero del tono al mover el segmento, con un «enganche» breve y una liberación al final del rango.', ejemplo: 'Al hacer dorsiflexión pasiva del tobillo, se siente una resistencia momentánea cerca del final del recorrido y luego cede.' },
+  '1+': { titulo: 'Grado 1+ · Enganche con resistencia mínima', def: 'Aumento ligero con «enganche» seguido de mínima resistencia en menos de la mitad del rango.', ejemplo: 'Resistencia perceptible que persiste durante una pequeña porción del rango, pero la articulación se moviliza con relativa facilidad.' },
+  '2':  { titulo: 'Grado 2 · Aumento marcado, móvil', def: 'Aumento más marcado en la mayor parte del rango, pero el segmento se moviliza fácilmente.', ejemplo: 'En la flexión de codo se nota un tono claramente aumentado durante todo el movimiento, pero se completa el rango sin gran esfuerzo.' },
+  '3':  { titulo: 'Grado 3 · Movilización difícil', def: 'Aumento considerable del tono; movilización pasiva difícil.', ejemplo: 'Para flexionar el codo del paciente se requiere fuerza significativa del examinador; el rango se completa pero con esfuerzo.' },
+  '4':  { titulo: 'Grado 4 · Rigidez', def: 'Rigidez en flexión o extensión. La parte afectada está fija.', ejemplo: 'No se logra movilización pasiva. El miembro está bloqueado en una postura. Puede coexistir con retracciones musculotendinosas.' }
+};
+
+document.querySelectorAll('#ashworth-grados .grado-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#ashworth-grados .grado-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const d = ashData[btn.dataset.ash];
+    const det = document.getElementById('ashworth-detalle');
+    det.innerHTML = `<h4>${d.titulo}</h4><p>${d.def}</p><div class="ejemplo"><strong>Cómo se siente</strong>${d.ejemplo}</div>`;
+    det.classList.add('show');
+  });
+});
+
+// =========================================================
+// Escala de reflejos 0-4
+// =========================================================
+const refData = {
+  '0': { titulo: 'Grado 0 · Arreflexia', def: 'Reflejo ausente.', ejemplo: 'Hallazgo cardinal en lesión de NMI. La arreflexia aquílea es signo precoz de neuropatía diabética; la arreflexia generalizada en debilidad aguda sugiere Guillain-Barré.' },
+  '1': { titulo: 'Grado 1 · Disminuido', def: 'Reflejo presente pero más débil de lo esperado. Puede requerir maniobras de facilitación (Jendrassik).', ejemplo: 'Hiporreflexia: hallazgo de NMI en grado leve. También puede ser variación normal en algunos pacientes; el contexto y la simetría con el contralateral son clave.' },
+  '2': { titulo: 'Grado 2 · Normal', def: 'Reflejo de intensidad normal.', ejemplo: 'El que se encuentra en la mayoría de los pacientes sanos. Documentar siempre la simetría con el contralateral.' },
+  '3': { titulo: 'Grado 3 · Vivo', def: 'Reflejo más vivo de lo normal, sin clonus.', ejemplo: 'Hiperreflexia: hallazgo de NMS. En un paciente añoso con dolor de rodillas, una hiperreflexia rotuliana inesperada amplía el diferencial hacia mielopatía cervical o ELA.' },
+  '4': { titulo: 'Grado 4 · Hiperreflexia con clonus', def: 'Reflejo con clonus (oscilaciones rítmicas mantenidas).', ejemplo: 'Lesión piramidal franca. Buscar también Babinski y Hoffmann para confirmar el patrón de NMS.' }
+};
+
+document.querySelectorAll('#reflejo-grados .grado-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#reflejo-grados .grado-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const d = refData[btn.dataset.ref];
+    const det = document.getElementById('reflejo-detalle');
+    det.innerHTML = `<h4>${d.titulo}</h4><p>${d.def}</p><div class="ejemplo"><strong>Significado clínico</strong>${d.ejemplo}</div>`;
+    det.classList.add('show');
+  });
+});
+
+// =========================================================
+// Clasificador de patrón motor
+// =========================================================
+// Cada patrón tiene un perfil; calculamos overlap con la selección del usuario.
+const patrones = [
+  {
+    id: 'ecv',
+    nombre: 'Hemiparesia faciobraquiocrural (ECV)',
+    descripcion: 'Lesión piramidal supratentorial: hemicara + MS + MI del mismo lado, hiperreflexia, espasticidad, Babinski.',
+    perfil: { distribucion:['hemi'], neurona:['nms'], evolucion:['aguda','subaguda'], asociados:[] }
+  },
+  {
+    id: 'medular',
+    nombre: 'Paraparesia con nivel sensitivo (lesión medular)',
+    descripcion: 'Trauma raquimedular, mielitis, compresión tumoral. Buscar nivel sensitivo y disfunción de esfínteres.',
+    perfil: { distribucion:['para'], neurona:['nms','nmi'], sensibilidad:['nivel'], evolucion:['aguda','subaguda'], asociados:['esfinter'] }
+  },
+  {
+    id: 'miopatia',
+    nombre: 'Miopatía proximal',
+    descripcion: 'Distrofia, polimiositis, dermatomiositis, miopatía por estatinas o glucocorticoides. Sin déficit sensitivo, reflejos normales o disminuidos.',
+    perfil: { distribucion:['proximal'], neurona:['nmi'], sensibilidad:['conservada'], evolucion:['subaguda','cronica'], asociados:[] }
+  },
+  {
+    id: 'ela',
+    nombre: 'Esclerosis lateral amiotrófica (ELA)',
+    descripcion: 'Coexistencia de signos de NMS y NMI en el mismo paciente, con fasciculaciones y atrofia distal asimétrica. Remitir a neurología.',
+    perfil: { distribucion:['distal-asim'], neurona:['ambas','fascic'], sensibilidad:['conservada'], evolucion:['cronica'], asociados:['bulbar'] }
+  },
+  {
+    id: 'miastenia',
+    nombre: 'Miastenia gravis',
+    descripcion: 'Debilidad fluctuante con fatigabilidad, predominio craneal (ptosis, diplopía, disartria) y proximal. Empeora durante el día.',
+    perfil: { distribucion:['craneal','proximal'], neurona:[], sensibilidad:['conservada'], evolucion:['fluctuante','subaguda'], asociados:['ptosis','bulbar'] }
+  },
+  {
+    id: 'gbs',
+    nombre: 'Síndrome de Guillain-Barré',
+    descripcion: 'Debilidad ascendente aguda con arreflexia. Antecedente de infección respiratoria o gastrointestinal. Vigilar compromiso respiratorio.',
+    perfil: { distribucion:['para','distal-sim'], neurona:['nmi'], sensibilidad:['parestesias','hipoestesia-distal'], evolucion:['aguda','ascendente'], asociados:['respiratorio','bulbar'] }
+  },
+  {
+    id: 'atrapamiento',
+    nombre: 'Neuropatía por atrapamiento',
+    descripcion: 'Debilidad y atrofia limitadas al territorio de un nervio (mediano, cubital, peroneo). Frecuente en desacondicionados con inmovilización prolongada.',
+    perfil: { distribucion:['nervio'], neurona:['nmi'], sensibilidad:['parestesias'], evolucion:['subaguda','cronica'], asociados:[] }
+  },
+  {
+    id: 'sarcopenia',
+    nombre: 'Sarcopenia y fragilidad',
+    descripcion: 'Debilidad simétrica de aparición gradual en el adulto mayor con pérdida de masa muscular y lentitud de marcha.',
+    perfil: { distribucion:['proximal','distal-sim'], neurona:['nmi'], sensibilidad:['conservada'], evolucion:['cronica'], asociados:['caidas'] }
+  }
+];
+
+let clasSel = {}; // eje -> Set de valores
+
+document.querySelectorAll('.clas-op').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const eje = btn.parentElement.dataset.eje;
+    const val = btn.dataset.val;
+    if (!clasSel[eje]) clasSel[eje] = new Set();
+    if (clasSel[eje].has(val)) {
+      clasSel[eje].delete(val);
+      btn.classList.remove('activo');
+    } else {
+      clasSel[eje].add(val);
+      btn.classList.add('activo');
+    }
+    actualizarClas();
+  });
+});
+
+function resetClas() {
+  clasSel = {};
+  document.querySelectorAll('.clas-op').forEach(b => b.classList.remove('activo'));
+  actualizarClas();
+}
+
+function actualizarClas() {
+  // contar
+  let n = 0;
+  Object.values(clasSel).forEach(s => n += s.size);
+  document.getElementById('clas-num').textContent = n;
+
+  const result = document.getElementById('clas-result');
+  const det = document.getElementById('clas-detalle');
+
+  if (n === 0) {
+    result.classList.remove('show');
+    det.innerHTML = '';
+    return;
+  }
+
+  // Calcular score por patrón
+  const scored = patrones.map(p => {
+    let score = 0;
+    let max = 0;
+    for (const eje in clasSel) {
+      const sel = clasSel[eje];
+      const perfilEje = p.perfil[eje] || [];
+      sel.forEach(v => {
+        max += 1;
+        if (perfilEje.includes(v)) score += 1;
+      });
+    }
+    return { ...p, score, max, pct: max > 0 ? Math.round(100 * score / max) : 0 };
+  });
+
+  // Ordenar y filtrar
+  scored.sort((a, b) => b.score - a.score || b.pct - a.pct);
+  const top = scored.filter(s => s.score > 0).slice(0, 3);
+
+  if (top.length === 0) {
+    det.innerHTML = '<p>Ninguno de los 8 patrones del cap. 2 encaja con esa combinación de hallazgos. Revise los hallazgos seleccionados, o considere causas fuera del temario (mielopatía no traumática, síndromes paraneoplásicos, intoxicaciones).</p>';
+    result.classList.add('show');
+    return;
+  }
+
+  let html = `<div><span class="badge">${n} hallazgo(s)</span></div>`;
+  top.forEach((p, i) => {
+    html += `<div class="candidato"><span class="nombre">${i+1}. ${p.nombre}</span><span class="score">${p.score} de ${p.max} hallazgos coinciden (${p.pct}%)</span><p>${p.descripcion}</p></div>`;
+  });
+  det.innerHTML = html;
+  result.classList.add('show');
+}
+
+// =========================================================
+// Casos clínicos
+// =========================================================
+const casos = [
+  {
+    titulo: 'Caso 1 · Hombre joven con hemiplejía aguda',
+    historia: 'Hombre de 58 años con hipertensión, despierta con debilidad del hemicuerpo derecho y disartria. Al examen: parálisis facial central derecha, fuerza 2/5 en hemicuerpo derecho con espasticidad incipiente, hiperreflexia derecha 3+, Babinski derecho positivo.',
+    pregunta: '¿Cuál es el patrón sindrómico y el nivel de la lesión?',
+    opciones: [
+      { texto: 'Lesión de motoneurona inferior (raíz/plexo)', correcto: false },
+      { texto: 'Lesión de motoneurona superior supratentorial — patrón hemiparético', correcto: true },
+      { texto: 'Miopatía proximal aguda', correcto: false },
+      { texto: 'Síndrome de Guillain-Barré', correcto: false }
+    ],
+    feedback: 'Hemiparesia faciobraquiocrural con hiperreflexia, espasticidad y Babinski = lesión de motoneurona superior supratentorial. Compromiso facial central + brazo + pierna del mismo lado orientan a territorio carotídeo (ataque cerebrovascular). En las primeras horas la espasticidad puede no estar establecida; aparece en días o semanas.'
+  },
+  {
+    titulo: 'Caso 2 · Caída con paraplejía',
+    historia: 'Mujer de 35 años, caída desde 3 metros. Al examen: fuerza 0/5 en miembros inferiores, anestesia bilateral por debajo del ombligo, retención urinaria. Reflejos rotulianos y aquíleos abolidos; tono flácido.',
+    pregunta: '¿Cuál es el diagnóstico topográfico y la urgencia del cuadro?',
+    opciones: [
+      { texto: 'Polineuropatía aguda — manejo ambulatorio', correcto: false },
+      { texto: 'Lesión medular dorsal con shock medular — urgencia', correcto: true },
+      { texto: 'Hematoma muscular bilateral — observación', correcto: false },
+      { texto: 'Miastenia gravis postraumática', correcto: false }
+    ],
+    feedback: 'Paraparesia con nivel sensitivo a nivel del ombligo (T10) tras trauma + retención urinaria = lesión medular. La fase inicial (shock medular) cursa con flacidez y arreflexia que pueden confundir con NMI; en días-semanas aparecen los signos clásicos de NMS. Es urgencia neuroquirúrgica.'
+  },
+  {
+    titulo: 'Caso 3 · Joven que no puede subir escaleras',
+    historia: 'Mujer de 28 años con dificultad progresiva en seis meses para subir escaleras y peinarse. No tiene parestesias. Al examen: fuerza 3/5 en flexores de cadera y abductores de hombro bilateral, 5/5 distal; reflejos normales; sensibilidad conservada; sin atrofia llamativa. CK 4500 U/L.',
+    pregunta: '¿Cuál es el patrón clínico?',
+    opciones: [
+      { texto: 'Polineuropatía sensitivo-motora', correcto: false },
+      { texto: 'ELA de inicio espinal', correcto: false },
+      { texto: 'Miopatía proximal (probable polimiositis o dermatomiositis)', correcto: true },
+      { texto: 'Radiculopatía L4 bilateral', correcto: false }
+    ],
+    feedback: 'Debilidad proximal simétrica, sin déficit sensitivo, con reflejos normales y CK alta = miopatía. La distribución (cinturas) y la ausencia de fasciculaciones la separa de ELA; la ausencia de parestesias la separa de neuropatía. Buscar rash heliotropo, signo del chal y autoanticuerpos miosíticos.'
+  },
+  {
+    titulo: 'Caso 4 · Atrofia y fasciculaciones en la mano',
+    historia: 'Hombre de 62 años con atrofia y debilidad progresiva de la mano derecha en 8 meses. Examen: atrofia llamativa del primer interóseo dorsal y de la eminencia tenar derechas, fasciculaciones visibles en deltoides y bíceps bilaterales, hiperreflexia en miembros inferiores, Babinski positivo bilateral. Sensibilidad normal.',
+    pregunta: '¿Cuál es el diagnóstico de sospecha y la conducta?',
+    opciones: [
+      { texto: 'Síndrome del túnel del carpo bilateral — infiltración', correcto: false },
+      { texto: 'Esclerosis lateral amiotrófica — remitir a neurología', correcto: true },
+      { texto: 'Radiculopatía C8 derecha — manejo conservador', correcto: false },
+      { texto: 'Miastenia gravis — anticolinesterásicos', correcto: false }
+    ],
+    feedback: 'Coexistencia de signos de NMI (atrofia distal asimétrica, fasciculaciones) y NMS (hiperreflexia, Babinski) en el mismo paciente, sin déficit sensitivo = ELA. La atrofia llamativa del primer interóseo dorsal sin antecedente compresivo es signo precoz característico. Conducta: remisión prioritaria a neurología; el médico general no maneja ELA.'
+  },
+  {
+    titulo: 'Caso 5 · Visión doble que empeora al final del día',
+    historia: 'Mujer de 40 años con dos meses de ptosis palpebral derecha intermitente, diplopía vespertina y dificultad para masticar al final de la comida. Al examen: ptosis fatigable (empeora al mantener mirada hacia arriba), debilidad de flexores de cuello, fuerza distal conservada, reflejos normales.',
+    pregunta: '¿Patrón sindrómico?',
+    opciones: [
+      { texto: 'Esclerosis múltiple', correcto: false },
+      { texto: 'Miopatía mitocondrial', correcto: false },
+      { texto: 'Miastenia gravis', correcto: true },
+      { texto: 'Botulismo', correcto: false }
+    ],
+    feedback: 'Debilidad fluctuante con fatigabilidad + ptosis + diplopía + empeoramiento vespertino = miastenia gravis. La debilidad de flexores de cuello acompaña con frecuencia. Estudio: anticuerpos anti-receptor de acetilcolina, electromiografía con estimulación repetitiva.'
+  },
+  {
+    titulo: 'Caso 6 · Debilidad ascendente tras gastroenteritis',
+    historia: 'Hombre de 30 años con gastroenteritis hace 3 semanas. Hace 4 días debilidad de pies que ascendió a piernas y manos. Hoy disnea leve. Al examen: paraparesia 3/5 con arreflexia generalizada, parestesias distales en bota, sensibilidad superficial conservada.',
+    pregunta: '¿Diagnóstico de sospecha y siguiente paso?',
+    opciones: [
+      { texto: 'Polineuropatía diabética — control glicémico', correcto: false },
+      { texto: 'Síndrome de Guillain-Barré — vigilancia respiratoria', correcto: true },
+      { texto: 'Mielopatía cervical — RMN urgente', correcto: false },
+      { texto: 'Miopatía aguda — biopsia muscular', correcto: false }
+    ],
+    feedback: 'Debilidad ascendente aguda + arreflexia + antecedente infeccioso (probable Campylobacter jejuni) + disnea = Guillain-Barré con riesgo de falla respiratoria. La vigilancia respiratoria (capacidad vital, presión inspiratoria máxima) es prioritaria. Estudio: punción lumbar (disociación albúmino-citológica), electrodiagnóstico.'
+  },
+  {
+    titulo: 'Caso 7 · Pie caído tras inmovilización prolongada',
+    historia: 'Hombre de 60 años, hospitalizado tres semanas por neumonía. Al levantarse no logra dorsiflexionar el pie izquierdo. Examen: fuerza 1/5 dorsiflexores e inversores del pie izquierdo; eversión 2/5; reflejo aquíleo normal; reflejo rotuliano normal; abductores de cadera 5/5; hipoestesia en dorso del pie izquierdo. La inversión del pie está conservada.',
+    pregunta: '¿Lesión más probable?',
+    opciones: [
+      { texto: 'Radiculopatía L5', correcto: false },
+      { texto: 'Neuropatía del peroneo común (cabeza del peroné)', correcto: true },
+      { texto: 'Mielopatía dorsal', correcto: false },
+      { texto: 'ELA en fase inicial', correcto: false }
+    ],
+    feedback: 'Neuropatía del peroneo común por compresión durante el reposo prolongado. Las pistas para diferenciarla de la radiculopatía L5: inversión conservada (tibialis posterior es L5 pero por nervio tibial), abductores de cadera conservados (gluteus medius L5 por nervio glúteo superior). En L5 ambos estarían débiles. Patrón de neuropatía por atrapamiento.'
+  },
+  {
+    titulo: 'Caso 8 · Adulto mayor con caídas y debilidad',
+    historia: 'Mujer de 82 años, refiere lentitud para caminar y dos caídas en seis meses. Vive sola. Al examen: marcha lenta con base ligeramente ampliada, fuerza 4/5 en flexores de cadera y dorsiflexores bilateral, simétrica; reflejos disminuidos pero presentes; sensibilidad conservada; pérdida visible de masa en muslos y pantorrillas. Velocidad de marcha 0,7 m/s. Fuerza de prensión 14 kg.',
+    pregunta: '¿Patrón clínico?',
+    opciones: [
+      { texto: 'Polineuropatía diabética', correcto: false },
+      { texto: 'Sarcopenia y fragilidad', correcto: true },
+      { texto: 'Miopatía proximal por hipotiroidismo', correcto: false },
+      { texto: 'Mielopatía cervical', correcto: false }
+    ],
+    feedback: 'Adulto mayor con debilidad simétrica gradual, atrofia muscular, lentitud de marcha (< 0,8 m/s) y fuerza de prensión disminuida (< 16 kg en mujer) = sarcopenia. Es diagnóstico positivo, no de exclusión. Profundización en el cap. 9.'
+  },
+  {
+    titulo: 'Caso 9 · Marcha que no se reconoce',
+    historia: 'Hombre de 70 años con caídas. Al observar la marcha: pasos cortos, postura en flexión global, dificultad para iniciar la marcha y giros en bloque. No hay equino, ni circunducción, ni base ancha.',
+    pregunta: '¿Qué patrón de marcha es y qué enfermedad orienta?',
+    opciones: [
+      { texto: 'Hemiparética — secuela de ECV', correcto: false },
+      { texto: 'Atáxica cerebelosa — esclerosis múltiple', correcto: false },
+      { texto: 'Parkinsoniana — enfermedad de Parkinson', correcto: true },
+      { texto: 'Miopática (de pato) — distrofia', correcto: false }
+    ],
+    feedback: 'Marcha parkinsoniana: pasos cortos, postura en flexión, festinación, dificultad para iniciar, giros en bloque. Es uno de los signos cardinales de la enfermedad de Parkinson. Su reconocimiento al pie de la cama orienta el diagnóstico antes de cualquier estudio.'
+  },
+  {
+    titulo: 'Caso 10 · Cómo escribir la nota',
+    historia: 'Paciente con secuela de ataque cerebrovascular hace 6 meses. Hemiparesia derecha. Al examen: tono espástico moderado en miembro inferior derecho que requiere fuerza para movilizar pero se completa el rango.',
+    pregunta: '¿Cómo cuantifica la espasticidad en la nota?',
+    opciones: [
+      { texto: 'Espasticidad leve', correcto: false },
+      { texto: 'Hipertonía 3/5', correcto: false },
+      { texto: 'Ashworth modificada 3', correcto: true },
+      { texto: 'Tono aumentado, no cuantificable', correcto: false }
+    ],
+    feedback: 'Aumento considerable del tono que dificulta la movilización pasiva pero se completa el rango = Ashworth modificada 3. La nota debe usar la escala (0, 1, 1+, 2, 3, 4) y especificar el segmento. «Espasticidad leve» no es seguible longitudinalmente; «Ashworth 3 en plantiflexores derechos» sí.'
+  }
+];
+
+const casosCont = document.getElementById('casos-cont');
+casos.forEach((c, idx) => {
+  const html = `
+    <div class="caso">
+      <h4>${c.titulo}</h4>
+      <div class="historia">${c.historia}</div>
+      <div class="pregunta">${c.pregunta}</div>
+      ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-opt="${i}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+      <div class="feedback" id="fb-${idx}">${c.feedback}</div>
+    </div>
+  `;
+  casosCont.innerHTML += html;
+});
+document.querySelectorAll('.caso .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const caso = op.dataset.caso;
+    const correcto = op.dataset.correcto === 'true';
+    const fb = document.getElementById('fb-' + caso);
+    document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+      o.classList.remove('correct', 'wrong');
+      if (o.dataset.correcto === 'true') o.classList.add('correct');
+      else if (o === op && !correcto) o.classList.add('wrong');
+    });
+    fb.classList.add('show');
+  });
+});
+
+// =========================================================
+// Autoevaluación
+// =========================================================
+const auto = [
+  { p: 'En la escala MRC, un movimiento contra gravedad pero no contra resistencia adicional corresponde a:', o:['Grado 1','Grado 2','Grado 3','Grado 4'], c:2, e:'Grado 3 = movimiento contra gravedad pero no contra resistencia. Grado 2 = movimiento eliminando la gravedad. Grado 4 = vence resistencia parcial.' },
+  { p: 'La coexistencia de hiperreflexia y fasciculaciones en el mismo paciente debe hacer pensar en:', o:['Polineuropatía diabética','Síndrome del túnel del carpo','Esclerosis lateral amiotrófica','Miastenia gravis'], c:2, e:'ELA es la combinación clásica de signos de NMS (hiperreflexia, espasticidad, Babinski) y NMI (atrofia, fasciculaciones, debilidad).' },
+  { p: 'En la escala de Ashworth modificada, un grado 1+ se caracteriza por:', o:['Tono normal','Aumento ligero con enganche al final del rango','Aumento ligero con enganche y resistencia mínima en menos de la mitad del rango','Rigidez en flexión o extensión'], c:2, e:'1+ = enganche seguido de mínima resistencia en menos de la mitad del rango. El grado 1 sin el «+» tiene el enganche solo al final.' },
+  { p: 'Una marcha con base ancha, pasos inseguros y dificultad para mantener el equilibrio con los ojos abiertos sugiere:', o:['Marcha parkinsoniana','Marcha atáxica cerebelosa','Marcha hemiparética','Marcha en estepaje'], c:1, e:'Atáxica cerebelosa: base ancha, inestabilidad lateral, presente con ojos abiertos. La atáxica sensitiva mejora con el control visual (Romberg positivo).' },
+  { p: 'Para diferenciar la radiculopatía L5 de la neuropatía del peroneo común, los signos clave son:', o:['Reflejo aquíleo y Babinski','Inversión del pie y abductores de cadera','Flexión de rodilla y eversión','Extensión del primer dedo y reflejo rotuliano'], c:1, e:'En L5 están débiles tibialis posterior (inversión, L5 por tibial) y gluteus medius (abducción de cadera, L5 por glúteo superior). En la neuropatía del peroneo, ambos están conservados.' },
+  { p: 'El reflejo aquíleo corresponde a la raíz:', o:['L3','L4','L5','S1'], c:3, e:'Aquíleo = S1. Su pérdida en una radiculopatía sugiere hernia L5–S1.' },
+  { p: 'En un paciente con secuela de ECV se documenta «5/5 hemicuerpo izquierdo, 3/5 hemicuerpo derecho». Esta forma de evaluación es:', o:['La estándar de oro para hemiparesia','Poco útil porque el paciente perdió control selectivo, no fuerza segmentaria','Suficiente sin necesidad de complementar','La única forma de cuantificar lesiones encefálicas'], c:1, e:'En lesiones encefálicas la valoración tradicional grupo a grupo es poco útil; el problema es pérdida de control selectivo, no debilidad segmentaria. Hay que valorar patrones funcionales (levantarse de silla, caminar en talones, etc.).' },
+  { p: 'Romberg positivo (caída con ojos cerrados) sugiere:', o:['Lesión cerebelosa','Lesión sensitiva (cordones posteriores, polineuropatía)','Lesión vestibular','Espasticidad de miembros inferiores'], c:1, e:'Romberg positivo = lesión sensitiva. La caída con ojos abiertos sugiere lesión cerebelosa o vestibular.' },
+  { p: 'Una atrofia llamativa del primer interóseo dorsal en un paciente sin antecedente compresivo es signo precoz de:', o:['Síndrome del túnel del carpo','Radiculopatía C8','Esclerosis lateral amiotrófica','Atrofia por desuso'], c:2, e:'La atrofia del primer interóseo dorsal sin causa compresiva es un signo precoz característico de ELA. Buscar fasciculaciones en otras regiones y signos de NMS.' },
+  { p: 'En la marcha hemiparética por ECV, la postura típica del paciente es:', o:['Brazo en extensión, pierna en flexión','Brazo en flexión, pierna en extensión y equino (Wernicke-Mann)','Ambos miembros en flexión','Tijera por aducción de muslos'], c:1, e:'Postura de Wernicke-Mann: brazo en flexión (predominio de flexores en MS), pierna en extensión y equino (predominio de extensores en MI). Genera la circunducción característica.' }
+];
+
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  const html = `
+    <div class="q">
+      <div class="pregunta">${idx+1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>
+  `;
+  autoCont.innerHTML += html;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q);
+    const optIdx = parseInt(op.dataset.opt);
+    const q = auto[qIdx];
+    const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+    if (ya) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / 10`;
+  });
+});
+
+</script>
+
+</body>
+</html>
