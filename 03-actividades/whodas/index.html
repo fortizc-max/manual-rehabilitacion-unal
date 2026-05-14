@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WHODAS 2.0-12 · Calculadora interactiva · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Cuestionario WHODAS 2.0-12 interactivo en español: doce ítems con escala 0–4, cálculo automático de suma simple, puntaje transformado a escala 0–100 según el algoritmo del manual oficial de la OMS, perfil por dominios CIF e interpretación clínica.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 48px 24px 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 26px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--azulacad);
+  margin: 0 auto 12px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+  max-width: 580px;
+  margin: 0 auto;
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 880px) {
+  main { grid-template-columns: 1fr; }
+  aside.result { position: static; }
+}
+
+aside.result {
+  position: sticky;
+  top: 18px;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 18px 20px;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+aside.result h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 6px;
+}
+aside.result .progress-line {
+  font-size: 0.78rem; color: var(--gris); margin-bottom: 14px;
+}
+aside.result .score-block {
+  margin: 12px 0;
+}
+aside.result .score-block .label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+aside.result .score-block .val {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--azulacad);
+  line-height: 1.1;
+}
+aside.result .score-block .val .max {
+  font-size: 1rem; color: var(--gris); font-weight: 400;
+}
+aside.result .semaforo {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 5px 10px;
+  border-radius: 14px;
+  margin-top: 6px;
+  background: var(--gris-claro);
+  color: var(--gris);
+  border: 1px solid var(--gris-borde);
+}
+aside.result .semaforo.ninguna { background: var(--verde-suave); color: var(--verde); border-color: transparent; }
+aside.result .semaforo.leve { background: var(--amarillo-suave); color: var(--amarillo); border-color: transparent; }
+aside.result .semaforo.moderada { background: var(--naranja-suave); color: var(--naranja); border-color: transparent; }
+aside.result .semaforo.severa { background: var(--rojo-suave); color: var(--rojo); border-color: transparent; }
+
+#profile-svg { width: 100%; height: 170px; margin-top: 14px; }
+#profile-svg text.dom-label {
+  font-family: var(--sans);
+  font-size: 9px;
+  fill: var(--texto-suave);
+}
+#profile-svg text.dom-val {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  fill: var(--azulacad);
+}
+
+aside.result button.reset {
+  font-family: var(--sans);
+  margin-top: 16px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 5px;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+aside.result button.reset:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+
+aside.result .interpret {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  margin-top: 14px;
+  color: var(--texto-suave);
+  line-height: 1.45;
+}
+
+section.intro {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+}
+section.intro h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 6px;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 6px;
+}
+section.intro p { margin: 0.45em 0; }
+section.intro .preamble {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  padding: 10px 14px;
+  background: var(--azulacad-suave);
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.item {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 5px;
+  padding: 14px 18px;
+  margin: 10px 0;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.item.answered { border-left: 4px solid var(--azulacad); }
+.item .item-head {
+  display: flex; gap: 12px; align-items: baseline;
+  margin-bottom: 10px;
+}
+.item .item-num {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--jamared);
+  letter-spacing: 0.04em;
+}
+.item .item-text {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--texto);
+  flex: 1;
+}
+.item .item-dom {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.item .options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-top: 6px;
+}
+@media (max-width: 580px) {
+  .item .options { grid-template-columns: repeat(2, 1fr); }
+}
+.item .options label {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 8px 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  color: var(--texto-suave);
+  user-select: none;
+}
+.item .options label:hover {
+  background: var(--azulacad-suave);
+  border-color: var(--azulacad-mid);
+}
+.item .options input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.item .options input[type="radio"]:checked + .pill {
+  background: var(--azulacad);
+  border-color: var(--azulacad);
+  color: white;
+  font-weight: 600;
+}
+.item .options .pill-num {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.item .options .pill-lbl {
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.15;
+}
+
+footer {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--gris);
+  text-align: center;
+  padding: 24px 16px 32px;
+  border-top: 1px solid var(--gris-borde);
+  background: white;
+}
+footer a { color: var(--azulacad); }
+</style>
+</head>
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 3 · Calculadora</div>
+  <h1>WHODAS 2.0-12</h1>
+  <div class="sub">Cuestionario genérico de discapacidad de la Organización Mundial de la Salud. Versión de doce ítems en español, con cálculo automático del puntaje simple y del puntaje transformado a escala 0–100 según el algoritmo del manual oficial.</div>
+  <a class="back" href="../">← Volver al capítulo 3</a>
+</header>
+
+<main>
+  <div>
+    <section class="intro">
+      <h2>Instrucciones</h2>
+      <p>El cuestionario indaga, para una <strong>condición de salud</strong> declarada (enfermedad, lesión, secuela, problema mental o consumo de sustancias), la dificultad experimentada en los <strong>últimos treinta días</strong>. Toma cinco minutos.</p>
+      <p>Cada ítem se responde en una escala ordinal de cinco niveles: <em>ninguna</em>, <em>leve</em>, <em>moderada</em>, <em>severa</em>, <em>extrema o no puede hacerlo</em> (codificadas 0 a 4 para el cálculo). Si la persona reporta no haber realizado la actividad por motivo distinto a su salud, el ítem se omite.</p>
+      <div class="preamble">«En los últimos treinta días, y debido a una condición de salud, ¿cuánta dificultad ha tenido para realizar las siguientes actividades?»</div>
+    </section>
+
+    <div id="items-container"></div>
+  </div>
+
+  <aside class="result" aria-live="polite">
+    <h3>Resultado</h3>
+    <div class="progress-line"><span id="answered">0</span> de 12 ítems respondidos</div>
+
+    <div class="score-block">
+      <div class="label">Suma simple</div>
+      <div class="val"><span id="raw">0</span><span class="max"> / 48</span></div>
+    </div>
+
+    <div class="score-block">
+      <div class="label">Escala 0–100 (OMS)</div>
+      <div class="val"><span id="pct">0</span><span class="max">%</span></div>
+    </div>
+
+    <div>
+      <span class="semaforo" id="categ">sin respuestas</span>
+    </div>
+
+    <div class="interpret" id="interp">Diligencie los doce ítems para obtener el resultado.</div>
+
+    <svg id="profile-svg" viewBox="0 0 300 170" aria-label="Perfil por dominios CIF"></svg>
+
+    <button class="reset" onclick="resetWhodas()">Reiniciar</button>
+  </aside>
+</main>
+
+<footer>
+  WHODAS 2.0 © Organización Mundial de la Salud, 2010. Traducción al español: manual oficial OMS 2015. Versión interactiva preparada para uso académico en el Manual de Rehabilitación de pregrado, Universidad Nacional de Colombia.
+</footer>
+
+<script>
+// ============================================================
+// WHODAS 2.0-12 — calculadora
+// ============================================================
+const ITEMS = [
+  { id: 'S1',  text: 'Estar de pie durante períodos largos (por ejemplo, treinta minutos).', dom: 'Movilidad' },
+  { id: 'S2',  text: 'Ocuparse de las responsabilidades del hogar.',                        dom: 'Actividades' },
+  { id: 'S3',  text: 'Aprender una tarea nueva (por ejemplo, llegar a un sitio nuevo).',   dom: 'Cognición' },
+  { id: 'S4',  text: 'Participar en actividades comunitarias (fiestas, actos religiosos u otros) al mismo nivel que cualquier otra persona.', dom: 'Participación' },
+  { id: 'S5',  text: 'Verse afectado emocionalmente por su problema de salud.',            dom: 'Participación' },
+  { id: 'S6',  text: 'Concentrarse en hacer algo durante diez minutos.',                   dom: 'Cognición' },
+  { id: 'S7',  text: 'Caminar una larga distancia, como un kilómetro.',                    dom: 'Movilidad' },
+  { id: 'S8',  text: 'Bañarse o lavarse todo el cuerpo.',                                  dom: 'Autocuidado' },
+  { id: 'S9',  text: 'Vestirse.',                                                          dom: 'Autocuidado' },
+  { id: 'S10', text: 'Tratar con personas que no conoce.',                                 dom: 'Relaciones' },
+  { id: 'S11', text: 'Mantener una amistad.',                                              dom: 'Relaciones' },
+  { id: 'S12', text: 'Realizar su trabajo cotidiano o sus estudios.',                      dom: 'Actividades' },
+];
+
+const OPCIONES = [
+  { v: 0, lbl: 'Ninguna' },
+  { v: 1, lbl: 'Leve' },
+  { v: 2, lbl: 'Moderada' },
+  { v: 3, lbl: 'Severa' },
+  { v: 4, lbl: 'Extrema / no puede' },
+];
+
+const DOMINIOS = ['Cognición', 'Movilidad', 'Autocuidado', 'Relaciones', 'Actividades', 'Participación'];
+
+// Render ítems
+const container = document.getElementById('items-container');
+ITEMS.forEach((it, idx) => {
+  const div = document.createElement('div');
+  div.className = 'item';
+  div.id = 'item-' + it.id;
+  div.innerHTML = `
+    <div class="item-head">
+      <div class="item-num">${it.id}</div>
+      <div class="item-text">${it.text}</div>
+    </div>
+    <div class="item-dom">Dominio CIF · ${it.dom}</div>
+    <div class="options">
+      ${OPCIONES.map(o => `
+        <label>
+          <input type="radio" name="${it.id}" value="${o.v}" onchange="actualizar()">
+          <span class="pill">
+            <span class="pill-num">${o.v}</span>
+            <span class="pill-lbl">${o.lbl}</span>
+          </span>
+        </label>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(div);
+});
+
+function obtenerRespuestas() {
+  const r = {};
+  ITEMS.forEach(it => {
+    const sel = document.querySelector(`input[name="${it.id}"]:checked`);
+    if (sel) r[it.id] = parseInt(sel.value, 10);
+  });
+  return r;
+}
+
+function categorizar(raw) {
+  if (raw <= 4)  return { c: 'ninguna',  t: 'Sin discapacidad relevante' };
+  if (raw <= 12) return { c: 'leve',     t: 'Discapacidad leve' };
+  if (raw <= 24) return { c: 'moderada', t: 'Discapacidad moderada' };
+  return            { c: 'severa',   t: 'Discapacidad severa' };
+}
+
+function actualizar() {
+  const r = obtenerRespuestas();
+  const n = Object.keys(r).length;
+  const raw = Object.values(r).reduce((a, b) => a + b, 0);
+  const pct = Math.round((raw / 48) * 1000) / 10;  // 1 decimal
+
+  document.getElementById('answered').textContent = n;
+  document.getElementById('raw').textContent = raw;
+  document.getElementById('pct').textContent = pct.toFixed(1).replace('.', ',');
+
+  // marcar ítems respondidos
+  ITEMS.forEach(it => {
+    const el = document.getElementById('item-' + it.id);
+    if (r[it.id] !== undefined) el.classList.add('answered');
+    else                        el.classList.remove('answered');
+  });
+
+  // semáforo e interpretación
+  const sem = document.getElementById('categ');
+  const interp = document.getElementById('interp');
+  if (n === 0) {
+    sem.className = 'semaforo';
+    sem.textContent = 'sin respuestas';
+    interp.textContent = 'Diligencie los doce ítems para obtener el resultado.';
+  } else if (n < 12) {
+    sem.className = 'semaforo';
+    sem.textContent = 'parcial';
+    interp.textContent = `Faltan ${12 - n} ítems. Si hasta dos quedan en blanco, el manual de la OMS recomienda imputar la media del dominio correspondiente; con tres o más en blanco no debe calcularse el puntaje total.`;
+  } else {
+    const cat = categorizar(raw);
+    sem.className = 'semaforo ' + cat.c;
+    sem.textContent = cat.t.toLowerCase();
+    interp.innerHTML = interpretacion(raw, cat);
+  }
+
+  dibujarPerfil(r);
+}
+
+function interpretacion(raw, cat) {
+  let msg = `<strong>${cat.t}.</strong> `;
+  if (raw <= 4)         msg += 'Funcionamiento general conservado. Es razonable repetir el WHODAS en seguimiento longitudinal según la condición de salud subyacente.';
+  else if (raw <= 12)   msg += 'Limitaciones funcionales acotadas. Identificar el o los dominios afectados y diseñar intervención dirigida.';
+  else if (raw <= 24)   msg += 'Limitaciones funcionales significativas. Indicar plan de rehabilitación estructurado, con metas funcionales por dominio.';
+  else                  msg += 'Limitaciones funcionales severas. Requiere plan interdisciplinario, valoración del cuidador y del entorno, y reevaluación frecuente.';
+  msg += '<br><br><span style="font-size:0.84rem;color:var(--gris);">Cambio mínimo clínicamente importante: ≥ 5 puntos en la suma simple (≈ 10 puntos en la escala 0–100) entre dos administraciones separadas en el tiempo.</span>';
+  return msg;
+}
+
+function dibujarPerfil(r) {
+  const svg = document.getElementById('profile-svg');
+  const W = 300, H = 170, pad = 8, barH = 14, gap = 6;
+  // sumar por dominio
+  const sums = {};
+  DOMINIOS.forEach(d => sums[d] = { v: 0, n: 0 });
+  ITEMS.forEach(it => {
+    if (r[it.id] !== undefined) {
+      sums[it.dom].v += r[it.id];
+      sums[it.dom].n += 1;
+    }
+  });
+
+  let svgHtml = '';
+  DOMINIOS.forEach((d, i) => {
+    const y = pad + i * (barH + gap + 8);
+    // Cada dominio tiene 2 ítems → máx 8 puntos
+    const v = sums[d].v;
+    const maxDom = 8;
+    const w = Math.round((v / maxDom) * (W - 110));
+    svgHtml += `<text class="dom-label" x="${pad}" y="${y + barH - 4}">${d}</text>`;
+    svgHtml += `<rect x="100" y="${y}" width="${W - 110}" height="${barH}" fill="#f5f5f4" rx="2"/>`;
+    if (sums[d].n > 0) {
+      const col = v <= 2 ? '#16653488' : v <= 4 ? '#78350f88' : v <= 6 ? '#9a341288' : '#991b1baa';
+      svgHtml += `<rect x="100" y="${y}" width="${w}" height="${barH}" fill="${col}" rx="2"/>`;
+    }
+    svgHtml += `<text class="dom-val" x="${W - 4}" y="${y + barH - 4}" text-anchor="end">${v}/${maxDom}</text>`;
+  });
+  svg.innerHTML = svgHtml;
+}
+
+function resetWhodas() {
+  ITEMS.forEach(it => {
+    document.querySelectorAll(`input[name="${it.id}"]`).forEach(el => el.checked = false);
+  });
+  actualizar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+actualizar();  // inicial
+</script>
+
+</body>
+</html>
