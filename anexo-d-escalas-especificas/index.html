@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo D · Escalas específicas por región y por cuadro · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo D: tres escalas específicas de uso frecuente — FAC (deambulación funcional post-ACV), QuickDASH (miembro superior) y Boston (síndrome del túnel del carpo), con calculadoras interactivas.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --azulacad-mid:#ccd6e0; --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280;
+  --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --verde:#166534; --verde-suave:#dcfce7; --rojo:#991b1b; --rojo-suave:#fee2e2;
+  --naranja:#9a3412; --naranja-suave:#ffedd5; --amarillo:#78350f; --amarillo-suave:#fef3c7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t .grado { font-family: var(--sans); font-weight: 700; color: var(--jamared); white-space: nowrap; text-align: center; }
+.calc-bloque { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 20px 24px; margin: 18px 0; }
+.calc-bloque h4 { margin: 0 0 6px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.calc-bloque .descripcion { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin-bottom: 14px; }
+.itemcalc-item { padding: 10px 0; border-bottom: 1px solid var(--gris-borde); }
+.itemcalc-item:last-child { border-bottom: none; }
+.itemcalc-item .label { font-family: var(--sans); font-weight: 600; font-size: 0.88rem; color: var(--azulacad); margin-bottom: 6px; display: block; }
+.itemcalc-item .opciones { display: flex; flex-wrap: wrap; gap: 4px; }
+.itemcalc-item .opciones label { font-family: var(--serif); font-size: 0.88rem; background: var(--gris-claro); border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; cursor: pointer; color: var(--texto-suave); display: flex; gap: 6px; align-items: center; }
+.itemcalc-item .opciones label:hover { border-color: var(--azulacad); }
+.itemcalc-item .opciones label.selected { background: var(--azulacad-suave); border-color: var(--azulacad); color: var(--azulacad); }
+.itemcalc-item .opciones .pts { font-family: var(--sans); font-size: 0.74rem; font-weight: 700; background: var(--jamared-suave); color: var(--jamared); padding: 2px 8px; border-radius: 99px; flex-shrink: 0; }
+.itemcalc-item .opciones label.selected .pts { background: var(--azulacad); color: white; }
+.itemcalc-item .opciones input { display: none; }
+.total { margin-top: 18px; padding: 16px 20px; background: var(--azulacad-suave); border-left: 4px solid var(--azulacad); border-radius: 0 6px 6px 0; font-family: var(--sans); }
+.total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.total .puntajes { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+.total .puntajes .num { font-family: var(--serif); font-style: italic; font-size: 1.8rem; color: var(--jamared); }
+.total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.total .puntajes .label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--azulacad); font-weight: 700; display: block; margin-bottom: 2px; }
+.total .veredicto { font-family: var(--serif); font-style: italic; font-size: 1.3rem; font-weight: 500; margin-bottom: 6px; }
+.total.bajo .veredicto { color: var(--verde); }
+.total.medio .veredicto { color: var(--amarillo); }
+.total.alto .veredicto { color: var(--jamared); }
+.total .interp { font-family: var(--serif); font-size: 0.94rem; line-height: 1.55; }
+button.reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+button.reset:hover { background: var(--gris-claro); }
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo D</div>
+  <h1>Escalas específicas por región y por cuadro</h1>
+  <div class="sub">FAC · QuickDASH · Boston-CTQ · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Para qué sirven</button>
+  <button class="tab-btn" data-tab="fac">2. FAC</button>
+  <button class="tab-btn" data-tab="dash">3. QuickDASH</button>
+  <button class="tab-btn" data-tab="boston">4. Boston-CTQ</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Tres escalas específicas, tres usos clínicos</h2>
+  <p>Este anexo reúne tres instrumentos de consulta práctica para cuantificar discapacidad acotada a una región o a un cuadro específico, complementarios al WHODAS 2.0-12 (anexo G) que el <a href="../02-actividades/" style="color: var(--azulacad);">cap. 2 · Actividades</a> propone como herramienta operativa principal.</p>
+
+  <p>Ninguno de los tres es de aplicación cotidiana en consulta de medicina general; sí es razonable conocerlos para <strong>interpretar reportes</strong> y para <strong>indicarlos en seguimiento longitudinal</strong> de pacientes con diagnóstico ya definido.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Escala</th><th>Para qué cuadro</th><th>Cuándo aplicarla</th></tr></thead>
+      <tbody>
+        <tr><td><strong>FAC</strong> (0–5)</td><td>Deambulación funcional</td><td>Post-ACV, lesión medular incompleta. Observación directa de la marcha.</td></tr>
+        <tr><td><strong>QuickDASH</strong> (0–100)</td><td>Miembro superior (hombro, codo, muñeca, mano)</td><td>Seguimiento longitudinal de patología MS. Tras tratamiento conservador o quirúrgico.</td></tr>
+        <tr><td><strong>Boston-CTQ</strong> (1–5 cada subescala)</td><td>Síndrome del túnel del carpo</td><td>Documentar respuesta a férula, infiltración o liberación quirúrgica.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: FAC ==================== -->
+<section class="tab-content" id="fac">
+  <h2>FAC · Functional Ambulation Categories</h2>
+  <p>Holden 1984. Clasificación ordinal 0–5 que describe el nivel de asistencia necesario para caminar. Es la escala más usada para seguir la recuperación de la marcha tras un ACV y en lesión medular incompleta.</p>
+
+  <h3>Niveles</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Nivel</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td class="grado">0</td><td>No camina o requiere asistencia de dos personas.</td></tr>
+        <tr><td class="grado">1</td><td>Marcha solo con apoyo continuo y firme de una persona, que sostiene peso y mantiene equilibrio.</td></tr>
+        <tr><td class="grado">2</td><td>Marcha con apoyo intermitente o ligero de una persona para mantener el equilibrio o coordinar el paso.</td></tr>
+        <tr><td class="grado">3</td><td>Marcha con supervisión verbal de una persona, sin contacto físico.</td></tr>
+        <tr><td class="grado">4</td><td>Marcha independiente en superficies planas; requiere ayuda en escaleras y superficies irregulares.</td></tr>
+        <tr><td class="grado">5</td><td>Marcha independiente en cualquier superficie, incluidas escaleras y terrenos irregulares.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>Dos transiciones funcionales clave</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>FAC 3 &rarr; FAC 4:</strong> el paciente deja de requerir presencia continua de un asistente. Es el umbral funcional típico para alta hospitalaria a domicilio.</li>
+      <li><strong>FAC 4 &rarr; FAC 5:</strong> marca la <em>reintegración comunitaria</em> (transporte público, terrenos irregulares).</li>
+    </ul>
+  </div>
+
+  <div class="calc-bloque" id="fac-calc">
+    <h4>Selector FAC</h4>
+    <div class="descripcion">Marque el nivel que mejor describe la marcha del paciente.</div>
+    <div id="fac-items"></div>
+    <div class="total" id="fac-total">
+      <div class="puntajes">
+        <div><span class="label">Nivel FAC</span><span class="num" id="fac-num">—</span><span class="max"> / 5</span></div>
+      </div>
+      <div class="veredicto" id="fac-vere">Pendiente</div>
+      <div class="interp" id="fac-interp">Seleccione el nivel observado en la marcha del paciente.</div>
+    </div>
+    <button class="reset" onclick="resetFAC()">Reiniciar</button>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: QUICKDASH ==================== -->
+<section class="tab-content" id="dash">
+  <h2>QuickDASH · 11 ítems</h2>
+  <p>El cuestionario <em>Disabilities of the Arm, Shoulder and Hand</em> (Hudak 1996) mide la discapacidad global del miembro superior. El <strong>QuickDASH</strong> es la versión corta (11 ítems) que conserva las propiedades psicométricas del DASH original (30 ítems) y se diligencia en 3–5 minutos. Es la versión recomendada para consulta clínica de seguimiento.</p>
+
+  <h3>Fórmula</h3>
+  <div class="card azul">
+    <p style="margin-bottom: 0; font-family: var(--sans); text-align: center; font-size: 1.05rem;">
+      <strong>Puntaje QuickDASH</strong> = [(suma de respuestas / número de respuestas) − 1] × 25
+    </p>
+  </div>
+
+  <p>Cada ítem se puntúa de <strong>1 (sin dificultad)</strong> a <strong>5 (no puede hacerlo)</strong>. El resultado va de <strong>0 (sin discapacidad)</strong> a <strong>100 (máxima discapacidad)</strong>. <strong>Cambio mínimo importante</strong>: 10–15 puntos.</p>
+
+  <p>Si el paciente deja sin responder &gt; 1 ítem (de los 11) el puntaje no es válido.</p>
+
+  <div class="calc-bloque" id="qdash-calc">
+    <h4>Calculadora QuickDASH</h4>
+    <div class="descripcion">Marque la dificultad reportada por el paciente <em>durante la última semana</em>.</div>
+    <div id="qdash-items"></div>
+    <div class="total" id="qdash-total">
+      <div class="puntajes">
+        <div><span class="label">QuickDASH</span><span class="num" id="qdash-num">—</span><span class="max"> / 100</span></div>
+      </div>
+      <div class="veredicto" id="qdash-vere">Pendiente</div>
+      <div class="interp" id="qdash-interp">Conteste al menos 10 de los 11 ítems para ver el resultado.</div>
+    </div>
+    <button class="reset" onclick="resetQDASH()">Reiniciar</button>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: BOSTON-CTQ ==================== -->
+<section class="tab-content" id="boston">
+  <h2>Boston Carpal Tunnel Questionnaire</h2>
+  <p>Levine 1993. Es el instrumento estándar para cuantificar severidad de síntomas y limitación funcional en pacientes con síndrome del túnel del carpo. Consta de <strong>dos subescalas independientes</strong> que se reportan por separado.</p>
+
+  <h3>Cómo se puntúa</h3>
+  <div class="card azul">
+    <ul style="margin-bottom: 0">
+      <li>Cada ítem se puntúa de <strong>1 (sin síntoma / sin dificultad)</strong> a <strong>5 (síntoma muy grave / no puede hacerlo)</strong>.</li>
+      <li><strong>Puntaje de cada subescala = promedio</strong> de los ítems respondidos.</li>
+      <li>Las dos subescalas se reportan independientemente; <em>no</em> se suman entre sí.</li>
+      <li><strong>Cambio &geq; 1 punto</strong> en una subescala se considera clínicamente significativo.</li>
+    </ul>
+  </div>
+
+  <h3>Subescala de severidad de síntomas (11 ítems)</h3>
+  <p>Dolor nocturno, dolor diurno, frecuencia y duración del dolor, parestesias, debilidad, torpeza, dificultad para tomar objetos pequeños.</p>
+
+  <div class="calc-bloque" id="bcts-calc">
+    <h4>Severidad de síntomas (11 ítems)</h4>
+    <div class="descripcion">«En las últimas 2 semanas, ¿cómo describiría…?»</div>
+    <div id="bcts-items"></div>
+    <div class="total" id="bcts-total">
+      <div class="puntajes">
+        <div><span class="label">Promedio (BCTS)</span><span class="num" id="bcts-num">—</span><span class="max"> / 5</span></div>
+      </div>
+      <div class="veredicto" id="bcts-vere">Pendiente</div>
+      <div class="interp" id="bcts-interp">Conteste los 11 ítems para ver el promedio.</div>
+    </div>
+    <button class="reset" onclick="resetBCTS()">Reiniciar</button>
+  </div>
+
+  <h3>Subescala de limitación funcional (8 ítems)</h3>
+  <p>Escribir, abotonar la ropa, sostener un libro, tomar el teléfono, abrir frascos, hacer tareas del hogar, llevar bolsas de compras, bañarse y vestirse.</p>
+
+  <div class="calc-bloque" id="bctf-calc">
+    <h4>Limitación funcional (8 ítems)</h4>
+    <div class="descripcion">«En las últimas 2 semanas, ¿cuánta dificultad tuvo para…?»</div>
+    <div id="bctf-items"></div>
+    <div class="total" id="bctf-total">
+      <div class="puntajes">
+        <div><span class="label">Promedio (BCTF)</span><span class="num" id="bctf-num">—</span><span class="max"> / 5</span></div>
+      </div>
+      <div class="veredicto" id="bctf-vere">Pendiente</div>
+      <div class="interp" id="bctf-interp">Conteste los 8 ítems para ver el promedio.</div>
+    </div>
+    <button class="reset" onclick="resetBCTF()">Reiniciar</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ===== Helper: renderizar items en un contenedor =====
+function renderItems(contId, items, prefix, onChange) {
+  const cont = document.getElementById(contId);
+  items.forEach((it, idx) => {
+    const div = document.createElement('div');
+    div.className = 'itemcalc-item';
+    let opciones = '';
+    it.opciones.forEach((o) => {
+      opciones += `<label data-val="${o.v}" data-row="${idx}" data-grp="${prefix}"><span class="pts">${o.v}</span><span>${o.l}</span><input type="radio" name="${prefix}-${idx}"></label>`;
+    });
+    div.innerHTML = `<span class="label">${it.label}</span><div class="opciones">${opciones}</div>`;
+    cont.appendChild(div);
+  });
+  document.querySelectorAll(`#${contId} label`).forEach(lbl => {
+    lbl.addEventListener('click', () => {
+      const row = lbl.dataset.row;
+      document.querySelectorAll(`#${contId} label[data-row="${row}"]`).forEach(l => l.classList.remove('selected'));
+      lbl.classList.add('selected');
+      lbl.querySelector('input').checked = true;
+      onChange();
+    });
+  });
+}
+
+// ===== FAC =====
+const facItems = [
+  {label: 'Nivel observado en la marcha del paciente', opciones: [
+    {l:'0 · No camina o requiere ayuda de dos personas', v:0},
+    {l:'1 · Apoyo continuo de una persona (sostiene peso)', v:1},
+    {l:'2 · Apoyo intermitente/ligero de una persona', v:2},
+    {l:'3 · Supervisión verbal sin contacto físico', v:3},
+    {l:'4 · Independiente en plano; ayuda en escaleras/irregular', v:4},
+    {l:'5 · Independiente en cualquier superficie', v:5}
+  ]}
+];
+renderItems('fac-items', facItems, 'fac', actualizarFAC);
+function actualizarFAC() {
+  const sel = document.querySelector('#fac-items label.selected');
+  const totalBox = document.getElementById('fac-total');
+  const v = document.getElementById('fac-vere');
+  const i = document.getElementById('fac-interp');
+  totalBox.classList.remove('bajo','medio','alto');
+  if (!sel) { v.textContent='Pendiente'; i.textContent='Seleccione el nivel observado en la marcha del paciente.'; document.getElementById('fac-num').textContent='—'; return; }
+  const val = parseInt(sel.dataset.val);
+  document.getElementById('fac-num').textContent = val;
+  let cat, sem, msg;
+  if (val === 5)      { cat='Independencia comunitaria'; sem='bajo'; msg='Marcha plenamente independiente. Reintegración comunitaria alcanzada. Objetivos siguientes: condición física, prevención de recaída, retorno laboral cuando aplique.'; }
+  else if (val === 4) { cat='Independencia en plano';   sem='bajo'; msg='Marcha independiente en plano. Próximo objetivo: terrenos irregulares y escaleras (FAC 5). Alta hospitalaria viable.'; }
+  else if (val === 3) { cat='Marcha con supervisión';   sem='medio'; msg='Requiere supervisión verbal sin contacto. Transición clave próxima (FAC 4) es la independencia para alta a domicilio: enfoque en estabilidad y autocorrección de pasos.'; }
+  else if (val === 2) { cat='Marcha con apoyo ligero';  sem='medio'; msg='Apoyo intermitente o ligero. Trabajar equilibrio dinámico, coordinación del paso, transferencias seguras.'; }
+  else if (val === 1) { cat='Marcha con apoyo continuo'; sem='alto'; msg='Una persona sostiene peso de manera continua. Fortalecer miembros inferiores, control de tronco, transferencias.'; }
+  else                { cat='No camina';                sem='alto'; msg='No camina o requiere asistencia de dos personas. Iniciar fase de bipedestación, control de tronco en sedente, fortalecimiento global, prevención de complicaciones del decúbito.'; }
+  totalBox.classList.add(sem);
+  v.textContent = cat;
+  i.textContent = msg;
+}
+function resetFAC() {
+  document.querySelectorAll('#fac-items label.selected').forEach(l=>l.classList.remove('selected'));
+  document.querySelectorAll('#fac-items input:checked').forEach(i=>i.checked=false);
+  document.getElementById('fac-num').textContent='—';
+  document.getElementById('fac-vere').textContent='Pendiente';
+  document.getElementById('fac-interp').textContent='Seleccione el nivel observado en la marcha del paciente.';
+  document.getElementById('fac-total').classList.remove('bajo','medio','alto');
+}
+
+// ===== QuickDASH =====
+const qdashOpts = [
+  {l:'1 · Sin dificultad', v:1},
+  {l:'2 · Dificultad leve', v:2},
+  {l:'3 · Dificultad moderada', v:3},
+  {l:'4 · Dificultad severa', v:4},
+  {l:'5 · No puede hacerlo', v:5}
+];
+const qdashItems = [
+  '1. Abrir un frasco nuevo o apretado',
+  '2. Realizar trabajos pesados en la casa (paredes, pisos)',
+  '3. Llevar bolsas de compras o un maletín',
+  '4. Lavarse la espalda',
+  '5. Usar un cuchillo para cortar alimentos',
+  '6. Actividades recreativas que requieran fuerza o impacto (martillar, golf, tenis)',
+  '7. ¿En qué medida su problema en brazo/hombro/mano interfirió con sus actividades sociales habituales con familiares, amigos o vecinos?',
+  '8. ¿Estuvo limitado en su trabajo u otras actividades cotidianas a causa del problema en brazo/hombro/mano?',
+  '9. Dolor en brazo, hombro o mano',
+  '10. Hormigueo (alfileres) en brazo, hombro o mano',
+  '11. Dificultad para dormir por el dolor en brazo, hombro o mano'
+].map(label => ({label, opciones: qdashOpts}));
+renderItems('qdash-items', qdashItems, 'qdash', actualizarQDASH);
+function actualizarQDASH() {
+  const sel = document.querySelectorAll('#qdash-items label.selected');
+  const n = sel.length;
+  const totalBox = document.getElementById('qdash-total');
+  const v = document.getElementById('qdash-vere');
+  const i = document.getElementById('qdash-interp');
+  totalBox.classList.remove('bajo','medio','alto');
+  if (n < 10) {
+    document.getElementById('qdash-num').textContent='—';
+    v.textContent = `${n}/11 ítems`;
+    i.textContent = 'Conteste al menos 10 de los 11 ítems para que el resultado sea válido.';
+    return;
+  }
+  let suma = 0;
+  sel.forEach(l => { suma += parseInt(l.dataset.val); });
+  const promedio = suma / n;
+  const punt = Math.round((promedio - 1) * 25 * 10) / 10;
+  document.getElementById('qdash-num').textContent = punt.toFixed(1);
+  let cat, sem, msg;
+  if (punt < 15)       { cat='Discapacidad mínima';     sem='bajo';  msg='Discapacidad mínima del miembro superior. Compatible con retorno a la mayoría de actividades. Si persiste molestia, descartar limitaciones específicas con examen clínico dirigido.'; }
+  else if (punt < 30)  { cat='Discapacidad leve';       sem='bajo';  msg='Discapacidad leve. Esperable durante la recuperación de procedimientos del miembro superior. Documentar evolución; un cambio &geq; 10–15 puntos es clínicamente relevante.'; }
+  else if (punt < 50)  { cat='Discapacidad moderada';   sem='medio'; msg='Discapacidad moderada. Justifica programa de rehabilitación estructurado, revisión de cumplimiento del programa actual y descarte de complicaciones tardías.'; }
+  else if (punt < 70)  { cat='Discapacidad severa';     sem='alto';  msg='Discapacidad severa. Reevaluación clínica integral, búsqueda de complicaciones, evaluación quirúrgica si aplica. Considerar incapacidad laboral si la patología lo justifica.'; }
+  else                 { cat='Discapacidad máxima';     sem='alto';  msg='Discapacidad muy severa. Compatible con limitación funcional grave; documentar para procesos médico-legales/administrativos y plan de rehabilitación intensiva o paliativa según el caso.'; }
+  totalBox.classList.add(sem);
+  v.textContent = cat + ` · ${punt.toFixed(1)}/100`;
+  i.innerHTML = msg + (n < 11 ? ` <em>(${n}/11 ítems contestados — válido).</em>` : '');
+}
+function resetQDASH() {
+  document.querySelectorAll('#qdash-items label.selected').forEach(l=>l.classList.remove('selected'));
+  document.querySelectorAll('#qdash-items input:checked').forEach(i=>i.checked=false);
+  document.getElementById('qdash-num').textContent='—';
+  document.getElementById('qdash-vere').textContent='Pendiente';
+  document.getElementById('qdash-interp').textContent='Conteste al menos 10 de los 11 ítems para ver el resultado.';
+  document.getElementById('qdash-total').classList.remove('bajo','medio','alto');
+}
+
+// ===== Boston-CTQ — severidad de síntomas =====
+const bctsOpts = [
+  {l:'1', v:1},{l:'2', v:2},{l:'3', v:3},{l:'4', v:4},{l:'5', v:5}
+];
+const bctsItems = [
+  '1. ¿Cuán fuerte es el dolor de la mano o muñeca en la noche?',
+  '2. ¿Con qué frecuencia el dolor lo despertó en la noche en las últimas 2 semanas?',
+  '3. ¿Tiene típicamente dolor en la mano o muñeca durante el día?',
+  '4. ¿Con qué frecuencia tiene dolor durante el día?',
+  '5. ¿Cuánto dura un episodio típico de dolor diurno?',
+  '6. ¿Tiene adormecimiento (pérdida de sensibilidad) en la mano?',
+  '7. ¿Tiene debilidad en la mano o la muñeca?',
+  '8. ¿Tiene sensación de hormigueo en la mano?',
+  '9. ¿Cuán intenso es el adormecimiento (pérdida de sensibilidad) o el hormigueo en la noche?',
+  '10. ¿Con qué frecuencia el adormecimiento o el hormigueo lo despertó en la noche en las últimas 2 semanas?',
+  '11. ¿Tiene dificultad para tomar y usar objetos pequeños como llaves o lapiceros?'
+].map(label => ({label, opciones: bctsOpts}));
+renderItems('bcts-items', bctsItems, 'bcts', actualizarBCTS);
+function actualizarBCTS() {
+  const sel = document.querySelectorAll('#bcts-items label.selected');
+  const n = sel.length;
+  const totalBox = document.getElementById('bcts-total');
+  const v = document.getElementById('bcts-vere');
+  const i = document.getElementById('bcts-interp');
+  totalBox.classList.remove('bajo','medio','alto');
+  if (n < 11) {
+    document.getElementById('bcts-num').textContent='—';
+    v.textContent = `${n}/11 ítems`;
+    i.textContent = 'Conteste los 11 ítems para ver el promedio.';
+    return;
+  }
+  let suma = 0;
+  sel.forEach(l => { suma += parseInt(l.dataset.val); });
+  const prom = suma / n;
+  document.getElementById('bcts-num').textContent = prom.toFixed(2);
+  let cat, sem;
+  if (prom <= 2) { cat='Síntomas leves'; sem='bajo'; }
+  else if (prom <= 3) { cat='Síntomas moderados'; sem='medio'; }
+  else { cat='Síntomas severos'; sem='alto'; }
+  totalBox.classList.add(sem);
+  v.textContent = cat + ` · promedio ${prom.toFixed(2)}/5`;
+  i.innerHTML = 'Cambio &geq; 1 punto en seguimiento se considera clínicamente significativo.';
+}
+function resetBCTS() {
+  document.querySelectorAll('#bcts-items label.selected').forEach(l=>l.classList.remove('selected'));
+  document.querySelectorAll('#bcts-items input:checked').forEach(i=>i.checked=false);
+  document.getElementById('bcts-num').textContent='—';
+  document.getElementById('bcts-vere').textContent='Pendiente';
+  document.getElementById('bcts-interp').textContent='Conteste los 11 ítems para ver el promedio.';
+  document.getElementById('bcts-total').classList.remove('bajo','medio','alto');
+}
+
+// ===== Boston-CTQ — limitación funcional =====
+const bctfItems = [
+  '1. Escribir',
+  '2. Abotonarse la ropa',
+  '3. Sostener un libro al leer',
+  '4. Tomar el teléfono',
+  '5. Abrir frascos',
+  '6. Hacer tareas del hogar',
+  '7. Llevar bolsas de compras',
+  '8. Bañarse y vestirse'
+].map(label => ({label, opciones: bctsOpts}));
+renderItems('bctf-items', bctfItems, 'bctf', actualizarBCTF);
+function actualizarBCTF() {
+  const sel = document.querySelectorAll('#bctf-items label.selected');
+  const n = sel.length;
+  const totalBox = document.getElementById('bctf-total');
+  const v = document.getElementById('bctf-vere');
+  const i = document.getElementById('bctf-interp');
+  totalBox.classList.remove('bajo','medio','alto');
+  if (n < 8) {
+    document.getElementById('bctf-num').textContent='—';
+    v.textContent = `${n}/8 ítems`;
+    i.textContent = 'Conteste los 8 ítems para ver el promedio.';
+    return;
+  }
+  let suma = 0;
+  sel.forEach(l => { suma += parseInt(l.dataset.val); });
+  const prom = suma / n;
+  document.getElementById('bctf-num').textContent = prom.toFixed(2);
+  let cat, sem;
+  if (prom <= 2) { cat='Limitación funcional leve'; sem='bajo'; }
+  else if (prom <= 3) { cat='Limitación funcional moderada'; sem='medio'; }
+  else { cat='Limitación funcional severa'; sem='alto'; }
+  totalBox.classList.add(sem);
+  v.textContent = cat + ` · promedio ${prom.toFixed(2)}/5`;
+  i.innerHTML = 'Cambio &geq; 1 punto en seguimiento se considera clínicamente significativo.';
+}
+function resetBCTF() {
+  document.querySelectorAll('#bctf-items label.selected').forEach(l=>l.classList.remove('selected'));
+  document.querySelectorAll('#bctf-items input:checked').forEach(i=>i.checked=false);
+  document.getElementById('bctf-num').textContent='—';
+  document.getElementById('bctf-vere').textContent='Pendiente';
+  document.getElementById('bctf-interp').textContent='Conteste los 8 ítems para ver el promedio.';
+  document.getElementById('bctf-total').classList.remove('bajo','medio','alto');
+}
+</script>
+
+</body>
+</html>

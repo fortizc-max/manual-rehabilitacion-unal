@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo E · Lista breve del Grupo de Washington (WG-SS) · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo E: Washington Group Short Set (WG-SS) en español, con preámbulo, las 6 preguntas, todas las opciones y calculadora de tamizaje estadístico de discapacidad.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+:root {
+  --jamared: #C8102E; --jamared-suave: #faeaec; --azulacad: #003366; --azulacad-suave: #e8eef5; --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a; --texto-suave: #4a4a4a; --gris: #6b7280; --gris-claro: #f5f5f4; --gris-borde: #e5e5e4; --crema: #fbfaf7;
+  --verde: #166534; --verde-suave: #dcfce7; --rojo: #991b1b; --rojo-suave: #fee2e2; --naranja: #9a3412; --naranja-suave: #ffedd5;
+  --amarillo: #78350f; --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, serif;
+  --sans: 'Fira Sans', -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+.preambulo { background: #fffbeb; border: 1px solid #f59e0b; border-left: 4px solid #f59e0b; padding: 16px 20px; border-radius: 6px; margin: 16px 0; font-style: italic; color: var(--texto); }
+.dominio { background: white; border: 1px solid var(--gris-borde); border-left: 4px solid var(--azulacad); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.dominio .codigo { font-family: var(--sans); font-size: 0.72rem; color: var(--gris); letter-spacing: 0.08em; text-transform: uppercase; }
+.dominio h4 { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--jamared); margin: 4px 0 6px; }
+.dominio .pregunta { font-style: italic; font-size: 1.02rem; color: var(--texto); }
+.dominio ol { padding-left: 1.4em; margin: 10px 0 6px; }
+.dominio .admin { font-family: var(--sans); font-size: 0.8rem; color: var(--gris); }
+.calc-bloque { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 20px 24px; margin: 18px 0; }
+.calc-bloque h4 { margin: 0 0 6px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.calc-bloque .descripcion { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin-bottom: 14px; }
+.itemcalc-item { padding: 12px 0; border-bottom: 1px solid var(--gris-borde); }
+.itemcalc-item:last-child { border-bottom: none; }
+.itemcalc-item .label { font-family: var(--sans); font-weight: 600; font-size: 0.92rem; color: var(--azulacad); margin-bottom: 6px; display: block; }
+.itemcalc-item .opciones { display: flex; flex-direction: column; gap: 4px; }
+.itemcalc-item .opciones label { font-family: var(--serif); font-size: 0.92rem; background: var(--gris-claro); border: 1px solid var(--gris-borde); border-radius: 6px; padding: 8px 12px; cursor: pointer; color: var(--texto-suave); display: flex; gap: 10px; align-items: center; }
+.itemcalc-item .opciones label:hover { border-color: var(--azulacad); }
+.itemcalc-item .opciones label.selected { background: var(--azulacad-suave); border-color: var(--azulacad); color: var(--azulacad); }
+.itemcalc-item .opciones .pts { font-family: var(--sans); font-size: 0.74rem; font-weight: 700; background: var(--jamared-suave); color: var(--jamared); padding: 2px 8px; border-radius: 99px; flex-shrink: 0; min-width: 22px; text-align: center; }
+.itemcalc-item .opciones label.selected .pts { background: var(--azulacad); color: white; }
+.itemcalc-item .opciones input { display: none; }
+.calc-bloque .total { margin-top: 18px; padding: 16px 20px; background: var(--azulacad-suave); border-left: 4px solid var(--azulacad); border-radius: 0 6px 6px 0; font-family: var(--sans); }
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .veredicto { font-family: var(--serif); font-style: italic; font-size: 1.3rem; font-weight: 500; margin-bottom: 6px; }
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp { font-family: var(--serif); font-size: 0.94rem; line-height: 1.55; }
+button.reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+button.reset:hover { background: var(--gris-claro); }
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo E</div>
+  <h1>Lista breve del Grupo de Washington · WG-SS</h1>
+  <div class="sub">Washington Group Short Set on Functioning · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Para qué sirve</button>
+  <button class="tab-btn" data-tab="preguntas">2. Las 6 preguntas</button>
+  <button class="tab-btn" data-tab="calc">3. 🔢 Tamizaje</button>
+  <button class="tab-btn" data-tab="interp">4. Interpretación + notas</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Para qué sirve</h2>
+  <p>El <strong>Washington Group Short Set on Functioning (WG-SS)</strong> es un instrumento corto de tamizaje poblacional de discapacidad. Lo desarrolló el <em>Washington Group on Disability Statistics</em> bajo mandato de la División de Estadística de Naciones Unidas para producir indicadores de prevalencia de discapacidad <strong>comparables entre países</strong> en censos y encuestas de hogares.</p>
+
+  <p>Es la herramienta estándar para <strong>desagregar los Objetivos de Desarrollo Sostenible (ODS) por estatus de discapacidad</strong>. En Colombia se ha incluido en la GEIH y en el último censo del DANE (2018).</p>
+
+  <h3>Lo que SÍ es</h3>
+  <div class="card verde">
+    <ul style="margin-bottom: 0">
+      <li>Tamizaje <strong>estadístico</strong> a nivel poblacional.</li>
+      <li>Identifica el subgrupo con <strong>mayor riesgo de exclusión social</strong> (educativa, laboral, sanitaria) para análisis comparado.</li>
+      <li>Seis preguntas, &lt; 3 minutos.</li>
+      <li>Aplicable por autoinforme o por informante adulto cuando el sujeto no puede responder.</li>
+    </ul>
+  </div>
+
+  <h3>Lo que NO es</h3>
+  <div class="card roja">
+    <ul style="margin-bottom: 0">
+      <li><strong>No es un diagnóstico clínico.</strong> No reemplaza la valoración funcional individual.</li>
+      <li>No mide gravedad ni perfil funcional fino. Para eso se usa el WHODAS 2.0-12 (<a href="../anexo-g-whodas/" style="color: var(--jamared);">anexo G</a>).</li>
+      <li>No mide actividades específicas (Barthel, Lawton).</li>
+      <li>No mide participación.</li>
+    </ul>
+  </div>
+
+  <h3>Cómo aplicarlo</h3>
+  <div class="card azul">
+    <ul style="margin-bottom: 0">
+      <li>Por entrevista directa al sujeto, o a un informante adulto si no puede responder (deterioro cognitivo, niño pequeño).</li>
+      <li>Cada pregunta se lee <strong>tal como aparece</strong>.</li>
+      <li>Las <strong>cuatro categorías de respuesta</strong> (1–4) se leen en voz alta al entrevistado.</li>
+      <li>Las opciones administrativas <em>7. No contesta</em> y <em>9. No sabe</em> <strong>no se leen</strong> al entrevistado: son códigos de registro.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: PREGUNTAS ==================== -->
+<section class="tab-content" id="preguntas">
+  <h2>Las 6 preguntas · texto verbatim</h2>
+
+  <h3>Preámbulo del entrevistador</h3>
+  <div class="preambulo">
+    «Las preguntas siguientes hacen referencia a las dificultades derivadas de un <strong>problema de salud</strong> que usted puede experimentar al realizar determinadas actividades.»
+  </div>
+  <p>Esta introducción es deliberada: ancla las respuestas en limitaciones funcionales asociadas a salud, no en preferencias o restricciones contextuales.</p>
+
+  <div class="dominio">
+    <div class="codigo">VIS_SS · Visión</div>
+    <h4>1 · Visión</h4>
+    <div class="pregunta">«¿Tiene [usted/él/ella] dificultad para ver, incluso cuando usa sus gafas?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">Códigos administrativos (no leer al entrevistado): 7. No contesta · 9. No sabe</div>
+  </div>
+
+  <div class="dominio">
+    <div class="codigo">HEAR_SS · Audición</div>
+    <h4>2 · Audición</h4>
+    <div class="pregunta">«¿Tiene [usted/él/ella] dificultad para oír, incluso cuando usa la(s) prótesis auditiva(s)?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">7. No contesta · 9. No sabe</div>
+  </div>
+
+  <div class="dominio">
+    <div class="codigo">MOB_SS · Movilidad</div>
+    <h4>3 · Movilidad</h4>
+    <div class="pregunta">«¿Tiene [usted/él/ella] dificultad para caminar o subir escalones?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">7. No contesta · 9. No sabe</div>
+  </div>
+
+  <div class="dominio">
+    <div class="codigo">COG_SS · Cognición</div>
+    <h4>4 · Recordar y concentrarse</h4>
+    <div class="pregunta">«¿Tiene [usted/él/ella] dificultad para recordar o concentrarse?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">7. No contesta · 9. No sabe</div>
+  </div>
+
+  <div class="dominio">
+    <div class="codigo">SC_SS · Autocuidado</div>
+    <h4>5 · Cuidado personal</h4>
+    <div class="pregunta">«¿Tiene [usted/él/ella] dificultad para valerse por sí mismo, como lavarse el cuerpo o vestirse?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">7. No contesta · 9. No sabe</div>
+  </div>
+
+  <div class="dominio">
+    <div class="codigo">COM_SS · Comunicación</div>
+    <h4>6 · Comunicación</h4>
+    <div class="pregunta">«Cuando emplea su lenguaje habitual, ¿tiene [usted/él/ella] dificultad para comunicarse, por ejemplo, para entender a los demás o para que lo/la entiendan?»</div>
+    <ol>
+      <li>No tiene ninguna dificultad.</li>
+      <li>Tiene cierta dificultad.</li>
+      <li>Tiene mucha dificultad.</li>
+      <li>Le resulta imposible.</li>
+    </ol>
+    <div class="admin">7. No contesta · 9. No sabe</div>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: CALCULADORA ==================== -->
+<section class="tab-content" id="calc">
+  <h2>🔢 Tamizaje WG-SS</h2>
+  <p>Marque la respuesta del sujeto en cada dominio. El tamizaje aplica los <strong>dos umbrales habituales</strong>: estándar (categoría 3 o 4 en al menos un dominio) y conservador (categoría 3 o 4 en dos o más dominios).</p>
+
+  <div class="calc-bloque" id="wgss-calc">
+    <h4>Calculadora WG-SS</h4>
+    <div class="descripcion">6 dominios · 4 categorías de respuesta · &lt; 3 minutos.</div>
+    <div id="wgss-items"></div>
+    <div class="total" id="wgss-total">
+      <div class="veredicto" id="wgss-vere">Pendiente</div>
+      <div class="interp" id="wgss-interp">Conteste las 6 preguntas para ver el resultado del tamizaje.</div>
+    </div>
+    <button class="reset" onclick="resetWGSS()">Reiniciar</button>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: INTERPRETACIÓN ==================== -->
+<section class="tab-content" id="interp">
+  <h2>Interpretación</h2>
+
+  <h3>Umbral estándar (recomendado por el Washington Group)</h3>
+  <div class="card azul">
+    <p style="margin-bottom: 0">Se considera <strong>«persona con discapacidad»</strong> a efectos de tamizaje poblacional al individuo que reporta <strong>«mucha dificultad» (3) o «le resulta imposible» (4)</strong> en <strong>al menos uno</strong> de los seis dominios. Este es el umbral que ONU, los ODS y los censos nacionales usan para desagregar indicadores por estatus de discapacidad.</p>
+  </div>
+
+  <h3>Umbral más conservador</h3>
+  <div class="card amarilla">
+    <p style="margin-bottom: 0">Algunos estudios subpoblacionales o que requieren mayor especificidad usan «mucha dificultad o imposible en <strong>dos o más</strong> dominios» como umbral. Reduce la prevalencia estimada pero aumenta el valor predictivo.</p>
+  </div>
+
+  <h3>Lo que NO se debe inferir</h3>
+  <div class="card roja">
+    <ul style="margin-bottom: 0">
+      <li><strong>No es diagnóstico clínico.</strong> El paciente identificado en el tamizaje requiere valoración funcional individual completa (CIF, WHODAS-12, Barthel, Lawton según el caso).</li>
+      <li><strong>No mide gravedad.</strong> Dos respuestas «3» no son equivalentes a una «4».</li>
+      <li><strong>No mide la causa</strong> de la dificultad: salud, edad, entorno se confunden y se separan en una valoración clínica posterior.</li>
+    </ul>
+  </div>
+
+  <h3>Notas sobre la traducción</h3>
+  <div class="card amarilla">
+    <p>La traducción al español es preliminar (versión del 23 de junio de 2020) y el Washington Group sigue trabajando en su validación nacional por país.</p>
+    <p>Para uso en Colombia, los términos <em>gafas</em> y <em>prótesis auditiva(s)</em> pueden reemplazarse por <em>anteojos</em> y <em>audífonos</em> si así lo prefiere el equipo, sin alterar la equivalencia conceptual.</p>
+    <p style="margin-bottom: 0">Conviene reportar siempre la versión utilizada y consultar la más reciente en <a href="https://www.washingtongroup-disability.com/" target="_blank" rel="noopener" style="color: var(--azulacad);">washingtongroup-disability.com</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+const wgssItems = [
+  { label: '1 · Visión',                opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] },
+  { label: '2 · Audición',              opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] },
+  { label: '3 · Movilidad',             opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] },
+  { label: '4 · Recordar/concentrarse', opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] },
+  { label: '5 · Cuidado personal',      opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] },
+  { label: '6 · Comunicación',          opciones: [{l:'No tiene ninguna dificultad',v:1},{l:'Tiene cierta dificultad',v:2},{l:'Tiene mucha dificultad',v:3},{l:'Le resulta imposible',v:4}] }
+];
+
+const cont = document.getElementById('wgss-items');
+wgssItems.forEach((it, idx) => {
+  const div = document.createElement('div');
+  div.className = 'itemcalc-item';
+  let opciones = '';
+  it.opciones.forEach((o) => {
+    opciones += `<label data-val="${o.v}" data-row="${idx}"><span class="pts">${o.v}</span><span>${o.l}</span><input type="radio" name="wgss-${idx}"></label>`;
+  });
+  div.innerHTML = `<span class="label">${it.label}</span><div class="opciones">${opciones}</div>`;
+  cont.appendChild(div);
+});
+
+document.querySelectorAll('#wgss-items label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const row = lbl.dataset.row;
+    document.querySelectorAll(`#wgss-items label[data-row="${row}"]`).forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarWGSS();
+  });
+});
+
+function actualizarWGSS() {
+  const selected = document.querySelectorAll('#wgss-items label.selected');
+  const n = selected.length;
+  const totalBox = document.getElementById('wgss-total');
+  const v = document.getElementById('wgss-vere');
+  const i = document.getElementById('wgss-interp');
+  totalBox.classList.remove('bajo', 'medio', 'alto');
+
+  if (n < 6) {
+    v.textContent = `${n}/6 dominios`;
+    i.textContent = 'Conteste las 6 preguntas para ver el resultado del tamizaje.';
+    return;
+  }
+
+  let conMuchaDificultad = 0;
+  const dominiosAfectados = [];
+  selected.forEach(lbl => {
+    const val = parseInt(lbl.dataset.val);
+    if (val >= 3) {
+      conMuchaDificultad++;
+      dominiosAfectados.push(wgssItems[parseInt(lbl.dataset.row)].label);
+    }
+  });
+
+  if (conMuchaDificultad === 0) {
+    totalBox.classList.add('bajo');
+    v.textContent = 'Tamizaje negativo';
+    i.innerHTML = '<strong>Ningún dominio con «mucha dificultad» o «imposible».</strong> No cumple criterio de discapacidad del Washington Group ni en el umbral estándar ni en el conservador. Un tamizaje negativo del WG-SS <em>no descarta limitaciones funcionales</em>; si la sospecha clínica persiste, valore WHODAS-12 o instrumentos específicos.';
+  } else if (conMuchaDificultad === 1) {
+    totalBox.classList.add('medio');
+    v.textContent = 'Tamizaje positivo (umbral estándar)';
+    i.innerHTML = `<strong>Cumple el umbral estándar del Washington Group:</strong> mucha dificultad o imposible en 1 dominio (${dominiosAfectados.join(', ')}). Es el umbral utilizado por censos nacionales y para desagregar los ODS. <em>No</em> cumple el umbral conservador (2+). Para caracterización funcional individual aplique WHODAS-12 (anexo G) y/o instrumentos específicos según el dominio.`;
+  } else {
+    totalBox.classList.add('alto');
+    v.textContent = 'Tamizaje positivo (umbral estándar y conservador)';
+    i.innerHTML = `<strong>Cumple ambos umbrales:</strong> mucha dificultad o imposible en ${conMuchaDificultad} dominios (${dominiosAfectados.join(', ')}). Indicación clínica de valoración funcional integral: WHODAS-12 (anexo G), Barthel/Lawton para ABVD/AIVD si edad &geq; 60 o limitación en autocuidado, e instrumentos específicos por dominio (cap. 2).`;
+  }
+}
+
+function resetWGSS() {
+  document.querySelectorAll('#wgss-items label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#wgss-items input:checked').forEach(i => i.checked = false);
+  document.getElementById('wgss-vere').textContent = 'Pendiente';
+  document.getElementById('wgss-interp').textContent = 'Conteste las 6 preguntas para ver el resultado del tamizaje.';
+  document.getElementById('wgss-total').classList.remove('bajo','medio','alto');
+}
+</script>
+
+</body>
+</html>

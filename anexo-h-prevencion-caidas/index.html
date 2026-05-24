@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo H · Prevención y manejo de las caídas en el adulto mayor · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo H: resumen interactivo de las World Guidelines for Falls Prevention and Management for Older Adults (WFG 2022). Algoritmo de estratificación, valoración multifactorial e intervenciones.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280; --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --verde:#166534; --verde-suave:#dcfce7; --rojo:#991b1b; --rojo-suave:#fee2e2;
+  --naranja:#9a3412; --naranja-suave:#ffedd5; --amarillo:#78350f; --amarillo-suave:#fef3c7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t .nivel-bajo { color: var(--verde); font-weight: 700; }
+table.t .nivel-medio { color: var(--amarillo); font-weight: 700; }
+table.t .nivel-alto { color: var(--jamared); font-weight: 700; }
+
+.algoritmo { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 20px 24px; margin: 18px 0; }
+.algo-step { padding: 14px 16px; margin: 10px 0; border-left: 4px solid var(--azulacad); background: var(--azulacad-suave); border-radius: 0 6px 6px 0; }
+.algo-step h4 { margin: 0 0 8px; font-family: var(--sans); font-size: 0.92rem; color: var(--azulacad); }
+.algo-step .pregunta { font-style: italic; font-size: 1.02rem; margin-bottom: 10px; color: var(--texto); }
+.algo-step .opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.algo-step .opciones button { font-family: var(--sans); background: white; border: 1px solid var(--azulacad-mid); border-radius: 6px; padding: 8px 16px; font-size: 0.9rem; cursor: pointer; color: var(--azulacad); transition: all 0.12s; }
+.algo-step .opciones button:hover { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+.algo-step .opciones button.selected { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+.resultado { padding: 18px 22px; border-radius: 8px; margin: 18px 0; font-family: var(--sans); display: none; }
+.resultado.show { display: block; animation: fade 0.2s ease-in; }
+.resultado.bajo { background: var(--verde-suave); border-left: 4px solid var(--verde); }
+.resultado.medio { background: var(--amarillo-suave); border-left: 4px solid var(--amarillo); }
+.resultado.alto { background: var(--jamared-suave); border-left: 4px solid var(--jamared); }
+.resultado h4 { margin-top: 0; font-family: var(--serif); font-style: italic; font-size: 1.3rem; }
+.resultado.bajo h4 { color: var(--verde); }
+.resultado.medio h4 { color: var(--amarillo); }
+.resultado.alto h4 { color: var(--jamared); }
+button.reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+button.reset:hover { background: var(--gris-claro); }
+.gradiente { font-family: var(--sans); font-size: 0.72rem; background: var(--azulacad); color: white; padding: 2px 8px; border-radius: 99px; margin-left: 6px; font-weight: 700; letter-spacing: 0.04em; }
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo H</div>
+  <h1>Prevención y manejo de las caídas en el adulto mayor</h1>
+  <div class="sub">Resumen de las World Falls Guidelines (WFG, 2022) · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Origen y definiciones</button>
+  <button class="tab-btn" data-tab="algoritmo">2. 🔢 Algoritmo</button>
+  <button class="tab-btn" data-tab="valoracion">3. Valoración multifactorial</button>
+  <button class="tab-btn" data-tab="intervenciones">4. Intervenciones</button>
+  <button class="tab-btn" data-tab="entorno">5. Entorno y poblaciones</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Origen y propósito</h2>
+  <p>Las <strong>World Guidelines for Falls Prevention and Management for Older Adults</strong> (WFG, 2022) son el marco internacional más completo y actualizado sobre el tema. Publicadas en <em>Age and Ageing</em> bajo licencia Creative Commons CC BY-NC 4.0, fueron elaboradas por 96 expertos de 39 países y 36 sociedades científicas. <a href="https://doi.org/10.1093/ageing/afac205" target="_blank" rel="noopener" style="color: var(--azulacad);">DOI 10.1093/ageing/afac205</a>.</p>
+
+  <div class="card azul">
+    <h4>Enfoque «4 P»</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>P</strong>redictivo (estratifica el riesgo)</li>
+      <li><strong>P</strong>reventivo (interviene antes de la caída)</li>
+      <li><strong>P</strong>ersonalizado (adapta al perfil del paciente)</li>
+      <li><strong>P</strong>articipativo (co-diseño con la persona)</li>
+    </ul>
+  </div>
+
+  <h3>Definiciones operativas</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Caída</strong></td><td>Evento en que la persona llega a reposar de manera inadvertida en el suelo o en un nivel inferior, incluyendo episodios sincopales.</td></tr>
+        <tr><td><strong>Caídas recurrentes</strong></td><td>Dos o más caídas en los últimos 12 meses.</td></tr>
+        <tr><td><strong>Caída grave</strong></td><td>Lesión que obliga a consultar al médico, dejar a la persona en el piso &geq; 1 hora, visita a urgencias, o pérdida de conciencia.</td></tr>
+        <tr><td><strong>FRIDs</strong></td><td>Fármacos que aumentan el riesgo de caídas (<em>Fall-Risk Increasing Drugs</em>).</td></tr>
+        <tr><td><strong>Valoración multifactorial</strong></td><td>Evaluación en múltiples dominios que estima riesgo global e identifica factores modificables.</td></tr>
+        <tr><td><strong>Intervención multidominio</strong></td><td>Combinación de dos o más componentes en dos o más dominios, individualizada a partir de la valoración.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Gradación (GRADE adaptado)</h4>
+    <p style="margin-bottom: 0">Códigos como <strong>1A</strong> resumen la fuerza de la recomendación (1 fuerte, 2 débil o condicional) y la calidad de la evidencia (A alta, B intermedia, C baja). <strong>E</strong> = consenso de expertos.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: ALGORITMO ==================== -->
+<section class="tab-content" id="algoritmo">
+  <h2>🔢 Algoritmo de estratificación WFG</h2>
+  <p>Algoritmo en tres pasos a partir de la Figura 1 de las WFG. Aplíquelo al adulto mayor de la <strong>comunidad</strong>. En hospitales y residencias, todos los pacientes/residentes se consideran <em>de alto riesgo</em> por defecto.</p>
+
+  <div class="algoritmo" id="algo">
+    <div class="algo-step" id="paso1">
+      <h4>Paso 1 · Tamizaje</h4>
+      <div class="pregunta">¿Ha sufrido alguna caída en los últimos 12 meses, <em>O</em> reporta inestabilidad al pararse/caminar, <em>O</em> preocupación por caer?</div>
+      <div class="opciones">
+        <button data-resp="no" onclick="responder(1,'no')">No · ninguno de los tres</button>
+        <button data-resp="si" onclick="responder(1,'si')">Sí · al menos uno</button>
+      </div>
+    </div>
+
+    <div class="algo-step" id="paso2" style="display:none">
+      <h4>Paso 2 · Severidad (basta un criterio)</h4>
+      <div class="pregunta">¿Cumple <strong>uno o más</strong> de los siguientes?</div>
+      <ul style="font-size: 0.92rem; color: var(--texto-suave); margin: 0 0 12px;">
+        <li>Lesión que requiere consulta médica</li>
+        <li>Dos o más caídas en el último año</li>
+        <li>Fragilidad conocida</li>
+        <li>Permaneció &geq; 1 h en el suelo / no logra levantarse</li>
+        <li>Pérdida de conciencia o sospecha de síncope</li>
+      </ul>
+      <div class="opciones">
+        <button data-resp="no" onclick="responder(2,'no')">No · ninguno</button>
+        <button data-resp="si" onclick="responder(2,'si')">Sí · al menos uno</button>
+      </div>
+    </div>
+
+    <div class="algo-step" id="paso3" style="display:none">
+      <h4>Paso 3 · Marcha y equilibrio</h4>
+      <div class="pregunta">¿Alteración objetiva: velocidad de marcha &lt; 0,8 m/s <em>O</em> TUG &gt; 15 s?</div>
+      <div class="opciones">
+        <button data-resp="no" onclick="responder(3,'no')">No · normales</button>
+        <button data-resp="si" onclick="responder(3,'si')">Sí · alteradas</button>
+      </div>
+    </div>
+
+    <div class="resultado" id="resultado">
+      <h4 id="res-titulo"></h4>
+      <p id="res-meta" style="font-size: 0.85rem; font-family: var(--sans); color: var(--gris); margin-bottom: 12px;"></p>
+      <div id="res-acciones"></div>
+    </div>
+
+    <button class="reset" onclick="resetAlgo()">Reiniciar algoritmo</button>
+  </div>
+
+  <h3>Estratificación · resumen</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Nivel</th><th>Criterios</th><th>Conducta</th></tr></thead>
+      <tbody>
+        <tr><td class="nivel-bajo">Bajo</td><td>Sin antecedente de caídas, o una sola caída no grave sin alteración de marcha ni de equilibrio.</td><td>Educación + actividad física. Reevaluar en 1 año.</td></tr>
+        <tr><td class="nivel-medio">Intermedio</td><td>Una caída no grave con problemas de marcha o equilibrio.</td><td>Ejercicio dirigido de fuerza y equilibrio. Considerar remisión a fisioterapia.</td></tr>
+        <tr><td class="nivel-alto">Alto</td><td>Caída con lesión, &geq; 2 caídas, fragilidad, &geq; 1 h en el suelo, o sospecha de síncope.</td><td>Valoración multifactorial e intervención multidominio personalizada. Estudio de síncope si aplica.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: VALORACIÓN ==================== -->
+<section class="tab-content" id="valoracion">
+  <h2>Valoración multifactorial</h2>
+  <p>Recomendada para el adulto mayor clasificado como <strong>de alto riesgo</strong> <span class="gradiente">1B</span>. Idealmente dentro de una valoración geriátrica integral, porque una caída en la persona frágil puede ser la manifestación de una enfermedad aguda (neumonía, infarto silente).</p>
+
+  <h3>Dominios e instrumentos sugeridos</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Dominio</th><th>Factores e instrumentos</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Marcha y equilibrio</strong></td><td>Velocidad de marcha (corte 0,8 m/s), SPPB (anexo A), TUG, doble tarea; tandem, monopodal, Berg, POMA, Mini-BEST si se indica.</td></tr>
+        <tr><td><strong>Fuerza muscular</strong></td><td>30-CST o sit-to-stand 5 veces, dinamometría de prensión, MRC por grupos (anexo C).</td></tr>
+        <tr><td><strong>Medicamentos (FRIDs)</strong></td><td>Revisión estructurada y desprescripción con STOPPFall, STOPP/START, Beers, STEADI.</td></tr>
+        <tr><td><strong>Cardiovascular / autonómico</strong></td><td>Hipotensión ortostática (PA en decúbito y a 1, 3, 5 min de pie), ECG; estudio de síncope si caídas inexplicadas.</td></tr>
+        <tr><td><strong>Visión y audición</strong></td><td>Agudeza visual, uso adecuado de gafas (precaución con bifocales/multifocales); cribado auditivo.</td></tr>
+        <tr><td><strong>Vestibular y mareo</strong></td><td>Anamnesis dirigida; Dix-Hallpike o Head Impulse Test según indicación.</td></tr>
+        <tr><td><strong>Cognición y ánimo</strong></td><td>MoCA, TMT-B, reloj (función ejecutiva); 4AT/CAM (delirium); GDS (depresión).</td></tr>
+        <tr><td><strong>Preocupación por caer</strong></td><td>FES-I o Short FES-I.</td></tr>
+        <tr><td><strong>Funcionalidad y continencia</strong></td><td>Barthel (anexo F), Lawton (anexo B), NEADL; 3IQ para continencia.</td></tr>
+        <tr><td><strong>Nutrición</strong></td><td>MNA, MUST; sarcopenia; déficit de vitamina D.</td></tr>
+        <tr><td><strong>Pie y calzado</strong></td><td>Inspección de calzado y problemas del pie; remisión a podología.</td></tr>
+        <tr><td><strong>Entorno</strong></td><td>Identificación de peligros del hogar (Westmead Home Safety Assessment) por clínico entrenado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: INTERVENCIONES ==================== -->
+<section class="tab-content" id="intervenciones">
+  <h2>Intervenciones con evidencia</h2>
+  <p>Recomendación transversal: <strong>todo</strong> adulto mayor recibe educación en prevención de caídas y consejo sobre actividad física, independientemente del riesgo.</p>
+
+  <h3>Ejercicio · la piedra angular <span class="gradiente">1A</span></h3>
+  <div class="card verde">
+    <h4>Programa estándar para la comunidad</h4>
+    <ul style="margin-bottom: 0">
+      <li>Equilibrio desafiante + ejercicios funcionales (sentarse-pararse, pasos en distintas direcciones).</li>
+      <li><strong>&geq; 3 sesiones/semana</strong>, individualizado, progresivo en intensidad.</li>
+      <li>Duración mínima <strong>12 semanas</strong>, sostenido en el tiempo para mantener efecto.</li>
+      <li>Incorporar Tai Chi o entrenamiento de fuerza progresivo cuando sea factible <span class="gradiente">1B</span>.</li>
+      <li>En residencias: ejercicio supervisado e individualizado <span class="gradiente">1B</span>.</li>
+    </ul>
+  </div>
+
+  <h3>Revisión farmacológica <span class="gradiente">1B</span></h3>
+  <div class="card amarilla">
+    <p>Desprescripción de FRIDs como componente de la intervención multidominio. Herramientas validadas: <strong>STOPPFall</strong>, <strong>STOPP/START</strong>, <strong>criterios de Beers</strong>.</p>
+    <p style="margin-bottom: 0">En residencias, la desprescripción racional de FRIDs es parte obligada de la estrategia <span class="gradiente">1C</span>.</p>
+  </div>
+
+  <h3>Cardiovascular <span class="gradiente">1A</span></h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li>Manejo de la hipotensión ortostática como componente de la intervención.</li>
+      <li>Caídas inexplicadas y recurrentes → estudiar y tratar como un <strong>síncope</strong>.</li>
+    </ul>
+  </div>
+
+  <h3>Vitamina D</h3>
+  <div class="card amarilla">
+    <p style="margin-bottom: 0">Suplementación <strong>solo en pacientes con riesgo de déficit</strong>. <em>No</em> se recomienda de manera universal en todos los adultos mayores.</p>
+  </div>
+
+  <h3>Modificación del entorno <span class="gradiente">1B</span></h3>
+  <div class="card azul">
+    <p style="margin-bottom: 0">Identificación y modificación de los peligros del hogar por clínico entrenado (típicamente TO), ajustada a las capacidades y conductas reales de la persona. Mayor beneficio en alto riesgo. Detalle en la pestaña «Entorno y poblaciones».</p>
+  </div>
+
+  <h3>Preocupación por caer <span class="gradiente">1B</span></h3>
+  <div class="card azul">
+    <p style="margin-bottom: 0">Abordaje con ejercicio + terapia cognitivo-conductual + terapia ocupacional dentro de un enfoque multidisciplinario.</p>
+  </div>
+
+  <h3>Intervención multidominio en alto riesgo <span class="gradiente">1B</span></h3>
+  <div class="card roja">
+    <p style="margin-bottom: 0">Es la <strong>combinación adaptada a los factores individuales</strong>, no una intervención genérica, la que ha demostrado reducir la tasa de caídas. Se diseña con la persona a partir de la valoración multifactorial.</p>
+  </div>
+
+  <h3>Tecnología y dispositivos</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li>Telesalud o «hogar inteligente» combinados con ejercicio → recomendación <strong>condicional</strong> <span class="gradiente">2C</span>.</li>
+      <li>Dispositivos vestibles aislados → evidencia <strong>insuficiente</strong> para recomendar.</li>
+    </ul>
+  </div>
+
+  <h3>Lo que NO se recomienda <span class="gradiente">1B</span></h3>
+  <div class="card roja">
+    <p style="margin-bottom: 0"><strong>Restricciones físicas en contra como medida de prevención en residencias.</strong> Aumentan agitación, lesiones por intentos de liberarse y deterioro funcional.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 5: ENTORNO Y POBLACIONES ==================== -->
+<section class="tab-content" id="entorno">
+  <h2>Modificación del entorno doméstico</h2>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Área</th><th>Medidas</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Iluminación</strong></td><td>General uniforme; luces de paso nocturnas hacia el baño; interruptores accesibles desde la cama; evitar zonas oscuras y deslumbramientos.</td></tr>
+        <tr><td><strong>Suelos y circulación</strong></td><td>Retirar o fijar tapetes; eliminar cables/objetos; reparar pisos irregulares; limpiar derrames; superficies antideslizantes.</td></tr>
+        <tr><td><strong>Baño</strong></td><td>Barras junto al inodoro y en la ducha; superficie antideslizante; asiento de ducha; elevador del inodoro si se requiere.</td></tr>
+        <tr><td><strong>Escaleras</strong></td><td>Pasamanos firmes a ambos lados; bordes con contraste o cinta antideslizante; iluminación con interruptores arriba y abajo.</td></tr>
+        <tr><td><strong>Cocina</strong></td><td>Objetos de uso frecuente a altura accesible (evitar subir a sillas); superficies de trabajo despejadas.</td></tr>
+        <tr><td><strong>Dormitorio</strong></td><td>Cama y sillas a altura adecuada; muebles estables (no con ruedas); medio de aviso al alcance.</td></tr>
+        <tr><td><strong>Exteriores</strong></td><td>Iluminar entradas y senderos; reparar superficies; rampas/pasamanos donde se requieran; precaución con pisos mojados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Calzado y ayudas para la marcha</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Recomendar:</strong> calzado cerrado, suela antideslizante, ajuste firme, tacón bajo y estable.</li>
+      <li><strong>Desaconsejar:</strong> pantuflas sueltas, medias sin suela, caminar descalzo en casa, calzado muy gastado o excesivamente flexible.</li>
+      <li>Si usa bastón, muleta o caminador: verificar dispositivo adecuado, buen estado, técnica correcta (cap. 10 · Ayudas).</li>
+    </ul>
+  </div>
+
+  <h2>Poblaciones específicas</h2>
+  <div class="card azul">
+    <h4>Enfermedad de Parkinson</h4>
+    <p style="margin-bottom: 0">Valoración con 3 factores: caídas en último año + congelamiento en último mes + marcha lenta. En fases temprana/intermedia sin/leve deterioro cognitivo: <strong>ejercicio individualizado de equilibrio y fuerza</strong> <span class="gradiente">1A</span>.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Post-ACV</h4>
+    <p style="margin-bottom: 0">Ejercicio individualizado orientado a equilibrio, fuerza y marcha (recomendación condicional <span class="gradiente">2C</span>).</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Post-fractura de cadera</h4>
+    <p style="margin-bottom: 0">Ejercicio individualizado y progresivo de movilidad (bipedestación, equilibrio, marcha, escaleras) <span class="gradiente">1B</span>, idealmente iniciado durante hospitalización y continuado en comunidad.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Deterioro cognitivo leve a demencia leve/moderada</h4>
+    <p style="margin-bottom: 0">Ejercicio para prevenir caídas si la persona está dispuesta y es capaz <span class="gradiente">1B</span>, incorporando la perspectiva del cuidador.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>Hospitales y residencias</h4>
+    <ul style="margin-bottom: 0">
+      <li><strong>Todos los pacientes y residentes se consideran de alto riesgo</strong> por defecto.</li>
+      <li>No usar escalas puntuadas para estratificar en el hospital.</li>
+      <li>Valoración multifactorial + educación personalizada a todos los adultos mayores <span class="gradiente">1A</span>.</li>
+      <li>Intervenciones multidominio basadas en factores identificados.</li>
+      <li>En residencias: optimización nutricional (calcio, proteínas, vitamina D).</li>
+    </ul>
+  </div>
+
+  <h2>Aplicabilidad al joven con discapacidad motora</h2>
+  <div class="card amarilla">
+    <p style="margin-bottom: 0">Aunque la WFG se construyó alrededor del adulto mayor, los <strong>principios son extrapolables</strong> al joven con discapacidad motora (TRM, ACV, EM, parálisis cerebral, ataxias). Coexisten factores clásicos (debilidad, equilibrio, propiocepción) con factores propios de la discapacidad: espasticidad, uso de órtesis y ayudas técnicas, fatiga, sedestación prolongada. La adaptación del algoritmo y la coordinación con fisiatría son la regla.</p>
+  </div>
+
+  <h3>Fuente y licencia</h3>
+  <p style="font-size: 0.85rem; color: var(--texto-suave);">Este anexo es una síntesis original parafraseada de las <em>World Guidelines for Falls Prevention and Management for Older Adults</em> (Montero-Odasso M et al., <em>Age and Ageing</em> 2022), publicadas en acceso abierto bajo licencia Creative Commons Attribution-NonCommercial 4.0. Documento original libre: <a href="https://doi.org/10.1093/ageing/afac205" target="_blank" rel="noopener" style="color: var(--azulacad);">doi.org/10.1093/ageing/afac205</a>.</p>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+const respuestas = {};
+function responder(paso, resp) {
+  respuestas[paso] = resp;
+  document.querySelectorAll(`#paso${paso} button`).forEach(b => b.classList.remove('selected'));
+  document.querySelector(`#paso${paso} button[data-resp="${resp}"]`).classList.add('selected');
+  decidir();
+}
+
+function decidir() {
+  const r = document.getElementById('resultado');
+  const t = document.getElementById('res-titulo');
+  const m = document.getElementById('res-meta');
+  const a = document.getElementById('res-acciones');
+  r.classList.remove('show','bajo','medio','alto');
+  document.getElementById('paso2').style.display = 'none';
+  document.getElementById('paso3').style.display = 'none';
+
+  // Paso 1
+  if (!respuestas[1]) return;
+  if (respuestas[1] === 'no') {
+    // BAJO
+    r.classList.add('show','bajo');
+    t.textContent = 'Riesgo BAJO';
+    m.textContent = 'Tamizaje negativo en los tres puntos del Paso 1.';
+    a.innerHTML = '<strong>Meta:</strong> prevención primaria.<ul><li>Educación en prevención de caídas.</li><li>Recomendar actividad física y ejercicio (general OMS, 150 min/sem aeróbico + fuerza 2 d/sem).</li><li><strong>Reevaluar en 1 año</strong> (búsqueda oportunista durante visitas clínicas).</li></ul>';
+    return;
+  }
+  // SÍ → mostrar paso 2
+  document.getElementById('paso2').style.display = 'block';
+  if (!respuestas[2]) return;
+
+  if (respuestas[2] === 'si') {
+    // ALTO directo
+    r.classList.add('show','alto');
+    t.textContent = 'Riesgo ALTO';
+    m.textContent = 'Cumple al menos un criterio de severidad del Paso 2.';
+    a.innerHTML = '<strong>Meta:</strong> prevención secundaria + tratamiento.<ul><li><strong>Valoración multifactorial</strong> (pestaña «Valoración») por equipo geriátrico/multiprofesional.</li><li><strong>Intervención multidominio individualizada</strong> a partir de los factores identificados (pestaña «Intervenciones»).</li><li>Si sospecha de síncope → <strong>estudio dedicado de síncope</strong>.</li><li>Considerar manejo de la fragilidad asociada.</li><li><strong>Seguimiento a los 30–90 días</strong> tras la intervención.</li></ul>';
+    return;
+  }
+  // Paso 2 = no → mostrar paso 3
+  document.getElementById('paso3').style.display = 'block';
+  if (!respuestas[3]) return;
+
+  if (respuestas[3] === 'si') {
+    // INTERMEDIO
+    r.classList.add('show','medio');
+    t.textContent = 'Riesgo INTERMEDIO';
+    m.textContent = 'Caída no grave + alteración de marcha o equilibrio (velocidad < 0,8 m/s o TUG > 15 s).';
+    a.innerHTML = '<strong>Meta:</strong> prevención secundaria centrada en el factor dominante.<ul><li><strong>Ejercicio individualizado en equilibrio, marcha y fuerza</strong> (&geq; 3 sesiones/sem, &geq; 12 sem, sostenido).</li><li>Educación en prevención de caídas.</li><li><strong>Remisión a fisioterapia</strong> para programa supervisado.</li><li>Reevaluar en 6–12 meses (o antes si nueva caída).</li></ul>';
+  } else {
+    // BAJO
+    r.classList.add('show','bajo');
+    t.textContent = 'Riesgo BAJO';
+    m.textContent = 'Tamizaje positivo en Paso 1 pero sin criterios de severidad ni alteración de marcha/equilibrio.';
+    a.innerHTML = '<strong>Meta:</strong> prevención primaria reforzada.<ul><li>Educación en prevención de caídas.</li><li>Actividad física + entrenamiento de equilibrio dosis estándar OMS.</li><li><strong>Reevaluar en 1 año</strong>.</li></ul>';
+  }
+}
+
+function resetAlgo() {
+  Object.keys(respuestas).forEach(k => delete respuestas[k]);
+  document.querySelectorAll('#algo button.selected').forEach(b => b.classList.remove('selected'));
+  document.getElementById('paso2').style.display = 'none';
+  document.getElementById('paso3').style.display = 'none';
+  document.getElementById('resultado').classList.remove('show','bajo','medio','alto');
+}
+</script>
+
+</body>
+</html>
