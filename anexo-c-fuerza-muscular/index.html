@@ -219,6 +219,28 @@ table.t .raiz { font-family: var(--sans); font-weight: 700; color: var(--azulaca
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -240,6 +262,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="sust">4. Sustituciones</button>
   <button class="tab-btn" data-tab="atlas">5. 🔎 Atlas · selector de 15 grupos</button>
   <button class="tab-btn" data-tab="mapa">6. Mapa músculo-raíz-nervio</button>
+  <button class="tab-btn" data-tab="caso-clinico">7. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">8. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -452,6 +476,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -678,6 +717,76 @@ document.getElementById('atlas-select').addEventListener('change', e => {
   `;
   det.classList.add('show');
 });
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Andrés, 38 años · «pie caído» tras herniorrafia", "historia": "Hombre de 38 años, sano, postoperatorio de herniorrafia inguinal hace 2 semanas. Refiere que «el pie izquierdo no levanta bien». Al examen: dorsiflexión del tobillo 3/5, eversión del tobillo 3/5, extensión del primer dedo 3/5. Inversión del tobillo (tibial posterior) 5/5. Flexión de cadera 5/5. Flexores plantares 5/5. Reflejos preservados. Sensibilidad: hipoestesia en dorso del pie. Sin dolor lumbar.", "pregunta": "¿Cuál es el patrón y el diagnóstico topográfico más probable?", "opciones": [{"texto": "Radiculopatía L5: dorsiflexión + eversión + extensión del primer dedo + inversión todos débiles, porque comparten raíz", "correcto": false}, {"texto": "Neuropatía peronea común a nivel de la cabeza del peroné: debilidad de músculos inervados por el peroneo (tibial anterior, peroneos, extensor del primer dedo) con preservación del tibial posterior (rama tibial, L4–L5)", "correcto": true}, {"texto": "Polineuropatía diabética asimétrica", "correcto": false}, {"texto": "Miopatía proximal", "correcto": false}], "feedback": "El examen muestra el patrón POR NERVIO: todos los músculos débiles son inervados por el peroneo común (división peronea profunda y superficial). El tibial posterior, que también es inervado por L5 pero por la división tibial del ciático, está PRESERVADO. Esa disociación es la clave: en radiculopatía L5 estaría débil también el tibial posterior. La compresión peronea en la cabeza del peroné por posiciones quirúrgicas prolongadas (litotomía, decúbito lateral) es una causa clásica."}];
+const __autoData = [{"p": "La escala MRC va de:", "o": ["0 a 3", "0 a 5", "0 a 10", "1 a 10"], "c": 1, "e": "0 a 5. 0 = sin contracción visible, 5 = fuerza normal contra resistencia máxima. Modificadores +/− se usan en investigación, no se recomiendan en clínica."}, {"p": "Grado MRC 3/5 significa:", "o": ["Contracción palpable sin movimiento articular", "Movimiento articular completo con la gravedad eliminada", "Movimiento articular completo CONTRA la gravedad, pero NO contra resistencia", "Movimiento contra resistencia moderada"], "c": 2, "e": "MRC 3 = vence la gravedad pero no resistencia. Es el umbral clínico para funcionalidad básica del miembro (caminar, levantar la mano)."}, {"p": "El patrón «por raíz» se caracteriza por:", "o": ["Debilidad en músculos inervados por nervios distintos pero raíces comunes", "Debilidad en músculos inervados por raíces distintas pero el mismo nervio", "Debilidad simétrica distal", "Debilidad solo proximal"], "c": 0, "e": "Radiculopatía: múltiples nervios diferentes pero raíz común. El opuesto (raíces distintas, nervio común) es la neuropatía periférica."}, {"p": "Si al evaluar flexión de codo aparece elevación del hombro y desviación del tronco, eso sugiere:", "o": ["Fuerza normal", "Una sustitución para compensar debilidad del músculo evaluado (bíceps/braquial)", "Tono normal", "Dolor"], "c": 1, "e": "Sustituciones (uso de músculos accesorios o movimiento del tronco) son la señal de que el músculo objetivo está débil. Estabilizar adecuadamente al paciente para detectarlas y graduar correctamente."}, {"p": "La fuerza muscular se evalúa idealmente:", "o": ["En decúbito siempre", "En la posición que mejor permite evaluar el músculo en su rango contra gravedad o con gravedad eliminada, según la fuerza esperada", "Solo de pie", "Sin movilización del paciente"], "c": 1, "e": "La posición debe elegirse para evaluar el músculo en su rango funcional, eliminando o aprovechando la gravedad según convenga. Si se anticipa fuerza < 3, posicionar para gravedad eliminada; si se anticipa ≥ 3, contra gravedad y luego con resistencia."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

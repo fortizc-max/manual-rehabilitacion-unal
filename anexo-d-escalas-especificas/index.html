@@ -89,6 +89,28 @@ button.reset:hover { background: var(--gris-claro); }
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -108,6 +130,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="fac">2. FAC</button>
   <button class="tab-btn" data-tab="dash">3. QuickDASH</button>
   <button class="tab-btn" data-tab="boston">4. Boston-CTQ</button>
+  <button class="tab-btn" data-tab="caso-clinico">5. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">6. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -255,6 +279,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -495,6 +534,76 @@ function resetBCTF() {
   document.getElementById('bctf-interp').textContent='Conteste los 8 ítems para ver el promedio.';
   document.getElementById('bctf-total').classList.remove('bajo','medio','alto');
 }
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso 1 · Sra. Helena, 68 años · FAC en rehabilitación post-ACV", "historia": "Mujer de 68 años, ACV isquémico hemisférico derecho hace 6 semanas. Al ingreso a rehabilitación: FAC 1 (caminaba sostenida por una persona). A las 4 semanas: FAC 3 (camina con supervisión verbal, sin contacto físico). A las 8 semanas: FAC 4 (independiente en plano, requiere ayuda en escaleras).", "pregunta": "¿Qué transición es la más importante para definir alta hospitalaria a domicilio?", "opciones": [{"texto": "FAC 0 → FAC 1", "correcto": false}, {"texto": "FAC 1 → FAC 2", "correcto": false}, {"texto": "FAC 3 → FAC 4: el paciente deja de requerir presencia continua de un asistente para la marcha en plano, lo que define el umbral funcional de independencia para alta a domicilio", "correcto": true}, {"texto": "Solo FAC 5 permite alta", "correcto": false}], "feedback": "FAC 3 → FAC 4 es el umbral clave: marca el paso de «necesita supervisión continua» a «independiente en plano». FAC 4 → FAC 5 (independencia comunitaria con escaleras y terrenos irregulares) es la transición de reintegración comunitaria, pero el alta a domicilio se puede dar en FAC 4 si el entorno es adecuado."}, {"titulo": "Caso 2 · Carlos, 52 años · QuickDASH pre y post liberación quirúrgica", "historia": "Hombre de 52 años, electricista, con rotura completa del manguito rotador derecho. QuickDASH preoperatorio: 68/100. A los 3 meses post-reparación con rehabilitación: 38/100.", "pregunta": "¿La mejoría es clínicamente significativa?", "opciones": [{"texto": "No, solo bajó 30 puntos, hay que esperar a 0", "correcto": false}, {"texto": "Sí, la mejoría es de 30 puntos, muy por encima del cambio mínimo importante (10–15 puntos). Categoría inicial «severa», ahora «moderada». Continuar rehabilitación hacia el retorno laboral", "correcto": true}, {"texto": "Sí, pero indica que necesita re-operación", "correcto": false}, {"texto": "Las puntuaciones no son comparables entre momentos diferentes", "correcto": false}], "feedback": "30 puntos de mejoría es muy superior al MCID (10–15). El paciente pasó de discapacidad severa (≥ 50) a moderada (30–50). En esta fase típicamente continúa el programa de fortalecimiento y educación ergonómica para retorno laboral progresivo en su oficio (electricista, alta demanda de miembro superior)."}, {"titulo": "Caso 3 · Patricia, 45 años · Boston-CTQ tras infiltración de STC", "historia": "Mujer de 45 años, secretaria, síndrome del túnel del carpo bilateral. Boston-CTQ derecho pre-infiltración: severidad de síntomas 3,5 / limitación funcional 2,8. A las 4 semanas post-infiltración: severidad 1,8 / limitación 1,5.", "pregunta": "Conducta:", "opciones": [{"texto": "Considerar fracaso y remitir a cirugía", "correcto": false}, {"texto": "Cambio > 1 punto en ambas subescalas: respuesta clínicamente significativa a la infiltración. Continuar manejo conservador (ergonomía, férula nocturna), reevaluar a los 3–6 meses; remitir solo si recidiva con criterios para cirugía", "correcto": true}, {"texto": "Indicar AINE indefinidos", "correcto": false}, {"texto": "Las dos subescalas se promedian para tener una sola cifra de 0 a 5", "correcto": false}], "feedback": "Cambio ≥ 1 punto en cualquiera de las dos subescalas es clínicamente significativo (Levine 1993). Aquí baja > 1 en ambas: respuesta franca. Las subescalas se reportan SEPARADAS, no se promedian. La conducta es continuar conservador y reevaluar; la cirugía se reserva para fracaso del conservador o déficit motor/atrofia tenar."}];
+const __autoData = [{"p": "FAC 4 indica:", "o": ["No camina", "Camina con apoyo continuo de una persona", "Camina independiente en plano pero requiere ayuda en escaleras o terrenos irregulares", "Camina independiente en cualquier superficie"], "c": 2, "e": "FAC 4 = independiente en plano, requiere ayuda en escaleras/irregular. FAC 5 = independiente en cualquier superficie incluidas escaleras."}, {"p": "La fórmula del puntaje QuickDASH es:", "o": ["Suma directa de respuestas", "[(suma/n) − 1] × 25, donde n = número de ítems respondidos", "Promedio × 4", "Solo se reporta el mayor ítem"], "c": 1, "e": "[(suma/n) − 1] × 25. El resultado va de 0 (sin discapacidad) a 100. Cambio mínimo importante: 10–15 puntos."}, {"p": "Para que el QuickDASH sea válido, el paciente debe responder al menos:", "o": ["3 ítems", "5 ítems", "10 de 11 ítems", "Todos los 11 ítems"], "c": 2, "e": "≥ 10 de 11 ítems. Si deja sin responder > 1 ítem, la fórmula no es válida (los autores recomendaron este umbral en validaciones posteriores)."}, {"p": "Las dos subescalas del cuestionario de Boston para STC son:", "o": ["Dolor y debilidad", "Severidad de síntomas y limitación funcional", "Sensibilidad y motor", "Día y noche"], "c": 1, "e": "Severidad de síntomas (11 ítems) y limitación funcional (8 ítems). Cada una se reporta SEPARADA (no se suman ni se promedian entre sí). Cambio ≥ 1 punto en cualquiera = clínicamente significativo."}, {"p": "El instrumento de elección para seguimiento longitudinal en patología del hombro, codo, muñeca y mano es:", "o": ["WHODAS-12 (anexo G)", "Barthel (anexo F)", "QuickDASH (anexo D)", "SPPB (anexo A)"], "c": 2, "e": "QuickDASH es el instrumento de elección para el miembro superior porque integra los tres niveles (hombro, codo, muñeca/mano) en un solo puntaje, es breve (3–5 min) y tiene buena sensibilidad al cambio."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

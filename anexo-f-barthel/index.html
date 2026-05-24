@@ -124,6 +124,28 @@ button.reset:hover { background: var(--gris-claro); }
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -143,6 +165,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="dominios">2. Los 10 ítems</button>
   <button class="tab-btn" data-tab="calc">3. 🔢 Calculadora</button>
   <button class="tab-btn" data-tab="interp">4. Interpretación + limitaciones</button>
+  <button class="tab-btn" data-tab="caso-clinico">5. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">6. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -332,6 +356,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -422,6 +461,76 @@ function resetBarthel() {
   document.getElementById('barthel-interp').textContent = 'Conteste los 10 ítems para ver el resultado.';
   document.getElementById('barthel-total').classList.remove('bajo','medio','alto');
 }
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Don José, 70 años · trayectoria de Barthel post-ACV", "historia": "Hombre de 70 años, ACV isquémico izquierdo, hemiparesia derecha. Barthel al ingreso a rehabilitación (día 14): 35. A las 6 semanas: 60. A los 3 meses: 85.", "pregunta": "Interpretación y comunicación al paciente y familia:", "opciones": [{"texto": "La mejoría no es significativa porque no llegó a 100", "correcto": false}, {"texto": "Trayectoria clínicamente excelente: cambios de +25 y +25 puntos están muy por encima del MCID (5 puntos). Pasó de dependencia severa (21–60) a moderada (61–90). Comunicar progreso medible, continuar rehabilitación enfocada en los ítems aún limitados, evaluar entorno domiciliario y AIVD con Lawton-Brody", "correcto": true}, {"texto": "Se debe declarar la rehabilitación fracasada y suspender", "correcto": false}, {"texto": "Indicar antidepresivo profiláctico", "correcto": false}], "feedback": "El cambio en el tiempo es el indicador más útil de Barthel. +25 puntos > MCID (5) por mucho margen, confirma respuesta a la intervención. El número absoluto orienta la categoría pero el cambio orienta la respuesta. Comunicar al paciente con datos objetivos motiva la adherencia. Complementar con Lawton-Brody porque el Barthel tiene efecto techo en ABVD y no captura AIVD."}];
+const __autoData = [{"p": "El puntaje total del Barthel va de:", "o": ["0 a 10", "0 a 48", "0 a 100", "1 a 5"], "c": 2, "e": "0 (dependencia total) a 100 (independencia). Cada ítem se puntúa entre 0 y 15 según peso funcional."}, {"p": "El cambio mínimo clínicamente importante (MCID) del Barthel es de aproximadamente:", "o": ["1 punto", "5 puntos", "20 puntos", "50 puntos"], "c": 1, "e": "≥ 5 puntos entre dos evaluaciones se considera cambio mínimo clínicamente relevante en programas de rehabilitación. Es el indicador estándar de efecto de la intervención."}, {"p": "Un paciente con Barthel 100/100 puede tener todavía:", "o": ["Independencia perfecta en todo y por lo tanto no requiere ningún otro instrumento", "Limitaciones importantes en AIVD (Lawton), participación o calidad de vida; el Barthel tiene efecto techo en ABVD", "Dependencia anal y urinaria", "Una contraindicación absoluta para vivir solo"], "c": 1, "e": "Efecto techo: 100/100 en Barthel significa independencia en ABVD básicas, pero no descarta dependencia en AIVD (manejar dinero, medicamentos, transporte). Para esos casos se complementa con Lawton-Brody (anexo B)."}, {"p": "El periodo de referencia para el diligenciamiento del Barthel es:", "o": ["Una sola sesión observada", "Lo que «podría hacer» idealmente (capacidad)", "Lo que el paciente «efectivamente hace» en los últimos 7 días (desempeño)", "Lo que reporta la familia sin observación"], "c": 2, "e": "Desempeño en los últimos 7 días, no capacidad. Cuando la respuesta no es categórica, se asigna el puntaje más BAJO de las opciones disponibles."}, {"p": "Un paciente con Barthel 25/100 corresponde a:", "o": ["Independencia", "Dependencia leve", "Dependencia severa (21–60)", "Dependencia total"], "c": 2, "e": "21–60 = severa. 0–20 total, 21–60 severa, 61–90 moderada, 91–99 leve, 100 independencia."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

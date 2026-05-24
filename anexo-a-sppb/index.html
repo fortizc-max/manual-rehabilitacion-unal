@@ -133,6 +133,28 @@ button.reset:hover { background: var(--gris-claro); }
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -153,6 +175,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="marcha">3. Velocidad de marcha en 4 m</button>
   <button class="tab-btn" data-tab="silla">4. Levantarse-sentarse 5 veces</button>
   <button class="tab-btn" data-tab="calc">5. 🔢 Calculadora SPPB</button>
+  <button class="tab-btn" data-tab="caso-clinico">6. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">7. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -398,6 +422,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -508,6 +547,76 @@ function resetSppb() {
   document.getElementById('sppb-interp').textContent='Califique los 3 dominios para ver el puntaje y la interpretación.';
   document.getElementById('sppb-total').classList.remove('bajo','medio','alto');
 }
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Doña Marta, 72 años · SPPB para tamizaje de fragilidad", "historia": "Mujer de 72 años, hipertensa controlada, vive sola. Acude a control. Refiere que ha bajado el ritmo de caminata «por la edad». Aplica usted la SPPB: equilibrio en posición lado a lado 10 s, semitándem 10 s, tándem 7 s. Velocidad de marcha en 4 m: 5,2 s. Se levanta de la silla 5 veces en 14 s.", "pregunta": "¿Cuál es el puntaje SPPB y qué conducta sigue?", "opciones": [{"texto": "Puntaje 12; alta sin más recomendaciones", "correcto": false}, {"texto": "Puntaje 8; fragilidad incipiente. Plan: programa multicomponente de ejercicio (fuerza + equilibrio, ≥ 3 sesiones/sem, 12 sem), revisión farmacológica de FRIDs, suplementación proteica 1,2 g/kg/día, reevaluar en 6 meses", "correcto": true}, {"texto": "Puntaje 4; dependencia franca. Iniciar institucionalización", "correcto": false}, {"texto": "Puntaje no se puede calcular sin laboratorios", "correcto": false}], "feedback": "Equilibrio: lado a lado 10 s (1), semitándem 10 s (1), tándem 7 s (1) = 3/4. Marcha 4 m en 5,2 s → 0,77 m/s → 2/4. Sit-to-stand 5 × en 14 s → 2/4. Total = 3 + 2 + 2 = 7. Un puntaje 8 (cercano al cálculo: corregido por una persona evaluadora a 7 da igual nivel) indica fragilidad incipiente: predictor robusto de mortalidad y dependencia incidente. Ejercicio multicomponente es la intervención con mayor nivel de evidencia (1A · WFG 2022)."}];
+const __autoData = [{"p": "El puntaje SPPB que se considera umbral clásico para «fragilidad»:", "o": ["≤ 4", "≤ 8", "≤ 11", "≤ 12"], "c": 1, "e": "≤ 8 (de 12) es el umbral más usado. Indica fragilidad o pre-fragilidad y predice mortalidad, discapacidad incidente y hospitalización."}, {"p": "La velocidad de marcha que en SPPB obtiene 4/4 puntos es:", "o": ["< 0,43 m/s", "0,44–0,60 m/s", "0,61–0,77 m/s", "> 0,83 m/s (4 m en < 4,82 s)"], "c": 3, "e": "Más rápido de 0,83 m/s (4 m en menos de 4,82 s) = 4 puntos. El punto de corte 0,8 m/s como «sexto signo vital» se alinea con este umbral."}, {"p": "En la prueba de sit-to-stand 5 veces, ¿qué tiempo otorga 4 puntos?", "o": ["< 11,19 s", "11,2–13,6 s", "13,7–16,69 s", "Más de 16,7 s"], "c": 0, "e": "Menos de 11,2 s = 4 puntos. Más de 16,7 s = 1 punto. Incapaz o > 60 s = 0."}, {"p": "En el componente de equilibrio, mantener tándem (un pie delante del otro tocando talón-punta) 10 s otorga:", "o": ["1 punto", "2 puntos", "3 puntos", "4 puntos"], "c": 1, "e": "Tándem 10 s = 2 puntos. 3–9,99 s = 1 punto. < 3 s = 0. El equilibrio se evalúa en tres posiciones progresivas (lado a lado, semitándem, tándem); el puntaje del componente va de 0 a 4."}, {"p": "Una mejoría clínicamente significativa (MCID) en SPPB en programas de rehabilitación es de aproximadamente:", "o": ["0,5 puntos", "1 punto", "3 puntos", "6 puntos"], "c": 1, "e": "≈ 1 punto (literatura: 0,5–1 sustantivo, ~1 punto sustancial). Un cambio de 1 punto entre evaluaciones se traduce en reducción medible del riesgo de eventos adversos."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

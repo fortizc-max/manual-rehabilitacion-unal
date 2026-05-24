@@ -84,6 +84,28 @@ button.reset:hover { background: var(--gris-claro); }
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -103,6 +125,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="preguntas">2. Las 6 preguntas</button>
   <button class="tab-btn" data-tab="calc">3. 🔢 Tamizaje</button>
   <button class="tab-btn" data-tab="interp">4. Interpretación + notas</button>
+  <button class="tab-btn" data-tab="caso-clinico">5. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">6. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -282,6 +306,21 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -378,6 +417,76 @@ function resetWGSS() {
   document.getElementById('wgss-interp').textContent = 'Conteste las 6 preguntas para ver el resultado del tamizaje.';
   document.getElementById('wgss-total').classList.remove('bajo','medio','alto');
 }
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Encuesta poblacional · Don Julio, 65 años", "historia": "Don Julio responde el WG-SS en una encuesta de hogares del DANE. Reporta: visión = 2 (cierta dificultad incluso con sus gafas), audición = 2 (cierta dificultad), movilidad = 4 (le resulta imposible caminar o subir escalones), cognición = 1 (ninguna), autocuidado = 3 (mucha dificultad para vestirse), comunicación = 1 (ninguna).", "pregunta": "¿Cómo se clasifica en los dos umbrales del Washington Group?", "opciones": [{"texto": "Negativo: no cumple ningún umbral", "correcto": false}, {"texto": "Cumple ambos umbrales: 2 dominios con «mucha dificultad» o «imposible» (movilidad y autocuidado). Umbral estándar (≥ 1) cumplido + umbral conservador (≥ 2) cumplido", "correcto": true}, {"texto": "Cumple solo umbral conservador porque tiene 6 dominios positivos", "correcto": false}, {"texto": "El WG-SS diagnostica clínicamente discapacidad motora severa", "correcto": false}], "feedback": "El WG-SS cuenta dominios con respuesta ≥ 3 («mucha dificultad» o «imposible»). Aquí son 2: movilidad (4) y autocuidado (3). Cumple umbral estándar (≥ 1, usado por censos y ODS) y umbral conservador (≥ 2, usado en estudios subpoblacionales). El WG-SS NO es diagnóstico clínico: identifica un subgrupo con mayor riesgo de exclusión social. La caracterización funcional individual sigue siendo del WHODAS-12 (anexo G)."}];
+const __autoData = [{"p": "El umbral ESTÁNDAR del Washington Group para tamizaje poblacional de discapacidad es:", "o": ["Cualquier respuesta ≥ 1 en cualquier dominio", "«Mucha dificultad» (3) o «imposible» (4) en al menos 1 de los 6 dominios", "«Imposible» (4) en al menos 3 dominios", "Promedio ≥ 2 entre los 6 dominios"], "c": 1, "e": "Categoría 3 o 4 en ≥ 1 dominio. Es el umbral utilizado por censos nacionales y para desagregar los Objetivos de Desarrollo Sostenible por estatus de discapacidad."}, {"p": "Las categorías 7 (No contesta) y 9 (No sabe):", "o": ["Se leen al entrevistado como dos opciones más", "NO se leen al entrevistado; son códigos administrativos para registro estadístico", "Se promedian con las cuatro categorías principales", "Equivalen a una respuesta «4» (imposible)"], "c": 1, "e": "7 y 9 son códigos de registro, NO se leen al entrevistado. Las cuatro categorías que sí se leen son: 1 ninguna, 2 cierta, 3 mucha, 4 imposible."}, {"p": "El número de dominios y de preguntas del WG-SS es:", "o": ["12 preguntas en 6 dominios", "6 preguntas (una por dominio)", "10 preguntas en 4 dominios", "30 preguntas en 8 dominios"], "c": 1, "e": "6 preguntas, una por dominio: visión, audición, movilidad, cognición (recordar/concentrarse), cuidado personal, comunicación. Aplicación < 3 minutos."}, {"p": "El preámbulo del entrevistador («…dificultades derivadas de un problema de salud…»):", "o": ["Es opcional y suele omitirse", "Ancla las respuestas en limitaciones funcionales asociadas a salud, no en preferencias o restricciones contextuales", "Solo se lee cuando el sujeto no puede responder", "Es una pregunta adicional con respuesta sí/no"], "c": 1, "e": "El preámbulo es deliberado y obligatorio: separa la limitación funcional ligada a salud de otras restricciones (cultura, falta de oportunidades) que la persona pueda reportar."}, {"p": "Un tamizaje WG-SS positivo en consulta clínica significa:", "o": ["Diagnóstico confirmado de discapacidad", "Que la persona pertenece estadísticamente al subgrupo con mayor riesgo de exclusión social y requiere valoración funcional individual ulterior (WHODAS, Barthel, Lawton según el caso)", "Que el paciente debe ser pensionado por invalidez", "Que no requiere ningún estudio adicional"], "c": 1, "e": "El WG-SS no es diagnóstico clínico. Es un tamizaje estadístico. Un positivo señala el subgrupo en riesgo y abre la puerta a una valoración funcional individual con instrumentos específicos por dominio."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

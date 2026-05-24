@@ -83,6 +83,28 @@ button.reset:hover { background: var(--gris-claro); }
 footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 </style>
 </head>
 
@@ -103,6 +125,8 @@ footer a:hover { text-decoration: underline; }
   <button class="tab-btn" data-tab="valoracion">3. Valoración multifactorial</button>
   <button class="tab-btn" data-tab="intervenciones">4. Intervenciones</button>
   <button class="tab-btn" data-tab="entorno">5. Entorno y poblaciones</button>
+  <button class="tab-btn" data-tab="caso-clinico">6. 🩺 Caso clínico</button>
+  <button class="tab-btn" data-tab="autoeval">7. ✅ Autoevaluación</button>
 </nav>
 
 <main>
@@ -365,6 +389,21 @@ footer a:hover { text-decoration: underline; }
   <p style="font-size: 0.85rem; color: var(--texto-suave);">Este anexo es una síntesis original parafraseada de las <em>World Guidelines for Falls Prevention and Management for Older Adults</em> (Montero-Odasso M et al., <em>Age and Ageing</em> 2022), publicadas en acceso abierto bajo licencia Creative Commons Attribution-NonCommercial 4.0. Documento original libre: <a href="https://doi.org/10.1093/ageing/afac205" target="_blank" rel="noopener" style="color: var(--azulacad);">doi.org/10.1093/ageing/afac205</a>.</p>
 </section>
 
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="tab-content" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="tab-content" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -449,6 +488,76 @@ function resetAlgo() {
   document.getElementById('paso3').style.display = 'none';
   document.getElementById('resultado').classList.remove('show','bajo','medio','alto');
 }
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Doña Olga, 76 años · caída en el baño", "historia": "Mujer de 76 años, hipertensa, en tratamiento con amlodipino, hidroclorotiazida, lorazepam 0,5 mg HS por insomnio crónico. Cayó en el baño hace 3 semanas, contusión en cadera sin fractura. Consulta por usted. Antecedentes: caída por «tropiezo» hace 6 meses sin lesión, refiere inestabilidad ocasional al levantarse. Velocidad de marcha 0,7 m/s. TUG 16 s. Hipotensión ortostática: PAS de pie 110 (decúbito 140).", "pregunta": "Aplicando el algoritmo WFG, clasificación y conducta:", "opciones": [{"texto": "Riesgo bajo: educación y reevaluar en un año", "correcto": false}, {"texto": "Riesgo alto (≥ 2 caídas en 12 meses + alteración de marcha y equilibrio + hipotensión ortostática). Conducta: VALORACIÓN MULTIFACTORIAL + INTERVENCIÓN MULTIDOMINIO: ejercicio individualizado (≥ 3 sesiones/sem, ≥ 12 sem), DESPRESCRIPCIÓN DE FRIDs (lorazepam, hidroclorotiazida), manejo de hipotensión ortostática, evaluación del hogar y calzado, seguimiento 30–90 días", "correcto": true}, {"texto": "Riesgo intermedio: solo ejercicio en casa sin cambios de medicación", "correcto": false}, {"texto": "Cama indefinida hasta que pase el dolor de cadera", "correcto": false}], "feedback": "Cumple ≥ 2 caídas en 12 meses + alteración de marcha (0,7 m/s < 0,8) y TUG 16 > 15 + factor cardiovascular agravante (hipotensión ortostática). Clasificación: ALTO riesgo. El núcleo de la intervención es MULTIDOMINIO: lorazepam (benzodiacepina, FRID clase I) e hidroclorotiazida (riesgo de hipotensión ortostática y deshidratación) son candidatos a desprescripción con STOPPFall. Ejercicio multicomponente, modificación del entorno y manejo cardiovascular son los pilares (1A/1B). Reposo prolongado empeora todo."}];
+const __autoData = [{"p": "En la gradación de la WFG, el código «1A» indica:", "o": ["Recomendación débil con evidencia alta", "Recomendación fuerte con evidencia alta", "Recomendación fuerte con evidencia baja", "Opinión de expertos"], "c": 1, "e": "Primer dígito (1 fuerte / 2 condicional) + letra (A alta, B intermedia, C baja, E consenso). 1A es la combinación más robusta: recomendación fuerte sustentada en evidencia alta."}, {"p": "El punto de corte de velocidad de marcha que define alteración en el algoritmo WFG es:", "o": ["< 0,5 m/s", "< 0,8 m/s", "< 1,2 m/s", "< 1,5 m/s"], "c": 1, "e": "< 0,8 m/s. Es el mismo umbral usado en SPPB, evaluación geriátrica integral y como «sexto signo vital»."}, {"p": "Los FRIDs (fármacos que aumentan el riesgo de caídas) incluyen típicamente:", "o": ["Solo antihipertensivos", "Solo antibióticos", "Psicofármacos (benzodiacepinas, antipsicóticos, antidepresivos), anticolinérgicos, hipoglicemiantes con hipoglucemia, antihipertensivos con riesgo ortostático", "Solo AINE"], "c": 2, "e": "Múltiples clases. STOPPFall, STOPP/START y Beers son las herramientas validadas. La desprescripción racional es un componente clave de la intervención multidominio."}, {"p": "En el hospital y residencias de larga estancia, las WFG recomiendan:", "o": ["Aplicar escalas de cribado puntuadas para estratificar", "Considerar a TODOS los pacientes y residentes como de alto riesgo", "No hacer ninguna intervención", "Restricciones físicas como prevención"], "c": 1, "e": "Todos = alto riesgo por defecto. Las WFG DESACONSEJAN escalas puntuadas para estratificar en hospital. También recomiendan EN CONTRA de las restricciones físicas como medida de prevención (1B): aumentan agitación, lesiones por intentos de liberarse y deterioro funcional."}, {"p": "El programa de ejercicio recomendado por las WFG para adultos mayores de la comunidad incluye:", "o": ["Solo caminata 30 min al día", "Equilibrio desafiante + ejercicios funcionales, ≥ 3 sesiones/sem, individualizado, progresivo, ≥ 12 semanas y sostenido", "Solo Tai Chi 1 vez al mes", "Reposo y movilizaciones pasivas"], "c": 1, "e": "Recomendación 1A. Lo crítico: equilibrio DESAFIANTE (no solo caminar), funcional (sit-to-stand, pasos), ≥ 3 d/sem, ≥ 12 sem y sostenido en el tiempo. Tai Chi y entrenamiento de fuerza progresivo son complementos recomendados (1B)."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>

@@ -327,6 +327,30 @@ footer {
   background: white;
 }
 footer a { color: var(--azulacad); }
+
+/* ===== Caso clínico y autoevaluación ===== */
+.caso { background: white; border: 1px solid var(--gris-borde); border-top: 3px solid var(--jamared); border-radius: 4px; margin: 18px 0; padding: 18px 22px; }
+.caso h4 { margin: 0 0 10px; color: var(--jamared); font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 500; }
+.caso .historia { font-family: var(--serif); font-style: italic; color: var(--texto-suave); padding: 12px 14px; background: var(--gris-claro); border-radius: 4px; margin: 6px 0 14px; font-size: 0.95rem; line-height: 1.5; }
+.caso .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 8px; color: var(--azulacad); font-size: 0.92rem; }
+.caso .opcion { font-family: var(--serif); display: block; padding: 9px 14px; margin: 5px 0; background: white; border: 1px solid var(--gris-borde); border-radius: 4px; cursor: pointer; font-size: 0.94rem; transition: background 0.12s, border-color 0.12s; }
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.caso .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.caso .feedback { margin-top: 12px; padding: 12px 14px; background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; font-size: 0.92rem; display: none; line-height: 1.5; }
+.caso .feedback.show { display: block; }
+.q { background: white; border: 1px solid var(--gris-borde); border-radius: 4px; padding: 16px 20px; margin: 14px 0; }
+.q .pregunta { font-family: var(--sans); font-weight: 600; margin-bottom: 10px; color: var(--azulacad); font-size: 0.95rem; }
+.q .opcion { font-family: var(--serif); display: block; padding: 8px 14px; margin: 4px 0; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; cursor: pointer; font-size: 0.94rem; }
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct { background: var(--verde-suave); border-color: var(--verde); color: var(--verde); font-weight: 600; }
+.q .opcion.wrong { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.q .explicacion { font-family: var(--serif); display: none; margin-top: 10px; font-size: 0.92rem; color: var(--texto-suave); padding: 10px 14px; background: var(--gris-claro); border-radius: 4px; line-height: 1.5; }
+.q .explicacion.show { display: block; }
+.score-box { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 14px; text-align: center; font-size: 0.95rem; margin: 16px 0; position: sticky; bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 5; }
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+.caso-section { padding: 36px 24px 12px; max-width: 880px; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -376,6 +400,21 @@ footer a { color: var(--azulacad); }
 
     <button class="reset" onclick="resetWhodas()">Reiniciar</button>
   </aside>
+
+<!-- ============== CASO CLÍNICO ============== -->
+<section class="caso-section" id="caso-clinico">
+  <h2>Caso clínico</h2>
+  <p>Caso(s) ilustrativo(s) que aplican el instrumento a una situación realista. Marque la mejor opción; el feedback explica el razonamiento.</p>
+  <div id="caso-cont"></div>
+</section>
+
+<!-- ============== AUTOEVALUACIÓN ============== -->
+<section class="caso-section" id="autoeval">
+  <h2>Autoevaluación · 5 preguntas</h2>
+  <p>Verifique su comprensión del instrumento, sus puntos de corte y su uso clínico. Marque una opción por pregunta.</p>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 5</strong></div>
+</section>
 </main>
 
 <footer>
@@ -542,6 +581,76 @@ function resetWhodas() {
 }
 
 actualizar();  // inicial
+
+// ============================================================
+// Caso clínico + autoevaluación
+// ============================================================
+const __casosData = [{"titulo": "Caso · Pedro, 48 años · lumbalgia crónica y WHODAS", "historia": "Hombre de 48 años, mecánico, lumbalgia crónica de 18 meses sin red flags, sin radiculopatía. Diligencia WHODAS-12: estar de pie períodos largos = 3 (severa), caminar 1 km = 2 (moderada), responsabilidades del hogar = 2, aprender tarea nueva = 0, participar en actividades comunitarias = 2, afectación emocional = 3, concentrarse 10 min = 1, bañarse = 0, vestirse = 1, tratar con personas no conocidas = 1, mantener amistad = 0, trabajo cotidiano = 3. Suma = 18. Puntaje 0–100 = (18/48) × 100 = 37,5.", "pregunta": "Interpretación y conducta:", "opciones": [{"texto": "WHODAS 0; sin discapacidad", "correcto": false}, {"texto": "Discapacidad moderada (≈ 37/100). Perfil con peor compromiso en movilidad, actividades cotidianas y participación. Coherente con el patrón típico de lumbalgia crónica. Plan: educación biopsicosocial, ejercicio terapéutico estructurado, abordaje del componente emocional, vigilar evolución con WHODAS de seguimiento (cambio ≥ 5 puntos en escala 0–100 ≈ MCID)", "correcto": true}, {"texto": "Discapacidad mínima; reposo y AINE indefinidos", "correcto": false}, {"texto": "Indicación de cirugía", "correcto": false}], "feedback": "Suma 18 → escala 0–100: (18/48) × 100 = 37,5. El perfil por dominios CIF orienta el plan: los dominios más altos son movilidad/actividades/participación (típico de dolor crónico musculoesquelético). El componente emocional (S5 = 3) y el impacto laboral (S12 = 3) merecen abordaje específico. Educación, ejercicio y manejo del componente emocional son la primera línea (no AINE indefinidos ni cirugía sin red flags)."}];
+const __autoData = [{"p": "El WHODAS 2.0-12 evalúa la dificultad en los últimos:", "o": ["7 días", "14 días", "30 días", "12 meses"], "c": 2, "e": "30 días. Es la ventana temporal estándar del cuestionario."}, {"p": "Cada ítem se puntúa en una escala ordinal de:", "o": ["0 a 4 (ninguna, leve, moderada, severa, extrema/imposible)", "0 a 10", "1 a 5", "0 o 1 (binario)"], "c": 0, "e": "0 = ninguna, 1 = leve, 2 = moderada, 3 = severa, 4 = extrema o no puede hacerlo. La suma simple va de 0 a 48; el puntaje transformado a 0–100 = (suma/48) × 100."}, {"p": "Los dominios CIF que cubre el WHODAS-12 son:", "o": ["Solo movilidad", "Cognición, movilidad, autocuidado, relaciones, actividades cotidianas y participación", "Solo emocional", "Las mismas 8 categorías de Lawton-Brody"], "c": 1, "e": "Seis dominios: cognición (S3, S6), movilidad (S1, S7), autocuidado (S8, S9), relaciones (S10, S11), actividades cotidianas (S2, S12) y participación (S4, S5). Esa estructura permite el perfil por dominios."}, {"p": "El cambio mínimo clínicamente importante (MCID) en la escala 0–100 del WHODAS es de aproximadamente:", "o": ["1 punto", "5 puntos", "25 puntos", "50 puntos"], "c": 1, "e": "≈ 5 puntos en la escala 0–100. Un cambio ≥ 5 entre dos evaluaciones se considera relevante. Las propiedades psicométricas son excelentes: α ≈ 0,98; ICC ≈ 0,98 (Üstün 2010)."}, {"p": "El WHODAS-12 se diferencia del WG-SS (anexo E) principalmente en que:", "o": ["WHODAS es para tamizaje poblacional; WG-SS para caracterización clínica individual", "WHODAS es para caracterización funcional INDIVIDUAL con perfil por dominios; WG-SS es tamizaje estadístico POBLACIONAL", "Son intercambiables", "WHODAS evalúa solo movilidad"], "c": 1, "e": "Roles complementarios: WG-SS (6 preguntas, < 3 min) identifica el subgrupo en riesgo a nivel poblacional. WHODAS-12 (12 ítems, ~5 min) caracteriza el perfil funcional individual con suficiente granularidad para guiar la intervención clínica."}];
+
+const __casoCont = document.getElementById('caso-cont');
+if (__casoCont) {
+  __casosData.forEach((c, idx) => {
+    const html = `
+      <div class="caso">
+        <h4>${c.titulo}</h4>
+        <div class="historia">${c.historia}</div>
+        <div class="pregunta">${c.pregunta}</div>
+        ${c.opciones.map((o, i) => `<div class="opcion" data-caso="${idx}" data-correcto="${o.correcto}">${o.texto}</div>`).join('')}
+        <div class="feedback" id="caso-fb-${idx}">${c.feedback}</div>
+      </div>
+    `;
+    __casoCont.innerHTML += html;
+  });
+  document.querySelectorAll('.caso .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const caso = op.dataset.caso;
+      const correcto = op.dataset.correcto === 'true';
+      const fb = document.getElementById('caso-fb-' + caso);
+      document.querySelectorAll(`.caso .opcion[data-caso="${caso}"]`).forEach(o => {
+        o.classList.remove('correct', 'wrong');
+        if (o.dataset.correcto === 'true') o.classList.add('correct');
+        else if (o === op && !correcto) o.classList.add('wrong');
+      });
+      fb.classList.add('show');
+    });
+  });
+}
+
+const __autoCont = document.getElementById('auto-cont');
+if (__autoCont) {
+  let __autoCorrect = 0;
+  __autoData.forEach((q, idx) => {
+    const html = `
+      <div class="q">
+        <div class="pregunta">${idx+1}. ${q.p}</div>
+        ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+        <div class="explicacion" id="auto-exp-${idx}">${q.e}</div>
+      </div>
+    `;
+    __autoCont.innerHTML += html;
+  });
+  const totalQ = __autoData.length;
+  const scoreEl = document.getElementById('auto-score');
+  if (scoreEl) scoreEl.textContent = `0 / ${totalQ}`;
+  document.querySelectorAll('.q .opcion').forEach(op => {
+    op.addEventListener('click', () => {
+      const qIdx = parseInt(op.dataset.q);
+      const optIdx = parseInt(op.dataset.opt);
+      const q = __autoData[qIdx];
+      const ya = document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length > 0;
+      if (ya) return;
+      document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+        if (i === q.c) o.classList.add('correct');
+        else if (i === optIdx) o.classList.add('wrong');
+      });
+      document.getElementById('auto-exp-' + qIdx).classList.add('show');
+      if (optIdx === q.c) __autoCorrect++;
+      if (scoreEl) scoreEl.textContent = `${__autoCorrect} / ${totalQ}`;
+    });
+  });
+}
+
 </script>
 
 </body>
