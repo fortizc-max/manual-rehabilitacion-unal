@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo F · Índice de Barthel (ABVD) · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo F: índice de Barthel (Mahoney 1965) para actividades básicas de la vida diaria, con calculadora interactiva de los 10 ítems y umbrales de dependencia.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: background 0.12s, color 0.12s, border-color 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; margin-top: 6px; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; letter-spacing: 0.01em; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .grado { font-family: var(--sans); font-weight: 700; color: var(--jamared); white-space: nowrap; text-align: center; }
+
+.dominio { background: white; border: 1px solid var(--gris-borde); border-left: 4px solid var(--azulacad); border-radius: 4px; padding: 14px 18px; margin: 12px 0; }
+.dominio h4 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.2rem; color: var(--jamared); margin: 0 0 8px; }
+.dominio .opcion-doc { display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding: 5px 0; align-items: start; font-size: 0.94rem; }
+.dominio .opcion-doc .pts { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; color: var(--jamared); background: var(--jamared-suave); border-radius: 99px; text-align: center; padding: 2px 0; align-self: center; }
+
+.calc-bloque { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 20px 24px; margin: 18px 0; }
+.calc-bloque h4 { margin: 0 0 6px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.4rem; color: var(--jamared); }
+.calc-bloque .descripcion { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); margin-bottom: 14px; }
+.itemcalc-item { padding: 12px 0; border-bottom: 1px solid var(--gris-borde); }
+.itemcalc-item:last-child { border-bottom: none; }
+.itemcalc-item .label { font-family: var(--sans); font-weight: 600; font-size: 0.92rem; color: var(--azulacad); margin-bottom: 6px; display: block; }
+.itemcalc-item .opciones { display: flex; flex-direction: column; gap: 4px; }
+.itemcalc-item .opciones label { font-family: var(--serif); font-size: 0.92rem; background: var(--gris-claro); border: 1px solid var(--gris-borde); border-radius: 6px; padding: 8px 12px; cursor: pointer; color: var(--texto-suave); display: flex; gap: 10px; align-items: center; }
+.itemcalc-item .opciones label:hover { border-color: var(--azulacad); }
+.itemcalc-item .opciones label.selected { background: var(--azulacad-suave); border-color: var(--azulacad); color: var(--azulacad); }
+.itemcalc-item .opciones .pts { font-family: var(--sans); font-size: 0.74rem; font-weight: 700; background: var(--jamared-suave); color: var(--jamared); padding: 2px 8px; border-radius: 99px; flex-shrink: 0; }
+.itemcalc-item .opciones label.selected .pts { background: var(--azulacad); color: white; }
+.itemcalc-item .opciones input { display: none; }
+
+.calc-bloque .total { margin-top: 18px; padding: 16px 20px; background: var(--azulacad-suave); border-left: 4px solid var(--azulacad); border-radius: 0 6px 6px 0; font-family: var(--sans); }
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+.calc-bloque .total .puntajes .num { font-family: var(--serif); font-style: italic; font-size: 1.8rem; color: var(--jamared); }
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--azulacad); font-weight: 700; display: block; margin-bottom: 2px; }
+.calc-bloque .total .veredicto { font-family: var(--serif); font-style: italic; font-size: 1.3rem; font-weight: 500; margin-bottom: 6px; }
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp { font-family: var(--serif); font-size: 0.94rem; line-height: 1.55; }
+
+button.reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 6px 12px; font-size: 0.82rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+button.reset:hover { background: var(--gris-claro); }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo F</div>
+  <h1>Índice de Barthel · ABVD</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Qué evalúa y cuándo</button>
+  <button class="tab-btn" data-tab="dominios">2. Los 10 ítems</button>
+  <button class="tab-btn" data-tab="calc">3. 🔢 Calculadora</button>
+  <button class="tab-btn" data-tab="interp">4. Interpretación + limitaciones</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: INTRO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Índice de Barthel · ABVD</h2>
+  <p>El índice de Barthel (Mahoney y Barthel, 1965) es la escala más utilizada en el mundo para cuantificar las <strong>actividades básicas de la vida diaria (ABVD)</strong>: las tareas mínimas para el autocuidado. La discusión conceptual sobre su lugar en la evaluación funcional del paciente —junto al Lawton-Brody— se encuentra en el <a href="../02-actividades/" style="color: var(--azulacad);">cap. 2 · Actividades</a>. Este anexo reproduce el protocolo operativo y agrega la calculadora interactiva.</p>
+
+  <h3>Estructura de la escala</h3>
+  <div class="card azul">
+    <ul style="margin-bottom: 0">
+      <li>Evalúa <strong>10 actividades</strong>: comer, traslado cama-silla, aseo personal, uso del inodoro, baño, deambulación, escaleras, vestirse, continencia anal y urinaria.</li>
+      <li>Cada ítem se puntúa entre 0 y 15 según peso funcional.</li>
+      <li>El <strong>puntaje total va de 0 (dependencia total) a 100 (independencia)</strong>.</li>
+    </ul>
+  </div>
+
+  <h3>Aplicación</h3>
+  <div class="card azul">
+    <ul style="margin-bottom: 0">
+      <li>La escala se diligencia por el clínico con base en lo que el paciente <em>efectivamente hace</em> (desempeño), <strong>no</strong> en lo que <em>podría hacer</em> (capacidad).</li>
+      <li>Periodo de referencia: <strong>«los últimos 7 días»</strong>.</li>
+      <li>Cuando la respuesta no es categórica, se asigna el <strong>puntaje más bajo</strong> de las opciones disponibles.</li>
+      <li>Tiempo de aplicación: 5–10 minutos.</li>
+    </ul>
+  </div>
+
+  <div class="card amarilla">
+    <h4>Cuándo aplicarlo</h4>
+    <ul style="margin-bottom: 0">
+      <li>Línea base al ingreso y reevaluación al egreso de rehabilitación.</li>
+      <li>Seguimiento periódico en el adulto mayor.</li>
+      <li>Confirmación del beneficio funcional de la intervención (cambio &geq; 5 puntos = cambio mínimo clínicamente relevante).</li>
+      <li>Documentación funcional para juntas médicas, dictámenes y procesos administrativos.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TAB 2: DOMINIOS ==================== -->
+<section class="tab-content" id="dominios">
+  <h2>Los 10 ítems · todas las opciones</h2>
+  <p>Para cada ítem, escoja la opción que describe el desempeño actual del paciente.</p>
+
+  <div class="dominio">
+    <h4>1 · Comer</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Independiente.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Necesita ayuda (cortar carne, untar pan).</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Dependiente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>2 · Trasladarse cama-silla</h4>
+    <div class="opcion-doc"><div class="pts">15</div><div>Independiente.</div></div>
+    <div class="opcion-doc"><div class="pts">10</div><div>Mínima ayuda física o supervisión.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Capaz de sentarse pero requiere gran ayuda.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Dependiente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>3 · Aseo personal</h4>
+    <div class="opcion-doc"><div class="pts">5</div><div>Independiente (lavado de cara, peinado, afeitado, dientes).</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Necesita ayuda.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>4 · Uso del inodoro</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Independiente (entrar, salir, vestirse, asearse).</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Necesita ayuda mínima.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Dependiente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>5 · Bañarse</h4>
+    <div class="opcion-doc"><div class="pts">5</div><div>Independiente (entrar, salir, secarse).</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Necesita ayuda.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>6 · Caminar</h4>
+    <div class="opcion-doc"><div class="pts">15</div><div>Independiente más de 50 m.</div></div>
+    <div class="opcion-doc"><div class="pts">10</div><div>Necesita ayuda física o supervisión &gt; 50 m.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>En silla de ruedas, independiente &gt; 50 m.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Dependiente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>7 · Subir escaleras</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Independiente.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Necesita ayuda.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Incapaz.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>8 · Vestirse</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Independiente (incluye botones, cremalleras).</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Necesita ayuda parcial.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Dependiente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>9 · Continencia anal</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Continente.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Episodios ocasionales.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Incontinente.</div></div>
+  </div>
+
+  <div class="dominio">
+    <h4>10 · Continencia urinaria</h4>
+    <div class="opcion-doc"><div class="pts">10</div><div>Continente.</div></div>
+    <div class="opcion-doc"><div class="pts">5</div><div>Episodios ocasionales.</div></div>
+    <div class="opcion-doc"><div class="pts">0</div><div>Incontinente o sondado.</div></div>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: CALCULADORA ==================== -->
+<section class="tab-content" id="calc">
+  <h2>🔢 Calculadora Barthel</h2>
+  <p>Marque la opción que mejor describe el desempeño del paciente en cada uno de los 10 ítems. La suma da el puntaje total (0–100).</p>
+
+  <div class="calc-bloque" id="barthel-calc">
+    <h4>Calculadora completa</h4>
+    <div class="descripcion">10 ítems · puntaje total 0–100 · cambio &geq; 5 puntos clínicamente relevante.</div>
+    <div id="barthel-items"></div>
+    <div class="total" id="barthel-total">
+      <div class="puntajes">
+        <div><span class="label">Puntaje</span><span class="num" id="barthel-num">—</span><span class="max"> / 100</span></div>
+      </div>
+      <div class="veredicto" id="barthel-vere">Pendiente</div>
+      <div class="interp" id="barthel-interp">Conteste los 10 ítems para ver el resultado.</div>
+    </div>
+    <button class="reset" onclick="resetBarthel()">Reiniciar</button>
+  </div>
+</section>
+
+<!-- ==================== TAB 4: INTERPRETACIÓN ==================== -->
+<section class="tab-content" id="interp">
+  <h2>Interpretación, limitaciones y hoja de registro</h2>
+
+  <h3>Categorización clínica</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Puntaje total</th><th>Interpretación</th></tr></thead>
+      <tbody>
+        <tr><td class="grado">100</td><td>Independencia total</td></tr>
+        <tr><td class="grado">91–99</td><td>Dependencia leve</td></tr>
+        <tr><td class="grado">61–90</td><td>Dependencia moderada</td></tr>
+        <tr><td class="grado">21–60</td><td>Dependencia severa</td></tr>
+        <tr><td class="grado">0–20</td><td>Dependencia total</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>Cambio &geq; 5 puntos · clínicamente significativo</h4>
+    <p style="margin-bottom: 0">Más útil que el puntaje absoluto en un momento dado es el <strong>cambio en el tiempo</strong>. Una variación &geq; 5 puntos entre dos evaluaciones se considera <em>cambio mínimo clínicamente relevante</em> en programas de rehabilitación y es el indicador estándar de efecto de la intervención.</p>
+  </div>
+
+  <h3>Limitaciones</h3>
+  <div class="card amarilla">
+    <ul style="margin-bottom: 0">
+      <li><strong>Efecto techo:</strong> un paciente con 100/100 puede tener limitaciones importantes en AIVD (Lawton-Brody), participación o calidad de vida que el Barthel no captura. Combinar con Lawton, WHODAS-12 o medidas de participación según el caso.</li>
+      <li><strong>Ítems binarios o tricotómicos:</strong> no captura cambios pequeños dentro de un mismo ítem.</li>
+      <li><strong>No mide capacidad cognitiva, comunicación ni dolor.</strong> Complementar con MoCA, escalas de comunicación o EVA según el contexto clínico.</li>
+      <li><strong>No incluye actividades sociales ni laborales.</strong> Para esos dominios usar instrumentos específicos (WHODAS-12, FIM, Reintegración a la vida).</li>
+    </ul>
+  </div>
+
+  <h3>Hoja de registro</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Actividad</th><th>Puntaje</th></tr></thead>
+      <tbody>
+        <tr><td>1. Comer</td><td>____ / 10</td></tr>
+        <tr><td>2. Trasladarse cama-silla</td><td>____ / 15</td></tr>
+        <tr><td>3. Aseo personal</td><td>____ / 5</td></tr>
+        <tr><td>4. Uso del inodoro</td><td>____ / 10</td></tr>
+        <tr><td>5. Bañarse</td><td>____ / 5</td></tr>
+        <tr><td>6. Caminar</td><td>____ / 15</td></tr>
+        <tr><td>7. Subir escaleras</td><td>____ / 10</td></tr>
+        <tr><td>8. Vestirse</td><td>____ / 10</td></tr>
+        <tr><td>9. Continencia anal</td><td>____ / 10</td></tr>
+        <tr><td>10. Continencia urinaria</td><td>____ / 10</td></tr>
+        <tr><td><strong>Total Barthel (0–100)</strong></td><td><strong>____ / 100</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+const barthelItems = [
+  { label: '1 · Comer',                       opciones: [{l:'Independiente',v:10},{l:'Necesita ayuda (cortar, untar)',v:5},{l:'Dependiente',v:0}] },
+  { label: '2 · Trasladarse cama-silla',      opciones: [{l:'Independiente',v:15},{l:'Mínima ayuda o supervisión',v:10},{l:'Se sienta pero requiere gran ayuda',v:5},{l:'Dependiente',v:0}] },
+  { label: '3 · Aseo personal',               opciones: [{l:'Independiente',v:5},{l:'Necesita ayuda',v:0}] },
+  { label: '4 · Uso del inodoro',             opciones: [{l:'Independiente',v:10},{l:'Necesita ayuda mínima',v:5},{l:'Dependiente',v:0}] },
+  { label: '5 · Bañarse',                     opciones: [{l:'Independiente',v:5},{l:'Necesita ayuda',v:0}] },
+  { label: '6 · Caminar',                     opciones: [{l:'Independiente > 50 m',v:15},{l:'Necesita ayuda o supervisión > 50 m',v:10},{l:'En silla de ruedas, independiente > 50 m',v:5},{l:'Dependiente',v:0}] },
+  { label: '7 · Subir escaleras',             opciones: [{l:'Independiente',v:10},{l:'Necesita ayuda',v:5},{l:'Incapaz',v:0}] },
+  { label: '8 · Vestirse',                    opciones: [{l:'Independiente',v:10},{l:'Necesita ayuda parcial',v:5},{l:'Dependiente',v:0}] },
+  { label: '9 · Continencia anal',            opciones: [{l:'Continente',v:10},{l:'Episodios ocasionales',v:5},{l:'Incontinente',v:0}] },
+  { label: '10 · Continencia urinaria',       opciones: [{l:'Continente',v:10},{l:'Episodios ocasionales',v:5},{l:'Incontinente o sondado',v:0}] }
+];
+
+const cont = document.getElementById('barthel-items');
+barthelItems.forEach((it, idx) => {
+  const div = document.createElement('div');
+  div.className = 'itemcalc-item';
+  let opciones = '';
+  it.opciones.forEach((o) => {
+    opciones += `<label data-val="${o.v}" data-row="${idx}"><span class="pts">${o.v}</span><span>${o.l}</span><input type="radio" name="barthel-${idx}"></label>`;
+  });
+  div.innerHTML = `<span class="label">${it.label}</span><div class="opciones">${opciones}</div>`;
+  cont.appendChild(div);
+});
+
+document.querySelectorAll('#barthel-items label').forEach(lbl => {
+  lbl.addEventListener('click', () => {
+    const row = lbl.dataset.row;
+    document.querySelectorAll(`#barthel-items label[data-row="${row}"]`).forEach(l => l.classList.remove('selected'));
+    lbl.classList.add('selected');
+    lbl.querySelector('input').checked = true;
+    actualizarBarthel();
+  });
+});
+
+function actualizarBarthel() {
+  let total = 0, n = 0;
+  document.querySelectorAll('#barthel-items label.selected').forEach(l => {
+    total += parseInt(l.dataset.val);
+    n++;
+  });
+  document.getElementById('barthel-num').textContent = n === 10 ? total : '—';
+  const totalBox = document.getElementById('barthel-total');
+  const v = document.getElementById('barthel-vere');
+  const i = document.getElementById('barthel-interp');
+  totalBox.classList.remove('bajo', 'medio', 'alto');
+  if (n < 10) {
+    v.textContent = `${n}/10 ítems`;
+    i.textContent = 'Conteste los 10 ítems para ver el resultado.';
+    return;
+  }
+  let cat, sem, msg;
+  if (total === 100)        { cat='Independencia total';    sem='bajo';  msg='Independencia completa en ABVD. Considere evaluación de AIVD (Lawton-Brody, anexo B) ya que el Barthel tiene efecto techo y puede no detectar limitaciones más finas.'; }
+  else if (total >= 91)     { cat='Dependencia leve';       sem='bajo';  msg='Dependencia leve. Identificar el ítem específico que se ha perdido y orientar la rehabilitación a ese desempeño concreto.'; }
+  else if (total >= 61)     { cat='Dependencia moderada';   sem='medio'; msg='Dependencia moderada. Plan de rehabilitación estructurado, evaluación del entorno domiciliario, valoración de la red de cuidadores y de ayudas técnicas.'; }
+  else if (total >= 21)     { cat='Dependencia severa';     sem='alto';  msg='Dependencia severa. Soporte intensivo del cuidador, evaluación de la seguridad domiciliaria, consideración de adaptaciones del hogar y de soporte profesional regular.'; }
+  else                      { cat='Dependencia total';      sem='alto';  msg='Dependencia total en ABVD. Soporte 24 h por cuidador formal o familiar. Documentar Lawton-Brody y WHODAS-12 para completar la valoración funcional.'; }
+  totalBox.classList.add(sem);
+  v.textContent = cat;
+  i.innerHTML = msg;
+}
+
+function resetBarthel() {
+  document.querySelectorAll('#barthel-items label.selected').forEach(l => l.classList.remove('selected'));
+  document.querySelectorAll('#barthel-items input:checked').forEach(i => i.checked = false);
+  document.getElementById('barthel-num').textContent = '—';
+  document.getElementById('barthel-vere').textContent = 'Pendiente';
+  document.getElementById('barthel-interp').textContent = 'Conteste los 10 ítems para ver el resultado.';
+  document.getElementById('barthel-total').classList.remove('bajo','medio','alto');
+}
+</script>
+
+</body>
+</html>
