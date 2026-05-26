@@ -470,6 +470,52 @@ button.reset:hover { background: var(--gris-claro); }
 .semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
 .semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
 
+/* ===== Calculadora ISNCSCI completa ===== */
+.calc-isncsci { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+.calc-isncsci .calc-toolbar { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; justify-content: space-between; margin-bottom: 8px; }
+.calc-isncsci .palette-label { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; color: var(--azulacad); display: block; margin-bottom: 4px; }
+.calc-isncsci .palette { display: flex; flex-wrap: wrap; gap: 4px; }
+.calc-isncsci .palette button { font-family: var(--mono); font-size: 0.95rem; min-width: 44px; padding: 8px 10px; border: 2px solid var(--gris-borde); background: white; color: var(--texto); border-radius: 4px; cursor: pointer; font-weight: 700; }
+.calc-isncsci .palette button:hover { border-color: var(--azulacad); }
+.calc-isncsci .palette button.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+.calc-isncsci .calc-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.calc-isncsci .btn-primary { font-family: var(--sans); font-weight: 700; background: var(--jamared); color: white; border: none; padding: 10px 18px; border-radius: 4px; cursor: pointer; font-size: 0.92rem; }
+.calc-isncsci .btn-primary:hover { background: var(--jamared); filter: brightness(1.1); }
+.calc-isncsci .btn-secondary { font-family: var(--sans); font-weight: 600; background: white; color: var(--azulacad); border: 1.5px solid var(--azulacad); padding: 10px 14px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+.calc-isncsci .btn-secondary:hover { background: var(--azulacad-suave); }
+.calc-isncsci .calc-hint { font-family: var(--sans); font-size: 0.82rem; color: var(--texto-suave); margin: 4px 0 14px; line-height: 1.45; }
+.calc-isncsci .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+@media (max-width: 880px) { .calc-isncsci .calc-grid { grid-template-columns: 1fr; } }
+.calc-isncsci .grid-side { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 0.86rem; }
+.calc-isncsci .grid-side caption { font-family: var(--sans); font-weight: 700; color: var(--azulacad); text-align: left; padding: 6px 0; font-size: 0.95rem; }
+.calc-isncsci .grid-side thead th { font-family: var(--sans); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--azulacad); background: var(--gris-claro); border-bottom: 1.5px solid var(--gris-borde); padding: 6px 4px; text-align: center; }
+.calc-isncsci .grid-side thead th:last-child { text-align: left; padding-left: 8px; }
+.calc-isncsci .grid-side tbody td { border: 1px solid var(--gris-borde); padding: 0; text-align: center; height: 28px; }
+.calc-isncsci .grid-side tbody td.lvl { font-weight: 700; background: var(--gris-claro); color: var(--azulacad); padding: 0 6px; }
+.calc-isncsci .grid-side tbody td.muscle-cell { font-family: var(--serif); font-size: 0.82rem; text-align: left; padding: 2px 8px; color: var(--texto-suave); }
+.calc-isncsci .grid-side tbody td.cell { cursor: pointer; background: white; transition: background 0.1s; min-width: 36px; }
+.calc-isncsci .grid-side tbody td.cell:hover { background: var(--azulacad-suave); }
+.calc-isncsci .grid-side tbody td.cell.disabled { background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 4px, #e8e8e8 4px, #e8e8e8 8px); cursor: not-allowed; }
+.calc-isncsci .grid-side tbody td.cell[data-val="5"] { background: #e6f4ea; color: #1b6e3b; }
+.calc-isncsci .grid-side tbody td.cell[data-val="4"] { background: #e8f3df; color: #3a6a23; }
+.calc-isncsci .grid-side tbody td.cell[data-val="3"] { background: #fdf6c4; color: #6e5a1d; }
+.calc-isncsci .grid-side tbody td.cell[data-val="2"] { background: #fce8d4; color: #8b4d1a; }
+.calc-isncsci .grid-side tbody td.cell[data-val="1"] { background: #fbd9d4; color: #963922; }
+.calc-isncsci .grid-side tbody td.cell[data-val="0"] { background: #f5c2c2; color: #7a1a1a; font-weight: 700; }
+.calc-isncsci .grid-side tbody td.cell[data-val="NT"] { background: var(--gris-claro); color: var(--gris); font-style: italic; }
+.calc-isncsci .calc-anorrectal { background: var(--gris-claro); border-left: 3px solid var(--azulacad); padding: 12px 16px; border-radius: 0 4px 4px 0; margin: 12px 0 16px; }
+.calc-isncsci .calc-anorrectal h4 { margin: 0 0 8px; font-family: var(--sans); font-size: 0.95rem; color: var(--azulacad); }
+.calc-isncsci .calc-anorrectal label { font-family: var(--sans); font-size: 0.88rem; color: var(--texto); display: inline-flex; align-items: center; gap: 8px; margin-right: 18px; }
+.calc-isncsci .calc-anorrectal select { font-family: var(--mono); padding: 6px 10px; border: 1px solid var(--gris-borde); border-radius: 4px; background: white; }
+.calc-isncsci .calc-result { background: var(--azulacad-suave); border-left: 3px solid var(--azulacad); border-radius: 0 4px 4px 0; padding: 16px 20px; font-family: var(--serif); font-size: 0.95rem; }
+.calc-isncsci .calc-result.empty { color: var(--texto-suave); text-align: center; font-style: italic; }
+.calc-isncsci .result-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-family: var(--sans); font-size: 0.9rem; }
+.calc-isncsci .result-table th { text-align: left; padding: 6px 10px 6px 0; color: var(--azulacad); font-weight: 600; vertical-align: top; width: 38%; }
+.calc-isncsci .result-table td { padding: 6px 0; font-family: var(--mono); font-weight: 700; color: var(--texto); }
+.calc-isncsci .result-table td .badge { display: inline-block; padding: 2px 10px; border-radius: 99px; background: var(--jamared); color: white; font-size: 0.85rem; margin-right: 6px; }
+.calc-isncsci .result-warn { background: var(--rojo-suave); border-left: 3px solid var(--jamared); padding: 10px 14px; margin-top: 10px; border-radius: 0 4px 4px 0; font-family: var(--sans); font-size: 0.85rem; color: var(--jamared); }
+.calc-isncsci .result-reason { font-family: var(--sans); font-size: 0.85rem; color: var(--texto-suave); margin-top: 8px; line-height: 1.5; }
+
 /* ===== Casos clínicos / autoeval ===== */
 .caso {
   background: white;
@@ -579,16 +625,79 @@ footer a:hover { text-decoration: underline; }
   <h3>Determinación del nivel y clasificación ASIA</h3>
   <p>El primer paso es el <strong>tacto rectal</strong>: si no hay sensibilidad anal ni contracción voluntaria del esfínter anal externo, la lesión es <strong>completa</strong>. La presencia de cualquiera de las dos define lesión <strong>incompleta</strong>. El nivel neurológico es el segmento más caudal con función motora y sensitiva normal en ambos lados.</p>
 
-  <div class="selector" id="asia-sel">
-    <h4>Selector de grado ASIA</h4>
-    <div class="grados">
-      <button data-asia="A">A</button>
-      <button data-asia="B">B</button>
-      <button data-asia="C">C</button>
-      <button data-asia="D">D</button>
-      <button data-asia="E">E</button>
+  <h3>Calculadora ISNCSCI</h3>
+
+  <div class="card roja">
+    <h4>Uso educativo</h4>
+    <p>Esta calculadora aplica las reglas del ISNCSCI revisado 2019 con fines didácticos, para que el estudiante practique el flujo de clasificación. <strong>No reemplaza el algoritmo oficial</strong> ni la valoración del especialista. Para uso clínico, evaluación pericial o investigación, utilice el algoritmo oficial mantenido por Praxis Spinal Cord Institute:</p>
+    <p style="margin-bottom: 0">
+      <a href="https://www.isncscialgorithm.com/" target="_blank" rel="noopener"><strong>isncscialgorithm.com</strong></a>
+      &nbsp;·&nbsp;
+      <a href="https://asia-spinalinjury.org/international-standards-neurological-classification-sci-isncsci-worksheet/" target="_blank" rel="noopener">Hoja de trabajo oficial (PDF, asia-spinalinjury.org)</a>
+      &nbsp;·&nbsp;
+      la misma plantilla se reproduce en el Anexo K del manual impreso.
+    </p>
+  </div>
+
+  <div class="calc-isncsci">
+    <div class="calc-toolbar">
+      <div class="palette-wrap">
+        <span class="palette-label">Valor activo:</span>
+        <div class="palette" id="calc-palette">
+          <button type="button" data-val="0">0</button>
+          <button type="button" data-val="1">1</button>
+          <button type="button" data-val="2" class="active">2</button>
+          <button type="button" data-val="3">3</button>
+          <button type="button" data-val="4">4</button>
+          <button type="button" data-val="5">5</button>
+          <button type="button" data-val="NT">NT</button>
+          <button type="button" data-val="">—</button>
+        </div>
+      </div>
+      <div class="calc-actions">
+        <button type="button" id="calc-go" class="btn-primary">Calcular</button>
+        <button type="button" id="calc-reset" class="btn-secondary">Limpiar</button>
+        <button type="button" id="calc-demo" class="btn-secondary" title="Cargar el caso TRM C7 AIS B del cap. 6">Cargar caso de ejemplo</button>
+      </div>
     </div>
-    <div class="detalle" id="asia-det"></div>
+    <p class="calc-hint">Seleccione un valor en la paleta y luego haga clic en las celdas para asignárselo. <strong>Motor</strong>: MRC 0–5 (NT = no examinable). <strong>LT/PP</strong>: tacto fino y pinchazo 0 = ausente · 1 = alterado · 2 = normal · NT = no examinable. Las celdas grises (regiones sin músculo clave) no se evalúan.</p>
+
+    <div class="calc-grid">
+      <table class="grid-side">
+        <caption>Derecho</caption>
+        <thead><tr><th>Nivel</th><th>Motor</th><th>LT</th><th>PP</th><th>Músculo clave / punto sensitivo</th></tr></thead>
+        <tbody id="grid-right"></tbody>
+      </table>
+      <table class="grid-side">
+        <caption>Izquierdo</caption>
+        <thead><tr><th>Nivel</th><th>Motor</th><th>LT</th><th>PP</th><th>Músculo clave / punto sensitivo</th></tr></thead>
+        <tbody id="grid-left"></tbody>
+      </table>
+    </div>
+
+    <div class="calc-anorrectal">
+      <h4>Examen anorrectal (obligatorio)</h4>
+      <label>Contracción anal voluntaria (CAV):
+        <select id="calc-vac">
+          <option value="">—</option>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
+          <option value="NT">NT</option>
+        </select>
+      </label>
+      <label>Presión anal profunda (PAP):
+        <select id="calc-dap">
+          <option value="">—</option>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
+          <option value="NT">NT</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="calc-result" class="calc-result">
+      <em>Complete los campos y pulse <strong>Calcular</strong>.</em>
+    </div>
   </div>
 
   <h3>Músculos clave para nivel motor</h3>
@@ -608,6 +717,13 @@ footer a:hover { text-decoration: underline; }
         <tr><td class="root">S1</td><td><em>Triceps surae</em> (plantiflexión)</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card azul">
+    <h4>El mapa ASIA es específico para trauma raquimedular</h4>
+    <p>Tanto la asignación de un único miotomo por músculo clave como la posición exacta de los puntos sensitivos son <strong>convenciones</strong> del ISNCSCI/ASIA, diseñadas para estandarizar el examen y permitir comparar resultados entre evaluadores y entre centros. <strong>No coinciden punto por punto con los esquemas anatómicos clásicos</strong> ni con los de la mayoría de los textos de anatomía, donde la inervación se describe como multisegmentaria.</p>
+    <p>El ejemplo más visible es el <em>tibialis anterior</em>, que la mayoría de los textos asigna a <strong>L5</strong> ---su raíz de predominio funcional--- y ASIA asigna a <strong>L4</strong> para construir el nivel motor lumbar. Lo mismo ocurre con otros miotomas y con varios dermatomas.</p>
+    <p style="margin-bottom: 0">Esta convención sirve a la clasificación de la lesión medular traumática y <strong>no debe trasladarse a otros contextos clínicos</strong> (radiculopatías, plexopatías, neuropatías focales), donde la asignación anatómica multisegmentaria sigue siendo la referencia.</p>
   </div>
 
   <h3>Pronóstico funcional según el nivel medular</h3>
@@ -1136,15 +1252,318 @@ function configurarSelector(selectorId, dataAttr, contenido) {
   });
 }
 
-// ASIA
-const asiaContenido = {
-  A: { titulo: 'A · Lesión completa', descripcion: 'No hay función motora ni sensitiva por debajo del nivel, incluyendo segmentos sacros S4–S5 (sin sensibilidad anal ni contracción voluntaria del esfínter).', estrategia: 'Pronóstico de recuperación motora limitado. Manejo orientado a prevención de complicaciones (úlceras, vejiga e intestino neurogénicos, espasticidad, disreflexia autonómica si lesión sobre T6) y a maximizar independencia funcional con compensaciones.' },
-  B: { titulo: 'B · Sensitiva incompleta', descripcion: 'Función sensitiva preservada por debajo del nivel (incluyendo S4–S5), sin función motora preservada en más de 3 niveles por debajo del nivel motor.', estrategia: 'Algún potencial de recuperación motora. La preservación sacra (sensación anal o contracción voluntaria) es el mejor predictor de recuperación incompleta.' },
-  C: { titulo: 'C · Motora incompleta (débil)', descripcion: 'Función motora preservada por debajo del nivel, con MÁS de la mitad de los músculos clave teniendo MRC < 3.', estrategia: 'Pronóstico variable. Rehabilitación intensiva temprana puede mejorar el grado funcional. Marcha terapéutica posible con asistencia.' },
-  D: { titulo: 'D · Motora incompleta (funcional)', descripcion: 'Función motora preservada por debajo del nivel, con AL MENOS la mitad de los músculos clave teniendo MRC ≥ 3.', estrategia: 'Buen pronóstico funcional. Marcha funcional probable con o sin órtesis y ayudas de marcha. Rehabilitación dirigida a optimizar fuerza, equilibrio, control selectivo.' },
-  E: { titulo: 'E · Normal', descripcion: 'Función motora y sensitiva normal en todos los segmentos en un paciente con déficit previo documentado.', estrategia: 'Recuperación neurológica completa. Seguimiento por reaparición de síntomas y prevención de complicaciones tardías (siringomielia post-traumática).' }
-};
-configurarSelector('asia-sel', 'asia', asiaContenido);
+// ============= Calculadora ISNCSCI (didáctica) =============
+(function () {
+  const NIVELES = ['C2','C3','C4','C5','C6','C7','C8','T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12','L1','L2','L3','L4','L5','S1','S2','S3','S4-5'];
+  const MIOTOMA_CERV = ['C5','C6','C7','C8','T1'];
+  const MIOTOMA_LUMB = ['L2','L3','L4','L5','S1'];
+  const TODOS_MIOT = MIOTOMA_CERV.concat(MIOTOMA_LUMB);
+  const MUSCULO = {
+    'C5':'Flexores codo','C6':'Extensores muñeca','C7':'Extensores codo','C8':'Flex. dedos','T1':'Abd. meñique',
+    'L2':'Flex. cadera','L3':'Ext. rodilla','L4':'Dorsiflex. tobillo','L5':'Ext. hallux','S1':'Plantiflex.'
+  };
+  const DERMATOMA = {
+    'C2':'Occipital','C3':'Supraclavicular','C4':'Acromioclavicular','C5':'Cara lat. fosa antecubital','C6':'Pulgar dorsal',
+    'C7':'3.er dedo dorsal','C8':'Meñique dorsal','T1':'Cara medial antecubital','T2':'Axila','T3':'3.er espacio IC',
+    'T4':'Línea intermamilar','T5':'5.º EIC','T6':'Apéndice xifoides','T7':'1/4 inferior tórax','T8':'Subcostal',
+    'T9':'Epigastrio inferior','T10':'Ombligo','T11':'Intermedio T10–T12','T12':'Inguinal medial','L1':'Mitad sup. muslo ant.',
+    'L2':'1/3 medio muslo ant.','L3':'Cóndilo femoral medial','L4':'Maléolo medial','L5':'Dorso pie 3.ª MTF',
+    'S1':'Talón lateral','S2':'Fosa poplítea','S3':'Tuberosidad isquiática','S4-5':'Perianal'
+  };
+
+  // Estado: estado[lado][nivel] = {motor, lt, pp}
+  const estado = { R:{}, L:{} };
+  NIVELES.forEach(n => { estado.R[n] = {motor:'', lt:'', pp:''}; estado.L[n] = {motor:'', lt:'', pp:''}; });
+  let valorActivo = '2';
+
+  // ===== Render del grid =====
+  function renderGrid(side) {
+    const tbody = document.getElementById('grid-' + (side === 'R' ? 'right' : 'left'));
+    if (!tbody) return;
+    tbody.innerHTML = NIVELES.map(n => {
+      const motorActive = TODOS_MIOT.includes(n);
+      const mLabel = motorActive ? MUSCULO[n] : '—';
+      const dLabel = DERMATOMA[n] || '';
+      const motorCell = motorActive
+        ? `<td class="cell" data-side="${side}" data-lvl="${n}" data-key="motor"></td>`
+        : `<td class="cell disabled"></td>`;
+      return `<tr>
+        <td class="lvl">${n}</td>
+        ${motorCell}
+        <td class="cell" data-side="${side}" data-lvl="${n}" data-key="lt"></td>
+        <td class="cell" data-side="${side}" data-lvl="${n}" data-key="pp"></td>
+        <td class="muscle-cell">${motorActive ? '<em>'+mLabel+'</em> · ' : ''}${dLabel}</td>
+      </tr>`;
+    }).join('');
+  }
+  renderGrid('R'); renderGrid('L');
+
+  // ===== Paleta =====
+  const palette = document.getElementById('calc-palette');
+  palette.addEventListener('click', e => {
+    if (e.target.tagName !== 'BUTTON') return;
+    palette.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    valorActivo = e.target.dataset.val;
+  });
+
+  // ===== Clic en celda asigna valor activo =====
+  document.querySelectorAll('.calc-grid').forEach(grid => {
+    grid.addEventListener('click', e => {
+      const td = e.target.closest('td.cell:not(.disabled)');
+      if (!td) return;
+      const {side, lvl, key} = td.dataset;
+      if (!side) return;
+      estado[side][lvl][key] = valorActivo;
+      td.textContent = valorActivo;
+      td.dataset.val = valorActivo;
+    });
+  });
+
+  // ===== Lógica ISNCSCI =====
+  function num(v) {
+    if (v === '' || v === 'NT') return null;
+    const n = parseInt(v, 10);
+    return isNaN(n) ? null : n;
+  }
+  function hasNT(lado, claves) {
+    return NIVELES.some(n => claves.some(k => estado[lado][n][k] === 'NT'));
+  }
+
+  // Nivel sensitivo: dermatoma más caudal con LT=2 Y PP=2, asumiendo rostrales=2
+  function nivelSensitivo(side) {
+    let ultimo = null;
+    for (const n of NIVELES) {
+      const lt = num(estado[side][n].lt);
+      const pp = num(estado[side][n].pp);
+      if (lt === 2 && pp === 2) ultimo = n;
+      else break;
+    }
+    return ultimo;
+  }
+
+  // Nivel motor: en miotomas con músculo clave, el más caudal con grado >=3 y todos los rostrales =5;
+  // en regiones sin músculo clave (rostrales C2-C4 / T2-L1 / S2-S5), el nivel motor sigue al sensitivo.
+  function nivelMotor(side, nivelSens) {
+    if (!nivelSens) return null;
+    // 1) Si nivelSens es cervical/lumbar con miotoma, evaluar tabla:
+    const idxSens = NIVELES.indexOf(nivelSens);
+
+    // Encontrar último miotoma clave caudal con >=3 y todos los rostrales con clave =5
+    let ultimoMotor = null;
+    // Iterar por niveles en orden, marcando el último válido
+    let rostralesIntactos = true;
+    for (const n of NIVELES) {
+      const idx = NIVELES.indexOf(n);
+      if (idx > idxSens) break; // no puede ser caudal al sensitivo si sensitivo es proximal
+      if (TODOS_MIOT.includes(n)) {
+        const g = num(estado[side][n].motor);
+        if (g === null) { rostralesIntactos = false; ultimoMotor = (ultimoMotor || prev(n)); continue; }
+        if (g >= 3 && rostralesIntactos) ultimoMotor = n;
+        if (g < 5) rostralesIntactos = false;
+      } else {
+        // niveles sin miotoma: motor = sensitivo si rostrales intactos
+        if (rostralesIntactos) ultimoMotor = n;
+      }
+    }
+    return ultimoMotor;
+  }
+  function prev(n) {
+    const i = NIVELES.indexOf(n);
+    return i > 0 ? NIVELES[i-1] : null;
+  }
+
+  // NLI = más cefálico de los 4 niveles
+  function nivelNeurologico(nsR, nsL, nmR, nmL) {
+    const cand = [nsR, nsL, nmR, nmL].filter(Boolean);
+    if (cand.length === 0) return null;
+    let minIdx = NIVELES.length;
+    let minName = null;
+    cand.forEach(n => {
+      const i = NIVELES.indexOf(n);
+      if (i < minIdx) { minIdx = i; minName = n; }
+    });
+    return minName;
+  }
+
+  // Sub-scores
+  function subscores() {
+    let uems = 0, lems = 0, lt = 0, pp = 0;
+    MIOTOMA_CERV.forEach(n => { ['R','L'].forEach(s => { const v = num(estado[s][n].motor); if (v!==null) uems += v; }); });
+    MIOTOMA_LUMB.forEach(n => { ['R','L'].forEach(s => { const v = num(estado[s][n].motor); if (v!==null) lems += v; }); });
+    NIVELES.forEach(n => { ['R','L'].forEach(s => {
+      const a = num(estado[s][n].lt); if (a!==null) lt += a;
+      const b = num(estado[s][n].pp); if (b!==null) pp += b;
+    }); });
+    return { uems, lems, lt, pp };
+  }
+
+  // Completitud: completa si CAV=No y PAP=No y S4-5 LT=0 y PP=0 (en ambos lados)
+  function esCompleta(vac, dap) {
+    if (vac === 'si' || dap === 'si') return false;
+    const sR = estado.R['S4-5'], sL = estado.L['S4-5'];
+    const ltOk = (num(sR.lt) === 0 && num(sL.lt) === 0);
+    const ppOk = (num(sR.pp) === 0 && num(sL.pp) === 0);
+    if (vac === 'no' && dap === 'no' && ltOk && ppOk) return true;
+    return false;
+  }
+
+  // Función motora más de 3 niveles por debajo del nivel motor en algún hemicuerpo
+  function motoraMas3DebajoNM(nm, side) {
+    if (!nm) return false;
+    const idxNM = NIVELES.indexOf(nm);
+    // Buscar cualquier miotoma con función motora (>=1) más de 3 niveles caudal al NM ipsilateral
+    for (let i = idxNM + 4; i < NIVELES.length; i++) {
+      const n = NIVELES[i];
+      if (!TODOS_MIOT.includes(n)) continue;
+      const g = num(estado[side][n].motor);
+      if (g !== null && g >= 1) return true;
+    }
+    return false;
+  }
+
+  // Mitad o más de los músculos clave caudales al NLI con grado >=3
+  function mitadMusculosFunc(nli) {
+    if (!nli) return false;
+    const idxNLI = NIVELES.indexOf(nli);
+    let total = 0, suficientes = 0;
+    TODOS_MIOT.forEach(n => {
+      if (NIVELES.indexOf(n) > idxNLI) {
+        ['R','L'].forEach(s => {
+          total++;
+          const g = num(estado[s][n].motor);
+          if (g !== null && g >= 3) suficientes++;
+        });
+      }
+    });
+    return total > 0 && (suficientes / total) >= 0.5;
+  }
+
+  // ZPP (solo si lesión completa)
+  function zppSensitivo(side) {
+    let ultimo = null;
+    for (const n of NIVELES) {
+      const lt = num(estado[side][n].lt) || 0;
+      const pp = num(estado[side][n].pp) || 0;
+      if (lt > 0 || pp > 0 || estado[side][n].lt === 'NT' || estado[side][n].pp === 'NT') ultimo = n;
+    }
+    return ultimo;
+  }
+  function zppMotor(side) {
+    let ultimo = null;
+    TODOS_MIOT.forEach(n => {
+      const g = num(estado[side][n].motor) || 0;
+      if (g > 0 || estado[side][n].motor === 'NT') ultimo = n;
+    });
+    return ultimo;
+  }
+
+  function todoNormal() {
+    return NIVELES.every(n => {
+      const ok = num(estado.R[n].lt) === 2 && num(estado.L[n].lt) === 2 &&
+                 num(estado.R[n].pp) === 2 && num(estado.L[n].pp) === 2;
+      if (!ok) return false;
+      if (TODOS_MIOT.includes(n)) {
+        return num(estado.R[n].motor) === 5 && num(estado.L[n].motor) === 5;
+      }
+      return true;
+    });
+  }
+
+  function aisGrade(completa, vac, nsR, nsL, nmR, nmL, nli) {
+    if (todoNormal()) return 'E';
+    if (completa) return 'A';
+    // Incompleta
+    const motoraCaudal = vac === 'si' ||
+                         motoraMas3DebajoNM(nmR, 'R') || motoraMas3DebajoNM(nmL, 'L');
+    if (!motoraCaudal) return 'B';
+    // Motora incompleta: C o D
+    return mitadMusculosFunc(nli) ? 'D' : 'C';
+  }
+
+  // ===== Calcular =====
+  document.getElementById('calc-go').addEventListener('click', calcular);
+  document.getElementById('calc-reset').addEventListener('click', () => {
+    NIVELES.forEach(n => { ['R','L'].forEach(s => { estado[s][n] = {motor:'', lt:'', pp:''}; }); });
+    document.querySelectorAll('.calc-grid td.cell').forEach(td => { td.textContent=''; delete td.dataset.val; });
+    document.getElementById('calc-vac').value = '';
+    document.getElementById('calc-dap').value = '';
+    document.getElementById('calc-result').innerHTML = '<em>Complete los campos y pulse <strong>Calcular</strong>.</em>';
+    document.getElementById('calc-result').classList.add('empty');
+  });
+
+  document.getElementById('calc-demo').addEventListener('click', () => {
+    // Caso TRM C7 AIS B (lesión cervical incompleta sensitiva): nivel motor C7, sensitivo preservado hasta S4-5
+    NIVELES.forEach(n => { ['R','L'].forEach(s => { estado[s][n] = {motor:'', lt:'', pp:''}; }); });
+    // Motor: C5-C7 = 5, C8-T1 = 0 (sin función)
+    ['R','L'].forEach(s => {
+      estado[s]['C5'].motor='5'; estado[s]['C6'].motor='5'; estado[s]['C7'].motor='5';
+      estado[s]['C8'].motor='0'; estado[s]['T1'].motor='0';
+      MIOTOMA_LUMB.forEach(n => { estado[s][n].motor='0'; });
+    });
+    // Sensitivo: LT y PP = 2 en todos los dermatomas (sensibilidad preservada hasta S4-5)
+    NIVELES.forEach(n => { ['R','L'].forEach(s => { estado[s][n].lt='2'; estado[s][n].pp='2'; }); });
+    // Refrescar UI
+    document.querySelectorAll('.calc-grid td.cell:not(.disabled)').forEach(td => {
+      const {side, lvl, key} = td.dataset;
+      const v = estado[side][lvl][key];
+      td.textContent = v; td.dataset.val = v;
+    });
+    document.getElementById('calc-vac').value = 'no';
+    document.getElementById('calc-dap').value = 'si';
+    calcular();
+  });
+
+  function calcular() {
+    const vac = document.getElementById('calc-vac').value;
+    const dap = document.getElementById('calc-dap').value;
+
+    const nsR = nivelSensitivo('R');
+    const nsL = nivelSensitivo('L');
+    const nmR = nivelMotor('R', nsR);
+    const nmL = nivelMotor('L', nsL);
+    const nli = nivelNeurologico(nsR, nsL, nmR, nmL);
+
+    const completa = esCompleta(vac, dap);
+    const sub = subscores();
+    const ais = aisGrade(completa, vac, nsR, nsL, nmR, nmL, nli);
+
+    const zppM_R = completa ? zppMotor('R') : '—';
+    const zppM_L = completa ? zppMotor('L') : '—';
+    const zppS_R = completa ? zppSensitivo('R') : '—';
+    const zppS_L = completa ? zppSensitivo('L') : '—';
+
+    const hayNT = hasNT('R',['motor','lt','pp']) || hayNT_L();
+
+    const aisDesc = {
+      A:'Completa · sin función motora ni sensitiva en S4-5',
+      B:'Sensitiva incompleta · preservación sacra sin función motora >3 niveles bajo NM',
+      C:'Motora incompleta · <50 % de los músculos clave caudales al NLI con MRC ≥3',
+      D:'Motora incompleta · ≥50 % de los músculos clave caudales al NLI con MRC ≥3',
+      E:'Normal · sin déficit residual (en paciente con déficit previo documentado)'
+    };
+
+    const el = document.getElementById('calc-result');
+    el.classList.remove('empty');
+    el.innerHTML = `
+      <table class="result-table">
+        <tr><th>Nivel sensitivo</th><td>D: ${nsR || '—'} · I: ${nsL || '—'}</td></tr>
+        <tr><th>Nivel motor</th><td>D: ${nmR || '—'} · I: ${nmL || '—'}</td></tr>
+        <tr><th>NLI (nivel neurológico de la lesión)</th><td><span class="badge">${nli || '—'}</span></td></tr>
+        <tr><th>Lesión</th><td>${completa ? 'Completa' : 'Incompleta'}</td></tr>
+        <tr><th>Grado AIS</th><td><span class="badge">${ais}</span> ${aisDesc[ais] || ''}</td></tr>
+        <tr><th>ZPP motor</th><td>D: ${zppM_R || '—'} · I: ${zppM_L || '—'}</td></tr>
+        <tr><th>ZPP sensitivo</th><td>D: ${zppS_R || '—'} · I: ${zppS_L || '—'}</td></tr>
+        <tr><th>Subscores</th><td>UEMS ${sub.uems}/50 · LEMS ${sub.lems}/50 · LT ${sub.lt}/112 · PP ${sub.pp}/112</td></tr>
+      </table>
+      <div class="result-reason">
+        El cálculo aplica las definiciones del ISNCSCI revisado 2019. Para la regla B↔C se evalúa la presencia de función motora voluntaria (CAV = sí) <em>o</em> función motora más de tres niveles caudal al nivel motor en algún hemicuerpo; para C↔D se cuenta la proporción de músculos clave caudales al NLI con MRC ≥3.
+      </div>
+      ${hayNT ? '<div class="result-warn"><strong>Hay valores NT (no examinables)</strong>: el resultado puede no ser definitivo. El algoritmo oficial de Praxis maneja escenarios NT complejos que aquí se simplifican.</div>' : ''}
+    `;
+  }
+  function hayNT_L() { return hasNT('L',['motor','lt','pp']); }
+})();
 
 // Nivel medular
 const nivelContenido = {
