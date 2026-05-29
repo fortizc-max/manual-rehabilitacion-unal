@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo J · ISNCSCI · Manual de Rehabilitación · UN</title>
+<meta name="description" content="Anexo J del Manual de Rehabilitación: examen ISNCSCI (ASIA) — músculos clave, puntos sensitivos, examen anorrectal, completa vs incompleta, escala AIS y calculadora gruesa.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280; --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --verde:#166534; --verde-suave:#dcfce7; --rojo:#991b1b; --rojo-suave:#fee2e2;
+  --naranja:#9a3412; --naranja-suave:#ffedd5; --amarillo:#78350f; --amarillo-suave:#fef3c7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 920px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+
+/* AIS calculator */
+.ais-calc { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+.ais-pregunta { padding: 14px 16px; margin: 10px 0; border-left: 4px solid var(--azulacad); background: var(--azulacad-suave); border-radius: 0 6px 6px 0; }
+.ais-pregunta h4 { font-family: var(--sans); margin: 0 0 8px; color: var(--azulacad); font-size: 0.95rem; }
+.ais-pregunta .pregunta { font-family: var(--serif); font-style: italic; margin: 4px 0 10px; }
+.ais-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.ais-opts label {
+  font-family: var(--sans); font-size: 0.9rem; background: white;
+  border: 1px solid var(--azulacad-suave); border-radius: 6px; padding: 7px 14px; cursor: pointer; color: var(--texto-suave);
+}
+.ais-opts label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.ais-opts label.sel { background: var(--azulacad); color: white; border-color: var(--azulacad); font-weight: 600; }
+.ais-opts input { display: none; }
+.ais-resultado { padding: 22px 26px; border-radius: 8px; margin: 22px 0; text-align: center; background: var(--gris-claro); border-left: 4px solid var(--gris); font-family: var(--sans); }
+.ais-grado { font-size: 2.4rem; font-weight: 700; color: var(--azulacad); margin: 0; }
+.ais-nombre { font-family: var(--serif); font-style: italic; font-size: 1.2rem; margin: 6px 0; }
+.ais-interp { font-size: 0.92rem; color: var(--texto-suave); margin-top: 6px; }
+.ais-reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 8px 16px; font-size: 0.85rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo J</div>
+  <h1>Examen ISNCSCI (ASIA)</h1>
+  <div class="sub">Hoja de trabajo, calculadora gruesa y referencia visual</div>
+  <a class="back" href="../">← Índice</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Qué es</button>
+  <button class="tab-btn" data-tab="examen">2. Componentes</button>
+  <button class="tab-btn" data-tab="musculos">3. Músculos y puntos</button>
+  <button class="tab-btn" data-tab="ais">4. Escala AIS</button>
+  <button class="tab-btn" data-tab="calc">5. 🔢 Calculadora</button>
+</nav>
+
+<main>
+
+<section class="tab-content active" id="intro">
+  <h2>Qué es el ISNCSCI</h2>
+  <p>El <em>International Standards for Neurological Classification of Spinal Cord Injury</em> (ISNCSCI), conocido como <strong>examen ASIA</strong>, es el estándar internacional para examinar y clasificar la lesión medular. Cumple dos objetivos:</p>
+  <ol>
+    <li>Determinar el <strong>nivel neurológico de la lesión (NLI)</strong>: por debajo se altera sensibilidad y movimiento.</li>
+    <li>Graduar la severidad mediante la <strong>ASIA Impairment Scale (AIS)</strong>, grados A–E.</li>
+  </ol>
+  <p>Repetido en el seguimiento, documenta la evolución.</p>
+
+  <div class="card amarilla">
+    <h4>Convención específica para TRM</h4>
+    <p style="margin-bottom: 0">El mapa ASIA selecciona <em>un</em> miotomo por músculo clave y <em>un</em> punto sensitivo por dermatoma para estandarizar el examen. <strong>No coincide</strong> punto por punto con los esquemas anatómicos clásicos (cap. 1), donde la inervación es multisegmentaria. El ejemplo más visible: <em>tibialis anterior</em> = L5 en anatomía, <strong>L4 en ASIA</strong>. Esta convención sirve a la clasificación de TRM y no debe trasladarse a otros contextos (radiculopatías, plexopatías, neuropatías focales).</p>
+  </div>
+</section>
+
+<section class="tab-content" id="examen">
+  <h2>Tres componentes del examen</h2>
+
+  <div class="card azul">
+    <h4>1. Examen sensitivo (0–112 por modalidad)</h4>
+    <p style="margin-bottom: 0">28 puntos clave por dermatoma (C2 a S4–5) en cada hemicuerpo, evaluados con tacto ligero y <em>pinprick</em>. Cada punto se puntúa: <strong>0 ausente · 1 alterado · 2 normal</strong>. Máximo 112 puntos por modalidad.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>2. Examen motor (0–100 total: UEMS 50 + LEMS 50)</h4>
+    <p style="margin-bottom: 0">Cinco músculos clave por miembro superior y cinco por miembro inferior en cada hemicuerpo, graduados con escala MRC 0–5 en posición estandarizada.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>3. Examen anorrectal (OBLIGATORIO)</h4>
+    <p style="margin-bottom: 0"><strong>Sin tacto rectal no puede asignarse un grado AIS.</strong> Tres componentes: (a) <em>sensación anal profunda</em> en S4–S5 (sí/no), (b) <em>tacto ligero y pinprick perianales</em>, (c) <em>contracción anal voluntaria</em> (VAC, sí/no).</p>
+  </div>
+
+  <h3>Niveles neurológicos derivados</h3>
+  <ul>
+    <li><strong>Nivel sensitivo</strong>: segmento más caudal con tacto ligero y pinprick normales bilateralmente.</li>
+    <li><strong>Nivel motor</strong>: segmento más caudal con músculo clave de fuerza ≥ 3, siempre que los segmentos rostrales estén intactos en grado 5.</li>
+    <li><strong>NLI</strong>: el más cefálico de los dos anteriores.</li>
+    <li>El <strong>nivel óseo</strong> puede diferir del neurológico, especialmente en fracturas toracolumbares.</li>
+  </ul>
+</section>
+
+<section class="tab-content" id="musculos">
+  <h2>Músculos clave y puntos sensitivos por segmento</h2>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Segmento</th><th>Músculo clave</th><th>Punto sensitivo</th></tr></thead>
+      <tbody>
+        <tr><td>C2</td><td>—</td><td>Protuberancia occipital</td></tr>
+        <tr><td>C3</td><td>—</td><td>Fosa supraclavicular</td></tr>
+        <tr><td>C4</td><td>—</td><td>Articulación acromioclavicular</td></tr>
+        <tr><td><strong>C5</strong></td><td>Flexores de codo (<em>biceps brachii</em>)</td><td>Cara lateral de la fosa antecubital</td></tr>
+        <tr><td><strong>C6</strong></td><td>Extensores del carpo (<em>extensor carpi radialis</em>)</td><td>Pulgar, cara dorsal</td></tr>
+        <tr><td><strong>C7</strong></td><td>Extensores del codo (<em>triceps brachii</em>)</td><td>Dedo medio, cara dorsal</td></tr>
+        <tr><td><strong>C8</strong></td><td>Flexor profundo del 3.<sup>er</sup> dedo (<em>FDP</em>)</td><td>Meñique, cara dorsal</td></tr>
+        <tr><td><strong>T1</strong></td><td>Abductor del meñique (<em>ADM</em>)</td><td>Cara medial de la fosa antecubital</td></tr>
+        <tr><td>T4</td><td>—</td><td>Línea intermamilar</td></tr>
+        <tr><td>T10</td><td>—</td><td>Ombligo</td></tr>
+        <tr><td><strong>L2</strong></td><td>Flexores de cadera (<em>iliopsoas</em>)</td><td>Tercio medio anterior del muslo</td></tr>
+        <tr><td><strong>L3</strong></td><td>Extensores de rodilla (<em>quadriceps</em>)</td><td>Cóndilo femoral medial</td></tr>
+        <tr><td><strong>L4</strong></td><td>Dorsiflexores del tobillo (<em>tibialis anterior</em>)</td><td>Maléolo medial</td></tr>
+        <tr><td><strong>L5</strong></td><td>Extensor largo del 1.<sup>er</sup> dedo (<em>EHL</em>)</td><td>Dorso del pie sobre la 3.ª MTF</td></tr>
+        <tr><td><strong>S1</strong></td><td>Plantiflexores (<em>triceps surae</em>)</td><td>Cara lateral del talón</td></tr>
+        <tr><td>S2–S3</td><td>—</td><td>Fosa poplítea / tuberosidad isquiática</td></tr>
+        <tr><td>S4–S5</td><td>—</td><td>Zona perianal (un solo nivel)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tab-content" id="ais">
+  <h2>Escala AIS · Cinco grados</h2>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Grado</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A — Completa</strong></td><td>Sin función motora ni sensitiva en S4–S5.</td></tr>
+        <tr><td><strong>B — Incompleta sensitiva</strong></td><td>Función sensitiva preservada por debajo del NLI <em>incluyendo</em> S4–S5, sin función motora preservada más de tres segmentos por debajo del nivel motor en ningún hemicuerpo.</td></tr>
+        <tr><td><strong>C — Incompleta motora</strong></td><td>Función motora preservada por debajo del NLI; <strong>más de la mitad</strong> de los músculos clave caudales al NLI tienen fuerza &lt; 3 (no vencen gravedad).</td></tr>
+        <tr><td><strong>D — Incompleta motora</strong></td><td>Función motora preservada por debajo del NLI; <strong>al menos la mitad</strong> de los músculos clave caudales al NLI tienen fuerza ≥ 3.</td></tr>
+        <tr><td><strong>E — Normal</strong></td><td>Sensibilidad y fuerza normales en todos los segmentos, en paciente con déficit previo documentado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Completa vs incompleta</h3>
+  <div class="card amarilla">
+    <p style="margin-bottom: 0">La lesión es <strong>completa</strong> cuando NO hay: (a) sensación anal profunda, ni (b) sensibilidad perianal, ni (c) contracción anal voluntaria. Si <em>cualquiera</em> de los tres signos está presente, la lesión es <strong>incompleta</strong>.</p>
+  </div>
+
+  <h3>Zona de preservación parcial (ZPP)</h3>
+  <p>En lesiones completas, los dermatomas y miotomas con función parcial caudales al NLI definen la ZPP.</p>
+
+  <p style="font-size: 0.88rem; color: var(--gris)">Para clasificar C o D se exige además función motora voluntaria por debajo del NLI: contracción anal voluntaria, o actividad motora preservada en músculos no clave o en más de tres segmentos por debajo del nivel motor. Sin estos hallazgos, una lesión con sensibilidad sacra preservada queda en B.</p>
+</section>
+
+<section class="tab-content" id="calc">
+  <h2>Calculadora gruesa de la escala AIS</h2>
+  <p>Esta calculadora aplica las reglas mayores de la AIS. Para la graduación fina (especialmente C vs D) consulte la hoja oficial del ISNCSCI o un especialista entrenado.</p>
+
+  <div class="ais-calc">
+    <div class="ais-pregunta">
+      <h4>Pregunta 1 · Examen anorrectal</h4>
+      <div class="pregunta">¿Hay alguno de los tres: sensación anal profunda, sensibilidad perianal o contracción anal voluntaria?</div>
+      <div class="ais-opts" data-grp="anorrectal">
+        <label data-val="completa"><input type="radio" name="ais-anorrectal" value="completa"> No · todos negativos</label>
+        <label data-val="incompleta"><input type="radio" name="ais-anorrectal" value="incompleta"> Sí · alguno positivo</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta" id="p2" style="display:none">
+      <h4>Pregunta 2 · ¿Hay alguna función sensitiva por debajo del NLI, incluyendo S4–S5?</h4>
+      <div class="pregunta">Esto define si la lesión es sensitiva incompleta (B) o motora incompleta.</div>
+      <div class="ais-opts" data-grp="sensitiva">
+        <label data-val="solo-sens"><input type="radio" name="ais-sensitiva" value="solo-sens"> Solo sensibilidad sacra preservada (sin función motora útil por debajo del NLI)</label>
+        <label data-val="motora"><input type="radio" name="ais-sensitiva" value="motora"> Hay función motora voluntaria por debajo del NLI</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta" id="p3" style="display:none">
+      <h4>Pregunta 3 · Función motora bajo el NLI</h4>
+      <div class="pregunta">Considerando los músculos clave caudales al NLI: ¿al menos la mitad tienen fuerza MRC ≥ 3?</div>
+      <div class="ais-opts" data-grp="motora">
+        <label data-val="C"><input type="radio" name="ais-motora" value="C"> Más de la mitad &lt; 3 (no vencen gravedad)</label>
+        <label data-val="D"><input type="radio" name="ais-motora" value="D"> Al menos la mitad ≥ 3 (vencen gravedad)</label>
+      </div>
+    </div>
+
+    <div class="ais-resultado" id="ais-resultado">
+      <div class="ais-grado" id="ais-grado">—</div>
+      <div class="ais-nombre" id="ais-nombre">Responda las preguntas para calcular</div>
+      <div class="ais-interp" id="ais-interp">Sin tacto rectal no se puede asignar un grado AIS.</div>
+      <button class="ais-reset" onclick="resetAIS()">Reiniciar</button>
+    </div>
+  </div>
+
+  <div class="card verde">
+    <h4>Si la lesión es completa</h4>
+    <p style="margin-bottom: 0">Documentar la <strong>zona de preservación parcial (ZPP)</strong>: dermatomas y miotomas con función parcial caudales al NLI.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Anexo J · ISNCSCI · Manual de Rehabilitación · UN · 2026 · <a href="../">Índice</a>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+});
+
+// AIS calculator
+document.querySelectorAll('.ais-opts').forEach(grp => {
+  grp.querySelectorAll('label').forEach(l => {
+    l.addEventListener('click', () => {
+      grp.querySelectorAll('label').forEach(o => o.classList.remove('sel'));
+      l.classList.add('sel');
+      setTimeout(actualizarAIS, 50);
+    });
+  });
+});
+
+function actualizarAIS() {
+  const a = document.querySelector('input[name="ais-anorrectal"]:checked');
+  if (!a) return;
+
+  const p2 = document.getElementById('p2');
+  const p3 = document.getElementById('p3');
+  const res = document.getElementById('ais-resultado');
+  const grado = document.getElementById('ais-grado');
+  const nombre = document.getElementById('ais-nombre');
+  const interp = document.getElementById('ais-interp');
+
+  if (a.value === 'completa') {
+    p2.style.display = 'none';
+    p3.style.display = 'none';
+    grado.textContent = 'A';
+    nombre.textContent = 'Completa';
+    interp.innerHTML = 'Sin función motora ni sensitiva en S4–S5. Documente <strong>zona de preservación parcial (ZPP)</strong> si hay función residual caudal al NLI.';
+    res.className = 'ais-resultado';
+    return;
+  }
+
+  // incompleta
+  p2.style.display = 'block';
+  const s = document.querySelector('input[name="ais-sensitiva"]:checked');
+  if (!s) {
+    p3.style.display = 'none';
+    grado.textContent = '?';
+    nombre.textContent = 'Incompleta — responda la pregunta 2';
+    interp.textContent = '';
+    res.className = 'ais-resultado';
+    return;
+  }
+
+  if (s.value === 'solo-sens') {
+    p3.style.display = 'none';
+    grado.textContent = 'B';
+    nombre.textContent = 'Incompleta sensitiva';
+    interp.innerHTML = 'Función sensitiva preservada por debajo del NLI incluyendo S4–S5, sin función motora preservada útil.';
+    res.className = 'ais-resultado';
+    return;
+  }
+
+  // motora
+  p3.style.display = 'block';
+  const m = document.querySelector('input[name="ais-motora"]:checked');
+  if (!m) {
+    grado.textContent = '?';
+    nombre.textContent = 'Incompleta motora — responda la pregunta 3';
+    interp.textContent = '';
+    res.className = 'ais-resultado';
+    return;
+  }
+
+  if (m.value === 'C') {
+    grado.textContent = 'C';
+    nombre.textContent = 'Incompleta motora';
+    interp.innerHTML = 'Más de la mitad de los músculos clave caudales al NLI con fuerza &lt; 3 (no vencen gravedad).';
+  } else {
+    grado.textContent = 'D';
+    nombre.textContent = 'Incompleta motora';
+    interp.innerHTML = 'Al menos la mitad de los músculos clave caudales al NLI con fuerza ≥ 3 (vencen gravedad). Grado con mejor pronóstico funcional.';
+  }
+  res.className = 'ais-resultado';
+}
+
+function resetAIS() {
+  document.querySelectorAll('.ais-opts label').forEach(l => l.classList.remove('sel'));
+  document.querySelectorAll('.ais-opts input').forEach(i => i.checked = false);
+  document.getElementById('p2').style.display = 'none';
+  document.getElementById('p3').style.display = 'none';
+  document.getElementById('ais-grado').textContent = '—';
+  document.getElementById('ais-nombre').textContent = 'Responda las preguntas para calcular';
+  document.getElementById('ais-interp').textContent = 'Sin tacto rectal no se puede asignar un grado AIS.';
+  document.getElementById('ais-resultado').className = 'ais-resultado';
+}
+</script>
+</body>
+</html>

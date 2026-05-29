@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo K · Carta de bolsillo · Manual de Rehabilitación · UN</title>
+<meta name="description" content="Anexo K: tablas de referencia más usadas en consulta de rehabilitación: MRC, Ashworth, Borg modificada 0–10, puntos de corte de marcha y caídas, escalera analgésica, BMI/cintura, frecuencia cardíaca de entrenamiento.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280; --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --verde:#166534; --verde-suave:#dcfce7; --rojo:#991b1b; --rojo-suave:#fee2e2;
+  --naranja:#9a3412; --naranja-suave:#ffedd5; --amarillo:#78350f; --amarillo-suave:#fef3c7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 960px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t .corte { font-family: var(--sans); font-weight: 700; color: var(--jamared); }
+table.t .ok { color: var(--verde); font-weight: 700; }
+table.t .alerta { color: var(--rojo); font-weight: 700; }
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+.print-btn { font-family: var(--sans); background: var(--azulacad); color: white; border: none; border-radius: 6px; padding: 10px 18px; font-size: 0.88rem; cursor: pointer; margin: 6px 0; }
+@media print {
+  .tab-nav, header.chapter a.back, .print-btn, footer { display: none; }
+  .tab-content { display: block !important; page-break-after: always; }
+  body { background: white; }
+  header.chapter { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo K</div>
+  <h1>Carta de bolsillo</h1>
+  <div class="sub">Tablas de referencia más usadas en consulta · Versión interactiva</div>
+  <a class="back" href="../">← Índice</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="examen">1. Examen físico</button>
+  <button class="tab-btn" data-tab="funcional">2. Pruebas funcionales</button>
+  <button class="tab-btn" data-tab="ejercicio">3. Ejercicio</button>
+  <button class="tab-btn" data-tab="dolor">4. Dolor</button>
+  <button class="tab-btn" data-tab="caidas">5. Caídas</button>
+</nav>
+
+<main>
+
+<section class="tab-content active" id="examen">
+  <h2>Escalas del examen físico</h2>
+
+  <p style="text-align: right"><button class="print-btn" onclick="window.print()">🖨️ Imprimir todas las tablas</button></p>
+
+  <h3>Escala MRC · Fuerza muscular</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Grado</th><th>Definición</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Sin contracción visible ni palpable.</td></tr>
+        <tr><td>1</td><td>Contracción visible o palpable sin movimiento.</td></tr>
+        <tr><td>2</td><td>Movimiento eliminando la gravedad.</td></tr>
+        <tr><td>3</td><td>Movimiento contra gravedad, sin resistencia.</td></tr>
+        <tr><td>4</td><td>Movimiento contra resistencia, pero menor a lo esperado. Modificadores 4−, 4, 4+.</td></tr>
+        <tr><td>5</td><td>Fuerza normal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Escala de Ashworth modificada · Tono / espasticidad</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Grado</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Tono normal.</td></tr>
+        <tr><td>1</td><td>Aumento ligero al mover, con «enganche» breve y liberación al final del rango.</td></tr>
+        <tr><td>1+</td><td>Aumento ligero con «enganche», seguido de mínima resistencia en menos de la mitad del rango.</td></tr>
+        <tr><td>2</td><td>Aumento más marcado, pero el segmento se moviliza fácilmente.</td></tr>
+        <tr><td>3</td><td>Aumento considerable; movilización difícil.</td></tr>
+        <tr><td>4</td><td>Rigidez en flexión o extensión.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Reflejos osteotendinosos · Grados 0–4</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Grado</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Ausente.</td></tr>
+        <tr><td>1</td><td>Disminuido.</td></tr>
+        <tr><td>2</td><td>Normal.</td></tr>
+        <tr><td>3</td><td>Vivo.</td></tr>
+        <tr><td>4</td><td>Con clonus.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tab-content" id="funcional">
+  <h2>Pruebas funcionales · Puntos de corte</h2>
+
+  <h3>Marcha y movilidad</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Prueba</th><th>Corte</th><th>Interpretación</th></tr></thead>
+      <tbody>
+        <tr><td>Velocidad de marcha en 4 m</td><td class="ok">&gt; 1,0 m/s</td><td>Buen pronóstico funcional.</td></tr>
+        <tr><td></td><td class="corte">&lt; 0,8 m/s</td><td>Fragilidad; evaluación geriátrica integral.</td></tr>
+        <tr><td></td><td class="alerta">&lt; 0,6 m/s</td><td>Riesgo alto de hospitalización, caídas, institucionalización.</td></tr>
+        <tr><td><strong>TUG</strong> (Timed Up and Go)</td><td class="corte">&gt; 15 s</td><td>Riesgo elevado de caída · valoración multifactorial.</td></tr>
+        <tr><td></td><td class="alerta">&gt; 30 s</td><td>Severo · considerar silla de ruedas.</td></tr>
+        <tr><td><strong>Monopodal</strong> (apoyo en un pie)</td><td class="corte">&lt; 5 s</td><td>Riesgo de caída · iniciar prevención.</td></tr>
+        <tr><td><strong>5×sit-to-stand</strong></td><td class="corte">&gt; 15 s</td><td>Debilidad de extensores de cadera y rodilla.</td></tr>
+        <tr><td><strong>SPPB</strong></td><td class="corte">≤ 8/12</td><td>Fragilidad.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Fuerza de prensión con dinamómetro JAMAR (EWGSOP2)</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Sexo</th><th>Corte de fuerza baja</th></tr></thead>
+      <tbody>
+        <tr><td>Hombres</td><td class="corte">&lt; 27 kg</td></tr>
+        <tr><td>Mujeres</td><td class="corte">&lt; 16 kg</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Índice de Barthel · Categorización</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Puntaje</th><th>Interpretación</th></tr></thead>
+      <tbody>
+        <tr><td>0–20</td><td>Dependencia total.</td></tr>
+        <tr><td>21–60</td><td>Dependencia severa.</td></tr>
+        <tr><td>61–90</td><td>Dependencia moderada.</td></tr>
+        <tr><td>91–99</td><td>Dependencia leve.</td></tr>
+        <tr><td>100</td><td>Independencia.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tab-content" id="ejercicio">
+  <h2>Prescripción de ejercicio</h2>
+
+  <h3>FCmax y zona de entrenamiento</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Fórmula</th><th>Cálculo</th></tr></thead>
+      <tbody>
+        <tr><td>Fox–Haskell</td><td>FCmax = 220 − edad</td></tr>
+        <tr><td>Tanaka</td><td>FCmax = 208 − 0,7 × edad</td></tr>
+        <tr><td>Karvonen (objetivo)</td><td>FC reposo + % intensidad × (FCmax − FC reposo)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 0.88rem; color: var(--gris)">Zonas de FCmax: <strong>moderada 64–76 %</strong>, <strong>vigorosa 77–93 %</strong>. En pacientes con betabloqueadores las fórmulas pierden validez; usar Borg modificada.</p>
+
+  <h3>Borg modificada 0–10 · Esfuerzo percibido</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Puntaje</th><th>Descripción</th><th>Equivalencia</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Nada en absoluto</td><td>Reposo</td></tr>
+        <tr><td>0,5</td><td>Muy, muy débil</td><td>Apenas se nota</td></tr>
+        <tr><td>1</td><td>Muy débil</td><td>—</td></tr>
+        <tr><td>2</td><td>Débil</td><td>Ligero</td></tr>
+        <tr><td>3</td><td>Moderado</td><td>Intensidad ligera</td></tr>
+        <tr><td>4</td><td>Algo fuerte</td><td><strong>Moderada</strong></td></tr>
+        <tr><td>5</td><td>Fuerte</td><td>Moderada-alta</td></tr>
+        <tr><td>6</td><td>—</td><td>—</td></tr>
+        <tr><td>7</td><td>Muy fuerte</td><td><strong>Vigorosa</strong></td></tr>
+        <tr><td>8</td><td>—</td><td>—</td></tr>
+        <tr><td>9</td><td>—</td><td>—</td></tr>
+        <tr><td>10</td><td>Muy, muy fuerte</td><td>Casi máximo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>FITT base · Adulto sano</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Componente</th><th>Prescripción</th></tr></thead>
+      <tbody>
+        <tr><td>Aeróbico</td><td>3–5 días/sem · 30–60 min · moderado (64–76 % FCmax) o vigoroso (77–93 %).</td></tr>
+        <tr><td>Fuerza</td><td>2–3 días/sem · 8–10 ejercicios · 1–3 series de 8–12 reps al 60–80 % de 1RM.</td></tr>
+        <tr><td>Equilibrio</td><td>2–3 días/sem en &gt; 65 años o con riesgo de caída.</td></tr>
+        <tr><td>Flexibilidad</td><td>Diaria o cuasi diaria · 15–30 s por grupo muscular.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tab-content" id="dolor">
+  <h2>Dolor · Doctrina analgésica</h2>
+
+  <h3>Mapa por territorio</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Territorio</th><th>Sí</th><th>No</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Regional lumbar</strong> (OMS)</td><td>AINE en ciclo corto (no en adulto mayor) + ejercicio + educación.</td><td>Antidepresivos duales, tricíclicos, relajantes, opioides como inicio.</td></tr>
+        <tr><td><strong>Generalizado / nociplástico</strong> (NICE)</td><td>Antidepresivos (amitriptilina, duloxetina, ISRS) + educación + ejercicio + sueño + psicosocial.</td><td>AINE, opioides, gabapentinoides.</td></tr>
+        <tr><td><strong>Secundario</strong> tipo OA (OARSI)</td><td>AINE tópico u oral a menor dosis y tiempo + ejercicio + educación.</td><td>Postura del NICE contra AINE NO aplica (es para dolor primario).</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 0.88rem; color: var(--gris)">Común a los tres: <strong>NO iniciar opioides</strong>; <strong>paracetamol NO es la columna</strong>.</p>
+
+  <h3>EVA y NRS</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Escala</th><th>Puntos de corte</th><th>Cambio mínimo</th></tr></thead>
+      <tbody>
+        <tr><td>EVA (0–100 mm)</td><td>0–4 sin dolor · 5–44 leve · 45–74 moderado · 75–100 grave</td><td>~14 mm</td></tr>
+        <tr><td>NRS (0–10)</td><td>1–4 leve · 5–6 moderado · 7–10 grave (0 = sin dolor)</td><td>2 puntos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>DN4 · Tamizaje neuropático</h3>
+  <p>10 ítems; un punto cada uno. <strong>≥ 4/10</strong> sugiere componente neuropático.</p>
+</section>
+
+<section class="tab-content" id="caidas">
+  <h2>Caídas · Algoritmo y umbrales</h2>
+
+  <h3>Pregunta única de tamizaje</h3>
+  <div class="card azul">
+    <p style="margin: 0">«¿Se ha caído en los últimos 12 meses?» Una respuesta afirmativa, o inestabilidad o miedo a caer, obliga a valoración de la marcha.</p>
+  </div>
+
+  <h3>Estratificación rápida (WFG 2022)</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Riesgo</th><th>Criterios</th><th>Conducta</th></tr></thead>
+      <tbody>
+        <tr><td class="ok">Bajo</td><td>Sin caídas o una caída no grave, sin alteración de marcha/equilibrio.</td><td>Educación + reevaluación anual.</td></tr>
+        <tr><td class="corte">Intermedio</td><td>Caída no grave con problemas de marcha o equilibrio.</td><td>Programa dirigido de ejercicio (fuerza + equilibrio).</td></tr>
+        <tr><td class="alerta">Alto</td><td>Caída con lesión, ≥ 2 caídas en 12 m, fragilidad, no logra levantarse, sospecha de síncope.</td><td>Valoración multifactorial + intervención multidominio.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cuatro pilares de intervención</h3>
+  <ol>
+    <li><strong>Ejercicio multicomponente</strong> (equilibrio + fuerza progresiva), ≥ 3 sesiones/sem, ≥ 12 sem, sostenido.</li>
+    <li><strong>Revisión de medicamentos que aumentan riesgo de caída</strong> (FRIDs): benzodiacepinas, antidepresivos sedantes, antipsicóticos, opioides, antihipertensivos con ortostatismo, hipoglucemiantes de riesgo, anticolinérgicos. STOPPFall.</li>
+    <li><strong>Hipotensión ortostática</strong>: protocolo (acostado 5 min → bipedestación, TA al min 1 y 3). Positivo: TAs ↓ ≥ 20 mmHg o TAd ↓ ≥ 10 mmHg o síntomas.</li>
+    <li><strong>Modificación del entorno + calzado + ayudas técnicas</strong> bien prescritas.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  Anexo K · Carta de bolsillo · Manual de Rehabilitación · UN · 2026 · <a href="../">Índice</a>
+</footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+});
+</script>
+</body>
+</html>

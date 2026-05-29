@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo I · Glosario de siglas · Manual de Rehabilitación · UN</title>
+<meta name="description" content="Anexo I del Manual de Rehabilitación: glosario interactivo de siglas agrupado por dominio (CIF, dolor, MSK, neurología, electrodiagnóstico, geriatría, prevención de caídas, ejercicio), con buscador.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280; --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.search-bar { background: white; border-bottom: 1px solid var(--gris-borde); padding: 18px 24px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.search-bar input {
+  font-family: var(--sans); font-size: 1rem; padding: 10px 16px;
+  border: 1.5px solid var(--gris-borde); border-radius: 8px;
+  width: 100%; max-width: 600px; display: block; margin: 0 auto;
+}
+.search-bar input:focus { border-color: var(--azulacad); outline: none; }
+.search-info { font-family: var(--sans); font-size: 0.82rem; color: var(--gris); text-align: center; margin-top: 8px; }
+
+.filter-chips { background: white; border-bottom: 1px solid var(--gris-borde); padding: 10px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.chip {
+  font-family: var(--sans); font-size: 0.78rem; background: var(--gris-claro);
+  border: 1px solid var(--gris-borde); border-radius: 99px; padding: 5px 12px; cursor: pointer; color: var(--texto-suave);
+}
+.chip:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.chip.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+
+main { max-width: 920px; margin: 0 auto; padding: 36px 24px 60px; }
+
+.dominio { margin: 26px 0; }
+.dominio h2 {
+  font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.5rem;
+  border-bottom: 1.5px solid var(--azulacad); padding-bottom: 6px; margin-bottom: 14px;
+}
+.glosario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px 14px;
+}
+.entry {
+  background: white; padding: 10px 14px; border-radius: 6px;
+  border-left: 3px solid var(--azulacad-suave); font-size: 0.9rem;
+}
+.entry .sigla {
+  font-family: var(--sans); font-weight: 700; color: var(--jamared);
+  margin-right: 6px;
+}
+.entry .desc { color: var(--texto-suave); }
+
+.no-results { font-family: var(--sans); text-align: center; color: var(--gris); padding: 40px; font-size: 1rem; display: none; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo I</div>
+  <h1>Glosario de siglas</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva con buscador</div>
+  <a class="back" href="../">← Índice</a>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="busca" placeholder="🔎 Buscar sigla o término…">
+  <div class="search-info" id="info">170+ siglas en 8 dominios. Use los chips para filtrar por dominio o el buscador para una sigla específica.</div>
+</div>
+
+<div class="filter-chips">
+  <span class="chip active" data-d="todos">Todos</span>
+  <span class="chip" data-d="cif">CIF</span>
+  <span class="chip" data-d="dolor">Dolor</span>
+  <span class="chip" data-d="msk">MSK</span>
+  <span class="chip" data-d="neuro">Neurología</span>
+  <span class="chip" data-d="edx">Edx</span>
+  <span class="chip" data-d="geri">Geriatría</span>
+  <span class="chip" data-d="caidas">Caídas</span>
+  <span class="chip" data-d="ejer">Ejercicio</span>
+</div>
+
+<main>
+<div id="contenedor"></div>
+<div class="no-results" id="empty">No se encontraron coincidencias.</div>
+</main>
+
+<footer>
+  Anexo I · Glosario · Manual de Rehabilitación · UN · 2026 · <a href="../">Índice</a>
+</footer>
+
+<script>
+const datos = {
+  cif: {
+    titulo: 'CIF y evaluación funcional',
+    entries: [
+      ['CIF', 'Clasificación Internacional del Funcionamiento, de la Discapacidad y de la Salud'],
+      ['ABVD', 'Actividades básicas de la vida diaria'],
+      ['AIVD', 'Actividades instrumentales de la vida diaria'],
+      ['CFM', 'Child Functioning Module'],
+      ['FIM', 'Functional Independence Measure'],
+      ['WG-SS', 'Washington Group Short Set on Functioning'],
+      ['WHODAS', 'World Health Organization Disability Assessment Schedule'],
+      ['CIE-11', 'Clasificación Internacional de Enfermedades 11.ª revisión'],
+    ]
+  },
+  dolor: {
+    titulo: 'Dolor',
+    entries: [
+      ['EVA', 'Escala Visual Análoga (0–100 mm)'],
+      ['NRS', 'Numeric Rating Scale (0–10)'],
+      ['IASP', 'International Association for the Study of Pain'],
+      ['DN4', 'Douleur Neuropathique 4 — tamizaje neuropático'],
+      ['SDRC', 'Síndrome doloroso regional complejo'],
+      ['SII', 'Síndrome de intestino irritable'],
+      ['CSI', 'Central Sensitization Inventory'],
+      ['WPI', 'Widespread Pain Index (ACR 2016)'],
+      ['SSS', 'Symptom Severity Scale (ACR 2016)'],
+      ['ACR', 'American College of Rheumatology'],
+      ['FIQ-R', 'Fibromyalgia Impact Questionnaire Revised'],
+      ['F.I.T.', 'Functional, Inconsistent, Triggered (Schubiner)'],
+      ['SFP', 'Síntomas físicos persistentes'],
+      ['NeuPSIG', 'Neuropathic Pain Special Interest Group'],
+    ]
+  },
+  msk: {
+    titulo: 'Musculoesquelético',
+    entries: [
+      ['MRC', 'Medical Research Council (escala de fuerza 0–5)'],
+      ['STC', 'Síndrome del túnel del carpo'],
+      ['OA', 'Osteoartritis'],
+      ['AR', 'Artritis reumatoide'],
+      ['EAI', 'Enfermedad inflamatoria intestinal'],
+      ['OARSI', 'Osteoarthritis Research Society International'],
+      ['AINE', 'Antiinflamatorio no esteroideo'],
+      ['STarT Back', 'Tamizaje estratificado de lumbalgia (Keele)'],
+      ['JAMAR', 'Dinamómetro hidráulico de mano (fuerza de prensión)'],
+      ['1RM', 'Una repetición máxima'],
+      ['EWGSOP2', 'European Working Group on Sarcopenia in Older People 2'],
+      ['CMT', 'Charcot-Marie-Tooth (neuropatía hereditaria)'],
+      ['CIDP', 'Polineuropatía desmielinizante inflamatoria crónica'],
+    ]
+  },
+  neuro: {
+    titulo: 'Neurología y discapacidad neurológica',
+    entries: [
+      ['NMS', 'Neurona motora superior'],
+      ['NMI', 'Neurona motora inferior'],
+      ['ACV', 'Ataque cerebrovascular'],
+      ['AIT', 'Ataque isquémico transitorio'],
+      ['TCE', 'Trauma craneoencefálico'],
+      ['TRM', 'Trauma raquimedular'],
+      ['ELA', 'Esclerosis lateral amiotrófica'],
+      ['NIHSS', 'National Institutes of Health Stroke Scale'],
+      ['mRS', 'Modified Rankin Scale'],
+      ['GCS', 'Glasgow Coma Scale'],
+      ['GOAT', 'Galveston Orientation and Amnesia Test'],
+      ['ALSFRS-R', 'ALS Functional Rating Scale – Revised'],
+      ['MDS-UPDRS', 'Movement Disorder Society – Unified Parkinson Disease Rating Scale'],
+      ['MoCA', 'Montreal Cognitive Assessment'],
+      ['MMSE', 'Mini-Mental State Examination'],
+      ['ASIA', 'American Spinal Injury Association'],
+      ['ISNCSCI', 'International Standards for Neurological Classification of SCI'],
+      ['AIS', 'ASIA Impairment Scale (A–E)'],
+      ['NLI', 'Neurological Level of Injury'],
+      ['ZPP', 'Zona de preservación parcial'],
+      ['UEMS', 'Upper Extremity Motor Score'],
+      ['LEMS', 'Lower Extremity Motor Score'],
+      ['VAC', 'Voluntary Anal Contraction'],
+      ['FAC', 'Functional Ambulation Categories'],
+      ['DASH', 'Disabilities of the Arm, Shoulder and Hand'],
+      ['LSVT-BIG', 'Lee Silverman Voice Treatment – BIG (motor)'],
+      ['TCC', 'Terapia cognitivo-conductual'],
+      ['ACT', 'Acceptance and Commitment Therapy'],
+      ['BiPAP', 'Bilevel Positive Airway Pressure'],
+    ]
+  },
+  edx: {
+    titulo: 'Electrodiagnóstico',
+    entries: [
+      ['EMG', 'Electromiografía con aguja'],
+      ['NCS', 'Neuroconducción nerviosa (Nerve Conduction Study)'],
+      ['Reflejo H', 'Equivalente electrofisiológico del aquíleo'],
+      ['APB', 'Abductor pollicis brevis (referencia STC)'],
+      ['IOD', 'Interóseo dorsal'],
+      ['Padua', 'Escala italiana de severidad del STC'],
+      ['Seddon', 'Clasificación de lesiones nerviosas'],
+      ['CSA', 'Cross-Sectional Area (US del nervio mediano)'],
+      ['VAC', 'Velocidad de Conducción'],
+    ]
+  },
+  geri: {
+    titulo: 'Geriatría y adulto mayor',
+    entries: [
+      ['SPPB', 'Short Physical Performance Battery'],
+      ['TUG', 'Timed Up and Go'],
+      ['5×STS', 'Five times sit-to-stand'],
+      ['30-CST', '30-Second Chair Stand Test'],
+      ['HbA1c', 'Hemoglobina glicosilada'],
+      ['STOPPFall', 'Lista de fármacos de riesgo de caída en mayores'],
+      ['STOPP/START', 'Listas de prescripciones inadecuadas en mayores'],
+      ['Beers', 'Lista de medicamentos potencialmente inapropiados'],
+      ['CAM', 'Confusion Assessment Method (delirium)'],
+      ['VGI', 'Valoración Geriátrica Integral'],
+      ['FRID', 'Fall Risk Increasing Drug'],
+    ]
+  },
+  caidas: {
+    titulo: 'Caídas y equilibrio',
+    entries: [
+      ['WFG', 'World Falls Guidelines (2022)'],
+      ['STEADI', 'Stopping Elderly Accidents, Deaths and Injuries (CDC)'],
+      ['Zarit', 'Escala de sobrecarga del cuidador'],
+    ]
+  },
+  ejer: {
+    titulo: 'Prescripción de ejercicio',
+    entries: [
+      ['FITT', 'Frecuencia, Intensidad, Tiempo, Tipo'],
+      ['FCmax', 'Frecuencia cardíaca máxima'],
+      ['VO₂máx', 'Consumo máximo de oxígeno'],
+      ['Borg 0–10', 'Escala modificada de esfuerzo percibido'],
+      ['Borg 6–20', 'Escala original de esfuerzo percibido'],
+      ['6MWT', 'Six Minute Walk Test'],
+      ['EPOC', 'Enfermedad pulmonar obstructiva crónica'],
+      ['IMC', 'Índice de masa corporal'],
+      ['TA', 'Tensión arterial'],
+      ['HTA', 'Hipertensión arterial'],
+      ['DM', 'Diabetes mellitus'],
+      ['ECV', 'Enfermedad cardiovascular'],
+      ['UCI', 'Unidad de cuidado intensivo'],
+    ]
+  }
+};
+
+const contenedor = document.getElementById('contenedor');
+const inp = document.getElementById('busca');
+const info = document.getElementById('info');
+const empty = document.getElementById('empty');
+let filtroDominio = 'todos';
+
+function render() {
+  contenedor.innerHTML = '';
+  const q = inp.value.trim().toLowerCase();
+  let total = 0;
+  Object.entries(datos).forEach(([dKey, d]) => {
+    if (filtroDominio !== 'todos' && filtroDominio !== dKey) return;
+    const filtered = d.entries.filter(([s, t]) =>
+      !q || s.toLowerCase().includes(q) || t.toLowerCase().includes(q));
+    if (filtered.length === 0) return;
+    const div = document.createElement('div');
+    div.className = 'dominio';
+    let h = '<h2>' + d.titulo + '</h2><div class="glosario-grid">';
+    filtered.forEach(([s, t]) => {
+      h += '<div class="entry"><span class="sigla">' + s + '</span><span class="desc">' + t + '</span></div>';
+      total++;
+    });
+    h += '</div>';
+    div.innerHTML = h;
+    contenedor.appendChild(div);
+  });
+  if (total === 0) {
+    empty.style.display = 'block';
+    info.textContent = 'Sin resultados.';
+  } else {
+    empty.style.display = 'none';
+    info.textContent = total + ' siglas mostradas.';
+  }
+}
+
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    filtroDominio = c.dataset.d;
+    render();
+  });
+});
+
+inp.addEventListener('input', render);
+render();
+</script>
+</body>
+</html>

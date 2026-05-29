@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo L · Mini-Cog · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Anexo L del Manual de Rehabilitación: protocolo del Mini-Cog para tamizaje de deterioro cognitivo en adulto mayor, con calculadora del puntaje y seis sets validados de tres palabras.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --jamared:#C8102E; --jamared-suave:#faeaec; --azulacad:#003366; --azulacad-suave:#e8eef5;
+  --texto:#1a1a1a; --texto-suave:#4a4a4a; --gris:#6b7280; --gris-claro:#f5f5f4; --gris-borde:#e5e5e4; --crema:#fbfaf7;
+  --verde:#166534; --verde-suave:#dcfce7; --rojo:#991b1b; --rojo-suave:#fee2e2;
+  --naranja:#9a3412; --naranja-suave:#ffedd5; --amarillo:#78350f; --amarillo-suave:#fef3c7;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,serif;
+  --sans:'Fira Sans',-apple-system,sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--serif); margin: 0; background: var(--crema); color: var(--texto); line-height: 1.55; font-size: 17px; }
+header.chapter { background: white; padding: 56px 24px 36px; text-align: center; border-bottom: 1px solid var(--gris-borde); }
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 18px; line-height: 1.18; max-width: 720px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+.tab-nav { background: white; border-bottom: 1px solid var(--gris-borde); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.tab-btn { font-family: var(--sans); background: transparent; border: 1px solid transparent; border-radius: 6px; padding: 7px 13px; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--texto-suave); transition: all 0.12s; }
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active { background: var(--azulacad); color: white; border-color: var(--azulacad); }
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 60px; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+h2 { font-family: var(--serif); font-style: italic; color: var(--azulacad); font-weight: 500; font-size: 1.7rem; line-height: 1.25; border-bottom: 1.5px solid var(--azulacad); padding-bottom: 8px; margin-bottom: 18px; }
+h3 { font-family: var(--serif); color: var(--azulacad); margin-top: 26px; margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+h4 { font-family: var(--sans); color: var(--azulacad); margin-bottom: 6px; font-size: 0.95rem; font-weight: 600; }
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+.card { background: white; border: 1px solid var(--gris-borde); border-left-width: 4px; border-radius: 4px; padding: 14px 18px; margin: 14px 0; font-size: 0.95rem; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t { border-collapse: collapse; width: 100%; font-size: 0.92rem; background: white; border-top: 2.2px solid var(--jamared); border-bottom: 2.2px solid var(--jamared); }
+table.t th, table.t td { border: none; border-bottom: 1px solid var(--gris-borde); padding: 9px 12px; text-align: left; font-family: var(--serif); vertical-align: top; }
+table.t thead th { font-family: var(--sans); background: var(--azulacad-suave); color: var(--azulacad); font-weight: 600; border-bottom: 1.5px solid var(--azulacad); }
+table.t tbody tr:last-child td { border-bottom: none; }
+
+footer { font-family: var(--sans); text-align: center; padding: 26px 24px; font-size: 0.82rem; color: var(--gris); background: white; border-top: 1px solid var(--gris-borde); }
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Mini-Cog calculator */
+.mc-calc { background: white; border: 1px solid var(--gris-borde); border-radius: 8px; padding: 22px 26px; margin: 18px 0; }
+.mc-step { padding: 16px 18px; margin: 12px 0; border-left: 4px solid var(--azulacad); background: var(--azulacad-suave); border-radius: 0 6px 6px 0; }
+.mc-step h4 { margin: 0 0 10px; font-family: var(--sans); font-size: 0.95rem; color: var(--azulacad); }
+.mc-step .desc { font-family: var(--serif); font-style: italic; color: var(--texto-suave); margin: 6px 0 10px; }
+.mc-opts { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.mc-opts label {
+  font-family: var(--sans); font-size: 0.9rem; background: white;
+  border: 1px solid var(--azulacad-suave); border-radius: 6px; padding: 7px 14px; cursor: pointer; color: var(--texto-suave);
+}
+.mc-opts label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.mc-opts label.sel { background: var(--azulacad); color: white; border-color: var(--azulacad); font-weight: 600; }
+.mc-opts input { display: none; }
+
+.mc-set-selector { padding: 14px 16px; margin: 12px 0; background: var(--gris-claro); border-radius: 6px; }
+.mc-set-selector select { font-family: var(--sans); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--gris-borde); margin-left: 8px; }
+.mc-palabras-actuales { font-family: var(--sans); font-weight: 600; color: var(--jamared); margin-top: 8px; font-size: 0.95rem; }
+
+.mc-resultado { padding: 22px 26px; border-radius: 8px; margin: 20px 0; font-family: var(--sans); text-align: center; background: var(--gris-claro); border-left: 4px solid var(--gris); }
+.mc-resultado.bajo { background: var(--rojo-suave); border-left-color: var(--rojo); }
+.mc-resultado.alto { background: var(--verde-suave); border-left-color: var(--verde); }
+.mc-puntos { font-size: 2.6rem; font-weight: 700; color: var(--azulacad); margin: 0; }
+.mc-resultado.bajo .mc-puntos { color: var(--rojo); }
+.mc-resultado.alto .mc-puntos { color: var(--verde); }
+.mc-veredicto { font-size: 1.1rem; font-weight: 600; margin: 8px 0; }
+.mc-interp { font-size: 0.92rem; color: var(--texto-suave); margin-top: 8px; }
+.mc-reset { font-family: var(--sans); background: white; border: 1px solid var(--gris-borde); border-radius: 6px; padding: 8px 16px; font-size: 0.85rem; cursor: pointer; color: var(--texto-suave); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Anexo L</div>
+  <h1>Mini-Cog: protocolo de aplicación</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Qué es</button>
+  <button class="tab-btn" data-tab="indicaciones">2. Indicaciones</button>
+  <button class="tab-btn" data-tab="protocolo">3. Protocolo</button>
+  <button class="tab-btn" data-tab="calculadora">4. 🔢 Calculadora</button>
+  <button class="tab-btn" data-tab="conducta">5. Conducta según resultado</button>
+</nav>
+
+<main>
+
+<section class="tab-content active" id="intro">
+  <h2>Qué es el Mini-Cog</h2>
+  <p>El <strong>Mini-Cog</strong> es el instrumento de tamizaje cognitivo de elección en consulta del adulto mayor: combina memoria de recuerdo diferido de <strong>tres palabras</strong> con el <strong>dibujo del reloj</strong>. Toma unos tres minutos, no requiere entrenamiento especializado y está validado para detección de deterioro cognitivo y demencia en adultos mayores, con buen desempeño en poblaciones multilingües y con distintos niveles educativos.</p>
+
+  <div class="card azul">
+    <h4>¿Mini-Cog o MoCA?</h4>
+    <p style="margin-bottom: 0"><strong>Mini-Cog:</strong> cribado rápido del adulto mayor en consulta general (3 min). <strong>MoCA:</strong> preferible cuando se sospecha disfunción ejecutiva, atención o memoria de trabajo en pacientes con déficit neurológico (ACV, TCE, Parkinson, ELA, demencia incipiente). Para el cap. 7 de lesiones neurológicas, MoCA es la herramienta preferida; el Mini-Cog cubre el adulto mayor de la consulta primaria (cap. 2 y 9).</p>
+  </div>
+
+  <h3>Estructura del puntaje (0–5)</h3>
+  <ul>
+    <li>Recuerdo de palabras: 0–3 puntos (1 por cada palabra recordada espontáneamente).</li>
+    <li>Dibujo del reloj: 0 o 2 puntos (todo o nada).</li>
+  </ul>
+
+  <div class="card amarilla">
+    <h4>Umbral</h4>
+    <p style="margin-bottom: 0">Puntaje total <strong>≤ 2/5</strong> es sospechoso de deterioro cognitivo y obliga a evaluación adicional. <strong>3–5/5</strong>: menor probabilidad de deterioro cognitivo significativo.</p>
+  </div>
+</section>
+
+<section class="tab-content" id="indicaciones">
+  <h2>Indicaciones</h2>
+  <ul>
+    <li><strong>Tamizaje cognitivo de oportunidad</strong> en el adulto mayor de la consulta general.</li>
+    <li><strong>Queja subjetiva de memoria</strong> referida por el paciente o por el cuidador (cambios reportados).</li>
+    <li><strong>Tamizaje preoperatorio</strong> cuando se planea cirugía mayor o anestesia general en adulto mayor.</li>
+    <li><strong>Antes de prescribir medicamentos con potencial deteriorante</strong>: anticolinérgicos, benzodiacepinas, opioides, antihistamínicos sedantes.</li>
+  </ul>
+
+  <div class="card azul">
+    <h4>Cuándo NO usar Mini-Cog (preferir MoCA)</h4>
+    <ul style="margin-bottom: 0">
+      <li>Paciente con déficit neurológico focal por ACV, TCE o lesión cortical conocida.</li>
+      <li>Sospecha de disfunción ejecutiva pura (Parkinson, demencia frontotemporal).</li>
+      <li>Seguimiento longitudinal en rehabilitación neurológica.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="tab-content" id="protocolo">
+  <h2>Protocolo de aplicación</h2>
+  <p>Tres pasos en este orden, sin interrupciones:</p>
+
+  <h3>Paso 1 · Registro de tres palabras</h3>
+  <p>Capte la atención del paciente y dígale:</p>
+  <div class="card azul">
+    <p style="margin: 0; font-style: italic">«Le voy a decir tres palabras que quiero que usted recuerde ahora y más tarde. Las palabras son <strong>manzana, amanecer, silla</strong>. Por favor, dígamelas ahora.»</p>
+  </div>
+  <p>Permita hasta tres intentos para que el paciente repita correctamente. Si tras tres intentos no logra repetirlas, continúe igualmente con el siguiente paso.</p>
+
+  <h3>Paso 2 · Dibujo del reloj</h3>
+  <p>Entregue una hoja en blanco y un lápiz. Indique al paciente:</p>
+  <div class="card azul">
+    <p style="margin: 0; font-style: italic">«Por favor, dibuje un reloj en este espacio. Comience dibujando un círculo grande.»</p>
+  </div>
+  <p>Cuando termine, diga:</p>
+  <div class="card azul">
+    <p style="margin: 0; font-style: italic">«Coloque todos los números en el círculo.»</p>
+  </div>
+  <p>Cuando termine, diga:</p>
+  <div class="card azul">
+    <p style="margin: 0; font-style: italic">«Ahora coloque las manecillas del reloj para que marquen las <strong>11 y 10</strong>.»</p>
+  </div>
+  <p>Si en tres minutos no ha terminado, suspenda el ítem.</p>
+
+  <h3>Paso 3 · Recuerdo diferido</h3>
+  <p>Pregunte:</p>
+  <div class="card azul">
+    <p style="margin: 0; font-style: italic">«¿Cuáles fueron las tres palabras que le pedí que recordara?»</p>
+  </div>
+
+  <h3>Calificación</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Ítem</th><th>Criterio</th><th>Puntos</th></tr></thead>
+      <tbody>
+        <tr><td>Recuerdo de palabras</td><td>1 punto por cada palabra recordada espontáneamente, sin pistas</td><td>0–3</td></tr>
+        <tr><td>Dibujo del reloj</td><td>Normal: círculo cerrado + 12 números en posición + manecillas que marquen 11:10 → <strong>2 puntos</strong>. Cualquier alteración → <strong>0 puntos</strong>.</td><td>0 o 2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tab-content" id="calculadora">
+  <h2>Calculadora del Mini-Cog</h2>
+
+  <div class="mc-set-selector">
+    <label for="mc-set">Set de palabras:</label>
+    <select id="mc-set">
+      <option value="0">Set 1 · Plátano · Amanecer · Silla</option>
+      <option value="1">Set 2 · Líder · Estación · Mesa</option>
+      <option value="2">Set 3 · Pueblo · Cocina · Bebé</option>
+      <option value="3">Set 4 · Hija · Jardín · Capitán</option>
+      <option value="4">Set 5 · Caballo · Mercado · Paraguas</option>
+      <option value="5" selected>Set 6 · Manzana · Amanecer · Silla</option>
+    </select>
+    <div class="mc-palabras-actuales" id="mc-palabras"></div>
+  </div>
+
+  <div class="mc-calc">
+    <div class="mc-step">
+      <h4>Paso 1 · Recuerdo de palabras (0–3)</h4>
+      <div class="desc">¿Cuántas palabras recordó el paciente espontáneamente, sin pistas?</div>
+      <div class="mc-opts" data-grp="palabras">
+        <label data-val="0"><input type="radio" name="mc-palabras" value="0"> 0 palabras</label>
+        <label data-val="1"><input type="radio" name="mc-palabras" value="1"> 1 palabra</label>
+        <label data-val="2"><input type="radio" name="mc-palabras" value="2"> 2 palabras</label>
+        <label data-val="3"><input type="radio" name="mc-palabras" value="3"> 3 palabras</label>
+      </div>
+    </div>
+
+    <div class="mc-step">
+      <h4>Paso 2 · Dibujo del reloj (0 o 2)</h4>
+      <div class="desc">¿El reloj es normal? (Círculo cerrado + 12 números correctos + manecillas que marquen 11:10)</div>
+      <div class="mc-opts" data-grp="reloj">
+        <label data-val="0"><input type="radio" name="mc-reloj" value="0"> Alterado (0)</label>
+        <label data-val="2"><input type="radio" name="mc-reloj" value="2"> Normal (2)</label>
+      </div>
+    </div>
+
+    <div class="mc-resultado" id="mc-resultado">
+      <div class="mc-puntos" id="mc-total">—</div>
+      <div class="mc-veredicto" id="mc-veredicto">Seleccione los puntajes para calcular</div>
+      <div class="mc-interp" id="mc-interp">El puntaje total va de 0 a 5.</div>
+      <button class="mc-reset" onclick="resetMC()">Reiniciar</button>
+    </div>
+  </div>
+</section>
+
+<section class="tab-content" id="conducta">
+  <h2>Conducta según el resultado</h2>
+
+  <div class="card verde">
+    <h4>Mini-Cog 3, 4 o 5</h4>
+    <p style="margin-bottom: 0">Menor probabilidad de deterioro cognitivo significativo. No descarta deterioro cognitivo leve si la queja subjetiva persiste; en ese caso considere MoCA o evaluación neurológica/geriátrica.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>Mini-Cog 0, 1 o 2</h4>
+    <p>Posible deterioro cognitivo. <strong>No establece diagnóstico de demencia</strong> pero obliga a continuar el estudio:</p>
+    <ol style="margin-bottom: 0">
+      <li><strong>Revisar medicamentos con efectos cognitivos</strong>: anticolinérgicos, benzodiacepinas, opioides, antihistamínicos sedantes. Suspender o reducir los modificables.</li>
+      <li><strong>Buscar causas reversibles</strong>: déficit de vitamina B<sub>12</sub>, hipotiroidismo, depresión, hipoacusia mal corregida, delirium (en hospitalizados).</li>
+      <li><strong>Remitir</strong> a evaluación geriátrica o neurológica para aplicar herramientas más sensibles (MoCA, MMSE, evaluación neuropsicológica) y descartar causas estructurales.</li>
+      <li><strong>Evaluar al cuidador</strong>: sobrecarga (Zarit abreviado), red de apoyo, ajustes del entorno y plan de seguimiento.</li>
+    </ol>
+  </div>
+
+  <h3>Cómo elegir el siguiente paso</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Sospecha clínica predominante</th><th>Siguiente prueba</th></tr></thead>
+      <tbody>
+        <tr><td>Deterioro cognitivo amnésico (memoria) en adulto mayor</td><td>MoCA o MMSE; remisión a geriatría/neurología.</td></tr>
+        <tr><td>Disfunción ejecutiva (Parkinson, frontotemporal)</td><td>MoCA (sensible a disfunción ejecutiva).</td></tr>
+        <tr><td>Déficit focal por ACV/TCE</td><td>MoCA; remitir a neurorrehabilitación.</td></tr>
+        <tr><td>Delirium agudo (hospitalizado)</td><td>CAM (Confusion Assessment Method); buscar causa precipitante.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Anexo L · Mini-Cog · Manual de Rehabilitación · Universidad Nacional de Colombia · 2026 · <a href="../">Índice</a>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+});
+
+// Set de palabras
+const sets = [
+  'Plátano · Amanecer · Silla',
+  'Líder · Estación · Mesa',
+  'Pueblo · Cocina · Bebé',
+  'Hija · Jardín · Capitán',
+  'Caballo · Mercado · Paraguas',
+  'Manzana · Amanecer · Silla'
+];
+const setSel = document.getElementById('mc-set');
+const palDiv = document.getElementById('mc-palabras');
+function updateSet() {
+  palDiv.textContent = 'Palabras a usar: ' + sets[setSel.value];
+}
+setSel.addEventListener('change', updateSet);
+updateSet();
+
+// Opt selection styling
+document.querySelectorAll('.mc-opts').forEach(grp => {
+  grp.querySelectorAll('label').forEach(l => {
+    l.addEventListener('click', () => {
+      grp.querySelectorAll('label').forEach(o => o.classList.remove('sel'));
+      l.classList.add('sel');
+      setTimeout(actualizar, 50);
+    });
+  });
+});
+
+function actualizar() {
+  const p = document.querySelector('input[name="mc-palabras"]:checked');
+  const r = document.querySelector('input[name="mc-reloj"]:checked');
+  if (!p || !r) return;
+  const total = parseInt(p.value) + parseInt(r.value);
+  const elTotal = document.getElementById('mc-total');
+  const elVer = document.getElementById('mc-veredicto');
+  const elInt = document.getElementById('mc-interp');
+  const box = document.getElementById('mc-resultado');
+  elTotal.textContent = total + '/5';
+  if (total <= 2) {
+    elVer.textContent = 'Posible deterioro cognitivo';
+    elInt.innerHTML = 'Requiere evaluación adicional. Revisar medicamentos con efectos cognitivos, descartar causas reversibles y remitir a evaluación neurológica o geriátrica.';
+    box.className = 'mc-resultado bajo';
+  } else {
+    elVer.textContent = 'Menor probabilidad de deterioro cognitivo significativo';
+    elInt.innerHTML = 'No descarta deterioro cognitivo leve si la queja subjetiva persiste; en ese caso considere MoCA o evaluación especializada.';
+    box.className = 'mc-resultado alto';
+  }
+}
+
+function resetMC() {
+  document.querySelectorAll('.mc-opts label').forEach(l => l.classList.remove('sel'));
+  document.querySelectorAll('.mc-opts input').forEach(i => i.checked = false);
+  document.getElementById('mc-total').textContent = '—';
+  document.getElementById('mc-veredicto').textContent = 'Seleccione los puntajes para calcular';
+  document.getElementById('mc-interp').textContent = 'El puntaje total va de 0 a 5.';
+  document.getElementById('mc-resultado').className = 'mc-resultado';
+}
+</script>
+</body>
+</html>
