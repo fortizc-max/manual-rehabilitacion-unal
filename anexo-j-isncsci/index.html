@@ -90,7 +90,8 @@ footer a { color: var(--azulacad); text-decoration: none; }
   <button class="tab-btn" data-tab="examen">2. Componentes</button>
   <button class="tab-btn" data-tab="musculos">3. Músculos y puntos</button>
   <button class="tab-btn" data-tab="ais">4. Escala AIS</button>
-  <button class="tab-btn" data-tab="calc">5. 🔢 Calculadora</button>
+  <button class="tab-btn" data-tab="calc">5. 🔢 Calculadora AIS</button>
+  <button class="tab-btn" data-tab="vanmiddendorp">6. 🚶 Predicción de marcha</button>
 </nav>
 
 <main>
@@ -239,6 +240,106 @@ footer a { color: var(--azulacad); text-decoration: none; }
   </div>
 </section>
 
+<section class="tab-content" id="vanmiddendorp">
+  <h2>Regla de predicción de marcha · van Middendorp 2011</h2>
+  <p>Estima la <strong>probabilidad de caminar de manera independiente en interiores a 1 año</strong> tras trauma raquimedular, a partir del examen ASIA temprano. AUC 0,956 (derivación) y 0,967 (validación). Las cinco variables se toman del <strong>lado mejor</strong>.</p>
+
+  <div class="card azul">
+    <h4>Outcome</h4>
+    <p style="margin-bottom: 0">"Caminar independientemente" = SCIM movilidad en interiores 4–8 (sin asistencia personal sostenida). SCIM 0–3 = depende de asistencia o no camina.</p>
+  </div>
+
+  <div class="ais-calc">
+    <div class="ais-pregunta">
+      <h4>Edad ≥ 65 años</h4>
+      <div class="pregunta">Peso: −10 puntos si sí · 0 si no.</div>
+      <div class="ais-opts" data-grp="edad">
+        <label data-val="0"><input type="radio" name="vm-edad" value="0"> &lt; 65 años (0)</label>
+        <label data-val="-10"><input type="radio" name="vm-edad" value="-10"> ≥ 65 años (−10)</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta">
+      <h4>Motor L3 · quadriceps femoris (MRC 0–5)</h4>
+      <div class="pregunta">Mejor lado · peso ×2.</div>
+      <div class="ais-opts" data-grp="motorL3">
+        <label data-val="0"><input type="radio" name="vm-motorL3" value="0"> 0</label>
+        <label data-val="1"><input type="radio" name="vm-motorL3" value="1"> 1</label>
+        <label data-val="2"><input type="radio" name="vm-motorL3" value="2"> 2</label>
+        <label data-val="3"><input type="radio" name="vm-motorL3" value="3"> 3</label>
+        <label data-val="4"><input type="radio" name="vm-motorL3" value="4"> 4</label>
+        <label data-val="5"><input type="radio" name="vm-motorL3" value="5"> 5</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta">
+      <h4>Motor S1 · triceps surae (MRC 0–5)</h4>
+      <div class="pregunta">Mejor lado · peso ×2.</div>
+      <div class="ais-opts" data-grp="motorS1">
+        <label data-val="0"><input type="radio" name="vm-motorS1" value="0"> 0</label>
+        <label data-val="1"><input type="radio" name="vm-motorS1" value="1"> 1</label>
+        <label data-val="2"><input type="radio" name="vm-motorS1" value="2"> 2</label>
+        <label data-val="3"><input type="radio" name="vm-motorS1" value="3"> 3</label>
+        <label data-val="4"><input type="radio" name="vm-motorS1" value="4"> 4</label>
+        <label data-val="5"><input type="radio" name="vm-motorS1" value="5"> 5</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta">
+      <h4>Tacto ligero L3 · maléolo medial (0–2)</h4>
+      <div class="pregunta">Mejor lado · peso ×5. 0 ausente · 1 alterado · 2 normal.</div>
+      <div class="ais-opts" data-grp="lttL3">
+        <label data-val="0"><input type="radio" name="vm-lttL3" value="0"> 0</label>
+        <label data-val="1"><input type="radio" name="vm-lttL3" value="1"> 1</label>
+        <label data-val="2"><input type="radio" name="vm-lttL3" value="2"> 2</label>
+      </div>
+    </div>
+
+    <div class="ais-pregunta">
+      <h4>Tacto ligero S1 · talón lateral (0–2)</h4>
+      <div class="pregunta">Mejor lado · peso ×5. 0 ausente · 1 alterado · 2 normal.</div>
+      <div class="ais-opts" data-grp="lttS1">
+        <label data-val="0"><input type="radio" name="vm-lttS1" value="0"> 0</label>
+        <label data-val="1"><input type="radio" name="vm-lttS1" value="1"> 1</label>
+        <label data-val="2"><input type="radio" name="vm-lttS1" value="2"> 2</label>
+      </div>
+    </div>
+
+    <div class="ais-resultado" id="vm-resultado">
+      <div class="ais-grado" id="vm-puntaje">—</div>
+      <div class="ais-nombre" id="vm-prob">Responda las preguntas para calcular</div>
+      <div class="ais-interp" id="vm-interp">Puntaje total: −10 a +40.</div>
+      <button class="ais-reset" onclick="resetVM()">Reiniciar</button>
+    </div>
+  </div>
+
+  <h3>Equivalencias rápidas</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Puntaje</th><th>Probabilidad</th><th>Lectura clínica</th></tr></thead>
+      <tbody>
+        <tr><td>−10</td><td>&lt; 1 %</td><td>Adulto mayor sin función motora ni sensitiva clave.</td></tr>
+        <tr><td>0</td><td>4 %</td><td>Sin función L3/S1, &lt; 65 años.</td></tr>
+        <tr><td>10</td><td>16 %</td><td>Función parcial; pronóstico bajo.</td></tr>
+        <tr><td>20</td><td>50 %</td><td>Pronóstico intermedio.</td></tr>
+        <tr><td>30</td><td>84 %</td><td>Pronóstico alto.</td></tr>
+        <tr><td>40</td><td>&gt; 99 %</td><td>Función prácticamente normal; marcha esperada.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Fórmula</h3>
+  <div class="card azul">
+    <p style="margin: 0; font-family: 'Fira Mono', monospace; font-size: 0.95rem">P(camina) = e<sup>(−3,273 + 0,267·S)</sup> ⁄ (1 + e<sup>(−3,273 + 0,267·S)</sup>)</p>
+  </div>
+  <p style="font-size: 0.88rem; color: var(--gris); margin-top: 12px"><strong>Fuente:</strong> van Middendorp JJ et al. A clinical prediction rule for ambulation outcomes after traumatic spinal cord injury: a longitudinal cohort study. <em>Lancet</em> 2011;377:1004–1010.</p>
+
+  <div class="card amarilla">
+    <h4>Cuándo aplicarla</h4>
+    <p style="margin-bottom: 0">Con el primer examen ASIA confiable (primeros 15 días) y en cada control. Sirve para conversar con paciente y familia y para fijar metas funcionales realistas. <strong>No reemplaza el juicio clínico</strong> en casos extremos (paciente joven con progresión rápida) ni predice calidad de marcha o marcha comunitaria.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -256,13 +357,15 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// AIS calculator
+// AIS + van Middendorp calculators: same .ais-opts container
 document.querySelectorAll('.ais-opts').forEach(grp => {
   grp.querySelectorAll('label').forEach(l => {
     l.addEventListener('click', () => {
       grp.querySelectorAll('label').forEach(o => o.classList.remove('sel'));
       l.classList.add('sel');
-      setTimeout(actualizarAIS, 50);
+      const inp = grp.querySelector('input');
+      const isVM = inp && inp.name && inp.name.startsWith('vm-');
+      setTimeout(isVM ? actualizarVM : actualizarAIS, 50);
     });
   });
 });
@@ -333,14 +436,81 @@ function actualizarAIS() {
 }
 
 function resetAIS() {
-  document.querySelectorAll('.ais-opts label').forEach(l => l.classList.remove('sel'));
-  document.querySelectorAll('.ais-opts input').forEach(i => i.checked = false);
+  ['ais-anorrectal','ais-sensitiva','ais-motora'].forEach(n => {
+    document.querySelectorAll('input[name="'+n+'"]').forEach(i => i.checked = false);
+    document.querySelectorAll('input[name="'+n+'"]').forEach(i => i.parentElement.classList.remove('sel'));
+  });
   document.getElementById('p2').style.display = 'none';
   document.getElementById('p3').style.display = 'none';
   document.getElementById('ais-grado').textContent = '—';
   document.getElementById('ais-nombre').textContent = 'Responda las preguntas para calcular';
   document.getElementById('ais-interp').textContent = 'Sin tacto rectal no se puede asignar un grado AIS.';
   document.getElementById('ais-resultado').className = 'ais-resultado';
+}
+
+// ===== van Middendorp 2011 calculator =====
+function actualizarVM() {
+  const get = n => {
+    const x = document.querySelector('input[name="'+n+'"]:checked');
+    return x ? parseInt(x.value) : null;
+  };
+  const e = get('vm-edad');
+  const mL3 = get('vm-motorL3');
+  const mS1 = get('vm-motorS1');
+  const tL3 = get('vm-lttL3');
+  const tS1 = get('vm-lttS1');
+  const elPun = document.getElementById('vm-puntaje');
+  const elPro = document.getElementById('vm-prob');
+  const elInt = document.getElementById('vm-interp');
+  const box = document.getElementById('vm-resultado');
+  if ([e, mL3, mS1, tL3, tS1].some(v => v === null)) {
+    box.className = 'ais-resultado';
+    elPun.textContent = '—';
+    elPro.textContent = 'Responda las cinco variables para calcular';
+    elInt.textContent = 'Puntaje total: −10 a +40.';
+    return;
+  }
+  const S = e + 2*mL3 + 2*mS1 + 5*tL3 + 5*tS1;
+  const x = -3.273 + 0.267 * S;
+  const P = Math.exp(x) / (1 + Math.exp(x));
+  const pct = (P * 100).toFixed(1);
+  elPun.textContent = (S>=0?'+':'') + S + ' / 40';
+  elPro.textContent = 'Probabilidad de marcha independiente a 1 año: ' + pct + ' %';
+  if (P >= 0.7) {
+    elInt.innerHTML = '<strong>Pronóstico alto.</strong> Plan ambicioso de reentrenamiento de marcha; meta funcional realista de marcha comunitaria.';
+    box.className = 'ais-resultado';
+    box.style.background = 'var(--verde-suave)';
+    box.style.borderLeftColor = 'var(--verde)';
+  } else if (P >= 0.3) {
+    elInt.innerHTML = '<strong>Pronóstico intermedio.</strong> Programa intensivo de reentrenamiento de marcha; reevaluar en cada control.';
+    box.className = 'ais-resultado';
+    box.style.background = 'var(--amarilla-suave)';
+    box.style.borderLeftColor = 'var(--amarillo)';
+  } else if (P >= 0.05) {
+    elInt.innerHTML = '<strong>Pronóstico bajo.</strong> Probable necesidad de silla con marcha de ejercicio asistida; metas en transferencias e independencia en silla.';
+    box.className = 'ais-resultado';
+    box.style.background = 'var(--naranja-suave)';
+    box.style.borderLeftColor = 'var(--naranja)';
+  } else {
+    elInt.innerHTML = '<strong>Pronóstico muy bajo.</strong> Plan centrado en silla adaptada, transferencias, manejo vesical/intestinal, prevención de complicaciones.';
+    box.className = 'ais-resultado';
+    box.style.background = 'var(--rojo-suave)';
+    box.style.borderLeftColor = 'var(--rojo)';
+  }
+}
+
+function resetVM() {
+  ['vm-edad','vm-motorL3','vm-motorS1','vm-lttL3','vm-lttS1'].forEach(n => {
+    document.querySelectorAll('input[name="'+n+'"]').forEach(i => i.checked = false);
+    document.querySelectorAll('input[name="'+n+'"]').forEach(i => i.parentElement.classList.remove('sel'));
+  });
+  const box = document.getElementById('vm-resultado');
+  box.className = 'ais-resultado';
+  box.style.background = '';
+  box.style.borderLeftColor = '';
+  document.getElementById('vm-puntaje').textContent = '—';
+  document.getElementById('vm-prob').textContent = 'Responda las preguntas para calcular';
+  document.getElementById('vm-interp').textContent = 'Puntaje total: −10 a +40.';
 }
 </script>
 </body>
