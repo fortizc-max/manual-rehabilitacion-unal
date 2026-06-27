@@ -42,11 +42,14 @@ header p{margin:6px 0 0;font-size:.86rem;opacity:.92;max-width:70ch}
 .dot .b{width:15px;height:15px;border-radius:50%;margin:0 auto;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 .dot .pl{font-size:.6rem;color:#fff;font-weight:700;position:relative;top:-14px}
 .dot.early{opacity:.55}
+.dot.carry{opacity:.8}
 .rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:8px}
 .pc{border:1px solid var(--line);border-radius:8px;padding:8px 10px;text-align:center}
 .pc .p{font-size:.72rem;font-weight:700;color:#fff;border-radius:999px;padding:2px 8px;display:inline-block}
 .pc .a{font-size:.98rem;font-weight:700;margin-top:6px;color:var(--azul)}
 .pc .a.early{color:var(--muted);font-weight:600;font-size:.8rem}
+.pc .a.carry{color:var(--azul);font-weight:700}
+.pc .a.carry .note{display:block;font-size:.62rem;color:var(--muted);font-weight:600;margin-top:1px}
 .legend{font-size:.74rem;color:var(--muted);margin-top:10px}
 .foot{margin-top:30px;font-size:.74rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 .nores{padding:24px;text-align:center;color:var(--muted)}
@@ -100,27 +103,51 @@ Object.keys(DATA).forEach(k=>{
   tabsEl.appendChild(b);
 });
 
+// Resuelve el signo «>» del manual: un «>» con una edad a su izquierda
+// significa que ese percentil ya se había alcanzado DENTRO de la franja
+// anterior (no «muy temprano»); solo un «>» inicial (sin edad previa)
+// significa «antes de la franja medible» (~6 meses).
+function resolve(vals){
+  const out=[]; let lastReal=null;
+  vals.forEach(v=>{
+    if(v===""){ out.push({kind:"none", age:null, range:null}); return; }
+    if(v===">"){
+      if(lastReal){ out.push({kind:"carry", age:lastReal.age, range:lastReal.range}); }
+      else { out.push({kind:"early", age:null, range:null}); }
+      return;
+    }
+    const a=midAge(v); lastReal={age:a, range:v};
+    out.push({kind:"age", age:a, range:v});
+  });
+  return out;
+}
 function buildAxis(vals){
+  const R=resolve(vals);
   let h='<div class="axis-wrap"><div class="axis"><div class="track"></div>';
   for(let a=1;a<=7;a++){ h+=`<div class="tick" style="left:${pct(a)}%"></div><div class="ticklab" style="left:${pct(a)}%">${a}</div>`; }
-  vals.forEach((v,i)=>{
-    const mid=midAge(v);
-    let left, cls="dot";
-    if(mid===null){ left=0; cls+=" early"; }
-    else left=pct(mid);
-    h+=`<div class="${cls}" style="left:${Math.max(0,Math.min(100,left))}%"><div class="b" style="background:${COLORS[i]}"></div><div class="pl">${PCTS[i]}</div></div>`;
+  const placed={}; // evita que las insignias de la misma franja se solapen
+  R.forEach((r,i)=>{
+    if(r.kind==="none") return;
+    const left = r.age===null ? 0 : pct(r.age);
+    const cls = "dot"+(r.kind==="early"?" early":"")+(r.kind==="carry"?" carry":"");
+    const key=Math.round(left); const k=placed[key]||0; placed[key]=k+1;
+    h+=`<div class="${cls}" style="left:${Math.max(0,Math.min(100,left))}%;margin-left:${k*15}px"><div class="b" style="background:${COLORS[i]}"></div><div class="pl">${PCTS[i]}</div></div>`;
   });
   h+='</div></div>';
   return h;
 }
 function buildRows(vals){
+  const R=resolve(vals);
   let h='<div class="rows">';
-  vals.forEach((v,i)=>{
-    const early=(v===">"||v==="");
-    const txt= v===""? "no reportado" : (early? "muy temprano" : v.replace("-","–")+" a");
-    h+=`<div class="pc"><span class="p" style="background:${COLORS[i]}">&gt;${PCTS[i]}%</span><div class="a${early?' early':''}">${txt}</div></div>`;
+  R.forEach((r,i)=>{
+    let txt, aCls="a", note="";
+    if(r.kind==="none"){ txt="no reportado"; aCls+=" early"; }
+    else if(r.kind==="early"){ txt="muy temprano"; aCls+=" early"; }
+    else if(r.kind==="carry"){ txt=r.range.replace("-","–")+" a"; aCls+=" carry"; note='<span class="note">ya en esta franja</span>'; }
+    else { txt=r.range.replace("-","–")+" a"; }
+    h+=`<div class="pc"><span class="p" style="background:${COLORS[i]}">&gt;${PCTS[i]}%</span><div class="${aCls}">${txt}${note}</div></div>`;
   });
-  h+='</div><div class="legend">«muy temprano» = la mayoría ya lo domina antes de la franja medible (signo «&gt;» del manual).</div>';
+  h+='</div><div class="legend">El signo «&gt;» del manual indica que ese porcentaje ya se había alcanzado <b>dentro de la franja anterior</b> (no más tarde): por eso se muestra en la misma franja. «Muy temprano» = alcanzado antes de la franja medible (~6 meses).</div>';
   return h;
 }
 
