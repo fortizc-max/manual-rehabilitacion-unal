@@ -8,77 +8,57 @@
 <meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
 <meta name="keywords" content="electrodiagnóstico, electromiografía, neuroconducción, túnel del carpo, radiculopatía, polineuropatía, escala Padua, miotomas, medicina física, rehabilitación">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
 :root {
-  --azul: #1e40af;
-  --azul-osc: #1e3a8a;
-  --azul-claro: #dbeafe;
-  --azul-bg: #eff6ff;
-  --naranja: #ea580c;
-  --naranja-claro: #fed7aa;
-  --verde: #047857;
-  --verde-claro: #d1fae5;
-  --rojo: #b91c1c;
+  --jamared: #C8102E; --jamared-suave: #faeaec; --jamared-osc: #8a0a20;
+  --azulacad: #003366; --azulacad-suave: #e8eef5; --azulacad-mid: #ccd6e0;
+  --crema: #fbfaf7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+  /* paleta institucional mapeada a los tokens heredados de esta página */
+  --azul: #003366;
+  --azul-osc: #002244;
+  --azul-claro: #ccd6e0;
+  --azul-bg: #e8eef5;
+  --naranja: #9a3412;
+  --naranja-claro: #ffedd5;
+  --verde: #166534;
+  --verde-claro: #dcfce7;
+  --rojo: #991b1b;
   --rojo-claro: #fee2e2;
-  --amarillo: #b45309;
+  --amarillo: #78350f;
   --amarillo-claro: #fef3c7;
-  --gris: #475569;
-  --gris-claro: #f1f5f9;
-  --gris-borde: #e2e8f0;
-  --texto: #0f172a;
-  --texto-suave: #334155;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-family: var(--serif);
   color: var(--texto);
-  background: #f8fafc;
+  background: var(--crema);
   line-height: 1.55;
-  font-size: 16px;
+  font-size: 17px;
 }
 .layout { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
 
-header {
-  background: linear-gradient(135deg, var(--azul-osc), var(--azul));
-  color: white;
-  padding: 28px 16px 26px;
+header.chapter {
+  background: #fff;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
 }
-header .inner { max-width: 1100px; margin: 0 auto; }
-header .institucion {
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; opacity: 0.85; margin-bottom: 2px;
-}
-header .departamento {
-  font-size: 0.88rem; font-weight: 400; opacity: 0.92;
-  margin-bottom: 18px;
-}
-header .manual-titulo {
-  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.015em;
-  line-height: 1.15;
-}
-header .manual-subtitulo {
-  font-size: 0.92rem; font-weight: 400; opacity: 0.88;
-  letter-spacing: 0.01em; margin-top: 2px;
-}
-header .separador {
-  height: 1px; background: rgba(255,255,255,0.25);
-  margin: 18px 0 14px; max-width: 80px;
-}
-header .capitulo-label {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
-  text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;
-}
-header h1 {
-  font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em;
-  margin-bottom: 4px; line-height: 1.15;
-}
-header .subtitle {
-  font-size: 0.88rem; opacity: 0.88; font-weight: 400;
-}
-@media (max-width: 600px) {
-  header .manual-titulo { font-size: 1.25rem; }
-  header h1 { font-size: 1.35rem; }
-}
+header.chapter .institucion { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gris); margin-bottom: 4px; }
+header.chapter .departamento { font-family: var(--sans); font-size: 0.78rem; color: var(--texto-suave); margin-bottom: 32px; }
+header.chapter .cap-num { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--jamared); margin-bottom: 14px; }
+header.chapter h1 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 2.4rem; color: var(--azulacad); margin: 0 auto 14px; line-height: 1.18; max-width: 760px; }
+header.chapter .sub { font-family: var(--sans); font-size: 0.85rem; color: var(--gris); }
+header.chapter a.back { font-family: var(--sans); display: inline-block; margin-top: 22px; padding: 6px 14px; border: 1px solid var(--gris-borde); border-radius: 99px; font-size: 0.78rem; color: var(--azulacad); text-decoration: none; }
+header.chapter a.back:hover { background: var(--azulacad-suave); }
 
 nav.tabs {
   position: sticky; top: 0; z-index: 50;
@@ -93,7 +73,7 @@ nav.tabs button {
   font-size: 0.88rem; font-weight: 500; color: var(--gris);
   cursor: pointer; border-bottom: 3px solid transparent;
   transition: all 0.15s; white-space: nowrap;
-  font-family: inherit;
+  font-family: var(--sans);
 }
 nav.tabs button:hover { color: var(--azul); background: var(--azul-bg); }
 nav.tabs button.active { color: var(--azul-osc); border-bottom-color: var(--azul); font-weight: 600; }
@@ -144,7 +124,7 @@ li { margin-bottom: 4px; }
 }
 .calc-field input, .calc-field select {
   width: 100%; padding: 9px 11px; border: 1px solid var(--gris-borde);
-  border-radius: 7px; font-size: 0.95rem; font-family: inherit;
+  border-radius: 7px; font-size: 0.95rem; font-family: var(--sans);
   background: white;
   transition: border 0.15s, box-shadow 0.15s;
 }
@@ -178,7 +158,7 @@ th { background: var(--azul-osc); color: white; padding: 10px 12px;
   text-align: left; font-weight: 600; font-size: 0.88rem; }
 td { padding: 9px 12px; border-bottom: 1px solid var(--gris-borde); vertical-align: top; }
 tr:last-child td { border-bottom: none; }
-tr:nth-child(even) td { background: #f8fafc; }
+tr:nth-child(even) td { background: var(--gris-claro); }
 .tabla-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 .escenario-list { list-style: none; margin: 0; padding: 0; }
@@ -194,7 +174,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 .escenario .opciones button {
   padding: 6px 10px; border: 1px solid var(--gris-borde);
   background: white; border-radius: 6px; font-size: 0.85rem;
-  cursor: pointer; font-family: inherit; transition: all 0.15s;
+  cursor: pointer; font-family: var(--sans); transition: all 0.15s;
   color: var(--gris);
 }
 .escenario .opciones button:hover { background: var(--azul-bg); border-color: var(--azul); }
@@ -221,7 +201,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 .miotoma-quiz .pregunta button {
   padding: 8px 10px; border: 1px solid var(--gris-borde);
   background: white; border-radius: 6px; cursor: pointer;
-  font-family: inherit; font-size: 0.88rem; transition: all 0.15s;
+  font-family: var(--sans); font-size: 0.88rem; transition: all 0.15s;
 }
 .miotoma-quiz .pregunta button:hover:not(:disabled) {
   background: var(--azul-bg); border-color: var(--azul);
@@ -252,7 +232,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 .caso .pregunta .opciones button {
   text-align: left; padding: 10px 12px; border: 1px solid var(--gris-borde);
   background: white; border-radius: 6px; cursor: pointer;
-  font-family: inherit; font-size: 0.92rem; transition: all 0.15s;
+  font-family: var(--sans); font-size: 0.92rem; transition: all 0.15s;
 }
 .caso .pregunta .opciones button:hover:not(:disabled) {
   background: var(--azul-bg); border-color: var(--azul);
@@ -286,7 +266,7 @@ tr:nth-child(even) td { background: #f8fafc; }
 .examen .pregunta .opciones button {
   text-align: left; padding: 10px 12px; border: 1px solid var(--gris-borde);
   background: white; border-radius: 6px; cursor: pointer;
-  font-family: inherit; font-size: 0.92rem; transition: all 0.15s;
+  font-family: var(--sans); font-size: 0.92rem; transition: all 0.15s;
 }
 .examen .pregunta .opciones button:hover:not(:disabled) {
   background: var(--azul-bg); border-color: var(--azul);
@@ -315,27 +295,24 @@ tr:nth-child(even) td { background: #f8fafc; }
 }
 
 footer {
-  text-align: center; padding: 24px 16px; color: var(--gris);
+  font-family: var(--sans);
+  text-align: center; padding: 26px 24px; color: var(--gris);
   font-size: 0.82rem; border-top: 1px solid var(--gris-borde);
-  margin-top: 40px;
+  background: #fff; margin-top: 40px;
 }
-footer a { color: var(--azul); text-decoration: none; }
+footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="inner">
-    <div class="institucion">Universidad Nacional de Colombia</div>
-    <div class="departamento">Departamento de Medicina Física y Rehabilitación</div>
-    <div class="manual-titulo">Manual de Rehabilitación</div>
-    <div class="manual-subtitulo">para estudiantes de medicina</div>
-    <div class="separador"></div>
-    <div class="capitulo-label">Capítulo 7</div>
-    <h1>Electrodiagnóstico aplicado</h1>
-    <div class="subtitle">Guía clínica interactiva · Adaptado del capítulo del manual</div>
-  </div>
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 7</div>
+  <h1>Electrodiagnóstico aplicado</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
 </header>
 
 <nav class="tabs">
@@ -524,7 +501,7 @@ footer a:hover { text-decoration: underline; }
       border: 1px solid var(--gris-borde);
       border-radius: 5px;
       font-size: 0.9rem;
-      font-family: inherit;
+      font-family: var(--sans);
       background: white;
       transition: border 0.15s, background 0.15s;
     }
@@ -549,7 +526,7 @@ footer a:hover { text-decoration: underline; }
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       padding: 12px;
-      background: #f8fafc;
+      background: var(--gris-claro);
       border: 1px solid var(--gris-borde);
       border-radius: 8px;
       margin-bottom: 14px;
@@ -568,7 +545,7 @@ footer a:hover { text-decoration: underline; }
       border: 1px solid var(--gris-borde);
       border-radius: 5px;
       font-size: 0.9rem;
-      font-family: inherit;
+      font-family: var(--sans);
       background: white;
     }
     .ncv-demog input:focus,
