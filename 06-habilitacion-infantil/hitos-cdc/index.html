@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hitos del desarrollo CDC (2022) — Habilitación infantil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Sans:wght@400;500;600;700&display=swap');
+:root{--jamared:#C8102E;--azul:#003366;--bg:#f7f8fa;--card:#fff;--line:#e3e6ec;--muted:#5b6573;
+--cS:#1f9d55;--cL:#5b8def;--cC:#9b59b6;--cM:#e08b00;
+--serif:'Libertinus Serif','EB Garamond',Georgia,serif;--sans:'Fira Sans',-apple-system,'Segoe UI',sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:#1b2330;line-height:1.45}
+header{background:var(--azul);color:#fff;padding:18px 20px}
+header h1{margin:0;font-size:1.5rem;font-family:var(--serif);font-weight:700}
+header p{margin:6px 0 0;font-size:.86rem;opacity:.92;max-width:74ch}
+.wrap{max-width:1080px;margin:0 auto;padding:16px 20px 60px}
+.help{background:#eef4fb;border:1px solid #d4e3f5;border-radius:8px;padding:12px 14px;font-size:.85rem;color:#22364d;margin:16px 0}
+.help b{color:var(--azul)}
+.ages{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 8px}
+.age{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:.85rem;color:var(--azul);font-weight:600;min-width:62px;text-align:center}
+.age.active{background:var(--jamared);border-color:var(--jamared);color:#fff}
+.search{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:.95rem;margin:8px 0 4px}
+.count{font-size:.78rem;color:var(--muted);margin:0 0 8px}
+.actearly{background:#fff7ed;border:1px solid #fcd9b6;border-left:4px solid #e08b00;border-radius:8px;padding:10px 14px;font-size:.84rem;color:#7a4a00;margin:6px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.dom{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.dom h3{margin:0;padding:10px 14px;font-size:.9rem;color:#fff;font-family:var(--sans);font-weight:700}
+.dom.social h3{background:var(--cS)} .dom.lenguaje h3{background:var(--cL)}
+.dom.cognitivo h3{background:var(--cC)} .dom.motor h3{background:var(--cM)}
+.dom ul{list-style:none;margin:0;padding:6px 0}
+.dom li{padding:8px 14px;font-size:.9rem;border-top:1px solid #f0f2f6;display:flex;gap:8px;align-items:flex-start}
+.dom li:first-child{border-top:none}
+.dom li .dot{flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:#cfd5df;margin-top:7px}
+.dom.social li .dot{background:var(--cS)} .dom.lenguaje li .dot{background:var(--cL)}
+.dom.cognitivo li .dot{background:var(--cC)} .dom.motor li .dot{background:var(--cM)}
+.new{font-size:.6rem;font-weight:700;color:#fff;background:var(--jamared);border-radius:4px;padding:1px 4px;margin-left:4px;vertical-align:1px}
+.searchview .dom{margin-bottom:12px}
+.tag{display:inline-block;font-size:.66rem;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px;color:#fff}
+.legend{font-size:.74rem;color:var(--muted);margin-top:14px}
+.foot{margin-top:28px;font-size:.74rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.nores{padding:24px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<h1>Hitos del desarrollo · Listas del CDC (2022)</h1>
+<p>Hitos para la <b>vigilancia del desarrollo</b> del programa <i>Learn the Signs. Act Early.</i> de los CDC, revisados por Zubler et&nbsp;al. (2022). Cada hito se ubica en la edad del control de niño sano a la que <b>la mayoría (≥75&nbsp;%)</b> de los niños ya lo cumple. Selecciona una edad para ver lo esperado en los cuatro dominios.</p>
+</header>
+<div class="wrap">
+
+<div class="help">
+<b>Cómo usarlo.</b> A diferencia del PEDI (que muestra toda la curva de percentiles), las listas del CDC fijan cada destreza en la edad a la que <b>≥75&nbsp;%</b> de los niños ya la realiza. Por eso son útiles como <b>tamizaje de vigilancia</b> en cada control: si a esa edad el niño <b>no</b> hace varias de las cosas de la lista, conviene <b>actuar pronto</b> (comentarlo y considerar una prueba de tamizaje), sin esperar.<br>
+<b>En el prematuro</b> usa la <b>edad corregida</b> (hasta los 2 años). No es una prueba diagnóstica.
+</div>
+
+<div class="ages" id="ages"></div>
+<input class="search" id="q" type="search" placeholder="Buscar un hito en todas las edades (p. ej. «camina», «señala», «cuchara»)…" autocomplete="off">
+<p class="count" id="count"></p>
+<div id="early" class="actearly"></div>
+<div id="view"></div>
+
+<div class="foot">
+Fuente: Zubler JM, Wiggins LD, Macias MM, et&nbsp;al. <i>Evidence-Informed Milestones for Developmental Surveillance Tools</i>. Pediatrics. 2022;149(3):e2021052138 — Tablas 3–6 (hitos socioemocionales, de lenguaje/comunicación, cognitivos y motores). CDC <i>Learn the Signs. Act Early.</i> Traducción de uso académico — Manual de Rehabilitación, Universidad Nacional de Colombia.
+</div>
+</div>
+
+<script>
+const D={"ages": [{"key": "2", "label": "2 meses", "dom": {"social": [{"t": "Se calma cuando le hablan o lo alzan", "n": true}, {"t": "Mira tu cara", "n": false}, {"t": "Parece feliz de verte cuando te acercas", "n": true}, {"t": "Sonríe cuando le hablas o le sonríes", "n": false}], "lenguaje": [{"t": "Hace sonidos distintos al llanto", "n": false}, {"t": "Reacciona a sonidos fuertes", "n": true}], "cognitivo": [{"t": "Te observa mientras te mueves", "n": false}, {"t": "Mira un juguete por varios segundos", "n": true}], "motor": [{"t": "Sostiene la cabeza cuando está boca abajo", "n": false}, {"t": "Mueve ambos brazos y ambas piernas", "n": true}, {"t": "Abre las manos brevemente", "n": true}]}}, {"key": "4", "label": "4 meses", "dom": {"social": [{"t": "Sonríe por sí solo para captar tu atención", "n": false}, {"t": "Ríe entre dientes (aún no a carcajadas) cuando tratas de hacerlo reír", "n": true}, {"t": "Te mira, se mueve o hace sonidos para captar o mantener tu atención", "n": true}], "lenguaje": [{"t": "Hace sonidos como «oooo» y «aahh» (gorjeo)", "n": false}, {"t": "Hace sonidos de vuelta cuando le hablas", "n": true}, {"t": "Voltea la cabeza hacia el sonido de tu voz", "n": false}], "cognitivo": [{"t": "Si tiene hambre, abre la boca al ver el pecho o el biberón", "n": true}, {"t": "Mira sus manos con interés", "n": true}], "motor": [{"t": "Sostiene la cabeza firme sin apoyo cuando lo sostienes", "n": false}, {"t": "Sostiene un juguete cuando se lo pones en la mano", "n": false}, {"t": "Usa el brazo para golpear/alcanzar juguetes", "n": false}, {"t": "Se lleva las manos a la boca", "n": false}, {"t": "Se empuja sobre codos/antebrazos cuando está boca abajo", "n": false}]}}, {"key": "6", "label": "6 meses", "dom": {"social": [{"t": "Reconoce a las personas conocidas", "n": false}, {"t": "Le gusta mirarse al espejo", "n": false}, {"t": "Se ríe a carcajadas", "n": true}], "lenguaje": [{"t": "Toma turnos haciendo sonidos contigo", "n": false}, {"t": "Hace «trompetillas» (saca la lengua y sopla)", "n": true}, {"t": "Hace chillidos / sonidos agudos", "n": true}], "cognitivo": [{"t": "Se lleva cosas a la boca para explorarlas", "n": false}, {"t": "Estira la mano para tomar un juguete que quiere", "n": false}, {"t": "Cierra los labios para indicar que no quiere más comida", "n": true}], "motor": [{"t": "Rueda de boca abajo a boca arriba", "n": false}, {"t": "Se empuja con los brazos estirados cuando está boca abajo", "n": false}, {"t": "Se apoya en las manos para sostenerse al estar sentado", "n": false}]}}, {"key": "9", "label": "9 meses", "dom": {"social": [{"t": "Es tímido, se aferra o teme a los extraños", "n": false}, {"t": "Muestra varias expresiones faciales (feliz, triste, enojado, sorprendido)", "n": true}, {"t": "Mira cuando dices su nombre", "n": false}, {"t": "Reacciona cuando te vas (mira, te busca o llora)", "n": false}, {"t": "Sonríe o ríe cuando juegan a «¿dónde está?» (peek-a-boo)", "n": false}], "lenguaje": [{"t": "Hace sonidos como «mamamama» y «babababa»", "n": false}, {"t": "Levanta los brazos para que lo alcen", "n": true}], "cognitivo": [{"t": "Busca objetos cuando caen fuera de su vista (cuchara, juguete)", "n": true}, {"t": "Golpea 2 cosas entre sí", "n": false}], "motor": [{"t": "Llega a la posición sentada por sí mismo", "n": false}, {"t": "Se sienta sin apoyo", "n": false}, {"t": "Usa los dedos para «rastrillar» la comida hacia sí", "n": true}, {"t": "Pasa cosas de una mano a la otra", "n": false}]}}, {"key": "12", "label": "12 meses", "dom": {"social": [{"t": "Juega contigo, p. ej. a las palmaditas", "n": false}], "lenguaje": [{"t": "Dice adiós con la mano", "n": false}, {"t": "Llama «mamá», «papá» u otro nombre especial a un padre", "n": false}, {"t": "Entiende «no» (se detiene brevemente cuando lo dices)", "n": false}], "cognitivo": [{"t": "Pone algo en un recipiente (un bloque en una taza)", "n": false}, {"t": "Busca cosas que te ve esconder (un juguete bajo una manta)", "n": false}], "motor": [{"t": "Se pone de pie agarrándose", "n": false}, {"t": "Camina apoyándose en los muebles", "n": false}, {"t": "Bebe de un vaso sin tapa mientras se lo sostienes", "n": true}, {"t": "Recoge cosas entre el pulgar y el índice (pinza)", "n": false}]}}, {"key": "15", "label": "15 meses", "dom": {"social": [{"t": "Imita a otros niños mientras juega", "n": false}, {"t": "Te muestra un objeto que le gusta", "n": true}, {"t": "Aplaude cuando está emocionado", "n": true}, {"t": "Abraza un muñeco u otro juguete", "n": true}, {"t": "Te muestra afecto (abrazos, mimos o besos)", "n": false}], "lenguaje": [{"t": "Intenta decir 1 o 2 palabras además de mamá/papá («ba» por balón)", "n": true}, {"t": "Mira un objeto conocido cuando lo nombras", "n": false}, {"t": "Sigue indicaciones dadas con gesto y palabra («dame el juguete» extendiendo la mano)", "n": true}, {"t": "Señala para pedir algo o pedir ayuda", "n": false}], "cognitivo": [{"t": "Trata de usar las cosas de forma correcta (teléfono, taza, libro)", "n": false}, {"t": "Apila al menos 2 objetos pequeños (bloques)", "n": true}], "motor": [{"t": "Da algunos pasos solo", "n": false}, {"t": "Usa los dedos para comer", "n": true}]}}, {"key": "18", "label": "18 meses", "dom": {"social": [{"t": "Se aleja de ti, pero mira para asegurarse de que estás cerca", "n": false}, {"t": "Señala para mostrarte algo interesante", "n": false}, {"t": "Extiende las manos para que se las laves", "n": true}, {"t": "Mira algunas páginas de un libro contigo", "n": true}, {"t": "Te ayuda a vestirlo (mete el brazo por la manga o levanta el pie)", "n": false}], "lenguaje": [{"t": "Intenta decir ≥3 palabras además de mamá/papá", "n": false}, {"t": "Sigue una orden de un paso sin gestos («dámelo»)", "n": false}], "cognitivo": [{"t": "Te copia haciendo tareas (barrer con una escoba)", "n": false}, {"t": "Juega con juguetes de forma simple (empuja un carrito)", "n": false}], "motor": [{"t": "Camina sin agarrarse de nada ni de nadie", "n": false}, {"t": "Garabatea", "n": false}, {"t": "Bebe de un vaso sin tapa (puede derramar)", "n": false}, {"t": "Se alimenta con los dedos", "n": true}, {"t": "Trata de usar una cuchara", "n": true}, {"t": "Sube y baja de un sofá o silla sin ayuda", "n": false}]}}, {"key": "24", "label": "24 meses (2 años)", "dom": {"social": [{"t": "Nota cuando otros están heridos o molestos (se entristece cuando alguien llora)", "n": true}, {"t": "Mira tu cara para ver cómo reaccionar en una situación nueva", "n": true}], "lenguaje": [{"t": "Señala cosas en un libro cuando le preguntas («¿dónde está el oso?»)", "n": false}, {"t": "Junta al menos 2 palabras («más leche»)", "n": false}, {"t": "Señala al menos 2 partes del cuerpo cuando se lo pides", "n": false}, {"t": "Usa más gestos que solo saludar y señalar (lanza un beso, asiente sí)", "n": true}], "cognitivo": [{"t": "Sostiene algo en una mano mientras usa la otra (sostiene un recipiente y le quita la tapa)", "n": true}, {"t": "Trata de usar interruptores, perillas o botones de un juguete", "n": false}, {"t": "Juega con más de 1 juguete a la vez (pone comida de juguete en un plato)", "n": true}], "motor": [{"t": "Patea una pelota", "n": false}, {"t": "Corre", "n": false}, {"t": "Sube (caminando, no gateando) algunos escalones con o sin ayuda", "n": false}, {"t": "Come con cuchara", "n": false}]}}, {"key": "30", "label": "30 meses (2½ años)", "dom": {"social": [{"t": "Juega cerca de otros niños y a veces juega con ellos", "n": false}, {"t": "Te muestra lo que sabe hacer diciendo «¡Mírame!»", "n": true}, {"t": "Sigue rutinas simples cuando se le pide (recoge juguetes cuando dices «a ordenar»)", "n": true}], "lenguaje": [{"t": "Dice ~50 palabras", "n": true}, {"t": "Dice ≥2 palabras con una de acción («perro corre»)", "n": true}, {"t": "Nombra cosas en un libro cuando señalas y preguntas «¿qué es esto?»", "n": true}, {"t": "Usa palabras como yo, mí o nosotros", "n": false}], "cognitivo": [{"t": "Usa cosas para fingir (alimenta a un muñeco con un bloque como si fuera comida)", "n": true}, {"t": "Muestra resolución simple de problemas (se para en un banquito para alcanzar algo)", "n": true}, {"t": "Sigue instrucciones de 2 pasos («deja el juguete y cierra la puerta»)", "n": false}, {"t": "Muestra que conoce al menos 1 color (señala el crayón rojo cuando preguntas)", "n": true}], "motor": [{"t": "Usa las manos para girar cosas (perillas, destapar)", "n": false}, {"t": "Se quita algo de ropa solo (pantalón suelto, chaqueta abierta)", "n": false}, {"t": "Salta con los dos pies despegando del suelo", "n": true}, {"t": "Pasa las páginas de un libro, una a la vez", "n": false}]}}, {"key": "36", "label": "3 años", "dom": {"social": [{"t": "Se calma en menos de 10 min después de que te vas (p. ej. en la guardería)", "n": false}, {"t": "Nota a otros niños y se une a ellos para jugar", "n": true}], "lenguaje": [{"t": "Conversa contigo con al menos 2 intercambios de ida y vuelta", "n": false}, {"t": "Hace preguntas: quién, qué, dónde o por qué", "n": true}, {"t": "Dice qué acción ocurre en una imagen (correr, comer, jugar)", "n": true}, {"t": "Dice su nombre cuando se le pregunta", "n": false}, {"t": "Habla bien para que otros lo entiendan, la mayoría de las veces", "n": false}], "cognitivo": [{"t": "Dibuja un círculo cuando le muestras cómo", "n": false}, {"t": "Evita tocar objetos calientes (una estufa) cuando le adviertes", "n": true}], "motor": [{"t": "Ensarta objetos (cuentas grandes, macarrones)", "n": true}, {"t": "Se pone algo de ropa solo (pantalón suelto o chaqueta)", "n": false}, {"t": "Usa un tenedor", "n": false}]}}, {"key": "48", "label": "4 años", "dom": {"social": [{"t": "Finge ser algo más durante el juego (maestra, superhéroe, perro)", "n": false}, {"t": "Pide ir a jugar con otros niños si no hay ninguno cerca («¿Puedo jugar con Alex?»)", "n": false}, {"t": "Consuela a otros que están heridos o tristes (abraza a un amigo que llora)", "n": false}, {"t": "Evita peligros (no salta desde alturas en el parque)", "n": true}, {"t": "Le gusta ser «ayudante»", "n": true}, {"t": "Cambia su comportamiento según el lugar (templo, biblioteca, parque)", "n": true}], "lenguaje": [{"t": "Dice frases de ≥4 palabras", "n": true}, {"t": "Dice algunas palabras de una canción, cuento o rima", "n": false}, {"t": "Cuenta al menos 1 cosa que pasó en su día («jugué fútbol»)", "n": true}, {"t": "Responde preguntas simples («¿para qué sirve un abrigo?»)", "n": true}], "cognitivo": [{"t": "Nombra algunos colores de objetos", "n": false}, {"t": "Dice qué sigue en un cuento conocido", "n": false}, {"t": "Dibuja una persona con ≥3 partes del cuerpo", "n": false}], "motor": [{"t": "Atrapa una pelota grande la mayoría de las veces", "n": false}, {"t": "Se sirve comida o vierte agua (con supervisión)", "n": false}, {"t": "Desabotona algunos botones", "n": true}, {"t": "Sostiene el crayón o lápiz entre los dedos y el pulgar (no en puño)", "n": true}]}}, {"key": "60", "label": "5 años", "dom": {"social": [{"t": "Sigue reglas o respeta turnos al jugar con otros niños", "n": false}, {"t": "Canta, baila o actúa para ti", "n": false}, {"t": "Hace tareas simples en casa (emparejar medias, recoger la mesa)", "n": true}], "lenguaje": [{"t": "Cuenta una historia (oída o inventada) con al menos 2 eventos", "n": false}, {"t": "Responde preguntas simples sobre un libro o cuento después de leérselo", "n": true}, {"t": "Mantiene una conversación con más de 3 intercambios", "n": true}, {"t": "Usa o reconoce rimas simples (gato-pato)", "n": true}], "cognitivo": [{"t": "Cuenta hasta 10", "n": false}, {"t": "Nombra algunos números del 1 al 5 cuando los señalas", "n": false}, {"t": "Usa palabras de tiempo (ayer, mañana, noche)", "n": false}, {"t": "Presta atención 5–10 min durante una actividad (no cuenta el tiempo de pantalla)", "n": true}, {"t": "Escribe algunas letras de su nombre", "n": false}, {"t": "Nombra algunas letras cuando las señalas", "n": true}], "motor": [{"t": "Abotona algunos botones", "n": true}, {"t": "Salta en un pie", "n": false}]}}], "domLabel": {"social": "Socioemocional", "lenguaje": "Lenguaje y comunicación", "cognitivo": "Cognitivo", "motor": "Motor / físico"}, "domOrder": ["social", "lenguaje", "cognitivo", "motor"]};
+let cur=0;
+const agesEl=document.getElementById("ages");
+D.ages.forEach((a,i)=>{
+  const b=document.createElement("button");
+  b.className="age"+(i===0?" active":""); b.textContent=a.label.replace(" meses","m").replace(" (2 años)","").replace(" (2½ años)","");
+  b.title=a.label;
+  b.onclick=()=>{cur=i;document.getElementById("q").value="";[...agesEl.children].forEach(c=>c.classList.remove("active"));b.classList.add("active");render();};
+  agesEl.appendChild(b);
+});
+function liHTML(it){return `<li><span class="dot"></span><span>${it.t}${it.n?'<span class="new" title="Hito nuevo en la revisión de 2022">NUEVO</span>':''}</span></li>`;}
+function domCard(domKey, items){
+  if(!items.length) return "";
+  return `<div class="dom ${domKey}"><h3>${D.domLabel[domKey]}</h3><ul>${items.map(liHTML).join("")}</ul></div>`;
+}
+function render(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const view=document.getElementById("view");
+  const early=document.getElementById("early");
+  if(q){
+    early.style.display="none";
+    view.className="searchview"; view.innerHTML="";
+    let shown=0;
+    D.domOrder.forEach(k=>{
+      const hits=[];
+      D.ages.forEach(a=>a.dom[k].forEach(it=>{ if(it.t.toLowerCase().includes(q)) hits.push({t:`${it.t} <span style="color:#5b6573">· ${a.label}</span>`,n:it.n}); }));
+      shown+=hits.length;
+      view.innerHTML+=domCard(k,hits);
+    });
+    document.getElementById("count").textContent=shown+" hito(s) encontrados";
+    if(!shown) view.innerHTML='<div class="nores">No se encontraron hitos para «'+q+'».</div>';
+    return;
+  }
+  const a=D.ages[cur];
+  early.style.display="block";
+  early.innerHTML=`<b>Actuar pronto.</b> Si a los <b>${a.label}</b> el niño no hace varias de estas cosas, coméntalo con el equipo de salud y considera una prueba de tamizaje del desarrollo (p. ej. ASQ-3 o M-CHAT-R/F). No esperes a ver si “se le pasa”.`;
+  let n=0; D.domOrder.forEach(k=>n+=a.dom[k].length);
+  document.getElementById("count").textContent=n+" hitos esperados a los "+a.label+" (≥75 % de los niños)";
+  view.className=""; view.innerHTML='<div class="grid">'+D.domOrder.map(k=>domCard(k,a.dom[k])).join("")+'</div>';
+}
+document.getElementById("q").addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
