@@ -4,47 +4,165 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Habilitación infantil · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
-<meta name="description" content="Guía interactiva del cap. 6: desarrollo esperado a cada edad con el mapa normativo del PEDI (217 ítems con percentiles 10/25/50/75/90 %) y las listas de hitos del CDC 2022 (umbral ≥75 %). Neurodesarrollo, tamizaje auditivo y de cadera, diagnóstico temprano de parálisis cerebral.">
+<meta name="description" content="Material interactivo del cap. 6: mapa normativo del PEDI (217 ítems con percentiles 10/25/50/75/90 %), listas de hitos del CDC 2022 (umbral ≥75 %) y clasificación GMFCS-E&R de la función motora gruesa en parálisis cerebral.">
 <meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Sans:wght@400;500;600;700&display=swap');
-:root{--jamared:#C8102E;--azulacad:#003366;--azulacad-suave:#e8eef5;--texto:#1a1a1a;
---gris:#6b7280;--gris-borde:#e5e5e4;--crema:#fbfaf7;
---serif:'Libertinus Serif','EB Garamond',Georgia,serif;--sans:'Fira Sans',-apple-system,'Segoe UI',sans-serif;}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--sans);background:var(--crema);color:var(--texto);line-height:1.5}
-.bar{background:var(--azulacad);color:#fff;padding:8px 20px;font-size:.82rem}
-.bar a{color:#cfe0f2;text-decoration:none}.bar a:hover{text-decoration:underline}
-.hd{background:#fff;border-bottom:1px solid var(--gris-borde);padding:26px 20px}
-.hd .wrap,.main{max-width:920px;margin:0 auto}
-.cap-num{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--jamared)}
-.hd h1{font-family:var(--serif);font-weight:700;font-size:2rem;margin:.2em 0 .1em;color:var(--azulacad)}
-.hd p{margin:.4em 0 0;color:var(--gris);max-width:70ch}
-.main{padding:24px 20px 60px}
-.intro{font-size:.98rem;margin:0 0 22px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--gris-borde);border-left:5px solid var(--jamared);border-radius:10px;padding:18px 20px;transition:box-shadow .15s,transform .15s}
-.card:hover{box-shadow:0 6px 20px rgba(0,51,102,.12);transform:translateY(-2px)}
-.card.azul{border-left-color:var(--azulacad)}
-.card h2{font-family:var(--serif);font-size:1.25rem;margin:0 0 6px;color:var(--azulacad)}
-.card .tag{display:inline-block;font-size:.68rem;font-weight:700;color:#fff;background:var(--jamared);border-radius:6px;padding:2px 8px;margin-bottom:8px}
-.card.azul .tag{background:var(--azulacad)}
-.card p{margin:0;font-size:.9rem;color:#333}
-.card .go{display:inline-block;margin-top:12px;font-weight:600;font-size:.86rem;color:var(--jamared)}
-.card.azul .go{color:var(--azulacad)}
-.note{margin-top:26px;background:var(--azulacad-suave);border-radius:8px;padding:12px 16px;font-size:.84rem;color:#22364d}
-.foot{max-width:920px;margin:30px auto 0;padding:0 20px;font-size:.74rem;color:var(--gris)}
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+/* ===== Cabecera estilo "apertura de capítulo" ===== */
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 32px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--azulacad);
+  margin: 0 auto 18px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+main { max-width: 880px; margin: 0 auto; padding: 36px 24px 56px; }
+.intro { margin: 0 0 26px; }
+.intro p { margin: 0.55em 0 0.95em; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.card {
+  display: block; text-decoration: none; color: inherit;
+  background: white; border: 1px solid var(--gris-borde);
+  border-left: 5px solid var(--jamared); border-radius: 10px;
+  padding: 20px 22px; transition: box-shadow .15s, transform .15s;
+}
+.card:hover { box-shadow: 0 6px 20px rgba(0,51,102,.12); transform: translateY(-2px); }
+.card.azul { border-left-color: var(--azulacad); }
+.card.verde { border-left-color: var(--verde); }
+.card .tag {
+  display: inline-block; font-family: var(--sans);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--jamared); border-radius: 6px;
+  padding: 3px 9px; margin-bottom: 10px;
+}
+.card.azul .tag { background: var(--azulacad); }
+.card.verde .tag { background: var(--verde); }
+.card h2 {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 1.4rem; margin: 0 0 8px; color: var(--azulacad);
+}
+.card p { font-family: var(--sans); margin: 0; font-size: 0.92rem; color: var(--texto-suave); line-height: 1.5; }
+.card .go { font-family: var(--sans); display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.85rem; color: var(--jamared); }
+.card.azul .go { color: var(--azulacad); }
+.card.verde .go { color: var(--verde); }
+
+.note {
+  font-family: var(--sans); margin-top: 28px;
+  background: var(--azulacad-suave); border-radius: 8px;
+  padding: 14px 18px; font-size: 0.86rem; color: #22364d;
+}
+.note b { color: var(--azulacad); }
+
+footer {
+  font-family: var(--sans);
+  text-align: center;
+  padding: 26px 24px;
+  font-size: 0.82rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
-<div class="bar"><a href="../">← Manual de Rehabilitación</a> · Capítulo 6</div>
-<div class="hd"><div class="wrap">
-  <span class="cap-num">Capítulo 6 · Habilitación infantil</span>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 6 · Material interactivo</div>
   <h1>Habilitación infantil</h1>
-  <p>En el niño no se <em>rehabilita</em> (recuperar lo perdido), se <strong>habilita</strong>: se construye función aprovechando la neuroplasticidad del primer año. Estas dos herramientas responden a la misma pregunta —<em>¿qué se espera a cada edad?</em>— con enfoques complementarios.</p>
-</div></div>
-<div class="main">
-  <p class="intro">Selecciona una herramienta. En el niño <strong>prematuro</strong>, ambas se interpretan con <strong>edad corregida</strong> (hasta los 2 años). Son referencias del desarrollo esperado, no puntos de corte diagnósticos.</p>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<main>
+  <div class="intro">
+    <p>En el niño no se <em>rehabilita</em> (recuperar lo perdido), se <strong>habilita</strong>: se construye función aprovechando la neuroplasticidad del primer año. Estas tres herramientas responden a la misma pregunta —<em>¿qué se espera a cada edad?</em>— con enfoques complementarios.</p>
+    <p>En el niño <strong>prematuro</strong>, todas se interpretan con <strong>edad corregida</strong> (hasta los 2 años). Son referencias del desarrollo esperado, no puntos de corte diagnósticos.</p>
+  </div>
+
   <div class="cards">
     <a class="card" href="pedi/">
       <span class="tag">PEDI · 217 ítems</span>
@@ -55,18 +173,23 @@ body{margin:0;font-family:var(--sans);background:var(--crema);color:var(--texto)
     <a class="card azul" href="hitos-cdc/">
       <span class="tag">CDC 2022 · 159 hitos</span>
       <h2>Hitos del desarrollo (CDC)</h2>
-      <p>Por edad de control de niño sano (2&nbsp;m–5&nbsp;años) y dominio, los hitos que <strong>≥75&nbsp;%</strong> de los niños ya cumple. Pensados para la <strong>vigilancia</strong>: si no los cumple, actuar pronto.</p>
+      <p>Por edad del control de niño sano (2&nbsp;m–5&nbsp;años) y dominio, los hitos que <strong>≥75&nbsp;%</strong> de los niños ya cumple. Pensados para la <strong>vigilancia</strong>: si no los cumple, actuar pronto.</p>
       <span class="go">Abrir los hitos del CDC →</span>
     </a>
-    <a class="card" style="border-left-color:#1f9d55" href="gmfcs/">
-      <span class="tag" style="background:#1f9d55">GMFCS-E&amp;R · 5 niveles</span>
+    <a class="card verde" href="gmfcs/">
+      <span class="tag">GMFCS-E&amp;R · 5 niveles</span>
       <h2>Clasificación GMFCS (parálisis cerebral)</h2>
-      <p>Por banda de edad (&lt;2&nbsp;a&nbsp;–&nbsp;18&nbsp;años), la descripción de los <strong>cinco niveles</strong> de función motora gruesa y las diferencias entre ellos. Clasifica el desempeño habitual y orienta el pronóstico de marcha y la vigilancia de cadera.</p>
-      <span class="go" style="color:#1f7a43">Abrir la clasificación GMFCS →</span>
+      <p>Por banda de edad (&lt;2&nbsp;a&nbsp;–&nbsp;18&nbsp;años), la descripción de los <strong>cinco niveles</strong> de función motora gruesa. Clasifica el desempeño habitual y orienta el pronóstico de marcha y la vigilancia de cadera.</p>
+      <span class="go">Abrir la clasificación GMFCS →</span>
     </a>
   </div>
-  <div class="note"><strong>¿Cuál usar?</strong> El <strong>PEDI</strong> grada y sigue la función a lo largo de toda la curva de percentiles; las <strong>listas del CDC</strong> son un tamizaje rápido de vigilancia en la consulta; el <strong>GMFCS</strong> clasifica la función motora gruesa del niño con parálisis cerebral. Se complementan.</div>
-</div>
-<div class="foot">Manual de Rehabilitación para el Médico General · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia.</div>
+
+  <div class="note"><b>¿Cuál usar?</b> El <strong>PEDI</strong> grada y sigue la función a lo largo de toda la curva de percentiles; las <strong>listas del CDC</strong> son un tamizaje rápido de vigilancia en la consulta; el <strong>GMFCS</strong> clasifica la función motora gruesa del niño con parálisis cerebral. Se complementan.</div>
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
 </body>
 </html>
