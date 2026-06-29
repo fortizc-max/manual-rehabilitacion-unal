@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HINE · Examen Neurológico de Hammersmith (2–24 meses) — Habilitación infantil</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+:root{
+  --jamared:#C8102E;--jamared-suave:#faeaec;--azulacad:#003366;--azulacad-suave:#e8eef5;
+  --texto:#1a1a1a;--texto-suave:#4a4a4a;--gris:#6b7280;--gris-borde:#e5e5e4;--crema:#fbfaf7;--verde:#166534;
+  --serif:'Libertinus Serif','EB Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Fira Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'Fira Mono','SFMono-Regular',Menlo,monospace;
+  --azul:var(--azulacad);--line:var(--gris-borde);--muted:var(--gris);
+  --c1:#3b6fb0;--c2:#1f9d55;--c3:#e08b00;--c4:#9b59b6;--c5:#C8102E;
+}
+*{box-sizing:border-box}
+body{font-family:var(--serif);margin:0;background:var(--crema);color:var(--texto);line-height:1.55;font-size:17px}
+header.chapter{background:#fff;padding:56px 24px 36px;text-align:center;border-bottom:1px solid var(--gris-borde)}
+header.chapter .institucion{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);margin-bottom:4px}
+header.chapter .departamento{font-family:var(--sans);font-size:.78rem;color:var(--texto-suave);margin-bottom:32px}
+header.chapter .cap-num{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--jamared);margin-bottom:14px}
+header.chapter h1{font-family:var(--serif);font-style:italic;font-weight:500;font-size:2.4rem;color:var(--azulacad);margin:0 auto 14px;line-height:1.18;max-width:760px}
+header.chapter .sub{font-family:var(--sans);font-size:.85rem;color:var(--gris)}
+header.chapter a.back{font-family:var(--sans);display:inline-block;margin-top:22px;padding:6px 14px;border:1px solid var(--gris-borde);border-radius:99px;font-size:.78rem;color:var(--azulacad);text-decoration:none}
+header.chapter a.back:hover{background:var(--azulacad-suave)}
+footer{font-family:var(--sans);text-align:center;padding:26px 24px;font-size:.82rem;color:var(--gris);background:#fff;border-top:1px solid var(--gris-borde)}
+footer a{color:var(--azulacad);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:32px 24px 10px}
+.lede{max-width:74ch;margin:0 0 18px;color:var(--texto-suave)}
+.help,.copy{font-family:var(--sans);border-radius:8px;padding:12px 14px;font-size:.85rem;margin:14px 0}
+.help{background:#eef4fb;border:1px solid #d4e3f5;color:#22364d}
+.help b{color:var(--azul)}
+.copy{background:#fff7ed;border:1px solid #fcd9b6;border-left:4px solid #e08b00;color:#7a4a00;font-size:.8rem}
+/* tablero de puntuación */
+.scoreboard{font-family:var(--sans);position:sticky;top:0;z-index:5;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:16px 0;box-shadow:0 2px 10px rgba(0,51,102,.06)}
+.sb-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sb-chip{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-weight:600}
+.sb-chip b{color:var(--texto)}
+.sb-total{margin-left:auto;font-size:1.05rem;font-weight:700;color:var(--azul)}
+.sb-total span{font-size:1.7rem}
+.interp{font-family:var(--sans);font-size:.82rem;margin-top:10px;padding:9px 12px;border-radius:8px;border-left:4px solid var(--muted);background:var(--crema)}
+.interp.ok{border-color:var(--verde);background:#f0faf3}
+.interp.mid{border-color:#e08b00;background:#fff7ed}
+.interp.low{border-color:var(--jamared);background:var(--jamared-suave)}
+.agebox{font-family:var(--sans);font-size:.8rem;margin:6px 0 0}
+.agebox input{width:70px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;font-size:.85rem;margin:0 4px}
+/* secciones e ítems */
+.sec{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
+.sec>h2{font-family:var(--sans);margin:0;padding:11px 16px;font-size:.95rem;color:#fff;display:flex;justify-content:space-between;align-items:baseline}
+.sec>h2 .smax{font-size:.78rem;font-weight:500;opacity:.92}
+.sec.s1>h2{background:var(--c1)} .sec.s2>h2{background:var(--c2)} .sec.s3>h2{background:var(--c3)}
+.sec.s4>h2{background:var(--c4)} .sec.s5>h2{background:var(--c5)}
+.item{padding:12px 16px;border-top:1px solid #f0f2f6;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:start}
+.item:first-of-type{border-top:none}
+.item .nm{font-weight:600;font-size:.96rem}
+.item .mn{font-family:var(--sans);font-size:.8rem;color:var(--texto-suave);margin-top:2px;max-width:60ch}
+.item .esq{margin-top:8px}
+.seg{display:flex;gap:5px;justify-content:flex-end}
+.seg button{font-family:var(--sans);width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--azul)}
+.seg button:hover{border-color:var(--azul)}
+.seg button.on{background:var(--azul);border-color:var(--azul);color:#fff}
+.asim{font-family:var(--sans);font-size:.72rem;color:var(--muted);margin-top:5px;text-align:right;user-select:none;cursor:pointer;display:block}
+.asim input{vertical-align:-1px}
+.scoreline{grid-column:1/-1;font-family:var(--sans);font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between;border-top:1px dashed #eceef2;padding-top:6px;margin-top:2px}
+.note{font-family:var(--sans);background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.84rem;color:var(--texto-suave);margin:14px 0}
+details.extra{font-family:var(--sans);background:#fff;border:1px solid var(--line);border-radius:8px;margin:14px 0;overflow:hidden}
+details.extra>summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--azul);font-size:.9rem;list-style:none;display:flex;gap:8px;align-items:center}
+details.extra>summary::-webkit-details-marker{display:none}
+details.extra>summary::before{content:"\25B8";color:var(--jamared);font-size:.8rem}
+details.extra[open]>summary::before{content:"\25BE"}
+details.extra .body{padding:0 16px 14px;font-size:.85rem;color:var(--texto-suave)}
+.mile{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.84rem;margin:4px 0}
+.mile dt{font-weight:600;color:var(--texto)}
+.mile dd{margin:0;color:var(--texto-suave)}
+.btns{font-family:var(--sans);margin:8px 0 18px}
+.btns button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font-size:.84rem;cursor:pointer;color:var(--azul);font-weight:600}
+.btns button:hover{background:var(--azulacad-suave)}
+.svgwrap{font-family:var(--sans);font-size:.7rem;color:var(--muted);text-align:center}
+svg.maniobra{display:block;background:#fbfcfe;border:1px solid #eef1f5;border-radius:6px}
+.foot{margin-top:24px;font-size:.74rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;font-family:var(--sans)}
+@media(max-width:560px){.item{grid-template-columns:1fr}.seg{justify-content:flex-start}.asim{text-align:left}}
+</style>
+</head>
+<body>
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 12 · Habilitación infantil</div>
+  <h1>HINE · Examen Neurológico de Hammersmith</h1>
+  <div class="sub">Lactantes de 2 a 24 meses · Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Material interactivo del capítulo 12</a>
+</header>
+<div class="wrap">
+
+<p class="lede">El <b>HINE</b> (<i>Hammersmith Infant Neurological Examination</i>) es un examen neurológico estandarizado de <b>26 ítems</b> para lactantes de <b>2 a 24 meses</b>, una de las tres herramientas (con la resonancia y los movimientos generales de Prechtl) que permiten el <b>diagnóstico precoz de parálisis cerebral</b>. Cada ítem se puntúa de <b>0 a 3</b>; la suma de las cinco secciones da una <b>puntuación global sobre 78</b>. Marca la puntuación de cada ítem y el tablero superior calcula los subtotales, el total y su interpretación.</p>
+
+<div class="help">
+<b>Cómo puntuar.</b> En cada ítem, <b>3</b> = respuesta óptima y <b>0</b> = la más alterada. Si una respuesta no es óptima pero tampoco lo bastante alterada para un 1, puntúa <b>2</b> (puntuación intermedia). Marca <b>«asimetría»</b> cuando la respuesta difiera entre el lado derecho y el izquierdo: el número de ítems asimétricos se cuenta aparte y orienta a lesiones unilaterales. Los <b>hitos motores</b> y la <b>conducta</b> se valoran por separado y <b>no</b> entran en la puntuación global.
+</div>
+
+<div class="scoreboard" id="board">
+  <div class="sb-row" id="chips"></div>
+  <div class="agebox">Edad (corregida en el prematuro):
+    <input id="age" type="number" min="0" max="24" step="1" placeholder="meses"> meses
+    · Ítems asimétricos: <b id="asimN">0</b>
+  </div>
+  <div class="interp" id="interp">Selecciona las puntuaciones para ver la interpretación.</div>
+</div>
+
+<div class="btns"><button id="reset" type="button">↺ Reiniciar puntuaciones</button></div>
+
+<div id="form"></div>
+
+<details class="extra">
+<summary>Hitos motores (se valoran aparte, no entran en la puntuación global)</summary>
+<div class="body">
+<p>El HINE registra además la etapa alcanzada en ocho hitos motores, con la <b>edad a la que suele lograrse</b> cada etapa (referencia, no puntuación):</p>
+<dl class="mile" id="miles"></dl>
+</div>
+</details>
+
+<details class="extra">
+<summary>Conducta (se valora aparte): estado de alerta, estado emocional y sociabilidad</summary>
+<div class="body">
+<p>Se observa durante el examen y se describe en una escala ordinal (de no despertable / muy irritable / evita el contacto, hasta alerta y sociable). Aporta contexto al examen pero <b>no</b> se suma a la puntuación neurológica global.</p>
+</div>
+</details>
+
+<div class="note">
+<b>Interpretación (resumen).</b> En el lactante a término sano la puntuación global suele ser <b>alta</b> (≈73–78). Como predictor de parálisis cerebral, una puntuación global <b>&lt;40 a cualquier edad</b> y <b>&lt;52 antes de los 5&nbsp;meses</b> tienen alto valor predictivo, y las puntuaciones más bajas se asocian a compromiso motor más grave; las <b>asimetrías</b> son clave para detectar la PC unilateral, en la que la puntuación global puede ser engañosamente alta. Estos puntos de corte y su uso combinado con la resonancia y los movimientos generales se desarrollan en el capítulo 12.
+</div>
+
+<div class="foot">
+Implementación educativa del sistema de puntuación del HINE; <b>las descripciones de las maniobras y los esquemas son originales</b> de este material. El examen, su contenido y su forma de puntuación son <b>© Mac&nbsp;Keith Press</b> y <b>no deben modificarse</b>: para uso clínico emplea el <b>proforma oficial</b>. Referencia principal: Haataja&nbsp;L et&nbsp;al. <i>J&nbsp;Pediatr</i>. 1999;135:153–61. Puntos de corte para PC: Novak&nbsp;I et&nbsp;al. <i>JAMA&nbsp;Pediatr</i>. 2017 y Maitre&nbsp;NL et&nbsp;al. 2016. Formulario oficial e información: <a href="https://www.mackeith.co.uk/hammersmith-neurological-examinations/" target="_blank" rel="noopener">mackeith.co.uk</a> · <a href="https://hammersmith-neuro-exam.com" target="_blank" rel="noopener">hammersmith-neuro-exam.com</a>.
+</div>
+
+<div class="foot">
+<a href="../">← Material interactivo del capítulo 12</a> · <a href="../../">Índice de capítulos</a>
+</div>
+
+</div>
+
+<script>
+// Esquemas SVG originales de las maniobras de tono basadas en ángulos
+function svgAng(label, range){return `<div class="svgwrap"><svg class="maniobra" width="150" height="96" viewBox="0 0 150 96" aria-label="${label}">
+<line x1="20" y1="78" x2="130" y2="78" stroke="#c9d2dd" stroke-width="1"/>
+<line x1="42" y1="78" x2="42" y2="22" stroke="#3b6fb0" stroke-width="3" stroke-linecap="round"/>
+<line x1="42" y1="78" x2="118" y2="40" stroke="#9b59b6" stroke-width="3" stroke-linecap="round"/>
+<path d="M42 56 A 22 22 0 0 1 60 67" fill="none" stroke="#e08b00" stroke-width="2"/>
+<circle cx="42" cy="78" r="3.2" fill="#003366"/>
+</svg>${label}<br><b>óptimo ${range}</b></div>`;}
+const SCH={
+  aductores:svgAng('Ángulo de aductores','150–80°'),
+  popliteo:svgAng('Ángulo poplíteo','150–100°'),
+  dorsi:svgAng('Dorsiflexión del tobillo','30–85°'),
+  bufanda:`<div class="svgwrap"><svg class="maniobra" width="150" height="96" viewBox="0 0 150 96" aria-label="Signo de la bufanda">
+<line x1="75" y1="14" x2="75" y2="86" stroke="#c9d2dd" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="55" y="24" width="40" height="54" rx="6" fill="#eef4fb" stroke="#c9d2dd"/>
+<line x1="62" y1="34" x2="100" y2="58" stroke="#9b59b6" stroke-width="3" stroke-linecap="round"/>
+<circle cx="100" cy="58" r="3.5" fill="#003366"/>
+<text x="103" y="55" font-family="sans-serif" font-size="8" fill="#6b7280">codo</text>
+</svg>Signo de la bufanda<br><b>óptimo: el codo no pasa la línea media</b></div>`
+};
+
+const SECTIONS=[
+ {c:'s1',t:'Pares craneales',max:15,items:[
+   {n:'Apariencia facial',m:'En reposo y al llorar o ser estimulado. Óptimo (3): sonríe y reacciona; alterado (0): facies inexpresiva, sin reacción.'},
+   {n:'Apariencia ocular',m:'Movimientos oculares. Óptimo: conjugados y normales; alterado: desviación permanente o movimientos anormales continuos.'},
+   {n:'Respuesta auditiva',m:'Respuesta al sonajero o a la campanilla. Óptimo: normal y simétrica; alterado: no reacciona.'},
+   {n:'Respuesta visual',m:'Seguimiento de una pelota roja u objeto en movimiento. Óptimo: arco completo; alterado: no sigue.'},
+   {n:'Succión / deglución',m:'Observada al pecho o con biberón. Óptimo: buena succión y deglución; alterado: ausente o imposibilidad para tragar.'}
+ ]},
+ {c:'s2',t:'Postura',max:18,items:[
+   {n:'Cabeza (sentado)',m:'Óptimo: recta, en la línea media; alterado: marcadamente inclinada.',a:true},
+   {n:'Tronco (sentado)',m:'Óptimo: recto; alterado: muy curvado, hiperextendido o doblado a un lado.',a:true},
+   {n:'Brazos (en reposo)',m:'Óptimo: neutros, rectos o ligeramente flexionados; alterado: postura distónica o hemipléjica mantenida.',a:true},
+   {n:'Manos',m:'Óptimo: abiertas; alterado: pulgar en aducción y/o puño cerrado de forma continua.',a:true},
+   {n:'Piernas',m:'En sedestación, supino y bipedestación. Óptimo: neutras; alterado: postura fija en flexión/extensión o contracturas.',a:true},
+   {n:'Pies',m:'Óptimo: rectos, neutros; alterado: tendencia a ponerse de puntillas, dedos hiperextendidos/encogidos o rotación marcada.',a:true}
+ ]},
+ {c:'s3',t:'Movimientos',max:6,items:[
+   {n:'Cantidad de movimientos',m:'Óptimo: normal; alterado: escasos o excesivos.'},
+   {n:'Calidad de movimientos',m:'Óptimo: fluidos y variados; alterado: movimientos anormales (espasmos, rigidez, movimientos «en bloque»).'}
+ ]},
+ {c:'s4',t:'Tono',max:24,items:[
+   {n:'Signo de la bufanda',m:'Lleva la mano del niño hacia el hombro contrario cruzando el tórax; observa la posición del codo respecto a la línea media.',a:true,s:'bufanda'},
+   {n:'Elevación pasiva del hombro',m:'Levanta el brazo hasta alinearlo con la cabeza; valora la resistencia. Óptimo: cede con resistencia normal; alterado: resistencia excesiva o nula.',a:true},
+   {n:'Pronación / supinación',m:'Movimientos de pronosupinación del antebrazo. Óptimo: completos sin resistencia; alterado: incompletos por resistencia excesiva.',a:true},
+   {n:'Aductores',m:'Separa al máximo las piernas extendidas y mide el ángulo entre ellas.',a:true,s:'aductores'},
+   {n:'Ángulo poplíteo',m:'Flexiona la cadera y extiende la rodilla hasta notar resistencia; mide el ángulo muslo–pierna.',a:true,s:'popliteo'},
+   {n:'Dorsiflexión del tobillo',m:'Con la rodilla extendida, flexiona el tobillo y mide el ángulo pierna–pie.',a:true,s:'dorsi'},
+   {n:'Incorporar para sentarse',m:'Tracción suave de las muñecas hasta sentar al niño; valora el control de la cabeza. Óptimo: la cabeza acompaña; alterado: cae o queda fija.'},
+   {n:'Suspensión ventral',m:'Sostén en suspensión ventral; observa la posición de la espalda, los brazos, las piernas y la cabeza.'}
+ ]},
+ {c:'s5',t:'Reflejos y reacciones posturales',max:15,items:[
+   {n:'Reflejos osteotendinosos',m:'Bicipital, rotuliano y aquíleo. Óptimo: se obtienen con facilidad; alterado: clonus o ausentes.',a:true},
+   {n:'Reacción de protección del brazo',m:'En supino, tira de un brazo para incorporarlo y observa el otro. Óptimo: brazo y mano extendidos; alterado: brazo completamente flexionado.',a:true},
+   {n:'Suspensión vertical',m:'Sostén bajo las axilas, sin que los pies toquen. Óptimo: patalea simétrico; alterado: no mueve las piernas o las cruza «en tijera».'},
+   {n:'Inclinación lateral',m:'En vertical, inclínalo rápido a un lado; observa la reacción de tronco, miembros y cabeza.',a:true},
+   {n:'Paracaídas',m:'En vertical, inclínalo rápido hacia delante; observa la reacción de los brazos (esperable después de los 6 meses).',a:true}
+ ]}
+];
+const MILES=[
+ ['Control cefálico','no la sostiene (normal &lt;3 m) → erguida pero oscila (4 m) → la mantiene todo el tiempo (5 m)'],
+ ['Sedestación','no se mantiene → sentado si se le sujeta (4 m) → apoyando las manos (6 m) → estable (7–8 m) → gira el tronco (9 m)'],
+ ['Prensión voluntaria','no agarra → usa toda la mano → oposición pulgar-índice inmadura → pinza'],
+ ['Movimiento de piernas','no patalea → patalea sin elevarlas → eleva las piernas (3 m) → se toca las piernas (4–5 m) → se toca los pies (5–6 m)'],
+ ['Volteo','no voltea → hacia un lado (4 m) → supino↔prono en un sentido (6 m) → en ambos sentidos'],
+ ['Gateo','no se desplaza → se arrastra → gatea sobre manos y rodillas'],
+ ['Bipedestación','no soporta el peso → de pie con apoyo → de pie sin apoyo'],
+ ['Marcha','no camina → con apoyo → algunos pasos solo → marcha autónoma']
+];
+
+const form=document.getElementById('form');
+SECTIONS.forEach((sec,si)=>{
+  const box=document.createElement('div'); box.className='sec '+sec.c;
+  let h=`<h2><span>${si+1}. ${sec.t}</span><span class="smax">máx. ${sec.max} · <span id="sub${si}">0</span></span></h2>`;
+  sec.items.forEach((it,ii)=>{
+    h+=`<div class="item"><div><div class="nm">${it.n}</div><div class="mn">${it.m}</div>${it.s?`<div class="esq">${SCH[it.s]}</div>`:''}</div>`;
+    h+=`<div><div class="seg" data-si="${si}" data-ii="${ii}">`;
+    [3,2,1,0].forEach(v=>h+=`<button type="button" data-v="${v}" title="${v} puntos">${v}</button>`);
+    h+=`</div>`;
+    if(it.a) h+=`<label class="asim"><input type="checkbox" data-si="${si}" data-ii="${ii}" class="ck"> asimetría D/I</label>`;
+    h+=`</div></div>`;
+  });
+  box.innerHTML=h; form.appendChild(box);
+});
+
+const miles=document.getElementById('miles');
+MILES.forEach(([k,v])=>{const dt=document.createElement('dt');dt.textContent=k;const dd=document.createElement('dd');dd.innerHTML=v;miles.append(dt,dd);});
+
+const scores={}; // "si-ii" -> 0..3
+const asim={};
+function calc(){
+  let total=0; const subs=SECTIONS.map(()=>0);
+  SECTIONS.forEach((sec,si)=>sec.items.forEach((it,ii)=>{
+    const v=scores[si+'-'+ii]; if(v!==undefined){subs[si]+=v; total+=v;}
+  }));
+  subs.forEach((s,si)=>document.getElementById('sub'+si).textContent=s);
+  // chips
+  const chips=document.getElementById('chips');
+  chips.innerHTML=SECTIONS.map((sec,si)=>`<span class="sb-chip">${sec.t}: <b>${subs[si]}</b>/${sec.max}</span>`).join('')
+    +`<span class="sb-total">Total <span>${total}</span>/78</span>`;
+  const nA=Object.values(asim).filter(Boolean).length;
+  document.getElementById('asimN').textContent=nA;
+  // interpretación
+  const answered=Object.keys(scores).length;
+  const age=parseFloat(document.getElementById('age').value);
+  const el=document.getElementById('interp'); el.className='interp';
+  if(answered<26){ el.classList.add('mid'); el.innerHTML=`Has puntuado <b>${answered}/26</b> ítems. La puntuación global solo es válida con los 26 ítems completos (provisional: <b>${total}</b>/78).`; }
+  else {
+    let band='', cls='';
+    const hasAge=!isNaN(age);
+    const optCut = !hasAge?73 : (age<5?67 : age<8?70 : 73);
+    if(total<40){cls='low';band='Puntuación <b>&lt;40</b>: alto valor predictivo de parálisis cerebral a cualquier edad; suele asociarse a compromiso motor más grave.';}
+    else if(hasAge && age<5 && total<52){cls='low';band='Puntuación <b>&lt;52 antes de los 5&nbsp;meses</b>: alto valor predictivo de parálisis cerebral.';}
+    else if(total>=optCut){cls='ok';band=hasAge?`Puntuación en el <b>rango óptimo para la edad</b> (≥${optCut} hacia los ${age|0}&nbsp;m).`:'Puntuación <b>alta</b> (rango óptimo del lactante a término, ≥73).';}
+    else {cls='mid';band='Puntuación <b>intermedia</b>: por debajo del rango óptimo para la edad. Interpreta junto con las asimetrías, la resonancia y los movimientos generales.';}
+    if(hasAge && age>=6 && age<=15 && total>54) band+=' Un valor <b>&gt;54</b> entre los 6 y 15&nbsp;meses se asocia a <b>marcha independiente</b>.';
+    if(nA>0) band+=` Hay <b>${nA}</b> ítem(s) asimétrico(s): valora una afectación <b>unilateral</b> (la puntuación global puede ser engañosamente alta).`;
+    el.classList.add(cls); el.innerHTML=`Total <b>${total}</b>/78. `+band+` <span style="color:#6b7280">(Educativo, no diagnóstico.)</span>`;
+  }
+}
+form.addEventListener('click',e=>{
+  const b=e.target.closest('.seg button'); if(!b) return;
+  const seg=b.parentElement, si=seg.dataset.si, ii=seg.dataset.ii;
+  [...seg.children].forEach(x=>x.classList.remove('on')); b.classList.add('on');
+  scores[si+'-'+ii]=+b.dataset.v; calc();
+});
+form.addEventListener('change',e=>{
+  const c=e.target.closest('.ck'); if(!c) return;
+  asim[c.dataset.si+'-'+c.dataset.ii]=c.checked; calc();
+});
+document.getElementById('age').addEventListener('input',calc);
+document.getElementById('reset').addEventListener('click',()=>{
+  for(const k in scores) delete scores[k]; for(const k in asim) delete asim[k];
+  document.querySelectorAll('.seg button.on').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.ck').forEach(c=>c.checked=false);
+  document.getElementById('age').value=''; calc();
+});
+calc();
+</script>
+</body>
+</html>
