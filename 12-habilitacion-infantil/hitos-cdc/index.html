@@ -58,6 +58,17 @@ footer a:hover{text-decoration:underline}
 .legend{font-size:.74rem;color:var(--muted);margin-top:14px}
 .foot{margin-top:28px;font-size:.74rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 .nores{padding:24px;text-align:center;color:var(--muted)}
+.metodo{font-family:var(--sans);background:#fff;border:1px solid var(--line);border-radius:8px;margin:16px 0;overflow:hidden}
+.metodo>summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--azul);font-size:.9rem;list-style:none;display:flex;align-items:center;gap:8px}
+.metodo>summary::-webkit-details-marker{display:none}
+.metodo>summary::before{content:"\25B8";color:var(--jamared);font-size:.8rem}
+.metodo[open]>summary::before{content:"\25BE"}
+.metodo .body{padding:0 18px 16px;font-size:.86rem;color:var(--texto-suave);line-height:1.55}
+.metodo h4{font-family:var(--sans);font-size:.78rem;color:var(--azul);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.05em}
+.metodo p{margin:6px 0}
+.metodo ol,.metodo ul{margin:6px 0;padding-left:20px}
+.metodo li{margin:3px 0}
+.metodo .stat{background:var(--jamared-suave);color:var(--jamared);font-weight:700;border-radius:4px;padding:0 5px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -78,13 +89,47 @@ footer a:hover{text-decoration:underline}
 <b>En el prematuro</b> usa la <b>edad corregida</b> (hasta los 2 años). No es una prueba diagnóstica.
 </div>
 
+<details class="metodo">
+<summary>Cómo y por qué se construyeron estos hitos (Zubler et&nbsp;al., 2022)</summary>
+<div class="body">
+
+<h4>Qué es la vigilancia del desarrollo</h4>
+<p>Está <b>centrada en la familia</b>: busca promover conversaciones y una relación de confianza en la que los padres puedan expresar sus preocupaciones. Implica el <b>juicio clínico</b> sobre cuándo un niño puede estar en riesgo de retraso y cuándo conviene un tamizaje formal. Las listas de hitos <i>guían</i> la vigilancia, pero —a diferencia de los instrumentos de tamizaje y de evaluación— <b>no están validadas</b>. La AAP recomienda combinar la vigilancia en cada control con el tamizaje formal a edades definidas. Los hitos se organizan en cuatro dominios: <b>socioemocional, lenguaje/comunicación, cognitivo y motor</b>.</p>
+
+<h4>Por qué el umbral ≥75&nbsp;% (y no la mediana)</h4>
+<p>Antes muchos hitos se ubicaban a la edad del <b>percentil 50</b> (la mediana). El problema: si a esa edad la mitad de los niños aún no hace algo, el hito invita a «esperar y ver». En grupos focales del CDC, padres de niños con discapacidad relataron <b>diagnósticos tardíos</b> porque les dijeron que esperaran, que «cada niño es diferente» o que «algunos tardan más». Por eso ahora cada hito se fija a la edad en que se espera que <b>≥75&nbsp;%</b> de los niños ya lo demuestre: refleja lo que la mayoría <i>ya</i> hace, no lo que apenas empieza.</p>
+
+<h4>Los 11 criterios de los hitos y de las listas (Tabla&nbsp;1)</h4>
+<ol>
+<li>Cada hito se incluye a la edad en que la mayoría (<b>≥75&nbsp;%</b>) de los niños se espera que lo demuestre.</li>
+<li>Eliminar los «signos de alarma» (se listan aparte, con el mensaje de actuar pronto si no se alcanzan).</li>
+<li>Fáciles de observar y de usar para familias de distintos contextos sociales, culturales y étnicos.</li>
+<li>Se pueden responder con <b>«sí», «aún no» o «no estoy seguro»</b>.</li>
+<li>Lenguaje sencillo, evitando términos vagos como «puede», «es capaz de» o «empieza a».</li>
+<li>Organizados en dominios del desarrollo.</li>
+<li>Muestran la progresión de las habilidades con la edad, cuando es posible.</li>
+<li>Los hitos <b>no se repiten</b> entre listas (cada uno aparece una sola vez).</li>
+<li>Incluyen preguntas abiertas.</li>
+<li>Incluyen información para <b>promover el desarrollo</b>.</li>
+<li>Incluyen información sobre cómo <b>actuar pronto</b> ante una preocupación.</li>
+</ol>
+
+<h4>Qué cambió en la revisión de 2022</h4>
+<p>Aplicar estos criterios y añadir las visitas de <b>15 y 30 meses</b> produjo una <span class="stat">reducción del 26,4&nbsp;%</span> y un <span class="stat">reemplazo del 40,9&nbsp;%</span> de los hitos previos del CDC. Por primera vez hay listas para los controles de 15 y 30 meses, y ningún hito se repite entre edades.</p>
+
+<h4>Actuar pronto</h4>
+<p>Ante una preocupación —propia o de la familia—, <b>no esperar</b>: abordarla, aplicar un tamizaje formal (p.&nbsp;ej. ASQ-3 o M-CHAT-R/F) y, si procede, derivar a evaluación e <b>intervención temprana</b>. Identificar temprano un retraso o una discapacidad mejora los desenlaces.</p>
+
+</div>
+</details>
+
 <div class="ages" id="ages"></div>
 <input class="search" id="q" type="search" placeholder="Buscar un hito en todas las edades (p. ej. «camina», «señala», «cuchara»)…" autocomplete="off">
 <p class="count" id="count"></p>
 <div id="early" class="actearly"></div>
 <div id="view"></div>
 
-<div class="legend"><span class="new">NUEVO</span> = hito añadido en la revisión de 2022. <span class="rflag" style="vertical-align:baseline">◦</span> = el panel de expertos del CDC señaló que <b>convendría más investigación</b> para afinar la edad o la evidencia del hito (solo aparece en los dominios socioemocional y cognitivo).</div>
+<div class="legend"><span class="rflag" style="vertical-align:baseline">◦</span> = el panel de expertos del CDC señaló que <b>convendría más investigación</b> para afinar la edad o la evidencia del hito (solo aparece en los dominios socioemocional y cognitivo).</div>
 
 </div>
 
@@ -104,7 +149,7 @@ D.ages.forEach((a,i)=>{
   b.onclick=()=>{cur=i;document.getElementById("q").value="";[...agesEl.children].forEach(c=>c.classList.remove("active"));b.classList.add("active");render();};
   agesEl.appendChild(b);
 });
-function liHTML(it){return `<li><span class="dot"></span><span>${it.t}${it.n?'<span class="new" title="Hito nuevo en la revisión de 2022">NUEVO</span>':''}${it.r?'<span class="rflag" title="El panel de expertos del CDC marcó este hito como «convendría más investigación» para afinar su edad o su evidencia (Zubler et al., 2022)">◦</span>':''}</span></li>`;}
+function liHTML(it){return `<li><span class="dot"></span><span>${it.t}${it.r?'<span class="rflag" title="El panel de expertos del CDC marcó este hito como «convendría más investigación» para afinar su edad o su evidencia (Zubler et al., 2022)">◦</span>':''}</span></li>`;}
 function domCard(domKey, items){
   if(!items.length) return "";
   return `<div class="dom ${domKey}"><h3>${D.domLabel[domKey]}</h3><ul>${items.map(liHTML).join("")}</ul></div>`;
