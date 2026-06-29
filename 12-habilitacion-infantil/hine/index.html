@@ -33,8 +33,6 @@ footer a:hover{text-decoration:underline}
 .help,.copy{font-family:var(--sans);border-radius:8px;padding:12px 14px;font-size:.85rem;margin:14px 0}
 .help{background:#eef4fb;border:1px solid #d4e3f5;color:#22364d}
 .help b{color:var(--azul)}
-.copy{background:#fff7ed;border:1px solid #fcd9b6;border-left:4px solid #e08b00;color:#7a4a00;font-size:.8rem}
-/* tablero de puntuación */
 .scoreboard{font-family:var(--sans);position:sticky;top:0;z-index:5;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:16px 0;box-shadow:0 2px 10px rgba(0,51,102,.06)}
 .sb-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .sb-chip{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-weight:600}
@@ -47,24 +45,28 @@ footer a:hover{text-decoration:underline}
 .interp.low{border-color:var(--jamared);background:var(--jamared-suave)}
 .agebox{font-family:var(--sans);font-size:.8rem;margin:6px 0 0}
 .agebox input{width:70px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;font-size:.85rem;margin:0 4px}
-/* secciones e ítems */
 .sec{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
 .sec>h2{font-family:var(--sans);margin:0;padding:11px 16px;font-size:.95rem;color:#fff;display:flex;justify-content:space-between;align-items:baseline}
 .sec>h2 .smax{font-size:.78rem;font-weight:500;opacity:.92}
 .sec.s1>h2{background:var(--c1)} .sec.s2>h2{background:var(--c2)} .sec.s3>h2{background:var(--c3)}
 .sec.s4>h2{background:var(--c4)} .sec.s5>h2{background:var(--c5)}
-.item{padding:12px 16px;border-top:1px solid #f0f2f6;display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:start}
+.item{padding:13px 16px;border-top:1px solid #f0f2f6;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:start}
 .item:first-of-type{border-top:none}
 .item .nm{font-weight:600;font-size:.96rem}
-.item .mn{font-family:var(--sans);font-size:.8rem;color:var(--texto-suave);margin-top:2px;max-width:60ch}
+.item .mn{font-family:var(--sans);font-size:.79rem;color:var(--texto-suave);margin-top:2px;max-width:62ch}
 .item .esq{margin-top:8px}
 .seg{display:flex;gap:5px;justify-content:flex-end}
 .seg button{font-family:var(--sans);width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--azul)}
 .seg button:hover{border-color:var(--azul)}
 .seg button.on{background:var(--azul);border-color:var(--azul);color:#fff}
-.asim{font-family:var(--sans);font-size:.72rem;color:var(--muted);margin-top:5px;text-align:right;user-select:none;cursor:pointer;display:block}
+.asim{font-family:var(--sans);font-size:.72rem;color:var(--muted);margin-top:6px;text-align:right;user-select:none;cursor:pointer;display:block}
 .asim input{vertical-align:-1px}
-.scoreline{grid-column:1/-1;font-family:var(--sans);font-size:.74rem;color:var(--muted);display:flex;justify-content:space-between;border-top:1px dashed #eceef2;padding-top:6px;margin-top:2px}
+.desc{grid-column:1/-1;margin-top:6px;display:grid;gap:3px}
+.d{font-family:var(--sans);font-size:.79rem;color:var(--texto-suave);padding:4px 8px;border-radius:6px;border:1px solid transparent;display:flex;gap:8px;align-items:baseline}
+.d .dn{flex:0 0 auto;width:18px;height:18px;border-radius:4px;color:#fff;font-weight:700;font-size:.68rem;text-align:center;line-height:18px}
+.d.d3 .dn{background:#1f9d55}.d.d2 .dn{background:#7e9b3a}.d.d1 .dn{background:#e08b00}.d.d0 .dn{background:#C8102E}
+.d.sel{background:#eef4fb;border-color:#d4e3f5;color:var(--texto)}
+.scoreline{grid-column:1/-1}
 .note{font-family:var(--sans);background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:.84rem;color:var(--texto-suave);margin:14px 0}
 details.extra{font-family:var(--sans);background:#fff;border:1px solid var(--line);border-radius:8px;margin:14px 0;overflow:hidden}
 details.extra>summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--azul);font-size:.9rem;list-style:none;display:flex;gap:8px;align-items:center}
@@ -95,10 +97,10 @@ svg.maniobra{display:block;background:#fbfcfe;border:1px solid #eef1f5;border-ra
 </header>
 <div class="wrap">
 
-<p class="lede">El <b>HINE</b> (<i>Hammersmith Infant Neurological Examination</i>) es un examen neurológico estandarizado de <b>26 ítems</b> para lactantes de <b>2 a 24 meses</b>, una de las tres herramientas (con la resonancia y los movimientos generales de Prechtl) que permiten el <b>diagnóstico precoz de parálisis cerebral</b>. Cada ítem se puntúa de <b>0 a 3</b>; la suma de las cinco secciones da una <b>puntuación global sobre 78</b>. Marca la puntuación de cada ítem y el tablero superior calcula los subtotales, el total y su interpretación.</p>
+<p class="lede">El <b>HINE</b> (<i>Hammersmith Infant Neurological Examination</i>) es un examen neurológico estandarizado de <b>26 ítems</b> para lactantes de <b>2 a 24 meses</b> (más 8 hitos motores y 3 ítems de conducta que se valoran aparte); dura unos <b>10–15 minutos</b>. Junto con la resonancia y los movimientos generales de Prechtl, permite el <b>diagnóstico precoz de parálisis cerebral</b>. Cada ítem se puntúa de <b>0 a 3</b> y la suma de las cinco secciones da una <b>puntuación global sobre 78</b>. Marca la puntuación de cada ítem —guiándote por los descriptores— y el tablero superior calcula los subtotales, el total y su interpretación.</p>
 
 <div class="help">
-<b>Cómo puntuar.</b> En cada ítem, <b>3</b> = respuesta óptima y <b>0</b> = la más alterada. Si una respuesta no es óptima pero tampoco lo bastante alterada para un 1, puntúa <b>2</b> (puntuación intermedia). Marca <b>«asimetría»</b> cuando la respuesta difiera entre el lado derecho y el izquierdo: el número de ítems asimétricos se cuenta aparte y orienta a lesiones unilaterales. Los <b>hitos motores</b> y la <b>conducta</b> se valoran por separado y <b>no</b> entran en la puntuación global.
+<b>Cómo puntuar.</b> <b>3</b> = respuesta óptima y <b>0</b> = la más alterada. Cuando no hay un descriptor para el <b>2</b>, úsalo como puntuación intermedia (no óptima pero no tan pobre como para un 1). Si la respuesta queda entre dos columnas, el método oficial admite la <b>media</b> (p.&nbsp;ej. 1,5); este puntuador educativo usa números enteros. Marca <b>«asimetría»</b> cuando la respuesta difiera entre derecha e izquierda: el número de ítems asimétricos se cuenta aparte y orienta a lesiones unilaterales. Los <b>hitos motores</b> y la <b>conducta</b> no entran en la puntuación global.
 </div>
 
 <div class="scoreboard" id="board">
@@ -125,7 +127,7 @@ svg.maniobra{display:block;background:#fbfcfe;border:1px solid #eef1f5;border-ra
 <details class="extra">
 <summary>Conducta (se valora aparte): estado de alerta, estado emocional y sociabilidad</summary>
 <div class="body">
-<p>Se observa durante el examen y se describe en una escala ordinal (de no despertable / muy irritable / evita el contacto, hasta alerta y sociable). Aporta contexto al examen pero <b>no</b> se suma a la puntuación neurológica global.</p>
+<p>Se observa durante el examen y se describe en una escala ordinal (de no despertable / muy irritable / evita el contacto, hasta alerta y sociable). Aporta contexto al examen pero <b>no</b> se suma a la puntuación neurológica global. Si el estado del niño (irritabilidad, llanto, somnolencia) impide valorar bien un ítem, conviene repetir la maniobra con el niño tranquilo y anotarlo aquí.</p>
 </div>
 </details>
 
@@ -134,7 +136,9 @@ svg.maniobra{display:block;background:#fbfcfe;border:1px solid #eef1f5;border-ra
 </div>
 
 <div class="foot">
-Implementación educativa del sistema de puntuación del HINE; <b>las descripciones de las maniobras y los esquemas son originales</b> de este material. El examen, su contenido y su forma de puntuación son <b>© Mac&nbsp;Keith Press</b> y <b>no deben modificarse</b>: para uso clínico emplea el <b>proforma oficial</b>. Referencia principal: Haataja&nbsp;L et&nbsp;al. <i>J&nbsp;Pediatr</i>. 1999;135:153–61. Puntos de corte para PC: Novak&nbsp;I et&nbsp;al. <i>JAMA&nbsp;Pediatr</i>. 2017 y Maitre&nbsp;NL et&nbsp;al. 2016. Formulario oficial e información: <a href="https://www.mackeith.co.uk/hammersmith-neurological-examinations/" target="_blank" rel="noopener">mackeith.co.uk</a> · <a href="https://hammersmith-neuro-exam.com" target="_blank" rel="noopener">hammersmith-neuro-exam.com</a>.
+Implementación educativa del sistema de puntuación del HINE; las <b>descripciones de las maniobras y de los niveles, y los esquemas, son redacción y elaboración propias</b> de este material, parafraseadas de las fuentes citadas. El examen, su contenido y su forma de puntuación son <b>© Mac&nbsp;Keith&nbsp;Press</b> y <b>no deben modificarse</b>: para uso clínico emplea el <b>proforma oficial</b> y, si es posible, formación formal en la herramienta. No sustituye el juicio clínico ni es diagnóstico.
+<br><br>
+<b>Referencias.</b> Haataja&nbsp;L, Mercuri&nbsp;E, Regev&nbsp;R, et&nbsp;al. <i>J&nbsp;Pediatr</i>. 1999;135(2):153–61. · Recomendaciones de aplicación parafraseadas de: Hidalgo-Robles&nbsp;Á, Merino-Andrés&nbsp;J, Rodríguez-Fernández&nbsp;ÁL, et&nbsp;al. <i>Guía de recomendaciones para la evaluación con la HINE</i> (material suplementario de: <i>Reliability, Knowledge Translation, and Implementability of the Spanish Version of the HINE</i>. <i>Healthcare</i>. 2024;12(3):380), basada a su vez en Cowan et&nbsp;al. (2023) y Dubowitz et&nbsp;al. (1999). · Puntos de corte para PC: Novak&nbsp;I et&nbsp;al. <i>JAMA&nbsp;Pediatr</i>. 2017; Maitre&nbsp;NL et&nbsp;al. 2016. · Formulario oficial e información: <a href="https://www.mackeith.co.uk/hammersmith-neurological-examinations/" target="_blank" rel="noopener">mackeith.co.uk</a> · <a href="https://hammersmith-neuro-exam.com" target="_blank" rel="noopener">hammersmith-neuro-exam.com</a>.
 </div>
 
 <div class="foot">
@@ -144,7 +148,6 @@ Implementación educativa del sistema de puntuación del HINE; <b>las descripcio
 </div>
 
 <script>
-// Esquemas SVG originales de las maniobras de tono basadas en ángulos
 function svgAng(label, range){return `<div class="svgwrap"><svg class="maniobra" width="150" height="96" viewBox="0 0 150 96" aria-label="${label}">
 <line x1="20" y1="78" x2="130" y2="78" stroke="#c9d2dd" stroke-width="1"/>
 <line x1="42" y1="78" x2="42" y2="22" stroke="#3b6fb0" stroke-width="3" stroke-linecap="round"/>
@@ -153,8 +156,8 @@ function svgAng(label, range){return `<div class="svgwrap"><svg class="maniobra"
 <circle cx="42" cy="78" r="3.2" fill="#003366"/>
 </svg>${label}<br><b>óptimo ${range}</b></div>`;}
 const SCH={
-  aductores:svgAng('Ángulo de aductores','150–80°'),
-  popliteo:svgAng('Ángulo poplíteo','150–100°'),
+  aductores:svgAng('Ángulo de aductores','80–150°'),
+  popliteo:svgAng('Ángulo poplíteo','100–150°'),
   dorsi:svgAng('Dorsiflexión del tobillo','30–85°'),
   bufanda:`<div class="svgwrap"><svg class="maniobra" width="150" height="96" viewBox="0 0 150 96" aria-label="Signo de la bufanda">
 <line x1="75" y1="14" x2="75" y2="86" stroke="#c9d2dd" stroke-width="1" stroke-dasharray="3 3"/>
@@ -162,45 +165,72 @@ const SCH={
 <line x1="62" y1="34" x2="100" y2="58" stroke="#9b59b6" stroke-width="3" stroke-linecap="round"/>
 <circle cx="100" cy="58" r="3.5" fill="#003366"/>
 <text x="103" y="55" font-family="sans-serif" font-size="8" fill="#6b7280">codo</text>
-</svg>Signo de la bufanda<br><b>óptimo: el codo no pasa la línea media</b></div>`
+</svg>Signo de la bufanda<br><b>óptimo: el codo llega cerca de la línea media</b></div>`
 };
 
+// d:[descriptor 3, 2, 1, 0]   (redacción propia, parafraseada de Haataja 1999 e Hidalgo-Robles 2024)
 const SECTIONS=[
  {c:'s1',t:'Pares craneales',max:15,items:[
-   {n:'Apariencia facial',m:'En reposo y al llorar o ser estimulado. Óptimo (3): sonríe y reacciona; alterado (0): facies inexpresiva, sin reacción.'},
-   {n:'Apariencia ocular',m:'Movimientos oculares. Óptimo: conjugados y normales; alterado: desviación permanente o movimientos anormales continuos.'},
-   {n:'Respuesta auditiva',m:'Respuesta al sonajero o a la campanilla. Óptimo: normal y simétrica; alterado: no reacciona.'},
-   {n:'Respuesta visual',m:'Seguimiento de una pelota roja u objeto en movimiento. Óptimo: arco completo; alterado: no sigue.'},
-   {n:'Succión / deglución',m:'Observada al pecho o con biberón. Óptimo: buena succión y deglución; alterado: ausente o imposibilidad para tragar.'}
+   {n:'Apariencia facial',m:'En reposo y al llorar o ser estimulado; observa gestos, risa, llanto y mímica.',
+    d:['Expresión variada: sonríe y reacciona (cierra los ojos, hace muecas).','Cierta escasez de movimiento facial, sin déficit concreto.','Cierra los ojos de forma incompleta; expresividad pobre.','Facies inexpresiva; no reacciona a los estímulos.']},
+   {n:'Movimientos oculares',m:'Con un optotipo a 20–30 cm; observa conjugación, simetría, estrabismo, nistagmo o ptosis.',
+    d:['Movimientos conjugados, completos y simétricos.','Anomalía leve o dudosa.','Desviación o movimientos anormales intermitentes.','Desviación permanente o movimientos anormales continuos.']},
+   {n:'Respuesta auditiva',m:'Sonajero fuera del campo visual, a 10–20 cm de cada lado, con la cabeza en la línea media.',
+    d:['Reacciona al sonido por ambos lados.','Respuesta presente pero reducida.','Respuesta dudosa o asimétrica.','No reacciona al estímulo sonoro.']},
+   {n:'Respuesta visual',m:'Seguimiento de un objeto (cara/círculos/pelota) a ~3°/s, en trayectos horizontal, vertical y circular.',
+    d:['Sigue el objeto en un arco completo.','Seguimiento algo limitado.','Arco incompleto o seguimiento asimétrico.','No sigue el objeto.']},
+   {n:'Succión / deglución',m:'Observada al pecho o con biberón; en el mayor, pregunta por tos o salivación al comer.',
+    d:['Succión y deglución buenas y coordinadas.','Se alimenta peor de lo esperado, sin dificultad concreta.','Succión y deglución pobres.','Sin reflejo de succión; imposibilidad para tragar.']}
  ]},
  {c:'s2',t:'Postura',max:18,items:[
-   {n:'Cabeza (sentado)',m:'Óptimo: recta, en la línea media; alterado: marcadamente inclinada.',a:true},
-   {n:'Tronco (sentado)',m:'Óptimo: recto; alterado: muy curvado, hiperextendido o doblado a un lado.',a:true},
-   {n:'Brazos (en reposo)',m:'Óptimo: neutros, rectos o ligeramente flexionados; alterado: postura distónica o hemipléjica mantenida.',a:true},
-   {n:'Manos',m:'Óptimo: abiertas; alterado: pulgar en aducción y/o puño cerrado de forma continua.',a:true},
-   {n:'Piernas',m:'En sedestación, supino y bipedestación. Óptimo: neutras; alterado: postura fija en flexión/extensión o contracturas.',a:true},
-   {n:'Pies',m:'Óptimo: rectos, neutros; alterado: tendencia a ponerse de puntillas, dedos hiperextendidos/encogidos o rotación marcada.',a:true}
+   {n:'Cabeza (sedestación)',m:'Registra la postura predominante a lo largo del examen.',a:true,
+    d:['Erguida y en la línea media.','Intermedio.','Ligeramente inclinada (a un lado o adelante/atrás).','Marcadamente inclinada.']},
+   {n:'Tronco (sedestación)',m:'Debe estar recto la mayor parte del tiempo para puntuar 3.',a:true,
+    d:['Recto.','Intermedio.','Ligeramente encorvado o inclinado a un lado.','Muy curvado, hiperextendido o doblado a un lado.']},
+   {n:'Brazos (en reposo)',m:'Actitud postural espontánea; valora asimetrías.',a:true,
+    d:['Neutros, rectos o ligeramente flexionados.','Rotación interna o externa leve-moderada, o distonía intermitente.','Rotación interna o externa marcada.','Postura distónica o hemipléjica mantenida.']},
+   {n:'Manos',m:'Posiciones atípicas del pulgar o de los dedos, intermitentes o persistentes.',a:true,
+    d:['Abiertas.','Intermedio.','Pulgar aducido y/o puño cerrado de forma intermitente.','Pulgar aducido y/o puño cerrado de forma continua.']},
+   {n:'Piernas',m:'Valoración global en sedestación, supino y bipedestación (media de las posturas).',a:true,
+    d:['Neutras (rectas o ligeramente flexionadas); sentado con la espalda recta.','Intermedio.','Rotación leve, o solo se sienta con las rodillas algo flexionadas.','Postura fija en flexión/extensión, rotación marcada o contracturas de caderas/rodillas.']},
+   {n:'Pies',m:'Relación pie–pierna (sin confundir con la cadera); posiciones atípicas de los dedos.',a:true,
+    d:['Rectos, en posición neutra.','Dedos en posición intermedia.','Rotación leve, o tendencia intermitente a puntillas o dedos hiperextendidos/encogidos.','Puntillas mantenidas, dedos en flexión persistente o rotación marcada.']}
  ]},
  {c:'s3',t:'Movimientos',max:6,items:[
-   {n:'Cantidad de movimientos',m:'Óptimo: normal; alterado: escasos o excesivos.'},
-   {n:'Calidad de movimientos',m:'Óptimo: fluidos y variados; alterado: movimientos anormales (espasmos, rigidez, movimientos «en bloque»).'}
+   {n:'Cantidad de movimientos',m:'En supino, con el niño despierto y tranquilo; patrón de cuerpo entero.',
+    d:['Normal.','Intermedio.','Escasos, lentos o excesivos.','Ausentes.']},
+   {n:'Calidad de movimientos',m:'Actividad espontánea durante el examen (no es la valoración de movimientos generales de Prechtl).',
+    d:['Fluidos, alternantes y suaves; implican todo el cuerpo, con variabilidad y complejidad.','No óptimos, sin llegar a 1.','Bruscos, entrecortados, con ligeros temblores.','Atípicos: monótonos/repetitivos o caóticos; espasmódico-sincrónicos (tronco y miembros se contraen a la vez).']}
  ]},
  {c:'s4',t:'Tono',max:24,items:[
-   {n:'Signo de la bufanda',m:'Lleva la mano del niño hacia el hombro contrario cruzando el tórax; observa la posición del codo respecto a la línea media.',a:true,s:'bufanda'},
-   {n:'Elevación pasiva del hombro',m:'Levanta el brazo hasta alinearlo con la cabeza; valora la resistencia. Óptimo: cede con resistencia normal; alterado: resistencia excesiva o nula.',a:true},
-   {n:'Pronación / supinación',m:'Movimientos de pronosupinación del antebrazo. Óptimo: completos sin resistencia; alterado: incompletos por resistencia excesiva.',a:true},
-   {n:'Aductores',m:'Separa al máximo las piernas extendidas y mide el ángulo entre ellas.',a:true,s:'aductores'},
-   {n:'Ángulo poplíteo',m:'Flexiona la cadera y extiende la rodilla hasta notar resistencia; mide el ángulo muslo–pierna.',a:true,s:'popliteo'},
-   {n:'Dorsiflexión del tobillo',m:'Con la rodilla extendida, flexiona el tobillo y mide el ángulo pierna–pie.',a:true,s:'dorsi'},
-   {n:'Incorporar para sentarse',m:'Tracción suave de las muñecas hasta sentar al niño; valora el control de la cabeza. Óptimo: la cabeza acompaña; alterado: cae o queda fija.'},
-   {n:'Suspensión ventral',m:'Sostén en suspensión ventral; observa la posición de la espalda, los brazos, las piernas y la cabeza.'}
+   {n:'Signo de la bufanda',m:'Lleva la mano hacia el hombro contrario cruzando el tórax (cabeza y tronco en la línea media); observa el codo respecto a la línea media.',a:true,s:'bufanda',
+    d:['El codo se desplaza con facilidad hasta cerca de la línea media (mejilla, mentón o algo más allá).','Intermedio.','El codo solo llega al borde externo de la mejilla (resistencia aumentada).','Apenas se desplaza (hipertonía marcada) o cruza muy lejos sin resistencia (hipotonía).']},
+   {n:'Elevación pasiva del hombro',m:'Eleva el brazo extendido junto a la cabeza (sin abducción) y valora la resistencia del hombro y el codo.',a:true,
+    d:['Hay resistencia, pero se vence (normal).','La resistencia es difícil de vencer.','No hay ninguna resistencia (hipotonía).','Resistencia excesiva, no se puede vencer (hipertonía).']},
+   {n:'Pronación / supinación',m:'Con el codo extendido, gira el antebrazo 180° por la muñeca; valora la resistencia.',a:true,
+    d:['Completas, sin resistencia.','Completas, con resistencia vencible.','Intermedio.','Incompletas por resistencia excesiva.']},
+   {n:'Aductores de cadera',m:'Con las piernas extendidas, ábrelas en abducción al máximo (rodillas extendidas, sin rotar); mide el ángulo entre ambas.',a:true,s:'aductores',
+    d:['Ángulo 80–150° (óptimo).','150–160°.','>170° (hipotonía).','<80° (hipertonía de aductores).']},
+   {n:'Ángulo poplíteo',m:'Con las nalgas en la superficie, flexiona la cadera y extiende la rodilla hasta notar resistencia; mide el ángulo muslo–pierna.',a:true,s:'popliteo',
+    d:['Ángulo 100–150° (óptimo).','150–160°.','~90° o >170°.','<80°.']},
+   {n:'Dorsiflexión del tobillo',m:'Con la rodilla en extensión, flexiona el tobillo con la palma (evita el reflejo plantar); mide el ángulo pierna–pie.',a:true,s:'dorsi',
+    d:['Ángulo 30–85° (óptimo).','20–30°.','<20° o 90°.','>90°.']},
+   {n:'Incorporar para sentarse («pull to sit»)',m:'Tracciona suavemente de las muñecas hasta sentarlo (sostén la cabeza si hay hipotonía); observa el control de la cabeza.',
+    d:['La cabeza acompaña al tronco, sin retraso.','Intermedio.','Retraso parcial de la cabeza.','La cabeza queda colgando, o se hiperextiende hacia atrás.']},
+   {n:'Suspensión ventral',m:'Sostén horizontal por el tronco; observa la espalda, los miembros y la cabeza (repite si el niño está somnoliento).',
+    d:['Espalda recta, cabeza alineada y miembros con tono adecuado.','Intermedio.','Espalda curvada, con cabeza o miembros caídos.','Hipotonía marcada (cuelga «en U invertida») o postura rígida anormal.']}
  ]},
  {c:'s5',t:'Reflejos y reacciones posturales',max:15,items:[
-   {n:'Reflejos osteotendinosos',m:'Bicipital, rotuliano y aquíleo. Óptimo: se obtienen con facilidad; alterado: clonus o ausentes.',a:true},
-   {n:'Reacción de protección del brazo',m:'En supino, tira de un brazo para incorporarlo y observa el otro. Óptimo: brazo y mano extendidos; alterado: brazo completamente flexionado.',a:true},
-   {n:'Suspensión vertical',m:'Sostén bajo las axilas, sin que los pies toquen. Óptimo: patalea simétrico; alterado: no mueve las piernas o las cruza «en tijera».'},
-   {n:'Inclinación lateral',m:'En vertical, inclínalo rápido a un lado; observa la reacción de tronco, miembros y cabeza.',a:true},
-   {n:'Paracaídas',m:'En vertical, inclínalo rápido hacia delante; observa la reacción de los brazos (esperable después de los 6 meses).',a:true}
+   {n:'Reflejos osteotendinosos',m:'Bicipital, rotuliano y aquíleo, con el miembro relajado (en el bíceps, golpea sobre tu pulgar).',a:true,
+    d:['Se obtienen con facilidad (normales).','Ligeramente exaltados.','Exaltados.','Clonus o reflejos ausentes.']},
+   {n:'Reacción de protección del brazo',m:'En supino, tracciona de un brazo para incorporarlo (estabiliza la pelvis) y observa el apoyo activo del brazo libre.',a:true,
+    d:['Apoya con el brazo extendido y la mano abierta.','Intermedio.','Brazo semiflexionado.','Brazo completamente flexionado, sin apoyo activo.']},
+   {n:'Suspensión vertical',m:'Sostén bajo las axilas, sin que los pies toquen (puedes estimular la planta para provocar el pataleo).',
+    d:['Patalea simétrico, alternando ambas piernas.','Intermedio.','Pataleo pobre o asimétrico.','No patalea aun estimulado; o piernas juntas, rotadas y cruzadas «en tijera».']},
+   {n:'Suspensión / inclinación lateral',m:'Sostén por las caderas e inclínalo ~45° hacia un lado; observa cabeza, tronco y miembros del lado superior.',a:true,
+    d:['Activación óptima de cabeza, tronco y miembros del lado superior.','Respuesta parcial.','Respuesta escasa.','Sin respuesta.']},
+   {n:'Paracaídas',m:'En vertical, inclínalo rápido hacia delante; observa la simetría del apoyo de los brazos (esperable después de los 6 meses).',a:true,
+    d:['Presente y simétrica: extiende los brazos con las manos abiertas (≥6 meses).','Parcial (manos cerradas) o asimétrica.','Ausente después de los 6 meses.','No esperable antes de los 6 meses (se registra 0).']}
  ]}
 ];
 const MILES=[
@@ -219,12 +249,14 @@ SECTIONS.forEach((sec,si)=>{
   const box=document.createElement('div'); box.className='sec '+sec.c;
   let h=`<h2><span>${si+1}. ${sec.t}</span><span class="smax">máx. ${sec.max} · <span id="sub${si}">0</span></span></h2>`;
   sec.items.forEach((it,ii)=>{
-    h+=`<div class="item"><div><div class="nm">${it.n}</div><div class="mn">${it.m}</div>${it.s?`<div class="esq">${SCH[it.s]}</div>`:''}</div>`;
+    h+=`<div class="item" data-si="${si}" data-ii="${ii}"><div><div class="nm">${it.n}</div><div class="mn">${it.m}</div>${it.s?`<div class="esq">${SCH[it.s]}</div>`:''}</div>`;
     h+=`<div><div class="seg" data-si="${si}" data-ii="${ii}">`;
     [3,2,1,0].forEach(v=>h+=`<button type="button" data-v="${v}" title="${v} puntos">${v}</button>`);
     h+=`</div>`;
     if(it.a) h+=`<label class="asim"><input type="checkbox" data-si="${si}" data-ii="${ii}" class="ck"> asimetría D/I</label>`;
-    h+=`</div></div>`;
+    h+=`</div>`;
+    h+=`<div class="desc">`+[3,2,1,0].map((v,k)=>`<div class="d d${v}" data-d="${v}"><span class="dn">${v}</span><span>${it.d[k]}</span></div>`).join('')+`</div>`;
+    h+=`</div>`;
   });
   box.innerHTML=h; form.appendChild(box);
 });
@@ -232,21 +264,18 @@ SECTIONS.forEach((sec,si)=>{
 const miles=document.getElementById('miles');
 MILES.forEach(([k,v])=>{const dt=document.createElement('dt');dt.textContent=k;const dd=document.createElement('dd');dd.innerHTML=v;miles.append(dt,dd);});
 
-const scores={}; // "si-ii" -> 0..3
-const asim={};
+const scores={}, asim={};
 function calc(){
   let total=0; const subs=SECTIONS.map(()=>0);
   SECTIONS.forEach((sec,si)=>sec.items.forEach((it,ii)=>{
     const v=scores[si+'-'+ii]; if(v!==undefined){subs[si]+=v; total+=v;}
   }));
   subs.forEach((s,si)=>document.getElementById('sub'+si).textContent=s);
-  // chips
   const chips=document.getElementById('chips');
   chips.innerHTML=SECTIONS.map((sec,si)=>`<span class="sb-chip">${sec.t}: <b>${subs[si]}</b>/${sec.max}</span>`).join('')
     +`<span class="sb-total">Total <span>${total}</span>/78</span>`;
   const nA=Object.values(asim).filter(Boolean).length;
   document.getElementById('asimN').textContent=nA;
-  // interpretación
   const answered=Object.keys(scores).length;
   const age=parseFloat(document.getElementById('age').value);
   const el=document.getElementById('interp'); el.className='interp';
@@ -266,9 +295,11 @@ function calc(){
 }
 form.addEventListener('click',e=>{
   const b=e.target.closest('.seg button'); if(!b) return;
-  const seg=b.parentElement, si=seg.dataset.si, ii=seg.dataset.ii;
+  const seg=b.parentElement, si=seg.dataset.si, ii=seg.dataset.ii, v=+b.dataset.v;
   [...seg.children].forEach(x=>x.classList.remove('on')); b.classList.add('on');
-  scores[si+'-'+ii]=+b.dataset.v; calc();
+  const item=b.closest('.item');
+  item.querySelectorAll('.desc .d').forEach(d=>d.classList.toggle('sel', +d.dataset.d===v));
+  scores[si+'-'+ii]=v; calc();
 });
 form.addEventListener('change',e=>{
   const c=e.target.closest('.ck'); if(!c) return;
@@ -278,6 +309,7 @@ document.getElementById('age').addEventListener('input',calc);
 document.getElementById('reset').addEventListener('click',()=>{
   for(const k in scores) delete scores[k]; for(const k in asim) delete asim[k];
   document.querySelectorAll('.seg button.on').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.desc .d.sel').forEach(d=>d.classList.remove('sel'));
   document.querySelectorAll('.ck').forEach(c=>c.checked=false);
   document.getElementById('age').value=''; calc();
 });
