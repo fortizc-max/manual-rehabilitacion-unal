@@ -33,6 +33,10 @@ footer a:hover{text-decoration:underline}
 .help,.copy{font-family:var(--sans);border-radius:8px;padding:12px 14px;font-size:.85rem;margin:14px 0}
 .help{background:#eef4fb;border:1px solid #d4e3f5;color:#22364d}
 .help b{color:var(--azul)}
+.oficial{font-family:var(--sans);background:#fff7ed;border:1px solid #fcd9b6;border-left:4px solid #e08b00;border-radius:8px;padding:14px 16px;font-size:.86rem;color:#7a4a00;margin:16px 0}
+.oficial b{color:#7a4a00}
+.oficial a.btn{display:inline-block;margin-top:10px;background:var(--azulacad);color:#fff;text-decoration:none;padding:8px 16px;border-radius:99px;font-weight:700;font-size:.82rem}
+.oficial a.btn:hover{background:#00264d}
 .scoreboard{font-family:var(--sans);position:sticky;top:0;z-index:5;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:16px 0;box-shadow:0 2px 10px rgba(0,51,102,.06)}
 .sb-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .sb-chip{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-weight:600}
@@ -101,6 +105,12 @@ svg.maniobra{display:block;background:#fbfcfe;border:1px solid #eef1f5;border-ra
 
 <div class="help">
 <b>Cómo puntuar.</b> <b>3</b> = respuesta óptima y <b>0</b> = la más alterada. Cuando no hay un descriptor para el <b>2</b>, úsalo como puntuación intermedia (no óptima pero no tan pobre como para un 1). Si la respuesta queda entre dos columnas, el método oficial admite la <b>media</b> (p.&nbsp;ej. 1,5); este puntuador educativo usa números enteros. Marca <b>«asimetría»</b> cuando la respuesta difiera entre derecha e izquierda: el número de ítems asimétricos se cuenta aparte y orienta a lesiones unilaterales. Los <b>hitos motores</b> y la <b>conducta</b> no entran en la puntuación global.
+</div>
+
+<div class="oficial">
+<b>¿Buscas las figuras de cada ítem?</b> Este puntuador es educativo y describe en texto los cuatro niveles (3/2/1/0) de cada maniobra. Las <b>ilustraciones oficiales</b> —los diagramas de cada postura y nivel de puntuación— están en el <b>formulario oficial del HINE</b> (© Mac&nbsp;Keith&nbsp;Press), que no debe modificarse y es la referencia para el uso clínico y la formación.
+<br>
+<a class="btn" href="https://www.mackeith.co.uk/hammersmith-neurological-examinations/" target="_blank" rel="noopener">Ver el formulario oficial del HINE (con todas las figuras) →</a>
 </div>
 
 <div class="scoreboard" id="board">
