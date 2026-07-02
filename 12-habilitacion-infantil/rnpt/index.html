@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valoración neurológica del recién nacido pretérmino</title>
+<style>
+  :root{ --verde:#2e7d32; --verdebg:#f1f8f2; --gris:#555; --linea:#dcdcdc; }
+  *{ box-sizing:border-box; }
+  body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        margin:0; color:#222; background:#fafafa; line-height:1.45; }
+  header{ background:var(--verde); color:#fff; padding:14px 16px; }
+  header h1{ font-size:1.05rem; margin:0; font-weight:700; }
+  header p{ margin:4px 0 0; font-size:.8rem; opacity:.9; }
+  .wrap{ max-width:820px; margin:0 auto; padding:14px 16px 60px; }
+  .aviso{ font-size:.8rem; color:var(--gris); background:var(--verdebg);
+          border:1px solid #cfe6d1; border-radius:8px; padding:8px 10px; margin:12px 0; }
+  .selector{ position:sticky; top:0; background:#fafafa; padding:10px 0; z-index:5; }
+  .selector .lbl{ font-size:.8rem; color:var(--gris); margin-bottom:6px; }
+  .bandas{ display:flex; flex-wrap:wrap; gap:6px; }
+  .banda{ flex:1 1 auto; min-width:92px; text-align:center; padding:9px 6px; border:1.5px solid var(--verde);
+          background:#fff; color:var(--verde); border-radius:8px; font-weight:600; font-size:.82rem; cursor:pointer; }
+  .banda.sel{ background:var(--verde); color:#fff; }
+  .banda small{ display:block; font-weight:400; font-size:.68rem; opacity:.8; }
+  h2.sec{ font-size:.95rem; color:var(--verde); margin:22px 0 8px; border-bottom:2px solid var(--verde); padding-bottom:3px; }
+  .item{ border-bottom:1px solid var(--linea); padding:9px 0; display:grid; grid-template-columns:130px 1fr; gap:10px; }
+  .item .nom{ font-weight:600; font-size:.85rem; color:#333; }
+  .item .val{ font-size:.9rem; }
+  .val.nc{ color:#999; font-style:italic; }
+  .nota-fija{ margin-top:26px; }
+  .nota-fija ul{ margin:6px 0 0; padding-left:20px; }
+  .nota-fija li{ font-size:.85rem; margin:5px 0; }
+  footer{ font-size:.72rem; color:#999; text-align:center; padding:16px; }
+  @media(max-width:480px){ .item{ grid-template-columns:1fr; gap:2px; } .item .nom{ font-size:.8rem; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Valoración neurológica del recién nacido pretérmino</h1>
+  <p>Hallazgos esperados por edad gestacional · Unidad de Habilitación Infantil, IMI – Hospital de la Misericordia, UNAL</p>
+</header>
+<div class="wrap">
+
+  <div class="selector">
+    <div class="lbl">Seleccione la edad gestacional (semanas):</div>
+    <div class="bandas" id="bandas"></div>
+  </div>
+
+  <div class="aviso">Herramienta de consulta educativa. Los hallazgos son orientativos del desarrollo
+    neurológico esperable a cada edad gestacional; interprételos junto con el cuadro clínico. No sustituye el juicio médico.</div>
+
+  <div id="contenido"></div>
+
+  <div class="nota-fija">
+    <h2 class="sec">El pretérmino que llega al término frente al recién nacido a término</h2>
+    <ul>
+      <li>No hay diferencia entre los flexores y los extensores del cuello.</li>
+      <li>El pretérmino no tiene el hipertono flexor del niño a término.</li>
+      <li>Los ángulos del tono pasivo son más amplios (más abiertos).</li>
+      <li>La motilidad espontánea es más rica en el niño a término.</li>
+      <li>Al llegar a la semana 41 en incubadora pesa ~2600&nbsp;g, mide ~47&nbsp;cm y tiene un perímetro cefálico de ~33&nbsp;cm; <em>in utero</em> a término: ~3200&nbsp;g, ~50&nbsp;cm y perímetro cefálico de 34–36&nbsp;cm.</li>
+      <li>Piel lisa, panículo adiposo reducido y músculos frágiles a la palpación.</li>
+      <li>Es fatigable; sus contracciones musculares son regulares y poco duraderas.</li>
+      <li>Los potenciales evocados en el pretérmino solo son confiables hasta los 3&nbsp;meses.</li>
+    </ul>
+  </div>
+
+  <footer>Manual de Rehabilitación para el Médico General · Complemento interactivo.
+    Transcrito de las guías de la Unidad de Habilitación Infantil (IMI – Hospital de la Misericordia, UNAL).</footer>
+</div>
+
+<script>
+// ===== Bandas de edad gestacional =====
+const BANDAS = ["24–27", "28–30", "31–34", "35–37", "38–42"];
+
+// ===== Datos: cada ítem tiene 5 valores (uno por banda) =====
+// [PÁGINA 1 transcrita; PÁGINAS 2–5 pendientes de transcribir y verificar]
+const SECCIONES = [
+  { titulo: "1. Características generales", items: [
+    { nom: "Peso (g)",              vals: ["800–1100","1100–1250","1250–1800","1800–2500","2500–3300"] },
+    { nom: "Talla (cm)",            vals: ["32–36","36–38","38–42","42–45","45–50"] },
+    { nom: "Perímetro cefálico (cm)", vals: ["22–26","26–27","27–30","30–32","32–34,5"] },
+  ]},
+  { titulo: "2. Reflejos primitivos", items: [
+    { nom: "Succión", vals: [
+      "Ligero movimiento de labios; 3 o menos continuos",
+      "Protrusión de la lengua; 3 o menos continuos",
+      "Succión-deglución completa; 4 a 7 movimientos",
+      "Succión-deglución completa; 8 o más movimientos",
+      "Succión-deglución completa; 8 o más movimientos" ] },
+    { nom: "Búsqueda", vals: [
+      "Ligero movimiento de labios",
+      "Ligero movimiento de labios",
+      "Labios y lengua contra el paladar",
+      "Labios y lengua contra el paladar",
+      "Labios y lengua contra el paladar" ] },
+    { nom: "Puntos cardinales", vals: [
+      "Provoca gemido y ligero movimiento de labios; mínimo movimiento de la cabeza al lado estimulado",
+      "Respuesta lateral y superior (no inferior); movimiento de labio, lengua y cabeza",
+      "Completo",
+      "Se convierte en el reflejo de búsqueda",
+      "(no consignado)" ] },
+    { nom: "Ciliar", vals: ["Presente","Presente","Presente","Presente","Presente"] },
+    { nom: "Prensión palmar", vals: [
+      "Débil",
+      "Se obtiene por presión y no por completo; débil a la sem. 28 y fuerte a la sem. 30",
+      "Fuerte reacción tónica; sobrepasa el antebrazo",
+      "Fuerte reacción tónica; sobrepasa el antebrazo",
+      "Tónica y duradera; alcanza brazo y hombro, permite levantar al niño por algunos instantes" ] },
+    { nom: "Prensión plantar", vals: ["Débil","Presente fuerte","Presente fuerte","Presente fuerte","Presente fuerte"] },
+    { nom: "Gallant", vals: ["Presente","Presente","Presente","Presente","Presente"] },
+    { nom: "Tónico cervical asimétrico", vals: ["Ausente","Presente (esbozo)","Presente (débil)","Presente (completo)","Presente (completo)"] },
+    { nom: "Extensión cruzada", vals: [
+      "No se busca (falsa reacción)",
+      "Solo hace flexión-extensión contralateral; se inhibe con el grito, hipertonía y dolor",
+      "Flexión y abducción de la extremidad contralateral",
+      "Flexión y abducción contralateral perfectas",
+      "Flexión, abducción y esbozo de aducción, o reemplazo por alargamiento de la extensión" ] },
+    { nom: "Retirada", vals: ["Ausente","Ausente","Presente","Presente","Presente"] },
+    { nom: "Marcha automática", vals: [
+      "Movimientos alternados de miembros inferiores sin apoyo plantar",
+      "Movimientos alternados de miembros inferiores sin apoyo plantar",
+      "Apoyo en punta de pies",
+      "Claro y duradero, con apoyo del talón inicial",
+      "Claro y duradero, con apoyo del talón inicial" ] },
+    { nom: "Tónicos laberínticos", vals: [
+      "Ausente",
+      "Inicia 1-2 segundos",
+      "Completo en miembros superiores e inferiores; 3 segundos",
+      "Completo en miembros superiores e inferiores; 3 segundos",
+      "Completo en miembros superiores e inferiores; 5 segundos" ] },
+    { nom: "Nociceptivos", vals: [
+      "Mueca",
+      "Contracción de los músculos de la cara que concluyen en grito",
+      "Contracción de los músculos de la cara que concluyen en grito",
+      "Retira la cabeza en sentido opuesto",
+      "Retira la cabeza en sentido opuesto" ] },
+    { nom: "Muelle", vals: [
+      "Muy débil",
+      "No hay retorno del miembro; al final hay ligero retorno",
+      "No hay retorno del miembro; al final hay ligero retorno",
+      "Hay retorno (vuelve a su posición primitiva como un resorte)",
+      "Positivo, rebote brusco" ] },
+  ]},
+  { titulo: "3. Respuestas adaptativas", items: [
+    { nom: "Reacciones de enderezamiento", vals: [
+      "Levanta la cabeza en prono como protección respiratoria por 1 segundo",
+      "Levanta la cabeza en prono como protección respiratoria por 2 segundos",
+      "Levanta la cabeza en prono como protección respiratoria por 4 segundos",
+      "Aparición de reacciones de enderezamiento laberínticas en prono (buenas); inicio en supino, no sostenida",
+      "Engloban todo el eje corporal; perfectas y poderosas (aprox. 45°)" ] },
+    { nom: "Respuestas posturales automáticas (Moro)", vals: [
+      "Apertura de dedos y ligera extensión de los miembros superiores; flexión constante de los dedos del pie; movimientos alternados de MsIs (en masa); mayor respuesta en MsSs",
+      "Apertura, flexión y extensión (implica integridad neuronal)",
+      "Apertura, extensión, flexión, abducción y grito",
+      "Apertura, flexión, extensión, abducción, aducción y abrazo",
+      "Completo y perfecto (apertura, extensión, flexión, abducción, aducción y abrazo); igual en MsIs" ] },
+  ]},
+  { titulo: "4. Control motor postural · Tono pasivo", items: [
+    { nom: "Ángulo de dorsiflexión del pie", vals: ["No se explora","35 a 40 grados","35 a 40 grados","40 a 70 grados","40 a 90 grados"] },
+    { nom: "Ángulo poplíteo", vals: ["No se explora","130 grados","110 a 100 grados","100 a 90 grados","90 grados o menos"] },
+    { nom: "Bufanda", vals: ["Ninguna resistencia","Resistencia muy débil","Sobrepasa ampliamente la línea media","Sobrepasa la línea media","No alcanza la línea media"] },
+    { nom: "Ángulo de dorsiflexión de la mano (ventral)", vals: ["25 a 30 grados","25 a 30 grados","25 a 40 grados","40 a 70 grados","70 a 90 grados"] },
+    { nom: "Balanceo de manos y pies", vals: [
+      "Caída extrema, sobre todo en las manos",
+      "Caída extrema, sobre todo en las manos",
+      "Caída extrema, sobre todo en las manos",
+      "Caída extrema, sobre todo en las manos",
+      "Limitados o ausentes en MsSs y MsIs" ] },
+    { nom: "Talón-oreja", vals: ["Sin resistencia","Amplio con mínima resistencia","110 grados","90 grados","70 grados"] },
+    { nom: "Ángulo de los aductores", vals: ["180 grados","170 grados","150 grados","120 grados","90 a 110 grados"] },
+  ]},
+  { titulo: "5. Control motor postural · Tono activo", items: [
+    { nom: "Extensión de tronco", vals: [
+      "No se explora","No se explora",
+      "Presente, con participación de MsSs y músculos del cuello",
+      "Presente, con participación de MsSs y músculos del cuello",
+      "Presente, con participación de MsSs y músculos del cuello" ] },
+    { nom: "Enderezamiento de cabeza", vals: [
+      "No se explora","Presente (de defensa)","En sacudidas",
+      "Lento, por desarrollo de los extensores del cuello",
+      "Excelente; se logra con facilidad al flexionar al niño hacia delante, por la fortaleza de sus músculos flexores" ] },
+    { nom: "Enderezamiento de miembros inferiores", vals: [
+      "No se explora",
+      "Vano apoyo plantar; extensión ligera sostenida de las piernas",
+      "Vano apoyo plantar; extensión ligera sostenida de las piernas",
+      "Apoyo plantar completo, de mayor duración y firmeza; mejor tonicidad de los glúteos medios",
+      "Hasta el tronco y todo el eje corporal; apoyo plantar completo y fuerte, soporta el peso del cuerpo" ] },
+    { nom: "Flexoextensión de miembros inferiores", vals: [
+      "Pedaleo","Pedaleo alternado","Pedaleo alternado",
+      "Movimiento alternado de flexoextensión de MsIs (automático)",
+      "Movimiento alternado de flexoextensión de MsIs (automático)" ] },
+    { nom: "Tracción", vals: [
+      "No se explora","Presente, muy rápido, liberador y espontáneo",
+      "Presente en pequeñas sacudidas","Presente pero no permanente","Presente y más sostenido" ] },
+    { nom: "Tono muscular flexor del cuello", vals: [
+      "Ausencia de movimiento de la cabeza hacia adelante",
+      "La cabeza se desliza sobre el hombro",
+      "Paso brusco por el eje; la cabeza aún se balancea",
+      "Más potente","Mejor control" ] },
+  ]},
+  { titulo: "6. Desarrollo ontogénico secuencial", items: [
+    { nom: "Patrón ontogénico", vals: [
+      "Tono flexor en MsSs y tono extensor en MsIs",
+      "Movilización de los cuatro miembros de forma sinérgica con predominio flexor, con hipotonía; cabeza con rotación lateral y rezagada",
+      "Movilización activa de las cuatro extremidades; progresión del tono a flexión activa, sin resistencia a la extensión",
+      "Predominio del tono flexor con resistencia a la extensión; postura hiperextensora sobre el talón y el occipucio",
+      "Adquiere mejor tono en MsSs y cuello; en reposo, flexión de los cuatro miembros; con el niño despierto hay resistencia muscular" ] },
+  ]},
+];
+
+// ===== Render =====
+let sel = 0;
+const cbandas = document.getElementById("bandas");
+BANDAS.forEach((b,i)=>{
+  const el = document.createElement("div");
+  el.className = "banda" + (i===sel?" sel":"");
+  el.innerHTML = b + "<small>sem</small>";
+  el.onclick = ()=>{ sel=i; pinta(); };
+  cbandas.appendChild(el);
+});
+function pinta(){
+  [...cbandas.children].forEach((el,i)=>el.classList.toggle("sel", i===sel));
+  const c = document.getElementById("contenido");
+  c.innerHTML = "";
+  SECCIONES.forEach(s=>{
+    const h = document.createElement("h2"); h.className="sec"; h.textContent = s.titulo; c.appendChild(h);
+    s.items.forEach(it=>{
+      const v = it.vals[sel] || "(no consignado)";
+      const nc = /no consignado/.test(v);
+      const d = document.createElement("div"); d.className="item";
+      d.innerHTML = `<div class="nom">${it.nom}</div><div class="val${nc?' nc':''}">${v}</div>`;
+      c.appendChild(d);
+    });
+  });
+}
+pinta();
+</script>
+</body>
+</html>
