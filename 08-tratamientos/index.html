@@ -545,15 +545,16 @@ footer a:hover { text-decoration: underline; }
 
 <nav class="tab-nav">
   <button class="tab-btn active" data-tab="intro">1. Lo del médico vs lo del especialista</button>
-  <button class="tab-btn" data-tab="dolor">2. Dolor · agudo vs crónico</button>
-  <button class="tab-btn" data-tab="ejercicio">3. 🔢 Prescripción FITT</button>
-  <button class="tab-btn" data-tab="condicion">4. FITT por condición</button>
-  <button class="tab-btn" data-tab="caidas">5. Prevención de caídas</button>
-  <button class="tab-btn" data-tab="stc">6. STC manejo conservador</button>
-  <button class="tab-btn" data-tab="educacion">7. Educación terapéutica</button>
-  <button class="tab-btn" data-tab="derivacion">8. Derivación · plantilla</button>
-  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
-  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+  <button class="tab-btn" data-tab="equipo">2. El equipo interdisciplinario</button>
+  <button class="tab-btn" data-tab="dolor">3. Dolor · agudo vs crónico</button>
+  <button class="tab-btn" data-tab="ejercicio">4. 🔢 Prescripción FITT</button>
+  <button class="tab-btn" data-tab="condicion">5. FITT por condición</button>
+  <button class="tab-btn" data-tab="caidas">6. Prevención de caídas</button>
+  <button class="tab-btn" data-tab="stc">7. STC manejo conservador</button>
+  <button class="tab-btn" data-tab="educacion">8. Educación terapéutica</button>
+  <button class="tab-btn" data-tab="derivacion">9. Derivación · plantilla</button>
+  <button class="tab-btn" data-tab="casos">10. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">11. Autoevaluación</button>
 </nav>
 
 <main>
@@ -655,12 +656,83 @@ footer a:hover { text-decoration: underline; }
     <li><strong>Pestaña 4:</strong> selector de prescripción por condición clínica (HTA, DM2, OA, lumbalgia, fibromialgia, Parkinson, cáncer, post-COVID, ENM, obesidad).</li>
     <li><strong>Pestaña 5:</strong> STEADI completo en 3 pasos (tamizaje + evaluación multifactorial + intervenciones).</li>
     <li><strong>Pestañas 6–7:</strong> STC manejo conservador y educación terapéutica.</li>
-    <li><strong>Pestaña 8:</strong> decisor de derivación a fisioterapia + plantilla de remisión que se autocompleta.</li>
-    <li><strong>Pestañas 9–10:</strong> 10 casos clínicos y 10 preguntas de autoevaluación.</li>
+    <li><strong>Pestaña 9:</strong> decisor de derivación a fisioterapia + plantilla de remisión que se autocompleta.</li>
+    <li><strong>Pestañas 10–11:</strong> 10 casos clínicos y 10 preguntas de autoevaluación.</li>
   </ul>
 </section>
 
-<!-- ==================== TAB 2: DOLOR ==================== -->
+<!-- ==================== TAB 2: EQUIPO INTERDISCIPLINARIO ==================== -->
+<section class="tab-content" id="equipo">
+  <h2>El equipo interdisciplinario y la red de atención</h2>
+
+  <p>La rehabilitación es, de todas las áreas de la medicina, la que menos se ejerce en solitario. Y sin embargo el médico general la practica, en la mayor parte del país, <strong>sin equipo a la vista</strong>: remite a «terapia», recibe de vuelta un informe que no entiende del todo y sigue adelante. Esta pestaña busca corregir eso con tres cosas concretas: saber <strong>qué hace</strong> cada disciplina, saber <strong>cuándo y cómo</strong> remitirle un paciente, y saber <strong>leer</strong> lo que le devuelven.</p>
+
+  <div class="card amarilla">
+    <h4>Cada profesional trabaja un dominio de la CIF, no un órgano</h4>
+    <p style="margin-bottom:0">El fisioterapeuta trabaja sobre el <em>movimiento</em>; el terapeuta ocupacional, sobre la <em>actividad cotidiana</em>; el fonoaudiólogo, sobre la <em>comunicación y la deglución</em>; el trabajador social, sobre los <em>factores contextuales</em>. Vistos así, no se solapan: <strong>se reparten el funcionamiento</strong>.</p>
+  </div>
+
+  <h3>Quién hace qué, y cuándo remitirle un paciente</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Disciplina</th><th>Qué hace</th><th>Cuándo remitir</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fisiatra</strong><br><span style="font-size:.9em">(medicina física y rehabilitación)</span></td><td>Es el médico especialista del equipo: diagnostica la discapacidad, define los objetivos funcionales, prescribe el programa, maneja la espasticidad (toxina botulínica, fármacos), formula órtesis, prótesis y sillas de ruedas, indica el electrodiagnóstico y coordina al equipo.</td><td>Discapacidad neurológica establecida (ACV, TRM, TCE); espasticidad que interfiere; formulación de dispositivos complejos; duda sobre el potencial de recuperación o sobre las metas; falta de respuesta al manejo conservador bien hecho.</td></tr>
+        <tr><td><strong>Fisioterapia</strong></td><td>Movimiento: fuerza, arcos articulares, equilibrio, marcha, transferencias, dosificación y progresión del ejercicio, terapia manual, manejo respiratorio, reeducación del control motor.</td><td>Déficit de fuerza, equilibrio o marcha; dolor musculoesquelético que no cede con el manejo inicial; riesgo de caída; postoperatorio; necesidad de programa supervisado o de corregir la técnica.</td></tr>
+        <tr><td><strong>Terapia ocupacional</strong></td><td>La actividad cotidiana: alimentarse, vestirse, bañarse, cocinar, manejar el dinero. Entrena en tareas reales, adapta el entorno y la vivienda, formula <em>ayudas técnicas</em> (adaptación de cubiertos, elevador de inodoro, barras) y trabaja la mano funcional y la cognición aplicada.</td><td>Dependencia en actividades básicas o instrumentales; secuela de la mano; deterioro cognitivo con impacto funcional; necesidad de adaptar la casa o el puesto de trabajo.</td></tr>
+        <tr><td><strong>Fonoaudiología</strong></td><td>Comunicación y deglución: afasia, disartria, voz y —lo más urgente para el médico general— la <strong>disfagia</strong>: evaluación, tamizaje, recomendación de consistencias y de la vía de alimentación.</td><td><strong style="color:#991b1b">Toda sospecha de disfagia</strong> (tos con la comida, voz húmeda, neumonías a repetición); afasia o disartria tras ACV o TCE.</td></tr>
+        <tr><td><strong>Ortesista</strong> y protesista</td><td>Fabrica y adapta el dispositivo que el médico prescribe: órtesis de tobillo-pie, férulas de mano, corsés, prótesis de miembro. Su trabajo es la <em>adaptación</em>, que es donde la prescripción se gana o se pierde.</td><td>Siempre acompañando al fisiatra, no en lugar de él: la prescripción es médica; la fabricación y el ajuste, del ortesista.</td></tr>
+        <tr><td><strong>Psicología</strong> y neuropsicología</td><td>Psicología: ánimo, ansiedad, catastrofización, adherencia, afrontamiento del duelo por la pérdida funcional. <em>Neuropsicología</em>: evalúa y rehabilita memoria, atención y funciones ejecutivas tras lesión cerebral.</td><td>Depresión o ansiedad que bloquean el programa; catastrofización y miedo al movimiento en dolor crónico; déficit cognitivo tras TCE o ACV que exige caracterización.</td></tr>
+        <tr><td><strong>Trabajo social</strong></td><td>Los factores contextuales, que deciden el desenlace tanto como la lesión: red de apoyo, cuidador, vivienda, trámites, acceso a servicios, retorno laboral, riesgo de abandono.</td><td>Paciente que vive solo o con cuidador sobrecargado; barreras de acceso o económicas; sospecha de abandono o maltrato; necesidad de reintegro laboral.</td></tr>
+        <tr><td><strong>Nutrición</strong></td><td>El aporte calórico-proteico, <strong>sin el cual el ejercicio no construye músculo</strong>, y el manejo de la desnutrición, la sarcopenia y las consistencias en disfagia.</td><td>Sarcopenia, desnutrición, pérdida de peso, disfagia, paciente crítico o postrado, obesidad.</td></tr>
+        <tr><td><strong>Enfermería</strong> de rehabilitación</td><td>Cuidado de la piel y prevención de úlceras, manejo vesical e intestinal (crucial en lesión medular), educación al cuidador, continuidad del cuidado.</td><td>Riesgo o presencia de úlcera por presión; vejiga e intestino neurógenos; entrenamiento del cuidador antes del egreso.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Multidisciplinario no es lo mismo que interdisciplinario</h3>
+  <p>La distinción parece terminológica y no lo es: describe la diferencia entre un equipo que <em>funciona</em> y uno que solo <em>coexiste</em>.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th></th><th>Qué pasa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Multidisciplinario</strong></td><td>Varios profesionales ven al mismo paciente, cada uno desde su disciplina, y cada uno fija <em>sus</em> objetivos. El paciente recibe tres o cuatro planes paralelos que nadie integra. <strong>Es lo que ocurre casi siempre.</strong></td></tr>
+        <tr><td><strong>Interdisciplinario</strong></td><td>Los mismos profesionales se reúnen, comparten la información y acuerdan un <strong>plan único con objetivos comunes</strong>. La junta no es un trámite: es el mecanismo que convierte la suma de disciplinas en un tratamiento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4 style="margin-top:0">La pregunta que los distingue</h4>
+    <p style="margin-bottom:0">Al paciente que vuelve de un centro de rehabilitación, pregúntele: <strong>«¿le dijeron cuál es la meta?»</strong>. Si sabe hacia dónde va —«que pueda caminar hasta la esquina en tres meses»—, <em>hubo equipo</em>. Si trae una carpeta de informes sin un objetivo común, <em>hubo varios profesionales trabajando en el mismo edificio</em>.</p>
+  </div>
+
+  <h3>Cómo remitir: los cuatro elementos que hacen útil una remisión</h3>
+  <p>Una remisión que dice «terapia física» es una remisión perdida: el fisioterapeuta tendrá que reconstruir desde cero lo que el médico ya sabía. Cuatro elementos bastan y ninguno toma tiempo:</p>
+  <ol>
+    <li><strong>El diagnóstico funcional, no solo el médico.</strong> No «gonartrosis», sino «gonartrosis bilateral con debilidad de cuádriceps y TUG de 18 s, con dos caídas en el último año».</li>
+    <li><strong>El objetivo que se persigue.</strong> «Que recupere la marcha comunitaria sin bastón», «que pueda subir los ocho escalones de su casa». Es lo que orienta al terapeuta y lo que permite saber después si el programa sirvió.</li>
+    <li><strong>Las precauciones.</strong> Carga parcial permitida, contraindicaciones cardiovasculares, riesgo de caída, anticoagulación, malestar post-esfuerzo.</li>
+    <li><strong>Lo que ya se hizo.</strong> Analgesia en curso, ejercicios indicados, resultado del intento previo.</li>
+  </ol>
+
+  <h3>Cómo leer lo que el paciente trae de vuelta</h3>
+  <p>En un sistema fragmentado, el médico general es con frecuencia <strong>el único punto de continuidad</strong>, y buena parte de su trabajo consiste en interpretar lo que otros hicieron. Cuatro preguntas ordenan esa lectura:</p>
+  <ul>
+    <li><strong>¿Hubo evaluación o solo tratamiento?</strong> Un informe serio empieza con una evaluación funcional —mediciones, escalas, puntajes— y no con una lista de modalidades aplicadas.</li>
+    <li><strong>¿Hay objetivos y hay desenlace?</strong> «Se realizaron 20 sesiones de terapia física» no es un informe: <strong>es una factura</strong>. Busque qué se propuso lograr y qué se logró, medido con lo mismo al principio y al final.</li>
+    <li><strong>¿El paciente vuelve con un plan o con una carpeta?</strong> Un programa termina con instrucciones para la casa. Sin programa domiciliario, la ganancia se pierde en semanas.</li>
+    <li><strong>¿Lo que hicieron tiene respaldo?</strong> Un informe compuesto casi solo de agentes físicos pasivos —ultrasonido, TENS, parafina, láser— en un paciente con dolor crónico o déficit funcional indica que <strong>no hubo ejercicio</strong>, que es lo único con evidencia robusta. Esa observación es del médico general, y es legítima.</li>
+  </ul>
+
+  <div class="card verde">
+    <h4 style="margin-top:0">Remitir no es abandonar</h4>
+    <p style="margin-bottom:0">La remisión al equipo no transfiere el paciente: <strong>lo comparte</strong>. El médico general conserva tres funciones que nadie más ejerce: <strong>la continuidad</strong> (es el único que ve al paciente antes, durante y después), <strong>la integración</strong> (es quien junta lo que cada disciplina hizo por separado) y <strong>la vigilancia de lo previsible</strong> (las complicaciones se anticipan en la consulta, no en la sala de terapia). El paciente que sale de rehabilitación vuelve a él; conviene que vuelva a alguien que sepa qué preguntar.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: DOLOR ==================== -->
 <section class="tab-content" id="dolor">
   <h2>Manejo del dolor desde atención primaria</h2>
   <p>El dolor es uno de los síntomas más transversales en rehabilitación: acompaña a la lumbalgia (cap. 3), a los cuadros MSK crónicos (cap. 4), al paciente con discapacidad neurológica (cap. 6) y al adulto mayor frágil (cap. 8). El médico general resuelve la mayor parte de los cuadros sin derivación.</p>
