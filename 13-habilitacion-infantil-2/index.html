@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Habilitación infantil II · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
-<meta name="description" content="Material interactivo del cap. 13 (patologías discapacitantes): clasificación GMFCS-E&R de la función motora gruesa en parálisis cerebral (5 niveles por banda de edad) y puntuador del examen neurológico de Hammersmith (HINE, 26 ítems, puntuación /78).">
+<meta name="description" content="Capítulo 13: parálisis cerebral (clasificación, GMFCS, diagnóstico temprano), trauma craneoencefálico y trauma no accidental, mielomeningocele, enfermedades neuromusculares (AME, Duchenne, CMT) y dolor musculoesquelético en el niño. Material interactivo GMFCS y HINE.">
 <meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
@@ -44,7 +44,6 @@ body {
   font-size: 17px;
 }
 
-/* ===== Cabecera estilo "apertura de capítulo" ===== */
 header.chapter {
   background: white;
   padding: 56px 24px 36px;
@@ -95,46 +94,690 @@ header.chapter a.back {
 }
 header.chapter a.back:hover { background: var(--azulacad-suave); }
 
-main { max-width: 880px; margin: 0 auto; padding: 36px 24px 56px; }
-.intro { margin: 0 0 26px; }
-.intro p { margin: 0.55em 0 0.95em; }
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
 
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
 .card {
-  display: block; text-decoration: none; color: inherit;
-  background: white; border: 1px solid var(--gris-borde);
-  border-left: 5px solid var(--jamared); border-radius: 10px;
-  padding: 20px 22px; transition: box-shadow .15s, transform .15s;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
 }
-.card:hover { box-shadow: 0 6px 20px rgba(0,51,102,.12); transform: translateY(-2px); }
-.card.azul { border-left-color: var(--azulacad); }
-.card.verde { border-left-color: var(--verde); }
-.card .tag {
-  display: inline-block; font-family: var(--sans);
-  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
-  color: #fff; background: var(--jamared); border-radius: 6px;
-  padding: 3px 9px; margin-bottom: 10px;
-}
-.card.azul .tag { background: var(--azulacad); }
-.card.verde .tag { background: var(--verde); }
-.card h2 {
-  font-family: var(--serif); font-style: italic; font-weight: 500;
-  font-size: 1.4rem; margin: 0 0 8px; color: var(--azulacad);
-}
-.card p { font-family: var(--sans); margin: 0; font-size: 0.92rem; color: var(--texto-suave); line-height: 1.5; }
-.card .go { font-family: var(--sans); display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.85rem; color: var(--jamared); }
-.card.azul .go { color: var(--azulacad); }
-.card.verde .go { color: var(--verde); }
-.card.morado { border-left-color: #8e44ad; }
-.card.morado .tag { background: #8e44ad; }
-.card.morado .go { color: #8e44ad; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
 
-.note {
-  font-family: var(--sans); margin-top: 28px;
-  background: var(--azulacad-suave); border-radius: 8px;
-  padding: 14px 18px; font-size: 0.86rem; color: #22364d;
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
 }
-.note b { color: var(--azulacad); }
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Decisor de maniobra ===== */
+.decisor {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.decisor h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.decisor select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 480px;
+}
+.decisor select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.decisor-respuesta {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  display: none;
+}
+.decisor-respuesta.show { display: block; }
+.decisor-respuesta h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+  margin: 0 0 10px;
+}
+.decisor-respuesta .seccion {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--azulacad-mid);
+}
+.decisor-respuesta .seccion:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.decisor-respuesta .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Maniobras: tarjetas dentro de un capítulo regional ===== */
+.maniobra {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.maniobra h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+}
+.maniobra .estructura {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.maniobra .row-key {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.maniobra .row-key .k {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  padding-top: 3px;
+}
+
+/* ===== Fibromialgia / Nociplástico ===== */
+.calc-bloque {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-bloque h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-bloque .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+.calc-bloque h5 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--azulacad-mid);
+}
+
+.checklist {
+  display: grid;
+  gap: 4px;
+}
+.checklist label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.checklist label:hover { background: var(--azulacad-suave); }
+.checklist label.checked {
+  background: var(--azulacad-suave);
+  font-weight: 600;
+  color: var(--azulacad);
+}
+.checklist label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.checklist.cuadrantes {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+@media (max-width: 600px) {
+  .checklist.cuadrantes { grid-template-columns: 1fr; }
+}
+
+.checklist.wpi {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+@media (max-width: 700px) {
+  .checklist.wpi { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .checklist.wpi { grid-template-columns: 1fr; }
+}
+
+.escala-fila {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.escala-fila:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .escala-fila { grid-template-columns: 1fr; gap: 6px; }
+}
+.escala-fila .label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones {
+  display: flex;
+  gap: 6px;
+}
+.escala-fila .opciones label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  flex: 1;
+  text-align: center;
+}
+.escala-fila .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.escala-fila .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones input { display: none; }
+
+.calc-bloque .total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.calc-bloque .total .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--jamared);
+}
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.calc-bloque .total .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* Calculadora simple (entrada numérica) */
+.calc-simple {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-simple h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-simple .calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-simple label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-simple input[type="number"], .calc-simple select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-simple .resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-simple .resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-simple .resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.semaforo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Caso completo (Beatriz) - acordeón ===== */
+details.fase {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.fase[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.fase summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.fase summary::-webkit-details-marker { display: none; }
+details.fase summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.fase[open] summary::before { transform: rotate(90deg); }
+details.fase summary .tiempo {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.fase .fase-body {
+  padding: 0 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 
 footer {
   font-family: var(--sans);
@@ -147,46 +790,382 @@ footer {
 }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+/* Tarjetas de apps interactivas (renombradas desde .card del hub para
+   no colisionar con las cajas de contenido .card.amarilla del adulto). */
+.app-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 8px; }
+.app-card {
+  display: block; text-decoration: none; color: inherit;
+  background: white; border: 1px solid var(--gris-borde);
+  border-left: 5px solid var(--jamared); border-radius: 10px;
+  padding: 20px 22px; transition: box-shadow .15s, transform .15s;
+}
+.app-card:hover { box-shadow: 0 6px 20px rgba(0,51,102,.12); transform: translateY(-2px); }
+.app-card.azul { border-left-color: var(--azulacad); }
+.app-card.verde { border-left-color: var(--verde); }
+.app-card.morado { border-left-color: #8e44ad; }
+.app-card .tag {
+  display: inline-block; font-family: var(--sans);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--jamared); border-radius: 6px;
+  padding: 3px 9px; margin-bottom: 10px;
+}
+.app-card.azul .tag { background: var(--azulacad); }
+.app-card.verde .tag { background: var(--verde); }
+.app-card.morado .tag { background: #8e44ad; }
+.app-card h3 {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 1.4rem; margin: 0 0 8px; color: var(--azulacad); border: 0; padding: 0;
+}
+.app-card p { font-family: var(--sans); margin: 0; font-size: 0.92rem; color: var(--texto-suave); line-height: 1.5; }
+.app-card .go { font-family: var(--sans); display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.85rem; color: var(--jamared); }
+.app-card.azul .go { color: var(--azulacad); }
+.app-card.verde .go { color: var(--verde); }
+.app-card.morado .go { color: #8e44ad; }
+
 </style>
 </head>
+
 <body>
 
 <header class="chapter">
   <div class="institucion">Universidad Nacional de Colombia</div>
   <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
-  <div class="cap-num">Capítulo 13 · Material interactivo</div>
-  <h1>Habilitación infantil II</h1>
-  <div class="sub">Patologías discapacitantes · Versión interactiva</div>
+  <div class="cap-num">Capítulo 13</div>
+  <h1>Habilitación infantil II: patologías discapacitantes</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
   <a class="back" href="../">← Índice de capítulos</a>
 </header>
 
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. Marco · tres ejes</button>
+  <button class="tab-btn" data-tab="pc">2. Parálisis cerebral</button>
+  <button class="tab-btn" data-tab="pc-dx">3. PC · diagnóstico temprano</button>
+  <button class="tab-btn" data-tab="tce">4. Trauma craneoencefálico</button>
+  <button class="tab-btn" data-tab="mmc">5. Mielomeningocele</button>
+  <button class="tab-btn" data-tab="neuromuscular">6. Enf. neuromusculares</button>
+  <button class="tab-btn" data-tab="dolor">7. Dolor MSK en el niño</button>
+  <button class="tab-btn" data-tab="apps">8. 🧩 Herramientas interactivas</button>
+</nav>
+
 <main>
-  <div class="intro">
-    <p>Este capítulo reúne las <strong>patologías que causan discapacidad</strong> en el niño (parálisis cerebral, trauma craneoencefálico, mielomeningocele, enfermedades neuromusculares y dolor musculoesquelético). Estas dos herramientas apoyan la valoración de la <strong>función motora</strong> en la parálisis cerebral.</p>
-    <p>En el niño <strong>prematuro</strong>, ambas se interpretan con <strong>edad corregida</strong> (hasta los 2 años). Son apoyos clínicos, no sustituyen el juicio del examinador.</p>
+
+<!-- ==================== 1 · MARCO ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>Las patologías que causan discapacidad en el niño</h2>
+  <p>Este capítulo recoge las patologías que con más frecuencia causan discapacidad en el niño. Frente a un desarrollo anormal, el papel del médico general no es clasificar en detalle sino <strong>reconocer y remitir a tiempo</strong>. Cada cuadro se sitúa en tres ejes que orientan el pronóstico y la intensidad de la habilitación.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Eje</th><th>Qué distingue</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tiempo de aparición</strong></td><td>Trastornos congénitos frente a adquiridos.</td></tr>
+        <tr><td><strong>Historia natural</strong></td><td>Procesos <em>estáticos</em> (parálisis cerebral), <em>pasajeros</em> (retrasos que se normalizan) o <em>progresivos</em> (enfermedades neuromusculares, errores del metabolismo).</td></tr>
+        <tr><td><strong>Curso de la discapacidad</strong></td><td>Estático o <em>dinámico</em> —capaz de cambiar con el crecimiento, como la espasticidad y las contracturas—.</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="cards">
-    <a class="card verde" href="gmfcs/">
+  <div class="card amarilla">
+    <h4>Habilitar y rehabilitar conviven</h4>
+    <p style="margin-bottom:0">En cuadros como la parálisis cerebral se <em>habilita</em> (se construye lo que aún falta). En el trauma craneoencefálico y en las enfermedades progresivas el niño <em>pierde</em> funciones ya adquiridas, y el trabajo se acerca a la <em>rehabilitación</em> del adulto. La conceptualización de habilitación frente a rehabilitación se desarrolla en el <a href="../12-habilitacion-infantil/">cap. 12</a>.</p>
+  </div>
+</section>
+
+<!-- ==================== 2 · PARÁLISIS CEREBRAL ==================== -->
+<section class="tab-content" id="pc">
+  <h2>Parálisis cerebral</h2>
+  <p>Es la causa <strong>más frecuente de discapacidad motora</strong> en la infancia. Se define como un grupo de trastornos <strong>permanentes del desarrollo del movimiento y la postura</strong> que limitan la actividad y se atribuyen a una <strong>alteración no progresiva</strong> del cerebro fetal o del lactante en desarrollo (Rosenbaum 2007). En países de ingresos altos su prevalencia ha descendido cerca del 40&nbsp;% en la última década (de 2,1 a 1,6 por 1000 nacidos vivos), gracias a la neuroprotección perinatal.</p>
+
+  <div class="card amarilla">
+    <h4>Estática en su origen, dinámica en su expresión</h4>
+    <p>La lesión es <strong>única y no progresiva</strong>, pero sus <strong>manifestaciones cambian</strong> con el crecimiento: la espasticidad genera contracturas, deformidades óseas y luxación de cadera. El seguimiento debe ser <strong>de por vida</strong> (muchos adultos con PC presentan declive físico, dolor y fatiga).</p>
+    <p style="margin-bottom:0">El trastorno motor casi siempre se acompaña de <strong>alteraciones asociadas</strong> —sensoriales, cognitivas, comunicativas, conductuales, epilepsia, problemas musculoesqueléticos secundarios— que a menudo condicionan el pronóstico <em>más</em> que el déficit motor.</p>
+  </div>
+
+  <h3>Etiología</h3>
+  <p>La causa se ubica en el periodo <strong>prenatal</strong> en la mayoría de casos (malformaciones, infecciones congénitas, lesión de la sustancia blanca del prematuro, eventos vasculares) y, con menor frecuencia, en el perinatal (encefalopatía hipóxico-isquémica) o el posnatal (meningitis, trauma, ACV). Factores de riesgo destacados: <strong>hemorragia intraventricular grado III–IV</strong> (hasta 85&nbsp;% de PC), leucomalacia periventricular, encefalopatía hipóxico-isquémica, convulsiones neonatales, restricción del crecimiento, prematuridad extrema. Cambio de paradigma: hasta el <strong>30&nbsp;% tiene contribución genética</strong>; una PC sin causa adquirida clara —con malformaciones, dismorfias o antecedentes familiares— justifica estudio genético.</p>
+
+  <div class="card verde">
+    <h4>Prevención: la parálisis cerebral se puede reducir</h4>
+    <ul style="margin-bottom:0">
+      <li><strong>Sulfato de magnesio</strong> a la madre con amenaza de parto antes de las 30 semanas (NNT ≈ 56–60; alta certeza).</li>
+      <li><strong>Hipotermia terapéutica</strong> en las primeras 6 horas en el RN con asfixia / encefalopatía hipóxico-isquémica (NNT ≈ 6; alta certeza).</li>
+      <li><strong>Corticoides antenatales</strong> (maduración pulmonar) y <strong>cafeína</strong> en el prematuro (protege la sustancia blanca).</li>
+    </ul>
+  </div>
+
+  <h3>Clasificación por tres ejes</h3>
+  <p>Hoy no se usa la gradación «leve/moderada/grave», sino escalas ordinales de cinco niveles, válidas y estables en el tiempo.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Eje</th><th>Categorías</th></tr></thead>
+      <tbody>
+        <tr><td>Trastorno motor (tono)</td><td><strong>Espástica</strong> (la más frecuente, ~85&nbsp;%: hipertonía, hiperreflexia, Babinski), <strong>discinética</strong> (distónica o coreoatetósica), <strong>atáxica</strong> y <strong>mixta</strong>.</td></tr>
+        <tr><td>Topografía</td><td><strong>Unilateral</strong> (hemiparesia) o <strong>bilateral</strong> (diplejía, predominio en miembros inferiores; cuadriparesia, los cuatro miembros y el tronco).</td></tr>
+        <tr><td>Gravedad funcional</td><td>Escalas ordinales por dominio: <strong>GMFCS</strong> (motora gruesa), <strong>MACS</strong> (función manual), <strong>CFCS</strong> (comunicación) y <strong>EDACS</strong> (comer y beber).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>GMFCS: la función motora gruesa</h3>
+  <p>El <strong>GMFCS</strong> (versión extendida y revisada) clasifica el <strong>desempeño habitual</strong> del niño —no su mejor capacidad ni la calidad del movimiento— en cinco niveles, con descriptores por banda de edad (&lt;2, 2–4, 4–6, 6–12 y 12–18 años). La distinción se basa en la necesidad de dispositivos y asistencia.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Nivel</th><th>Característica (referida al niño &gt;6 años)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>I</strong></td><td>Camina sin restricciones; limitado solo en habilidades avanzadas (correr, saltar).</td></tr>
+        <tr><td><strong>II</strong></td><td>Camina con limitaciones (distancias largas, terreno irregular; escaleras con pasamanos).</td></tr>
+        <tr><td><strong>III</strong></td><td>Camina con un dispositivo manual auxiliar; silla de ruedas para distancias largas.</td></tr>
+        <tr><td><strong>IV</strong></td><td>Auto-movilidad limitada; es transportado o usa movilidad motorizada.</td></tr>
+        <tr><td><strong>V</strong></td><td>Transportado en silla de ruedas; control de cabeza y tronco muy limitado.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card azul">
+    <h4>El GMFCS predice y guía decisiones</h4>
+    <p style="margin-bottom:0">El nivel es <strong>estable en el tiempo</strong>, lo que lo hace pronóstico: los niveles <strong>I–II</strong> alcanzan marcha independiente; el <strong>III</strong> camina con asistencia; los <strong>IV–V</strong> no logran marcha funcional. Además guía la <strong>vigilancia de cadera</strong>: a mayor nivel, mayor riesgo de luxación, y la radiografía se programa según el nivel. El descriptor detallado por banda de edad está en la app GMFCS (pestaña Herramientas interactivas).</p>
+  </div>
+
+  <h3>Comorbilidades y tratamiento</h3>
+  <p>Seguimiento <strong>multidisciplinario y de por vida</strong>. Buscar y manejar de forma proactiva: <strong>epilepsia</strong> (hasta un tercio), discapacidad intelectual, <strong>disfagia</strong> y compromiso nutricional, <strong>dolor</strong> (a menudo infravalorado), <strong>luxación de cadera</strong> (vigilancia según GMFCS), trastornos visuales y auditivos, comunicación, sialorrea, estreñimiento, sueño y salud ósea. Tratamiento del componente motor: terapia física y ocupacional, manejo de la <strong>espasticidad</strong> (toxina botulínica, baclofeno oral o intratecal, rizotomía dorsal selectiva), órtesis, cirugía ortopédica multinivel y prevención de la luxación de cadera. El médico general sostiene el control longitudinal y articula la remisión al equipo.</p>
+</section>
+
+<!-- ==================== 3 · PC DIAGNÓSTICO TEMPRANO ==================== -->
+<section class="tab-content" id="pc-dx">
+  <h2>Parálisis cerebral: el diagnóstico temprano</h2>
+  <p>El concepto de «periodo silente» (diagnosticar entre los 12 y 24 meses) está <strong>obsoleto</strong>. Combinando herramientas estandarizadas con la historia clínica, la PC —o el «<strong>alto riesgo de PC</strong>»— puede predecirse <strong>antes de los 5 meses de edad corregida</strong>, e incluso desde los 3 meses. Cuando las tres herramientas concuerdan, la <strong>sensibilidad combinada alcanza el 98&nbsp;% y la especificidad el 99&nbsp;%</strong>.</p>
+
+  <div class="card amarilla">
+    <h4>Por qué diagnosticar temprano</h4>
+    <p style="margin-bottom:0">Permite (i) iniciar intervención específica que aprovecha la neuroplasticidad, (ii) prevenir complicaciones secundarias y (iii) acompañar a la familia. La mitad de los niños con PC tiene factores de riesgo <strong>detectables en el recién nacido</strong> (prematuridad, encefalopatía, restricción del crecimiento, convulsiones, ingreso a UCIN); en la otra mitad, la primera señal es un <strong>hito motor retrasado o una asimetría</strong> que notan los padres.</p>
+  </div>
+
+  <h3>Dos vías según la edad</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Vía (población)</th><th>Edad</th><th>Herramientas más predictivas (sensibilidad)</th></tr></thead>
+      <tbody>
+        <tr><td>Riesgo detectable en el <strong>recién nacido</strong> (prematuro, encefalopatía, UCIN)</td><td>&lt; 5 meses EC</td><td>Resonancia de término (86–89&nbsp;%) <strong>más</strong> movimientos generales de Prechtl (98&nbsp;%) o HINE (90&nbsp;%).</td></tr>
+        <tr><td>Riesgo detectable en el <strong>lactante</strong> (hito retrasado o asimetría)</td><td>&gt; 5 meses EC</td><td>Resonancia si es factible (86–89&nbsp;%) <strong>más</strong> HINE (90&nbsp;%) <strong>más</strong> DAYC (índice C, 83&nbsp;%).</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Regla de oro: los <strong>hallazgos congruentes de varias herramientas</strong> son más exactos que cualquier prueba aislada.</p>
+
+  <h3>Movimientos generales de Prechtl (GMA)</h3>
+  <p>Se observa en video la <strong>calidad</strong> del movimiento espontáneo (un cambio de paradigma frente a la reflexología clásica).</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Patrón</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td><em>Writhing</em> (término–2 m) y <em>fidgety</em> (3–5 m)</td><td>Patrones <strong>normales</strong>: variables, fluentes y elegantes.</td></tr>
+        <tr><td>Repertorio pobre</td><td>Monótono, «atascado»; valor predictivo bajo.</td></tr>
+        <tr><td><em>Cramped-synchronized</em> (espasmódico-sincrónico)</td><td>Rígido, fenómeno on-off; si persiste, se asocia hasta en 98&nbsp;% con <strong>PC espástica</strong>.</td></tr>
+        <tr><td>Ausencia de <em>fidgety</em> (sem. 9–20)</td><td>Altamente predictiva de alteración del desarrollo, sobre todo PC.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>HINE (Hammersmith Infant Neurological Examination)</h3>
+  <p>Puntúa de <strong>0 a 78</strong>. Referencias clínicas:</p>
+  <ul>
+    <li>Puntaje global <strong>&lt; 40 a cualquier edad</strong> y <strong>&lt; 52 antes de los 5 meses</strong>: alto valor predictivo de PC y discapacidad motora severa.</li>
+    <li>Puntajes óptimos crecientes (<strong>≥ 67 a los 3 m, ≥ 70 a los 6 m, ≥ 73 a los 9–12 m</strong>) y un valor <strong>&gt; 54 entre los 6 y 15 meses</strong> predicen marcha independiente.</li>
+  </ul>
+  <p>El puntuador interactivo del HINE está en la pestaña Herramientas interactivas.</p>
+
+  <div class="card roja">
+    <h4>Lo esencial para el médico general</h4>
+    <p style="margin-bottom:0">Ante un lactante con <strong>disfunción motora</strong> (hito motor retrasado, asimetría, tono anormal o ausencia de <em>fidgety</em>) junto a un <strong>factor de riesgo perinatal</strong> o una <strong>neuroimagen anormal</strong>, no adopte la conducta de esperar: remita sin demora a intervención temprana específica para PC, manteniendo el monitoreo hasta confirmar o descartar. <em>Ojo con las formas leves:</em> en la PC unilateral el niño puede compensar (completa una prueba usando una sola mano) y obtener un puntaje motor normal mientras muestra movimientos anormales.</p>
+  </div>
+</section>
+
+<!-- ==================== 4 · TCE ==================== -->
+<section class="tab-content" id="tce">
+  <h2>Trauma craneoencefálico</h2>
+  <p>Una de las principales causas de muerte y de discapacidad adquirida en la infancia. A diferencia de la PC, aquí el niño <strong>pierde</strong> funciones ya adquiridas (cognitivas, motoras y conductuales): el trabajo se acerca a la <em>rehabilitación</em> del adulto.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Edad</th><th>Mecanismo predominante</th></tr></thead>
+      <tbody>
+        <tr><td>Lactante</td><td>Caídas y, de forma crítica, el <strong>trauma no accidental</strong>.</td></tr>
+        <tr><td>Preescolar</td><td>Caídas y atropellos.</td></tr>
+        <tr><td>Escolar y adolescente</td><td>Accidentes de tránsito, deporte y bicicleta.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>Sospeche trauma no accidental (maltrato)</h4>
+    <p>Considere el <strong>trauma craneoencefálico abusivo</strong> (antes «síndrome del niño sacudido») ante un lactante con lesión intracraneal y alguno de:</p>
+    <ul>
+      <li>Historia <strong>ausente, cambiante o incongruente</strong> con la lesión o con el desarrollo del niño.</li>
+      <li><strong>Hemorragias retinianas</strong>, hematoma subdural o lesiones en distintos estadios.</li>
+      <li>Retraso injustificado en la consulta, u <strong>otras lesiones</strong> (fracturas o hematomas de diferentes edades).</li>
+    </ul>
+    <p style="margin-bottom:0">Es una urgencia médica y <strong>legal</strong>: proteger al niño, estudiar de forma dirigida y <strong>notificar</strong> según la normativa de protección infantil.</p>
+  </div>
+
+  <h3>Gravedad y secuelas</h3>
+  <p>Se estratifica con la <strong>escala de Glasgow pediátrica</strong>: leve (13–15), moderado (9–12), grave (≤ 8). El leve es el más frecuente y la mayoría se recupera; la vigilancia busca el deterioro y las indicaciones de neuroimagen. El grave requiere manejo neurocrítico para prevenir la <strong>lesión secundaria</strong> (hipoxia, hipotensión).</p>
+  <p>Más allá del déficit motor, las secuelas <strong>cognitivas, atencionales, conductuales y del lenguaje</strong> condicionan el pronóstico escolar y pueden hacerse evidentes <strong>años después</strong>, al aumentar las exigencias académicas. Vigilar la <strong>epilepsia postraumática</strong>, las alteraciones endocrinas (eje hipotálamo-hipofisario) y, en el lactante, la <strong>fractura craneal evolutiva</strong>. Rehabilitación multidisciplinaria orientada a la <strong>reintegración escolar</strong>, con la familia como eje.</p>
+</section>
+
+<!-- ==================== 5 · MIELOMENINGOCELE ==================== -->
+<section class="tab-content" id="mmc">
+  <h2>Mielomeningocele (espina bífida)</h2>
+  <p>Es el defecto del tubo neural más grave compatible con la vida: una <strong>disrafia</strong> en la que la médula y las meninges protruyen por un defecto vertebral posterior. Es en gran medida prevenible con <strong>ácido fólico</strong> periconcepcional.</p>
+
+  <div class="card amarilla">
+    <h4>El nivel lesional lo determina todo</h4>
+    <p style="margin-bottom:0">El pronóstico funcional depende sobre todo del <strong>nivel neurológico</strong>: cuanto más alto, mayor la paraparesia fláccida y la dependencia de silla de ruedas. Los niveles <strong>sacros y lumbares bajos</strong> suelen lograr marcha (con órtesis); los <strong>torácicos y lumbares altos</strong> rara vez la alcanzan. Por debajo del nivel hay anestesia, con riesgo de <strong>úlceras por presión</strong>: educar en el cuidado de la piel.</p>
+  </div>
+
+  <h3>Compromiso multisistémico (manejo de por vida)</h3>
+  <ul>
+    <li><strong>Hidrocefalia</strong> y malformación de <strong>Chiari II</strong>: la mayoría requiere <strong>derivación ventricular</strong>; vigilar la disfunción valvular (cefalea, vómito, letargia).</li>
+    <li><strong>Vejiga e intestino neurógenos</strong>: el cateterismo intermitente limpio y el programa intestinal protegen la <strong>función renal</strong> (principal causa de morbilidad tardía) y favorecen la continencia.</li>
+    <li><strong>Ortopedia</strong>: luxación de cadera, pie equinovaro, escoliosis; y la <strong>médula anclada</strong>, que puede causar deterioro progresivo y obliga a reevaluar ante cualquier cambio.</li>
+    <li><strong>Alergia al látex</strong>: frecuente por exposición repetida a sondas y cirugías; precaución en todo el equipo.</li>
+  </ul>
+  <p>El médico general sostiene el seguimiento longitudinal, vigila la válvula y la función renal, y articula el equipo multidisciplinario.</p>
+</section>
+
+<!-- ==================== 6 · NEUROMUSCULARES ==================== -->
+<section class="tab-content" id="neuromuscular">
+  <h2>Enfermedades neuromusculares hereditarias</h2>
+  <p>Presentación común que reconocer: <strong>hipotonía</strong>, <strong>retraso o pérdida de hitos motores</strong>, <strong>debilidad</strong> y, en el niño que ya camina, <strong>alteración de la marcha</strong> (caídas, dificultad para correr o subir escaleras, marcha de pato). Cada una afecta un nivel distinto de la unidad motora.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Enfermedad</th><th>Nivel / herencia</th><th>Claves clínicas</th><th>Estudio y manejo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AME</strong></td><td>Asta anterior; autosómica recesiva (<em>SMN1</em>)</td><td>Debilidad proximal simétrica, arreflexia, fasciculaciones linguales; niño alerta.</td><td>Genética <em>SMN1</em> (urgente); tratamientos modificadores; tamizaje neonatal.</td></tr>
+        <tr><td><strong>Duchenne</strong></td><td>Músculo; ligada al X (varones)</td><td>Gowers, pseudohipertrofia de pantorrillas, marcha de pato; <strong>CK muy elevada</strong>.</td><td>CK y estudio molecular; corticoides; vigilancia cardíaca y respiratoria.</td></tr>
+        <tr><td><strong>CMT</strong></td><td>Nervio periférico; casi siempre dominante</td><td>Debilidad <strong>distal</strong>, pie cavo, estepaje, arreflexia; curso lento.</td><td>Conducción nerviosa + panel genético; órtesis; evitar neurotóxicos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Atrofia muscular espinal (AME)</h3>
+  <p>Afecta la <strong>motoneurona del asta anterior</strong>. Autosómica recesiva por deleción de <em>SMN1</em>; las copias del gen <em>SMN2</em> modulan la gravedad. Cuadro: debilidad simétrica de predominio proximal, hipotonía marcada, <strong>arreflexia</strong> y fasciculaciones (clásicas en la lengua), con un rasgo orientador: el niño está <strong>alerta y conectado</strong>. El compromiso respiratorio y bulbar es la principal causa de morbimortalidad. Tipos: <strong>tipo 1</strong> (&lt;6 m, nunca se sienta), <strong>tipo 2</strong> (6–18 m, se sienta pero no camina), <strong>tipos 3–4</strong> (más tardíos, caminan). El pronóstico se ha transformado con tratamientos modificadores (<strong>nusinersén</strong>, terapia génica <strong>onasemnogén abeparvovec</strong>, <strong>risdiplam</strong>), tanto más eficaces cuanto antes se inician: por eso la AME entró al tamizaje neonatal. Ante un lactante hipotónico con arreflexia, es una <strong>urgencia neuromuscular</strong>: la prueba de <em>SMN1</em> no debe demorarse.</p>
+
+  <h3>Distrofia muscular de Duchenne</h3>
+  <p>Afecta el <strong>músculo</strong>. Ligada al X (varones), por mutaciones del gen de la <strong>distrofina</strong>. Se manifiesta entre los 2 y 5 años con retraso motor, caídas y dificultad para correr y subir escaleras. Signos clásicos: <strong>signo de Gowers</strong> (el niño «trepa» sobre sí mismo apoyándose en los muslos) y <strong>pseudohipertrofia de las pantorrillas</strong>. La <strong>creatina quinasa está muy elevada</strong> (decenas de veces) ya antes de los síntomas. Historia natural sin tratamiento: pérdida de la marcha hacia los 10–13 años, escoliosis, insuficiencia respiratoria y <strong>miocardiopatía dilatada</strong> (determina el pronóstico vital). Manejo: <strong>corticoides</strong>, seguimiento cardiológico y respiratorio (ventilación no invasiva nocturna), terapias dirigidas a la mutación. La forma alélica más leve es la distrofia de Becker.</p>
+
+  <h3>Charcot-Marie-Tooth (CMT)</h3>
+  <p>Afecta el <strong>nervio periférico</strong>; neuropatía hereditaria sensitivo-motora más frecuente. Debilidad y atrofia de <strong>predominio distal</strong>, progresión lenta: <strong>pie cavo</strong>, dedos en martillo, «piernas de cigüeña», arreflexia, hipoestesia distal y <strong>marcha en estepaje</strong>. La <strong>duplicación de <em>PMP22</em> (CMT1A)</strong> es la causa más común. Manejo de soporte (órtesis tobillo-pie, fisioterapia, calzado, cirugía selectiva del pie) y consejo genético. Punto práctico: <strong>evitar fármacos neurotóxicos</strong> (como la vincristina).</p>
+
+  <div class="card roja">
+    <h4>La creatina quinasa (CK) va antes que la electromiografía</h4>
+    <p style="margin-bottom:0">A <strong>todo niño con hipotonía, retraso motor, debilidad o alteración de la marcha</strong>, solicite primero una <strong>CK sérica</strong>: barata, accesible y no invasiva. Una CK muy elevada apunta de inmediato a una distrofinopatía y evita el retraso diagnóstico. La <strong>electromiografía</strong> es molesta, mal tolerada y operador-dependiente, y rara vez es la primera prueba: en la era de los paneles genéticos, el diagnóstico de muchas de estas enfermedades es <strong>molecular</strong>.</p>
+  </div>
+</section>
+
+<!-- ==================== 7 · DOLOR MSK ==================== -->
+<section class="tab-content" id="dolor">
+  <h2>Dolor musculoesquelético en el niño</h2>
+  <p>No es una versión reducida de la del adulto: parte de premisas distintas y exige un <strong>umbral de sospecha más bajo</strong>. En el adulto la mayoría del dolor musculoesquelético es mecánico o inespecífico, y el abordaje razonable es conservador. En el niño, aunque la mayor parte también son benignos, el diferencial incluye enfermedades que no afectan primariamente al sistema musculoesquelético y que pueden amenazar la vida; hay que descartarlas <strong>de forma activa</strong> antes de tranquilizar. El peso de las etiologías cambia con la edad de un modo que <strong>invierte</strong> la intuición del adulto.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Categoría</th><th>Ejemplos</th></tr></thead>
+      <tbody>
+        <tr><td>Traumática</td><td>Fracturas, sobrecarga, lesiones por esfuerzo repetitivo.</td></tr>
+        <tr><td>Infecciosa</td><td>Artritis séptica, osteomielitis, discitis.</td></tr>
+        <tr><td>Inmunomediada</td><td>Sinovitis transitoria, artritis idiopática juvenil, enfermedad de Lyme.</td></tr>
+        <tr><td>Adquirida / del desarrollo</td><td>Epifisiólisis de la cabeza femoral, enfermedad de Legg-Calvé-Perthes.</td></tr>
+        <tr><td>Neoplásica</td><td>Leucemia, linfoma, sarcomas.</td></tr>
+        <tr><td>Otras</td><td>Dolor referido, musculoesquelética benigna, neurológica.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card roja">
+    <h4>Un laboratorio poco alterado no descarta</h4>
+    <p style="margin-bottom:0">La <strong>leucemia</strong> —la neoplasia más frecuente de la infancia— puede presentarse como dolor óseo o articular, cojera o rechazo a la marcha. La velocidad de sedimentación puede estar solo levemente elevada y la <strong>proteína C reactiva con frecuencia es normal</strong>. La ausencia de hallazgos llamativos en la primera consulta <strong>no equivale a ausencia de enfermedad grave</strong>.</p>
+  </div>
+
+  <h3>La lumbalgia en el niño tiene un diferencial propio</h3>
+  <p>Su prevalencia asciende con la edad de forma contraintuitiva: <strong>~1&nbsp;% a los 7 años, 6&nbsp;% a los 10, 18&nbsp;% entre los 14 y 16</strong>, hasta aproximarse a las cifras del adulto hacia los 18. La mayoría son inespecíficas y autolimitadas (un estudio a dos años halló que ~80&nbsp;% no llegó a un diagnóstico definitivo), pero en el <strong>niño pequeño</strong> —a diferencia del adolescente— el dolor lumbar <strong>no debe atribuirse de entrada a causa mecánica</strong>.</p>
+
+  <div class="card roja">
+    <h4>Banderas rojas sistémicas</h4>
+    <ul style="margin-bottom:0">
+      <li>Fiebre o aspecto séptico.</li>
+      <li>Pérdida de peso, sudoración nocturna, fatiga, palidez.</li>
+      <li>Rechazo absoluto a la carga de peso.</li>
+      <li><em>Rash</em> o hematomas inexplicados (obligan también a considerar maltrato).</li>
+    </ul>
+  </div>
+
+  <h3>El contraste con lo benigno: los dolores de crecimiento</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Rasgo</th><th>Dolor de crecimiento (benigno)</th><th>Señal de alarma</th></tr></thead>
+      <tbody>
+        <tr><td>Lateralidad</td><td>Bilateral</td><td>Unilateral, focal.</td></tr>
+        <tr><td>Localización</td><td>Pantorrillas, muslos, huecos poplíteos</td><td>Articular o ósea localizada.</td></tr>
+        <tr><td>Horario</td><td>Final de la tarde o noche; sin relación con la actividad</td><td>Nocturno persistente o progresivo, que despierta al niño.</td></tr>
+        <tr><td>Marcha</td><td>Normal</td><td>Cojera o rechazo a cargar peso.</td></tr>
+        <tr><td>Examen físico</td><td>Normal</td><td>Tumefacción, calor, eritema, limitación.</td></tr>
+        <tr><td>Síntomas sistémicos</td><td>Ausentes</td><td>Fiebre, pérdida de peso, sudoración nocturna, palidez.</td></tr>
+        <tr><td>Estudios</td><td>No necesarios</td><td>Laboratorio e imagen orientados.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card amarilla">
+    <h4>El principio operativo</h4>
+    <p style="margin-bottom:0">Ante un niño con dolor musculoesquelético, la primera tarea no es aliviar el síntoma sino <strong>excluir lo grave</strong>; solo después la tranquilización es segura. El <strong>rechazo a cargar peso</strong> y las <strong>alteraciones de la marcha</strong> no son compatibles con los dolores de crecimiento, como tampoco el dolor unilateral focal, el persistente o progresivo, ni los síntomas sistémicos. La cojera atraumática del niño pequeño con frecuencia es benigna (sinovitis transitoria), pero esta sigue siendo <em>diagnóstico de exclusión</em>, solo sostenible tras descartar la artritis séptica.</p>
+  </div>
+</section>
+
+<!-- ==================== 8 · HERRAMIENTAS INTERACTIVAS ==================== -->
+<section class="tab-content" id="apps">
+  <h2>Herramientas interactivas</h2>
+  <p>Dos herramientas para las patologías discapacitantes del niño: una clasifica la gravedad de la función motora una vez establecida la parálisis cerebral, la otra puntúa el examen neurológico del lactante y ayuda a predecirla.</p>
+
+  <div class="app-cards">
+    <a class="app-card verde" href="gmfcs/">
       <span class="tag">GMFCS-E&amp;R · 5 niveles</span>
-      <h2>Clasificación GMFCS (parálisis cerebral)</h2>
+      <h3>Clasificación GMFCS (parálisis cerebral)</h3>
       <p>Por banda de edad (&lt;2&nbsp;a&nbsp;–&nbsp;18&nbsp;años), la descripción de los <strong>cinco niveles</strong> de función motora gruesa. Clasifica el desempeño habitual y orienta el pronóstico de marcha y la vigilancia de cadera.</p>
       <span class="go">Abrir la clasificación GMFCS →</span>
     </a>
-    <a class="card morado" href="hine/">
+    <a class="app-card morado" href="hine/">
       <span class="tag">HINE · 2–24 meses</span>
-      <h2>Examen neurológico de Hammersmith</h2>
+      <h3>Examen neurológico de Hammersmith</h3>
       <p>Puntuador interactivo de los <strong>26 ítems</strong> en cinco secciones (pares craneales, postura, movimientos, tono y reflejos): calcula los subtotales y la <strong>puntuación global /78</strong>, registra asimetrías e interpreta el riesgo de parálisis cerebral. Incluye esquemas de las maniobras de tono.</p>
       <span class="go">Abrir el HINE interactivo →</span>
     </a>
   </div>
 
-  <div class="note"><b>Complementarias:</b> el <strong>HINE</strong> puntúa el examen neurológico del lactante (0–2&nbsp;años) y ayuda a predecir la parálisis cerebral; el <strong>GMFCS</strong> clasifica la gravedad de la función motora gruesa una vez establecida. Las herramientas del desarrollo esperado (PEDI, hitos del CDC, valoración del pretérmino) están en el <a href="../12-habilitacion-infantil/">capítulo 12 · Habilitación infantil I</a>.</div>
+  <div class="card azul" style="margin-top:24px">
+    <h4>Complementarias</h4>
+    <p style="margin-bottom:0">El <strong>HINE</strong> puntúa el examen neurológico del lactante (0–2&nbsp;años) y ayuda a predecir la parálisis cerebral; el <strong>GMFCS</strong> clasifica la gravedad de la función motora gruesa una vez establecida. Las herramientas del desarrollo esperado (PEDI, hitos del CDC, valoración del pretérmino) están en el <a href="../12-habilitacion-infantil/">cap. 12 · Habilitación infantil I</a>.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
   <a href="../">← Índice de capítulos</a>
 </footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Habilitación infantil · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
-<meta name="description" content="Material interactivo del cap. 6: mapa normativo del PEDI (217 ítems con percentiles 10/25/50/75/90 %), listas de hitos del CDC 2022 (umbral ≥75 %) y clasificación GMFCS-E&R de la función motora gruesa en parálisis cerebral.">
+<title>Habilitación infantil I · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Capítulo 12: neurodesarrollo normal, examen del desarrollo por edad, signos de alarma, vigilancia de lenguaje y alimentación, seguimiento del prematuro, tamizajes del primer año (auditivo 1-3-6, displasia de cadera) y material interactivo (PEDI, hitos CDC, valoración del pretérmino).">
 <meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
@@ -44,7 +44,6 @@ body {
   font-size: 17px;
 }
 
-/* ===== Cabecera estilo "apertura de capítulo" ===== */
 header.chapter {
   background: white;
   padding: 56px 24px 36px;
@@ -95,46 +94,690 @@ header.chapter a.back {
 }
 header.chapter a.back:hover { background: var(--azulacad-suave); }
 
-main { max-width: 880px; margin: 0 auto; padding: 36px 24px 56px; }
-.intro { margin: 0 0 26px; }
-.intro p { margin: 0.55em 0 0.95em; }
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
 
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
 .card {
-  display: block; text-decoration: none; color: inherit;
-  background: white; border: 1px solid var(--gris-borde);
-  border-left: 5px solid var(--jamared); border-radius: 10px;
-  padding: 20px 22px; transition: box-shadow .15s, transform .15s;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
 }
-.card:hover { box-shadow: 0 6px 20px rgba(0,51,102,.12); transform: translateY(-2px); }
-.card.azul { border-left-color: var(--azulacad); }
-.card.verde { border-left-color: var(--verde); }
-.card .tag {
-  display: inline-block; font-family: var(--sans);
-  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
-  color: #fff; background: var(--jamared); border-radius: 6px;
-  padding: 3px 9px; margin-bottom: 10px;
-}
-.card.azul .tag { background: var(--azulacad); }
-.card.verde .tag { background: var(--verde); }
-.card h2 {
-  font-family: var(--serif); font-style: italic; font-weight: 500;
-  font-size: 1.4rem; margin: 0 0 8px; color: var(--azulacad);
-}
-.card p { font-family: var(--sans); margin: 0; font-size: 0.92rem; color: var(--texto-suave); line-height: 1.5; }
-.card .go { font-family: var(--sans); display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.85rem; color: var(--jamared); }
-.card.azul .go { color: var(--azulacad); }
-.card.verde .go { color: var(--verde); }
-.card.morado { border-left-color: #8e44ad; }
-.card.morado .tag { background: #8e44ad; }
-.card.morado .go { color: #8e44ad; }
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
 
-.note {
-  font-family: var(--sans); margin-top: 28px;
-  background: var(--azulacad-suave); border-radius: 8px;
-  padding: 14px 18px; font-size: 0.86rem; color: #22364d;
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
 }
-.note b { color: var(--azulacad); }
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Decisor de maniobra ===== */
+.decisor {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.decisor h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.decisor select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 480px;
+}
+.decisor select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.decisor-respuesta {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  display: none;
+}
+.decisor-respuesta.show { display: block; }
+.decisor-respuesta h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+  margin: 0 0 10px;
+}
+.decisor-respuesta .seccion {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--azulacad-mid);
+}
+.decisor-respuesta .seccion:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.decisor-respuesta .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Maniobras: tarjetas dentro de un capítulo regional ===== */
+.maniobra {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.maniobra h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+}
+.maniobra .estructura {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.maniobra .row-key {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.maniobra .row-key .k {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  padding-top: 3px;
+}
+
+/* ===== Fibromialgia / Nociplástico ===== */
+.calc-bloque {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-bloque h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-bloque .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+.calc-bloque h5 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--azulacad-mid);
+}
+
+.checklist {
+  display: grid;
+  gap: 4px;
+}
+.checklist label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.checklist label:hover { background: var(--azulacad-suave); }
+.checklist label.checked {
+  background: var(--azulacad-suave);
+  font-weight: 600;
+  color: var(--azulacad);
+}
+.checklist label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.checklist.cuadrantes {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+@media (max-width: 600px) {
+  .checklist.cuadrantes { grid-template-columns: 1fr; }
+}
+
+.checklist.wpi {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+@media (max-width: 700px) {
+  .checklist.wpi { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .checklist.wpi { grid-template-columns: 1fr; }
+}
+
+.escala-fila {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.escala-fila:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .escala-fila { grid-template-columns: 1fr; gap: 6px; }
+}
+.escala-fila .label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones {
+  display: flex;
+  gap: 6px;
+}
+.escala-fila .opciones label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  flex: 1;
+  text-align: center;
+}
+.escala-fila .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.escala-fila .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones input { display: none; }
+
+.calc-bloque .total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.calc-bloque .total .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--jamared);
+}
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.calc-bloque .total .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* Calculadora simple (entrada numérica) */
+.calc-simple {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-simple h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-simple .calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-simple label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-simple input[type="number"], .calc-simple select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-simple .resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-simple .resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-simple .resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.semaforo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Caso completo (Beatriz) - acordeón ===== */
+details.fase {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.fase[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.fase summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.fase summary::-webkit-details-marker { display: none; }
+details.fase summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.fase[open] summary::before { transform: rotate(90deg); }
+details.fase summary .tiempo {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.fase .fase-body {
+  padding: 0 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
 
 footer {
   font-family: var(--sans);
@@ -147,52 +790,476 @@ footer {
 }
 footer a { color: var(--azulacad); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+/* Tarjetas de apps interactivas (renombradas desde .card del hub para
+   no colisionar con las cajas de contenido .card.amarilla del adulto). */
+.app-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 8px; }
+.app-card {
+  display: block; text-decoration: none; color: inherit;
+  background: white; border: 1px solid var(--gris-borde);
+  border-left: 5px solid var(--jamared); border-radius: 10px;
+  padding: 20px 22px; transition: box-shadow .15s, transform .15s;
+}
+.app-card:hover { box-shadow: 0 6px 20px rgba(0,51,102,.12); transform: translateY(-2px); }
+.app-card.azul { border-left-color: var(--azulacad); }
+.app-card.verde { border-left-color: var(--verde); }
+.app-card.morado { border-left-color: #8e44ad; }
+.app-card .tag {
+  display: inline-block; font-family: var(--sans);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--jamared); border-radius: 6px;
+  padding: 3px 9px; margin-bottom: 10px;
+}
+.app-card.azul .tag { background: var(--azulacad); }
+.app-card.verde .tag { background: var(--verde); }
+.app-card.morado .tag { background: #8e44ad; }
+.app-card h3 {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: 1.4rem; margin: 0 0 8px; color: var(--azulacad); border: 0; padding: 0;
+}
+.app-card p { font-family: var(--sans); margin: 0; font-size: 0.92rem; color: var(--texto-suave); line-height: 1.5; }
+.app-card .go { font-family: var(--sans); display: inline-block; margin-top: 14px; font-weight: 600; font-size: 0.85rem; color: var(--jamared); }
+.app-card.azul .go { color: var(--azulacad); }
+.app-card.verde .go { color: var(--verde); }
+.app-card.morado .go { color: #8e44ad; }
+
 </style>
 </head>
+
 <body>
 
 <header class="chapter">
   <div class="institucion">Universidad Nacional de Colombia</div>
   <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
-  <div class="cap-num">Capítulo 12 · Material interactivo</div>
-  <h1>Habilitación infantil I</h1>
-  <div class="sub">Desarrollo, evaluación y tamizaje · Versión interactiva</div>
+  <div class="cap-num">Capítulo 12</div>
+  <h1>Habilitación infantil I: desarrollo, evaluación y tamizaje</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
   <a class="back" href="../">← Índice de capítulos</a>
 </header>
 
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="intro">1. De rehabilitar a habilitar</button>
+  <button class="tab-btn" data-tab="normal">2. Neurodesarrollo normal</button>
+  <button class="tab-btn" data-tab="examen">3. Examen por edad</button>
+  <button class="tab-btn" data-tab="alarma">4. Signos de alarma</button>
+  <button class="tab-btn" data-tab="lenguaje">5. Lenguaje y alimentación</button>
+  <button class="tab-btn" data-tab="prematuro">6. El prematuro</button>
+  <button class="tab-btn" data-tab="tamizajes">7. Tamizajes del primer año</button>
+  <button class="tab-btn" data-tab="trastornos">8. Trastornos e intervención</button>
+  <button class="tab-btn" data-tab="apps">9. 🧩 Herramientas interactivas</button>
+</nav>
+
 <main>
-  <div class="intro">
-    <p>En el niño no se <em>rehabilita</em> (recuperar lo perdido), se <strong>habilita</strong>: se construye función aprovechando la neuroplasticidad del primer año. Estas tres herramientas responden a la misma pregunta —<em>¿qué se espera a cada edad?</em>— con enfoques complementarios.</p>
-    <p>En el niño <strong>prematuro</strong>, todas se interpretan con <strong>edad corregida</strong> (hasta los 2 años). Son referencias del desarrollo esperado, no puntos de corte diagnósticos.</p>
+
+<!-- ==================== 1 · DE REHABILITAR A HABILITAR ==================== -->
+<section class="tab-content active" id="intro">
+  <h2>De la rehabilitación a la habilitación</h2>
+  <p>En el adulto, la rehabilitación busca <em>recuperar</em> una función que existió y se perdió. En el niño el problema suele ser distinto: muchas capacidades motoras, comunicativas y sociales <strong>todavía no se han adquirido</strong>. Por eso se habla de <strong>habilitación</strong>: no devolver una función perdida, sino <em>construir</em> —en lo motor, el lenguaje, lo cognitivo y lo social— lo que la patología de base impide alcanzar de forma espontánea.</p>
+
+  <div class="card amarilla">
+    <h4>La distinción no es absoluta</h4>
+    <p style="margin-bottom:0">Hay situaciones en las que el niño <strong>sí pierde</strong> habilidades ya adquiridas —un verdadero <strong>retroceso (regresión)</strong> motor, cognitivo o del lenguaje—: tras un trauma craneoencefálico en el niño mayor, otras lesiones cerebrales adquiridas (encefalitis, meningitis, ACV infantil) o enfermedades neuromusculares y metabólicas <em>progresivas</em>. De aquí una idea capital: <strong>la pérdida de hitos ya adquiridos nunca es normal</strong> y obliga siempre a estudiar al niño.</p>
   </div>
 
-  <div class="cards">
-    <a class="card" href="pedi/">
+  <h3>La ventana de oportunidad</h3>
+  <p>El sistema nervioso del lactante tiene una ventaja única: la <strong>neuroplasticidad</strong>. El pico de actividad del desarrollo cerebral ocurre en la segunda mitad del embarazo y los primeros meses, y se mantiene alto todo el primer año. Ese primer año —y, en sentido amplio, los primeros <strong>siete años</strong>— es la ventana para la intervención temprana. La consigna que organiza el capítulo: <strong>detectar pronto para habilitar a tiempo</strong>.</p>
+
+  <div class="card roja">
+    <h4>Toda consulta es una oportunidad de vigilancia</h4>
+    <p>La vigilancia del desarrollo <strong>no es exclusiva de la consulta de crecimiento y desarrollo</strong>. Cada encuentro —una vacuna, un control de peso, incluso una consulta por un cuadro gripal— sirve para observar. En cada visita, pregúntese:</p>
+    <ul style="margin-bottom:0">
+      <li>¿Hace el niño lo <strong>esperado para su edad</strong> (motor, lenguaje, social)?</li>
+      <li>¿Hay <strong>asimetría</strong>, hipotonía o, sobre todo, <strong>pérdida de habilidades</strong> ya adquiridas?</li>
+      <li>¿Qué <strong>preocupa a los cuidadores</strong>? Su percepción es un dato sensible y no debe minimizarse.</li>
+    </ul>
+  </div>
+
+  <div class="card azul">
+    <h4>El marco CIF en la infancia (CIF-NJ / ICF-CY)</h4>
+    <p style="margin-bottom:0">La CIF (<a href="../01-funciones-estructuras/">cap. 1</a>) tiene desde 2007 una versión para la infancia y la adolescencia. Organiza al niño en tres planos: <strong>funciones y estructuras</strong> (tono, fuerza, reflejos, visión, audición), <strong>actividades</strong> (rolar, sentarse, caminar, manipular, comunicar) y <strong>participación</strong> (jugar, integrarse a la familia y a la escuela). La valoración funcional <em>describe lo que el niño hace</em>, no solo sus déficits.</p>
+  </div>
+</section>
+
+<!-- ==================== 2 · NEURODESARROLLO NORMAL ==================== -->
+<section class="tab-content" id="normal">
+  <h2>El neurodesarrollo normal</h2>
+  <p>El niño cumple una secuencia <strong>ordenada y previsible</strong> de maduración; conocer la secuencia normal es el requisito para reconocer lo anormal. El desarrollo es <strong>integral, dinámico y continuo</strong>, progresa en dirección <strong>cefalocaudal</strong> (primero la cabeza, luego el tronco, por último los miembros inferiores) y <strong>proximal a distal</strong>, en paralelo a la <strong>mielinización</strong>. Avanza de lo global a lo específico y de la dependencia a la independencia. La <em>secuencia</em> es la misma en todos los niños; la <em>velocidad</em> varía.</p>
+
+  <h3>Cuatro patrones de alteración</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Patrón</th><th>Qué es</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Retraso</strong></td><td>Habilidad notablemente por debajo de lo esperado para la edad.</td></tr>
+        <tr><td><strong>Disociación</strong></td><td>Diferencia importante entre el ritmo de dos dominios (p. ej. motor muy por detrás del lenguaje).</td></tr>
+        <tr><td><strong>Desviación</strong></td><td>Desarrollo no secuencial de un dominio (gateo no recíproco, disfemia).</td></tr>
+        <tr><td><strong style="color:#991b1b">Regresión</strong></td><td>Adquisición de hitos y su posterior <strong>pérdida</strong>. <strong>Siempre es bandera roja</strong>: sugiere enfermedad neurodegenerativa o metabólica.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>El <strong>retraso global del neurodesarrollo</strong> es un retraso significativo (dos desviaciones estándar bajo la media) que afecta a <strong>dos o más dominios</strong>. Alcanza al 1–3&nbsp;% de los niños. No es un diagnóstico etiológico sino una descripción funcional: obliga a buscar la causa y a derivar.</p>
+
+  <h3>Hitos del neurodesarrollo por dominio y edad</h3>
+  <p>Más que memorizar fechas, interiorice la <em>secuencia</em> y los grandes puntos de control: <strong>3, 6, 9, 12 y 18 meses</strong>.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Edad</th><th>Motor grueso</th><th>Motor fino</th><th>Lenguaje / social</th></tr></thead>
+      <tbody>
+        <tr><td>2–3 m</td><td>Sostén cefálico</td><td>Manos a la línea media; agarre cubital</td><td>Sonrisa social; sonidos guturales</td></tr>
+        <tr><td>5–6 m</td><td>Rola supino-prono; sostén de tronco</td><td>Agarre voluntario; pinza radial</td><td>Silabeo; busca el sonido</td></tr>
+        <tr><td>8–9 m</td><td>Sedente firme; cuadrúpeda</td><td>Pinza radio-digital</td><td>Comprende órdenes simples; bisílabos</td></tr>
+        <tr><td>10–12 m</td><td>Gateo recíproco; bipedestación con apoyo</td><td>Pinza fina (pulgar-índice)</td><td>Primeras palabras con sentido; dice «adiós»</td></tr>
+        <tr><td>12–15 m</td><td>Marcha independiente</td><td>Mete y saca objetos</td><td>10–20 palabras</td></tr>
+        <tr><td>18–24 m</td><td>Sube escaleras; corre</td><td>Garabateo; torre de cubos</td><td>Frases de 2 palabras; juego simbólico</td></tr>
+        <tr><td>3–5 a</td><td>Salta; escaleras alternando pies</td><td>Pinza trípode; copia figuras</td><td>Frases estructuradas; articulación correcta</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>El lenguaje es el mejor predictor de la capacidad intelectual futura</h4>
+    <p style="margin-bottom:0">Su evaluación (audición, comprensión y expresión) nunca debe omitirse. Un retraso aislado del lenguaje obliga a descartar primero una <strong>hipoacusia</strong>.</p>
+  </div>
+
+  <div class="card azul">
+    <h4>Dos lentes complementarios: PEDI y CDC</h4>
+    <p>Los hitos son <strong>rangos, no fechas</strong>. Dos herramientas los ordenan con lógicas distintas:</p>
+    <ul style="margin-bottom:0">
+      <li><strong>Programa CDC «Learn the Signs. Act Early.» (2022):</strong> ubica cada hito en la edad a la que <strong>≥75&nbsp;% de los niños ya lo cumple</strong> —no en la mediana—. Con ese umbral, <em>no alcanzar un hito a su edad es señal de actuar</em>, no de «esperar a ver». Cubre 12 controles (2&nbsp;m–5&nbsp;a) en cuatro dominios.</li>
+      <li><strong>PEDI:</strong> muestra la <em>curva completa</em> —la edad a la que el 10, 25, 50, 75 y 90&nbsp;% dominan cada destreza— en autocuidado, movilidad y función social (6&nbsp;m–7,5&nbsp;a).</li>
+    </ul>
+    <p style="margin:10px 0 0">Ambas se exploran en la pestaña <strong>Herramientas interactivas</strong>. En el prematuro, las dos se interpretan con <strong>edad corregida</strong>.</p>
+  </div>
+</section>
+
+<!-- ==================== 3 · EXAMEN POR EDAD ==================== -->
+<section class="tab-content" id="examen">
+  <h2>El examen del desarrollo según la edad</h2>
+  <p>La valoración evalúa <strong>procesos</strong>, no hallazgos aislados, y tiene tres componentes: <strong>historia clínica</strong> (antecedentes pre, peri y posnatales; familiares; situación social), <strong>examen general</strong> (con el <strong>perímetro cefálico</strong>: su detención o aceleración es bandera roja) y <strong>examen neurológico</strong>. Lo que se busca cambia con la etapa.</p>
+
+  <h3>El examen neurológico: tono, reflejos y respuestas adaptativas</h3>
+  <p>Tres pilares: la <strong>evolución del tono</strong>, los <strong>reflejos primitivos</strong> (deben integrarse) y las <strong>respuestas adaptativas</strong> (deben perdurar).</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Edad</th><th>Tono predominante</th></tr></thead>
+      <tbody>
+        <tr><td>Nacimiento</td><td>Hipertono flexor (reflejo tónico asimétrico, TNA)</td></tr>
+        <tr><td>3–6 meses</td><td>Hipertono flexor en descenso</td></tr>
+        <tr><td>6–8 meses</td><td>Hipotonía</td></tr>
+        <tr><td>8–9 meses</td><td>Aparición de la elección voluntaria</td></tr>
+        <tr><td>14–24 meses</td><td>Hipotonía máxima</td></tr>
+        <tr><td>~2½ años</td><td>Eutono</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Reflejos primitivos</h3>
+  <p>Respuestas motoras por estímulo táctil o propioceptivo que dependen de la mielinización subcortical y <strong>deben integrarse (desaparecer)</strong> en los primeros meses. Su <em>persistencia</em> más allá de su edad —o su <em>ausencia</em> cuando deberían estar— es signo de alarma.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Reflejo</th><th>Estímulo y respuesta</th><th>Integra</th></tr></thead>
+      <tbody>
+        <tr><td>Succión</td><td>Estímulo en la región perioral.</td><td>RN–4 m</td></tr>
+        <tr><td>Búsqueda</td><td>Roce peribucal; gira la cabeza hacia el estímulo.</td><td>RN–3–4 m</td></tr>
+        <tr><td>Prensión palmar</td><td>Estímulo en el borde cubital → cierre de la mano.</td><td>RN–6 m</td></tr>
+        <tr><td>Prensión plantar</td><td>Presión bajo los metatarsianos → flexión de los artejos.</td><td>RN–9–12 m</td></tr>
+        <tr><td>Marcha automática</td><td>Sostenido de pie e inclinado al frente → da pasos.</td><td>RN–2–3 m</td></tr>
+        <tr><td>Tónico cervical asimétrico (TNA)</td><td>Supino, cabeza a un lado → extensión de las extremidades del lado facial («espadachín»).</td><td>RN–4–6 m</td></tr>
+        <tr><td>Tónico laberíntico</td><td>Supino: tono extensor; prono: tono flexor.</td><td>RN–4 m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Respuestas adaptativas</h3>
+  <p>Surgen con la mielinización del cerebro medio y la corteza, alinean el cuerpo en el espacio y <strong>perduran</strong>. Su aparición oportuna y <strong>simétrica</strong> es la mejor evidencia de maduración normal; su ausencia o <strong>asimetría</strong> orienta a una lesión.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Respuesta</th><th>Maniobra</th><th>Cronología</th></tr></thead>
+      <tbody>
+        <tr><td>Moro</td><td>Semirreclinado, se deja caer → abducción, extensión y rotación externa de brazos con apertura de dedos.</td><td>RN–3 m</td></tr>
+        <tr><td>Landau</td><td>En prono, sostenido por el tórax → extensión de cabeza, tronco y miembros inferiores.</td><td>Desde el nacimiento; perdura</td></tr>
+        <tr><td>Protectora (paracaídas)</td><td>En prono, al dejarlo caer al frente → extensión de brazos con apertura de dedos.</td><td>Desde 6 m; perdura</td></tr>
+        <tr><td>Reacción positiva de soporte</td><td>Suspendido bajo los hombros → tono extensor de las piernas con flexión plantar.</td><td>6–9 m</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>El lactante hipotónico (<em>floppy baby</em>)</h3>
+  <p>Motivo de consulta neurológico más frecuente en el primer semestre. <strong>La hipotonía es un signo, no un diagnóstico</strong>, y no debe confundirse con <strong>debilidad</strong>: un niño puede estar hipotónico con la fuerza conservada. Maniobras de cabecera: tracción a sedente (<em>head lag</em>), suspensión vertical (se «escurre»), suspensión ventral (cuerpo en «U» invertida), signo de la bufanda, postura «en ancas de rana». Se interpretan según la edad gestacional.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Localización</th><th>Fuerza y reflejos</th><th>Ejemplos y estudio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sistémica</strong> (no neurológica)</td><td>Variable</td><td>Sepsis, sulfato de Mg materno, hipotiroidismo, errores del metabolismo, Prader-Willi, cromosomopatías → <strong>tratar la causa de base</strong>.</td></tr>
+        <tr><td><strong>Central</strong> (encéfalo/médula) — la más frecuente</td><td>Fuerza relativamente <strong>conservada</strong>; reflejos normales o vivos</td><td>Otros signos del SNC (alerta deprimida, convulsiones, dismorfias, microcefalia) → <strong>neuroimagen + estudio genético</strong>.</td></tr>
+        <tr><td><strong>Periférica</strong> (unidad motora)</td><td>Predomina la <strong>debilidad</strong>; reflejos débiles o ausentes</td><td>Cara alerta, succión y respiración débiles. Asta anterior (AME), nervio, unión neuromuscular (miastenia) o músculo → <strong>CK, genética, electrodiagnóstico</strong>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card roja">
+    <h4>Hipotonía: causas tratables que no se deben pasar por alto</h4>
+    <ul style="margin-bottom:0">
+      <li><strong>Atrofia muscular espinal (AME):</strong> hoy con tratamiento modificador; en el RN es una <strong>urgencia neuromuscular</strong> (prueba genética inmediata).</li>
+      <li><strong>Hipotiroidismo congénito:</strong> detectable en el tamizaje neonatal.</li>
+      <li><strong>Miastenia neonatal transitoria</strong> (anticuerpos maternos): autolimitada, pero con riesgo respiratorio.</li>
+      <li><strong>Errores innatos del metabolismo</strong> y <strong>sepsis:</strong> tratamiento urgente.</li>
+      <li><strong>Sulfato de magnesio materno:</strong> hipotonía <em>reversible</em> que no debe confundirse con enfermedad estructural.</li>
+    </ul>
+  </div>
+
+  <h3>El niño que ya camina (&gt;12 meses)</h3>
+  <p>El examen se desplaza de los reflejos a la <strong>observación funcional</strong>: marcha y su simetría, equilibrio, coordinación, manipulación fina, lenguaje. Pesan más la ausencia o <strong>asimetría</strong> de las reacciones.</p>
+  <ul>
+    <li><strong>Lateralidad:</strong> la <strong>preferencia manual antes de los 2 años NO es normal</strong> (sugiere debilidad o hemiparesia del lado no usado). La dominancia se establece entre los 4 y 6 años. Moro, Landau o respuesta protectora <em>asimétricos</em> obligan a buscar lesión.</li>
+    <li><strong>Marcha inmadura hasta cerca de los 4 años:</strong> al inicio base amplia y brazos en guardia; hacia los 3–4 años se aproxima al patrón adulto.</li>
+    <li><strong>Variantes benignas (torsionales):</strong> marcha con puntas hacia dentro por anteversión femoral (máxima 3–6 años), torsión tibial interna, metatarso aducto: se corrigen solas. La <em>marcha en punta de pies idiopática</em> es diagnóstico de exclusión (el niño <em>también</em> apoya el talón y el examen neurológico es normal).</li>
+    <li><strong>Cribado antes de tranquilizar:</strong> maniobra de <strong>Gowers</strong> (debilidad proximal → distrofia), carrera y salto (asimetrías), y <strong>dorsiflexión pasiva del tobillo</strong> (limitada → tríceps sural acortado o espasticidad: distingue la punta de pie patológica de la idiopática).</li>
+  </ul>
+  <div class="card roja">
+    <h4>La cojera nunca es normal</h4>
+    <p style="margin-bottom:0"><strong>Siempre es signo de alarma</strong> que obliga a evaluación especializada: displasia de cadera, enfermedad de Legg-Calvé-Perthes, epifisiólisis, artritis séptica.</p>
+  </div>
+</section>
+
+<!-- ==================== 4 · SIGNOS DE ALARMA ==================== -->
+<section class="tab-content" id="alarma">
+  <h2>Cuándo preocuparse: edades clave y signos de alarma</h2>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Edad</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td>Nacimiento–1 mes</td><td>Edad de <strong>riesgo</strong></td></tr>
+        <tr><td>4 meses</td><td>Edad de la <strong>duda</strong></td></tr>
+        <tr><td>9 meses</td><td>Edad del <strong>diagnóstico global</strong></td></tr>
+        <tr><td>12 meses</td><td>Edad del <strong>diagnóstico preciso</strong></td></tr>
+        <tr><td>18 meses</td><td>Edad del <strong>pronóstico</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card azul">
+    <h4>Coeficiente de desarrollo (CD)</h4>
+    <p style="font-family:var(--mono); background:var(--gris-claro); padding:10px 14px; border-radius:6px; margin:8px 0">CD = (edad neurológica ÷ edad cronológica corregida) × 100</p>
+    <p style="margin-bottom:0"><strong>&gt;85&nbsp;%</strong> normal · <strong>65–85&nbsp;%</strong> compromiso leve · <strong>50–65&nbsp;%</strong> moderado · <strong>&lt;50&nbsp;%</strong> severo. En el prematuro, con edad corregida.</p>
+  </div>
+
+  <div class="card roja">
+    <h4>Signos de alarma — remitir ante cualquiera</h4>
+    <ul style="margin-bottom:0">
+      <li><strong>Estado general:</strong> llanto excesivo, letargia, mirada fija, alteración del sueño.</li>
+      <li><strong>Movimiento:</strong> muy aumentado o muy disminuido.</li>
+      <li><strong>Tono:</strong> hipotonía o hipertonía marcadas; asimetrías.</li>
+      <li><strong>Reflejos:</strong> persistencia de primitivos más allá de su edad (p. ej. <em>Moro persistente</em>).</li>
+      <li><strong>Visión:</strong> no seguimiento, movimientos oculares anormales.</li>
+      <li><strong>Audición / lenguaje:</strong> respuesta auditiva ausente; ausencia de balbuceo o de palabras según la edad.</li>
+      <li><strong>Perímetro cefálico:</strong> detención o crecimiento acelerado.</li>
+      <li><strong>Motor:</strong> disociación (buen control de tronco con miembros inferiores rígidos).</li>
+      <li><strong>Regresión</strong> de hitos ya adquiridos.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== 5 · LENGUAJE Y ALIMENTACIÓN ==================== -->
+<section class="tab-content" id="lenguaje">
+  <h2>Vigilancia de dominios específicos: lenguaje y alimentación</h2>
+
+  <h3>El desarrollo del lenguaje</h3>
+  <p>Es el <strong>mejor predictor del desarrollo cognitivo</strong> y el dominio cuyo retraso más se pasa por alto.</p>
+  <ul>
+    <li><strong>Prelingüística (0–12 m):</strong> del llanto al <strong>balbuceo reduplicado</strong> («ba-ba-ba») hacia los 6–7 m; hacia los 9–10 m, atención conjunta, señalamiento y respuesta al nombre.</li>
+    <li><strong>Primeras palabras (12–18 m):</strong> el niño <em>comprende</em> mucho más de lo que <em>expresa</em>.</li>
+    <li><strong>Explosión del vocabulario y frases (18–36 m):</strong> combinaciones de dos palabras (~24 m), frases y juego simbólico.</li>
+  </ul>
+  <div class="card amarilla">
+    <h4>Dos principios</h4>
+    <ol style="margin-bottom:0">
+      <li>Un <strong>retraso aislado del lenguaje obliga a descartar antes que nada una hipoacusia</strong> (periodo crítico: los dos primeros años).</li>
+      <li>El <strong>bilingüismo no causa retraso</strong>: el repertorio total es normal. Atribuir un retraso «al segundo idioma» demora el diagnóstico.</li>
+    </ol>
+  </div>
+  <div class="card roja">
+    <h4>Signos de alarma del lenguaje</h4>
+    <p style="margin-bottom:0">Ausencia de balbuceo a los <strong>9 meses</strong>; ausencia de palabras con sentido a los <strong>16 meses</strong>; ausencia de frases de dos palabras a los <strong>24 meses</strong>; y sobre todo cualquier <strong>regresión</strong> (pérdida de palabras o del contacto social), que obliga a estudiar de inmediato.</p>
+  </div>
+
+  <h3>Alimentación y deglución</h3>
+  <p>Función motora compleja que madura en paralelo al desarrollo global. En el RN, la <strong>coordinación succión-deglución-respiración</strong> es el primer gran logro oromotor; su dificultad (atragantamiento, fatiga o desaturación con las tomas) es signo precoz de disfunción neurológica o prematuridad. Progresión: hacia los <strong>6 meses</strong>, cuchara y purés; hacia los <strong>8–9 meses</strong>, masticación y trozos; hacia los <strong>12 meses</strong>, vaso.</p>
+  <div class="card roja">
+    <h4>Banderas de disfagia</h4>
+    <p style="margin-bottom:0">A menudo traducen una enfermedad de base (parálisis cerebral, enfermedad neuromuscular, malformación): <strong>tos o atragantamiento</strong> habituales con la comida, <strong>tomas muy prolongadas</strong>, rechazo persistente de texturas, <strong>infecciones respiratorias de repetición</strong> (por aspiración) y <strong>estancamiento del crecimiento</strong>. Remitir para valoración especializada (fonoaudiología y estudio de la deglución si se sospecha aspiración).</p>
+  </div>
+</section>
+
+<!-- ==================== 6 · EL PREMATURO ==================== -->
+<section class="tab-content" id="prematuro">
+  <h2>El seguimiento del recién nacido prematuro</h2>
+  <p>El pretérmino (antes de las <strong>37 semanas</strong>) concentra buena parte del riesgo de discapacidad, tanto más cuanto menor la edad gestacional.</p>
+
+  <div class="card amarilla">
+    <h4>Edad corregida</h4>
+    <p>Hasta los <strong>2 años</strong>, los hitos se interpretan restando de la edad cronológica las semanas que faltaron para el término. <strong>Ejemplo:</strong> un niño de 8 meses nacido a las 32 semanas tiene <strong>6 meses de edad corregida</strong>. Además, el prematuro es <em>fisiológicamente más hipotónico</em>.</p>
+  </div>
+
+  <h3>Morbilidades que definen el seguimiento</h3>
+  <ul>
+    <li><strong>Hemorragia intraventricular</strong> y <strong>leucomalacia periventricular</strong> (riesgo de parálisis cerebral).</li>
+    <li><strong>Retinopatía del prematuro</strong> (tamizaje oftalmológico).</li>
+    <li><strong>Displasia broncopulmonar.</strong></li>
+    <li>Hipoacusia.</li>
+    <li>Dificultades de alimentación y crecimiento.</li>
+  </ul>
+  <p>El egreso de la unidad neonatal inaugura un <strong>programa de seguimiento del niño de alto riesgo</strong>, con escalas propias como <strong>Amiel-Tison</strong> y <strong>Alberta</strong>. La valoración neurológica esperada por edad gestacional se explora en la app <em>RNPT</em> (pestaña Herramientas interactivas).</p>
+
+  <h3>Instrumentos estandarizados de evaluación neuromotora</h3>
+  <p>El médico general no los aplica, pero debe saber qué aportan y a quién remitir. Se ordenan por propósito:</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Propósito</th><th>Instrumento (rango de edad)</th></tr></thead>
+      <tbody>
+        <tr><td>Tamizaje del desarrollo</td><td>Escala Abreviada del Desarrollo (<strong>EAD-3</strong>, Colombia)</td></tr>
+        <tr><td>Seguimiento del alto riesgo</td><td>Alberta / AIMS (motor, 0–24 m); Early Language Milestone (lenguaje, 0–36 m)</td></tr>
+        <tr><td>Pronóstico neurológico</td><td>Movimientos generales de <strong>Prechtl</strong> (GMA); <strong>Hammersmith</strong> neonatal (0–2 m) y <strong>HINE</strong> (2–24 m)</td></tr>
+        <tr><td>Neurodesarrollo amplio</td><td>Bayley (0–42 m); Peabody (0–72 m)</td></tr>
+        <tr><td>Funcionalidad</td><td><strong>PEDI</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== 7 · TAMIZAJES ==================== -->
+<section class="tab-content" id="tamizajes">
+  <h2>Tamizajes del primer año</h2>
+  <p>El tamizaje neonatal es un programa con <strong>cuatro líneas</strong> —endocrino-metabólica, auditiva, visual y de cardiopatía congénita compleja— más la <strong>detección de displasia de cadera</strong>.</p>
+
+  <h3>Tamizaje endocrino-metabólico</h3>
+  <p>En Colombia es <strong>obligatorio y universal</strong> (<strong>Ley 1980 de 2019</strong>, ampliado por la <strong>Resolución 117 de 2026</strong>). Al hipotiroidismo congénito se sumaron seis patologías: fenilcetonuria, galactosemia, fibrosis quística, hiperplasia suprarrenal congénita, déficit de biotinidasa y defectos de la hemoglobina.</p>
+  <div class="card azul">
+    <h4>Toma de muestra</h4>
+    <p style="margin-bottom:0"><strong>Punción capilar de talón</strong> en papel filtro, idealmente entre las <strong>48 y 72 horas</strong> (límite 120 h), tras al menos tres tomas completas de alimentación (evita falsos negativos). Una sola muestra procesa las siete patologías. Todo <strong>resultado alterado es una urgencia</strong>. En hipotiroidismo, fenilcetonuria y galactosemia puede iniciarse tratamiento ya con la prueba de tamizaje positiva.</p>
+  </div>
+
+  <h3>Tamizaje auditivo neonatal</h3>
+  <p>La hipoacusia congénita afecta a <strong>1–3 de cada 1000</strong> recién nacidos; sin detectarla, compromete de forma irreversible el lenguaje. Se recomienda tamizaje <strong>universal</strong>, no solo dirigido a factores de riesgo.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Prueba</th><th>Característica</th></tr></thead>
+      <tbody>
+        <tr><td>Emisiones otoacústicas (EOA)</td><td>Rápida, económica; evalúa la cóclea pero <strong>no</strong> la vía retrococlear. Tamizaje de <strong>primera línea</strong>.</td></tr>
+        <tr><td>Potenciales evocados de tronco (PEATC / ABR)</td><td>Evalúa toda la vía hasta el tronco. De elección en RN de alto riesgo (UCIN) y <strong>confirmatoria</strong> tras una EOA alterada.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card verde">
+    <h4>La regla 1-3-6 (JCIH 2019)</h4>
+    <ul style="margin-bottom:0">
+      <li><strong>1 mes:</strong> tamizaje auditivo realizado.</li>
+      <li><strong>3 meses:</strong> diagnóstico audiológico confirmado.</li>
+      <li><strong>6 meses:</strong> intervención iniciada (audífonos, implante o terapia), dentro del periodo crítico del lenguaje.</li>
+    </ul>
+  </div>
+
+  <h3>Displasia del desarrollo de la cadera (DDC)</h3>
+  <p>Detectarla en el periodo neonatal permite tratamiento simple (<strong>arnés de Pavlik</strong>) y evita cirugía y coxartrosis precoz. <strong>Factores de riesgo:</strong> sexo femenino, presentación podálica, antecedente familiar, primogénito, oligohidramnios. El examen de cadera se hace en <strong>todo recién nacido</strong>, con o sin factores de riesgo.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Maniobra</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ortolani</strong></td><td>Reduce una cadera luxada: abducción + elevación del trocánter; positivo si se palpa un «clunk» de <strong>entrada</strong>.</td></tr>
+        <tr><td><strong>Barlow</strong></td><td>Provoca la luxación de una cadera luxable: aducción + presión posterior; positivo si la cabeza femoral <strong>sale</strong>.</td></tr>
+        <tr><td><strong>Galeazzi</strong></td><td>Caderas y rodillas flexionadas: asimetría en la altura de las rodillas. Útil después de los 3 meses.</td></tr>
+        <tr><td>Otros signos</td><td>Asimetría de pliegues, limitación de la abducción.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card azul">
+    <h4>Qué estudio y cuándo</h4>
+    <p style="margin-bottom:0">Ortolani y Barlow pierden sensibilidad después de las <strong>8–12 semanas</strong> (la cadera se fija). Imagen según edad: <strong>&lt;4–6 meses → ecografía</strong> (el núcleo femoral aún no está osificado); <strong>&gt;4–6 meses → radiografía AP de pelvis</strong>. Una cadera con Ortolani/Barlow positivos, o una exploración dudosa con factores de riesgo, se remite a <strong>ortopedia infantil</strong>.</p>
+  </div>
+</section>
+
+<!-- ==================== 8 · TRASTORNOS E INTERVENCIÓN ==================== -->
+<section class="tab-content" id="trastornos">
+  <h2>Trastornos del neurodesarrollo frecuentes</h2>
+  <p>El médico general encuentra con más frecuencia un grupo reducido de entidades <strong>no progresivas y de predominio no motor</strong>, que debe <strong>reconocer y remitir</strong>. (Las de predominio motor —parálisis cerebral, TCE, mielomeningocele, enfermedades neuromusculares— están en el <a href="../13-habilitacion-infantil-2/">cap. 13</a>.)</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Entidad</th><th>Pista clínica / enfoque</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Retraso global del desarrollo</strong></td><td>Retraso en ≥2 dominios; el lenguaje predice el pronóstico cognitivo. Buscar la causa (genética o metabólica) y derivar.</td></tr>
+        <tr><td><strong>Síndrome de Down</strong></td><td>Hipotonía neonatal, rasgos dismórficos; tamizar cardiopatía, hipotiroidismo, hipoacusia e inestabilidad atlantoaxial.</td></tr>
+        <tr><td><strong>Trastorno del espectro autista</strong></td><td>Déficit de atención conjunta, contacto visual y respuesta al nombre desde el 2.º semestre; tamizar con <strong>M-CHAT-R/F</strong> a los <strong>16–30 meses</strong>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Ejes de la habilitación y rol de la familia</h2>
+  <p>La intervención temprana aprovecha la neuroplasticidad del primer año. Los programas con mejor evidencia (<strong>GAME</strong>, <strong>COPCA</strong>, terapia de movimiento inducido por restricción en la PC unilateral, terapia bimanual intensiva) comparten principios comunes:</p>
+  <ul>
+    <li><strong>Participación de la familia</strong> como eje del cuidado.</li>
+    <li>Intervención <strong>orientada a objetivos</strong> funcionales.</li>
+    <li>Retar al niño a <strong>explorar y aprender por ensayo y error</strong>, minimizando la ayuda «de mano».</li>
+    <li><strong>Enriquecimiento del ambiente</strong> (variedad de juguetes, tareas y posiciones).</li>
+    <li>Implementación temprana de <strong>dispositivos de asistencia</strong>.</li>
+  </ul>
+  <p>El marco IV STEP lo resume en <strong>«cuatro P»</strong>: <em>predicción, prevención, plasticidad y participación</em>.</p>
+  <div class="card verde">
+    <h4>La habilitación no ocurre en la consulta, sino en la casa</h4>
+    <p style="margin-bottom:0">La educación de los cuidadores, el apoyo a la interacción sensible entre padres e hijos y la reducción del estrés familiar mejoran el desarrollo del niño. El médico general es, muchas veces, el primer educador y el puente hacia el equipo de habilitación. En Colombia, el Ministerio de Salud sistematizó el proceso en las <em>Orientaciones técnicas para la atención y el seguimiento de niñas y niños en primera infancia con riesgos del desarrollo</em>, de acceso libre.</p>
+  </div>
+</section>
+
+<!-- ==================== 9 · HERRAMIENTAS INTERACTIVAS ==================== -->
+<section class="tab-content" id="apps">
+  <h2>Herramientas interactivas</h2>
+  <p>Tres herramientas responden a la misma pregunta —<em>¿qué se espera a cada edad?</em>— con enfoques complementarios. En el niño <strong>prematuro</strong>, todas se interpretan con <strong>edad corregida</strong> (hasta los 2 años). Son referencias del desarrollo esperado, no puntos de corte diagnósticos.</p>
+
+  <div class="app-cards">
+    <a class="app-card" href="pedi/">
       <span class="tag">PEDI · 217 ítems</span>
-      <h2>Mapa normativo del PEDI</h2>
+      <h3>Mapa normativo del PEDI</h3>
       <p>Al seleccionar un ítem (autocuidado, movilidad, función social o asistencia del cuidador) muestra la edad a la que el <strong>10, 25, 50, 75 y 90&nbsp;%</strong> de los niños ya lo dominan: la curva completa de percentiles.</p>
       <span class="go">Abrir el mapa del PEDI →</span>
     </a>
-    <a class="card azul" href="hitos-cdc/">
+    <a class="app-card azul" href="hitos-cdc/">
       <span class="tag">CDC 2022 · 159 hitos</span>
-      <h2>Hitos del desarrollo (CDC)</h2>
+      <h3>Hitos del desarrollo (CDC)</h3>
       <p>Por edad del control de niño sano (2&nbsp;m–5&nbsp;años) y dominio, los hitos que <strong>≥75&nbsp;%</strong> de los niños ya cumple. Pensados para la <strong>vigilancia</strong>: si no los cumple, actuar pronto.</p>
       <span class="go">Abrir los hitos del CDC →</span>
     </a>
-    <a class="card verde" href="rnpt/">
+    <a class="app-card verde" href="rnpt/">
       <span class="tag">Pretérmino · 24–42 sem</span>
-      <h2>Valoración neurológica del pretérmino</h2>
-      <p>Al elegir la <strong>edad gestacional</strong> muestra los hallazgos esperados en características, reflejos primitivos, respuestas adaptativas y <strong>tono pasivo y activo</strong>, más las diferencias entre el pretérmino que llega al término y el recién nacido a término.</p>
+      <h3>Valoración neurológica del pretérmino</h3>
+      <p>Al elegir la <strong>edad gestacional</strong> muestra los hallazgos esperados en características, reflejos primitivos, respuestas adaptativas y <strong>tono pasivo y activo</strong>.</p>
       <span class="go">Abrir la valoración del pretérmino →</span>
     </a>
   </div>
 
-  <div class="note"><b>¿Cuál usar?</b> El <strong>PEDI</strong> grada y sigue la función a lo largo de toda la curva de percentiles; las <strong>listas del CDC</strong> son un tamizaje rápido de vigilancia en la consulta; la <strong>valoración del pretérmino</strong> muestra lo esperado por edad gestacional. Las herramientas de las patologías discapacitantes (GMFCS, HINE) están en el <a href="../13-habilitacion-infantil-2/">capítulo 13 · Habilitación infantil II</a>.</div>
+  <div class="card azul" style="margin-top:24px">
+    <h4>¿Cuál usar?</h4>
+    <p style="margin-bottom:0">El <strong>PEDI</strong> grada y sigue la función a lo largo de toda la curva de percentiles; las <strong>listas del CDC</strong> son un tamizaje rápido de vigilancia; la <strong>valoración del pretérmino</strong> muestra lo esperado por edad gestacional. Las herramientas de las patologías discapacitantes (GMFCS, HINE) están en el <a href="../13-habilitacion-infantil-2/">cap. 13 · Habilitación infantil II</a>.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
   <a href="../">← Índice de capítulos</a>
 </footer>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+
 </body>
 </html>
