@@ -636,15 +636,17 @@ footer a:hover { text-decoration: underline; }
 
 <nav class="tab-nav">
   <button class="tab-btn active" data-tab="intro">1. Capacidad vs desempeño</button>
-  <button class="tab-btn" data-tab="capacidad">2. 🔢 Pruebas de capacidad</button>
-  <button class="tab-btn" data-tab="6mwt">3. 6MWT (referencia)</button>
-  <button class="tab-btn" data-tab="barthel">4. Barthel · ABVD</button>
-  <button class="tab-btn" data-tab="lawton">5. Lawton-Brody · AIVD</button>
-  <button class="tab-btn" data-tab="whodas">6. WHODAS 2.0</button>
-  <button class="tab-btn" data-tab="dolor">7. Dolor · EVA, NRS, DN4</button>
-  <button class="tab-btn" data-tab="anamnesis">8. Anamnesis dirigida</button>
-  <button class="tab-btn" data-tab="casos">9. Casos clínicos</button>
-  <button class="tab-btn" data-tab="autoeval">10. Autoevaluación</button>
+  <button class="tab-btn" data-tab="clinimetria">2. Cómo se lee un instrumento</button>
+  <button class="tab-btn" data-tab="capacidad">3. 🔢 Pruebas de capacidad</button>
+  <button class="tab-btn" data-tab="6mwt">4. 6MWT (referencia)</button>
+  <button class="tab-btn" data-tab="barthel">5. Barthel · ABVD</button>
+  <button class="tab-btn" data-tab="lawton">6. Lawton-Brody · AIVD</button>
+  <button class="tab-btn" data-tab="whodas">7. WHODAS 2.0</button>
+  <button class="tab-btn" data-tab="cognitivo">8. Tamizaje cognitivo</button>
+  <button class="tab-btn" data-tab="dolor">9. Dolor · EVA, NRS, DN4</button>
+  <button class="tab-btn" data-tab="anamnesis">10. Anamnesis dirigida</button>
+  <button class="tab-btn" data-tab="casos">11. Casos clínicos</button>
+  <button class="tab-btn" data-tab="autoeval">12. Autoevaluación</button>
 </nav>
 
 <main>
@@ -678,18 +680,92 @@ footer a:hover { text-decoration: underline; }
 
   <p>Si la respuesta es afirmativa, se profundiza con preguntas dirigidas. Si es negativa pero el contexto sugiere riesgo (paciente añoso, secuela neurológica reciente, dolor crónico, polipatología), conviene aplicar al menos una escala estructurada.</p>
 
+  <h3>Qué manejar y qué solo reconocer en los informes</h3>
+  <p>No todas las escalas se aplican; algunas solo hay que saber leerlas cuando el paciente llega con el reporte de un servicio especializado.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>El médico general debe <span style="color:#166534">MANEJAR</span></th><th>El médico general debe <span style="color:#003366">RECONOCER</span> en los informes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul style="margin:0; padding-left:1.1em">
+              <li>Pregunta única de tamizaje funcional</li>
+              <li>WG-SS (como lista mínima de chequeo)</li>
+              <li>WHODAS 2.0-12, Barthel, Lawton-Brody</li>
+              <li>Velocidad de marcha en 4 m, TUG, levantarse-sentarse, tándem, monopodal</li>
+              <li>Mini-Cog</li>
+            </ul>
+          </td>
+          <td>
+            <ul style="margin:0; padding-left:1.1em">
+              <li><strong>ASIA</strong> (trauma raquimedular)</li>
+              <li><strong>NIHSS</strong> y <strong>mRS</strong> (ataque cerebrovascular)</li>
+              <li><strong>Fugl-Meyer</strong></li>
+              <li><strong>ALSFRS-R</strong> (ELA)</li>
+              <li><strong>MDS-UPDRS</strong> y <strong>Hoehn-Yahr</strong> (Parkinson)</li>
+              <li><strong>SPPB</strong> completo y <strong>6MWT</strong></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <h3>Cómo navegar esta guía</h3>
   <ul>
-    <li><strong>Pestaña 2:</strong> calculadoras de las cuatro pruebas de capacidad de consultorio (velocidad de marcha, TUG, levantarse-sentarse, prensión).</li>
-    <li><strong>Pestaña 3:</strong> 6MWT — qué es y cuándo solicitarla. <em>No es prueba de consultorio.</em></li>
-    <li><strong>Pestañas 4–6:</strong> calculadoras de las escalas funcionales (Barthel, Lawton-Brody, WHODAS 2.0).</li>
-    <li><strong>Pestaña 7:</strong> dolor — slider EVA/NRS y calculadora DN4 para componente neuropático.</li>
-    <li><strong>Pestaña 8:</strong> anamnesis dirigida (caídas, deglución, cognición, comunicación, respiración).</li>
-    <li><strong>Pestañas 9–10:</strong> 10 casos clínicos progresivos y 10 preguntas de autoevaluación.</li>
+    <li><strong>Pestaña 2:</strong> cómo se lee un instrumento — validez, confiabilidad, valor predictivo, CMI y los dominios de la CIF.</li>
+    <li><strong>Pestaña 3:</strong> calculadoras de las cuatro pruebas de capacidad de consultorio (velocidad de marcha, TUG, levantarse-sentarse, prensión).</li>
+    <li><strong>Pestaña 4:</strong> 6MWT — qué es y cuándo solicitarla. <em>No es prueba de consultorio.</em></li>
+    <li><strong>Pestañas 5–7:</strong> calculadoras de las escalas funcionales (Barthel, Lawton-Brody, WHODAS 2.0).</li>
+    <li><strong>Pestaña 8:</strong> tamizaje cognitivo — Mini-Cog, MMSE, MoCA y la regla de decisión.</li>
+    <li><strong>Pestaña 9:</strong> dolor — slider EVA/NRS y calculadora DN4 para componente neuropático.</li>
+    <li><strong>Pestaña 10:</strong> anamnesis dirigida (caídas, deglución, cognición, comunicación, respiración).</li>
+    <li><strong>Pestañas 11–12:</strong> 10 casos clínicos progresivos y 10 preguntas de autoevaluación.</li>
   </ul>
 </section>
 
-<!-- ==================== TAB 2: PRUEBAS DE CAPACIDAD ==================== -->
+<!-- ==================== TAB 2: CLINIMETRÍA ==================== -->
+<section class="tab-content" id="clinimetria">
+  <h2>Cómo se lee un instrumento: nociones de clinimetría</h2>
+
+  <p>Antes de recorrer las escalas conviene detenerse en las preguntas que hay que hacerle a cualquiera de ellas. Un instrumento de medición <strong>no es una lista de preguntas bien intencionada: es un aparato de medida</strong>, y como tal se le exige lo mismo que a un tensiómetro —que mida lo que dice medir, que repita el resultado y que detecte los cambios que importan—. Ese conjunto de exigencias son sus <em>propiedades psicométricas</em>, y saber leerlas es lo que separa <strong>usar</strong> una escala de <strong>citarla</strong>.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Propiedad</th><th>La pregunta que responde</th><th>Por qué importa en la consulta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Validez</strong></td><td>¿Mide lo que dice medir?</td><td>La <em>validación en una población concreta</em> es lo que autoriza su uso en ella. Una escala validada en adultos mayores europeos <strong>no está automáticamente validada</strong> en adultos jóvenes colombianos. Por eso este manual señala, para cada herramienta, <strong>en quién</strong> fue validada.</td></tr>
+        <tr><td><strong>Confiabilidad</strong></td><td>¿Repite el resultado?</td><td>Dos caras: <em>test-retest</em> (estabilidad al repetirla en un paciente que no ha cambiado) y <strong>acuerdo interobservador</strong> (coincidencia entre dos examinadores; se mide con kappa o CCI). Es la propiedad que más se degrada en las escalas que dependen del juicio subjetivo. <em>Cuando dos residentes gradúan al mismo paciente con dos Ashworth distintos, eso es acuerdo interobservador pobre.</em></td></tr>
+        <tr><td><strong>Sensibilidad</strong> y <strong>especificidad</strong></td><td>¿A cuántos enfermos detecta? ¿A cuántos sanos clasifica bien?</td><td>Son propiedades de las pruebas de <em>tamizaje</em>, no de las escalas de medición. Una prueba <strong>sensible, si sale negativa, descarta</strong>; una <strong>específica, si sale positiva, confirma</strong>. Toda prueba sacrifica una por la otra, y esa elección <strong>no es técnica sino clínica</strong>: en el riesgo de caída se prefiere sensibilidad, porque el costo de pasar por alto a un paciente en riesgo supera al de una valoración de más.</td></tr>
+        <tr><td><strong>Valor predictivo</strong></td><td>Dado que salió positiva, ¿qué probabilidad tiene <em>este</em> paciente de estar enfermo?</td><td>Es lo que el clínico realmente quiere saber. A diferencia de la sensibilidad y la especificidad, que son fijas, <strong>depende de la prevalencia</strong>: la misma prueba es mucho más informativa en una consulta de geriatría que en una de medicina deportiva.</td></tr>
+        <tr><td><strong>Sensibilidad al cambio</strong> y <strong>CMI</strong></td><td>¿Se mueve el puntaje cuando el paciente mejora? ¿Cuánto cambio es «real»?</td><td>Indispensable para <em>seguir</em> a un paciente: es justo lo que le falta al WG-SS. Va unida al <strong>cambio mínimo importante</strong> (CMI): la magnitud de cambio que el paciente percibe como mejoría. Sin él no se puede saber si los cuatro puntos que ganó significan algo o son ruido.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Por qué cada escala mide algo distinto: los dominios de la CIF</h3>
+  <p>La proliferación de escalas desconcierta hasta que se advierte que <strong>no compiten entre sí</strong>: cada una interroga un <em>dominio distinto</em> del funcionamiento. Elegir instrumento es, antes que nada, decidir <strong>qué dominio se quiere medir</strong>.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Dominio CIF</th><th>Instrumentos</th><th>Qué mide</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Funciones y estructuras corporales</strong></td><td>MRC (fuerza), Ashworth (tono), escala numérica del dolor</td><td>El cuerpo.</td></tr>
+        <tr><td><strong>Actividad</strong></td><td>Barthel y Lawton-Brody (desempeño); velocidad de marcha y TUG (capacidad)</td><td>Lo que la persona hace o puede hacer.</td></tr>
+        <tr><td><strong>Participación</strong></td><td>WHODAS 2.0-12 (relaciones, actividades vitales, participación social)</td><td>La vida que la persona lleva.</td></tr>
+        <tr><td><strong>Factores contextuales</strong></td><td>Zarit (carga del cuidador), valoración del entorno domiciliario</td><td>Lo que rodea a la persona.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>La consecuencia práctica</h4>
+    <p style="margin-bottom:0">Un paciente puede tener un <strong>Barthel de 100</strong> —independiente para todas las actividades básicas— <strong>y un WHODAS elevado</strong>. No hay contradicción: cada escala mira <em>un piso distinto del edificio</em>. Preguntar «¿cuál es la mejor escala?» carece de sentido; la pregunta correcta es <strong>«¿qué dominio necesito medir en este paciente?»</strong>.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 3: PRUEBAS DE CAPACIDAD ==================== -->
 <section class="tab-content" id="capacidad">
   <h2>Cuatro pruebas de capacidad para la consulta</h2>
   <p>El médico general puede medir la capacidad funcional en menos de diez minutos con cronómetro y cinta métrica. Las cuatro pruebas validadas para consulta son: velocidad de marcha en 4 m, TUG, levantarse-sentarse cinco veces y fuerza de prensión.</p>
@@ -908,7 +984,57 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
-<!-- ==================== TAB 7: DOLOR ==================== -->
+<!-- ==================== TAB 8: TAMIZAJE COGNITIVO ==================== -->
+<section class="tab-content" id="cognitivo">
+  <h2>Tamizaje cognitivo: con qué tamizar y qué pedir después</h2>
+
+  <p>El Mini-Cog no es la única herramienta, y conviene conocer las alternativas —sobre todo porque <strong>el paciente llega a la consulta con ellas ya aplicadas</strong>— para saber qué significa cada puntaje y cuál pedir en cada escenario.</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Prueba</th><th>Duración</th><th>Punto de corte</th><th>Indicación y limitaciones</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Mini-Cog</strong></td><td>3 min</td><td>≤ 2/5</td>
+          <td><strong>De elección en atención primaria.</strong> Breve, no requiere entrenamiento, <strong>poco sesgada por escolaridad e idioma</strong> —que es justo el problema en nuestra población—. Tamiza; no gradúa severidad ni sirve para seguir la evolución. Protocolo completo en el <a href="../anexo-l-minicog/"><strong>Anexo L</strong></a>.</td>
+        </tr>
+        <tr>
+          <td><strong>MMSE</strong><br><span style="font-size:.9em"><em>Mini-Mental State Examination</em></span></td><td>10 min</td><td>&lt; 24/30</td>
+          <td>El más difundido y el que con más frecuencia trae el paciente en sus informes. <strong>Muy sensible a la escolaridad</strong>: <em>sobrediagnostica</em> en personas con baja escolaridad y <em>pasa por alto el deterioro leve</em> en las de alta escolaridad. Explora poco la función ejecutiva, que es lo primero que se afecta en el deterioro vascular.</td>
+        </tr>
+        <tr>
+          <td><strong>MoCA</strong><br><span style="font-size:.9em"><em>Montreal Cognitive Assessment</em></span></td><td>10–15 min</td><td>&lt; 26/30</td>
+          <td>Más <strong>sensible al deterioro cognitivo leve</strong> y a la afectación ejecutiva y atencional. Es la prueba de elección <strong>tras un ataque cerebrovascular</strong> y en el deterioro cognitivo vascular. Requiere entrenamiento breve; se corrige <strong>sumando un punto si la escolaridad es ≤ 12 años</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Prueba del reloj</strong></td><td>2–3 min</td><td>Variable según el sistema</td>
+          <td>Se usa aislada o como componente del Mini-Cog. Explora función ejecutiva y visuoespacial. Su limitación es la <em>multiplicidad de sistemas de calificación</em>, que dificulta comparar resultados entre servicios.</td>
+        </tr>
+        <tr>
+          <td><strong>Queja subjetiva de memoria</strong></td><td>&lt; 1 min</td><td>—</td>
+          <td>Preguntar al paciente y, <strong>sobre todo, al acompañante</strong>. La queja <em>del informante</em> tiene más valor predictivo que la del propio paciente, porque <strong>quien pierde conciencia del déficit deja de quejarse</strong>. Es gratis y toma un minuto.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amarilla">
+    <h4>La regla de decisión</h4>
+    <ul style="margin-bottom:0">
+      <li><strong>Empiece por la queja del informante.</strong></li>
+      <li><strong>Tamice con Mini-Cog</strong> en la consulta general.</li>
+      <li><strong>Pida MoCA</strong> cuando la sospecha es de deterioro <em>leve</em> —donde el MMSE falla— o cuando el paciente tuvo un ACV.</li>
+      <li><strong>Interprete el MMSE con cautela</strong> cuando llegue en los informes, ajustándolo mentalmente a la escolaridad.</li>
+    </ul>
+  </div>
+
+  <div class="card roja">
+    <h4>Ninguna de las tres diagnostica demencia</h4>
+    <p style="margin-bottom:0">Un tamizaje positivo <strong>abre una evaluación, no la cierra</strong>. Y una advertencia que en el adulto mayor no es menor: antes de atribuir un tamizaje alterado a una demencia, hay que descartar las <strong>tres causas reversibles que la imitan</strong> —<em>delirium</em>, <em>depresión</em> y <em>fármacos</em> (anticolinérgicos, benzodiacepinas, opioides)—, porque las tres son frecuentes y las tres se tratan.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 9: DOLOR ==================== -->
 <section class="tab-content" id="dolor">
   <h2>Cuantificación e interrogatorio del dolor</h2>
   <p>Dos escalas unidimensionales son universales y deben formar parte del registro clínico: la EVA y la NRS. Ambas miden <strong>intensidad</strong>, no la <em>interferencia</em> con la vida diaria. Para esta última se usa el PROMIS-PI o, de manera más sencilla, las preguntas: <em>¿el dolor le impide dormir? ¿le impide trabajar? ¿le impide salir de casa? ¿le impide ejercicio?</em></p>
