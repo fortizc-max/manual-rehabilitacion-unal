@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epidemiología aplicada a la Medicina Física y Rehabilitación · Manual de Rehabilitación · Universidad Nacional de Colombia</title>
+<meta name="description" content="Guía interactiva del cap. 3: prevalencia, incidencia y densidad de incidencia; intervalo de confianza y valor p; tabla de 2 × 2 (RR, OR, NNT); sensibilidad, especificidad, valores predictivos y razones de verosimilitud; Kaplan-Meier y hazard ratio; cambio mínimo detectable y DMCI. Calculadoras de asociación, de prueba diagnóstica y de MDC/DMCI.">
+<meta name="author" content="Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --jamared: #C8102E;
+  --jamared-suave: #faeaec;
+  --jamared-osc: #8a0a20;
+  --azulacad: #003366;
+  --azulacad-suave: #e8eef5;
+  --azulacad-mid: #ccd6e0;
+  --texto: #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --gris: #6b7280;
+  --gris-claro: #f5f5f4;
+  --gris-borde: #e5e5e4;
+  --crema: #fbfaf7;
+  --verde: #166534;
+  --verde-suave: #dcfce7;
+  --rojo: #991b1b;
+  --rojo-suave: #fee2e2;
+  --naranja: #9a3412;
+  --naranja-suave: #ffedd5;
+  --amarillo: #78350f;
+  --amarillo-suave: #fef3c7;
+  --serif: 'Libertinus Serif', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Fira Mono', 'SFMono-Regular', Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: var(--serif);
+  margin: 0;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+header.chapter {
+  background: white;
+  padding: 56px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--gris-borde);
+}
+header.chapter .institucion {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+header.chapter .departamento {
+  font-family: var(--sans);
+  font-size: 0.78rem; color: var(--texto-suave);
+  margin-bottom: 32px;
+}
+header.chapter .cap-num {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--jamared);
+  margin-bottom: 14px;
+}
+header.chapter h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--azulacad);
+  margin: 0 auto 18px;
+  line-height: 1.18;
+  max-width: 720px;
+}
+header.chapter .sub {
+  font-family: var(--sans);
+  font-size: 0.85rem; color: var(--gris);
+}
+header.chapter a.back {
+  font-family: var(--sans);
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  color: var(--azulacad);
+  text-decoration: none;
+}
+header.chapter a.back:hover { background: var(--azulacad-suave); }
+
+.tab-nav {
+  background: white;
+  border-bottom: 1px solid var(--gris-borde);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.tab-btn {
+  font-family: var(--sans);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--texto-suave);
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.tab-btn:hover { background: var(--azulacad-suave); color: var(--azulacad); }
+.tab-btn.active {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fade 0.2s ease-in; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+p { margin: 0.55em 0 0.95em; }
+ul, ol { margin: 0.5em 0 1em; padding-left: 1.5em; }
+ul li, ol li { margin: 0.25em 0; }
+
+h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--azulacad);
+  font-weight: 500;
+  margin-top: 6px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  border-bottom: 1.5px solid var(--azulacad);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+h3 {
+  font-family: var(--serif);
+  color: var(--azulacad);
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-family: var(--sans);
+  color: var(--azulacad);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+em { font-style: italic; color: var(--azulacad); }
+strong { color: var(--texto); font-weight: 700; }
+
+.card {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left-width: 4px;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.card h4 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+.card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+.card.azul { border-left-color: var(--azulacad); background: var(--azulacad-suave); }
+.card.naranja { border-left-color: var(--naranja); background: var(--naranja-suave); }
+.card.verde { border-left-color: var(--verde); background: var(--verde-suave); }
+.card.roja { border-left-color: var(--jamared); background: var(--jamared-suave); }
+.card.amarilla { border-left-color: var(--amarillo); background: var(--amarillo-suave); }
+
+.tabla-wrap { overflow-x: auto; margin: 18px 0; }
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+  background: white;
+  border-top: 2.2px solid var(--jamared);
+  border-bottom: 2.2px solid var(--jamared);
+}
+table.t th, table.t td {
+  border: none;
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: var(--serif);
+  vertical-align: top;
+}
+table.t thead th {
+  font-family: var(--sans);
+  background: var(--azulacad-suave);
+  color: var(--azulacad);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1.5px solid var(--azulacad);
+}
+table.t tbody tr:last-child td { border-bottom: none; }
+table.t tbody tr:nth-child(even) { background: rgba(0,51,102,0.025); }
+table.t tbody tr:hover { background: var(--azulacad-suave); }
+table.t .root, table.t .grado {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--jamared);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ===== Decisor de maniobra ===== */
+.decisor {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.decisor h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--jamared);
+}
+.decisor select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+  max-width: 480px;
+}
+.decisor select:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.decisor-respuesta {
+  margin-top: 16px;
+  padding: 18px 22px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  display: none;
+}
+.decisor-respuesta.show { display: block; }
+.decisor-respuesta h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+  margin: 0 0 10px;
+}
+.decisor-respuesta .seccion {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--azulacad-mid);
+}
+.decisor-respuesta .seccion:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.decisor-respuesta .etiqueta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== Maniobras: tarjetas dentro de un capítulo regional ===== */
+.maniobra {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.maniobra h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--jamared);
+}
+.maniobra .estructura {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.maniobra .row-key {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.maniobra .row-key .k {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  padding-top: 3px;
+}
+
+/* ===== Fibromialgia / Nociplástico ===== */
+.calc-bloque {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-bloque h4 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-bloque .descripcion {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 14px;
+}
+.calc-bloque h5 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--azulacad-mid);
+}
+
+.checklist {
+  display: grid;
+  gap: 4px;
+}
+.checklist label {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.checklist label:hover { background: var(--azulacad-suave); }
+.checklist label.checked {
+  background: var(--azulacad-suave);
+  font-weight: 600;
+  color: var(--azulacad);
+}
+.checklist label input { cursor: pointer; margin-top: 4px; flex-shrink: 0; }
+
+.checklist.cuadrantes {
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+@media (max-width: 600px) {
+  .checklist.cuadrantes { grid-template-columns: 1fr; }
+}
+
+.checklist.wpi {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+}
+@media (max-width: 700px) {
+  .checklist.wpi { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .checklist.wpi { grid-template-columns: 1fr; }
+}
+
+.escala-fila {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.escala-fila:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .escala-fila { grid-template-columns: 1fr; gap: 6px; }
+}
+.escala-fila .label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones {
+  display: flex;
+  gap: 6px;
+}
+.escala-fila .opciones label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--texto-suave);
+  flex: 1;
+  text-align: center;
+}
+.escala-fila .opciones label:hover { border-color: var(--azulacad); color: var(--azulacad); }
+.escala-fila .opciones label.selected {
+  background: var(--azulacad);
+  color: white;
+  border-color: var(--azulacad);
+  font-weight: 600;
+}
+.escala-fila .opciones input { display: none; }
+
+.calc-bloque .total {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: var(--azulacad-suave);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--sans);
+}
+.calc-bloque .total.bajo { background: var(--verde-suave); border-left-color: var(--verde); }
+.calc-bloque .total.medio { background: var(--amarillo-suave); border-left-color: var(--amarillo); }
+.calc-bloque .total.alto { background: var(--jamared-suave); border-left-color: var(--jamared); }
+.calc-bloque .total .puntajes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+.calc-bloque .total .puntajes .num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--jamared);
+}
+.calc-bloque .total .puntajes .max { color: var(--gris); font-size: 1rem; }
+.calc-bloque .total .puntajes .label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azulacad);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.calc-bloque .total .veredicto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.calc-bloque .total.bajo .veredicto { color: var(--verde); }
+.calc-bloque .total.medio .veredicto { color: var(--amarillo); }
+.calc-bloque .total.alto .veredicto { color: var(--jamared); }
+.calc-bloque .total .interp {
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+/* Calculadora simple (entrada numérica) */
+.calc-simple {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.calc-simple h4 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--jamared);
+}
+.calc-simple .calc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.calc-simple label {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--azulacad);
+  font-weight: 600;
+}
+.calc-simple input[type="number"], .calc-simple select {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  min-width: 90px;
+}
+.calc-simple .resultado {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--gris-claro);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.calc-simple .resultado.empty {
+  font-style: italic;
+  color: var(--gris);
+  text-align: center;
+  border-left-color: var(--gris-borde);
+}
+.calc-simple .resultado .valor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--jamared);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.semaforo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.semaforo.verde { background: var(--verde-suave); color: var(--verde); }
+.semaforo.amarillo { background: var(--amarillo-suave); color: var(--amarillo); }
+.semaforo.naranja { background: var(--naranja-suave); color: var(--naranja); }
+.semaforo.rojo { background: var(--jamared-suave); color: var(--jamared); }
+.semaforo.azul { background: var(--azulacad-suave); color: var(--azulacad); }
+
+button.reset {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--texto-suave);
+  margin-top: 12px;
+}
+button.reset:hover { background: var(--gris-claro); }
+
+/* ===== Caso completo (Beatriz) - acordeón ===== */
+details.fase {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-left: 4px solid var(--azulacad);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+details.fase[open] { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+details.fase summary {
+  font-family: var(--sans);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--azulacad);
+  list-style: none;
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.fase summary::-webkit-details-marker { display: none; }
+details.fase summary::before {
+  content: '▸';
+  color: var(--jamared);
+  transition: transform 0.15s;
+  display: inline-block;
+}
+details.fase[open] summary::before { transform: rotate(90deg); }
+details.fase summary .tiempo {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--jamared-suave);
+  color: var(--jamared);
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-left: auto;
+  letter-spacing: 0.04em;
+}
+details.fase .fase-body {
+  padding: 0 18px 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ===== Casos clínicos ===== */
+.caso {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-top: 3px solid var(--jamared);
+  border-radius: 4px;
+  margin: 18px 0;
+  padding: 18px 22px;
+}
+.caso h4 {
+  margin: 0 0 10px;
+  color: var(--jamared);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.caso .historia {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--texto-suave);
+  padding: 12px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  margin: 6px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.caso .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--azulacad);
+  font-size: 0.92rem;
+}
+.caso .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 9px 14px;
+  margin: 5px 0;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  transition: background 0.12s, border-color 0.12s;
+}
+.caso .opcion:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+.caso .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.caso .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.caso .feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--azulacad-suave);
+  border-left: 3px solid var(--azulacad);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.5;
+}
+.caso .feedback.show { display: block; }
+
+/* ===== Autoevaluación ===== */
+.q {
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.q .pregunta {
+  font-family: var(--sans);
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--azulacad);
+  font-size: 0.95rem;
+}
+.q .opcion {
+  font-family: var(--serif);
+  display: block;
+  padding: 8px 14px;
+  margin: 4px 0;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.94rem;
+}
+.q .opcion:hover { background: var(--azulacad-suave); }
+.q .opcion.correct {
+  background: var(--verde-suave);
+  border-color: var(--verde);
+  color: var(--verde);
+  font-weight: 600;
+}
+.q .opcion.wrong {
+  background: var(--rojo-suave);
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+.q .explicacion {
+  font-family: var(--serif);
+  display: none;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 10px 14px;
+  background: var(--gris-claro);
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.q .explicacion.show { display: block; }
+
+.score-box {
+  font-family: var(--sans);
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.score-box strong { color: var(--jamared); font-size: 1.15rem; }
+
+footer {
+  font-family: var(--sans);
+  text-align: center;
+  padding: 26px 24px;
+  font-size: 0.82rem;
+  color: var(--gris);
+  background: white;
+  border-top: 1px solid var(--gris-borde);
+}
+footer a { color: var(--azulacad); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ===== Cap. 3: calculadoras epidemiológicas ===== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+.calc-grid .campo { display: flex; flex-direction: column; gap: 4px; }
+.calc-simple input.num {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  background: white;
+  color: var(--texto);
+  width: 100%;
+}
+.calc-simple input.num:focus {
+  outline: none;
+  border-color: var(--azulacad);
+  box-shadow: 0 0 0 3px var(--azulacad-suave);
+}
+.calc-simple .presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+.calc-simple .presets button {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  border-radius: 99px;
+  padding: 5px 12px;
+  cursor: pointer;
+  color: var(--azulacad);
+}
+.calc-simple .presets button:hover { background: var(--azulacad-suave); border-color: var(--azulacad-mid); }
+table.res { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+table.res td { padding: 5px 8px; border-bottom: 1px solid var(--gris-borde); vertical-align: top; }
+table.res td.v { font-family: var(--mono); color: var(--jamared); white-space: nowrap; text-align: right; font-weight: 500; }
+table.res tr:last-child td { border-bottom: none; }
+.formula {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  background: white;
+  border: 1px solid var(--gris-borde);
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 10px 0 14px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.nota { font-family: var(--sans); font-size: 0.82rem; color: var(--gris); }
+table.t td.c, table.t th.c { text-align: center; }
+table.t tfoot td { font-family: var(--sans); font-size: 0.8rem; color: var(--gris); border-bottom: none; }
+</style>
+</head>
+
+<body>
+
+<header class="chapter">
+  <div class="institucion">Universidad Nacional de Colombia</div>
+  <div class="departamento">Departamento de Medicina Física y Rehabilitación · Facultad de Medicina</div>
+  <div class="cap-num">Capítulo 3</div>
+  <h1>Epidemiología aplicada a la Medicina Física y Rehabilitación</h1>
+  <div class="sub">Manual de Rehabilitación · Versión interactiva</div>
+  <a class="back" href="../">← Índice de capítulos</a>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="frecuencia">1. Descripción y frecuencia</button>
+  <button class="tab-btn" data-tab="inferencia">2. Inferencia · IC, valor p, potencia</button>
+  <button class="tab-btn" data-tab="asociacion">3. 🔢 Asociación e impacto</button>
+  <button class="tab-btn" data-tab="diagnostico">4. 🔢 Pruebas diagnósticas</button>
+  <button class="tab-btn" data-tab="disenos">5. Diseños, sesgos y pronóstico</button>
+  <button class="tab-btn" data-tab="medicion">6. 🔢 Medición del cambio</button>
+  <button class="tab-btn" data-tab="lectura">7. Lectura crítica y repaso</button>
+</nav>
+
+<main>
+
+<!-- ==================== TAB 1: DESCRIPCIÓN Y FRECUENCIA ==================== -->
+<section class="tab-content active" id="frecuencia">
+  <h2>La epidemiología en la práctica clínica</h2>
+  <p>Una mujer de 46 años que trabaja ocho horas diarias frente a un computador consulta por adormecimiento y parestesias de predominio nocturno en los tres primeros dedos de la mano derecha. Antes de examinarla, el médico necesita respuestas epidemiológicas: la frecuencia del cuadro en personas con su ocupación, edad y sexo; cuánto aumenta la probabilidad trabajar sin pausas; la confiabilidad de la prueba diagnóstica que va a solicitar; el pronóstico si no se diagnostica ni se trata.</p>
+  <p>La epidemiología estudia la distribución y los determinantes de los problemas de salud en poblaciones y construye las medidas con que esas preguntas se responden de forma cuantitativa. La Medicina Física y Rehabilitación añade una exigencia propia: su objeto es el <strong>funcionamiento y la discapacidad</strong>, medidos con escalas aplicadas una y otra vez al mismo paciente. Eso obliga a separar el error de medición de la mejoría real y a describir la trayectoria de un paciente que no se cura ni muere, sino que recupera función.</p>
+
+  <div class="card azul">
+    <h4>Cinco ideas que no se deben olvidar</h4>
+    <ol>
+      <li>El denominador define la medida: quién entra en él y durante cuánto tiempo decide si se obtiene una prevalencia, un riesgo o una tasa.</li>
+      <li>La sensibilidad y la especificidad pertenecen a la prueba; los valores predictivos, a la población en que se aplica.</li>
+      <li>Asociación no es causalidad, y el ajuste estadístico solo controla la confusión por variables medidas.</li>
+      <li>Un cambio menor que el cambio mínimo detectable no puede distinguirse del error de medición; uno mayor puede ser real sin ser importante para el paciente.</li>
+      <li>La significación estadística depende del tamaño de la muestra; la relevancia clínica, no.</li>
+    </ol>
+  </div>
+
+  <p>El marco de la especialidad es la Clasificación Internacional del Funcionamiento, de la Discapacidad y de la Salud (CIF), que separa deficiencias, limitaciones en la actividad y restricciones en la participación: una intervención puede modificar una deficiencia sin modificar la participación, de modo que el desenlace elegido determina qué conclusión admite el estudio. El Estudio de la Carga Global de Enfermedad documentó que en 2019 hubo once países en los que los años vividos con discapacidad representaron más de la mitad de toda la carga de enfermedad; el dolor lumbar fue la cuarta causa de años de vida ajustados por discapacidad entre los 25 y los 49 años (GBD 2019 Diseases and Injuries Collaborators, 2020).</p>
+
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Pregunta del caso</th><th>Medida que la responde</th></tr></thead>
+      <tbody>
+        <tr><td>Frecuencia del cuadro</td><td>Prevalencia e incidencia</td></tr>
+        <tr><td>Fuerza de la asociación con la exposición</td><td>Riesgo relativo y razón de momios</td></tr>
+        <tr><td>Rendimiento de la prueba</td><td>Sensibilidad, especificidad, valores predictivos</td></tr>
+        <tr><td>Pronóstico</td><td>Análisis de supervivencia</td></tr>
+        <tr><td>Importancia de una mejoría funcional</td><td>Umbrales de cambio (MDC y DMCI)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Fundamentos y medidas descriptivas</h2>
+  <h3>De la población al dato</h3>
+  <p>La <strong>población</strong> es el conjunto completo sobre el que se quiere concluir; casi siempre se trabaja con una <strong>muestra</strong>. La <strong>unidad de análisis</strong> no siempre es el individuo: en los estudios de síndrome del túnel del carpo la unidad es con frecuencia la mano, y un paciente aporta dos manos al denominador. Confundir ambas unidades infla el tamaño aparente de la muestra y estrecha indebidamente los intervalos de confianza.</p>
+
+  <h3>Tipos de variables y escalas de medición</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Tipo</th><th>Escala</th><th>Ejemplos del capítulo</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2">Cualitativa</td><td>Nominal: categorías sin orden</td><td>Tipo de accidente cerebrovascular, lado afectado</td></tr>
+        <tr><td>Ordinal: orden sin distancias interpretables</td><td>Escala de Rankin modificada, grados de fuerza muscular, categoría de deambulación funcional</td></tr>
+        <tr><td rowspan="2">Cuantitativa</td><td>Intervalo: diferencias interpretables, cero arbitrario</td><td>—</td></tr>
+        <tr><td>Razón: el cero significa ausencia</td><td>Velocidad de marcha, días de estancia; discretas (número de caídas en un año) o continuas (velocidad de marcha)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>La mayoría de las escalas de discapacidad producen puntuaciones ordinales que se suman como si fueran cuantitativas, suponiendo que todos los ítems pesan igual y que un punto vale lo mismo en cualquier tramo. Prodinger et al. (2017) establecieron la equivalencia entre la subescala motora de la medida de independencia funcional y el índice de Barthel con análisis de Rasch, que lleva las puntuaciones brutas a una métrica de intervalo: ganar cinco puntos de Barthel desde dependencia grave no equivale a ganarlos desde dependencia leve.</p>
+
+  <h3>Medidas de tendencia central y de dispersión</h3>
+  <p>Media, mediana y moda; rango, rango intercuartílico (P75 − P25), varianza (dividida por n − 1 en una muestra) y desviación estándar. En una distribución simétrica se informa media con desviación estándar; en una asimétrica, mediana con rango intercuartílico. <em>Paramétrico</em> y <em>no paramétrico</em> califican a los métodos estadísticos, no a las distribuciones.</p>
+  <div class="card amarilla">
+    <h4>Ejemplo hipotético: días de estancia en diez pacientes</h4>
+    <p>12, 14, 15, 15, 16, 18, 19, 21, 24 y 96 días. Media = 250/10 = <strong>25,0 días</strong>; mediana = (16 + 18)/2 = <strong>17,0 días</strong>, con P25 = 15 y P75 = 21 (rango intercuartílico de 6 días). Nueve de los diez estuvieron menos tiempo que la media, arrastrada por el paciente de 96 días.</p>
+  </div>
+  <p>Los valores atípicos no se eliminan por incómodos: son errores de registro (se corrigen documentando la decisión) o casos reales e informativos. Si los datos faltantes se concentran en los pacientes más graves, cualquier promedio sobre los restantes resultará demasiado favorable.</p>
+
+  <h3>Frecuencias, proporciones, razones y tasas</h3>
+  <ul>
+    <li><strong>Proporción</strong>: el numerador está contenido en el denominador (0 a 1). 111 de 270 personas mayores de 65 años con obesidad: 111/270 = 0,411 = 41,1 %.</li>
+    <li><strong>Razón</strong>: el numerador no forma parte del denominador. 111 con obesidad frente a 159 sin ella: 111/159 = 0,70.</li>
+    <li><strong>Tasa</strong>: incorpora el tiempo en el denominador, no está acotada entre 0 y 1 y lleva unidades.</li>
+  </ul>
+
+  <h3>Presentación de los datos: desviación estándar frente a intervalo de confianza</h3>
+  <p>Velocidad de marcha al egreso en 100 pacientes (hipotético): media 0,82 m/s, desviación estándar 0,24 m/s. La desviación estándar describe cuánto varían los pacientes entre sí (la mayoría entre unos 0,34 y 1,30 m/s). El error estándar es 0,24/√100 = 0,024 m/s y el IC 95 % de la media, 0,82 ± 1,96 × 0,024 = <strong>0,77 a 0,87 m/s</strong>. Con 400 pacientes el error estándar baja a 0,012 y el intervalo se estrecha a 0,80–0,84 m/s, pero la desviación estándar sigue en 0,24: más muestra mejora la precisión de la media, no reduce la variabilidad entre pacientes.</p>
+  <p>Cuando la distribución difiere entre subgrupos se describe por subgrupo: Shin et al. (2022) informaron puntuaciones medias de Fugl-Meyer a los siete días de 94,39 en el ictus leve, 44,69 en el moderado y 13,22 en el grave.</p>
+
+  <h2>Incidencia, prevalencia y otras medidas de frecuencia</h2>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Medida</th><th>Fórmula</th><th>Naturaleza</th></tr></thead>
+      <tbody>
+        <tr><td>Prevalencia puntual</td><td>casos existentes en un momento / población total en ese momento</td><td>Proporción, sin unidades</td></tr>
+        <tr><td>Incidencia acumulada</td><td>casos nuevos durante el período / población en riesgo al inicio</td><td>Proporción (riesgo); exige declarar el período</td></tr>
+        <tr><td>Densidad de incidencia</td><td>casos nuevos / suma de los tiempos individuales en riesgo (persona-tiempo)</td><td>Tasa, con unidades, sin techo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Prevalencia</h3>
+  <p>Feng et al. (2021) encuestaron a 969 trabajadores de oficina de treinta lugares de trabajo: prevalencia de síndrome del túnel del carpo confirmado clínicamente de <strong>9,6 %</strong>, y de síntomas de muñeca y de mano de 22 % y 15 %. Las tres cifras salen de la misma encuesta y difieren porque definen casos distintos: toda prevalencia depende de la frecuencia real y de la definición de caso. La prevalencia de período toma habitualmente la población del punto medio. La prevalencia es apropiada para procesos prolongados, como una paraplejía por lesión medular, y poco informativa para fenómenos breves.</p>
+  <h3>Incidencia acumulada</h3>
+  <p>Estima el riesgo individual en un plazo y carece de sentido sin ese plazo: un 8 % de complicaciones no significa nada hasta añadir si fue en tres meses o en diez años. Supone que toda la población en riesgo se siguió durante el período completo.</p>
+  <h3>Densidad de incidencia y persona-tiempo</h3>
+  <div class="card amarilla">
+    <h4>Ejemplo hipotético: lesiones por presión en seis pacientes</h4>
+    <p>Días en riesgo: 30, 20, 45, 10, 15 y 60 (contados hasta el evento en quienes lo presentaron); eventos en el segundo y el quinto. La incidencia acumulada daría 2/6 = 33,3 %, atribuyendo a todos el mismo tiempo de exposición, lo cual es falso. La densidad de incidencia suma 180 personas-día: 2/180 = 0,0111 por persona-día, es decir <strong>1,11 lesiones nuevas por cada 100 personas-día</strong>.</p>
+  </div>
+  <p>Gao et al. (2021) informaron para la esclerosis lateral amiotrófica en Beijing 0,38 casos por 100 000 personas-año: las unidades indican una tasa, no un riesgo. El artículo la llama «incidencia media anual», expresión que cuenta el tiempo dos veces. El riesgo es una probabilidad adimensional referida a un período; la tasa es una velocidad por persona-tiempo, y 1,11 por 100 personas-día no puede leerse como «1,11 % de riesgo».</p>
+
+  <h3>Prevalencia, incidencia, duración y mortalidad</h3>
+  <div class="formula">Prevalencia ≈ Densidad de incidencia × Duración media de la condición</div>
+  <p class="nota">Aproximación válida en población estable y con prevalencia baja; la expresión exacta en estado estacionario usa el cociente P/(1 − P).</p>
+  <p>Una misma prevalencia resulta de incidencia alta con duración corta o de incidencia baja con duración larga, de modo que la prevalencia no permite deducir la incidencia. Con las cifras de Gao et al. (2021) —0,38 por 100 000 personas-año y una mediana de supervivencia de 58,89 meses (4,9 años) usada como aproximación a la duración— la fórmula da una prevalencia del orden de <strong>1,9 casos por 100 000</strong>, estimación docente y no dato publicado. Es un piso: la duración media supera a la mediana en una supervivencia asimétrica a la derecha, y un paciente traqueostomizado sigue siendo un caso prevalente. Frente a ese orden de magnitud, la prevalencia del túnel del carpo en trabajadores de oficina es del 9,6 %; el contraste ilustra la relación entre las tres medidas y no es una comparación de riesgos.</p>
+  <p>Un tratamiento que prolonga la supervivencia sin modificar la incidencia aumenta la prevalencia y la demanda de rehabilitación. Una prevalencia creciente puede reflejar mayor incidencia, mayor supervivencia, mejor detección o un cambio en la definición de caso.</p>
+
+  <h3>Denominadores, población en riesgo y temporalidad</h3>
+  <p>El denominador contiene solo a quienes pueden presentar el evento: no se incluyen en la incidencia de lesiones por presión los pacientes que ingresaron con una lesión. Los estudios transversales, fuente de la prevalencia, miden exposición y desenlace a la vez y no establecen temporalidad: en Feng et al. (2021) no puede saberse si el uso prolongado del computador precedió a los síntomas o si los síntomas cambiaron la forma de trabajar.</p>
+</section>
+
+<!-- ==================== TAB 2: INFERENCIA ==================== -->
+<section class="tab-content" id="inferencia">
+  <h2>Muestreo, incertidumbre e inferencia estadística</h2>
+  <h3>Población objetivo, población de estudio y tipos de muestreo</h3>
+  <p>La población objetivo es aquella sobre la que se desea concluir; la de estudio, la que estuvo disponible. Un estudio de recuperación funcional en un hospital de tercer nivel estudia pacientes por lo general más graves que el promedio, y esa distancia no se corrige con estadística: se declara y se pondera al decidir si el resultado aplica al propio paciente.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Muestreo</th><th>Tipo</th><th>Característica</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4">Probabilístico</td><td>Aleatorio simple</td><td>Todos con la misma probabilidad</td></tr>
+        <tr><td>Estratificado</td><td>Muestrea dentro de estratos (gravedad, edad); asegura los subgrupos pequeños</td></tr>
+        <tr><td>Sistemático</td><td>Cada k-ésimo individuo de un listado ordenado</td></tr>
+        <tr><td>Por conglomerados</td><td>Unidades agrupadas (centros completos) cuando no hay listado de individuos</td></tr>
+        <tr><td rowspan="2">No probabilístico</td><td>Consecutivo</td><td>Todos los que cumplen criterios a medida que acuden; el más frecuente en investigación clínica</td></tr>
+        <tr><td>Por conveniencia</td><td>Quienes resultan accesibles</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Ninguno invalida un estudio, pero los no probabilísticos abren la puerta al <strong>sesgo de selección</strong>: los incluidos difieren sistemáticamente de la población objetivo en algo relacionado con el desenlace.</p>
+
+  <h3>Estimación puntual e intervalo de confianza</h3>
+  <p>El <strong>error aleatorio</strong> disminuye al aumentar la muestra y se cuantifica con el intervalo de confianza. El <strong>error sistemático</strong> (sesgo) no disminuye: un estudio con sesgo de selección y diez mil participantes produce una estimación precisa de una cifra equivocada.</p>
+  <div class="formula">IC = estimación puntual ± (valor crítico × error estándar de la estimación)</div>
+  <p>La amplitud depende del nivel de confianza, del tamaño de la muestra y de la variabilidad. El intervalo se lee por sus extremos, no solo por si incluye el valor nulo.</p>
+  <div class="card azul">
+    <h4>Lectura por los extremos: Feng et al. (2021)</h4>
+    <p>Razón de momios ajustada de <strong>1,88 (IC 95 % 1,12 a 3,14)</strong> para trabajar sin pausas y síntomas de muñeca y mano. Excluye el 1, de modo que es estadísticamente significativa; pero es compatible tanto con un aumento modesto de los momios, del 12 %, como con momios más de tres veces mayores. Son momios, no riesgos: traducirlos a riesgo exige conocer el riesgo basal.</p>
+  </div>
+  <p>Un intervalo que incluye el valor nulo no demuestra ausencia de efecto: puede reflejar un tamaño insuficiente, y un intervalo amplio compatible con un efecto nulo y con uno grande es un resultado ambiguo, no una conclusión negativa.</p>
+
+  <h3>Hipótesis, valor <em>p</em> y sus límites</h3>
+  <p>El valor <em>p</em> es la probabilidad de observar un resultado tan extremo como el obtenido, o más, si la hipótesis nula fuera verdadera y se cumplieran los supuestos del método; por debajo de un umbral convencional, habitualmente 0,05, se declara significativo.</p>
+  <div class="card roja">
+    <h4>Tres lecturas incorrectas y frecuentes</h4>
+    <ul>
+      <li>No es la probabilidad de que la hipótesis nula sea verdadera.</li>
+      <li>No es la probabilidad de que el resultado se repita en un nuevo estudio.</li>
+      <li>No mide la magnitud del efecto: una diferencia de 0,4 puntos en una escala funcional puede dar <em>p</em> &lt; 0,001 en un ensayo con miles de participantes y ser inferior al error de medición del instrumento.</li>
+    </ul>
+  </div>
+  <p>Integrar significación y relevancia exige definir desde el diseño la magnitud de cambio clínicamente relevante e informar el tamaño del efecto con su intervalo de confianza (Schober et al., 2018; In y Lee, 2024).</p>
+
+  <h3>Errores de decisión, potencia y tamaño de muestra</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Concepto</th><th>Definición</th><th>Valor convencional</th></tr></thead>
+      <tbody>
+        <tr><td>Error tipo I (α)</td><td>Rechazar la hipótesis nula siendo verdadera: declarar un efecto que no existe</td><td>0,05</td></tr>
+        <tr><td>Error tipo II (β)</td><td>No rechazarla siendo falsa: no detectar un efecto existente</td><td>—</td></tr>
+        <tr><td>Potencia (1 − β)</td><td>Probabilidad de detectar un efecto del tamaño supuesto si existe</td><td>0,80 o 0,90</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>El tamaño de muestra depende de α, de la potencia, de la magnitud del efecto buscado y de la variabilidad del desenlace; no existe una fórmula única. Gan (2026) mostró por simulación que, al crecer la muestra, la potencia aumenta y el intervalo se estrecha, de modo que diferencias cada vez menores alcanzan significación. El cálculo debe partir de la <strong>diferencia mínima que valdría la pena encontrar</strong>, no de la que se espera encontrar.</p>
+</section>
+
+<!-- ==================== TAB 3: ASOCIACIÓN ==================== -->
+<section class="tab-content" id="asociacion">
+  <h2>Medidas de asociación e impacto</h2>
+  <h3>Tabla de contingencia de 2 × 2: ejemplo resuelto</h3>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th></th><th class="c">Desenlace presente</th><th class="c">Desenlace ausente</th><th class="c">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Expuestos</td><td class="c"><em>a</em></td><td class="c"><em>b</em></td><td class="c"><em>a</em> + <em>b</em></td></tr>
+        <tr><td>No expuestos</td><td class="c"><em>c</em></td><td class="c"><em>d</em></td><td class="c"><em>c</em> + <em>d</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Riesgo en expuestos R<sub>e</sub> = a/(a + b); en no expuestos R<sub>ne</sub> = c/(c + d). El cociente y la diferencia de esos riesgos responden a preguntas distintas y ninguno reemplaza al otro.</p>
+  <p><strong>Cohorte hipotética</strong>: 400 trabajadores de oficina sin síntomas, seguidos dos años, según si trabajan habitualmente sin pausas.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th></th><th class="c">Síndrome</th><th class="c">Sin síndrome</th><th class="c">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Trabaja sin pausas</td><td class="c">30</td><td class="c">120</td><td class="c">150</td></tr>
+        <tr><td>Trabaja con pausas</td><td class="c">25</td><td class="c">225</td><td class="c">250</td></tr>
+        <tr><td><strong>Total</strong></td><td class="c">55</td><td class="c">345</td><td class="c">400</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Medida</th><th>Cálculo</th><th class="c">Resultado</th></tr></thead>
+      <tbody>
+        <tr><td>Riesgos</td><td>30/150 y 25/250</td><td class="c">0,200 y 0,100 (20,0 % y 10,0 % en dos años)</td></tr>
+        <tr><td>Riesgo relativo (RR)</td><td>0,200 / 0,100</td><td class="c"><strong>2,00</strong></td></tr>
+        <tr><td>Razón de momios (OR)</td><td>(30 × 225)/(120 × 25); momios 0,250 y 0,111</td><td class="c"><strong>2,25</strong></td></tr>
+        <tr><td>Diferencia de riesgos</td><td>0,200 − 0,100</td><td class="c"><strong>0,100</strong> (10 puntos porcentuales)</td></tr>
+        <tr><td>Fracción atribuible en los expuestos</td><td>(RR − 1)/RR</td><td class="c"><strong>0,50</strong> (50 %)</td></tr>
+        <tr><td>Número necesario para dañar (NND; en inglés, NNH)</td><td>1/0,100</td><td class="c"><strong>10</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Diez trabajadores expuestos durante dos años por cada caso adicional atribuible a la exposición, si la asociación fuera causal.</p>
+
+  <div class="calc-simple" id="calc-2x2">
+    <h4>Calculadora de la tabla de 2 × 2</h4>
+    <p class="nota">Expuestos = grupo expuesto o tratado. Use coma o punto decimal. Ejemplos cargables:</p>
+    <div class="presets">
+      <button type="button" data-a="30" data-b="120" data-c="25" data-d="225">Cohorte de oficinistas (30/120/25/225)</button>
+      <button type="button" data-a="75" data-b="225" data-c="30" data-d="270">Ejercicio 3 (75/225/30/270)</button>
+      <button type="button" data-a="30" data-b="170" data-c="50" data-d="150">Ensayo de caídas (30/170/50/150)</button>
+    </div>
+    <div class="calc-grid">
+      <div class="campo"><label for="t-a">a · expuestos con desenlace</label><input class="num" id="t-a" inputmode="decimal" value="30"></div>
+      <div class="campo"><label for="t-b">b · expuestos sin desenlace</label><input class="num" id="t-b" inputmode="decimal" value="120"></div>
+      <div class="campo"><label for="t-c">c · no expuestos con desenlace</label><input class="num" id="t-c" inputmode="decimal" value="25"></div>
+      <div class="campo"><label for="t-d">d · no expuestos sin desenlace</label><input class="num" id="t-d" inputmode="decimal" value="225"></div>
+    </div>
+    <div class="resultado" id="r-2x2"></div>
+  </div>
+
+  <h3>Razón de momios frente a riesgo relativo</h3>
+  <p>La razón de momios (2,25) se aleja más del valor nulo que el riesgo relativo (2,00). No es un error de cálculo: los momios tienen en el denominador solo a quienes no presentan el desenlace, y cuanto más frecuente es este, más se separan las dos medidas. Con riesgos de 2 % y 1 %, el riesgo relativo seguiría en 2,00 y la razón de momios valdría (0,02/0,98)/(0,01/0,99) = 2,02.</p>
+  <p>La razón de momios predomina por dos motivos: en los estudios de casos y controles el riesgo no puede calcularse, porque el investigador fija cuántos casos y controles incluye; y la regresión logística expresa sus coeficientes como razones de momios. En cohortes y estudios transversales con desenlaces frecuentes, la magnitud queda algo exagerada respecto al riesgo relativo.</p>
+
+  <h3>Medidas de impacto en intervenciones</h3>
+  <p>Ensayo hipotético de prevención de caídas, 200 participantes por grupo, un año: al menos una caída en 30 del grupo de intervención y en 50 del control (riesgos 0,150 y 0,250). El desenlace es «al menos una caída» y no el número de caídas: contar eventos recurrentes no da un riesgo.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Medida</th><th>Cálculo</th><th class="c">Resultado</th></tr></thead>
+      <tbody>
+        <tr><td>Riesgo relativo</td><td>0,150/0,250</td><td class="c"><strong>0,60</strong></td></tr>
+        <tr><td>Reducción absoluta del riesgo</td><td>0,250 − 0,150</td><td class="c"><strong>0,100</strong> (10 puntos porcentuales en un año)</td></tr>
+        <tr><td>Reducción relativa del riesgo</td><td>0,100/0,250</td><td class="c"><strong>0,40</strong> (40 %)</td></tr>
+        <tr><td>Número necesario a tratar (NNT)</td><td>1/0,100</td><td class="c"><strong>10</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Hay que tratar a diez personas durante un año para evitar que una presente una caída. La reducción relativa es la misma con riesgo basal alto o bajo; la absoluta y el NNT, no: un 40 % de reducción relativa sobre un riesgo basal del 25 % evita 10 eventos por cada 100 tratados, y sobre un riesgo basal del 2 % evita 0,8 (NNT de 125). El intervalo de confianza del NNT se obtiene invirtiendo los límites del de la reducción absoluta y deja de ser continuo cuando ese intervalo incluye el cero (Altman, 1998).</p>
+
+  <h3>Asociación, predicción y causalidad</h3>
+  <ul>
+    <li><strong>Asociación</strong>: la distribución de la variable difiere entre quienes presentan el desenlace y quienes no.</li>
+    <li><strong>Predicción</strong>: conocerla mejora la estimación de la probabilidad del desenlace, la cause o no.</li>
+    <li><strong>Causalidad</strong>: modificarla modificaría el desenlace; la afirmación más exigente para un estudio observacional.</li>
+  </ul>
+  <p><strong>Confusión</strong>: una tercera variable asociada con la exposición, causa del desenlace y que no es consecuencia de la exposición. Una variable en la cadena causal no es un factor de confusión, y ajustar por ella elimina el efecto que se quiere estimar. Feng et al. (2021) ajustaron por edad y sexo; la confusión residual por factores no registrados permanece. <strong>Modificación del efecto</strong>: la magnitud de la asociación difiere según una tercera variable; Shin et al. (2022) documentaron interacción entre el tiempo desde el ictus y la gravedad inicial, la edad y el tipo de ictus. En ese caso se presentan estimaciones por estrato. Una asociación ajustada, con intervalo estrecho y valor <em>p</em> pequeño, sigue siendo una asociación.</p>
+</section>
+
+<!-- ==================== TAB 4: PRUEBAS DIAGNÓSTICAS ==================== -->
+<section class="tab-content" id="diagnostico">
+  <h2>Pruebas diagnósticas: sensibilidad, especificidad y valores predictivos</h2>
+  <h3>Prueba índice, estándar de referencia y las cuatro categorías</h3>
+  <p>La prueba índice es la que se evalúa; el estándar de referencia define quién tiene la condición. Si el estándar cambia, cambian la sensibilidad y la especificidad. Miller et al. (2025), al comparar la ecografía neuromuscular con el electrodiagnóstico (<a href="../07-electrodiagnostico/">cap. 7</a>) en el síndrome del túnel del carpo, usaron como referencia el diagnóstico clínico: tomar el electrodiagnóstico como referencia habría medido la concordancia de la ecografía con aquel.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th></th><th class="c">Condición presente</th><th class="c">Condición ausente</th></tr></thead>
+      <tbody>
+        <tr><td>Prueba positiva</td><td class="c">Verdaderos positivos (VP)</td><td class="c">Falsos positivos (FP)</td></tr>
+        <tr><td>Prueba negativa</td><td class="c">Falsos negativos (FN)</td><td class="c">Verdaderos negativos (VN)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sensibilidad y especificidad</h3>
+  <div class="formula">Sensibilidad = VP/(VP + FN) &nbsp;·&nbsp; Especificidad = VN/(VN + FP)</div>
+  <p>Se calculan dentro de grupos definidos por el estándar de referencia y no dependen matemáticamente de la prevalencia. Esa independencia es algebraica, no empírica: varían entre poblaciones cuando cambia el espectro clínico (sesgo de selección del espectro).</p>
+  <p>Miller et al. (2025) reunieron nueve estudios emparejados con 1 751 manos (743 con diagnóstico clínico, 1 008 sin él). Sensibilidad agrupada: <strong>91,6 %</strong> para el electrodiagnóstico y 86,4 % para la ecografía; especificidad: <strong>81,9 %</strong> y 79,3 %, sin diferencias estadísticamente significativas.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Electrodiagnóstico</th><th class="c">Síndrome presente</th><th class="c">Síndrome ausente</th><th class="c">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Positivo</td><td class="c">681</td><td class="c">182</td><td class="c">863</td></tr>
+        <tr><td>Negativo</td><td class="c">62</td><td class="c">826</td><td class="c">888</td></tr>
+        <tr><td><strong>Total</strong></td><td class="c">743</td><td class="c">1 008</td><td class="c">1 751</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4">Reconstrucción didáctica a partir de los estimadores agrupados de Miller et al. (2025); no son datos publicados. Un metaanálisis bivariado de efectos aleatorios no se recupera multiplicando por los totales: es una tabla compatible con esos estimadores.</td></tr></tfoot>
+    </table>
+  </div>
+
+  <h3>Valores predictivos y efecto de la prevalencia</h3>
+  <p>VPP = 681/863 = <strong>78,9 %</strong>; VPN = 826/888 = <strong>93,0 %</strong> (derivados de la tabla reconstruida, no publicados en Miller et al.). La prevalencia en esa muestra era 743/1 751 = 42,4 %, propia de una población remitida por sospecha clínica. En trabajadores de oficina, con la prevalencia de 9,6 % de Feng et al. (2021), sobre 10 000 personas: 960 enfermos y 9 040 sanos; VP = 0,916 × 960 = 879; FP = (1 − 0,819) × 9 040 = 1 636; VPP = 879/2 515 = <strong>35,0 %</strong>.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th class="c">Prevalencia</th><th class="c">Sensibilidad</th><th class="c">Especificidad</th><th class="c">VPP</th><th class="c">VPN</th></tr></thead>
+      <tbody>
+        <tr><td class="c">42,4 %</td><td class="c">91,6 %</td><td class="c">81,9 %</td><td class="c">78,9 %</td><td class="c">93,0 %</td></tr>
+        <tr><td class="c">9,6 %</td><td class="c">91,6 %</td><td class="c">81,9 %</td><td class="c">35,0 %</td><td class="c">98,9 %</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">VPP: valor predictivo positivo. VPN: valor predictivo negativo.</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="card naranja">
+    <h4>La prueba no cambió: cambió la población</h4>
+    <p>Al bajar la prevalencia se reduce el grupo que alimenta los verdaderos positivos y crece el que alimenta los falsos, con la misma proporción de error entre los sanos (18,1 %). En el laboratorio de electrodiagnóstico cuatro de cada cinco positivos son enfermos; en la población trabajadora general, casi dos de cada tres serían falsos. El 9,6 % es la prevalencia de todos los oficinistas, no de los asintomáticos; en asintomáticos el VPP caería aún más. Ningún valor predictivo publicado se traslada a otra población sin recalcularlo.</p>
+  </div>
+
+  <h3>Razones de verosimilitud y probabilidad posprueba</h3>
+  <div class="formula">RV+ = Sensibilidad/(1 − Especificidad) = 0,916/0,181 = 5,06 &nbsp;·&nbsp; RV− = (1 − Sensibilidad)/Especificidad = 0,084/0,819 = 0,103</div>
+  <p>No dependen de la prevalencia. Los autores informaron 5,1 y 0,10 para el electrodiagnóstico y 4,2 y 0,17 para la ecografía; la coincidencia con el cálculo no valida la tabla reconstruida, porque ambas razones son funciones exclusivas de la sensibilidad y la especificidad. Con el teorema de Bayes en momios:</p>
+  <div class="formula">Momios preprueba × Razón de verosimilitud = Momios posprueba</div>
+  <p>Con probabilidad preprueba de 9,6 %: momios 0,096/0,904 = 0,106; × 5,06 = 0,537; probabilidad 0,537/1,537 = <strong>35,0 %</strong>, idéntico al VPP de la tabla. Son la misma operación escrita de dos maneras.</p>
+
+  <div class="calc-simple" id="calc-dx">
+    <h4>Calculadora de prueba diagnóstica</h4>
+    <p class="nota">Sensibilidad, especificidad y prevalencia (o probabilidad preprueba) en porcentaje. Ejemplos cargables:</p>
+    <div class="presets">
+      <button type="button" data-s="91.6" data-e="81.9" data-p="9.6">EDX en oficinistas (9,6 %)</button>
+      <button type="button" data-s="91.6" data-e="81.9" data-p="42.43">EDX en población remitida (743/1 751)</button>
+      <button type="button" data-s="80" data-e="90" data-p="5">Ejercicio 2 (80 / 90 / 5 %)</button>
+    </div>
+    <div class="calc-grid">
+      <div class="campo"><label for="d-s">Sensibilidad (%)</label><input class="num" id="d-s" inputmode="decimal" value="91,6"></div>
+      <div class="campo"><label for="d-e">Especificidad (%)</label><input class="num" id="d-e" inputmode="decimal" value="81,9"></div>
+      <div class="campo"><label for="d-p">Prevalencia / preprueba (%)</label><input class="num" id="d-p" inputmode="decimal" value="9,6"></div>
+    </div>
+    <div class="resultado" id="r-dx"></div>
+    <p class="nota">La tabla del capítulo calcula el 78,9 % con los conteos redondeados (681/863), equivalentes a una prevalencia de 743/1 751 = 42,43 %; con 42,4 % exacto la fórmula da 78,8 %.</p>
+  </div>
+
+  <h3>Umbrales de decisión y curvas ROC</h3>
+  <p>Con un resultado continuo —latencia distal de un nervio, área de sección transversal del nervio mediano— hay que fijar un umbral: bajarlo aumenta la sensibilidad y reduce la especificidad. El umbral óptimo depende del costo relativo de un falso positivo frente a un falso negativo.</p>
+  <p>La curva ROC (<em>receiver operating characteristic</em>, característica operativa del receptor) representa la sensibilidad frente a 1 − especificidad para todos los umbrales. El <strong>área bajo la curva</strong> equivale a la probabilidad de que, tomados al azar un enfermo y un sano, la prueba asigne al enfermo el valor más indicativo de enfermedad: 0,5 = sin capacidad discriminativa, 1 = prueba perfecta; un área menor de 0,5 indica por lo general una inversión en la dirección del criterio. Un área elevada indica buena discriminación, no buena calibración ni beneficio clínico. Miller et al. (2025) concluyeron que la elección entre ecografía y electrodiagnóstico debe incorporar disponibilidad, costo, tolerancia del paciente y decisión compartida.</p>
+  <div class="card roja">
+    <h4>Amenazas a un estudio de exactitud diagnóstica</h4>
+    <ul>
+      <li><strong>Sesgo de verificación</strong>: el estándar se aplica sobre todo a los positivos; sensibilidad sobreestimada y especificidad subestimada.</li>
+      <li><strong>Sesgo de selección del espectro</strong>: enfermos graves frente a controles sanos exageran el rendimiento ante los casos dudosos.</li>
+      <li>Interpretación no ciega y ausencia de umbral preespecificado.</li>
+    </ul>
+  </div>
+
+  <h3>Prueba diagnóstica frente a instrumento de medición de gravedad</h3>
+  <p>El índice de Barthel, la escala de Rankin modificada o la evaluación de Fugl-Meyer miden gravedad o funcionamiento en un continuo y no tienen, por sí mismos, sensibilidad ni especificidad: hablar de ellas exige especificar condición objetivo, umbral y estándar de referencia. Sus propiedades son otras —fiabilidad, validez, error de medición, capacidad de respuesta— (pestaña 6). Las maniobras del examen físico sí son pruebas diagnósticas, a menudo modestas: Gay et al. (2025) recogieron sensibilidades de 59 % para Phalen y 67 % para Durkan. Con 59 %, cuatro de cada diez pacientes con la condición tendrán una maniobra negativa.</p>
+</section>
+
+<!-- ==================== TAB 5: DISEÑOS, SESGOS Y PRONÓSTICO ==================== -->
+<section class="tab-content" id="disenos">
+  <h2>Diseños epidemiológicos, sesgos y confusión</h2>
+  <p>El diseño determina qué preguntas pueden responderse; ningún análisis estadístico rescata una pregunta que el diseño no podía abordar.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Diseño</th><th>Alcance</th><th>Limitación principal / ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Transversal</td><td>Prevalencia; rápido y económico</td><td>Sin temporalidad. Feng et al. (2021): 969 oficinistas, prevalencia 9,6 %</td></tr>
+        <tr><td>Casos y controles</td><td>Parte del desenlace; eficiente en desenlaces poco frecuentes; la razón de momios es la medida obligada</td><td>Sesgo de recuerdo</td></tr>
+        <tr><td>Cohortes</td><td>Parte de la exposición; establece temporalidad; incidencia, RR, densidad de incidencia</td><td>Pérdidas de seguimiento. Shin et al. (2022): 4 443 supervivientes de un primer ictus, ocho o nueve evaluaciones hasta los 60 meses</td></tr>
+        <tr><td>Ensayo clínico</td><td>Asigna la intervención; la aleatorización distribuye la confusión conocida y la no medida</td><td>AFFINITY: 1 280 participantes; reanálisis de Chye et al. (2022) en 1 276</td></tr>
+        <tr><td>Ecológico</td><td>Poblaciones, no individuos; genera hipótesis</td><td>Falacia ecológica</td></tr>
+        <tr><td>Exactitud diagnóstica</td><td>Prueba índice frente a estándar de referencia en la misma serie</td><td>Miller et al. (2025)</td></tr>
+        <tr><td>Pronóstico</td><td>Cohorte con la condición establecida; factores de evolución y modelos de predicción</td><td>Collins et al. (2024)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Sesgos principales</h3>
+  <ul>
+    <li><strong>Selección</strong>: entrar o permanecer depende de la exposición y del desenlace. Incluir solo a quienes completaron el programa da una eficacia demasiado favorable.</li>
+    <li><strong>Información</strong>: la clasificación errónea no diferencial atenúa la asociación hacia el nulo; la diferencial la desplaza en cualquier dirección y es la más peligrosa.</li>
+    <li><strong>Confusión</strong>: se controla en el diseño (aleatorización, emparejamiento, restricción) y en el análisis (estratificación, modelos multivariables); solo las variables medidas.</li>
+    <li><strong>Pérdidas durante el seguimiento</strong>: un sesgo con nombre propio en rehabilitación, donde los pacientes con peor evolución son los que más dejan de asistir.</li>
+  </ul>
+  <h3>Validez interna, validez externa y jerarquías</h3>
+  <p>La validez interna es la corrección del resultado en la población estudiada; la externa, su traslado a otras poblaciones, contextos, versiones de la intervención o definiciones del desenlace. Egami y Hartman (2023), desde la metodología de las ciencias sociales, descomponen la aplicabilidad en cuatro comprobaciones: semejanza del paciente con los estudiados, identidad de la intervención disponible con la evaluada, coincidencia del desenlace medido con el de interés y comparabilidad del contexto asistencial. La jerarquía que coloca los ensayos por encima de los observacionales sirve para preguntas de eficacia terapéutica y engaña si se aplica mecánicamente: no se asigna aleatoriamente una lesión medular ni una exposición ocupacional nociva (de Abreu, 2026).</p>
+
+  <h2>Pronóstico, curvas de progresión y modelos predictivos</h2>
+  <h3>Factor de riesgo y factor pronóstico</h3>
+  <p>El factor de riesgo se asocia con desarrollar la condición; el pronóstico, con su evolución en quien ya la tiene. En Gao et al. (2021), una demora diagnóstica ≤ 1 año se asoció con peor supervivencia en esclerosis lateral amiotrófica: <em>hazard ratio</em> de <strong>3,43 (IC 95 % 2,01 a 5,85)</strong>. Diagnosticar pronto no perjudica: el diagnóstico temprano es consecuencia de una enfermedad que progresa deprisa. La demora funciona como marcador de agresividad, no como factor causal modificable (lectura de los autores del capítulo, no de la fuente).</p>
+  <h3>Tres curvas distintas: progresión, recuperación y supervivencia</h3>
+  <p>Las curvas de progresión y de recuperación funcional llevan en el eje vertical la puntuación de una escala; la de supervivencia, una probabilidad entre 0 y 1. Una supervivencia del 60 % a los cinco años no significa que los pacientes conserven el 60 % de su función.</p>
+  <h3>Trayectorias reales</h3>
+  <p>Van Eijk et al. (2025): 31 746 mediciones de la escala funcional revisada de la esclerosis lateral amiotrófica en 7 030 pacientes de siete cohortes europeas (10 285 personas-año). Tendencia no lineal, más rápida al comienzo; tasa media a 24 meses de <strong>0,89 puntos por mes</strong>, con el 95 % entre 0,04 y 1,96, casi cincuenta veces entre extremos. Trayectoria funcional y supervivencia están acopladas: ignorar la mortalidad sobreestima la función promedio. En el ictus, Shin et al. (2022) observaron una meseta entre los 12 y los 18 meses y descenso desde los 30, según el dominio: el Mini-Examen del Estado Mental coreano (0 a 30) pasó de 22,89 a los siete días a 26,03 a los 12 meses, estable hasta los 36 y en descenso hacia los 48.</p>
+  <h3>Modelos de regresión y su evaluación</h3>
+  <p>Regresión lineal simple y múltiple para desenlaces cuantitativos (la múltiple ajusta por confusión), logística para dicotómicos (razones de momios) y de riesgos proporcionales para tiempo hasta el evento. Shin et al. (2022): para el Barthel modificado coreano (0 a 100) a los 60 meses, coeficiente de −0,35 por año de edad (error estándar 0,03): 0,35 puntos menos sobre 100 por cada año, con las demás variables constantes. Un modelo se evalúa por su <strong>discriminación</strong> (área bajo la curva ROC) y su <strong>calibración</strong> (si predice 20 %, cerca de 20 de cada 100 presentan el desenlace); son independientes. Un modelo sin validación externa es una hipótesis, no una herramienta clínica; la declaración TRIPOD+AI (Collins et al., 2024) fija qué debe informarse.</p>
+
+  <h2>Análisis de supervivencia</h2>
+  <h3>Tiempo hasta el evento y censura</h3>
+  <p>El evento puede ser deterioro funcional, recurrencia, caída, rehospitalización o recuperación de una capacidad, por ejemplo el tiempo hasta la marcha independiente tras una lesión neurológica (<a href="../08-discapacidad-neurologica/">cap. 8</a>). Se fijan antes el origen temporal, el evento y el seguimiento: Gao et al. (2021) contaron desde el inicio de los síntomas con evento muerte o traqueostomía (mediana 58,89 meses). Un dato censurado indica que el evento no había ocurrido hasta cierto momento; la censura no significa que no vaya a ocurrir. El método exige <strong>censura no informativa</strong>: si los que abandonan evolucionan mal, la curva resulta demasiado optimista.</p>
+  <h3>Curva de Kaplan-Meier paso a paso</h3>
+  <div class="formula">S(t<sub>k</sub>) = S(t<sub>k−1</sub>) × (1 − d<sub>k</sub>/n<sub>k</sub>)</div>
+  <p>Ocho pacientes hipotéticos con lesión neurológica que no caminaban al ingreso; evento = recuperación de la marcha independiente. Tiempos en semanas: 2, 3, 4<sup>+</sup>, 6, 8<sup>+</sup>, 9, 12 y 14<sup>+</sup> (+ = censura).</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th class="c">Semana</th><th class="c">En riesgo (n<sub>k</sub>)</th><th class="c">Eventos (d<sub>k</sub>)</th><th class="c">1 − d<sub>k</sub>/n<sub>k</sub></th><th class="c">S(t): probabilidad de seguir sin marcha independiente</th></tr></thead>
+      <tbody>
+        <tr><td class="c">2</td><td class="c">8</td><td class="c">1</td><td class="c">0,875</td><td class="c">0,875</td></tr>
+        <tr><td class="c">3</td><td class="c">7</td><td class="c">1</td><td class="c">0,857</td><td class="c">0,750</td></tr>
+        <tr><td class="c">4</td><td class="c">6</td><td class="c">censura</td><td class="c">—</td><td class="c">0,750</td></tr>
+        <tr><td class="c">6</td><td class="c">5</td><td class="c">1</td><td class="c">0,800</td><td class="c">0,600</td></tr>
+        <tr><td class="c">8</td><td class="c">4</td><td class="c">censura</td><td class="c">—</td><td class="c">0,600</td></tr>
+        <tr><td class="c">9</td><td class="c">3</td><td class="c">1</td><td class="c">0,667</td><td class="c">0,400</td></tr>
+        <tr><td class="c">12</td><td class="c">2</td><td class="c">1</td><td class="c">0,500</td><td class="c">0,200</td></tr>
+        <tr><td class="c">14</td><td class="c">1</td><td class="c">censura</td><td class="c">—</td><td class="c">0,200</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>La censura de la semana 4 no modifica S, pero reduce el conjunto en riesgo de 6 a 5, y el evento de la semana 6 produce un escalón más pronunciado. La <strong>mediana</strong> es el primer momento en que la curva alcanza o cruza 0,50: S vale 0,600 tras la semana 6 y 0,400 tras la 9, de modo que la mediana es de <strong>9 semanas</strong>. Si la curva no baja de 0,50, la mediana es «no alcanzada». S = 0,600 a las seis semanas significa que el 60 % aún no caminaba y el 40 % ya lo hacía. La prueba de log-rank compara curvas, da un valor <em>p</em> y no una magnitud, y pierde potencia cuando las curvas se cruzan.</p>
+  <h3>Riesgo instantáneo, <em>hazard ratio</em> y modelo de Cox</h3>
+  <p>El <em>hazard</em> (riesgo instantáneo) es la tasa instantánea del evento condicionada a no haberlo presentado; el <em>hazard ratio</em> (HR, razón de riesgos instantáneos) es el cociente entre dos grupos, y el modelo de riesgos proporcionales de Cox lo estima ajustando por varias variables.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Variable</th><th>Categoría</th><th class="c">HR (IC 95 %)</th><th class="c">Valor <em>p</em></th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4">Edad de inicio</td><td>≤ 49 años</td><td class="c">1 (referencia)</td><td class="c">—</td></tr>
+        <tr><td>50–59 años</td><td class="c">1,70 (0,93–3,09)</td><td class="c">0,083</td></tr>
+        <tr><td>60–69 años</td><td class="c">3,08 (1,64–5,78)</td><td class="c">&lt; 0,001</td></tr>
+        <tr><td>≥ 70 años</td><td class="c">3,41 (1,31–8,87)</td><td class="c">0,012</td></tr>
+        <tr><td rowspan="2">Demora diagnóstica</td><td>&gt; 1 año</td><td class="c">1 (referencia)</td><td class="c">—</td></tr>
+        <tr><td>≤ 1 año</td><td class="c">3,43 (2,01–5,85)</td><td class="c">&lt; 0,001</td></tr>
+        <tr><td rowspan="2">Descenso de la escala funcional</td><td>≥ 0,75 puntos/mes</td><td class="c">1 (referencia)</td><td class="c">—</td></tr>
+        <tr><td>&lt; 0,75 puntos/mes</td><td class="c">0,47 (0,28–0,77)</td><td class="c">0,003</td></tr>
+        <tr><td rowspan="3">Índice de masa corporal</td><td>&lt; 18,5 kg/m²</td><td class="c">1 (referencia)</td><td class="c">—</td></tr>
+        <tr><td>18,5–25 kg/m²</td><td class="c">0,51 (0,24–1,08)</td><td class="c">0,079</td></tr>
+        <tr><td>&gt; 25 kg/m²</td><td class="c">0,36 (0,14–0,94)</td><td class="c">0,038</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4">Factores pronósticos de supervivencia en 1 809 pacientes con esclerosis lateral amiotrófica; modelo de Cox. Datos de Gao et al. (2021). HR: <em>hazard ratio</em>. IC: intervalo de confianza.</td></tr></tfoot>
+    </table>
+  </div>
+  <p>Un HR de 3,08 (60–69 años) significa que, en cualquier momento del seguimiento, la tasa instantánea del evento fue algo más de tres veces la del grupo de referencia, con las demás variables constantes. Los intervalos de 50–59 años y de IMC 18,5–25 incluyen el 1; el primero (1,70) no es «negativo» sino impreciso.</p>
+  <div class="card roja">
+    <h4>Un HR no es un riesgo relativo</h4>
+    <p>El riesgo relativo compara probabilidades acumuladas en un período; el HR, tasas instantáneas promediadas en el seguimiento. Un HR de 3,41 no significa el triple de probabilidad de morir en un plazo, sino una velocidad del evento unas tres veces mayor por unidad de tiempo en riesgo. El modelo supone <strong>riesgos proporcionales</strong> (razón constante en el tiempo); su incumplimiento se declara. Un <strong>riesgo competitivo</strong>, como la muerte cuando el desenlace es recuperar la marcha, tratado como censura ordinaria sobreestima la probabilidad acumulada del desenlace.</p>
+  </div>
+</section>
+
+<!-- ==================== TAB 6: MEDICIÓN DEL CAMBIO ==================== -->
+<section class="tab-content" id="medicion">
+  <h2>Medición de resultados en rehabilitación: escalas, cambio clínico y significación</h2>
+  <h3>Del constructo a la puntuación: validez y fiabilidad</h3>
+  <p>La «independencia funcional» o la «función del miembro superior» son constructos, que se descomponen en dominios y se operacionalizan con escalas. Entre el constructo y la puntuación hay dos pérdidas. La de <strong>validez</strong>: de contenido (los ítems representan el constructo), de constructo (la puntuación se relaciona con otras medidas como se espera) y de criterio (concordancia con un patrón). Evensen et al. (2023) mapearon los ítems de una escala de función específica del paciente contra la CIF y confirmaron cinco de siete hipótesis de validez de constructo. La de <strong>fiabilidad</strong>: test-retest e interevaluador, con el coeficiente de correlación intraclase y el gráfico de Bland y Altman, o el índice kappa en variables categóricas. La lectura de instrumentos se desarrolla en el <a href="../02-actividades/">cap. 2</a>.</p>
+
+  <h3>Error estándar de medición y cambio mínimo detectable</h3>
+  <div class="formula">MDC<sub>95</sub> = EEM × 1,96 × √2</div>
+  <p>El 1,96 delimita el 95 % central de la normal estándar; el √2 aparece porque el cambio es la diferencia entre dos mediciones, cada una con su error (√(2 × EEM²) = EEM × √2). Es un umbral de error, no de importancia. Evensen et al. (2023): coeficiente de correlación intraclase 0,81 (IC 95 % 0,69–0,89), EEM 0,70 puntos y MDC de 1,94 puntos (0,70 × 1,96 × 1,4142 = 1,94). Un paciente que mejore 1,5 puntos en esa escala no permite afirmar que cambió. El MDC se aplica al cambio individual, no a la diferencia entre medias de dos grupos.</p>
+
+  <h3>Diferencia mínima clínicamente importante y sus métodos</h3>
+  <p>El MDC responde si el paciente cambió; la diferencia mínima clínicamente importante (DMCI), si el cambio importó: la menor magnitud considerada relevante por el clínico o el paciente. No son sinónimos. En otros capítulos la misma idea aparece como <em>cambio mínimo importante</em> (CMI) cuando se aplica al cambio dentro de un paciente (<a href="../02-actividades/">cap. 2</a>). Los <strong>métodos de anclaje</strong> comparan el cambio con un criterio externo (habitualmente una pregunta de percepción global de cambio); los <strong>de distribución</strong> lo derivan de la muestra (0,5 desviaciones estándar basales o un múltiplo del EEM) e informan magnitud estadística, no importancia.</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Atrofia muscular espinobulbar (Zanovello et al., 2026)</th><th class="c">Anclaje (empeoramiento)</th><th class="c">Distribución</th></tr></thead>
+      <tbody>
+        <tr><td>Escala funcional total</td><td class="c">−1,13 y −1,46 puntos</td><td class="c">2,30 puntos</td></tr>
+        <tr><td>Subescala</td><td class="c">−0,53 y −1,09 puntos</td><td class="c">1,42 puntos</td></tr>
+        <tr><td>Prueba de marcha de seis minutos</td><td class="c">−34,5 y −32,4 m</td><td class="c">61,85 m</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Los valores por distribución son sistemáticamente mayores en valor absoluto; elegir un método puede duplicar el umbral y cambiar la proporción de respondedores de un ensayo.</p>
+
+  <h3>Variabilidad de los umbrales</h3>
+  <p>Coratti et al. (2024), con la escala motora funcional de Hammersmith ampliada en atrofia muscular espinal no tratada: por curva ROC, −2 puntos en el tipo II y −4 en el tipo III; por el error estándar, 1,5 para mejoría y −3,2 para deterioro; por distribución, valores distintos entre subgrupos de edad y estado funcional. Un umbral solo se usa conociendo cinco elementos: <strong>población de derivación, versión del instrumento, método de estimación, horizonte temporal y dirección del cambio</strong> (mejoría y deterioro no son simétricos).</p>
+
+  <h3>Efectos suelo y techo, capacidad de respuesta y escalas ordinales</h3>
+  <p>El efecto techo (muchos en la puntuación máxima) y el efecto suelo (en la mínima) impiden registrar cambio en los extremos; por eso una escala útil en la fase aguda puede no servir en el seguimiento tardío. La capacidad de respuesta es detectar el cambio cuando ocurrió. Y como las puntuaciones son ordinales, un umbral en puntos brutos no representa la misma magnitud en todos los tramos de la escala.</p>
+
+  <h3>Diferencia entre grupos y cambio individual</h3>
+  <p>Ante el cambio de un paciente concreto, la doble comparación sigue un orden:</p>
+  <ol>
+    <li>Comparación con el cambio mínimo detectable. Si no lo supera, no se distingue del error de medición y la segunda comparación carece de sentido.</li>
+    <li>Comparación con la DMCI derivada en una población comparable. Si no la supera, el cambio es real pero probablemente imperceptible para el paciente.</li>
+  </ol>
+  <p>Ante un ensayo, el referente no es el MDC sino la DMCI: se compara la estimación y su intervalo de confianza con ella, y la pregunta es si el intervalo excluye valores clínicamente irrelevantes o es compatible tanto con un efecto importante como con uno trivial. Un ensayo puede ser significativo con una diferencia media inferior a la DMCI sin contradicción.</p>
+
+  <div class="calc-simple" id="calc-mdc">
+    <h4>Lector de MDC y DMCI</h4>
+    <p class="nota">Valores precargados: ejercicio 5 del capítulo. Ingrese magnitudes; el sentido del cambio (mejoría o deterioro) se declara aparte, porque los umbrales no son simétricos.</p>
+    <div class="presets">
+      <button type="button" data-eem="1.5" data-cambio="3" data-dmci="5">Ejercicio 5 (1,5 / 3 / 5)</button>
+      <button type="button" data-eem="0.7" data-cambio="1.5" data-dmci="">Evensen et al. (EEM 0,70; cambio 1,5)</button>
+    </div>
+    <h5 style="font-family:var(--sans);font-size:0.85rem;color:var(--azulacad);text-transform:uppercase;letter-spacing:0.06em;margin:6px 0 8px">Cambio individual</h5>
+    <div class="calc-grid">
+      <div class="campo"><label for="m-eem">EEM (puntos)</label><input class="num" id="m-eem" inputmode="decimal" value="1,5"></div>
+      <div class="campo"><label for="m-cambio">Cambio observado (puntos)</label><input class="num" id="m-cambio" inputmode="decimal" value="3"></div>
+      <div class="campo"><label for="m-dmci">DMCI publicada (puntos)</label><input class="num" id="m-dmci" inputmode="decimal" value="5"></div>
+    </div>
+    <div class="resultado" id="r-mdc"></div>
+    <h5 style="font-family:var(--sans);font-size:0.85rem;color:var(--azulacad);text-transform:uppercase;letter-spacing:0.06em;margin:18px 0 8px">Diferencia entre grupos (ensayo)</h5>
+    <div class="calc-grid">
+      <div class="campo"><label for="g-dif">Diferencia media</label><input class="num" id="g-dif" inputmode="decimal" value="2,0"></div>
+      <div class="campo"><label for="g-li">IC 95 % inferior</label><input class="num" id="g-li" inputmode="decimal" value="-0,5"></div>
+      <div class="campo"><label for="g-ls">IC 95 % superior</label><input class="num" id="g-ls" inputmode="decimal" value="4,5"></div>
+    </div>
+    <div class="resultado" id="r-grupo"></div>
+  </div>
+</section>
+
+<!-- ==================== TAB 7: LECTURA CRÍTICA Y REPASO ==================== -->
+<section class="tab-content" id="lectura">
+  <h2>Integración y lectura crítica de la evidencia</h2>
+  <p>Lista de verificación aplicada al estudio transversal de Feng et al. (2021).</p>
+  <div class="tabla-wrap">
+    <table class="t">
+      <thead><tr><th>Qué identificar</th><th>En este estudio</th><th>Consecuencia</th></tr></thead>
+      <tbody>
+        <tr><td>Pregunta de investigación</td><td>Prevalencia de síntomas de muñeca y mano y de síndrome del túnel del carpo en trabajadores de oficina, y factores asociados</td><td>Define qué medida corresponde</td></tr>
+        <tr><td>Diseño</td><td>Encuesta transversal</td><td>Permite prevalencia, no incidencia; sin temporalidad establecida</td></tr>
+        <tr><td>Población y muestra</td><td>969 respondientes de 17 a 49 años, treinta lugares de trabajo</td><td>Quien no respondió puede diferir: posible sesgo de no respuesta</td></tr>
+        <tr><td>Exposición</td><td>Factores físicos y psicosociales del trabajo, por cuestionario autoadministrado</td><td>Sujeta a clasificación errónea</td></tr>
+        <tr><td>Desenlace y su definición</td><td>Síntomas autorreportados (22 % y 15 %) frente a síndrome confirmado clínicamente (9,6 %); la confirmación se aplicó solo a los sintomáticos</td><td>La definición de caso determina la cifra; un caso asintomático no se habría detectado</td></tr>
+        <tr><td>Medida principal</td><td>Prevalencia; razón de momios por regresión logística</td><td>Fija qué puede compararse</td></tr>
+        <tr><td>Estimación e intervalo</td><td>1,88 (1,12–3,14) para trabajar sin pausas; 2,20 (1,19–4,07) para tabaquismo</td><td>Significativas y a la vez imprecisas: compatibles con efectos modestos y considerables</td></tr>
+        <tr><td>Sesgos plausibles</td><td>Ausencia de temporalidad; no respuesta; clasificación errónea; confusión residual (ajuste solo por edad y sexo)</td><td>Limitan la interpretación causal</td></tr>
+        <tr><td>Aplicabilidad</td><td>Población, exposición, desenlace y contexto frente a los del propio paciente</td><td>Decide si el resultado se traslada (Egami y Hartman, 2023)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card azul">
+    <h4>Tres juicios que no se deben fusionar</h4>
+    <ul>
+      <li><strong>Significación estadística</strong>: resultado poco probable bajo la hipótesis nula.</li>
+      <li><strong>Relevancia clínica</strong>: la magnitud importa a los pacientes; se juzga contra umbrales derivados en poblaciones comparables, no con el valor <em>p</em>.</li>
+      <li><strong>Utilidad para decidir</strong>: la información modifica una conducta disponible y el beneficio compensa costos y riesgos.</li>
+    </ul>
+    <p>La asociación entre trabajar sin pausas y los síntomas tiene significación; su relevancia depende del riesgo absoluto en la población; su utilidad, de que introducir pausas sea factible y de evidencia, que este diseño no aporta, de que reduzca la incidencia.</p>
+  </div>
+
+  <h2>Lo mínimo en la consulta de quince minutos</h2>
+  <p>Un paciente llega con un número: el resultado de una prueba, una puntuación de control o una cifra de un artículo. Tres preguntas antes de convertirlo en una decisión:</p>
+  <ol>
+    <li><strong>Población de origen.</strong> Un valor predictivo o una prevalencia solo valen donde se obtuvieron; antes de aceptar un positivo, estimar la probabilidad preprueba del paciente (pestaña 4).</li>
+    <li><strong>Cambio real e importante.</strong> Una mejoría se compara primero con el MDC y después con la DMCI derivada en pacientes comparables (pestaña 6).</li>
+    <li><strong>Magnitud absoluta.</strong> Ante una reducción relativa, buscar el riesgo basal y traducirla a diferencia de riesgos y NNT (pestaña 3).</li>
+  </ol>
+  <div class="card verde">
+    <h4>Caso clínico: trabajadora de oficina, 46 años</h4>
+    <p>Parestesias nocturnas en los tres primeros dedos de la mano derecha. La maniobra de Phalen es negativa, pero con una sensibilidad cercana al 59 % no descarta el síndrome del túnel del carpo. El cuadro es típico, de modo que su probabilidad preprueba se parece más a la de una población remitida (alrededor del 42 %) que a la de los oficinistas en general (9,6 %). Si el electrodiagnóstico resulta positivo, la probabilidad posprueba se acerca al 79 %; la misma prueba sin síntomas típicos quedaría alrededor del 35 %. Plan: electrodiagnóstico (<a href="../07-electrodiagnostico/">cap. 7</a>) con la pregunta clínica explícita y una escala funcional basal para comparar en el control. Tiempo total: diez minutos.</p>
+  </div>
+
+  <h2>Conclusiones</h2>
+  <p>El denominador define la medida. La prevalencia no revela la incidencia, porque también depende de la duración. La sensibilidad y la especificidad pertenecen a la prueba; los valores predictivos, a la población. Asociación no es causalidad. El MDC y la DMCI responden si el cambio es real y si importa. La significación estadística depende del tamaño de la muestra; la relevancia clínica, no.</p>
+
+  <h2>Ejercicios</h2>
+  <details class="fase"><summary>1. Incidencia acumulada y densidad de incidencia</summary><div class="fase-body">
+    <p>1 200 trabajadores libres de síndrome del túnel del carpo, seguidos tres años; 72 casos nuevos; 3 300 personas-año en riesgo.</p>
+    <p><strong>Solución.</strong> Incidencia acumulada = 72/1 200 = <strong>6,0 % en tres años</strong>. Densidad de incidencia = 72/3 300 = 0,0218 por persona-año = <strong>2,18 por 100 personas-año</strong>. Con seguimiento completo habría 3 600 personas-año; las 3 300 reflejan pérdidas, ingresos tardíos o la salida de los casos del conjunto en riesgo.</p>
+  </div></details>
+  <details class="fase"><summary>2. Valores predictivos con prevalencia del 5 %</summary><div class="fase-body">
+    <p>Sensibilidad 80 %, especificidad 90 %, 2 000 personas, prevalencia 5 %.</p>
+    <div class="tabla-wrap"><table class="t">
+      <thead><tr><th></th><th class="c">Enfermos</th><th class="c">Sanos</th><th class="c">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Prueba positiva</td><td class="c">80</td><td class="c">190</td><td class="c">270</td></tr>
+        <tr><td>Prueba negativa</td><td class="c">20</td><td class="c">1 710</td><td class="c">1 730</td></tr>
+        <tr><td><strong>Total</strong></td><td class="c">100</td><td class="c">1 900</td><td class="c">2 000</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Solución.</strong> VPP = 80/270 = <strong>29,6 %</strong>; VPN = 1 710/1 730 = <strong>98,8 %</strong>. Siete de cada diez positivos son falsos: la prueba sirve para descartar, no para confirmar, en esta población.</p>
+  </div></details>
+  <details class="fase"><summary>3. Medidas de asociación con desenlace frecuente</summary><div class="fase-body">
+    <p>300 expuestos con 75 casos; 300 no expuestos con 30 casos.</p>
+    <p><strong>Solución.</strong> Riesgos 0,250 y 0,100; RR = <strong>2,50</strong>; OR = (75/225)/(30/270) = <strong>3,00</strong>; diferencia de riesgos = <strong>0,150</strong>; NND = 1/0,150 = 6,67, redondeado al entero superior: <strong>7</strong>; fracción atribuible en los expuestos = <strong>0,60</strong>. La OR excede al RR porque el desenlace es frecuente (25 %); con riesgos de 2,5 % y 1,0 % serían casi iguales (RR 2,50, OR 2,54).</p>
+  </div></details>
+  <details class="fase"><summary>4. Kaplan-Meier en seis pacientes</summary><div class="fase-body">
+    <p>Tiempos hasta la marcha independiente (semanas): 3, 5<sup>+</sup>, 7, 9, 11<sup>+</sup> y 12.</p>
+    <div class="tabla-wrap"><table class="t">
+      <thead><tr><th class="c">Semana</th><th class="c">En riesgo</th><th class="c">Eventos</th><th class="c">1 − d/n</th><th class="c">S(t)</th></tr></thead>
+      <tbody>
+        <tr><td class="c">3</td><td class="c">6</td><td class="c">1</td><td class="c">0,833</td><td class="c">0,833</td></tr>
+        <tr><td class="c">5</td><td class="c">5</td><td class="c">censura</td><td class="c">—</td><td class="c">0,833</td></tr>
+        <tr><td class="c">7</td><td class="c">4</td><td class="c">1</td><td class="c">0,750</td><td class="c">0,625</td></tr>
+        <tr><td class="c">9</td><td class="c">3</td><td class="c">1</td><td class="c">0,667</td><td class="c">0,417</td></tr>
+        <tr><td class="c">11</td><td class="c">2</td><td class="c">censura</td><td class="c">—</td><td class="c">0,417</td></tr>
+        <tr><td class="c">12</td><td class="c">1</td><td class="c">1</td><td class="c">0,000</td><td class="c">0,000</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Solución.</strong> La función pasa de 0,625 a 0,417 en la semana 9: <strong>mediana de 9 semanas</strong>.</p>
+  </div></details>
+  <details class="fase"><summary>5. MDC, DMCI y diferencia entre grupos</summary><div class="fase-body">
+    <p>EEM de 1,5 puntos; un paciente mejora 3 puntos; DMCI publicada de 5 puntos. Un ensayo informa una diferencia media de 2,0 puntos (IC 95 % −0,5 a 4,5).</p>
+    <p><strong>Solución.</strong> MDC<sub>95</sub> = 1,5 × 1,96 × √2 = <strong>4,16 puntos</strong>. La mejoría de 3 puntos no se distingue del error de medición y la comparación con la DMCI no llega a plantearse. El ensayo se contrasta con la DMCI: 2,0 e incluso el extremo superior de 4,5 quedan por debajo de 5, de modo que <strong>descarta razonablemente un beneficio clínicamente importante</strong>. Si el intervalo hubiera llegado a 12 puntos, el estudio sería no concluyente. Puede comprobarse en el lector de la pestaña 6.</p>
+  </div></details>
+
+  <h2>Preguntas de repaso</h2>
+  <div id="auto-cont"></div>
+  <div class="score-box">Puntaje: <strong id="auto-score">0 / 8</strong></div>
+</section>
+
+</main>
+
+<footer>
+  Manual de Rehabilitación · Departamento de Medicina Física y Rehabilitación · Universidad Nacional de Colombia<br>
+  <a href="../">← Índice de capítulos</a>
+</footer>
+
+<script>
+// =========================================================
+// Tabs
+// =========================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const t = document.getElementById(btn.dataset.tab);
+    if (t) t.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// =========================================================
+// Utilidades numéricas (coma decimal)
+// =========================================================
+function leer(id) {
+  const v = String(document.getElementById(id).value).trim().replace(/\s/g, '').replace(',', '.');
+  if (v === '') return NaN;
+  return Number(v);
+}
+function fmt(x, dec) {
+  if (!isFinite(x)) return '—';
+  const s = x.toFixed(dec);
+  const [ent, fr] = s.split('.');
+  const neg = ent.startsWith('-');
+  const e = neg ? ent.slice(1) : ent;
+  const miles = e.length > 3 ? e.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : e;
+  return (neg ? '−' : '') + miles + (fr ? ',' + fr : '');
+}
+function pct(x, dec) { return fmt(x * 100, dec === undefined ? 1 : dec) + ' %'; }
+function techo(x) { return Math.ceil(x - 1e-9); }
+function fila(k, v) { return `<tr><td>${k}</td><td class="v">${v}</td></tr>`; }
+
+// =========================================================
+// Calculadora 2 × 2
+// =========================================================
+function calc2x2(a, b, c, d) {
+  const Re = a / (a + b), Rne = c / (c + d);
+  const RR = Re / Rne, OR = (a * d) / (b * c), DR = Re - Rne;
+  return { Re, Rne, RR, OR, DR, momE: a / b, momNE: c / d,
+           FAE: (RR - 1) / RR, RRR: (Rne - Re) / Rne,
+           NNbruto: 1 / Math.abs(DR), NN: techo(1 / Math.abs(DR)) };
+}
+function render2x2() {
+  const a = leer('t-a'), b = leer('t-b'), c = leer('t-c'), d = leer('t-d');
+  const out = document.getElementById('r-2x2');
+  if ([a, b, c, d].some(v => !isFinite(v) || v < 0) || a + b === 0 || c + d === 0 || b === 0 || c === 0) {
+    out.className = 'resultado empty';
+    out.innerHTML = 'Ingrese cuatro conteos no negativos (b y c distintos de cero).';
+    return;
+  }
+  const r = calc2x2(a, b, c, d);
+  let h = '<table class="res">';
+  h += fila('Riesgo en expuestos R<sub>e</sub> = a/(a + b)', `${fmt(r.Re, 3)} (${pct(r.Re)})`);
+  h += fila('Riesgo en no expuestos R<sub>ne</sub> = c/(c + d)', `${fmt(r.Rne, 3)} (${pct(r.Rne)})`);
+  h += fila('Riesgo relativo R<sub>e</sub>/R<sub>ne</sub>', fmt(r.RR, 2));
+  h += fila(`Razón de momios (a × d)/(b × c) · momios ${fmt(r.momE, 3)} y ${fmt(r.momNE, 3)}`, fmt(r.OR, 2));
+  if (r.DR > 0) {
+    h += fila('Diferencia de riesgos R<sub>e</sub> − R<sub>ne</sub>', `${fmt(r.DR, 3)} (${fmt(r.DR * 100, 1)} puntos porcentuales)`);
+    h += fila('Fracción atribuible en los expuestos (RR − 1)/RR', `${fmt(r.FAE, 2)} (${pct(r.FAE, 0)})`);
+    h += fila('Número necesario para dañar (NND) 1/DR', `${fmt(r.NNbruto, 2)} → <strong>${r.NN}</strong>`);
+  } else if (r.DR < 0) {
+    h += fila('Reducción absoluta del riesgo R<sub>ne</sub> − R<sub>e</sub>', `${fmt(-r.DR, 3)} (${fmt(-r.DR * 100, 1)} puntos porcentuales)`);
+    h += fila('Reducción relativa del riesgo (R<sub>ne</sub> − R<sub>e</sub>)/R<sub>ne</sub>', `${fmt(r.RRR, 2)} (${pct(r.RRR, 0)})`);
+    h += fila('Número necesario a tratar (NNT) 1/RAR', `${fmt(r.NNbruto, 2)} → <strong>${r.NN}</strong>`);
+  } else {
+    h += fila('Diferencia de riesgos', '0 (sin asociación; NNT/NND no definido)');
+  }
+  h += '</table>';
+  h += '<p class="nota" style="margin-bottom:0">NNT y NND se redondean al entero superior. La fracción atribuible supone que la asociación es causal. En un estudio de casos y controles solo es válida la razón de momios.</p>';
+  out.className = 'resultado';
+  out.innerHTML = h;
+}
+['t-a', 't-b', 't-c', 't-d'].forEach(id => document.getElementById(id).addEventListener('input', render2x2));
+document.querySelectorAll('#calc-2x2 .presets button').forEach(bt => bt.addEventListener('click', () => {
+  ['a', 'b', 'c', 'd'].forEach(k => document.getElementById('t-' + k).value = bt.dataset[k]);
+  render2x2();
+}));
+
+// =========================================================
+// Calculadora de prueba diagnóstica
+// =========================================================
+function calcDx(S, E, P) {
+  const VPP = (S * P) / (S * P + (1 - E) * (1 - P));
+  const VPN = (E * (1 - P)) / (E * (1 - P) + (1 - S) * P);
+  const RVp = S / (1 - E), RVn = (1 - S) / E;
+  const momPre = P / (1 - P);
+  const momPos = momPre * RVp, momNeg = momPre * RVn;
+  return { VPP, VPN, RVp, RVn, momPre, momPos, postPos: momPos / (1 + momPos), postNeg: momNeg / (1 + momNeg) };
+}
+function renderDx() {
+  const S = leer('d-s') / 100, E = leer('d-e') / 100, P = leer('d-p') / 100;
+  const out = document.getElementById('r-dx');
+  if (![S, E, P].every(v => isFinite(v) && v > 0 && v < 1)) {
+    out.className = 'resultado empty';
+    out.innerHTML = 'Ingrese valores entre 0 y 100 % (sin incluir los extremos).';
+    return;
+  }
+  const r = calcDx(S, E, P);
+  const N = 10000, enf = N * P, sanos = N - enf;
+  const VP = S * enf, FP = (1 - E) * sanos;
+  let h = `<span class="valor">VPP ${pct(r.VPP)} · VPN ${pct(r.VPN)}</span><table class="res">`;
+  h += fila(`Sobre 10 000 personas: enfermos ${fmt(enf, 0)}, sanos ${fmt(sanos, 0)}`, `VP ${fmt(VP, 0)} · FP ${fmt(FP, 0)}`);
+  h += fila('Valor predictivo positivo VP/(VP + FP)', pct(r.VPP));
+  h += fila('Valor predictivo negativo VN/(VN + FN)', pct(r.VPN));
+  h += fila('Razón de verosimilitud positiva S/(1 − E)', fmt(r.RVp, 2));
+  h += fila('Razón de verosimilitud negativa (1 − S)/E', fmt(r.RVn, 3));
+  h += fila(`Momios preprueba ${fmt(r.momPre, 3)} × RV+ = ${fmt(r.momPos, 3)} → probabilidad posprueba si positiva`, pct(r.postPos));
+  h += fila('Probabilidad posprueba si negativa', pct(r.postNeg));
+  h += '</table>';
+  out.className = 'resultado';
+  out.innerHTML = h;
+}
+['d-s', 'd-e', 'd-p'].forEach(id => document.getElementById(id).addEventListener('input', renderDx));
+document.querySelectorAll('#calc-dx .presets button').forEach(bt => bt.addEventListener('click', () => {
+  document.getElementById('d-s').value = bt.dataset.s.replace('.', ',');
+  document.getElementById('d-e').value = bt.dataset.e.replace('.', ',');
+  document.getElementById('d-p').value = bt.dataset.p.replace('.', ',');
+  renderDx();
+}));
+
+// =========================================================
+// Lector de MDC y DMCI
+// =========================================================
+function calcMDC(eem) { return eem * 1.96 * Math.SQRT2; }
+function veredictoIndividual(cambio, mdc, dmci) {
+  const c = Math.abs(cambio);
+  if (c < mdc) return { clase: 'roja', txt: 'El cambio no supera el cambio mínimo detectable: no puede distinguirse del error de medición, y la pregunta por su importancia clínica carece de sentido.' };
+  if (!isFinite(dmci)) return { clase: 'azul', txt: 'El cambio supera el cambio mínimo detectable: es real con un 95 % de confianza. Falta una DMCI derivada en una población comparable para juzgar si importa.' };
+  if (c < dmci) return { clase: 'naranja', txt: 'El cambio supera el cambio mínimo detectable pero no la DMCI: es real, pero probablemente imperceptible para el paciente.' };
+  return { clase: 'verde', txt: 'El cambio supera el cambio mínimo detectable y la DMCI derivada en una población comparable: es real y clínicamente importante.' };
+}
+function veredictoGrupo(dif, li, ls, dmci) {
+  const sig = (li > 0 || ls < 0) ? 'El intervalo excluye el cero (estadísticamente significativo).' : 'El intervalo incluye el cero (no alcanza significación estadística).';
+  if (ls < dmci) return sig + ' Incluso el extremo más favorable queda por debajo de la DMCI: el ensayo <strong>descarta razonablemente un beneficio clínicamente importante</strong>.';
+  if (li >= dmci) return sig + ' Todo el intervalo alcanza o supera la DMCI: excluye valores clínicamente irrelevantes.';
+  return sig + ' El intervalo es compatible tanto con un efecto clínicamente importante como con uno trivial: <strong>estudio no concluyente</strong> respecto a la relevancia.';
+}
+function renderMDC() {
+  const eem = leer('m-eem'), cambio = leer('m-cambio'), dmci = leer('m-dmci');
+  const out = document.getElementById('r-mdc'), outG = document.getElementById('r-grupo');
+  if (!isFinite(eem) || eem <= 0 || !isFinite(cambio)) {
+    out.className = 'resultado empty';
+    out.innerHTML = 'Ingrese un EEM positivo y el cambio observado.';
+  } else {
+    const mdc = calcMDC(eem), v = veredictoIndividual(cambio, mdc, dmci);
+    out.className = 'resultado';
+    out.innerHTML = `<span class="valor">MDC<sub>95</sub> = ${fmt(eem, 2)} × 1,96 × √2 = ${fmt(mdc, 2)} puntos</span>` +
+      `<div class="card ${v.clase}" style="margin-bottom:0"><p>Cambio de ${fmt(Math.abs(cambio), 2)} puntos${isFinite(dmci) ? ' frente a una DMCI de ' + fmt(dmci, 2) : ''}. ${v.txt}</p></div>`;
+  }
+  const dif = leer('g-dif'), li = leer('g-li'), ls = leer('g-ls');
+  if (![dif, li, ls].every(isFinite) || li > ls || !isFinite(dmci)) {
+    outG.className = 'resultado empty';
+    outG.innerHTML = 'Ingrese la diferencia media, los dos extremos del IC 95 % y la DMCI de arriba.';
+  } else {
+    outG.className = 'resultado';
+    outG.innerHTML = `Diferencia ${fmt(dif, 1)} (IC 95 % ${fmt(li, 1)} a ${fmt(ls, 1)}) frente a una DMCI de ${fmt(dmci, 1)}. ` +
+      veredictoGrupo(dif, li, ls, dmci) +
+      '<p class="nota" style="margin-bottom:0">La diferencia entre grupos no se contrasta con el MDC, que es un umbral para mediciones individuales.</p>';
+  }
+}
+['m-eem', 'm-cambio', 'm-dmci', 'g-dif', 'g-li', 'g-ls'].forEach(id => document.getElementById(id).addEventListener('input', renderMDC));
+document.querySelectorAll('#calc-mdc .presets button').forEach(bt => bt.addEventListener('click', () => {
+  document.getElementById('m-eem').value = bt.dataset.eem.replace('.', ',');
+  document.getElementById('m-cambio').value = bt.dataset.cambio.replace('.', ',');
+  document.getElementById('m-dmci').value = bt.dataset.dmci.replace('.', ',');
+  renderMDC();
+}));
+
+render2x2(); renderDx(); renderMDC();
+
+// =========================================================
+// Preguntas de repaso
+// =========================================================
+const auto = [
+  { p: 'En seis pacientes con 180 personas-día en riesgo aparecen dos lesiones por presión. La medida correcta es:', o: ['Incidencia acumulada de 33,3 %', 'Densidad de incidencia de 1,11 por 100 personas-día', 'Prevalencia de 33,3 %', 'Riesgo de 1,11 % por día'], c: 1, e: 'Con tiempos de seguimiento desiguales se suma el persona-tiempo: 2/180 = 0,0111 por persona-día. Es una tasa con unidades, no un riesgo, y no puede leerse como «1,11 % de riesgo» porque no declara el plazo.' },
+  { p: 'Una razón de momios ajustada de 1,88 (IC 95 % 1,12 a 3,14) indica que:', o: ['El riesgo se duplica con certeza', 'La asociación es significativa y los datos son compatibles con un aumento de los momios desde el 12 % hasta más del triple', 'La asociación es causal porque se ajustó por edad y sexo', 'No hay asociación porque el intervalo es amplio'], c: 1, e: 'El intervalo se lee por sus extremos: excluye el 1, pero es compatible con efectos modestos y considerables. Son momios, no riesgos, y el ajuste solo controla la confusión por variables medidas.' },
+  { p: 'En la cohorte de oficinistas el RR fue 2,00 y la OR 2,25. La diferencia se explica porque:', o: ['Hubo un error de cálculo', 'La OR siempre es mayor que el doble del RR', 'Los momios tienen en el denominador solo a quienes no presentan el desenlace, y el desenlace es frecuente', 'El estudio era de casos y controles'], c: 2, e: 'Es una propiedad algebraica: cuanto más frecuente el desenlace, más se separan. Con riesgos de 2 % y 1 %, el RR seguiría en 2,00 y la OR valdría 2,02.' },
+  { p: 'El mismo electrodiagnóstico (sensibilidad 91,6 %, especificidad 81,9 %) pasa de un VPP de 78,9 % a uno de 35,0 % cuando:', o: ['Cambia el operador', 'La prevalencia baja de 42,4 % a 9,6 %', 'Se usa otro umbral de latencia', 'Se reduce la especificidad'], c: 1, e: 'La prueba no cambió: cambió la población. Los valores predictivos dependen de la prevalencia; la sensibilidad y la especificidad, no (algebraicamente).' },
+  { p: 'Con una sensibilidad del 59 % para la maniobra de Phalen, un resultado negativo:', o: ['Descarta el síndrome del túnel del carpo', 'No permite descartar el diagnóstico: cuatro de cada diez pacientes con la condición tendrán una maniobra negativa', 'Confirma una neuropatía cubital', 'Obliga a una resonancia'], c: 1, e: 'Gay et al. (2025) recogieron 59 % para Phalen y 67 % para Durkan. Una sensibilidad modesta impide descartar con un negativo.' },
+  { p: 'En la tabla de Kaplan-Meier de ocho pacientes, S vale 0,600 tras la semana 6 y 0,400 tras la 9. La mediana es:', o: ['6 semanas', '7,5 semanas', '9 semanas', 'No estimable'], c: 2, e: 'La mediana es el primer momento en que la curva alcanza o cruza 0,50: la semana 9. Si la curva no bajara de 0,50, se declararía «no alcanzada».' },
+  { p: 'Un HR de 3,41 para el inicio de la esclerosis lateral amiotrófica a los 70 años o más significa que:', o: ['La probabilidad de morir a cinco años es el triple', 'El evento ocurre a una velocidad unas tres veces mayor por unidad de tiempo en riesgo, con las demás variables constantes', 'El 341 % de los pacientes muere', 'Es equivalente a un riesgo relativo de 3,41'], c: 1, e: 'Un HR compara tasas instantáneas, no probabilidades acumuladas en un período; no es un riesgo relativo.' },
+  { p: 'Con un EEM de 1,5 puntos, un paciente mejora 3 puntos y la DMCI publicada es de 5. La conclusión correcta es:', o: ['Mejoró de forma real pero no importante', 'Mejoró de forma importante', 'El cambio no se distingue del error de medición (MDC95 = 4,16), y la comparación con la DMCI no llega a plantearse', 'Hay que comparar 3 con la DMCI directamente'], c: 2, e: 'MDC95 = 1,5 × 1,96 × √2 = 4,16. Primero se compara con el MDC; solo si lo supera tiene sentido preguntar si supera la DMCI.' }
+];
+const autoCont = document.getElementById('auto-cont');
+let autoCorrect = 0;
+auto.forEach((q, idx) => {
+  autoCont.innerHTML += `
+    <div class="q">
+      <div class="pregunta">${idx + 1}. ${q.p}</div>
+      ${q.o.map((opt, i) => `<div class="opcion" data-q="${idx}" data-opt="${i}">${opt}</div>`).join('')}
+      <div class="explicacion" id="exp-${idx}">${q.e}</div>
+    </div>`;
+});
+document.querySelectorAll('.q .opcion').forEach(op => {
+  op.addEventListener('click', () => {
+    const qIdx = parseInt(op.dataset.q), optIdx = parseInt(op.dataset.opt), q = auto[qIdx];
+    if (document.querySelectorAll(`.q .opcion[data-q="${qIdx}"].correct, .q .opcion[data-q="${qIdx}"].wrong`).length) return;
+    document.querySelectorAll(`.q .opcion[data-q="${qIdx}"]`).forEach((o, i) => {
+      if (i === q.c) o.classList.add('correct');
+      else if (i === optIdx) o.classList.add('wrong');
+    });
+    document.getElementById('exp-' + qIdx).classList.add('show');
+    if (optIdx === q.c) autoCorrect++;
+    document.getElementById('auto-score').textContent = `${autoCorrect} / ${auto.length}`;
+  });
+});
+</script>
+
+</body>
+</html>
